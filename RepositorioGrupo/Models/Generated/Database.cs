@@ -975,6 +975,30 @@ namespace EntitiesGrupo
 
 	}
 
+
+
+    [TableName("especies_reboques")]
+    [PrimaryKey("id")]
+    [ExplicitColumns]
+    public partial class especies_reboque : SysGrupoRepo.Record<especies_reboque>
+    {
+
+
+
+        [Column]
+        public long id { get; set; }
+
+
+
+
+
+        [Column]
+        public string especie { get; set; }
+
+
+
+    }
+
     
 	[TableName("marca_veiculos")]
 
@@ -1007,8 +1031,8 @@ namespace EntitiesGrupo
 
 	}
 
-    
-	[TableName("reboques")]
+
+    [TableName("reboques")]
 
 
 	[PrimaryKey("id")]
@@ -1018,91 +1042,65 @@ namespace EntitiesGrupo
 	[ExplicitColumns]
     public partial class reboque : SysGrupoRepo.Record<reboque>  
     {
-
-
-
+        
 		[Column] public long id { get; set; }
-
-
-
-
-
-		[Column] public long id_veiculos { get; set; }
-
-
-
 
 
 		[Column] public long id_cliente { get; set; }
 
 
+        [Column] public string renavam { get; set; }
 
 
+        [Column] public int ano_modelo { get; set; }
+
+
+        [Column] public string cor_carroceria { get; set; }
+
+
+        [Column] public decimal tara { get; set; }
+
+
+        [Column] public long id_especies_reboques { get; set; }
+
+
+        [Column] public int ano_fabricacao { get; set; }
+
+        [Column] public string chassi { get; set; }
 
 		[Column] public string placa { get; set; }
 
-
-
-
-
-		[Column] public string cor_carroceria { get; set; }
-
-
-
-
-
-		[Column] public long id_estado { get; set; }
-
-
-
-
-
-		[Column] public int ano_fabricacao { get; set; }
-
-
-
-
-
-		[Column] public int ano_modelo { get; set; }
-
-
-
-
-
-		[Column] public long id_especies_veiculos { get; set; }
-
-
-
-
-
+        
 		[Column] public decimal capacidade { get; set; }
-
-
-
-
-
-		[Column] public decimal tara { get; set; }
-
-
-
 
 
 		[Column] public string cor_chassi { get; set; }
 
+        
+        [Column] public DateTime data_cadastro { get; set; }
 
 
+        [Column] public DateTime data_ativacao { get; set; }
 
 
-		[Column] public string renavam { get; set; }
+        [Column] public DateTime data_inativacao { get; set; }
+
+        [Column] public bool inativo { get; set; }
 
 
+        [Column] public long id_cidade { get; set; }
 
 
+        [Column] public decimal valor { get; set; }
 
-		[Column] public string chassi { get; set; }
+        [Column] public string uf_estado { get; set; }
+
+        [Column] public long id_veiculo { get; set; }
+
+        public string nome_cliente { get; set; }
 
 
-
+        public decimal cotas { get; set; }
 	}
 
     

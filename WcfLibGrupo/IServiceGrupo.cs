@@ -131,6 +131,43 @@ namespace WcfLibGrupo
 
         #endregion
 
+        #region reboques
+
+        [OperationContract]
+        long salvarReboque(reboque veiculo_obj);
+
+        [OperationContract]
+        List<especies_reboque> listaDeEspeciesReboques();
+
+        [OperationContract]
+        List<reboque> listaDeReboquesPorInatividade(bool inativo);
+
+        [OperationContract]
+        List<reboque> listaDeReboquesPorPlaca(string placa, bool inativo);
+
+        [OperationContract]
+        List<reboque> listaDeReboquesPorId(long id, bool inativo);
+
+        [OperationContract]
+        List<reboque> listaDeReboquesPorIdCliente(long id_cliente, bool inativo);
+
+        [OperationContract]
+        List<reboque> listaDeReboquesPorIdVeiculo(long id_veiculo, bool inativo);
+
+        [OperationContract]
+        decimal somaDeValoresDeReboquesPorInatividade(bool inativo);
+
+        [OperationContract]
+        bool verificaSePlacaReboqueEhUnica(string placa, bool edit);
+
+        [OperationContract]
+        bool verificaSeNChassiReboqueEhUnico(string chassi, bool edit);
+
+        [OperationContract]
+        bool verificaSeRenavamReboqueEhUnico(string renavam, bool edit);
+
+        #endregion
+
         #region cidades, bairros, enderecos
 
         [OperationContract]

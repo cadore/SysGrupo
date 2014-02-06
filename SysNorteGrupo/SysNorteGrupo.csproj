@@ -46,7 +46,7 @@
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="SecureApp">
-      <HintPath>..\Dlls\SecureApp.dll</HintPath>
+      <HintPath>..\..\..\..\Documents\Visual Studio 2013\Projects\DentistSystem\DentistSystem\bin\Debug\SecureApp.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -188,6 +188,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Veiculos\BuscaVeiculoForm.resx">
       <DependentUpon>BuscaVeiculoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Veiculos\Reboques\ReboqueForm.resx">
+      <DependentUpon>ReboqueForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Veiculos\VeiculosForm.resx">
       <DependentUpon>VeiculosForm.cs</DependentUpon>

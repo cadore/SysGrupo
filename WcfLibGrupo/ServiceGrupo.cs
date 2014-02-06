@@ -627,6 +627,227 @@ namespace WcfLibGrupo
 
         #endregion
 
+        #region reboques
+
+        public long salvarReboque(reboque reboque_obj)
+        {
+            try
+            {
+                reboque_obj.Save();
+                return Convert.ToInt64(reboque_obj.id);
+            }
+            catch (Exception ex)
+            {
+                throw new FaultException(
+                    new FaultReason(String.Format("EXCECÃO: {0}{1}INNER EXCEPTION: {2}", ex.Message, Environment.NewLine, ex.InnerException)),
+                    new FaultCode("1000"));
+            }
+        }
+
+        public List<especies_reboque> listaDeEspeciesReboques()
+        {
+            try
+            {
+                var sql = Sql.Builder.Select("*").From("especies_reboques").OrderBy("id");
+                return especies_reboque.Fetch(sql);
+            }
+            catch (Exception ex)
+            {
+                throw new FaultException(
+                    new FaultReason(String.Format("EXCECÃO: {0}{1}INNER EXCEPTION: {2}", ex.Message, Environment.NewLine, ex.InnerException)),
+                    new FaultCode("1000"));
+            }
+        }
+
+        public List<reboque> listaDeReboquesPorInatividade(bool inativo)
+        {
+            try
+            {
+                var sql = Sql.Builder.Select("*").From("reboques").Where("inativo=@0", inativo).OrderBy("id");
+                return reboque.Fetch(sql);
+            }
+            catch (Exception ex)
+            {
+                throw new FaultException(
+                    new FaultReason(String.Format("EXCECÃO: {0}{1}INNER EXCEPTION: {2}", ex.Message, Environment.NewLine, ex.InnerException)),
+                    new FaultCode("1000"));
+            }
+        }
+
+        public List<reboque> listaDeReboquesPorPlaca(string placa, bool inativo)
+        {
+            try
+            {
+                var sql = Sql.Builder.Select("*").From("reboques").Where("placa ILIKE @0", String.Format("%{0}%", placa)).Where("inativo=@0", inativo).OrderBy("id");
+                return reboque.Fetch(sql);
+            }
+            catch (Exception ex)
+            {
+                throw new FaultException(
+                    new FaultReason(String.Format("EXCECÃO: {0}{1}INNER EXCEPTION: {2}", ex.Message, Environment.NewLine, ex.InnerException)),
+                    new FaultCode("1000"));
+            }
+        }
+
+        public List<reboque> listaDeReboquesPorId(long id, bool inativo)
+        {
+            try
+            {
+                var sql = Sql.Builder.Select("*").From("reboques").Where("id=@0", id).Where("inativo=@0", inativo).OrderBy("id");
+                return reboque.Fetch(sql);
+            }
+            catch (Exception ex)
+            {
+                throw new FaultException(
+                    new FaultReason(String.Format("EXCECÃO: {0}{1}INNER EXCEPTION: {2}", ex.Message, Environment.NewLine, ex.InnerException)),
+                    new FaultCode("1000"));
+            }
+        }
+
+        public List<reboque> listaDeReboquesPorIdCliente(long id_cliente, bool inativo)
+        {
+            try
+            {
+                var sql = Sql.Builder.Select("*").From("reboques").Where("id_cliente=@0", id_cliente).Where("inativo=@0", inativo).OrderBy("id");
+                return reboque.Fetch(sql);
+            }
+            catch (Exception ex)
+            {
+                throw new FaultException(
+                    new FaultReason(String.Format("EXCECÃO: {0}{1}INNER EXCEPTION: {2}", ex.Message, Environment.NewLine, ex.InnerException)),
+                    new FaultCode("1000"));
+            }
+        }
+
+        public List<reboque> listaDeReboquesPorIdVeiculo(long id_veiculo, bool inativo)
+        {
+            try
+            {
+                var sql = Sql.Builder.Select("*").From("reboques").Where("id_veiculo=@0", id_veiculo).Where("inativo=@0", inativo).OrderBy("id");
+                return reboque.Fetch(sql);
+            }
+            catch (Exception ex)
+            {
+                throw new FaultException(
+                    new FaultReason(String.Format("EXCECÃO: {0}{1}INNER EXCEPTION: {2}", ex.Message, Environment.NewLine, ex.InnerException)),
+                    new FaultCode("1000"));
+            }
+        }
+
+        public decimal somaDeValoresDeReboquesPorInatividade(bool inativo)
+        {
+            try
+            {
+                var sql = Sql.Builder.Append("SELECT SUM(valor) FROM reboques WHERE inativo=@0", inativo);
+                return Convert.ToDecimal(reboque.repo.ExecuteScalar<decimal>(sql));
+            }
+            catch (Exception ex)
+            {
+                throw new FaultException(
+                    new FaultReason(String.Format("EXCECÃO: {0}{1}INNER EXCEPTION: {2}", ex.Message, Environment.NewLine, ex.InnerException)),
+                    new FaultCode("1000"));
+            }
+        }
+
+        public bool verificaSePlacaReboqueEhUnica(string placa, bool edit)
+        {
+            try
+            {
+                long count;
+
+                if (edit == true)
+                {
+                    count = 1;
+                }
+                else
+                {
+                    count = 0;
+                }
+
+                string sql = String.Format("SELECT Count(*) FROM reboques WHERE placa='{0}';", placa);
+
+                long rs = reboque.repo.ExecuteScalar<long>(sql);
+
+                if (rs > count)
+                    return false;
+                else
+                    return true;
+            }
+            catch (Exception ex)
+            {
+                throw new FaultException(
+                    new FaultReason(String.Format("EXCEPT: {0}\n\nINNER EXCEPT: {1}", ex.Message, ex.InnerException)),
+                    new FaultCode("ERRDB"));
+            }
+        }
+
+        public bool verificaSeNChassiReboqueEhUnico(string chassi, bool edit)
+        {
+            try
+            {
+                long count;
+
+                if (edit == true)
+                {
+                    count = 1;
+                }
+                else
+                {
+                    count = 0;
+                }
+
+                string sql = String.Format("SELECT Count(*) FROM reboques WHERE chassi='{0}';", chassi);
+
+                long rs = reboque.repo.ExecuteScalar<long>(sql);
+
+                if (rs > count)
+                    return false;
+                else
+                    return true;
+            }
+            catch (Exception ex)
+            {
+                throw new FaultException(
+                    new FaultReason(String.Format("EXCEPT: {0}\n\nINNER EXCEPT: {1}", ex.Message, ex.InnerException)),
+                    new FaultCode("ERRDB"));
+            }
+        }
+
+        public bool verificaSeRenavamReboqueEhUnico(string renavam, bool edit)
+        {
+            try
+            {
+                long count;
+
+                if (edit == true)
+                {
+                    count = 1;
+                }
+                else
+                {
+                    count = 0;
+                }
+
+                string sql = String.Format("SELECT Count(*) FROM reboques WHERE renavam='{0}';", renavam);
+
+                long rs = reboque.repo.ExecuteScalar<long>(sql);
+
+                if (rs > count)
+                    return false;
+                else
+                    return true;
+            }
+            catch (Exception ex)
+            {
+                throw new FaultException(
+                    new FaultReason(String.Format("EXCEPT: {0}\n\nINNER EXCEPT: {1}", ex.Message, ex.InnerException)),
+                    new FaultCode("ERRDB"));
+            }
+        }
+
+        #endregion
+
+
         #region cidades, bairros, enderecos
 
         public List<estado> listaDeEstados()

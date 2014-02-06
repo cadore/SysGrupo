@@ -29,9 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ReboqueForm));
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule2 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
+            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule3 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
+            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule4 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule5 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule6 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule7 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
@@ -43,51 +44,21 @@
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule13 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule14 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule15 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
-            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule4 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
-            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule3 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ReboqueForm));
             this.pnBotoes = new DevExpress.XtraEditors.PanelControl();
-            this.btnInativar = new SysNorteGrupo.Utils.BotaoInativar();
-            this.btnSair = new SysNorteGrupo.Utils.BotaoSair();
-            this.btnNovo = new SysNorteGrupo.Utils.BotaoNovo();
-            this.btnEditar = new SysNorteGrupo.Utils.BotaoEditar();
-            this.btnSalvar = new SysNorteGrupo.Utils.BotaoEditar();
             this.pnPrincipal = new DevExpress.XtraEditors.PanelControl();
             this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
             this.tfId = new DevExpress.XtraEditors.TextEdit();
-            this.bdgReboque = new System.Windows.Forms.BindingSource(this.components);
             this.cbVeiculos = new DevExpress.XtraEditors.SearchLookUpEdit();
-            this.bdgVeiculo = new System.Windows.Forms.BindingSource(this.components);
             this.gridView9 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn15 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn16 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn17 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn18 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn19 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn20 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn21 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn22 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn23 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn24 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn25 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn26 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn27 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn28 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn29 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn30 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn31 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn32 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn33 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn34 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn35 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn36 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn37 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn38 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn39 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn40 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn41 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.labelControl22 = new DevExpress.XtraEditors.LabelControl();
             this.cbCliente = new DevExpress.XtraEditors.SearchLookUpEdit();
-            this.bdgCliente = new System.Windows.Forms.BindingSource(this.components);
             this.searchLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colnome_completo = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -119,15 +90,18 @@
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.pnInformacoes = new DevExpress.XtraEditors.PanelControl();
             this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
+            this.tfValor = new DevExpress.XtraEditors.CalcEdit();
+            this.labelControl16 = new DevExpress.XtraEditors.LabelControl();
+            this.cbCidade = new DevExpress.XtraEditors.SearchLookUpEdit();
+            this.gridView6 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.labelControl18 = new DevExpress.XtraEditors.LabelControl();
             this.cbCorCarroceria = new DevExpress.XtraEditors.SearchLookUpEdit();
-            this.bdgCor = new System.Windows.Forms.BindingSource(this.components);
             this.gridView8 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn13 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn14 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.lbCorCarroceria = new DevExpress.XtraEditors.LabelControl();
             this.labelControl21 = new DevExpress.XtraEditors.LabelControl();
             this.cbCorChassi = new DevExpress.XtraEditors.SearchLookUpEdit();
-            this.bdgCorChassi = new System.Windows.Forms.BindingSource(this.components);
             this.gridView7 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colid_cor = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colnome_cor = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -138,14 +112,12 @@
             this.tfDataAgendamento = new DevExpress.XtraEditors.DateEdit();
             this.labelControl12 = new DevExpress.XtraEditors.LabelControl();
             this.cbEstado = new DevExpress.XtraEditors.SearchLookUpEdit();
-            this.bdgEstado = new System.Windows.Forms.BindingSource(this.components);
             this.gridView5 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn9 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.coluf = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colnome_estado = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colcod_ibge = new DevExpress.XtraGrid.Columns.GridColumn();
             this.cbEspecie = new DevExpress.XtraEditors.SearchLookUpEdit();
-            this.bdgEspecie = new System.Windows.Forms.BindingSource(this.components);
             this.gridView3 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn8 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colespecie = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -165,48 +137,73 @@
             this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl14 = new DevExpress.XtraEditors.LabelControl();
             this.validator = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
-            this.cbCidade = new DevExpress.XtraEditors.SearchLookUpEdit();
-            this.gridView6 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.bdgReboque = new System.Windows.Forms.BindingSource(this.components);
+            this.bdgVeiculo = new System.Windows.Forms.BindingSource(this.components);
+            this.gridColumn16 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn17 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn18 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn19 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn20 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn21 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn22 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn23 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn24 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn25 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn26 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn27 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn28 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn29 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn30 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn31 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn32 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn33 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn34 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn40 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn41 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.bdgCliente = new System.Windows.Forms.BindingSource(this.components);
             this.gridColumn10 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colnome_cidade = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn11 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn12 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colarea = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.labelControl18 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl16 = new DevExpress.XtraEditors.LabelControl();
-            this.tfValor = new DevExpress.XtraEditors.CalcEdit();
+            this.bdgCor = new System.Windows.Forms.BindingSource(this.components);
+            this.bdgCorChassi = new System.Windows.Forms.BindingSource(this.components);
+            this.bdgEstado = new System.Windows.Forms.BindingSource(this.components);
+            this.bdgEspecie = new System.Windows.Forms.BindingSource(this.components);
+            this.btnInativar = new SysNorteGrupo.Utils.BotaoInativar();
+            this.btnSair = new SysNorteGrupo.Utils.BotaoSair();
+            this.btnNovo = new SysNorteGrupo.Utils.BotaoNovo();
+            this.btnEditar = new SysNorteGrupo.Utils.BotaoEditar();
+            this.btnSalvar = new SysNorteGrupo.Utils.BotaoEditar();
             this.bdgCidade = new System.Windows.Forms.BindingSource(this.components);
+            this.arquivosFormReb = new SysFileManager.ArquivosForm();
             ((System.ComponentModel.ISupportInitialize)(this.pnBotoes)).BeginInit();
             this.pnBotoes.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pnPrincipal)).BeginInit();
             this.pnPrincipal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tfId.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bdgReboque)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbVeiculos.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bdgVeiculo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbCliente.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bdgCliente)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1View)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pnInformacoes)).BeginInit();
             this.pnInformacoes.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).BeginInit();
             this.groupControl2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tfValor.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbCidade.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbCorCarroceria.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bdgCor)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbCorChassi.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bdgCorChassi)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfPlaca.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ckAgendarCad.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfDataAgendamento.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfDataAgendamento.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbEstado.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bdgEstado)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbEspecie.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bdgEspecie)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfChassi.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbAnoModelo.Properties)).BeginInit();
@@ -215,9 +212,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.tfRenavam.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfTara.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.validator)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbCidade.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tfValor.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdgReboque)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdgVeiculo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdgCliente)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdgCor)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdgCorChassi)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdgEstado)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdgEspecie)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdgCidade)).BeginInit();
             this.SuspendLayout();
             // 
@@ -237,95 +238,9 @@
             this.pnBotoes.Size = new System.Drawing.Size(747, 69);
             this.pnBotoes.TabIndex = 1;
             // 
-            // btnInativar
-            // 
-            this.btnInativar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(199)))));
-            this.btnInativar.Enabled = false;
-            this.btnInativar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnInativar.Font = new System.Drawing.Font("Segoe UI Light", 12F);
-            this.btnInativar.ForeColor = System.Drawing.Color.White;
-            this.btnInativar.Image = ((System.Drawing.Image)(resources.GetObject("btnInativar.Image")));
-            this.btnInativar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnInativar.Location = new System.Drawing.Point(240, 7);
-            this.btnInativar.Name = "btnInativar";
-            this.btnInativar.Size = new System.Drawing.Size(121, 56);
-            this.btnInativar.TabIndex = 4;
-            this.btnInativar.Text = "Inativar";
-            this.btnInativar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnInativar.UseVisualStyleBackColor = false;
-            this.btnInativar.Click += new System.EventHandler(this.btnInativar_Click);
-            // 
-            // btnSair
-            // 
-            this.btnSair.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(199)))));
-            this.btnSair.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSair.Font = new System.Drawing.Font("Segoe UI Light", 12F);
-            this.btnSair.ForeColor = System.Drawing.Color.White;
-            this.btnSair.Image = ((System.Drawing.Image)(resources.GetObject("btnSair.Image")));
-            this.btnSair.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSair.Location = new System.Drawing.Point(625, 7);
-            this.btnSair.Name = "btnSair";
-            this.btnSair.Size = new System.Drawing.Size(110, 56);
-            this.btnSair.TabIndex = 3;
-            this.btnSair.Text = "Sair";
-            this.btnSair.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnSair.UseVisualStyleBackColor = false;
-            this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
-            // 
-            // btnNovo
-            // 
-            this.btnNovo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(199)))));
-            this.btnNovo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNovo.Font = new System.Drawing.Font("Segoe UI Light", 12F);
-            this.btnNovo.ForeColor = System.Drawing.Color.White;
-            this.btnNovo.Image = ((System.Drawing.Image)(resources.GetObject("btnNovo.Image")));
-            this.btnNovo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNovo.Location = new System.Drawing.Point(367, 7);
-            this.btnNovo.Name = "btnNovo";
-            this.btnNovo.Size = new System.Drawing.Size(110, 56);
-            this.btnNovo.TabIndex = 2;
-            this.btnNovo.Text = "Novo";
-            this.btnNovo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnNovo.UseVisualStyleBackColor = false;
-            this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
-            // 
-            // btnEditar
-            // 
-            this.btnEditar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(199)))));
-            this.btnEditar.Enabled = false;
-            this.btnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEditar.Font = new System.Drawing.Font("Segoe UI Light", 12F);
-            this.btnEditar.ForeColor = System.Drawing.Color.White;
-            this.btnEditar.Image = ((System.Drawing.Image)(resources.GetObject("btnEditar.Image")));
-            this.btnEditar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEditar.Location = new System.Drawing.Point(125, 7);
-            this.btnEditar.Name = "btnEditar";
-            this.btnEditar.Size = new System.Drawing.Size(110, 56);
-            this.btnEditar.TabIndex = 1;
-            this.btnEditar.Text = "Editar";
-            this.btnEditar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnEditar.UseVisualStyleBackColor = false;
-            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
-            // 
-            // btnSalvar
-            // 
-            this.btnSalvar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(199)))));
-            this.btnSalvar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSalvar.Font = new System.Drawing.Font("Segoe UI Light", 12F);
-            this.btnSalvar.ForeColor = System.Drawing.Color.White;
-            this.btnSalvar.Image = ((System.Drawing.Image)(resources.GetObject("btnSalvar.Image")));
-            this.btnSalvar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSalvar.Location = new System.Drawing.Point(9, 7);
-            this.btnSalvar.Name = "btnSalvar";
-            this.btnSalvar.Size = new System.Drawing.Size(110, 56);
-            this.btnSalvar.TabIndex = 0;
-            this.btnSalvar.Text = "Salvar";
-            this.btnSalvar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnSalvar.UseVisualStyleBackColor = false;
-            this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
-            // 
             // pnPrincipal
             // 
+            this.pnPrincipal.Controls.Add(this.arquivosFormReb);
             this.pnPrincipal.Controls.Add(this.labelControl6);
             this.pnPrincipal.Controls.Add(this.tfId);
             this.pnPrincipal.Controls.Add(this.cbVeiculos);
@@ -356,10 +271,6 @@
             this.tfId.Size = new System.Drawing.Size(75, 20);
             this.tfId.TabIndex = 3;
             // 
-            // bdgReboque
-            // 
-            this.bdgReboque.DataSource = typeof(EntitiesGrupo.reboque);
-            // 
             // cbVeiculos
             // 
             this.cbVeiculos.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdgReboque, "id_veiculos", true));
@@ -379,10 +290,6 @@
             conditionValidationRule1.ErrorText = "Selecione um veículo ao qual o reboque pertence";
             this.validator.SetValidationRule(this.cbVeiculos, conditionValidationRule1);
             this.cbVeiculos.EditValueChanged += new System.EventHandler(this.cbVeiculos_EditValueChanged);
-            // 
-            // bdgVeiculo
-            // 
-            this.bdgVeiculo.DataSource = typeof(EntitiesGrupo.veiculo);
             // 
             // gridView9
             // 
@@ -429,111 +336,6 @@
             this.gridColumn15.VisibleIndex = 0;
             this.gridColumn15.Width = 89;
             // 
-            // gridColumn16
-            // 
-            this.gridColumn16.Caption = "NOME COMPLETO";
-            this.gridColumn16.FieldName = "nome_completo";
-            this.gridColumn16.Name = "gridColumn16";
-            this.gridColumn16.OptionsColumn.AllowEdit = false;
-            this.gridColumn16.Visible = true;
-            this.gridColumn16.VisibleIndex = 1;
-            this.gridColumn16.Width = 591;
-            // 
-            // gridColumn17
-            // 
-            this.gridColumn17.FieldName = "tipo_cliente";
-            this.gridColumn17.Name = "gridColumn17";
-            // 
-            // gridColumn18
-            // 
-            this.gridColumn18.Caption = "CNPJ/CPF";
-            this.gridColumn18.FieldName = "documento";
-            this.gridColumn18.Name = "gridColumn18";
-            this.gridColumn18.OptionsColumn.AllowEdit = false;
-            this.gridColumn18.Visible = true;
-            this.gridColumn18.VisibleIndex = 2;
-            this.gridColumn18.Width = 261;
-            // 
-            // gridColumn19
-            // 
-            this.gridColumn19.FieldName = "inscricao_rg";
-            this.gridColumn19.Name = "gridColumn19";
-            // 
-            // gridColumn20
-            // 
-            this.gridColumn20.FieldName = "isento_ICMS";
-            this.gridColumn20.Name = "gridColumn20";
-            // 
-            // gridColumn21
-            // 
-            this.gridColumn21.FieldName = "telefone_fixo";
-            this.gridColumn21.Name = "gridColumn21";
-            // 
-            // gridColumn22
-            // 
-            this.gridColumn22.FieldName = "telefone_celular";
-            this.gridColumn22.Name = "gridColumn22";
-            // 
-            // gridColumn23
-            // 
-            this.gridColumn23.FieldName = "email_principal";
-            this.gridColumn23.Name = "gridColumn23";
-            // 
-            // gridColumn24
-            // 
-            this.gridColumn24.FieldName = "email_secundario";
-            this.gridColumn24.Name = "gridColumn24";
-            // 
-            // gridColumn25
-            // 
-            this.gridColumn25.FieldName = "numero";
-            this.gridColumn25.Name = "gridColumn25";
-            // 
-            // gridColumn26
-            // 
-            this.gridColumn26.FieldName = "complemento";
-            this.gridColumn26.Name = "gridColumn26";
-            // 
-            // gridColumn27
-            // 
-            this.gridColumn27.FieldName = "cep";
-            this.gridColumn27.Name = "gridColumn27";
-            // 
-            // gridColumn28
-            // 
-            this.gridColumn28.FieldName = "referencia_comercial";
-            this.gridColumn28.Name = "gridColumn28";
-            // 
-            // gridColumn29
-            // 
-            this.gridColumn29.FieldName = "contato_referencia_comercial";
-            this.gridColumn29.Name = "gridColumn29";
-            // 
-            // gridColumn30
-            // 
-            this.gridColumn30.FieldName = "referencia_de_servico";
-            this.gridColumn30.Name = "gridColumn30";
-            // 
-            // gridColumn31
-            // 
-            this.gridColumn31.FieldName = "contato_referencia_de_servico";
-            this.gridColumn31.Name = "gridColumn31";
-            // 
-            // gridColumn32
-            // 
-            this.gridColumn32.FieldName = "referencia_de_transporte";
-            this.gridColumn32.Name = "gridColumn32";
-            // 
-            // gridColumn33
-            // 
-            this.gridColumn33.FieldName = "contato_referencia_de_transporte";
-            this.gridColumn33.Name = "gridColumn33";
-            // 
-            // gridColumn34
-            // 
-            this.gridColumn34.FieldName = "observacoes";
-            this.gridColumn34.Name = "gridColumn34";
-            // 
             // gridColumn35
             // 
             this.gridColumn35.FieldName = "data_cadastro";
@@ -558,16 +360,6 @@
             // 
             this.gridColumn39.FieldName = "id_cidades";
             this.gridColumn39.Name = "gridColumn39";
-            // 
-            // gridColumn40
-            // 
-            this.gridColumn40.FieldName = "id_enderecos";
-            this.gridColumn40.Name = "gridColumn40";
-            // 
-            // gridColumn41
-            // 
-            this.gridColumn41.FieldName = "id_bairros";
-            this.gridColumn41.Name = "gridColumn41";
             // 
             // labelControl22
             // 
@@ -596,10 +388,6 @@
             conditionValidationRule2.ErrorText = "Selecione um cliente";
             this.validator.SetValidationRule(this.cbCliente, conditionValidationRule2);
             this.cbCliente.EditValueChanged += new System.EventHandler(this.cbCliente_EditValueChanged);
-            // 
-            // bdgCliente
-            // 
-            this.bdgCliente.DataSource = typeof(EntitiesGrupo.cliente);
             // 
             // searchLookUpEdit1View
             // 
@@ -843,6 +631,65 @@
             this.groupControl2.TabIndex = 6;
             this.groupControl2.Text = "CARACTERÍSTICAS DO REBOQUE";
             // 
+            // tfValor
+            // 
+            this.tfValor.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdgReboque, "valor", true));
+            this.tfValor.Location = new System.Drawing.Point(518, 78);
+            this.tfValor.Name = "tfValor";
+            this.tfValor.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.tfValor.Size = new System.Drawing.Size(171, 20);
+            this.tfValor.TabIndex = 24;
+            conditionValidationRule3.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule3.ErrorText = "Informe o valor do reboque";
+            this.validator.SetValidationRule(this.tfValor, conditionValidationRule3);
+            // 
+            // labelControl16
+            // 
+            this.labelControl16.Location = new System.Drawing.Point(475, 81);
+            this.labelControl16.Name = "labelControl16";
+            this.labelControl16.Size = new System.Drawing.Size(37, 13);
+            this.labelControl16.TabIndex = 22;
+            this.labelControl16.Text = "VALOR:";
+            // 
+            // cbCidade
+            // 
+            this.cbCidade.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdgReboque, "id_cidades", true));
+            this.cbCidade.Location = new System.Drawing.Point(238, 130);
+            this.cbCidade.Name = "cbCidade";
+            this.cbCidade.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cbCidade.Properties.DisplayMember = "nome_cidade";
+            this.cbCidade.Properties.NullText = "";
+            this.cbCidade.Properties.ValueMember = "id";
+            this.cbCidade.Properties.View = this.gridView6;
+            this.cbCidade.Size = new System.Drawing.Size(451, 20);
+            this.cbCidade.TabIndex = 21;
+            conditionValidationRule4.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule4.ErrorText = "Selecione uma cidade";
+            this.validator.SetValidationRule(this.cbCidade, conditionValidationRule4);
+            // 
+            // gridView6
+            // 
+            this.gridView6.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gridColumn10,
+            this.colnome_cidade,
+            this.gridColumn11,
+            this.gridColumn12,
+            this.colarea});
+            this.gridView6.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            this.gridView6.Name = "gridView6";
+            this.gridView6.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.gridView6.OptionsView.ShowGroupPanel = false;
+            // 
+            // labelControl18
+            // 
+            this.labelControl18.Location = new System.Drawing.Point(190, 133);
+            this.labelControl18.Name = "labelControl18";
+            this.labelControl18.Size = new System.Drawing.Size(42, 13);
+            this.labelControl18.TabIndex = 20;
+            this.labelControl18.Text = "CIDADE:";
+            // 
             // cbCorCarroceria
             // 
             this.cbCorCarroceria.EditValue = "";
@@ -861,10 +708,6 @@
             conditionValidationRule5.ErrorText = "Informe a cor da carroceria";
             this.validator.SetValidationRule(this.cbCorCarroceria, conditionValidationRule5);
             this.cbCorCarroceria.EditValueChanged += new System.EventHandler(this.cbCorCarroceria_EditValueChanged);
-            // 
-            // bdgCor
-            // 
-            this.bdgCor.DataSource = typeof(SysNorteGrupo.Utils.Cores);
             // 
             // gridView8
             // 
@@ -924,10 +767,6 @@
             conditionValidationRule6.ErrorText = "Informe a cor do chassi";
             this.validator.SetValidationRule(this.cbCorChassi, conditionValidationRule6);
             this.cbCorChassi.EditValueChanged += new System.EventHandler(this.cbCorChassi_EditValueChanged);
-            // 
-            // bdgCorChassi
-            // 
-            this.bdgCorChassi.DataSource = typeof(SysNorteGrupo.Utils.Cores);
             // 
             // gridView7
             // 
@@ -1033,10 +872,6 @@
             this.validator.SetValidationRule(this.cbEstado, conditionValidationRule8);
             this.cbEstado.EditValueChanged += new System.EventHandler(this.cbEstado_EditValueChanged);
             // 
-            // bdgEstado
-            // 
-            this.bdgEstado.DataSource = typeof(EntitiesGrupo.estado);
-            // 
             // gridView5
             // 
             this.gridView5.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
@@ -1097,10 +932,6 @@
             conditionValidationRule9.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
             conditionValidationRule9.ErrorText = "Informe a espécie do reboque";
             this.validator.SetValidationRule(this.cbEspecie, conditionValidationRule9);
-            // 
-            // bdgEspecie
-            // 
-            this.bdgEspecie.DataSource = typeof(EntitiesGrupo.especies_veiculo);
             // 
             // gridView3
             // 
@@ -1277,35 +1108,132 @@
             // 
             this.validator.ValidationMode = DevExpress.XtraEditors.DXErrorProvider.ValidationMode.Manual;
             // 
-            // cbCidade
+            // bdgReboque
             // 
-            this.cbCidade.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdgReboque, "id_cidades", true));
-            this.cbCidade.Location = new System.Drawing.Point(238, 130);
-            this.cbCidade.Name = "cbCidade";
-            this.cbCidade.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cbCidade.Properties.DisplayMember = "nome_cidade";
-            this.cbCidade.Properties.NullText = "";
-            this.cbCidade.Properties.ValueMember = "id";
-            this.cbCidade.Properties.View = this.gridView6;
-            this.cbCidade.Size = new System.Drawing.Size(451, 20);
-            this.cbCidade.TabIndex = 21;
-            conditionValidationRule4.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule4.ErrorText = "Selecione uma cidade";
-            this.validator.SetValidationRule(this.cbCidade, conditionValidationRule4);
+            this.bdgReboque.DataSource = typeof(EntitiesGrupo.reboque);
             // 
-            // gridView6
+            // bdgVeiculo
             // 
-            this.gridView6.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.gridColumn10,
-            this.colnome_cidade,
-            this.gridColumn11,
-            this.gridColumn12,
-            this.colarea});
-            this.gridView6.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
-            this.gridView6.Name = "gridView6";
-            this.gridView6.OptionsSelection.EnableAppearanceFocusedCell = false;
-            this.gridView6.OptionsView.ShowGroupPanel = false;
+            this.bdgVeiculo.DataSource = typeof(EntitiesGrupo.veiculo);
+            // 
+            // gridColumn16
+            // 
+            this.gridColumn16.Caption = "NOME COMPLETO";
+            this.gridColumn16.FieldName = "nome_completo";
+            this.gridColumn16.Name = "gridColumn16";
+            this.gridColumn16.OptionsColumn.AllowEdit = false;
+            this.gridColumn16.Visible = true;
+            this.gridColumn16.VisibleIndex = 1;
+            this.gridColumn16.Width = 591;
+            // 
+            // gridColumn17
+            // 
+            this.gridColumn17.FieldName = "tipo_cliente";
+            this.gridColumn17.Name = "gridColumn17";
+            // 
+            // gridColumn18
+            // 
+            this.gridColumn18.Caption = "CNPJ/CPF";
+            this.gridColumn18.FieldName = "documento";
+            this.gridColumn18.Name = "gridColumn18";
+            this.gridColumn18.OptionsColumn.AllowEdit = false;
+            this.gridColumn18.Visible = true;
+            this.gridColumn18.VisibleIndex = 2;
+            this.gridColumn18.Width = 261;
+            // 
+            // gridColumn19
+            // 
+            this.gridColumn19.FieldName = "inscricao_rg";
+            this.gridColumn19.Name = "gridColumn19";
+            // 
+            // gridColumn20
+            // 
+            this.gridColumn20.FieldName = "isento_ICMS";
+            this.gridColumn20.Name = "gridColumn20";
+            // 
+            // gridColumn21
+            // 
+            this.gridColumn21.FieldName = "telefone_fixo";
+            this.gridColumn21.Name = "gridColumn21";
+            // 
+            // gridColumn22
+            // 
+            this.gridColumn22.FieldName = "telefone_celular";
+            this.gridColumn22.Name = "gridColumn22";
+            // 
+            // gridColumn23
+            // 
+            this.gridColumn23.FieldName = "email_principal";
+            this.gridColumn23.Name = "gridColumn23";
+            // 
+            // gridColumn24
+            // 
+            this.gridColumn24.FieldName = "email_secundario";
+            this.gridColumn24.Name = "gridColumn24";
+            // 
+            // gridColumn25
+            // 
+            this.gridColumn25.FieldName = "numero";
+            this.gridColumn25.Name = "gridColumn25";
+            // 
+            // gridColumn26
+            // 
+            this.gridColumn26.FieldName = "complemento";
+            this.gridColumn26.Name = "gridColumn26";
+            // 
+            // gridColumn27
+            // 
+            this.gridColumn27.FieldName = "cep";
+            this.gridColumn27.Name = "gridColumn27";
+            // 
+            // gridColumn28
+            // 
+            this.gridColumn28.FieldName = "referencia_comercial";
+            this.gridColumn28.Name = "gridColumn28";
+            // 
+            // gridColumn29
+            // 
+            this.gridColumn29.FieldName = "contato_referencia_comercial";
+            this.gridColumn29.Name = "gridColumn29";
+            // 
+            // gridColumn30
+            // 
+            this.gridColumn30.FieldName = "referencia_de_servico";
+            this.gridColumn30.Name = "gridColumn30";
+            // 
+            // gridColumn31
+            // 
+            this.gridColumn31.FieldName = "contato_referencia_de_servico";
+            this.gridColumn31.Name = "gridColumn31";
+            // 
+            // gridColumn32
+            // 
+            this.gridColumn32.FieldName = "referencia_de_transporte";
+            this.gridColumn32.Name = "gridColumn32";
+            // 
+            // gridColumn33
+            // 
+            this.gridColumn33.FieldName = "contato_referencia_de_transporte";
+            this.gridColumn33.Name = "gridColumn33";
+            // 
+            // gridColumn34
+            // 
+            this.gridColumn34.FieldName = "observacoes";
+            this.gridColumn34.Name = "gridColumn34";
+            // 
+            // gridColumn40
+            // 
+            this.gridColumn40.FieldName = "id_enderecos";
+            this.gridColumn40.Name = "gridColumn40";
+            // 
+            // gridColumn41
+            // 
+            this.gridColumn41.FieldName = "id_bairros";
+            this.gridColumn41.Name = "gridColumn41";
+            // 
+            // bdgCliente
+            // 
+            this.bdgCliente.DataSource = typeof(EntitiesGrupo.cliente);
             // 
             // gridColumn10
             // 
@@ -1344,38 +1272,119 @@
             this.colarea.Name = "colarea";
             this.colarea.OptionsColumn.AllowEdit = false;
             // 
-            // labelControl18
+            // bdgCor
             // 
-            this.labelControl18.Location = new System.Drawing.Point(190, 133);
-            this.labelControl18.Name = "labelControl18";
-            this.labelControl18.Size = new System.Drawing.Size(42, 13);
-            this.labelControl18.TabIndex = 20;
-            this.labelControl18.Text = "CIDADE:";
+            this.bdgCor.DataSource = typeof(SysNorteGrupo.Utils.Cores);
             // 
-            // labelControl16
+            // bdgCorChassi
             // 
-            this.labelControl16.Location = new System.Drawing.Point(475, 81);
-            this.labelControl16.Name = "labelControl16";
-            this.labelControl16.Size = new System.Drawing.Size(37, 13);
-            this.labelControl16.TabIndex = 22;
-            this.labelControl16.Text = "VALOR:";
+            this.bdgCorChassi.DataSource = typeof(SysNorteGrupo.Utils.Cores);
             // 
-            // tfValor
+            // bdgEstado
             // 
-            this.tfValor.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdgReboque, "valor", true));
-            this.tfValor.Location = new System.Drawing.Point(518, 78);
-            this.tfValor.Name = "tfValor";
-            this.tfValor.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.tfValor.Size = new System.Drawing.Size(171, 20);
-            this.tfValor.TabIndex = 24;
-            conditionValidationRule3.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule3.ErrorText = "Informe o valor do reboque";
-            this.validator.SetValidationRule(this.tfValor, conditionValidationRule3);
+            this.bdgEstado.DataSource = typeof(EntitiesGrupo.estado);
+            // 
+            // bdgEspecie
+            // 
+            this.bdgEspecie.DataSource = typeof(EntitiesGrupo.especies_veiculo);
+            // 
+            // btnInativar
+            // 
+            this.btnInativar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(199)))));
+            this.btnInativar.Enabled = false;
+            this.btnInativar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnInativar.Font = new System.Drawing.Font("Segoe UI Light", 12F);
+            this.btnInativar.ForeColor = System.Drawing.Color.White;
+            this.btnInativar.Image = ((System.Drawing.Image)(resources.GetObject("btnInativar.Image")));
+            this.btnInativar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnInativar.Location = new System.Drawing.Point(240, 7);
+            this.btnInativar.Name = "btnInativar";
+            this.btnInativar.Size = new System.Drawing.Size(121, 56);
+            this.btnInativar.TabIndex = 4;
+            this.btnInativar.Text = "Inativar";
+            this.btnInativar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnInativar.UseVisualStyleBackColor = false;
+            this.btnInativar.Click += new System.EventHandler(this.btnInativar_Click);
+            // 
+            // btnSair
+            // 
+            this.btnSair.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(199)))));
+            this.btnSair.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSair.Font = new System.Drawing.Font("Segoe UI Light", 12F);
+            this.btnSair.ForeColor = System.Drawing.Color.White;
+            this.btnSair.Image = ((System.Drawing.Image)(resources.GetObject("btnSair.Image")));
+            this.btnSair.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSair.Location = new System.Drawing.Point(625, 7);
+            this.btnSair.Name = "btnSair";
+            this.btnSair.Size = new System.Drawing.Size(110, 56);
+            this.btnSair.TabIndex = 3;
+            this.btnSair.Text = "Sair";
+            this.btnSair.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnSair.UseVisualStyleBackColor = false;
+            this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
+            // 
+            // btnNovo
+            // 
+            this.btnNovo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(199)))));
+            this.btnNovo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNovo.Font = new System.Drawing.Font("Segoe UI Light", 12F);
+            this.btnNovo.ForeColor = System.Drawing.Color.White;
+            this.btnNovo.Image = ((System.Drawing.Image)(resources.GetObject("btnNovo.Image")));
+            this.btnNovo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnNovo.Location = new System.Drawing.Point(367, 7);
+            this.btnNovo.Name = "btnNovo";
+            this.btnNovo.Size = new System.Drawing.Size(110, 56);
+            this.btnNovo.TabIndex = 2;
+            this.btnNovo.Text = "Novo";
+            this.btnNovo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnNovo.UseVisualStyleBackColor = false;
+            this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
+            // 
+            // btnEditar
+            // 
+            this.btnEditar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(199)))));
+            this.btnEditar.Enabled = false;
+            this.btnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEditar.Font = new System.Drawing.Font("Segoe UI Light", 12F);
+            this.btnEditar.ForeColor = System.Drawing.Color.White;
+            this.btnEditar.Image = ((System.Drawing.Image)(resources.GetObject("btnEditar.Image")));
+            this.btnEditar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEditar.Location = new System.Drawing.Point(125, 7);
+            this.btnEditar.Name = "btnEditar";
+            this.btnEditar.Size = new System.Drawing.Size(110, 56);
+            this.btnEditar.TabIndex = 1;
+            this.btnEditar.Text = "Editar";
+            this.btnEditar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnEditar.UseVisualStyleBackColor = false;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
+            // 
+            // btnSalvar
+            // 
+            this.btnSalvar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(199)))));
+            this.btnSalvar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSalvar.Font = new System.Drawing.Font("Segoe UI Light", 12F);
+            this.btnSalvar.ForeColor = System.Drawing.Color.White;
+            this.btnSalvar.Image = ((System.Drawing.Image)(resources.GetObject("btnSalvar.Image")));
+            this.btnSalvar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSalvar.Location = new System.Drawing.Point(9, 7);
+            this.btnSalvar.Name = "btnSalvar";
+            this.btnSalvar.Size = new System.Drawing.Size(110, 56);
+            this.btnSalvar.TabIndex = 0;
+            this.btnSalvar.Text = "Salvar";
+            this.btnSalvar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnSalvar.UseVisualStyleBackColor = false;
+            this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
             // 
             // bdgCidade
             // 
             this.bdgCidade.DataSource = typeof(EntitiesGrupo.cidade);
+            // 
+            // arquivosFormReb
+            // 
+            this.arquivosFormReb.Location = new System.Drawing.Point(4, 255);
+            this.arquivosFormReb.Name = "arquivosFormReb";
+            this.arquivosFormReb.Size = new System.Drawing.Size(739, 218);
+            this.arquivosFormReb.TabIndex = 5;
             // 
             // ReboqueForm
             // 
@@ -1391,33 +1400,29 @@
             this.pnPrincipal.ResumeLayout(false);
             this.pnPrincipal.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tfId.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bdgReboque)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbVeiculos.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bdgVeiculo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbCliente.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bdgCliente)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1View)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pnInformacoes)).EndInit();
             this.pnInformacoes.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).EndInit();
             this.groupControl2.ResumeLayout(false);
             this.groupControl2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tfValor.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbCidade.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbCorCarroceria.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bdgCor)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbCorChassi.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bdgCorChassi)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfPlaca.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ckAgendarCad.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfDataAgendamento.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfDataAgendamento.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbEstado.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bdgEstado)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbEspecie.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bdgEspecie)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfChassi.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbAnoModelo.Properties)).EndInit();
@@ -1426,9 +1431,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.tfRenavam.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfTara.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.validator)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbCidade.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tfValor.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdgReboque)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdgVeiculo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdgCliente)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdgCor)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdgCorChassi)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdgEstado)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdgEspecie)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdgCidade)).EndInit();
             this.ResumeLayout(false);
 
@@ -1567,5 +1576,6 @@
         private DevExpress.XtraEditors.LabelControl labelControl16;
         private DevExpress.XtraEditors.CalcEdit tfValor;
         private System.Windows.Forms.BindingSource bdgCidade;
+        private SysFileManager.ArquivosForm arquivosFormReb;
     }
 }

@@ -1,6 +1,7 @@
 ﻿using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.DXErrorProvider;
 using EntitiesGrupo;
+using SysFileManager;
 using SysNorteGrupo.Utils;
 using System;
 using System.Collections;
@@ -25,6 +26,9 @@ namespace SysNorteGrupo.UI.Veiculos.Reboques
             InitializeComponent();
 
             conn = GerenteDeConexoes.iniciaConexao();
+
+            arquivosFormReb.DIRETORIO = ArquivosForm.SUBDIR_REBOQUES;
+            arquivosFormReb.conn = conn;
 
             try
             {
@@ -270,7 +274,7 @@ namespace SysNorteGrupo.UI.Veiculos.Reboques
             {
                 form = _form;
             }
-            public override bool Validate(System.Windows.Controls.Control control, object value)
+            public override bool Validate(Control control, object value)
             {
                 string str = form.tfDataAgendamento.Text;
                 if (str == null || str == String.Empty)
