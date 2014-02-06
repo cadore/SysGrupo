@@ -625,6 +625,23 @@ namespace WcfLibGrupo
             }
         }
 
+        public decimal somaValorTotalVeiculoPorIdClienteEInatividade(long id_cliente, bool inativo)
+        {
+            try
+            {
+                string sql = String.Format("SELECT SUM(valor) FROM veiculos WHERE id_cliente = '{0}' AND inativo = '{1}';", id_cliente, inativo);
+
+                decimal rs = veiculo.repo.ExecuteScalar<decimal>(sql);
+                return rs;
+            }
+            catch (Exception ex)
+            {
+                throw new FaultException(
+                    new FaultReason(String.Format("EXCEPT: {0}\n\nINNER EXCEPT: {1}", ex.Message, ex.InnerException)),
+                    new FaultCode("ERRDB"));
+            }
+        }
+
         #endregion
 
         #region reboques
@@ -845,8 +862,24 @@ namespace WcfLibGrupo
             }
         }
 
-        #endregion
+        public decimal somaValorTotalReboquesPorIdClienteEInatividade(long id_cliente, bool inativo)
+        {
+            try
+            {
+                string sql = String.Format("SELECT SUM(valor) FROM reboques WHERE id_cliente = '{0}' AND inativo = '{1}';", id_cliente, inativo);
 
+                decimal rs = reboque.repo.ExecuteScalar<decimal>(sql);
+                return rs;
+            }
+            catch (Exception ex)
+            {
+                throw new FaultException(
+                    new FaultReason(String.Format("EXCEPT: {0}\n\nINNER EXCEPT: {1}", ex.Message, ex.InnerException)),
+                    new FaultCode("ERRDB"));
+            }
+        }
+
+        #endregion
 
         #region cidades, bairros, enderecos
 

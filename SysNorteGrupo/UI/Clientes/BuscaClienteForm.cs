@@ -66,18 +66,30 @@ namespace SysNorteGrupo.UI.Clientes
 
         private void executaBusca()
         {
+            List<cliente> listCli = new List<cliente>();
+            List<cliente> listRetorno = new List<cliente>();
             if (tipoPesquisa == 0)
             {
-                bindingSource.DataSource = conn.listaDeClientesPorId(Convert.ToInt64(tfId.Text));
+                listCli = conn.listaDeClientesPorId(Convert.ToInt64(tfId.Text));
             }
             else if (tipoPesquisa == 1)
             {
-                bindingSource.DataSource = conn.listaDeClientesPorNomeOuDocumento(tfNomeDocumento.Text, _inativo);
+                listCli = conn.listaDeClientesPorNomeOuDocumento(tfNomeDocumento.Text, _inativo);
             }
             else
             {
-                bindingSource.DataSource = conn.listaDeClientesPorInatividade(_inativo);
+                listCli = conn.listaDeClientesPorInatividade(_inativo);
             }
+            foreach (cliente v in listCli)
+            {
+                decimal valor_veiculos = conn.somaValorTotalVeiculoPorIdClienteEInatividade(v.id, false);
+                decimal valor_reboques = conn.somaValorTotalReboquesPorIdClienteEInatividade(v.id, false);
+                decimal total_cotas = (valor_veiculos + valor_reboques) / UtilsSistema.valor_por_cota;
+                v.cotas = total_cotas;
+                v.valor_total = (valor_veiculos + valor_reboques);
+                listRetorno.Add(v);
+            }
+            bdgCliente.DataSource = listRetorno;
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
@@ -122,7 +134,7 @@ namespace SysNorteGrupo.UI.Clientes
 
         private void gridControl_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            cliente cli = (cliente) bindingSource.Current;
+            cliente cli = (cliente) bdgCliente.Current;
 
             //MessageBox.Show(cli.id.ToString());
 

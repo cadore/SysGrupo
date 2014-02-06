@@ -41,8 +41,8 @@
             this.tfNomeDocumento = new DevExpress.XtraEditors.TextEdit();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.tfId = new DevExpress.XtraEditors.TextEdit();
-            this.bindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gridControl = new DevExpress.XtraGrid.GridControl();
+            this.bdgCliente = new System.Windows.Forms.BindingSource(this.components);
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colnome_completo = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -71,6 +71,8 @@
             this.colid_cidades = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colid_enderecos = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colid_bairros = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colcotas = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colvalor_total = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.pbBotoes)).BeginInit();
             this.pbBotoes.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
@@ -79,8 +81,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.ckAtivo.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfNomeDocumento.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfId.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdgCliente)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -216,13 +218,9 @@
             this.tfId.TabIndex = 0;
             this.tfId.KeyUp += new System.Windows.Forms.KeyEventHandler(this.tfId_KeyUp);
             // 
-            // bindingSource
-            // 
-            this.bindingSource.DataSource = typeof(EntitiesGrupo.cliente);
-            // 
             // gridControl
             // 
-            this.gridControl.DataSource = this.bindingSource;
+            this.gridControl.DataSource = this.bdgCliente;
             this.gridControl.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.gridControl.Location = new System.Drawing.Point(0, 72);
             this.gridControl.MainView = this.gridView1;
@@ -232,6 +230,10 @@
             this.gridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
             this.gridControl.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.gridControl_MouseDoubleClick);
+            // 
+            // bdgCliente
+            // 
+            this.bdgCliente.DataSource = typeof(EntitiesGrupo.cliente);
             // 
             // gridView1
             // 
@@ -262,7 +264,9 @@
             this.colinativo,
             this.colid_cidades,
             this.colid_enderecos,
-            this.colid_bairros});
+            this.colid_bairros,
+            this.colcotas,
+            this.colvalor_total});
             this.gridView1.GridControl = this.gridControl;
             this.gridView1.Name = "gridView1";
             this.gridView1.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
@@ -276,7 +280,7 @@
             this.colid.OptionsColumn.AllowEdit = false;
             this.colid.Visible = true;
             this.colid.VisibleIndex = 0;
-            this.colid.Width = 54;
+            this.colid.Width = 33;
             // 
             // colnome_completo
             // 
@@ -286,7 +290,7 @@
             this.colnome_completo.OptionsColumn.AllowEdit = false;
             this.colnome_completo.Visible = true;
             this.colnome_completo.VisibleIndex = 1;
-            this.colnome_completo.Width = 309;
+            this.colnome_completo.Width = 265;
             // 
             // coltipo_cliente
             // 
@@ -303,7 +307,7 @@
             this.coldocumento.OptionsColumn.AllowEdit = false;
             this.coldocumento.Visible = true;
             this.coldocumento.VisibleIndex = 2;
-            this.coldocumento.Width = 130;
+            this.coldocumento.Width = 125;
             // 
             // colinscricao_rg
             // 
@@ -343,7 +347,7 @@
             this.colemail_principal.OptionsColumn.AllowEdit = false;
             this.colemail_principal.Visible = true;
             this.colemail_principal.VisibleIndex = 3;
-            this.colemail_principal.Width = 146;
+            this.colemail_principal.Width = 140;
             // 
             // colemail_secundario
             // 
@@ -420,8 +424,8 @@
             this.coldata_cadastro.Name = "coldata_cadastro";
             this.coldata_cadastro.OptionsColumn.AllowEdit = false;
             this.coldata_cadastro.Visible = true;
-            this.coldata_cadastro.VisibleIndex = 4;
-            this.coldata_cadastro.Width = 120;
+            this.coldata_cadastro.VisibleIndex = 6;
+            this.coldata_cadastro.Width = 113;
             // 
             // coldata_ativacao
             // 
@@ -432,8 +436,8 @@
             this.coldata_ativacao.Name = "coldata_ativacao";
             this.coldata_ativacao.OptionsColumn.AllowEdit = false;
             this.coldata_ativacao.Visible = true;
-            this.coldata_ativacao.VisibleIndex = 5;
-            this.coldata_ativacao.Width = 117;
+            this.coldata_ativacao.VisibleIndex = 7;
+            this.coldata_ativacao.Width = 106;
             // 
             // coldata_inativacao
             // 
@@ -448,8 +452,8 @@
             this.colinativo.Name = "colinativo";
             this.colinativo.OptionsColumn.AllowEdit = false;
             this.colinativo.Visible = true;
-            this.colinativo.VisibleIndex = 6;
-            this.colinativo.Width = 65;
+            this.colinativo.VisibleIndex = 8;
+            this.colinativo.Width = 64;
             // 
             // colid_cidades
             // 
@@ -469,6 +473,30 @@
             this.colid_bairros.Name = "colid_bairros";
             this.colid_bairros.OptionsColumn.AllowEdit = false;
             // 
+            // colcotas
+            // 
+            this.colcotas.Caption = "COTAS";
+            this.colcotas.DisplayFormat.FormatString = "n";
+            this.colcotas.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.colcotas.FieldName = "cotas";
+            this.colcotas.Name = "colcotas";
+            this.colcotas.OptionsColumn.AllowEdit = false;
+            this.colcotas.Visible = true;
+            this.colcotas.VisibleIndex = 5;
+            this.colcotas.Width = 54;
+            // 
+            // colvalor_total
+            // 
+            this.colvalor_total.Caption = "TOTAL DE BENS R$";
+            this.colvalor_total.DisplayFormat.FormatString = "c2";
+            this.colvalor_total.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.colvalor_total.FieldName = "valor_total";
+            this.colvalor_total.Name = "colvalor_total";
+            this.colvalor_total.OptionsColumn.AllowEdit = false;
+            this.colvalor_total.Visible = true;
+            this.colvalor_total.VisibleIndex = 4;
+            this.colvalor_total.Width = 103;
+            // 
             // BuscaClienteForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -487,8 +515,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.ckAtivo.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfNomeDocumento.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfId.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdgCliente)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             this.ResumeLayout(false);
 
@@ -497,7 +525,6 @@
         #endregion
 
         private DevExpress.XtraEditors.PanelControl pbBotoes;
-        private System.Windows.Forms.BindingSource bindingSource;
         private DevExpress.XtraGrid.GridControl gridControl;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private DevExpress.XtraGrid.Columns.GridColumn colid;
@@ -537,5 +564,8 @@
         private DevExpress.XtraEditors.LabelControl labelControl3;
         private Utils.BotaoBuscar btnBuscar;
         private Utils.BotaoSair btnFechar;
+        private DevExpress.XtraGrid.Columns.GridColumn colcotas;
+        private System.Windows.Forms.BindingSource bdgCliente;
+        private DevExpress.XtraGrid.Columns.GridColumn colvalor_total;
     }
 }

@@ -596,8 +596,15 @@ namespace EntitiesGrupo
 
 
 
-        [Column]
-        public long id_estados { get; set; }
+        [Column] public long id_estados { get; set; }
+
+
+
+        public decimal cotas { get; set; }
+
+
+
+        public decimal valor_total { get; set; }
 
 
 

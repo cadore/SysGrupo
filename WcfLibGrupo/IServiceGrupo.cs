@@ -129,6 +129,9 @@ namespace WcfLibGrupo
         [OperationContract]
         bool verificaSeRenavamEhUnico(string renavam, bool edit);
 
+        [OperationContract]
+        decimal somaValorTotalVeiculoPorIdClienteEInatividade(long id_cliente, bool inativo);
+
         #endregion
 
         #region reboques
@@ -165,6 +168,9 @@ namespace WcfLibGrupo
 
         [OperationContract]
         bool verificaSeRenavamReboqueEhUnico(string renavam, bool edit);
+
+        [OperationContract]
+        decimal somaValorTotalReboquesPorIdClienteEInatividade(long id_cliente, bool inativo);
 
         #endregion
 
