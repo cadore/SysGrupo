@@ -1,0 +1,381 @@
+﻿using DevExpress.XtraEditors;
+using DevExpress.XtraEditors.DXErrorProvider;
+using EntitiesGrupo;
+using SysNorteGrupo.Utils;
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Drawing;
+using System.Windows.Forms;
+using WcfLibGrupo;
+
+namespace SysNorteGrupo.UI.Veiculos
+{
+    public partial class VeiculosForm : XtraUserControl
+    {
+        private IServiceGrupo conn = null;
+        public FormPricipal formPrincipal = null;
+        private veiculo veiculo_instc = null;
+        private Color backColor = UtilsSistema.backColorFoco;
+        private CustomValidationRuleDataAgendamento cVRDA;
+
+        public VeiculosForm(veiculo vei)
+        {
+            veiculo_instc = vei;
+            InitializeComponent();
+
+            conn = GerenteDeConexoes.iniciaConexao();
+
+            try
+            {
+                bdgCor.DataSource = new Cores().listaDeCores();
+                bdgCliente.DataSource = conn.listaDeClientesPorInatividade(false);
+                bdgMarca.DataSource = conn.listaDeMarcas();
+                bdgEspecie.DataSource = conn.listaDeEspeciesVeiculos();
+                bdgEstado.DataSource = conn.listaDeEstados();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+            try
+            {                
+                setBackColor();
+                if(veiculo_instc == null){
+                    veiculo_instc = new veiculo();
+                }
+                else
+                {
+                    pnPrincipal.Enabled = false;
+                    btnSalvar.Enabled = false;
+                    btnEditar.Enabled = true;
+                    ckAgendarCad.Visible = false;
+
+                    tfDataAgendamento.EditValue = veiculo_instc.data_ativacao;
+
+                    bdgAnoModelo.DataSource = conn.listaDeAnoModelosPorIdModelo(veiculo_instc.id_modelo_veiculos);
+                    bdgCidade.DataSource = conn.listaDeCidadesPorEstado(veiculo_instc.uf_estado);
+                }
+                bdgVeiculo.DataSource = (veiculo) veiculo_instc;
+                ArrayList arrayList = new ListaAnos().retornaAnos();
+                for (int i = 0; i < arrayList.Count; i++ )
+                {
+                    cbAnoFabricacao.Properties.Items.Add(arrayList[i]);
+                }
+                tfDataAgendamento.Properties.MinValue = DateTime.Now.Date.AddDays(1);
+                if (veiculo_instc.inativo == true)
+                {
+                    btnEditar.Enabled = false;
+                }
+
+                cbCor.EditValue = veiculo_instc.cor_predominante;
+            }catch(Exception ex){
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        #region backColor
+
+        private void setBackColor()
+        {
+            foreach (Control item in pnPrincipal.Controls)
+            {
+                backColors(item);
+            }
+
+            foreach (GroupControl g in pnInformacoes.Controls)
+            {
+                foreach(Control item in g.Controls)
+                {
+                    backColors(item);
+                }
+            }
+        }
+
+        private void backColors(Control item)
+        {
+            switch (item.GetType().ToString())
+            {
+                case "DevExpress.XtraEditors.TextEdit": ((TextEdit)item).Properties.AppearanceFocused.BackColor = backColor; break;
+                case "DevExpress.XtraEditors.ComboBoxEdit": ((ComboBoxEdit)item).Properties.AppearanceFocused.BackColor = backColor; break;
+                case "DevExpress.XtraEditors.SearchLookUpEdit": ((SearchLookUpEdit)item).Properties.AppearanceFocused.BackColor = backColor; break;
+                case "DevExpress.XtraEditors.CheckEdit": ((CheckEdit)item).Properties.AppearanceFocused.BackColor = backColor; break;
+                case "DevExpress.XtraEditors.MemoEdit": ((MemoEdit)item).Properties.AppearanceFocused.BackColor = backColor; break;
+            }
+        }
+
+        #endregion
+
+        private void cbCliente_EditValueChanged(object sender, System.EventArgs e)
+        {
+            if (Convert.ToInt32(cbCliente.EditValue) > 0)
+            {
+                pnInformacoes.Enabled = true;
+            }
+            else
+            {
+                pnInformacoes.Enabled = false;
+            }
+        }
+
+        private void cbCores_CustomDrawCell(object sender, DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventArgs e)
+        {
+            /*if (e.Column.DisplayFormat.ToString().Equals("preto"))
+            {
+                e.Column.AppearanceCell.BackColor = Color.FromArgb(0, 0, 0);
+            }*/
+        }
+
+        private void cbCores_EditValueChanged(object sender, System.EventArgs e)
+        {
+            if (cbCor.EditValue != null) {                
+                ((veiculo)bdgVeiculo.Current).cor_predominante = cbCor.EditValue.ToString();
+
+                Color cor = new Color();                                
+                ((List<Cores>)bdgCor.DataSource).ForEach(delegate(Cores c)
+                {
+                    if (c.nome_cor == cbCor.EditValue.ToString())
+                    {
+                        cor = (Color)c.id_cor;
+                    }
+                });
+
+                lbCor.BackColor = cor;
+            }
+        }
+
+        private void cbMarca_EditValueChanged(object sender, EventArgs e)
+        {
+            
+            bdgModelo.Clear();
+            //bdgAnoModelo.Clear();
+            cbAnoFabricacao.SelectedIndex = -1;
+            tfValor.Text = null;
+
+            if (Convert.ToInt32(cbMarca.EditValue) > 0)
+            {
+                bdgModelo.DataSource = conn.listaDeModelosPorIdMarca(Convert.ToInt64(cbMarca.EditValue));
+            }
+        }
+
+        private void cbModelo_EditValueChanged(object sender, EventArgs e)
+        {            
+            //bdgAnoModelo.Clear();
+            tfValor.Text = null;
+            cbAnoFabricacao.SelectedIndex = -1;
+
+            if(cbModelo.EditValue.ToString() != null)
+            {
+                bdgAnoModelo.DataSource = conn.listaDeAnoModelosPorIdModelo(cbModelo.EditValue.ToString());
+            }
+        }
+
+        private void cbAnoModelo_EditValueChanged(object sender, EventArgs e)
+        {
+            tfValor.Text = null;
+            if (Convert.ToInt32(cbAnoModelo.EditValue) > 0)
+            {
+                ano_modelo_veiculo amv = conn.recuperaValorPorIdModelo(Convert.ToInt64(cbAnoModelo.EditValue));
+                ((veiculo)bdgVeiculo.Current).valor = amv.valor;
+                tfValor.Text = amv.valor.ToString();
+            }
+        }
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            pnPrincipal.Enabled = true;
+            btnSalvar.Enabled = true;
+            btnEditar.Enabled = false;
+            btnInativar.Enabled = true;
+        }
+
+        private void btnSalvar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                    bool empty = Util.textFieldIsEmpty(tfId);
+                    //seta validações
+                    setValidations();
+                    //valida
+                    if(validator.Validate())
+                    {       
+                        //verifica placa unica
+                        if (conn.verificaSePlacaVeiculoEhUnica(tfPlaca.Text, !empty) == false)
+                        {
+                            XtraMessageBox.Show("A PLACA "+tfPlaca.Text+" JÁ ENCONTRA-SE CADASTRADA. VERIFIQUE!");
+                            return;
+                        }
+
+                        //verifica chassi unico
+                        if (conn.verificaSeNChassiEhUnico(tfChassi.Text, !empty) == false)
+                        {
+                            XtraMessageBox.Show("O CHASSI " + tfChassi.Text + " JÁ ENCONTRA-SE CADASTRADO. VERIFIQUE!");
+                            return;
+                        }
+
+                        //verifica renavam
+                        if (conn.verificaSeRenavamEhUnico(tfRenavam.Text, !empty) == false)
+                        {
+                            XtraMessageBox.Show("O RENAVAM " + tfRenavam.Text + " JÁ ENCONTRA-SE CADASTRADO. VERIFIQUE!");
+                            return;
+                        }
+
+                        //confirma agendamento
+                        if (ckAgendarCad.CheckState == CheckState.Checked)
+                        {
+                            DialogResult dialogResult = MessageBox.Show(
+                                "CONFIRMA O AGENDAMENTO DE CADASTRO DESTE VEÍCULO PARA ÀS 00:00 HORAS DO DIA " + tfDataAgendamento.Text + "?",
+                                "SYSNORTE", MessageBoxButtons.YesNo);
+                            if (dialogResult == DialogResult.No)
+                            {
+                                return;
+                            }
+                        }
+                        //inicia salvamento                
+                        veiculo v = ((veiculo)bdgVeiculo.Current);
+                        //v.cor_predominante = cbCor.EditValue.ToString();
+
+                        DateTime dataAtiv = conn.retornaHoraLocal().Date.AddDays(1);
+                        if(ckAgendarCad.CheckState == CheckState.Checked){
+                            dataAtiv = tfDataAgendamento.DateTime;
+                        }
+                        if (empty)
+                        {
+                            v.data_ativacao = dataAtiv;
+                            v.inativo = false;
+                            v.data_cadastro = conn.retornaHoraLocal();
+                        }
+                        long id = Convert.ToInt64(conn.salvarVeiculo(v));
+                        tfId.Text = id.ToString();
+
+                        pnPrincipal.Enabled = false;
+                        btnSalvar.Enabled = false;
+                        btnEditar.Enabled = true;
+                        btnInativar.Enabled = false;    
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Ocorreu um erro ao tentar executar sua solicitação.\n\n" + ex.Message);
+                    formPrincipal.adicionarControleNavegacao(null);
+                }  
+        }
+
+        private void cbEstado_EditValueChanged(object sender, EventArgs e)
+        {
+            bdgCidade.Clear();
+            if(cbEstado.EditValue != null){
+                bdgCidade.DataSource = conn.listaDeCidadesPorEstado(cbEstado.Text);
+            }
+        }
+
+        private void ckAgendarCad_CheckedChanged(object sender, EventArgs e)
+        {
+            if(ckAgendarCad.CheckState == CheckState.Checked){
+                tfDataAgendamento.EditValue = null;
+                tfDataAgendamento.Enabled = true;
+            }
+            else
+            {
+                tfDataAgendamento.EditValue = null;
+                tfDataAgendamento.Enabled = false;
+            }
+        }
+
+        void setValidations()
+        {
+            if(ckAgendarCad.CheckState == CheckState.Checked){
+                cVRDA = null;
+                cVRDA = new CustomValidationRuleDataAgendamento(this) { ErrorText = "Informe a data de agendamento.", ErrorType = ErrorType.Critical };
+                validator.SetValidationRule(tfDataAgendamento, cVRDA);
+            }
+            else
+            {
+                validator.SetValidationRule(tfDataAgendamento, null);
+            }
+        }
+
+        public class CustomValidationRuleDataAgendamento : ValidationRule, IDisposable
+        {
+            VeiculosForm form;
+            public void Dispose()
+            {
+                if (form != null)
+                {
+                    form.Dispose();
+                    form = null;
+                }
+            }
+            public CustomValidationRuleDataAgendamento(VeiculosForm _form)
+            {
+                form = _form;
+            }
+            public override bool Validate(Control control, object value)
+            {
+                string str = form.tfDataAgendamento.Text;
+                if(str == null || str == String.Empty){
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
+            }
+        }    
+
+        private void btnSair_Click(object sender, EventArgs e)
+        {
+            formPrincipal.adicionarControleNavegacao(null);
+        }
+
+        private void btnNovo_Click(object sender, EventArgs e)
+        {
+            formPrincipal.adicionarControleNavegacao(new VeiculosForm(null) { formPrincipal = formPrincipal });
+        }
+
+        private void VeiculosForm_Load(object sender, EventArgs e)
+        {
+            /*try
+            {
+                bdgCor.DataSource = new Cores().listaDeCores();
+                bdgCliente.DataSource = conn.listaDeClientesPorInatividade(false);                
+                bdgMarca.DataSource = conn.listaDeMarcas();
+                bdgEspecie.DataSource = conn.listaDeEspeciesVeiculos();
+                bdgEstado.DataSource = conn.listaDeEstados();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }*/
+        }
+
+        private void btnInativar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DialogResult rs = XtraMessageBox.Show("CONFIRMA INATIVAÇÃO DO VEICULO DE PLACA " + tfPlaca.Text + "?\n\nNÃO SERÁ POSSÍVEL REVERTER ESTA AÇÃO!",
+                    "SYSNORTE",
+                    MessageBoxButtons.OKCancel);
+                if (rs == DialogResult.OK)
+                {
+                    veiculo v = ((veiculo)bdgVeiculo.Current);
+                    v.inativo = true;
+                    v.data_inativacao = conn.retornaHoraLocal();
+                    long id = Convert.ToInt64(conn.salvarVeiculo(v));
+                    tfId.Text = id.ToString();
+
+                    pnPrincipal.Enabled = false;
+                    btnSalvar.Enabled = false;
+                    btnEditar.Enabled = false;
+                    btnInativar.Enabled = false;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ocorreu um erro ao tentar executar sua solicitação.\n\n" + ex.Message);
+                formPrincipal.adicionarControleNavegacao(null);
+            }
+        }
+    }
+}

@@ -1,0 +1,52 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HostWcfGrupo", "..\..\..\..\Programação\C#\Projetos\SysGrupo - Copia\HostWcfGrupo\HostWcfGrupo.csproj", "{6C38B9E4-D644-487C-9C21-00B44FD11B53}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RepositorioGrupo", "..\..\..\..\Programação\C#\Projetos\SysGrupo - Copia\RepositorioGrupo\RepositorioGrupo.csproj", "{70BA46A9-1743-4E93-A4D3-7B67FA822D00}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServicosSysFileManager", "..\..\..\..\Programação\C#\Projetos\SysGrupo - Copia\ServicosSysFileManager\ServicosSysFileManager.csproj", "{DB8C0E4E-C8EF-479B-AA2E-0FABD57944CB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SysFileManager", "..\..\..\..\Programação\C#\Projetos\SysGrupo - Copia\SysFileManager\SysFileManager.csproj", "{5297B720-4721-4563-B662-34D20151CF21}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SysNorteGrupo", "..\..\..\..\Programação\C#\Projetos\SysGrupo - Copia\SysNorteGrupo\SysNorteGrupo.csproj", "{E45C8EE3-E29C-4E74-8F9B-552EDF0B90F3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WcfLibGrupo", "..\..\..\..\Programação\C#\Projetos\SysGrupo - Copia\WcfLibGrupo\WcfLibGrupo.csproj", "{4E95265E-7C25-4F8B-A055-0AC97466B0E3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6C38B9E4-D644-487C-9C21-00B44FD11B53}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6C38B9E4-D644-487C-9C21-00B44FD11B53}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6C38B9E4-D644-487C-9C21-00B44FD11B53}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6C38B9E4-D644-487C-9C21-00B44FD11B53}.Release|Any CPU.Build.0 = Release|Any CPU
+		{70BA46A9-1743-4E93-A4D3-7B67FA822D00}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{70BA46A9-1743-4E93-A4D3-7B67FA822D00}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{70BA46A9-1743-4E93-A4D3-7B67FA822D00}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{70BA46A9-1743-4E93-A4D3-7B67FA822D00}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DB8C0E4E-C8EF-479B-AA2E-0FABD57944CB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB8C0E4E-C8EF-479B-AA2E-0FABD57944CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DB8C0E4E-C8EF-479B-AA2E-0FABD57944CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DB8C0E4E-C8EF-479B-AA2E-0FABD57944CB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5297B720-4721-4563-B662-34D20151CF21}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5297B720-4721-4563-B662-34D20151CF21}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5297B720-4721-4563-B662-34D20151CF21}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5297B720-4721-4563-B662-34D20151CF21}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E45C8EE3-E29C-4E74-8F9B-552EDF0B90F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E45C8EE3-E29C-4E74-8F9B-552EDF0B90F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E45C8EE3-E29C-4E74-8F9B-552EDF0B90F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E45C8EE3-E29C-4E74-8F9B-552EDF0B90F3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4E95265E-7C25-4F8B-A055-0AC97466B0E3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4E95265E-7C25-4F8B-A055-0AC97466B0E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4E95265E-7C25-4F8B-A055-0AC97466B0E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4E95265E-7C25-4F8B-A055-0AC97466B0E3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
