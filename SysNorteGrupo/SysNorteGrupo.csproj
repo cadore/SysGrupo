@@ -115,6 +115,18 @@
     <Compile Include="UI\Veiculos\BuscaVeiculoForm.Designer.cs">
       <DependentUpon>BuscaVeiculoForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Veiculos\Reboques\BuscaReboqueForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Veiculos\Reboques\BuscaReboqueForm.Designer.cs">
+      <DependentUpon>BuscaReboqueForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Veiculos\Reboques\ReboqueForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Veiculos\Reboques\ReboqueForm.Designer.cs">
+      <DependentUpon>ReboqueForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Veiculos\VeiculosForm.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -256,9 +268,7 @@
       <Name>WcfLibGrupo</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="UI\Veiculos\Reboques\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="Resources\save.png" />
     <None Include="Resources\edit.png" />
@@ -275,6 +285,7 @@
     <None Include="Resources\BO_User_32x32.png" />
     <None Include="Resources\reboque_48.png" />
     <None Include="Resources\veiculos_48.png" />
+    <None Include="Resources\Action_LinkUnlink_Link.png" />
     <Content Include="TODO.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

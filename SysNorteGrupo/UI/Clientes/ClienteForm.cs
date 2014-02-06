@@ -39,6 +39,7 @@ namespace SysNorteGrupo.UI.Clientes
 
             if(cliente_instc == null){
                 cliente_instc = new cliente() { isento_ICMS = false };
+                panelArquivos.Enabled = false;
             }
 
             bdgCliente.DataSource = cliente_instc;
@@ -103,6 +104,7 @@ namespace SysNorteGrupo.UI.Clientes
         private void btnEditar_Click(object sender, System.EventArgs e)
         {
             reabilitarPaineis(true);
+            panelArquivos.Enabled = true;
             btnSalvar.Enabled = true;
             btnEditar.Enabled = false;
         }
@@ -316,6 +318,8 @@ namespace SysNorteGrupo.UI.Clientes
             bdgEstados.DataSource = conn.listaDeEstados();
 
             reabilitarPaineis(false);
+
+            panelArquivos.Enabled = false;
 
             //limpar validações
             FieldInfo fi = typeof(DXValidationProvider).GetField("errorProvider", BindingFlags.NonPublic | BindingFlags.Instance);

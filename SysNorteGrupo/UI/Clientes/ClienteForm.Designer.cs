@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ClienteForm));
+            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule13 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule2 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule3 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
@@ -41,13 +42,13 @@
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule9 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule10 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule11 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
-            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule12 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             this.pnBotoes = new DevExpress.XtraEditors.PanelControl();
             this.btnSair = new SysNorteGrupo.Utils.BotaoSair();
             this.btnEditar = new SysNorteGrupo.Utils.BotaoEditar();
             this.btnSalvar = new SysNorteGrupo.Utils.BotaoEditar();
             this.btnNovo = new SysNorteGrupo.Utils.BotaoNovo();
             this.panelComponentes = new DevExpress.XtraEditors.PanelControl();
+            this.panelArquivos = new DevExpress.XtraEditors.PanelControl();
             this.panelReferencias = new DevExpress.XtraEditors.PanelControl();
             this.xtraTabControl1 = new DevExpress.XtraTab.XtraTabControl();
             this.xtraTabPage1 = new DevExpress.XtraTab.XtraTabPage();
@@ -136,6 +137,7 @@
             this.pnBotoes.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelComponentes)).BeginInit();
             this.panelComponentes.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panelArquivos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelReferencias)).BeginInit();
             this.panelReferencias.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).BeginInit();
@@ -273,6 +275,7 @@
             // 
             // panelComponentes
             // 
+            this.panelComponentes.Controls.Add(this.panelArquivos);
             this.panelComponentes.Controls.Add(this.panelReferencias);
             this.panelComponentes.Controls.Add(this.panelCadastro);
             this.panelComponentes.Controls.Add(this.grpTipo);
@@ -281,16 +284,23 @@
             this.panelComponentes.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelComponentes.Location = new System.Drawing.Point(0, 69);
             this.panelComponentes.Name = "panelComponentes";
-            this.panelComponentes.Size = new System.Drawing.Size(1083, 436);
+            this.panelComponentes.Size = new System.Drawing.Size(1083, 521);
             this.panelComponentes.TabIndex = 1;
+            // 
+            // panelArquivos
+            // 
+            this.panelArquivos.Location = new System.Drawing.Point(13, 315);
+            this.panelArquivos.Name = "panelArquivos";
+            this.panelArquivos.Size = new System.Drawing.Size(1058, 201);
+            this.panelArquivos.TabIndex = 9;
             // 
             // panelReferencias
             // 
             this.panelReferencias.Controls.Add(this.xtraTabControl1);
             this.panelReferencias.Enabled = false;
-            this.panelReferencias.Location = new System.Drawing.Point(13, 320);
+            this.panelReferencias.Location = new System.Drawing.Point(13, 244);
             this.panelReferencias.Name = "panelReferencias";
-            this.panelReferencias.Size = new System.Drawing.Size(1058, 103);
+            this.panelReferencias.Size = new System.Drawing.Size(1057, 70);
             this.panelReferencias.TabIndex = 8;
             // 
             // xtraTabControl1
@@ -298,7 +308,7 @@
             this.xtraTabControl1.Location = new System.Drawing.Point(5, 5);
             this.xtraTabControl1.Name = "xtraTabControl1";
             this.xtraTabControl1.SelectedTabPage = this.xtraTabPage1;
-            this.xtraTabControl1.Size = new System.Drawing.Size(1048, 95);
+            this.xtraTabControl1.Size = new System.Drawing.Size(1045, 64);
             this.xtraTabControl1.TabIndex = 0;
             this.xtraTabControl1.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.xtraTabPage1,
@@ -312,12 +322,12 @@
             this.xtraTabPage1.Controls.Add(this.tfRefcomercial);
             this.xtraTabPage1.Controls.Add(this.tfContcomercial);
             this.xtraTabPage1.Name = "xtraTabPage1";
-            this.xtraTabPage1.Size = new System.Drawing.Size(1042, 67);
+            this.xtraTabPage1.Size = new System.Drawing.Size(1039, 36);
             this.xtraTabPage1.Text = "REFERÊNCIA COMERCIAL";
             // 
             // labelControl16
             // 
-            this.labelControl16.Location = new System.Drawing.Point(15, 27);
+            this.labelControl16.Location = new System.Drawing.Point(15, 12);
             this.labelControl16.Name = "labelControl16";
             this.labelControl16.Size = new System.Drawing.Size(67, 13);
             this.labelControl16.TabIndex = 4;
@@ -325,7 +335,7 @@
             // 
             // labelControl15
             // 
-            this.labelControl15.Location = new System.Drawing.Point(563, 27);
+            this.labelControl15.Location = new System.Drawing.Point(563, 12);
             this.labelControl15.Name = "labelControl15";
             this.labelControl15.Size = new System.Drawing.Size(53, 13);
             this.labelControl15.TabIndex = 4;
@@ -334,7 +344,7 @@
             // tfRefcomercial
             // 
             this.tfRefcomercial.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdgCliente, "referencia_comercial", true));
-            this.tfRefcomercial.Location = new System.Drawing.Point(88, 24);
+            this.tfRefcomercial.Location = new System.Drawing.Point(88, 9);
             this.tfRefcomercial.Name = "tfRefcomercial";
             this.tfRefcomercial.Size = new System.Drawing.Size(469, 20);
             this.tfRefcomercial.TabIndex = 0;
@@ -346,7 +356,7 @@
             // tfContcomercial
             // 
             this.tfContcomercial.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdgCliente, "contato_referencia_comercial", true));
-            this.tfContcomercial.Location = new System.Drawing.Point(622, 24);
+            this.tfContcomercial.Location = new System.Drawing.Point(622, 9);
             this.tfContcomercial.Name = "tfContcomercial";
             this.tfContcomercial.Properties.Mask.EditMask = "(99)0000-0000";
             this.tfContcomercial.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Simple;
@@ -360,12 +370,12 @@
             this.xtraTabPage2.Controls.Add(this.tfRefservicos);
             this.xtraTabPage2.Controls.Add(this.tfContservicos);
             this.xtraTabPage2.Name = "xtraTabPage2";
-            this.xtraTabPage2.Size = new System.Drawing.Size(1042, 67);
+            this.xtraTabPage2.Size = new System.Drawing.Size(1039, 36);
             this.xtraTabPage2.Text = "REFERÊNCIA DE SERVIÇOS";
             // 
             // labelControl17
             // 
-            this.labelControl17.Location = new System.Drawing.Point(15, 27);
+            this.labelControl17.Location = new System.Drawing.Point(15, 12);
             this.labelControl17.Name = "labelControl17";
             this.labelControl17.Size = new System.Drawing.Size(67, 13);
             this.labelControl17.TabIndex = 7;
@@ -373,7 +383,7 @@
             // 
             // labelControl18
             // 
-            this.labelControl18.Location = new System.Drawing.Point(563, 27);
+            this.labelControl18.Location = new System.Drawing.Point(563, 12);
             this.labelControl18.Name = "labelControl18";
             this.labelControl18.Size = new System.Drawing.Size(53, 13);
             this.labelControl18.TabIndex = 8;
@@ -382,7 +392,7 @@
             // tfRefservicos
             // 
             this.tfRefservicos.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdgCliente, "referencia_de_servico", true));
-            this.tfRefservicos.Location = new System.Drawing.Point(88, 24);
+            this.tfRefservicos.Location = new System.Drawing.Point(88, 9);
             this.tfRefservicos.Name = "tfRefservicos";
             this.tfRefservicos.Size = new System.Drawing.Size(469, 20);
             this.tfRefservicos.TabIndex = 5;
@@ -390,7 +400,7 @@
             // tfContservicos
             // 
             this.tfContservicos.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdgCliente, "contato_referencia_de_servico", true));
-            this.tfContservicos.Location = new System.Drawing.Point(622, 24);
+            this.tfContservicos.Location = new System.Drawing.Point(622, 9);
             this.tfContservicos.Name = "tfContservicos";
             this.tfContservicos.Properties.Mask.EditMask = "(99)0000-0000";
             this.tfContservicos.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Simple;
@@ -404,12 +414,12 @@
             this.xtraTabPage3.Controls.Add(this.tfReftransporte);
             this.xtraTabPage3.Controls.Add(this.tfConttransporte);
             this.xtraTabPage3.Name = "xtraTabPage3";
-            this.xtraTabPage3.Size = new System.Drawing.Size(1042, 67);
+            this.xtraTabPage3.Size = new System.Drawing.Size(1039, 36);
             this.xtraTabPage3.Text = "REFERÊNCIA DE TRANSPORTE";
             // 
             // labelControl19
             // 
-            this.labelControl19.Location = new System.Drawing.Point(15, 27);
+            this.labelControl19.Location = new System.Drawing.Point(15, 12);
             this.labelControl19.Name = "labelControl19";
             this.labelControl19.Size = new System.Drawing.Size(67, 13);
             this.labelControl19.TabIndex = 11;
@@ -417,7 +427,7 @@
             // 
             // labelControl20
             // 
-            this.labelControl20.Location = new System.Drawing.Point(563, 27);
+            this.labelControl20.Location = new System.Drawing.Point(563, 12);
             this.labelControl20.Name = "labelControl20";
             this.labelControl20.Size = new System.Drawing.Size(53, 13);
             this.labelControl20.TabIndex = 12;
@@ -426,7 +436,7 @@
             // tfReftransporte
             // 
             this.tfReftransporte.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdgCliente, "referencia_de_transporte", true));
-            this.tfReftransporte.Location = new System.Drawing.Point(88, 24);
+            this.tfReftransporte.Location = new System.Drawing.Point(88, 9);
             this.tfReftransporte.Name = "tfReftransporte";
             this.tfReftransporte.Size = new System.Drawing.Size(469, 20);
             this.tfReftransporte.TabIndex = 9;
@@ -434,7 +444,7 @@
             // tfConttransporte
             // 
             this.tfConttransporte.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdgCliente, "contato_referencia_de_transporte", true));
-            this.tfConttransporte.Location = new System.Drawing.Point(622, 24);
+            this.tfConttransporte.Location = new System.Drawing.Point(622, 9);
             this.tfConttransporte.Name = "tfConttransporte";
             this.tfConttransporte.Properties.Mask.EditMask = "(99)0000-0000";
             this.tfConttransporte.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Simple;
@@ -446,9 +456,9 @@
             this.panelCadastro.Controls.Add(this.grpEndereco);
             this.panelCadastro.Controls.Add(this.grpContato);
             this.panelCadastro.Controls.Add(this.grpInfoBasica);
-            this.panelCadastro.Location = new System.Drawing.Point(13, 46);
+            this.panelCadastro.Location = new System.Drawing.Point(13, 35);
             this.panelCadastro.Name = "panelCadastro";
-            this.panelCadastro.Size = new System.Drawing.Size(1058, 268);
+            this.panelCadastro.Size = new System.Drawing.Size(1057, 206);
             this.panelCadastro.TabIndex = 7;
             // 
             // grpEndereco
@@ -473,22 +483,28 @@
             this.grpEndereco.Controls.Add(this.labelControl10);
             this.grpEndereco.Controls.Add(this.labelControl22);
             this.grpEndereco.Controls.Add(this.labelControl8);
-            this.grpEndereco.Location = new System.Drawing.Point(585, 5);
+            this.grpEndereco.Location = new System.Drawing.Point(582, 5);
             this.grpEndereco.Name = "grpEndereco";
-            this.grpEndereco.Size = new System.Drawing.Size(468, 256);
+            this.grpEndereco.Size = new System.Drawing.Size(468, 195);
             this.grpEndereco.TabIndex = 2;
             this.grpEndereco.Text = "INFORMAÇÕES DE ENDEREÇO";
             // 
             // simpleButton2
             // 
-            this.simpleButton2.Location = new System.Drawing.Point(427, 108);
+            this.simpleButton2.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
+            this.simpleButton2.Image = global::SysNorteGrupo.Properties.Resources.Action_LinkUnlink_Link;
+            this.simpleButton2.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+            this.simpleButton2.Location = new System.Drawing.Point(426, 70);
             this.simpleButton2.Name = "simpleButton2";
             this.simpleButton2.Size = new System.Drawing.Size(30, 19);
             this.simpleButton2.TabIndex = 7;
             // 
             // simpleButton1
             // 
-            this.simpleButton1.Location = new System.Drawing.Point(427, 82);
+            this.simpleButton1.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
+            this.simpleButton1.Image = global::SysNorteGrupo.Properties.Resources.Action_LinkUnlink_Link;
+            this.simpleButton1.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+            this.simpleButton1.Location = new System.Drawing.Point(426, 47);
             this.simpleButton1.Name = "simpleButton1";
             this.simpleButton1.Size = new System.Drawing.Size(30, 19);
             this.simpleButton1.TabIndex = 7;
@@ -496,16 +512,16 @@
             // tfObservacoes
             // 
             this.tfObservacoes.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdgCliente, "observacoes", true));
-            this.tfObservacoes.Location = new System.Drawing.Point(72, 186);
+            this.tfObservacoes.Location = new System.Drawing.Point(71, 139);
             this.tfObservacoes.Name = "tfObservacoes";
-            this.tfObservacoes.Size = new System.Drawing.Size(385, 60);
+            this.tfObservacoes.Size = new System.Drawing.Size(385, 51);
             this.tfObservacoes.TabIndex = 6;
             this.tfObservacoes.UseOptimizedRendering = true;
             // 
             // cbEndereco
             // 
             this.cbEndereco.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdgCliente, "id_enderecos", true));
-            this.cbEndereco.Location = new System.Drawing.Point(72, 108);
+            this.cbEndereco.Location = new System.Drawing.Point(71, 70);
             this.cbEndereco.Name = "cbEndereco";
             this.cbEndereco.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -516,10 +532,10 @@
             this.cbEndereco.Properties.View = this.gridView2;
             this.cbEndereco.Size = new System.Drawing.Size(349, 20);
             this.cbEndereco.TabIndex = 2;
-            conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.Greater;
-            conditionValidationRule1.ErrorText = "Informe um endereço";
-            conditionValidationRule1.Value1 = 0;
-            this.validador.SetValidationRule(this.cbEndereco, conditionValidationRule1);
+            conditionValidationRule13.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.Greater;
+            conditionValidationRule13.ErrorText = "Informe um endereço";
+            conditionValidationRule13.Value1 = 0;
+            this.validador.SetValidationRule(this.cbEndereco, conditionValidationRule13);
             this.cbEndereco.EditValueChanged += new System.EventHandler(this.cbEndereco_EditValueChanged);
             // 
             // bdgEnderecos
@@ -580,7 +596,7 @@
             // cbBairro
             // 
             this.cbBairro.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdgCliente, "id_bairros", true));
-            this.cbBairro.Location = new System.Drawing.Point(72, 82);
+            this.cbBairro.Location = new System.Drawing.Point(71, 47);
             this.cbBairro.Name = "cbBairro";
             this.cbBairro.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -591,10 +607,10 @@
             this.cbBairro.Properties.View = this.gridView1;
             this.cbBairro.Size = new System.Drawing.Size(349, 20);
             this.cbBairro.TabIndex = 1;
-            conditionValidationRule2.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.Greater;
-            conditionValidationRule2.ErrorText = "Selecione um bairro para o endereço";
-            conditionValidationRule2.Value1 = 0;
-            this.validador.SetValidationRule(this.cbBairro, conditionValidationRule2);
+            conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.Greater;
+            conditionValidationRule1.ErrorText = "Selecione um bairro para o endereço";
+            conditionValidationRule1.Value1 = 0;
+            this.validador.SetValidationRule(this.cbBairro, conditionValidationRule1);
             // 
             // bdgBairros
             // 
@@ -635,7 +651,7 @@
             // tfComplemento
             // 
             this.tfComplemento.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdgCliente, "complemento", true));
-            this.tfComplemento.Location = new System.Drawing.Point(72, 160);
+            this.tfComplemento.Location = new System.Drawing.Point(71, 116);
             this.tfComplemento.Name = "tfComplemento";
             this.tfComplemento.Size = new System.Drawing.Size(385, 20);
             this.tfComplemento.TabIndex = 5;
@@ -643,31 +659,32 @@
             // tfCep
             // 
             this.tfCep.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdgCliente, "cep", true));
-            this.tfCep.Location = new System.Drawing.Point(291, 134);
+            this.tfCep.Location = new System.Drawing.Point(290, 93);
             this.tfCep.Name = "tfCep";
             this.tfCep.Properties.Mask.EditMask = "99999-999";
             this.tfCep.Properties.ReadOnly = true;
             this.tfCep.Size = new System.Drawing.Size(166, 20);
             this.tfCep.TabIndex = 4;
-            conditionValidationRule3.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule3.ErrorText = "Informe o CEP";
-            this.validador.SetValidationRule(this.tfCep, conditionValidationRule3);
+            conditionValidationRule2.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule2.ErrorText = "Informe o CEP";
+            this.validador.SetValidationRule(this.tfCep, conditionValidationRule2);
             // 
             // tfNumero
             // 
             this.tfNumero.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdgCliente, "numero", true));
-            this.tfNumero.Location = new System.Drawing.Point(72, 134);
+            this.tfNumero.Location = new System.Drawing.Point(71, 93);
             this.tfNumero.Name = "tfNumero";
             this.tfNumero.Size = new System.Drawing.Size(174, 20);
             this.tfNumero.TabIndex = 3;
-            conditionValidationRule4.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule4.ErrorText = "Informe o número do endereço";
-            this.validador.SetValidationRule(this.tfNumero, conditionValidationRule4);
+            conditionValidationRule3.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule3.ErrorText = "Informe o número do endereço";
+            this.validador.SetValidationRule(this.tfNumero, conditionValidationRule3);
             // 
             // cbEstados
             // 
+            this.cbEstados.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdgCliente, "id_estados", true));
             this.cbEstados.EditValue = "";
-            this.cbEstados.Location = new System.Drawing.Point(72, 30);
+            this.cbEstados.Location = new System.Drawing.Point(71, 24);
             this.cbEstados.Name = "cbEstados";
             this.cbEstados.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -676,11 +693,11 @@
             this.cbEstados.Properties.NullText = "";
             this.cbEstados.Properties.ValueMember = "id";
             this.cbEstados.Properties.View = this.gridView3;
-            this.cbEstados.Size = new System.Drawing.Size(174, 20);
+            this.cbEstados.Size = new System.Drawing.Size(62, 20);
             this.cbEstados.TabIndex = 0;
-            conditionValidationRule5.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule5.ErrorText = "Selecione um estado para o endereço";
-            this.validador.SetValidationRule(this.cbEstados, conditionValidationRule5);
+            conditionValidationRule4.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule4.ErrorText = "Selecione um estado para o endereço";
+            this.validador.SetValidationRule(this.cbEstados, conditionValidationRule4);
             this.cbEstados.EditValueChanged += new System.EventHandler(this.cbEstados_EditValueChanged);
             // 
             // bdgEstados
@@ -735,7 +752,7 @@
             // 
             this.cbCidade.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdgCliente, "id_cidades", true));
             this.cbCidade.EditValue = "";
-            this.cbCidade.Location = new System.Drawing.Point(72, 56);
+            this.cbCidade.Location = new System.Drawing.Point(188, 24);
             this.cbCidade.Name = "cbCidade";
             this.cbCidade.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -744,12 +761,12 @@
             this.cbCidade.Properties.NullText = "";
             this.cbCidade.Properties.ValueMember = "id";
             this.cbCidade.Properties.View = this.searchLookUpEdit1View;
-            this.cbCidade.Size = new System.Drawing.Size(385, 20);
+            this.cbCidade.Size = new System.Drawing.Size(268, 20);
             this.cbCidade.TabIndex = 0;
-            conditionValidationRule6.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.Greater;
-            conditionValidationRule6.ErrorText = "Selecione uma cidade para o endereço";
-            conditionValidationRule6.Value1 = 0;
-            this.validador.SetValidationRule(this.cbCidade, conditionValidationRule6);
+            conditionValidationRule5.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.Greater;
+            conditionValidationRule5.ErrorText = "Selecione uma cidade para o endereço";
+            conditionValidationRule5.Value1 = 0;
+            this.validador.SetValidationRule(this.cbCidade, conditionValidationRule5);
             this.cbCidade.EditValueChanged += new System.EventHandler(this.cbCidade_EditValueChanged);
             // 
             // bdgCidades
@@ -804,7 +821,7 @@
             // 
             // labelControl21
             // 
-            this.labelControl21.Location = new System.Drawing.Point(38, 188);
+            this.labelControl21.Location = new System.Drawing.Point(37, 141);
             this.labelControl21.Name = "labelControl21";
             this.labelControl21.Size = new System.Drawing.Size(28, 13);
             this.labelControl21.TabIndex = 4;
@@ -812,7 +829,7 @@
             // 
             // labelControl13
             // 
-            this.labelControl13.Location = new System.Drawing.Point(29, 163);
+            this.labelControl13.Location = new System.Drawing.Point(28, 119);
             this.labelControl13.Name = "labelControl13";
             this.labelControl13.Size = new System.Drawing.Size(37, 13);
             this.labelControl13.TabIndex = 4;
@@ -820,7 +837,7 @@
             // 
             // labelControl14
             // 
-            this.labelControl14.Location = new System.Drawing.Point(262, 137);
+            this.labelControl14.Location = new System.Drawing.Point(261, 96);
             this.labelControl14.Name = "labelControl14";
             this.labelControl14.Size = new System.Drawing.Size(23, 13);
             this.labelControl14.TabIndex = 4;
@@ -828,7 +845,7 @@
             // 
             // labelControl12
             // 
-            this.labelControl12.Location = new System.Drawing.Point(50, 137);
+            this.labelControl12.Location = new System.Drawing.Point(49, 96);
             this.labelControl12.Name = "labelControl12";
             this.labelControl12.Size = new System.Drawing.Size(16, 13);
             this.labelControl12.TabIndex = 4;
@@ -836,7 +853,7 @@
             // 
             // labelControl11
             // 
-            this.labelControl11.Location = new System.Drawing.Point(8, 111);
+            this.labelControl11.Location = new System.Drawing.Point(7, 73);
             this.labelControl11.Name = "labelControl11";
             this.labelControl11.Size = new System.Drawing.Size(58, 13);
             this.labelControl11.TabIndex = 4;
@@ -844,7 +861,7 @@
             // 
             // labelControl10
             // 
-            this.labelControl10.Location = new System.Drawing.Point(23, 85);
+            this.labelControl10.Location = new System.Drawing.Point(22, 50);
             this.labelControl10.Name = "labelControl10";
             this.labelControl10.Size = new System.Drawing.Size(43, 13);
             this.labelControl10.TabIndex = 4;
@@ -852,7 +869,7 @@
             // 
             // labelControl22
             // 
-            this.labelControl22.Location = new System.Drawing.Point(22, 33);
+            this.labelControl22.Location = new System.Drawing.Point(21, 27);
             this.labelControl22.Name = "labelControl22";
             this.labelControl22.Size = new System.Drawing.Size(44, 13);
             this.labelControl22.TabIndex = 4;
@@ -860,7 +877,7 @@
             // 
             // labelControl8
             // 
-            this.labelControl8.Location = new System.Drawing.Point(24, 59);
+            this.labelControl8.Location = new System.Drawing.Point(139, 27);
             this.labelControl8.Name = "labelControl8";
             this.labelControl8.Size = new System.Drawing.Size(42, 13);
             this.labelControl8.TabIndex = 4;
@@ -878,15 +895,15 @@
             this.grpContato.Controls.Add(this.tfEmailPrincipal);
             this.grpContato.Controls.Add(this.tfTelCelular);
             this.grpContato.Controls.Add(this.tfTelFixo);
-            this.grpContato.Location = new System.Drawing.Point(5, 122);
+            this.grpContato.Location = new System.Drawing.Point(5, 104);
             this.grpContato.Name = "grpContato";
-            this.grpContato.Size = new System.Drawing.Size(574, 139);
+            this.grpContato.Size = new System.Drawing.Size(574, 96);
             this.grpContato.TabIndex = 1;
             this.grpContato.Text = "INFORMAÇÕES DE CONTATO";
             // 
             // labelControl7
             // 
-            this.labelControl7.Location = new System.Drawing.Point(14, 112);
+            this.labelControl7.Location = new System.Drawing.Point(14, 73);
             this.labelControl7.Name = "labelControl7";
             this.labelControl7.Size = new System.Drawing.Size(103, 13);
             this.labelControl7.TabIndex = 4;
@@ -894,7 +911,7 @@
             // 
             // labelControl4
             // 
-            this.labelControl4.Location = new System.Drawing.Point(27, 86);
+            this.labelControl4.Location = new System.Drawing.Point(27, 50);
             this.labelControl4.Name = "labelControl4";
             this.labelControl4.Size = new System.Drawing.Size(90, 13);
             this.labelControl4.TabIndex = 4;
@@ -902,7 +919,7 @@
             // 
             // labelControl6
             // 
-            this.labelControl6.Location = new System.Drawing.Point(16, 60);
+            this.labelControl6.Location = new System.Drawing.Point(301, 27);
             this.labelControl6.Name = "labelControl6";
             this.labelControl6.Size = new System.Drawing.Size(101, 13);
             this.labelControl6.TabIndex = 4;
@@ -910,7 +927,7 @@
             // 
             // labelControl5
             // 
-            this.labelControl5.Location = new System.Drawing.Point(36, 34);
+            this.labelControl5.Location = new System.Drawing.Point(36, 27);
             this.labelControl5.Name = "labelControl5";
             this.labelControl5.Size = new System.Drawing.Size(81, 13);
             this.labelControl5.TabIndex = 4;
@@ -919,7 +936,7 @@
             // tfEmailSecundario
             // 
             this.tfEmailSecundario.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdgCliente, "email_secundario", true));
-            this.tfEmailSecundario.Location = new System.Drawing.Point(122, 109);
+            this.tfEmailSecundario.Location = new System.Drawing.Point(122, 70);
             this.tfEmailSecundario.Name = "tfEmailSecundario";
             this.tfEmailSecundario.Properties.Mask.EditMask = "\\w+([\\.-]?\\w+)*@\\w+([\\.-]?\\w+)*(\\.\\w{1,3})+";
             this.tfEmailSecundario.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
@@ -929,42 +946,42 @@
             // tfEmailPrincipal
             // 
             this.tfEmailPrincipal.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdgCliente, "email_principal", true));
-            this.tfEmailPrincipal.Location = new System.Drawing.Point(122, 83);
+            this.tfEmailPrincipal.Location = new System.Drawing.Point(122, 47);
             this.tfEmailPrincipal.Name = "tfEmailPrincipal";
             this.tfEmailPrincipal.Properties.Mask.EditMask = "\\w+([\\.-]?\\w+)*@\\w+([\\.-]?\\w+)*(\\.\\w{1,3})+";
             this.tfEmailPrincipal.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
             this.tfEmailPrincipal.Size = new System.Drawing.Size(443, 20);
             this.tfEmailPrincipal.TabIndex = 2;
-            conditionValidationRule7.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule7.ErrorText = "Informe o Email principal";
-            this.validador.SetValidationRule(this.tfEmailPrincipal, conditionValidationRule7);
+            conditionValidationRule6.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule6.ErrorText = "Informe o Email principal";
+            this.validador.SetValidationRule(this.tfEmailPrincipal, conditionValidationRule6);
             // 
             // tfTelCelular
             // 
             this.tfTelCelular.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdgCliente, "telefone_celular", true));
-            this.tfTelCelular.Location = new System.Drawing.Point(122, 57);
+            this.tfTelCelular.Location = new System.Drawing.Point(408, 24);
             this.tfTelCelular.Name = "tfTelCelular";
             this.tfTelCelular.Properties.Mask.EditMask = "(\\(11\\)[9][0-9]{4}-[0-9]{4})|(\\(1[2-9]\\) [5-9][0-9]{3}-[0-9]{4})|(\\([2-9][1-9]\\) " +
     "[5-9][0-9]{3}-[0-9]{4})";
             this.tfTelCelular.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
-            this.tfTelCelular.Size = new System.Drawing.Size(274, 20);
+            this.tfTelCelular.Size = new System.Drawing.Size(157, 20);
             this.tfTelCelular.TabIndex = 1;
-            conditionValidationRule8.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule8.ErrorText = "Informe o contato de telefone celular";
-            this.validador.SetValidationRule(this.tfTelCelular, conditionValidationRule8);
+            conditionValidationRule7.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule7.ErrorText = "Informe o contato de telefone celular";
+            this.validador.SetValidationRule(this.tfTelCelular, conditionValidationRule7);
             // 
             // tfTelFixo
             // 
             this.tfTelFixo.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdgCliente, "telefone_fixo", true));
-            this.tfTelFixo.Location = new System.Drawing.Point(122, 31);
+            this.tfTelFixo.Location = new System.Drawing.Point(122, 24);
             this.tfTelFixo.Name = "tfTelFixo";
             this.tfTelFixo.Properties.Mask.EditMask = "(99)0000-0000";
             this.tfTelFixo.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Simple;
-            this.tfTelFixo.Size = new System.Drawing.Size(274, 20);
+            this.tfTelFixo.Size = new System.Drawing.Size(157, 20);
             this.tfTelFixo.TabIndex = 0;
-            conditionValidationRule9.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule9.ErrorText = "Informe o contato de telefone fixo";
-            this.validador.SetValidationRule(this.tfTelFixo, conditionValidationRule9);
+            conditionValidationRule8.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule8.ErrorText = "Informe o contato de telefone fixo";
+            this.validador.SetValidationRule(this.tfTelFixo, conditionValidationRule8);
             // 
             // grpInfoBasica
             // 
@@ -979,13 +996,13 @@
             this.grpInfoBasica.Controls.Add(this.labelControl2);
             this.grpInfoBasica.Location = new System.Drawing.Point(5, 5);
             this.grpInfoBasica.Name = "grpInfoBasica";
-            this.grpInfoBasica.Size = new System.Drawing.Size(574, 112);
+            this.grpInfoBasica.Size = new System.Drawing.Size(574, 96);
             this.grpInfoBasica.TabIndex = 0;
             this.grpInfoBasica.Text = "INFORMAÇÕES BÁSICAS";
             // 
             // labelControl1
             // 
-            this.labelControl1.Location = new System.Drawing.Point(27, 33);
+            this.labelControl1.Location = new System.Drawing.Point(27, 27);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(90, 13);
             this.labelControl1.TabIndex = 4;
@@ -994,7 +1011,7 @@
             // ckIsento
             // 
             this.ckIsento.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdgCliente, "isento_ICMS", true));
-            this.ckIsento.Location = new System.Drawing.Point(402, 82);
+            this.ckIsento.Location = new System.Drawing.Point(402, 70);
             this.ckIsento.Name = "ckIsento";
             this.ckIsento.Properties.Caption = "ISENTO INSC. ESTADUAL";
             this.ckIsento.Size = new System.Drawing.Size(167, 19);
@@ -1004,36 +1021,36 @@
             // tfNome
             // 
             this.tfNome.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdgCliente, "nome_completo", true));
-            this.tfNome.Location = new System.Drawing.Point(122, 30);
+            this.tfNome.Location = new System.Drawing.Point(122, 24);
             this.tfNome.Name = "tfNome";
             this.tfNome.Size = new System.Drawing.Size(443, 20);
             this.tfNome.TabIndex = 0;
-            conditionValidationRule10.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule10.ErrorText = "Informe o nome completo";
-            this.validador.SetValidationRule(this.tfNome, conditionValidationRule10);
+            conditionValidationRule9.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule9.ErrorText = "Informe o nome completo";
+            this.validador.SetValidationRule(this.tfNome, conditionValidationRule9);
             // 
             // tfDocumento
             // 
             this.tfDocumento.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdgCliente, "documento", true));
-            this.tfDocumento.Location = new System.Drawing.Point(122, 56);
+            this.tfDocumento.Location = new System.Drawing.Point(122, 47);
             this.tfDocumento.Name = "tfDocumento";
             this.tfDocumento.Size = new System.Drawing.Size(274, 20);
             this.tfDocumento.TabIndex = 1;
-            conditionValidationRule11.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule11.ErrorText = "Informe o cpf/cnpj do cliente";
-            this.validador.SetValidationRule(this.tfDocumento, conditionValidationRule11);
+            conditionValidationRule10.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule10.ErrorText = "Informe o cpf/cnpj do cliente";
+            this.validador.SetValidationRule(this.tfDocumento, conditionValidationRule10);
             // 
             // tfInscricao
             // 
             this.tfInscricao.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdgCliente, "inscricao_rg", true));
-            this.tfInscricao.Location = new System.Drawing.Point(122, 82);
+            this.tfInscricao.Location = new System.Drawing.Point(122, 70);
             this.tfInscricao.Name = "tfInscricao";
             this.tfInscricao.Size = new System.Drawing.Size(274, 20);
             this.tfInscricao.TabIndex = 2;
             // 
             // labelControl3
             // 
-            this.labelControl3.Location = new System.Drawing.Point(7, 85);
+            this.labelControl3.Location = new System.Drawing.Point(7, 73);
             this.labelControl3.Name = "labelControl3";
             this.labelControl3.Size = new System.Drawing.Size(110, 13);
             this.labelControl3.TabIndex = 4;
@@ -1041,7 +1058,7 @@
             // 
             // labelControl2
             // 
-            this.labelControl2.Location = new System.Drawing.Point(65, 59);
+            this.labelControl2.Location = new System.Drawing.Point(65, 50);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(52, 13);
             this.labelControl2.TabIndex = 4;
@@ -1049,22 +1066,22 @@
             // 
             // grpTipo
             // 
-            this.grpTipo.Location = new System.Drawing.Point(370, 11);
+            this.grpTipo.Location = new System.Drawing.Point(370, 4);
             this.grpTipo.Name = "grpTipo";
             this.grpTipo.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
             new DevExpress.XtraEditors.Controls.RadioGroupItem('f', "Pessoa Física"),
             new DevExpress.XtraEditors.Controls.RadioGroupItem('j', "Pessoa Jurídica")});
             this.grpTipo.Size = new System.Drawing.Size(222, 29);
             this.grpTipo.TabIndex = 0;
-            conditionValidationRule12.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule12.ErrorText = "Selecione o tipo de pessoa";
-            this.validador.SetValidationRule(this.grpTipo, conditionValidationRule12);
+            conditionValidationRule11.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule11.ErrorText = "Selecione o tipo de pessoa";
+            this.validador.SetValidationRule(this.grpTipo, conditionValidationRule11);
             this.grpTipo.SelectedIndexChanged += new System.EventHandler(this.grpTipo_SelectedIndexChanged);
             // 
             // tfId
             // 
             this.tfId.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdgCliente, "id", true));
-            this.tfId.Location = new System.Drawing.Point(97, 16);
+            this.tfId.Location = new System.Drawing.Point(97, 9);
             this.tfId.Name = "tfId";
             this.tfId.Properties.Mask.EditMask = "(\\(11\\)[9][0-9]{4}-[0-9]{4})|(\\(1[2-9]\\) [5-9][0-9]{3}-[0-9]{4})|(\\([2-9][1-9]\\) " +
     "[5-9][0-9]{3}-[0-9]{4})";
@@ -1076,7 +1093,7 @@
             // 
             // labelControl9
             // 
-            this.labelControl9.Location = new System.Drawing.Point(14, 19);
+            this.labelControl9.Location = new System.Drawing.Point(14, 12);
             this.labelControl9.Name = "labelControl9";
             this.labelControl9.Size = new System.Drawing.Size(74, 13);
             this.labelControl9.TabIndex = 2;
@@ -1093,13 +1110,14 @@
             this.Controls.Add(this.panelComponentes);
             this.Controls.Add(this.pnBotoes);
             this.Name = "ClienteForm";
-            this.Size = new System.Drawing.Size(1083, 505);
+            this.Size = new System.Drawing.Size(1083, 590);
             this.Load += new System.EventHandler(this.ClienteForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pnBotoes)).EndInit();
             this.pnBotoes.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.panelComponentes)).EndInit();
             this.panelComponentes.ResumeLayout(false);
             this.panelComponentes.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panelArquivos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelReferencias)).EndInit();
             this.panelReferencias.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).EndInit();
@@ -1251,5 +1269,6 @@
         private Utils.BotaoSair btnSair;
         private Utils.BotaoEditar btnEditar;
         private Utils.BotaoEditar btnSalvar;
+        private DevExpress.XtraEditors.PanelControl panelArquivos;
     }
 }

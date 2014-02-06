@@ -124,7 +124,7 @@ namespace SysNorteGrupo.UI.Clientes
         {
             cliente cli = (cliente) bindingSource.Current;
 
-            MessageBox.Show(cli.id.ToString());
+            //MessageBox.Show(cli.id.ToString());
 
             ClienteForm cf = new ClienteForm(cli) { formPrincipal = formPrincipal };
             formPrincipal.adicionarControleNavegacao(cf);
