@@ -600,12 +600,16 @@ namespace EntitiesGrupo
 
 
 
+        [Column]
+        public string uf_estado { get; set; }
+
+
+
         public decimal cotas { get; set; }
 
 
 
         public decimal valor_total { get; set; }
-
 
 
 	}
@@ -1103,6 +1107,8 @@ namespace EntitiesGrupo
         [Column] public string uf_estado { get; set; }
 
         [Column] public long id_veiculo { get; set; }
+
+        [Column] public int ordem { get; set; }
 
         public string nome_cliente { get; set; }
 

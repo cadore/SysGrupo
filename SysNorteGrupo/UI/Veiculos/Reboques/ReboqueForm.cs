@@ -60,7 +60,7 @@ namespace SysNorteGrupo.UI.Veiculos.Reboques
                     tfDataAgendamento.EditValue = reboque_instc.data_ativacao;
                     bdgCidade.DataSource = conn.listaDeCidadesPorEstado(reboque_instc.uf_estado);
 
-                    arquivosFormReb.DIRETORIO = String.Format(@"{0}{1}\", ArquivosForm.SUBDIR_REBOQUES, reboque_instc.id);
+                    arquivosFormReb.DIRETORIO = String.Format(@"{0}{1}\", conn.SUBDIR_REBOQUES(), reboque_instc.id);
                 }
 
                 bdgReboque.DataSource = (reboque)reboque_instc;
