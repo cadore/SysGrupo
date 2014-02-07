@@ -84,7 +84,7 @@ namespace SysNorteGrupo.UI.Clientes
 
                 panelArquivos.Enabled = true;
 
-                arquivosFormCli.DIRETORIO = String.Format(@"{0}{1}\", ArquivosForm.SUBDIR_CLIENTES, cliente_instc.id);
+                arquivosFormCli.DIRETORIO = String.Format(@"{0}{1}\", conn.SUBDIR_CLIENTES(), cliente_instc.id);
 
                 //carregar cidades pelo estado, bairros endereços
                 try

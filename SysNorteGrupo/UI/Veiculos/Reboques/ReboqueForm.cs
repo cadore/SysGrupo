@@ -150,7 +150,7 @@ namespace SysNorteGrupo.UI.Veiculos.Reboques
                 {
                     reboque r = ((reboque)bdgReboque.Current);
                     r.inativo = true;
-                    r.data_inativacao = conn.retornaHoraLocal();
+                    r.data_inativacao = conn.retornaDataHoraLocal();
                     tfId.Text = Convert.ToInt64(conn.salvarReboque(r)).ToString();
 
                     pnInformacoes.Enabled = false;
@@ -218,7 +218,7 @@ namespace SysNorteGrupo.UI.Veiculos.Reboques
                     reboque r = ((reboque)bdgReboque.Current);
                     //v.cor_predominante = cbCor.EditValue.ToString();
 
-                    DateTime dataAtiv = conn.retornaHoraLocal().Date.AddDays(1);
+                    DateTime dataAtiv = conn.retornaDataHoraLocal().Date.AddDays(1);
                     if (ckAgendarCad.CheckState == CheckState.Checked)
                     {
                         dataAtiv = tfDataAgendamento.DateTime;
@@ -227,7 +227,7 @@ namespace SysNorteGrupo.UI.Veiculos.Reboques
                     {
                         r.data_ativacao = dataAtiv;
                         r.inativo = false;
-                        r.data_cadastro = conn.retornaHoraLocal();
+                        r.data_cadastro = conn.retornaDataHoraLocal();
                     }
 
                     tfId.Text = Convert.ToInt64(conn.salvarReboque(r)).ToString();
