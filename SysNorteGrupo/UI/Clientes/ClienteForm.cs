@@ -2,9 +2,9 @@
 using DevExpress.XtraEditors.DXErrorProvider;
 using DevExpress.XtraTab;
 using EntitiesGrupo;
+using SysFileManager;
 using SysNorteGrupo.Utils;
 using System;
-using System.Collections.Generic;
 using System.Drawing;
 using System.Reflection;
 using System.Windows.Forms;
@@ -27,6 +27,9 @@ namespace SysNorteGrupo.UI.Clientes
             InitializeComponent();
 
             conn = GerenteDeConexoes.iniciaConexao();
+
+            arquivosFormCli.conn = conn;
+
             //recuperar estados
             bdgEstados.DataSource = conn.listaDeEstados();
 
@@ -38,7 +41,7 @@ namespace SysNorteGrupo.UI.Clientes
             MessageBox.Show(cliente_instc.id.ToString());
 
             if(cliente_instc == null){
-                cliente_instc = new cliente() { isento_ICMS = false };
+                cliente_instc = new cliente() { isento_ICMS = false, cotas = 0, valor_total = 0 };
                 panelArquivos.Enabled = false;
             }
 
@@ -79,8 +82,27 @@ namespace SysNorteGrupo.UI.Clientes
             {
                 grpTipo.EditValue = cliente_instc.tipo_cliente;
 
-                //carregar cidades pelo estado, bairros endereços
+                panelArquivos.Enabled = true;
 
+                arquivosFormCli.DIRETORIO = String.Format(@"{0}{1}\", ArquivosForm.SUBDIR_CLIENTES, cliente_instc.id);
+
+                //carregar cidades pelo estado, bairros endereços
+                try
+                {
+                    bdgCidades.Clear();
+                    bdgCidades.DataSource = conn.listaDeCidadesPorEstado(cliente_instc.uf_estado);
+                    cbCidade.Enabled = true;
+                    //cbCidade.
+                }
+                catch (Exception ex)
+                {
+                    XtraMessageBox.Show("Erro ao recuperar lista de cidades: " + ex.Message, "SYSNORTE GRUPO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                    bdgCidades.DataSource = null;
+                    bdgBairros.DataSource = null;
+                    bdgEnderecos.DataSource = null;
+                    cbCidade.Enabled = false;
+                }
             }
         }
 
