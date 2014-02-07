@@ -92,7 +92,7 @@ namespace SysNorteGrupo.UI.Clientes
                     bdgCidades.Clear();
                     bdgCidades.DataSource = conn.listaDeCidadesPorEstado(cliente_instc.uf_estado);
                     cbCidade.Enabled = true;
-                    //cbCidade.
+                    cbCidade.EditValue = cliente_instc.id_cidades;
                 }
                 catch (Exception ex)
                 {
@@ -102,6 +102,27 @@ namespace SysNorteGrupo.UI.Clientes
                     bdgBairros.DataSource = null;
                     bdgEnderecos.DataSource = null;
                     cbCidade.Enabled = false;
+                }
+
+                try
+                {
+                    bdgBairros.DataSource = conn.listaDeBairrosPorCidade(Convert.ToInt64(cbCidade.EditValue));
+                    bdgEnderecos.DataSource = conn.listaDeEnderecosPorCidade(Convert.ToInt64(cbCidade.EditValue));
+
+                    cbBairro.Enabled = true;
+                    cbEndereco.Enabled = true;
+
+                    cbBairro.EditValue = cliente_instc.id_bairros;
+                    cbEndereco.EditValue = cliente_instc.id_enderecos;
+                }
+                catch (Exception ex)
+                {
+                    XtraMessageBox.Show("Erro ao recuperar lista de bairros e endereços: " + ex.Message, "SYSNORTE GRUPO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                    bdgBairros.DataSource = null;
+                    bdgEnderecos.DataSource = null;
+                    cbBairro.Enabled = false;
+                    cbEndereco.Enabled = false;
                 }
             }
         }
@@ -131,7 +152,7 @@ namespace SysNorteGrupo.UI.Clientes
             btnEditar.Enabled = false;
         }
 
-        private void btnSalvar_Click(object sender, System.EventArgs e)
+        private void btnSalvar_Click(object sender, EventArgs e)
         {
             if (!ckIsento.Checked && tfInscricao.Text == string.Empty)
             {

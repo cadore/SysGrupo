@@ -73,6 +73,16 @@ namespace SysNorteGrupo.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Action_SingleChoiceAction {
+            get {
+                object obj = ResourceManager.GetObject("Action_SingleChoiceAction", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap add {
             get {
                 object obj = ResourceManager.GetObject("add", resourceCulture);
@@ -186,6 +196,16 @@ namespace SysNorteGrupo.Properties {
         internal static System.Drawing.Bitmap search {
             get {
                 object obj = ResourceManager.GetObject("search", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap State_Validation_Invalid {
+            get {
+                object obj = ResourceManager.GetObject("State_Validation_Invalid", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
