@@ -18,7 +18,7 @@ namespace SysNorteGrupo.UI.Veiculos
     public partial class BuscaVeiculoForm : DevExpress.XtraEditors.XtraUserControl
     {
         private IServiceGrupo conn = null;
-        public FormPricipal formPrincipal = null;
+        public FormPrincipal formPrincipal = null;
         private int tipoPesquisa = -1;
         private bool _inativo = false;
         private Color backColor = UtilsSistema.backColorFoco;

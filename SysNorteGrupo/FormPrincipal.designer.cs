@@ -1,6 +1,6 @@
 ﻿namespace SysNorteGrupo
 {
-    partial class FormPricipal
+    partial class FormPrincipal
     {
         /// <summary>
         /// Required designer variable.

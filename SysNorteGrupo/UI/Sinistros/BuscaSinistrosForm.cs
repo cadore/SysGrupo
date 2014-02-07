@@ -15,7 +15,7 @@ namespace SysNorteGrupo.UI.Sinistros
     public partial class BuscaSinistrosForm : DevExpress.XtraEditors.XtraUserControl
     {
         public IServiceGrupo conn = null;
-        public FormPricipal formPrincipal = null;
+        public FormPrincipal formPrincipal = null;
         public BuscaSinistrosForm()
         {
             InitializeComponent();

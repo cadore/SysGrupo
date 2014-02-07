@@ -14,7 +14,7 @@ namespace SysNorteGrupo.UI.Clientes
 {
     public partial class ClienteForm : XtraUserControl
     {
-        public FormPricipal formPrincipal = null;
+        public FormPrincipal formPrincipal = null;
 
         //public cliente cliente_instc { get; set; }
 

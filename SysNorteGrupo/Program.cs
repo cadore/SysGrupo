@@ -34,7 +34,7 @@ namespace SysNorteGrupo
             IServiceGrupo conn = GerenteDeConexoes.iniciaConexao();
             UtilsSistema.backColorFoco = conn.backColorFoco();
 
-            Application.Run(new FormPricipal(new usuario(), new permicoes_usuario()));
+            Application.Run(new FormPrincipal(new usuario(), new permicoes_usuario()));
             //startApplication();
         }
 
@@ -43,7 +43,7 @@ namespace SysNorteGrupo
             LoginForm frmLogin = new LoginForm();
             if (frmLogin.ShowDialog() == DialogResult.OK)
             {
-                Application.Run(new FormPricipal(usuario_instc, permicao_instc));
+                Application.Run(new FormPrincipal(usuario_instc, permicao_instc));
             }
             else
             {

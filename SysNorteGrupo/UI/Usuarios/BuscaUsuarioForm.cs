@@ -13,7 +13,7 @@ namespace SysNorteGrupo.UI.Usuarios
     public partial class BuscaUsuariosForm : XtraUserControl
     {
         private IServiceGrupo conn = null;
-        public FormPricipal formPrincipal = null;
+        public FormPrincipal formPrincipal = null;
         private int tipoPesquisa = -1;
         private Color backColor = UtilsSistema.backColorFoco;
 

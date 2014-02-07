@@ -12,7 +12,7 @@ namespace SysNorteGrupo.UI.Usuarios
     public partial class UsuarioForm : XtraUserControl
     {
         private IServiceGrupo conn = null;
-        public FormPricipal formPrincipal = null;
+        public FormPrincipal formPrincipal = null;
         private CustomValidationRuleTamanhoSenha cVRTS;
         private CustomValidationRuleSenhaAtual cVRSA;
         private string status = "save";

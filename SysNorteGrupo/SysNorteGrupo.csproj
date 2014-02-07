@@ -66,11 +66,11 @@
     <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FormPricipal.cs">
+    <Compile Include="FormPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormPricipal.designer.cs">
-      <DependentUpon>FormPricipal.cs</DependentUpon>
+    <Compile Include="FormPrincipal.designer.cs">
+      <DependentUpon>FormPrincipal.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -174,8 +174,8 @@
     <Compile Include="Utils\Util.cs" />
     <Compile Include="Utils\UtilsSistema.cs" />
     <Compile Include="Utils\Validations.cs" />
-    <EmbeddedResource Include="FormPricipal.resx">
-      <DependentUpon>FormPricipal.cs</DependentUpon>
+    <EmbeddedResource Include="FormPrincipal.resx">
+      <DependentUpon>FormPrincipal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Sinistros\BuscaSinistrosForm.resx">
       <DependentUpon>BuscaSinistrosForm.cs</DependentUpon>

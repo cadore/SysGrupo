@@ -19,7 +19,7 @@ namespace SysNorteGrupo.UI.Clientes
     {
 
         private IServiceGrupo conn = null;
-        public FormPricipal formPrincipal = null;
+        public FormPrincipal formPrincipal = null;
         private int tipoPesquisa = -1;
         private bool _inativo = false;
 

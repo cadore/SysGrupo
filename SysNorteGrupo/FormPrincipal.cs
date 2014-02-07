@@ -13,11 +13,11 @@ using SysFileManager;
 
 namespace SysNorteGrupo
 {
-    public partial class FormPricipal : DevExpress.XtraBars.Ribbon.RibbonForm
+    public partial class FormPrincipal : DevExpress.XtraBars.Ribbon.RibbonForm
     {
         private IServiceGrupo conn;
 
-        public FormPricipal(usuario usuario_instc, permicoes_usuario permicao_instc)
+        public FormPrincipal(usuario usuario_instc, permicoes_usuario permicao_instc)
         {
             if (usuario_instc == null)
             {

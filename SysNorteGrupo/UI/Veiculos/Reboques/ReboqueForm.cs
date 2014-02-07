@@ -15,7 +15,7 @@ namespace SysNorteGrupo.UI.Veiculos.Reboques
     public partial class ReboqueForm : XtraUserControl
     {
         private IServiceGrupo conn = null;
-        public FormPricipal formPrincipal = null;
+        public FormPrincipal formPrincipal = null;
         private reboque reboque_instc = null;
         private Color backColor = UtilsSistema.backColorFoco;
         private CustomValidationRuleDataAgendamento cVRDA;

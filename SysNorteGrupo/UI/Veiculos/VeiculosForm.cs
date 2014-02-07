@@ -15,7 +15,7 @@ namespace SysNorteGrupo.UI.Veiculos
     public partial class VeiculosForm : XtraUserControl
     {
         private IServiceGrupo conn = null;
-        public FormPricipal formPrincipal = null;
+        public FormPrincipal formPrincipal = null;
         private veiculo veiculo_instc = null;
         private Color backColor = UtilsSistema.backColorFoco;
         private CustomValidationRuleDataAgendamento cVRDA;

@@ -17,7 +17,7 @@ namespace SysNorteGrupo.UI.Sinistros
     {
 
         public IServiceGrupo conn;
-        public FormPricipal formPrincipal = null;
+        public FormPrincipal formPrincipal = null;
         private sinistro sinistro_instc = null;
         public SinistrosForm(sinistro _sinistro_instc)
         {
