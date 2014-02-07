@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ArquivosForm));
             DevExpress.XtraGrid.GridLevelNode gridLevelNode1 = new DevExpress.XtraGrid.GridLevelNode();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
@@ -39,7 +38,7 @@
             this.btnDownload = new SysFileManager.Utils.Botoes.BotaoDownload();
             this.btnAdicionar = new SysFileManager.Utils.Botoes.BotaoAdicionar();
             this.gridControl = new DevExpress.XtraGrid.GridControl();
-            this.bdgArquivos = new System.Windows.Forms.BindingSource(this.components);
+            this.bdgArquivos = new System.Windows.Forms.BindingSource();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colnome = new DevExpress.XtraGrid.Columns.GridColumn();
             this.coltamanho = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -175,7 +174,7 @@
             this.gridControl.Location = new System.Drawing.Point(2, 2);
             this.gridControl.MainView = this.gridView1;
             this.gridControl.Name = "gridControl";
-            this.gridControl.Size = new System.Drawing.Size(755, 156);
+            this.gridControl.Size = new System.Drawing.Size(755, 165);
             this.gridControl.TabIndex = 0;
             this.gridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -205,7 +204,7 @@
             this.colnome.OptionsColumn.AllowEdit = false;
             this.colnome.Visible = true;
             this.colnome.VisibleIndex = 0;
-            this.colnome.Width = 462;
+            this.colnome.Width = 359;
             // 
             // coltamanho
             // 
@@ -217,7 +216,7 @@
             this.coltamanho.OptionsColumn.AllowEdit = false;
             this.coltamanho.Visible = true;
             this.coltamanho.VisibleIndex = 1;
-            this.coltamanho.Width = 266;
+            this.coltamanho.Width = 209;
             // 
             // colextensao
             // 
@@ -227,7 +226,7 @@
             this.colextensao.OptionsColumn.AllowEdit = false;
             this.colextensao.Visible = true;
             this.colextensao.VisibleIndex = 2;
-            this.colextensao.Width = 213;
+            this.colextensao.Width = 169;
             // 
             // colnome_completo
             // 

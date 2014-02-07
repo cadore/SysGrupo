@@ -8,20 +8,29 @@ namespace WcfLibGrupo.Utils
 {
     public class EMailUtil
     {
+        private readonly string smtpServer = UtilsSistemaServico.smtpServer;
+        private readonly bool ssl = UtilsSistemaServico.ssl;
+        private readonly int porta = UtilsSistemaServico.porta;
+        private readonly string usuario = UtilsSistemaServico.usuario;
+        private readonly string senha = UtilsSistemaServico.senha;
+        private readonly string email_de = UtilsSistemaServico.email_de;
+        private readonly string nome_email = UtilsSistemaServico.nome_email;
+
+
         public bool EnviaEmail(List<string> destinatarios, string cc, string bcc, string assunto, string menssagem, bool html, MailPriority prioridade, List<FileInfo> anexos)
         {
             try
             {
                 SmtpClient smtpC = new SmtpClient();
                 MailMessage mailM = new MailMessage();
-                smtpC.Host = "mail09.redehost.com.br";
-                smtpC.EnableSsl = false;
+                smtpC.Host = smtpServer;
+                smtpC.EnableSsl = ssl;
                 smtpC.DeliveryMethod = SmtpDeliveryMethod.Network;
-                smtpC.Port = 587;
+                smtpC.Port = porta;
                 smtpC.Timeout = 60000;
                 smtpC.UseDefaultCredentials = false;
-                smtpC.Credentials = new NetworkCredential("cadore@gplucas.com", "Cadore!001");
-                mailM.From = new MailAddress("cadore@gplucas.com", "Teste");                    
+                smtpC.Credentials = new NetworkCredential(usuario, senha);
+                mailM.From = new MailAddress(email_de, nome_email);                    
                 mailM.Subject = assunto;
                 mailM.IsBodyHtml = html;
                 mailM.Body = menssagem;

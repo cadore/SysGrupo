@@ -1038,6 +1038,34 @@ namespace WcfLibGrupo
 
         #endregion
 
+        #region diretorios
+
+        public string SUBDIR_EMPRESA()
+        {
+            return UtilsSistemaServico.SUBDIR_EMPRESA;
+        }
+
+        public string SUBDIR_CLIENTES()
+        {
+            return UtilsSistemaServico.SUBDIR_CLIENTES;
+        }
+
+        public string SUBDIR_VEICULOS(){
+            return UtilsSistemaServico.SUBDIR_VEICULOS;
+        }
+
+        public string SUBDIR_REBOQUES()
+        {
+            return UtilsSistemaServico.SUBDIR_REBOQUES;
+        }
+
+        public string SUBDIR_SINISTROS()
+        {
+            return UtilsSistemaServico.SUBDIR_SINISTROS;
+        } 
+
+        #endregion
+
         #region email
         public bool EnviaEmail(List<string> destinatarios, string cc, string bcc, string assunto, string menssagem, bool html, MailPriority prioridade, List<FileInfo> anexos)
         {

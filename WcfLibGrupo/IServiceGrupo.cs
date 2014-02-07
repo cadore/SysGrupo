@@ -215,6 +215,21 @@ namespace WcfLibGrupo
 
         #endregion
 
+        #region diretorios
+
+        [OperationContract]
+        string SUBDIR_EMPRESA();
+        [OperationContract]
+        string SUBDIR_CLIENTES();
+        [OperationContract]
+        string SUBDIR_VEICULOS();
+        [OperationContract]
+        string SUBDIR_REBOQUES();
+        [OperationContract]
+        string SUBDIR_SINISTROS();     
+
+        #endregion
+
         #region e-mail
         [OperationContract]
         bool EnviaEmail(List<string> destinatarios, string cc, string bcc, string assunto, string menssagem, bool html, MailPriority prioridade, List<FileInfo> anexos);

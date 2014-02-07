@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace ServicosSysFileManager
 {
@@ -14,22 +15,36 @@ namespace ServicosSysFileManager
         {
             List<ArquivosModel> listAm = new List<ArquivosModel>();
             try
-            {                
+            {
                 DirectoryInfo dir = new DirectoryInfo(diretorio);
+                foreach (FileInfo file in dir.GetFiles())
+                {
+                    string[] nomes = file.Name.Split('.');
+                    listAm.Add(new ArquivosModel()
+                    {
+                        nome = nomes[0],
+                        tamanho = Convert.ToInt32(file.Length / 1024),
+                        extensao = file.Extension,
+                        diretorio = file.DirectoryName,
+                        nome_completo = file.FullName
+                    });
+                }
                 foreach (DirectoryInfo dirNomes in dir.GetDirectories())
                 {
+
                     foreach (FileInfo file in dirNomes.GetFiles())
                     {
                         string[] nomes = file.Name.Split('.');
-                        listAm.Add(new ArquivosModel() { 
+                        listAm.Add(new ArquivosModel()
+                        {
                             nome = nomes[0],
-                            tamanho = Convert.ToInt32(file.Length / 1024), 
+                            tamanho = Convert.ToInt32(file.Length / 1024),
                             extensao = file.Extension,
                             diretorio = file.DirectoryName,
                             nome_completo = file.FullName
                         });
                     }
-                }
+                }                    
             }
             catch (Exception ex)
             {
