@@ -1,6 +1,7 @@
 ﻿using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.DXErrorProvider;
 using EntitiesGrupo;
+using SysFileManager;
 using SysNorteGrupo.Utils;
 using System;
 using System.Collections;
@@ -23,8 +24,8 @@ namespace SysNorteGrupo.UI.Veiculos
         {
             veiculo_instc = vei;
             InitializeComponent();
-
             conn = GerenteDeConexoes.iniciaConexao();
+            arquivosForm.conn = this.conn;         
 
             try
             {
@@ -56,6 +57,9 @@ namespace SysNorteGrupo.UI.Veiculos
 
                     bdgAnoModelo.DataSource = conn.listaDeAnoModelosPorIdModelo(veiculo_instc.id_modelo_veiculos);
                     bdgCidade.DataSource = conn.listaDeCidadesPorEstado(veiculo_instc.uf_estado);
+                    arquivosForm.DIRETORIO = conn.SUBDIR_VEICULOS() + veiculo_instc.id.ToString() + @"\";
+                    arquivosForm.executaBusca();
+                    arquivosForm.Enabled = true;
                 }
                 bdgVeiculo.DataSource = (veiculo) veiculo_instc;
                 ArrayList arrayList = new ListaAnos().retornaAnos();
@@ -117,6 +121,7 @@ namespace SysNorteGrupo.UI.Veiculos
             {
                 pnInformacoes.Enabled = false;
             }
+            //arquivosForm.Enabled = false;
         }
 
         private void cbCores_CustomDrawCell(object sender, DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventArgs e)
@@ -375,6 +380,14 @@ namespace SysNorteGrupo.UI.Veiculos
             {
                 MessageBox.Show("Ocorreu um erro ao tentar executar sua solicitação.\n\n" + ex.Message);
                 formPrincipal.adicionarControleNavegacao(null);
+            }
+        }
+
+        private void tfValor_EditValueChanged(object sender, EventArgs e)
+        {
+            if(tfValor.EditValue != null){
+                decimal valor = Convert.ToDecimal(tfValor.EditValue.ToString().Trim());
+                tfCotas.Text = (valor / UtilsSistema.valor_por_cota).ToString();
             }
         }
     }

@@ -26,7 +26,7 @@ namespace SysNorteGrupo
             }
             InitializeComponent();
             conn = GerenteDeConexoes.iniciaConexao();
-            carregaPermissoes(permicao_instc);
+            //carregaPermissoes(permicao_instc);
             this.Text = "SysNorteGrupo - SysNorte Tecnologia Copyright ©  2013 Versão: 1.0.0.0";            
         }
         
@@ -114,7 +114,7 @@ namespace SysNorteGrupo
         {
             ArquivosForm af = new ArquivosForm();
             af.conn = conn;
-            af.DIRETORIO = @"C:\Users\William\Desktop";
+            af.DIRETORIO = conn.SUBDIR_EMPRESA();
             adicionarControleNavegacao(af);
         }
 

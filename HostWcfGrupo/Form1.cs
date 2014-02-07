@@ -2,6 +2,7 @@
 using System.ServiceModel;
 using System.Windows.Forms;
 using WcfLibGrupo;
+using WcfLibGrupo.Utils;
 
 namespace HostWcfGrupo
 {
@@ -57,6 +58,7 @@ namespace HostWcfGrupo
                     b.Security.Message.ClientCredentialType = MessageCredentialType.None;
                     host.AddServiceEndpoint(typeof(IServiceGrupo), b, new Uri("http://localhost:8001/grupo/service"));
                     host.Open();
+                    UtilsSistemaServico.carregaConfigurações();
                 }
                 else if(i == 0)
                 {

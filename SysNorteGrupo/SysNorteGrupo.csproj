@@ -77,6 +77,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="UI\Sinistros\BuscaSinistrosForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Sinistros\BuscaSinistrosForm.Designer.cs">
+      <DependentUpon>BuscaSinistrosForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Clientes\BuscaClienteForm.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -127,6 +133,12 @@
     <Compile Include="UI\Veiculos\Reboques\ReboqueForm.Designer.cs">
       <DependentUpon>ReboqueForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Sinistros\SinistrosForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Sinistros\SinistrosForm.Designer.cs">
+      <DependentUpon>SinistrosForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Veiculos\VeiculosForm.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -165,6 +177,9 @@
     <EmbeddedResource Include="FormPricipal.resx">
       <DependentUpon>FormPricipal.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\Sinistros\BuscaSinistrosForm.resx">
+      <DependentUpon>BuscaSinistrosForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\Clientes\BuscaClienteForm.resx">
       <DependentUpon>BuscaClienteForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -191,6 +206,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Veiculos\Reboques\ReboqueForm.resx">
       <DependentUpon>ReboqueForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Sinistros\SinistrosForm.resx">
+      <DependentUpon>SinistrosForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Veiculos\VeiculosForm.resx">
       <DependentUpon>VeiculosForm.cs</DependentUpon>

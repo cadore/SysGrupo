@@ -21,18 +21,13 @@ namespace SysFileManager
     {
         public IServiceGrupo conn;
         public string DIRETORIO = "";
-
-        public static readonly string SUBDIR_EMPRESA = UtilsSistemaServico.diretorio_raiz_documentos + @"\empresa";
-        public static readonly string SUBDIR_CLIENTES = UtilsSistemaServico.diretorio_raiz_documentos + @"\clientes";
-        public static readonly string SUBDIR_VEICULOS = UtilsSistemaServico.diretorio_raiz_documentos + @"\veiculos";
-        public static readonly string SUBDIR_REBOQUES = UtilsSistemaServico.diretorio_raiz_documentos + @"\reboques";
-        public static readonly string SUBDIR_SINISTROS = UtilsSistemaServico.diretorio_raiz_documentos + @"\sinistros";
+        
         public ArquivosForm()
         {
             InitializeComponent();
         }
 
-        private void executaBusca()
+        public void executaBusca()
         {
             try
             {
@@ -65,7 +60,6 @@ namespace SysFileManager
             {
                 OpenFileDialog sf = new OpenFileDialog();
                 sf.Filter = "Todos os Arquivos (*.*)|*.*";
-                sf.AddExtension = true;
                 sf.AutoUpgradeEnabled = true;
                 if (sf.ShowDialog() == DialogResult.OK)
                 {
@@ -117,7 +111,7 @@ namespace SysFileManager
 
         private void gridControl1_Click(object sender, EventArgs e)
         {
-            if(bdgArquivos.DataSource != null){
+            if(bdgArquivos.Current != null){
                 btnExcluir.Enabled = true;
                 btnDownload.Enabled = true;
             }
