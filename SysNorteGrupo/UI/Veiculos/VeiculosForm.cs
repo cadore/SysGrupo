@@ -241,7 +241,7 @@ namespace SysNorteGrupo.UI.Veiculos
                         veiculo v = ((veiculo)bdgVeiculo.Current);
                         //v.cor_predominante = cbCor.EditValue.ToString();
 
-                        DateTime dataAtiv = conn.retornaHoraLocal().Date.AddDays(1);
+                        DateTime dataAtiv = conn.retornaDataHoraLocal().Date.AddDays(1);
                         if(ckAgendarCad.CheckState == CheckState.Checked){
                             dataAtiv = tfDataAgendamento.DateTime;
                         }
@@ -249,7 +249,7 @@ namespace SysNorteGrupo.UI.Veiculos
                         {
                             v.data_ativacao = dataAtiv;
                             v.inativo = false;
-                            v.data_cadastro = conn.retornaHoraLocal();
+                            v.data_cadastro = conn.retornaDataHoraLocal();
                         }
                         long id = Convert.ToInt64(conn.salvarVeiculo(v));
                         tfId.Text = id.ToString();
@@ -366,7 +366,7 @@ namespace SysNorteGrupo.UI.Veiculos
                 {
                     veiculo v = ((veiculo)bdgVeiculo.Current);
                     v.inativo = true;
-                    v.data_inativacao = conn.retornaHoraLocal();
+                    v.data_inativacao = conn.retornaDataHoraLocal();
                     long id = Convert.ToInt64(conn.salvarVeiculo(v));
                     tfId.Text = id.ToString();
 

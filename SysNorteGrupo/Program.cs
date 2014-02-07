@@ -8,6 +8,7 @@ using DevExpress.LookAndFeel;
 using SysNorteGrupo.Utils;
 using SysNorteGrupo.UI.Usuarios;
 using EntitiesGrupo;
+using WcfLibGrupo;
 
 namespace SysNorteGrupo
 {
@@ -30,6 +31,8 @@ namespace SysNorteGrupo
             UserLookAndFeel.Default.SetSkinStyle("Office 2013"); //Office 2013 //The Asphalt World
 
             UtilsSistema uts = new UtilsSistema();
+            IServiceGrupo conn = GerenteDeConexoes.iniciaConexao();
+            UtilsSistema.backColorFoco = conn.backColorFoco();
 
             Application.Run(new FormPricipal(new usuario(), new permicoes_usuario()));
             //startApplication();

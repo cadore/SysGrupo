@@ -4,6 +4,7 @@ using ServicosSysFileManager;
 using ServicosSysFileManager.Repository;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.IO;
 using System.Net.Mail;
 using System.ServiceModel;
@@ -16,14 +17,19 @@ namespace WcfLibGrupo
     {
         #region sistema
 
-        public DateTime retornaHoraLocal()
+        public DateTime retornaDataHoraLocal()
         {
             return DateTime.Now;
         }
 
-        public DateTime retornaHoraUTC()
+        public DateTime retornaDataHoraUTC()
         {
             return Datas.getUTCDateTime();
+        }
+
+        public Color backColorFoco()
+        {
+            return UtilsSistemaServico.backColorFoco;
         }
 
         #endregion

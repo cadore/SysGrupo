@@ -116,6 +116,7 @@ namespace SysNorteGrupo
             af.conn = conn;
             af.DIRETORIO = conn.SUBDIR_EMPRESA();
             adicionarControleNavegacao(af);
+            af.executaBusca();
         }
 
         private void ribbon_Click(object sender, EventArgs e)

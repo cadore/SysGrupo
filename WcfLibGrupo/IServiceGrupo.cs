@@ -2,6 +2,7 @@
 using ServicosSysFileManager.Repository;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.IO;
 using System.Net.Mail;
 using System.Runtime.Serialization;
@@ -15,10 +16,13 @@ namespace WcfLibGrupo
         #region sistema
 
         [OperationContract]
-        DateTime retornaHoraLocal();
+        DateTime retornaDataHoraLocal();
 
         [OperationContract]
-        DateTime retornaHoraUTC();
+        DateTime retornaDataHoraUTC();
+
+        [OperationContract]
+        Color backColorFoco();
 
         #endregion
 

@@ -16,31 +16,22 @@
             this.btnEditar = new SysNorteGrupo.Utils.BotaoEditar();
             this.pnControls = new DevExpress.XtraEditors.PanelControl();
             this.gcInfoBasica = new DevExpress.XtraEditors.GroupControl();
-            this.cbReboque3 = new DevExpress.XtraEditors.SearchLookUpEdit();
-            this.searchLookUpEdit4View = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.cbReboque2 = new DevExpress.XtraEditors.SearchLookUpEdit();
-            this.searchLookUpEdit3View = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.cbReboque1 = new DevExpress.XtraEditors.SearchLookUpEdit();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.cbVeiculo = new DevExpress.XtraEditors.SearchLookUpEdit();
             this.searchLookUpEdit2View = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.cbCliente = new DevExpress.XtraEditors.SearchLookUpEdit();
             this.searchLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
+            this.btnAdicionar = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.pnBotoes)).BeginInit();
             this.pnBotoes.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pnControls)).BeginInit();
             this.pnControls.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gcInfoBasica)).BeginInit();
             this.gcInfoBasica.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cbReboque3.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit4View)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbReboque2.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit3View)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbReboque1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbVeiculo.Properties)).BeginInit();
@@ -150,57 +141,18 @@
             // 
             // gcInfoBasica
             // 
-            this.gcInfoBasica.Controls.Add(this.cbReboque3);
-            this.gcInfoBasica.Controls.Add(this.cbReboque2);
+            this.gcInfoBasica.Controls.Add(this.btnAdicionar);
             this.gcInfoBasica.Controls.Add(this.cbReboque1);
             this.gcInfoBasica.Controls.Add(this.cbVeiculo);
-            this.gcInfoBasica.Controls.Add(this.labelControl5);
-            this.gcInfoBasica.Controls.Add(this.labelControl4);
             this.gcInfoBasica.Controls.Add(this.labelControl3);
             this.gcInfoBasica.Controls.Add(this.cbCliente);
             this.gcInfoBasica.Controls.Add(this.labelControl2);
             this.gcInfoBasica.Controls.Add(this.labelControl1);
             this.gcInfoBasica.Location = new System.Drawing.Point(0, 0);
             this.gcInfoBasica.Name = "gcInfoBasica";
-            this.gcInfoBasica.Size = new System.Drawing.Size(989, 82);
+            this.gcInfoBasica.Size = new System.Drawing.Size(989, 78);
             this.gcInfoBasica.TabIndex = 0;
             this.gcInfoBasica.Text = "INFORMAÇÕES BÁSICAS";
-            // 
-            // cbReboque3
-            // 
-            this.cbReboque3.Location = new System.Drawing.Point(449, 50);
-            this.cbReboque3.Name = "cbReboque3";
-            this.cbReboque3.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cbReboque3.Properties.NullText = "";
-            this.cbReboque3.Properties.View = this.searchLookUpEdit4View;
-            this.cbReboque3.Size = new System.Drawing.Size(116, 20);
-            this.cbReboque3.TabIndex = 5;
-            // 
-            // searchLookUpEdit4View
-            // 
-            this.searchLookUpEdit4View.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
-            this.searchLookUpEdit4View.Name = "searchLookUpEdit4View";
-            this.searchLookUpEdit4View.OptionsSelection.EnableAppearanceFocusedCell = false;
-            this.searchLookUpEdit4View.OptionsView.ShowGroupPanel = false;
-            // 
-            // cbReboque2
-            // 
-            this.cbReboque2.Location = new System.Drawing.Point(260, 50);
-            this.cbReboque2.Name = "cbReboque2";
-            this.cbReboque2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cbReboque2.Properties.NullText = "";
-            this.cbReboque2.Properties.View = this.searchLookUpEdit3View;
-            this.cbReboque2.Size = new System.Drawing.Size(116, 20);
-            this.cbReboque2.TabIndex = 4;
-            // 
-            // searchLookUpEdit3View
-            // 
-            this.searchLookUpEdit3View.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
-            this.searchLookUpEdit3View.Name = "searchLookUpEdit3View";
-            this.searchLookUpEdit3View.OptionsSelection.EnableAppearanceFocusedCell = false;
-            this.searchLookUpEdit3View.OptionsView.ShowGroupPanel = false;
             // 
             // cbReboque1
             // 
@@ -238,29 +190,13 @@
             this.searchLookUpEdit2View.OptionsSelection.EnableAppearanceFocusedCell = false;
             this.searchLookUpEdit2View.OptionsView.ShowGroupPanel = false;
             // 
-            // labelControl5
-            // 
-            this.labelControl5.Location = new System.Drawing.Point(382, 53);
-            this.labelControl5.Name = "labelControl5";
-            this.labelControl5.Size = new System.Drawing.Size(61, 13);
-            this.labelControl5.TabIndex = 0;
-            this.labelControl5.Text = "REBOQUE 3:";
-            // 
-            // labelControl4
-            // 
-            this.labelControl4.Location = new System.Drawing.Point(193, 53);
-            this.labelControl4.Name = "labelControl4";
-            this.labelControl4.Size = new System.Drawing.Size(61, 13);
-            this.labelControl4.TabIndex = 0;
-            this.labelControl4.Text = "REBOQUE 2:";
-            // 
             // labelControl3
             // 
             this.labelControl3.Location = new System.Drawing.Point(4, 53);
             this.labelControl3.Name = "labelControl3";
-            this.labelControl3.Size = new System.Drawing.Size(61, 13);
+            this.labelControl3.Size = new System.Drawing.Size(52, 13);
             this.labelControl3.TabIndex = 0;
-            this.labelControl3.Text = "REBOQUE 1:";
+            this.labelControl3.Text = "REBOQUE:";
             // 
             // cbCliente
             // 
@@ -297,6 +233,19 @@
             this.labelControl1.TabIndex = 0;
             this.labelControl1.Text = "CLIENTE:";
             // 
+            // btnAdicionar
+            // 
+            this.btnAdicionar.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdicionar.Appearance.ForeColor = System.Drawing.Color.ForestGreen;
+            this.btnAdicionar.Appearance.Options.UseFont = true;
+            this.btnAdicionar.Appearance.Options.UseForeColor = true;
+            this.btnAdicionar.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
+            this.btnAdicionar.Location = new System.Drawing.Point(193, 48);
+            this.btnAdicionar.Name = "btnAdicionar";
+            this.btnAdicionar.Size = new System.Drawing.Size(115, 23);
+            this.btnAdicionar.TabIndex = 4;
+            this.btnAdicionar.Text = "Adicionar";
+            // 
             // SinistrosForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -312,10 +261,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.gcInfoBasica)).EndInit();
             this.gcInfoBasica.ResumeLayout(false);
             this.gcInfoBasica.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cbReboque3.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit4View)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbReboque2.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit3View)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbReboque1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbVeiculo.Properties)).EndInit();
@@ -338,16 +283,11 @@
         private DevExpress.XtraEditors.SearchLookUpEdit cbCliente;
         private DevExpress.XtraGrid.Views.Grid.GridView searchLookUpEdit1View;
         private DevExpress.XtraEditors.LabelControl labelControl2;
-        private DevExpress.XtraEditors.SearchLookUpEdit cbReboque3;
-        private DevExpress.XtraGrid.Views.Grid.GridView searchLookUpEdit4View;
-        private DevExpress.XtraEditors.SearchLookUpEdit cbReboque2;
-        private DevExpress.XtraGrid.Views.Grid.GridView searchLookUpEdit3View;
         private DevExpress.XtraEditors.SearchLookUpEdit cbReboque1;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private DevExpress.XtraEditors.SearchLookUpEdit cbVeiculo;
         private DevExpress.XtraGrid.Views.Grid.GridView searchLookUpEdit2View;
-        private DevExpress.XtraEditors.LabelControl labelControl5;
-        private DevExpress.XtraEditors.LabelControl labelControl4;
         private DevExpress.XtraEditors.LabelControl labelControl3;
+        private DevExpress.XtraEditors.SimpleButton btnAdicionar;
     }
 }

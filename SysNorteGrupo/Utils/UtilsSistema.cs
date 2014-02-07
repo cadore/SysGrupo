@@ -11,7 +11,6 @@ namespace SysNorteGrupo.Utils
         public UtilsSistema()
         {
             valor_por_cota = Convert.ToDecimal(10000.00);
-            backColorFoco = Color.FromArgb(255, 255, 182);
         }
     }
 }

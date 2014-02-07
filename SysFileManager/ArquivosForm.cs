@@ -59,7 +59,7 @@ namespace SysFileManager
             try
             {
                 OpenFileDialog sf = new OpenFileDialog();
-                sf.Filter = "Todos os Arquivos (*.*)|*.*";
+                sf.Filter = "Todos os Arquivos|*.*";
                 sf.AutoUpgradeEnabled = true;
                 if (sf.ShowDialog() == DialogResult.OK)
                 {
@@ -107,6 +107,7 @@ namespace SysFileManager
                 progressBar.Position = 0;
                 MessageBox.Show("Erro ao copiar arquivo.\n" + ex.Message);
             }
+            executaBusca();
         }
 
         private void gridControl1_Click(object sender, EventArgs e)
@@ -151,13 +152,14 @@ namespace SysFileManager
         {
             try
             {
+
                 ArquivosModel am = (ArquivosModel)bdgArquivos.Current;
                 Byte[] by = conn.download(am.nome_completo);
                 SaveFileDialog sfd = new SaveFileDialog();
                 sfd.AutoUpgradeEnabled = true;
                 sfd.Title = "Salvar Arquivo";
                 sfd.InitialDirectory = Environment.ExpandEnvironmentVariables("%HOMEDRIVE%%HOMEPATH%")+@"\Documents\";
-                sfd.Filter = "Todos os Arquivos (*.*)|*.*";
+                sfd.Filter = "Todos os Arquivos|*.*";
                 sfd.FileName = am.nome + am.extensao;
                 DialogResult rs = sfd.ShowDialog();
                 if (rs == DialogResult.OK)
