@@ -16,37 +16,37 @@
             this.btnEditar = new SysNorteGrupo.Utils.BotaoEditar();
             this.pnControls = new DevExpress.XtraEditors.PanelControl();
             this.gcInfoBasica = new DevExpress.XtraEditors.GroupControl();
-            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
+            this.cbReboque3 = new DevExpress.XtraEditors.SearchLookUpEdit();
+            this.searchLookUpEdit4View = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.cbReboque2 = new DevExpress.XtraEditors.SearchLookUpEdit();
+            this.searchLookUpEdit3View = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.cbReboque1 = new DevExpress.XtraEditors.SearchLookUpEdit();
+            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.cbVeiculo = new DevExpress.XtraEditors.SearchLookUpEdit();
+            this.searchLookUpEdit2View = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.cbCliente = new DevExpress.XtraEditors.SearchLookUpEdit();
             this.searchLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
-            this.cbVeiculo = new DevExpress.XtraEditors.SearchLookUpEdit();
-            this.searchLookUpEdit2View = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
-            this.cbReboque1 = new DevExpress.XtraEditors.SearchLookUpEdit();
-            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
-            this.cbReboque2 = new DevExpress.XtraEditors.SearchLookUpEdit();
-            this.searchLookUpEdit3View = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.cbReboque3 = new DevExpress.XtraEditors.SearchLookUpEdit();
-            this.searchLookUpEdit4View = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.pnBotoes)).BeginInit();
             this.pnBotoes.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pnControls)).BeginInit();
             this.pnControls.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gcInfoBasica)).BeginInit();
             this.gcInfoBasica.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cbCliente.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1View)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbVeiculo.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit2View)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbReboque1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbReboque2.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit3View)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbReboque3.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit4View)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbReboque2.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit3View)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbReboque1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbVeiculo.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit2View)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbCliente.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1View)).BeginInit();
             this.SuspendLayout();
             // 
             // pnBotoes
@@ -166,104 +166,27 @@
             this.gcInfoBasica.TabIndex = 0;
             this.gcInfoBasica.Text = "INFORMAÇÕES BÁSICAS";
             // 
-            // labelControl1
+            // cbReboque3
             // 
-            this.labelControl1.Location = new System.Drawing.Point(3, 27);
-            this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(45, 13);
-            this.labelControl1.TabIndex = 0;
-            this.labelControl1.Text = "CLIENTE:";
-            // 
-            // cbCliente
-            // 
-            this.cbCliente.EditValue = "";
-            this.cbCliente.Location = new System.Drawing.Point(54, 24);
-            this.cbCliente.Name = "cbCliente";
-            this.cbCliente.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.cbReboque3.Location = new System.Drawing.Point(449, 50);
+            this.cbReboque3.Name = "cbReboque3";
+            this.cbReboque3.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cbCliente.Properties.NullText = "";
-            this.cbCliente.Properties.View = this.searchLookUpEdit1View;
-            this.cbCliente.Size = new System.Drawing.Size(932, 20);
-            this.cbCliente.TabIndex = 1;
+            this.cbReboque3.Properties.NullText = "";
+            this.cbReboque3.Properties.View = this.searchLookUpEdit4View;
+            this.cbReboque3.Size = new System.Drawing.Size(116, 20);
+            this.cbReboque3.TabIndex = 5;
             // 
-            // searchLookUpEdit1View
+            // searchLookUpEdit4View
             // 
-            this.searchLookUpEdit1View.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
-            this.searchLookUpEdit1View.Name = "searchLookUpEdit1View";
-            this.searchLookUpEdit1View.OptionsSelection.EnableAppearanceFocusedCell = false;
-            this.searchLookUpEdit1View.OptionsView.ShowGroupPanel = false;
-            // 
-            // labelControl2
-            // 
-            this.labelControl2.Location = new System.Drawing.Point(3, 57);
-            this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(47, 13);
-            this.labelControl2.TabIndex = 0;
-            this.labelControl2.Text = "VEÍCULO:";
-            // 
-            // cbVeiculo
-            // 
-            this.cbVeiculo.Location = new System.Drawing.Point(54, 54);
-            this.cbVeiculo.Name = "cbVeiculo";
-            this.cbVeiculo.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cbVeiculo.Properties.NullText = "";
-            this.cbVeiculo.Properties.View = this.searchLookUpEdit2View;
-            this.cbVeiculo.Size = new System.Drawing.Size(116, 20);
-            this.cbVeiculo.TabIndex = 2;
-            // 
-            // searchLookUpEdit2View
-            // 
-            this.searchLookUpEdit2View.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
-            this.searchLookUpEdit2View.Name = "searchLookUpEdit2View";
-            this.searchLookUpEdit2View.OptionsSelection.EnableAppearanceFocusedCell = false;
-            this.searchLookUpEdit2View.OptionsView.ShowGroupPanel = false;
-            // 
-            // labelControl3
-            // 
-            this.labelControl3.Location = new System.Drawing.Point(211, 57);
-            this.labelControl3.Name = "labelControl3";
-            this.labelControl3.Size = new System.Drawing.Size(61, 13);
-            this.labelControl3.TabIndex = 0;
-            this.labelControl3.Text = "REBOQUE 1:";
-            // 
-            // cbReboque1
-            // 
-            this.cbReboque1.Location = new System.Drawing.Point(278, 54);
-            this.cbReboque1.Name = "cbReboque1";
-            this.cbReboque1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cbReboque1.Properties.NullText = "";
-            this.cbReboque1.Properties.View = this.gridView1;
-            this.cbReboque1.Size = new System.Drawing.Size(116, 20);
-            this.cbReboque1.TabIndex = 3;
-            // 
-            // gridView1
-            // 
-            this.gridView1.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
-            this.gridView1.Name = "gridView1";
-            this.gridView1.OptionsSelection.EnableAppearanceFocusedCell = false;
-            this.gridView1.OptionsView.ShowGroupPanel = false;
-            // 
-            // labelControl4
-            // 
-            this.labelControl4.Location = new System.Drawing.Point(400, 57);
-            this.labelControl4.Name = "labelControl4";
-            this.labelControl4.Size = new System.Drawing.Size(61, 13);
-            this.labelControl4.TabIndex = 0;
-            this.labelControl4.Text = "REBOQUE 2:";
-            // 
-            // labelControl5
-            // 
-            this.labelControl5.Location = new System.Drawing.Point(589, 57);
-            this.labelControl5.Name = "labelControl5";
-            this.labelControl5.Size = new System.Drawing.Size(61, 13);
-            this.labelControl5.TabIndex = 0;
-            this.labelControl5.Text = "REBOQUE 3:";
+            this.searchLookUpEdit4View.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            this.searchLookUpEdit4View.Name = "searchLookUpEdit4View";
+            this.searchLookUpEdit4View.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.searchLookUpEdit4View.OptionsView.ShowGroupPanel = false;
             // 
             // cbReboque2
             // 
-            this.cbReboque2.Location = new System.Drawing.Point(467, 54);
+            this.cbReboque2.Location = new System.Drawing.Point(260, 50);
             this.cbReboque2.Name = "cbReboque2";
             this.cbReboque2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -279,23 +202,100 @@
             this.searchLookUpEdit3View.OptionsSelection.EnableAppearanceFocusedCell = false;
             this.searchLookUpEdit3View.OptionsView.ShowGroupPanel = false;
             // 
-            // cbReboque3
+            // cbReboque1
             // 
-            this.cbReboque3.Location = new System.Drawing.Point(656, 54);
-            this.cbReboque3.Name = "cbReboque3";
-            this.cbReboque3.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.cbReboque1.Location = new System.Drawing.Point(71, 50);
+            this.cbReboque1.Name = "cbReboque1";
+            this.cbReboque1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cbReboque3.Properties.NullText = "";
-            this.cbReboque3.Properties.View = this.searchLookUpEdit4View;
-            this.cbReboque3.Size = new System.Drawing.Size(116, 20);
-            this.cbReboque3.TabIndex = 5;
+            this.cbReboque1.Properties.NullText = "";
+            this.cbReboque1.Properties.View = this.gridView1;
+            this.cbReboque1.Size = new System.Drawing.Size(116, 20);
+            this.cbReboque1.TabIndex = 3;
             // 
-            // searchLookUpEdit4View
+            // gridView1
             // 
-            this.searchLookUpEdit4View.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
-            this.searchLookUpEdit4View.Name = "searchLookUpEdit4View";
-            this.searchLookUpEdit4View.OptionsSelection.EnableAppearanceFocusedCell = false;
-            this.searchLookUpEdit4View.OptionsView.ShowGroupPanel = false;
+            this.gridView1.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            this.gridView1.Name = "gridView1";
+            this.gridView1.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.gridView1.OptionsView.ShowGroupPanel = false;
+            // 
+            // cbVeiculo
+            // 
+            this.cbVeiculo.Location = new System.Drawing.Point(868, 24);
+            this.cbVeiculo.Name = "cbVeiculo";
+            this.cbVeiculo.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cbVeiculo.Properties.NullText = "";
+            this.cbVeiculo.Properties.View = this.searchLookUpEdit2View;
+            this.cbVeiculo.Size = new System.Drawing.Size(116, 20);
+            this.cbVeiculo.TabIndex = 2;
+            // 
+            // searchLookUpEdit2View
+            // 
+            this.searchLookUpEdit2View.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            this.searchLookUpEdit2View.Name = "searchLookUpEdit2View";
+            this.searchLookUpEdit2View.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.searchLookUpEdit2View.OptionsView.ShowGroupPanel = false;
+            // 
+            // labelControl5
+            // 
+            this.labelControl5.Location = new System.Drawing.Point(382, 53);
+            this.labelControl5.Name = "labelControl5";
+            this.labelControl5.Size = new System.Drawing.Size(61, 13);
+            this.labelControl5.TabIndex = 0;
+            this.labelControl5.Text = "REBOQUE 3:";
+            // 
+            // labelControl4
+            // 
+            this.labelControl4.Location = new System.Drawing.Point(193, 53);
+            this.labelControl4.Name = "labelControl4";
+            this.labelControl4.Size = new System.Drawing.Size(61, 13);
+            this.labelControl4.TabIndex = 0;
+            this.labelControl4.Text = "REBOQUE 2:";
+            // 
+            // labelControl3
+            // 
+            this.labelControl3.Location = new System.Drawing.Point(4, 53);
+            this.labelControl3.Name = "labelControl3";
+            this.labelControl3.Size = new System.Drawing.Size(61, 13);
+            this.labelControl3.TabIndex = 0;
+            this.labelControl3.Text = "REBOQUE 1:";
+            // 
+            // cbCliente
+            // 
+            this.cbCliente.EditValue = "";
+            this.cbCliente.Location = new System.Drawing.Point(71, 24);
+            this.cbCliente.Name = "cbCliente";
+            this.cbCliente.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cbCliente.Properties.NullText = "";
+            this.cbCliente.Properties.View = this.searchLookUpEdit1View;
+            this.cbCliente.Size = new System.Drawing.Size(740, 20);
+            this.cbCliente.TabIndex = 1;
+            // 
+            // searchLookUpEdit1View
+            // 
+            this.searchLookUpEdit1View.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            this.searchLookUpEdit1View.Name = "searchLookUpEdit1View";
+            this.searchLookUpEdit1View.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.searchLookUpEdit1View.OptionsView.ShowGroupPanel = false;
+            // 
+            // labelControl2
+            // 
+            this.labelControl2.Location = new System.Drawing.Point(817, 27);
+            this.labelControl2.Name = "labelControl2";
+            this.labelControl2.Size = new System.Drawing.Size(47, 13);
+            this.labelControl2.TabIndex = 0;
+            this.labelControl2.Text = "VEÍCULO:";
+            // 
+            // labelControl1
+            // 
+            this.labelControl1.Location = new System.Drawing.Point(3, 27);
+            this.labelControl1.Name = "labelControl1";
+            this.labelControl1.Size = new System.Drawing.Size(45, 13);
+            this.labelControl1.TabIndex = 0;
+            this.labelControl1.Text = "CLIENTE:";
             // 
             // SinistrosForm
             // 
@@ -312,16 +312,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.gcInfoBasica)).EndInit();
             this.gcInfoBasica.ResumeLayout(false);
             this.gcInfoBasica.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cbCliente.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1View)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbVeiculo.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit2View)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbReboque1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbReboque2.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit3View)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbReboque3.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit4View)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbReboque2.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit3View)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbReboque1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbVeiculo.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit2View)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbCliente.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1View)).EndInit();
             this.ResumeLayout(false);
 
         }
