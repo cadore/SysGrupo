@@ -1,0 +1,16 @@
+[backColorFoco]
+backColorFocoR=255
+backColorFocoG=255
+backColorFocoB=182
+
+[diretorios]
+diretorio_raiz_documentos=C:\SysNorte\Documentos\SysGrupo
+
+[email]
+smtpServer=
+ssl=
+porta=
+usuario=
+senha=
+email_de=
+nome_email=

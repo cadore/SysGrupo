@@ -1077,16 +1077,14 @@ namespace WcfLibGrupo
         {
             try
             {
-                new EMailUtil().EnviaEmail(destinatarios, cc, bcc, assunto, menssagem, html, prioridade, anexos);
+                return new EMailUtil().EnviaEmail(destinatarios, cc, bcc, assunto, menssagem, html, prioridade, anexos);
             }
             catch (Exception ex)
             {
                 throw new FaultException(
                     new FaultReason(String.Format("EXCECÃO: {0}{1}INNER EXCEPTION: {2}", ex.Message, Environment.NewLine, ex.InnerException)),
                     new FaultCode("1000"));
-            } 
-            
-            return true;
+            }
         }
 
         #endregion

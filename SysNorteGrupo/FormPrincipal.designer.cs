@@ -47,6 +47,9 @@
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.pnControl = new DevExpress.XtraEditors.PanelControl();
+            this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.barButtonItem5 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem6 = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pnControl)).BeginInit();
             this.SuspendLayout();
@@ -65,9 +68,11 @@
             this.btnNovoUsuario,
             this.barButtonItem2,
             this.barButtonItem3,
-            this.barButtonItem4});
+            this.barButtonItem4,
+            this.barButtonItem5,
+            this.barButtonItem6});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.MaxItemId = 18;
+            this.ribbon.MaxItemId = 20;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1});
@@ -169,7 +174,8 @@
             this.ribVeiculos,
             this.ribbonPageGroup2,
             this.ribUsuarios,
-            this.ribbonPageGroup1});
+            this.ribbonPageGroup1,
+            this.ribbonPageGroup3});
             this.ribbonPage1.Name = "ribbonPage1";
             this.ribbonPage1.Text = "Sistema";
             // 
@@ -234,7 +240,31 @@
             this.pnControl.TabIndex = 2;
             this.pnControl.ControlAdded += new System.Windows.Forms.ControlEventHandler(this.pnControl_ControlAdded);
             // 
-            // FormPricipal
+            // ribbonPageGroup3
+            // 
+            this.ribbonPageGroup3.AllowTextClipping = false;
+            this.ribbonPageGroup3.ItemLinks.Add(this.barButtonItem6);
+            this.ribbonPageGroup3.ItemLinks.Add(this.barButtonItem5);
+            this.ribbonPageGroup3.Name = "ribbonPageGroup3";
+            this.ribbonPageGroup3.ShowCaptionButton = false;
+            this.ribbonPageGroup3.Text = "Sinistros";
+            // 
+            // barButtonItem5
+            // 
+            this.barButtonItem5.Caption = "Cadastrar Sinistro";
+            this.barButtonItem5.Id = 18;
+            this.barButtonItem5.Name = "barButtonItem5";
+            this.barButtonItem5.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.barButtonItem5.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem5_ItemClick);
+            // 
+            // barButtonItem6
+            // 
+            this.barButtonItem6.Caption = "Lista de Sinistros";
+            this.barButtonItem6.Id = 19;
+            this.barButtonItem6.Name = "barButtonItem6";
+            this.barButtonItem6.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            // 
+            // FormPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -242,7 +272,7 @@
             this.Controls.Add(this.pnControl);
             this.Controls.Add(this.ribbonStatusBar);
             this.Controls.Add(this.ribbon);
-            this.Name = "FormPricipal";
+            this.Name = "FormPrincipal";
             this.Ribbon = this.ribbon;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.StatusBar = this.ribbonStatusBar;
@@ -276,5 +306,8 @@
         private DevExpress.XtraBars.BarButtonItem barButtonItem3;
         private DevExpress.XtraBars.BarButtonItem barButtonItem4;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup2;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem5;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem6;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup3;
     }
 }

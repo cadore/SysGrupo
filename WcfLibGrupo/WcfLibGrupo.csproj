@@ -52,7 +52,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ServiceGrupo.cs" />
     <Compile Include="Utils\Datas.cs" />
-    <Compile Include="Utils\EMail.cs" />
+    <Compile Include="Utils\EMailUtil.cs" />
     <Compile Include="Utils\LeitorINI.cs" />
     <Compile Include="Utils\UtilsSistemaServico.cs" />
   </ItemGroup>

@@ -123,31 +123,6 @@ namespace SysFileManager
             }
         }
 
-        /*private void button1_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                FileInfo f1 = new FileInfo(@"C:\Users\William\Desktop\1.txt");
-                FileInfo f2 = new FileInfo(@"C:\Users\William\Desktop\2.txt");
-                FileInfo f3 = new FileInfo(@"C:\Users\William\Desktop\3.txt");
-
-                List<string> des = new List<string>();
-                des.Add("cadore.william@gmail.com");
-                des.Add("guilherme.ganzer@gmail.com");
-
-                List<FileInfo> an = new List<FileInfo>();
-                an.Add(f1);
-                an.Add(f2);
-                an.Add(f3);
-
-                if(conn.EnviaEmail(des, "", "", "TESTE ENVIO", "TESTANDO ENVIO EMAIL", false, MailPriority.Normal, an)){
-                    MessageBox.Show("Email enviado!");
-                }
-            }catch(Exception ex){
-                MessageBox.Show(ex.Message);
-            }
-        }*/
-
         private void btnDownload_Click(object sender, EventArgs e)
         {
             try
@@ -195,18 +170,32 @@ namespace SysFileManager
             }
         }
 
-        /*private void atualizaProgressBar(int lenght)
+        /*private void simpleButton1_Click(object sender, EventArgs e)
         {
-            progressBar.Properties.Maximum = lenght;
-            progressBar.Properties.ShowTitle = true;
-            for (int i = 0; i < lenght; i++)
+            try
             {
-                //conn.upload(b1, nome);
-                progressBar.PerformStep();
-                progressBar.Update();
+                FileInfo f1 = new FileInfo(@"C:\Users\William\Desktop\1.txt");
+                FileInfo f2 = new FileInfo(@"C:\Users\William\Desktop\2.txt");
+                FileInfo f3 = new FileInfo(@"C:\Users\William\Desktop\3.txt");
+
+                List<string> des = new List<string>();
+                des.Add("william.cadore@hotmail.com");
+                //des.Add("guilherme.ganzer@gmail.com");
+
+                List<FileInfo> an = new List<FileInfo>();
+                an.Add(f1);
+                an.Add(f2);
+                an.Add(f3);
+
+                if (conn.EnviaEmail(des, "", "", "TESTE ENVIO", "TESTANDO ENVIO EMAIL", false, MailPriority.Normal, an))
+                {
+                    MessageBox.Show("Email enviado!");
+                }
             }
-            progressBar.Properties.ShowTitle = false;
-            progressBar.Position = 0;
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }*/
     }
 }

@@ -210,4 +210,16 @@
         eAFLf+FvNndNOEaHrfmo0mNi4h+KqMbx8kOIBwAAAABJRU5ErkJggg==
 </value>
   </data>
+  <metadata name="bdgReboquesTabela.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>12, 18</value>
+  </metadata>
+  <metadata name="bdgReboques.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>145, 14</value>
+  </metadata>
+  <metadata name="bdgVeiculos.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>267, 15</value>
+  </metadata>
+  <metadata name="bdgCliente.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>386, 15</value>
+  </metadata>
 </root>

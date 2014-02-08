@@ -10,6 +10,7 @@ using SysNorteGrupo.UI.Veiculos;
 using EntitiesGrupo;
 using WcfLibGrupo;
 using SysFileManager;
+using SysNorteGrupo.UI.Sinistros;
 
 namespace SysNorteGrupo
 {
@@ -122,6 +123,12 @@ namespace SysNorteGrupo
         private void ribbon_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void barButtonItem5_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            SinistrosForm sf = new SinistrosForm(null) { formPrincipal = this};
+            adicionarControleNavegacao(sf);
         }         
     }
 }
