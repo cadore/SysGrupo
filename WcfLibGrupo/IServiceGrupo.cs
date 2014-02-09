@@ -239,6 +239,12 @@ namespace WcfLibGrupo
         bool EnviaEmail(List<string> destinatarios, string cc, string bcc, string assunto, string menssagem, bool html, MailPriority prioridade, List<FileInfo> anexos);
 
         #endregion
+
+        #region sinistros
+
+        long SalvaSinistro(sinistro obj, List<vei_reb_sinistros> listVR, List<pagamentos_sinistro> listPs);
+
+        #endregion
     }
 
 }

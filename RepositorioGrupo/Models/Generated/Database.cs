@@ -820,12 +820,6 @@ namespace EntitiesGrupo
 
 
 
-		[Column] public decimal valor_total { get; set; }
-
-
-
-
-
 		[Column] public long situacao_pagamento { get; set; }
 
 
@@ -872,19 +866,91 @@ namespace EntitiesGrupo
 
 
 
-
-
-		[Column] public long id_veiculos { get; set; }
-
-
-
-
-
-		[Column] public long id_reboques { get; set; }
-
-
-
 	}
+
+
+
+    [TableName("vei_reb_sinistros")]
+
+
+    [PrimaryKey("id")]
+
+
+
+    [ExplicitColumns]
+    public partial class vei_reb_sinistros : SysGrupoRepo.Record<vei_reb_sinistros>
+    {
+
+
+        [Column] 
+        public long id { get; set; }
+
+
+        [Column]
+        public long id_sinistro { get; set; }
+
+
+
+        [Column]
+        public long id_veiculo { get; set; }
+
+
+
+        [Column]
+        public long id_reboque { get; set; }
+
+
+
+    }
+
+
+
+    [TableName("historico_veic_reb_sinistros")]
+
+
+    [PrimaryKey("id")]
+
+
+
+    [ExplicitColumns]
+    public partial class historico_veic_reb_sinistros : SysGrupoRepo.Record<historico_veic_reb_sinistros>
+    {
+
+
+        [Column]
+        public long id { get; set; }
+
+
+        [Column]
+        public long id_sinistro { get; set; }
+
+
+
+        [Column]
+        public long id_veiculo { get; set; }
+
+
+
+        [Column]
+        public long id_reboque { get; set; }
+
+
+
+        [Column]
+        public char identificador { get; set; }
+
+
+
+        [Column]
+        public decimal valor { get; set; }
+
+
+
+
+    }
+
+
+
 
     
 	[TableName("pagamentos_sinistro")]

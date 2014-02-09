@@ -237,6 +237,7 @@
     <None Include="Properties\DataSources\EntitiesGrupo.SysGrupoRepo.datasource" />
     <None Include="Properties\DataSources\EntitiesGrupo.usuario.datasource" />
     <None Include="Properties\DataSources\EntitiesGrupo.veiculo.datasource" />
+    <None Include="Properties\DataSources\EntitiesGrupo.vei_reb_sinistros.datasource" />
     <None Include="Properties\DataSources\LibListaAnos.LibAnos.datasource" />
     <None Include="Properties\DataSources\PetaPoco.AnsiString.datasource" />
     <None Include="Properties\DataSources\PetaPoco.ColumnAttribute.datasource" />

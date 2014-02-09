@@ -62,7 +62,7 @@
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl1.Location = new System.Drawing.Point(0, 0);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(759, 248);
+            this.panelControl1.Size = new System.Drawing.Size(759, 220);
             this.panelControl1.TabIndex = 0;
             // 
             // panelControl2
@@ -76,9 +76,9 @@
             this.panelControl2.Controls.Add(this.btnDownload);
             this.panelControl2.Controls.Add(this.btnAdicionar);
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelControl2.Location = new System.Drawing.Point(2, 164);
+            this.panelControl2.Location = new System.Drawing.Point(2, 145);
             this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(755, 82);
+            this.panelControl2.Size = new System.Drawing.Size(755, 73);
             this.panelControl2.TabIndex = 1;
             // 
             // progressBar
@@ -98,7 +98,7 @@
             this.btnRefresh.ForeColor = System.Drawing.Color.White;
             this.btnRefresh.Image = ((System.Drawing.Image)(resources.GetObject("btnRefresh.Image")));
             this.btnRefresh.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRefresh.Location = new System.Drawing.Point(3, 28);
+            this.btnRefresh.Location = new System.Drawing.Point(3, 22);
             this.btnRefresh.Name = "btnRefresh";
             this.btnRefresh.Size = new System.Drawing.Size(60, 49);
             this.btnRefresh.TabIndex = 4;
@@ -116,7 +116,7 @@
             this.btnExcluir.ForeColor = System.Drawing.Color.White;
             this.btnExcluir.Image = ((System.Drawing.Image)(resources.GetObject("btnExcluir.Image")));
             this.btnExcluir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnExcluir.Location = new System.Drawing.Point(327, 28);
+            this.btnExcluir.Location = new System.Drawing.Point(327, 22);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(137, 49);
             this.btnExcluir.TabIndex = 3;
@@ -135,7 +135,7 @@
             this.btnDownload.ForeColor = System.Drawing.Color.White;
             this.btnDownload.Image = ((System.Drawing.Image)(resources.GetObject("btnDownload.Image")));
             this.btnDownload.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDownload.Location = new System.Drawing.Point(470, 28);
+            this.btnDownload.Location = new System.Drawing.Point(470, 22);
             this.btnDownload.Name = "btnDownload";
             this.btnDownload.Size = new System.Drawing.Size(137, 49);
             this.btnDownload.TabIndex = 2;
@@ -153,7 +153,7 @@
             this.btnAdicionar.ForeColor = System.Drawing.Color.White;
             this.btnAdicionar.Image = ((System.Drawing.Image)(resources.GetObject("btnAdicionar.Image")));
             this.btnAdicionar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAdicionar.Location = new System.Drawing.Point(613, 28);
+            this.btnAdicionar.Location = new System.Drawing.Point(613, 22);
             this.btnAdicionar.Name = "btnAdicionar";
             this.btnAdicionar.Size = new System.Drawing.Size(137, 49);
             this.btnAdicionar.TabIndex = 0;
@@ -174,7 +174,7 @@
             this.gridControl.Location = new System.Drawing.Point(2, 2);
             this.gridControl.MainView = this.gridView1;
             this.gridControl.Name = "gridControl";
-            this.gridControl.Size = new System.Drawing.Size(755, 165);
+            this.gridControl.Size = new System.Drawing.Size(755, 143);
             this.gridControl.TabIndex = 0;
             this.gridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -248,7 +248,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.panelControl1);
             this.Name = "ArquivosForm";
-            this.Size = new System.Drawing.Size(759, 248);
+            this.Size = new System.Drawing.Size(759, 220);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
