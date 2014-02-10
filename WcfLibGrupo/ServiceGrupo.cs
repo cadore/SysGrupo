@@ -1098,23 +1098,23 @@ namespace WcfLibGrupo
                 long _id_sinistro;
                 using (var scope = usuario.repo.GetTransaction())
                 {
-                    Console.WriteLine(1);
+                    //Console.WriteLine(1);
                     obj.Save();
                     _id_sinistro = Convert.ToInt64(obj.id);
-                    Console.WriteLine(2);
+                    //Console.WriteLine(2);
                     foreach(vei_reb_sinistros vr in listVR){
-                        Console.WriteLine("foreach 1");
+                        //Console.WriteLine("foreach 1");
                         vei_reb_sinistros.repo.Save(new vei_reb_sinistros() { id_reboque = vr.id_reboque, id_veiculo = vr.id_veiculo, id_sinistro = _id_sinistro });
                     }
-                    Console.WriteLine(3);
+                    //Console.WriteLine(3);
                     foreach(pagamentos_sinistro ps in listPag){
-                        Console.WriteLine("foreach 2");
+                        //Console.WriteLine("foreach 2");
                         pagamentos_sinistro.repo.Save(new pagamentos_sinistro() { valor = ps.valor, observacao = ps.observacao, id_sinistros = _id_sinistro});
                     }
-                    Console.WriteLine(4);
+                    //Console.WriteLine(4);
 
                     scope.Complete();
-                    Console.WriteLine(5);
+                    //Console.WriteLine(5);
                 }
                 return _id_sinistro;
             }

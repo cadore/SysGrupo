@@ -11,6 +11,7 @@ using EntitiesGrupo;
 using WcfLibGrupo;
 using SysFileManager;
 using SysNorteGrupo.UI.Sinistros;
+using SysNorteGrupo.UI.Veiculos.Reboques;
 
 namespace SysNorteGrupo
 {
@@ -129,6 +130,12 @@ namespace SysNorteGrupo
         {
             SinistrosForm sf = new SinistrosForm(null) { formPrincipal = this};
             adicionarControleNavegacao(sf);
+        }
+
+        private void barButtonItem4_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            ReboqueForm rf = new ReboqueForm(null) { formPrincipal = this };
+            adicionarControleNavegacao(rf);
         }         
     }
 }

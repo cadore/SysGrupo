@@ -28,9 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ReboqueForm));
-            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule15 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
-            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule16 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule2 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule3 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
@@ -44,6 +43,8 @@
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule11 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule12 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule13 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
+            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule14 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
+            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule15 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             this.pnBotoes = new DevExpress.XtraEditors.PanelControl();
             this.btnInativar = new SysNorteGrupo.Utils.BotaoInativar();
             this.btnSair = new SysNorteGrupo.Utils.BotaoSair();
@@ -53,7 +54,7 @@
             this.pnPrincipal = new DevExpress.XtraEditors.PanelControl();
             this.pnTabela = new DevExpress.XtraEditors.PanelControl();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
-            this.bdgReboqueLista = new System.Windows.Forms.BindingSource();
+            this.bdgReboqueLista = new System.Windows.Forms.BindingSource(this.components);
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colrenavam = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colchassi = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -81,9 +82,8 @@
             this.arquivosFormReb = new SysFileManager.ArquivosForm();
             this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
             this.tfId = new DevExpress.XtraEditors.TextEdit();
-            this.bdgReboque = new System.Windows.Forms.BindingSource();
             this.cbVeiculos = new DevExpress.XtraEditors.SearchLookUpEdit();
-            this.bdgVeiculo = new System.Windows.Forms.BindingSource();
+            this.bdgVeiculo = new System.Windows.Forms.BindingSource(this.components);
             this.gridView9 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn15 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn16 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -114,7 +114,7 @@
             this.gridColumn41 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.labelControl22 = new DevExpress.XtraEditors.LabelControl();
             this.cbCliente = new DevExpress.XtraEditors.SearchLookUpEdit();
-            this.bdgCliente = new System.Windows.Forms.BindingSource();
+            this.bdgCliente = new System.Windows.Forms.BindingSource(this.components);
             this.searchLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colnome_completo = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -146,11 +146,12 @@
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.pnInformacoes = new DevExpress.XtraEditors.PanelControl();
             this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
-            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
+            this.btnRemover = new DevExpress.XtraEditors.SimpleButton();
             this.btnAdicionar = new DevExpress.XtraEditors.SimpleButton();
             this.tfValor = new DevExpress.XtraEditors.CalcEdit();
             this.labelControl16 = new DevExpress.XtraEditors.LabelControl();
             this.cbCidade = new DevExpress.XtraEditors.SearchLookUpEdit();
+            this.bdgCidade = new System.Windows.Forms.BindingSource(this.components);
             this.gridView6 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn10 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colnome_cidade = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -159,14 +160,14 @@
             this.colarea = new DevExpress.XtraGrid.Columns.GridColumn();
             this.labelControl18 = new DevExpress.XtraEditors.LabelControl();
             this.cbCorCarroceria = new DevExpress.XtraEditors.SearchLookUpEdit();
-            this.bdgCor = new System.Windows.Forms.BindingSource();
+            this.bdgCor = new System.Windows.Forms.BindingSource(this.components);
             this.gridView8 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn13 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn14 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.lbCorCarroceria = new DevExpress.XtraEditors.LabelControl();
             this.labelControl21 = new DevExpress.XtraEditors.LabelControl();
             this.cbCorChassi = new DevExpress.XtraEditors.SearchLookUpEdit();
-            this.bdgCorChassi = new System.Windows.Forms.BindingSource();
+            this.bdgCorChassi = new System.Windows.Forms.BindingSource(this.components);
             this.gridView7 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colid_cor = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colnome_cor = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -177,14 +178,14 @@
             this.tfDataAgendamento = new DevExpress.XtraEditors.DateEdit();
             this.labelControl12 = new DevExpress.XtraEditors.LabelControl();
             this.cbEstado = new DevExpress.XtraEditors.SearchLookUpEdit();
-            this.bdgEstado = new System.Windows.Forms.BindingSource();
+            this.bdgEstado = new System.Windows.Forms.BindingSource(this.components);
             this.gridView5 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn9 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.coluf = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colnome_estado = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colcod_ibge = new DevExpress.XtraGrid.Columns.GridColumn();
             this.cbEspecie = new DevExpress.XtraEditors.SearchLookUpEdit();
-            this.bdgEspecie = new System.Windows.Forms.BindingSource();
+            this.bdgEspecie = new System.Windows.Forms.BindingSource(this.components);
             this.gridView3 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn8 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colespecie = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -203,8 +204,7 @@
             this.labelControl15 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl14 = new DevExpress.XtraEditors.LabelControl();
-            this.validator = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider();
-            this.bdgCidade = new System.Windows.Forms.BindingSource();
+            this.validator = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pnBotoes)).BeginInit();
             this.pnBotoes.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pnPrincipal)).BeginInit();
@@ -215,7 +215,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.bdgReboqueLista)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfId.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bdgReboque)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbVeiculos.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdgVeiculo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView9)).BeginInit();
@@ -228,6 +227,7 @@
             this.groupControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tfValor.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbCidade.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdgCidade)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbCorCarroceria.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdgCor)).BeginInit();
@@ -252,7 +252,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.tfRenavam.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfTara.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.validator)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bdgCidade)).BeginInit();
             this.SuspendLayout();
             // 
             // pnBotoes
@@ -283,7 +282,7 @@
             this.btnInativar.Location = new System.Drawing.Point(240, 7);
             this.btnInativar.Name = "btnInativar";
             this.btnInativar.Size = new System.Drawing.Size(121, 56);
-            this.btnInativar.TabIndex = 4;
+            this.btnInativar.TabIndex = 2;
             this.btnInativar.Text = "Inativar";
             this.btnInativar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnInativar.UseVisualStyleBackColor = false;
@@ -297,10 +296,10 @@
             this.btnSair.ForeColor = System.Drawing.Color.White;
             this.btnSair.Image = ((System.Drawing.Image)(resources.GetObject("btnSair.Image")));
             this.btnSair.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSair.Location = new System.Drawing.Point(625, 7);
+            this.btnSair.Location = new System.Drawing.Point(784, 7);
             this.btnSair.Name = "btnSair";
             this.btnSair.Size = new System.Drawing.Size(110, 56);
-            this.btnSair.TabIndex = 3;
+            this.btnSair.TabIndex = 4;
             this.btnSair.Text = "Sair";
             this.btnSair.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnSair.UseVisualStyleBackColor = false;
@@ -317,7 +316,7 @@
             this.btnNovo.Location = new System.Drawing.Point(367, 7);
             this.btnNovo.Name = "btnNovo";
             this.btnNovo.Size = new System.Drawing.Size(110, 56);
-            this.btnNovo.TabIndex = 2;
+            this.btnNovo.TabIndex = 3;
             this.btnNovo.Text = "Novo";
             this.btnNovo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnNovo.UseVisualStyleBackColor = false;
@@ -370,15 +369,15 @@
             this.pnPrincipal.Controls.Add(this.labelControl1);
             this.pnPrincipal.Controls.Add(this.pnInformacoes);
             this.pnPrincipal.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnPrincipal.Location = new System.Drawing.Point(0, 69);
+            this.pnPrincipal.Location = new System.Drawing.Point(0, 70);
             this.pnPrincipal.Name = "pnPrincipal";
-            this.pnPrincipal.Size = new System.Drawing.Size(901, 528);
+            this.pnPrincipal.Size = new System.Drawing.Size(901, 500);
             this.pnPrincipal.TabIndex = 2;
             // 
             // pnTabela
             // 
             this.pnTabela.Controls.Add(this.gridControl1);
-            this.pnTabela.Location = new System.Drawing.Point(3, 223);
+            this.pnTabela.Location = new System.Drawing.Point(3, 198);
             this.pnTabela.Name = "pnTabela";
             this.pnTabela.Size = new System.Drawing.Size(894, 101);
             this.pnTabela.TabIndex = 6;
@@ -391,6 +390,7 @@
             this.gridControl1.Name = "gridControl1";
             this.gridControl1.Size = new System.Drawing.Size(889, 95);
             this.gridControl1.TabIndex = 0;
+            this.gridControl1.TabStop = false;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
             // 
@@ -580,14 +580,16 @@
             // 
             // arquivosFormReb
             // 
-            this.arquivosFormReb.Location = new System.Drawing.Point(3, 327);
+            this.arquivosFormReb.Enabled = false;
+            this.arquivosFormReb.Location = new System.Drawing.Point(3, 300);
             this.arquivosFormReb.Name = "arquivosFormReb";
             this.arquivosFormReb.Size = new System.Drawing.Size(894, 196);
             this.arquivosFormReb.TabIndex = 5;
+            this.arquivosFormReb.TabStop = false;
             // 
             // labelControl6
             // 
-            this.labelControl6.Location = new System.Drawing.Point(777, 8);
+            this.labelControl6.Location = new System.Drawing.Point(799, 8);
             this.labelControl6.Name = "labelControl6";
             this.labelControl6.Size = new System.Drawing.Size(15, 13);
             this.labelControl6.TabIndex = 4;
@@ -595,22 +597,19 @@
             // 
             // tfId
             // 
-            this.tfId.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdgReboque, "id", true));
-            this.tfId.Location = new System.Drawing.Point(798, 5);
+            this.tfId.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdgReboqueLista, "id", true));
+            this.tfId.Location = new System.Drawing.Point(820, 5);
             this.tfId.Name = "tfId";
             this.tfId.Properties.ReadOnly = true;
             this.tfId.Size = new System.Drawing.Size(75, 20);
             this.tfId.TabIndex = 3;
-            // 
-            // bdgReboque
-            // 
-            this.bdgReboque.DataSource = typeof(EntitiesGrupo.reboque);
+            this.tfId.TabStop = false;
             // 
             // cbVeiculos
             // 
-            this.cbVeiculos.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdgReboque, "id_veiculos", true));
+            this.cbVeiculos.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdgReboqueLista, "id_cidade", true));
             this.cbVeiculos.EditValue = "Selecione o veículo";
-            this.cbVeiculos.Location = new System.Drawing.Point(73, 27);
+            this.cbVeiculos.Location = new System.Drawing.Point(62, 27);
             this.cbVeiculos.Name = "cbVeiculos";
             this.cbVeiculos.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -620,10 +619,10 @@
             this.cbVeiculos.Properties.ValueMember = "id";
             this.cbVeiculos.Properties.View = this.gridView9;
             this.cbVeiculos.Size = new System.Drawing.Size(439, 20);
-            this.cbVeiculos.TabIndex = 0;
-            conditionValidationRule15.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule15.ErrorText = "Selecione um veículo ao qual o reboque pertence";
-            this.validator.SetValidationRule(this.cbVeiculos, conditionValidationRule15);
+            this.cbVeiculos.TabIndex = 1;
+            conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule1.ErrorText = "Selecione um veículo ao qual o reboque pertence";
+            this.validator.SetValidationRule(this.cbVeiculos, conditionValidationRule1);
             this.cbVeiculos.EditValueChanged += new System.EventHandler(this.cbVeiculos_EditValueChanged);
             // 
             // bdgVeiculo
@@ -817,7 +816,7 @@
             // 
             // labelControl22
             // 
-            this.labelControl22.Location = new System.Drawing.Point(22, 30);
+            this.labelControl22.Location = new System.Drawing.Point(11, 30);
             this.labelControl22.Name = "labelControl22";
             this.labelControl22.Size = new System.Drawing.Size(47, 13);
             this.labelControl22.TabIndex = 1;
@@ -825,9 +824,9 @@
             // 
             // cbCliente
             // 
-            this.cbCliente.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdgReboque, "id_cliente", true));
+            this.cbCliente.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdgReboqueLista, "id_cliente", true));
             this.cbCliente.EditValue = "";
-            this.cbCliente.Location = new System.Drawing.Point(72, 5);
+            this.cbCliente.Location = new System.Drawing.Point(62, 5);
             this.cbCliente.Name = "cbCliente";
             this.cbCliente.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -838,9 +837,9 @@
             this.cbCliente.Properties.View = this.searchLookUpEdit1View;
             this.cbCliente.Size = new System.Drawing.Size(439, 20);
             this.cbCliente.TabIndex = 0;
-            conditionValidationRule16.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule16.ErrorText = "Selecione um cliente";
-            this.validator.SetValidationRule(this.cbCliente, conditionValidationRule16);
+            conditionValidationRule2.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule2.ErrorText = "Selecione um cliente";
+            this.validator.SetValidationRule(this.cbCliente, conditionValidationRule2);
             this.cbCliente.EditValueChanged += new System.EventHandler(this.cbCliente_EditValueChanged);
             // 
             // bdgCliente
@@ -1034,7 +1033,7 @@
             // 
             // labelControl1
             // 
-            this.labelControl1.Location = new System.Drawing.Point(21, 8);
+            this.labelControl1.Location = new System.Drawing.Point(10, 8);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(45, 13);
             this.labelControl1.TabIndex = 1;
@@ -1046,12 +1045,12 @@
             this.pnInformacoes.Enabled = false;
             this.pnInformacoes.Location = new System.Drawing.Point(2, 49);
             this.pnInformacoes.Name = "pnInformacoes";
-            this.pnInformacoes.Size = new System.Drawing.Size(895, 172);
+            this.pnInformacoes.Size = new System.Drawing.Size(895, 148);
             this.pnInformacoes.TabIndex = 0;
             // 
             // groupControl2
             // 
-            this.groupControl2.Controls.Add(this.simpleButton1);
+            this.groupControl2.Controls.Add(this.btnRemover);
             this.groupControl2.Controls.Add(this.btnAdicionar);
             this.groupControl2.Controls.Add(this.tfValor);
             this.groupControl2.Controls.Add(this.labelControl16);
@@ -1087,23 +1086,24 @@
             this.groupControl2.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupControl2.Location = new System.Drawing.Point(2, 2);
             this.groupControl2.Name = "groupControl2";
-            this.groupControl2.Size = new System.Drawing.Size(891, 168);
-            this.groupControl2.TabIndex = 6;
+            this.groupControl2.Size = new System.Drawing.Size(891, 144);
+            this.groupControl2.TabIndex = 0;
             this.groupControl2.Text = "CARACTERÍSTICAS DO REBOQUE";
             // 
-            // simpleButton1
+            // btnRemover
             // 
-            this.simpleButton1.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
-            this.simpleButton1.Appearance.ForeColor = System.Drawing.Color.ForestGreen;
-            this.simpleButton1.Appearance.Options.UseFont = true;
-            this.simpleButton1.Appearance.Options.UseForeColor = true;
-            this.simpleButton1.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
-            this.simpleButton1.Image = global::SysNorteGrupo.Properties.Resources.State_Validation_Invalid;
-            this.simpleButton1.Location = new System.Drawing.Point(770, 140);
-            this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(111, 23);
-            this.simpleButton1.TabIndex = 25;
-            this.simpleButton1.Text = "Remover";
+            this.btnRemover.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
+            this.btnRemover.Appearance.ForeColor = System.Drawing.Color.ForestGreen;
+            this.btnRemover.Appearance.Options.UseFont = true;
+            this.btnRemover.Appearance.Options.UseForeColor = true;
+            this.btnRemover.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
+            this.btnRemover.Image = global::SysNorteGrupo.Properties.Resources.State_Validation_Invalid;
+            this.btnRemover.Location = new System.Drawing.Point(771, 117);
+            this.btnRemover.Name = "btnRemover";
+            this.btnRemover.Size = new System.Drawing.Size(111, 23);
+            this.btnRemover.TabIndex = 16;
+            this.btnRemover.Text = "Remover";
+            this.btnRemover.Click += new System.EventHandler(this.btnRemover_Click);
             // 
             // btnAdicionar
             // 
@@ -1113,28 +1113,29 @@
             this.btnAdicionar.Appearance.Options.UseForeColor = true;
             this.btnAdicionar.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.btnAdicionar.Image = global::SysNorteGrupo.Properties.Resources.Action_SingleChoiceAction;
-            this.btnAdicionar.Location = new System.Drawing.Point(655, 140);
+            this.btnAdicionar.Location = new System.Drawing.Point(627, 117);
             this.btnAdicionar.Name = "btnAdicionar";
-            this.btnAdicionar.Size = new System.Drawing.Size(109, 23);
-            this.btnAdicionar.TabIndex = 7;
-            this.btnAdicionar.Text = "Adicionar";
+            this.btnAdicionar.Size = new System.Drawing.Size(138, 23);
+            this.btnAdicionar.TabIndex = 15;
+            this.btnAdicionar.Text = "Adicionar Novo";
+            this.btnAdicionar.Click += new System.EventHandler(this.btnAdicionar_Click);
             // 
             // tfValor
             // 
-            this.tfValor.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdgReboque, "valor", true));
+            this.tfValor.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdgReboqueLista, "valor", true));
             this.tfValor.Location = new System.Drawing.Point(770, 46);
             this.tfValor.Name = "tfValor";
             this.tfValor.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.tfValor.Size = new System.Drawing.Size(111, 20);
-            this.tfValor.TabIndex = 24;
-            conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule1.ErrorText = "Informe o valor do reboque";
-            this.validator.SetValidationRule(this.tfValor, conditionValidationRule1);
+            this.tfValor.TabIndex = 7;
+            conditionValidationRule3.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule3.ErrorText = "Informe o valor do reboque";
+            this.validator.SetValidationRule(this.tfValor, conditionValidationRule3);
             // 
             // labelControl16
             // 
-            this.labelControl16.Location = new System.Drawing.Point(727, 49);
+            this.labelControl16.Location = new System.Drawing.Point(728, 49);
             this.labelControl16.Name = "labelControl16";
             this.labelControl16.Size = new System.Drawing.Size(37, 13);
             this.labelControl16.TabIndex = 22;
@@ -1142,20 +1143,25 @@
             // 
             // cbCidade
             // 
-            this.cbCidade.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdgReboque, "id_cidades", true));
+            this.cbCidade.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdgReboqueLista, "id_cidade", true));
             this.cbCidade.Location = new System.Drawing.Point(239, 90);
             this.cbCidade.Name = "cbCidade";
             this.cbCidade.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cbCidade.Properties.DataSource = this.bdgCidade;
             this.cbCidade.Properties.DisplayMember = "nome_cidade";
             this.cbCidade.Properties.NullText = "";
             this.cbCidade.Properties.ValueMember = "id";
             this.cbCidade.Properties.View = this.gridView6;
-            this.cbCidade.Size = new System.Drawing.Size(451, 20);
-            this.cbCidade.TabIndex = 21;
-            conditionValidationRule2.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule2.ErrorText = "Selecione uma cidade";
-            this.validator.SetValidationRule(this.cbCidade, conditionValidationRule2);
+            this.cbCidade.Size = new System.Drawing.Size(482, 20);
+            this.cbCidade.TabIndex = 12;
+            conditionValidationRule4.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule4.ErrorText = "Selecione uma cidade";
+            this.validator.SetValidationRule(this.cbCidade, conditionValidationRule4);
+            // 
+            // bdgCidade
+            // 
+            this.bdgCidade.DataSource = typeof(EntitiesGrupo.cidade);
             // 
             // gridView6
             // 
@@ -1228,10 +1234,10 @@
             this.cbCorCarroceria.Properties.ValueMember = "nome_cor";
             this.cbCorCarroceria.Properties.View = this.gridView8;
             this.cbCorCarroceria.Size = new System.Drawing.Size(104, 20);
-            this.cbCorCarroceria.TabIndex = 19;
-            conditionValidationRule3.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule3.ErrorText = "Informe a cor da carroceria";
-            this.validator.SetValidationRule(this.cbCorCarroceria, conditionValidationRule3);
+            this.cbCorCarroceria.TabIndex = 2;
+            conditionValidationRule5.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule5.ErrorText = "Informe a cor da carroceria";
+            this.validator.SetValidationRule(this.cbCorCarroceria, conditionValidationRule5);
             this.cbCorCarroceria.EditValueChanged += new System.EventHandler(this.cbCorCarroceria_EditValueChanged);
             // 
             // bdgCor
@@ -1291,10 +1297,10 @@
             this.cbCorChassi.Properties.ValueMember = "nome_cor";
             this.cbCorChassi.Properties.View = this.gridView7;
             this.cbCorChassi.Size = new System.Drawing.Size(104, 20);
-            this.cbCorChassi.TabIndex = 4;
-            conditionValidationRule4.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule4.ErrorText = "Informe a cor do chassi";
-            this.validator.SetValidationRule(this.cbCorChassi, conditionValidationRule4);
+            this.cbCorChassi.TabIndex = 1;
+            conditionValidationRule6.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule6.ErrorText = "Informe a cor do chassi";
+            this.validator.SetValidationRule(this.cbCorChassi, conditionValidationRule6);
             this.cbCorChassi.EditValueChanged += new System.EventHandler(this.cbCorChassi_EditValueChanged);
             // 
             // bdgCorChassi
@@ -1326,24 +1332,24 @@
             // 
             // tfPlaca
             // 
-            this.tfPlaca.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdgReboque, "placa", true));
+            this.tfPlaca.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdgReboqueLista, "placa", true));
             this.tfPlaca.Location = new System.Drawing.Point(68, 23);
             this.tfPlaca.Name = "tfPlaca";
             this.tfPlaca.Properties.Mask.EditMask = "[A-Z]{3}\\-\\d{4}";
             this.tfPlaca.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
             this.tfPlaca.Size = new System.Drawing.Size(106, 20);
             this.tfPlaca.TabIndex = 0;
-            conditionValidationRule5.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule5.ErrorText = "Informe a placa";
-            this.validator.SetValidationRule(this.tfPlaca, conditionValidationRule5);
+            conditionValidationRule7.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule7.ErrorText = "Informe a placa";
+            this.validator.SetValidationRule(this.tfPlaca, conditionValidationRule7);
             // 
             // ckAgendarCad
             // 
-            this.ckAgendarCad.Location = new System.Drawing.Point(458, 113);
+            this.ckAgendarCad.Location = new System.Drawing.Point(30, 116);
             this.ckAgendarCad.Name = "ckAgendarCad";
             this.ckAgendarCad.Properties.Caption = "AGENDAR CADASTRO";
             this.ckAgendarCad.Size = new System.Drawing.Size(133, 19);
-            this.ckAgendarCad.TabIndex = 14;
+            this.ckAgendarCad.TabIndex = 13;
             this.ckAgendarCad.CheckedChanged += new System.EventHandler(this.ckAgendarCad_CheckedChanged);
             // 
             // labelControl7
@@ -1365,9 +1371,10 @@
             // 
             // tfDataAgendamento
             // 
+            this.tfDataAgendamento.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdgReboqueLista, "data_ativacao", true));
             this.tfDataAgendamento.EditValue = null;
             this.tfDataAgendamento.Enabled = false;
-            this.tfDataAgendamento.Location = new System.Drawing.Point(743, 113);
+            this.tfDataAgendamento.Location = new System.Drawing.Point(337, 116);
             this.tfDataAgendamento.Name = "tfDataAgendamento";
             this.tfDataAgendamento.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -1375,7 +1382,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.tfDataAgendamento.Properties.Mask.EditMask = "dd/MM/yyyy";
             this.tfDataAgendamento.Size = new System.Drawing.Size(138, 20);
-            this.tfDataAgendamento.TabIndex = 15;
+            this.tfDataAgendamento.TabIndex = 14;
             // 
             // labelControl12
             // 
@@ -1387,7 +1394,7 @@
             // 
             // cbEstado
             // 
-            this.cbEstado.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdgReboque, "id_estado", true));
+            this.cbEstado.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdgReboqueLista, "uf_estado", true));
             this.cbEstado.EditValue = "";
             this.cbEstado.Location = new System.Drawing.Point(83, 90);
             this.cbEstado.Name = "cbEstado";
@@ -1399,10 +1406,10 @@
             this.cbEstado.Properties.ValueMember = "uf";
             this.cbEstado.Properties.View = this.gridView5;
             this.cbEstado.Size = new System.Drawing.Size(102, 20);
-            this.cbEstado.TabIndex = 12;
-            conditionValidationRule6.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule6.ErrorText = "Informe o estado de cadastro do reboque";
-            this.validator.SetValidationRule(this.cbEstado, conditionValidationRule6);
+            this.cbEstado.TabIndex = 11;
+            conditionValidationRule8.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule8.ErrorText = "Informe o estado de cadastro do reboque";
+            this.validator.SetValidationRule(this.cbEstado, conditionValidationRule8);
             this.cbEstado.EditValueChanged += new System.EventHandler(this.cbEstado_EditValueChanged);
             // 
             // bdgEstado
@@ -1453,7 +1460,7 @@
             // 
             // cbEspecie
             // 
-            this.cbEspecie.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdgReboque, "id_especies_veiculos", true));
+            this.cbEspecie.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdgReboqueLista, "id_especies_reboques", true));
             this.cbEspecie.EditValue = "";
             this.cbEspecie.Location = new System.Drawing.Point(467, 68);
             this.cbEspecie.Name = "cbEspecie";
@@ -1464,11 +1471,11 @@
             this.cbEspecie.Properties.NullText = "";
             this.cbEspecie.Properties.ValueMember = "id";
             this.cbEspecie.Properties.View = this.gridView3;
-            this.cbEspecie.Size = new System.Drawing.Size(223, 20);
-            this.cbEspecie.TabIndex = 3;
-            conditionValidationRule7.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule7.ErrorText = "Informe a espécie do reboque";
-            this.validator.SetValidationRule(this.cbEspecie, conditionValidationRule7);
+            this.cbEspecie.Size = new System.Drawing.Size(254, 20);
+            this.cbEspecie.TabIndex = 10;
+            conditionValidationRule9.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule9.ErrorText = "Informe a espécie do reboque";
+            this.validator.SetValidationRule(this.cbEspecie, conditionValidationRule9);
             // 
             // bdgEspecie
             // 
@@ -1499,14 +1506,14 @@
             // 
             // tfChassi
             // 
-            this.tfChassi.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdgReboque, "chassi", true));
+            this.tfChassi.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdgReboqueLista, "chassi", true));
             this.tfChassi.Location = new System.Drawing.Point(68, 45);
             this.tfChassi.Name = "tfChassi";
             this.tfChassi.Size = new System.Drawing.Size(332, 20);
-            this.tfChassi.TabIndex = 0;
-            conditionValidationRule8.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule8.ErrorText = "Informe o código de chassi";
-            this.validator.SetValidationRule(this.tfChassi, conditionValidationRule8);
+            this.tfChassi.TabIndex = 4;
+            conditionValidationRule10.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule10.ErrorText = "Informe o código de chassi";
+            this.validator.SetValidationRule(this.tfChassi, conditionValidationRule10);
             // 
             // labelControl8
             // 
@@ -1518,29 +1525,29 @@
             // 
             // cbAnoModelo
             // 
-            this.cbAnoModelo.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdgReboque, "ano_modelo", true));
+            this.cbAnoModelo.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdgReboqueLista, "ano_modelo", true));
             this.cbAnoModelo.Location = new System.Drawing.Point(83, 68);
             this.cbAnoModelo.Name = "cbAnoModelo";
             this.cbAnoModelo.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cbAnoModelo.Size = new System.Drawing.Size(102, 20);
-            this.cbAnoModelo.TabIndex = 9;
-            conditionValidationRule9.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule9.ErrorText = "Informe o ano de modelo";
-            this.validator.SetValidationRule(this.cbAnoModelo, conditionValidationRule9);
+            this.cbAnoModelo.TabIndex = 8;
+            conditionValidationRule11.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule11.ErrorText = "Informe o ano de modelo";
+            this.validator.SetValidationRule(this.cbAnoModelo, conditionValidationRule11);
             // 
             // cbAnoFabricacao
             // 
-            this.cbAnoFabricacao.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdgReboque, "ano_fabricacao", true));
+            this.cbAnoFabricacao.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdgReboqueLista, "ano_fabricacao", true));
             this.cbAnoFabricacao.Location = new System.Drawing.Point(300, 68);
             this.cbAnoFabricacao.Name = "cbAnoFabricacao";
             this.cbAnoFabricacao.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cbAnoFabricacao.Size = new System.Drawing.Size(102, 20);
             this.cbAnoFabricacao.TabIndex = 9;
-            conditionValidationRule10.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule10.ErrorText = "Informe o ano de fabricação";
-            this.validator.SetValidationRule(this.cbAnoFabricacao, conditionValidationRule10);
+            conditionValidationRule12.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule12.ErrorText = "Informe o ano de fabricação";
+            this.validator.SetValidationRule(this.cbAnoFabricacao, conditionValidationRule12);
             // 
             // labelControl5
             // 
@@ -1552,7 +1559,7 @@
             // 
             // labelControl19
             // 
-            this.labelControl19.Location = new System.Drawing.Point(597, 116);
+            this.labelControl19.Location = new System.Drawing.Point(191, 119);
             this.labelControl19.Name = "labelControl19";
             this.labelControl19.Size = new System.Drawing.Size(140, 13);
             this.labelControl19.TabIndex = 1;
@@ -1576,42 +1583,42 @@
             // 
             // tfCapacidade
             // 
-            this.tfCapacidade.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdgReboque, "capacidade", true));
+            this.tfCapacidade.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdgReboqueLista, "capacidade", true));
             this.tfCapacidade.Location = new System.Drawing.Point(627, 45);
             this.tfCapacidade.Name = "tfCapacidade";
             this.tfCapacidade.Properties.Mask.EditMask = "n";
             this.tfCapacidade.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.tfCapacidade.Size = new System.Drawing.Size(94, 20);
-            this.tfCapacidade.TabIndex = 5;
-            conditionValidationRule11.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule11.ErrorText = "Informe a capacidade";
-            this.validator.SetValidationRule(this.tfCapacidade, conditionValidationRule11);
+            this.tfCapacidade.TabIndex = 6;
+            conditionValidationRule13.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule13.ErrorText = "Informe a capacidade";
+            this.validator.SetValidationRule(this.tfCapacidade, conditionValidationRule13);
             // 
             // tfRenavam
             // 
-            this.tfRenavam.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdgReboque, "renavam", true));
+            this.tfRenavam.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdgReboqueLista, "renavam", true));
             this.tfRenavam.Location = new System.Drawing.Point(751, 23);
             this.tfRenavam.Name = "tfRenavam";
             this.tfRenavam.Properties.Mask.EditMask = "d";
             this.tfRenavam.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.tfRenavam.Size = new System.Drawing.Size(130, 20);
-            this.tfRenavam.TabIndex = 1;
-            conditionValidationRule12.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule12.ErrorText = "Informe o renavam";
-            this.validator.SetValidationRule(this.tfRenavam, conditionValidationRule12);
+            this.tfRenavam.TabIndex = 3;
+            conditionValidationRule14.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule14.ErrorText = "Informe o renavam";
+            this.validator.SetValidationRule(this.tfRenavam, conditionValidationRule14);
             // 
             // tfTara
             // 
-            this.tfTara.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdgReboque, "tara", true));
+            this.tfTara.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdgReboqueLista, "tara", true));
             this.tfTara.Location = new System.Drawing.Point(448, 45);
             this.tfTara.Name = "tfTara";
             this.tfTara.Properties.Mask.EditMask = "n";
             this.tfTara.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.tfTara.Size = new System.Drawing.Size(94, 20);
-            this.tfTara.TabIndex = 4;
-            conditionValidationRule13.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule13.ErrorText = "Informe a tara";
-            this.validator.SetValidationRule(this.tfTara, conditionValidationRule13);
+            this.tfTara.TabIndex = 5;
+            conditionValidationRule15.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule15.ErrorText = "Informe a tara";
+            this.validator.SetValidationRule(this.tfTara, conditionValidationRule15);
             // 
             // labelControl9
             // 
@@ -1649,10 +1656,6 @@
             // 
             this.validator.ValidationMode = DevExpress.XtraEditors.DXErrorProvider.ValidationMode.Manual;
             // 
-            // bdgCidade
-            // 
-            this.bdgCidade.DataSource = typeof(EntitiesGrupo.cidade);
-            // 
             // ReboqueForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1660,7 +1663,7 @@
             this.Controls.Add(this.pnPrincipal);
             this.Controls.Add(this.pnBotoes);
             this.Name = "ReboqueForm";
-            this.Size = new System.Drawing.Size(901, 597);
+            this.Size = new System.Drawing.Size(901, 570);
             ((System.ComponentModel.ISupportInitialize)(this.pnBotoes)).EndInit();
             this.pnBotoes.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pnPrincipal)).EndInit();
@@ -1672,7 +1675,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.bdgReboqueLista)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfId.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bdgReboque)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbVeiculos.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdgVeiculo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView9)).EndInit();
@@ -1686,6 +1688,7 @@
             this.groupControl2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tfValor.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbCidade.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdgCidade)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbCorCarroceria.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdgCor)).EndInit();
@@ -1710,7 +1713,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.tfRenavam.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfTara.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.validator)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bdgCidade)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1836,7 +1838,6 @@
         private DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider validator;
         private System.Windows.Forms.BindingSource bdgCorChassi;
         private DevExpress.XtraEditors.ComboBoxEdit cbAnoModelo;
-        private System.Windows.Forms.BindingSource bdgReboque;
         private DevExpress.XtraEditors.SearchLookUpEdit cbCidade;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView6;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn10;
@@ -1877,6 +1878,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn colnome_cliente;
         private DevExpress.XtraGrid.Columns.GridColumn colcotas;
         private DevExpress.XtraEditors.SimpleButton btnAdicionar;
-        private DevExpress.XtraEditors.SimpleButton simpleButton1;
+        private DevExpress.XtraEditors.SimpleButton btnRemover;
     }
 }

@@ -235,10 +235,14 @@ namespace SysNorteGrupo.UI.Sinistros
                     }
                     if (ckReboques.Checked)
                     {
-                        foreach (vei_reb_sinistros vrs in listVr)
+                        foreach (reboque reb in (List<reboque>)bdgReboquesTab.DataSource)
+                        {
+                            listVr.Add(new vei_reb_sinistros() { id_reboque = reb.id, id_veiculo = 0 });
+                        }
+                        /*foreach (vei_reb_sinistros vrs in listVr)
                         {
                             listVr.Add(new vei_reb_sinistros() { id_reboque = vrs.id_reboque, id_veiculo = 0 });
-                        }
+                        }*/
                     }
                     List<pagamentos_sinistro> listPag = (List<pagamentos_sinistro>)bdgPagamentos.DataSource;
                     sinistro sin = (sinistro)bdgSinistros.Current;

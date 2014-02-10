@@ -47,7 +47,7 @@ namespace SysNorteGrupo.UI.Veiculos.Reboques
                 setBackColor();
                 if (reboque_instc == null)
                 {
-                    reboque_instc = new reboque();
+                    reboque_instc = new reboque() { data_ativacao = conn.retornaDataHoraLocal().Date.AddDays(1) };
                     pnInformacoes.Enabled = false;
                 }
                 else
@@ -61,9 +61,14 @@ namespace SysNorteGrupo.UI.Veiculos.Reboques
                     bdgCidade.DataSource = conn.listaDeCidadesPorEstado(reboque_instc.uf_estado);
 
                     arquivosFormReb.DIRETORIO = String.Format(@"{0}{1}\", conn.SUBDIR_REBOQUES(), reboque_instc.id);
+
+                    arquivosFormReb.Enabled = true;
                 }
 
-                bdgReboque.DataSource = (reboque)reboque_instc;
+                bdgReboqueLista.DataSource = new List<reboque>();
+                bdgReboqueLista.Add(reboque_instc);
+                //((reboque)bdgReboqueLista.Current).id_cidade = 0;
+
                 ArrayList arrayList = new ListaAnos().retornaAnos();
                 for (int i = 0; i < arrayList.Count; i++)
                 {
@@ -119,11 +124,13 @@ namespace SysNorteGrupo.UI.Veiculos.Reboques
             if (Convert.ToInt32(cbCliente.EditValue) > 0)
                 bdgVeiculo.DataSource = conn.listaDeVeiculosPorIdCliente(Convert.ToInt64(cbCliente.EditValue), false);
             else
+            {
                 bdgVeiculo.Clear();
+            }
         }
         private void cbVeiculos_EditValueChanged(object sender, EventArgs e)
         {
-            if (Convert.ToInt32(cbVeiculos.EditValue) > 0)
+            if (cbVeiculos.EditValue != null && Convert.ToInt32(cbVeiculos.EditValue) > 0)
                 pnInformacoes.Enabled = true;
             else
                 pnInformacoes.Enabled = false;
@@ -136,7 +143,7 @@ namespace SysNorteGrupo.UI.Veiculos.Reboques
 
         private void btnNovo_Click(object sender, EventArgs e)
         {
-            formPrincipal.adicionarControleNavegacao(new VeiculosForm(null) { formPrincipal = formPrincipal });
+            formPrincipal.adicionarControleNavegacao(new ReboqueForm(null) { formPrincipal = formPrincipal });
         }
 
         private void btnInativar_Click(object sender, EventArgs e)
@@ -148,7 +155,7 @@ namespace SysNorteGrupo.UI.Veiculos.Reboques
                     MessageBoxButtons.OKCancel);
                 if (rs == DialogResult.OK)
                 {
-                    reboque r = ((reboque)bdgReboque.Current);
+                    reboque r = ((reboque)bdgReboqueLista.Current);
                     r.inativo = true;
                     r.data_inativacao = conn.retornaDataHoraLocal();
                     tfId.Text = Convert.ToInt64(conn.salvarReboque(r)).ToString();
@@ -178,7 +185,7 @@ namespace SysNorteGrupo.UI.Veiculos.Reboques
         {
             try
             {
-                bool empty = Util.textFieldIsEmpty(tfId);
+                /*bool empty = Util.textFieldIsEmpty(tfId);
                 //seta validações
                 setValidations();
                 //valida
@@ -237,7 +244,7 @@ namespace SysNorteGrupo.UI.Veiculos.Reboques
                     btnSalvar.Enabled = false;
                     btnEditar.Enabled = true;
                     btnInativar.Enabled = false;
-                }
+                }*/
             }
             catch (Exception ex)
             {
@@ -307,7 +314,7 @@ namespace SysNorteGrupo.UI.Veiculos.Reboques
         {
             if (cbCorChassi.EditValue != null)
             {
-                ((reboque)bdgReboque.Current).cor_chassi = cbCorChassi.EditValue.ToString();
+                ((reboque)bdgReboqueLista.Current).cor_chassi = cbCorChassi.EditValue.ToString();
 
                 Color cor = new Color();
                 ((List<Cores>)bdgCorChassi.DataSource).ForEach(delegate(Cores c)
@@ -326,7 +333,7 @@ namespace SysNorteGrupo.UI.Veiculos.Reboques
         {
             if (cbCorCarroceria.EditValue != null)
             {
-                ((reboque)bdgReboque.Current).cor_carroceria = cbCorCarroceria.EditValue.ToString();
+                ((reboque)bdgReboqueLista.Current).cor_carroceria = cbCorCarroceria.EditValue.ToString();
 
                 Color cor = new Color();
                 ((List<Cores>)bdgCor.DataSource).ForEach(delegate(Cores c)
@@ -347,6 +354,100 @@ namespace SysNorteGrupo.UI.Veiculos.Reboques
             if (cbEstado.EditValue != null)
             {
                 bdgCidade.DataSource = conn.listaDeCidadesPorEstado(cbEstado.Text);
+                //((reboque)bdgReboqueLista.Current).id_cidade = 0;
+            }
+
+            //else ((reboque)bdgReboqueLista.Current).id_cidade = 0;
+        }
+
+        private void btnAdicionar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                bool empty = Util.textFieldIsEmpty(tfId);
+                //seta validações
+                setValidations();
+                //valida
+                if (validator.Validate())
+                {
+                    //verifica placa unica
+                    if (conn.verificaSePlacaReboqueEhUnica(tfPlaca.Text, !empty) == false)
+                    {
+                        XtraMessageBox.Show(String.Format("A PLACA {0} JÁ ENCONTRA-SE CADASTRADA. VERIFIQUE!", tfPlaca.Text));
+                        return;
+                    }
+
+                    //verifica chassi unico
+                    if (conn.verificaSeNChassiReboqueEhUnico(tfChassi.Text, !empty) == false)
+                    {
+                        XtraMessageBox.Show(String.Format("O CHASSI {0} JÁ ENCONTRA-SE CADASTRADO. VERIFIQUE!", tfChassi.Text));
+                        return;
+                    }
+
+                    //verifica renavam
+                    if (conn.verificaSeRenavamReboqueEhUnico(tfRenavam.Text, !empty) == false)
+                    {
+                        XtraMessageBox.Show(String.Format("O RENAVAM {0} JÁ ENCONTRA-SE CADASTRADO. VERIFIQUE!", tfRenavam.Text));
+                        return;
+                    }
+
+                    //confirma agendamento
+                    if (ckAgendarCad.Checked)
+                    {
+                        DialogResult dialogResult = MessageBox.Show(
+                            String.Format("CONFIRMA O AGENDAMENTO DE CADASTRO DESTE VEÍCULO PARA ÀS 00:00 HORAS DO DIA {0}?", tfDataAgendamento.Text),
+                            "SYSNORTE", MessageBoxButtons.YesNo);
+                        if (dialogResult == DialogResult.No)
+                            return;
+                    }
+
+                    reboque r = ((reboque)bdgReboqueLista.Current);
+
+                    DateTime dataAtiv = conn.retornaDataHoraLocal().Date.AddDays(1);
+                    if (ckAgendarCad.Checked)
+                    {
+                        dataAtiv = tfDataAgendamento.DateTime;
+                    }
+                    if (empty)
+                    {
+                        r.data_ativacao = dataAtiv;
+                        r.inativo = false;
+                        r.data_cadastro = conn.retornaDataHoraLocal();
+                    }
+
+                    this.cbCliente.EditValueChanged -= new EventHandler(this.cbCliente_EditValueChanged);
+
+                    bdgReboqueLista.Add(new reboque() { data_ativacao = conn.retornaDataHoraLocal().Date.AddDays(1), id_cliente = r.id_cliente, id_cidade = r.id_cidade });
+
+                    bdgReboqueLista.MoveLast();
+
+                    cbCorCarroceria.EditValue = null;
+                    cbCorChassi.EditValue = null;
+
+                    tfPlaca.Focus();
+
+                    this.cbCliente.EditValueChanged += new EventHandler(this.cbCliente_EditValueChanged);
+
+                    /*pnInformacoes.Enabled = false;
+                    pnPrincipal.Enabled = false;
+                    btnSalvar.Enabled = false;
+                    btnEditar.Enabled = true;
+                    btnInativar.Enabled = false;*/
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ocorreu um erro ao tentar executar sua solicitação.\n\n" + ex.Message);
+                formPrincipal.adicionarControleNavegacao(null);
+            }
+        }
+
+        private void btnRemover_Click(object sender, EventArgs e)
+        {
+            if (validator.Validate())
+            {
+                bdgReboqueLista.RemoveCurrent();
+                //bdgReboqueLista.Add(new reboque() { data_ativacao = conn.retornaDataHoraLocal().Date.AddDays(1) });
             }
         }
     }
