@@ -29,11 +29,11 @@ namespace SysNorteGrupo.UI.Sinistros
 
             bdgCliente.DataSource = conn.listaDeClientesPorInatividade(false);
             bdgReboquesTab.DataSource = new List<reboque>();            
-            bdgPagamentos.DataSource = new List<pagamentos_sinistro>();
-            bdgPagamentos.Add(new pagamentos_sinistro());
+            bdgPagamentos.DataSource = new List<pagamentos_sinistro>();            
 
             if(sinistro_instc == null){
                 sinistro_instc = new sinistro();
+                bdgPagamentos.Add(new pagamentos_sinistro());
                 panelControl.Enabled = true;
             }
             else
@@ -42,6 +42,7 @@ namespace SysNorteGrupo.UI.Sinistros
                 arquivosForm.conn = conn;
                 arquivosForm.DIRETORIO = String.Format(@"{0}{1}\", conn.SUBDIR_SINISTROS(), sinistro_instc.id);
             }
+            bdgSinistros.DataSource = sinistro_instc;
         }
 
         private void btnSair_Click(object sender, EventArgs e)
@@ -227,7 +228,6 @@ namespace SysNorteGrupo.UI.Sinistros
                         MessageBox.Show("Selecione um veiculo ou um reboque.");
                         return;
                     }
-
                     List<vei_reb_sinistros> listVr = new List<vei_reb_sinistros>();
                     if (ckVeiculo.Checked)
                     {
@@ -239,17 +239,12 @@ namespace SysNorteGrupo.UI.Sinistros
                         {
                             listVr.Add(new vei_reb_sinistros() { id_reboque = reb.id, id_veiculo = 0 });
                         }
-                        /*foreach (vei_reb_sinistros vrs in listVr)
-                        {
-                            listVr.Add(new vei_reb_sinistros() { id_reboque = vrs.id_reboque, id_veiculo = 0 });
-                        }*/
-                    }
+                    }                    
                     List<pagamentos_sinistro> listPag = (List<pagamentos_sinistro>)bdgPagamentos.DataSource;
-                    sinistro sin = (sinistro)bdgSinistros.Current;
-                    sin.data_cadastro = conn.retornaDataHoraLocal();
-
-
-                    long id = conn.SalvaSinistro(sin, listVr, listPag);
+                    sinistro _sinistro = (sinistro)bdgSinistros.Current;
+                    _sinistro.data_cadastro = conn.retornaDataHoraLocal();
+                    MessageBox.Show(_sinistro.id.ToString());
+                    long id = conn.SalvaSinistro(_sinistro, listVr, listPag);
                     tfId.Text = id.ToString();
                     MessageBox.Show("Salvo com sucesso!");
                 }

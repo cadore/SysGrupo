@@ -648,6 +648,21 @@ namespace WcfLibGrupo
             }
         }
 
+        public List<veiculo> listaDeTodosVeiculos()
+        {
+            try
+            {
+                var sql = Sql.Builder.Select("*").From("veiculos");
+                return veiculo.Fetch(sql);
+            }
+            catch (Exception ex)
+            {
+                throw new FaultException(
+                    new FaultReason(String.Format("EXCECÃO: {0}{1}INNER EXCEPTION: {2}", ex.Message, Environment.NewLine, ex.InnerException)),
+                    new FaultCode("1000"));
+            }
+        }
+
         #endregion
 
         #region reboques
@@ -885,6 +900,21 @@ namespace WcfLibGrupo
             }
         }
 
+        public List<reboque> listaDeTodosReboques()
+        {
+            try
+            {
+                var sql = Sql.Builder.Select("*").From("reboques");
+                return reboque.Fetch(sql);
+            }
+            catch (Exception ex)
+            {
+                throw new FaultException(
+                    new FaultReason(String.Format("EXCECÃO: {0}{1}INNER EXCEPTION: {2}", ex.Message, Environment.NewLine, ex.InnerException)),
+                    new FaultCode("1000"));
+            }
+        }
+
         #endregion
 
         #region cidades, bairros, enderecos
@@ -1096,32 +1126,27 @@ namespace WcfLibGrupo
             try
             {
                 long _id_sinistro;
-                using (var scope = usuario.repo.GetTransaction())
-                {
-                    //Console.WriteLine(1);
+                using (var scope = sinistro.repo.GetTransaction())
+                {                    
                     obj.Save();
                     _id_sinistro = Convert.ToInt64(obj.id);
-                    //Console.WriteLine(2);
                     foreach(vei_reb_sinistros vr in listVR){
-                        //Console.WriteLine("foreach 1");
                         vei_reb_sinistros.repo.Save(new vei_reb_sinistros() { id_reboque = vr.id_reboque, id_veiculo = vr.id_veiculo, id_sinistro = _id_sinistro });
                     }
-                    //Console.WriteLine(3);
                     foreach(pagamentos_sinistro ps in listPag){
-                        //Console.WriteLine("foreach 2");
                         pagamentos_sinistro.repo.Save(new pagamentos_sinistro() { valor = ps.valor, observacao = ps.observacao, id_sinistros = _id_sinistro});
                     }
-                    //Console.WriteLine(4);
+
+
 
                     scope.Complete();
-                    //Console.WriteLine(5);
                 }
                 return _id_sinistro;
             }
             catch (Exception ex)
             {
                 Console.WriteLine(0);
-                usuario.repo.AbortTransaction();
+                sinistro.repo.AbortTransaction();
                 throw new FaultException(
                     new FaultReason(String.Format("EXCECÃO: {0}{1}INNER EXCEPTION: {2}", ex.Message, Environment.NewLine, ex.InnerException)),
                     new FaultCode("1000"));

@@ -136,6 +136,9 @@ namespace WcfLibGrupo
         [OperationContract]
         decimal somaValorTotalVeiculoPorIdClienteEInatividade(long id_cliente, bool inativo);
 
+        [OperationContract]
+        List<veiculo> listaDeTodosVeiculos();
+
         #endregion
 
         #region reboques
@@ -242,7 +245,11 @@ namespace WcfLibGrupo
 
         #region sinistros
 
-        long SalvaSinistro(sinistro obj, List<vei_reb_sinistros> listVR, List<pagamentos_sinistro> listPs);
+        [OperationContract]
+        long SalvaSinistro(sinistro obj, List<vei_reb_sinistros> listVR, List<pagamentos_sinistro> listPag);
+
+        [OperationContract]
+        List<reboque> listaDeTodosReboques();
 
         #endregion
     }
