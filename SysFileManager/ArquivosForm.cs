@@ -87,7 +87,15 @@ namespace SysFileManager
                     Byte[] b1 = new Byte[length];
                     f1.Read(b1, 0, (Int32)length);
                     string nome = fi.Name;
-                    int max = ((Int32)length / 1024) / 1024;
+                    int max = ((Int32)length);
+                    if (((Int32)length > 1024))
+                    {
+                        max = ((Int32)length / 1024);
+                    }
+                    if ((Int32)length > 1048576)
+                    {
+                        max = ((Int32)length / 1024) / 1024;
+                    }
                     progressBar.Properties.Maximum = max;                    
                     for (int i = 0; i < max; i++)
                     {

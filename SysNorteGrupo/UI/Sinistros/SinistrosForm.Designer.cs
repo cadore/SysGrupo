@@ -11,16 +11,16 @@ namespace SysNorteGrupo.UI.Sinistros
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SinistrosForm));
-            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule4 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
-            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule5 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
+            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule2 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule3 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
+            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule4 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             this.pnBotoes = new DevExpress.XtraEditors.PanelControl();
             this.btnSalvar = new SysNorteGrupo.Utils.BotaoSalvar();
             this.btnSair = new SysNorteGrupo.Utils.BotaoSair();
             this.btnNovo = new SysNorteGrupo.Utils.BotaoNovo();
             this.btnEditar = new SysNorteGrupo.Utils.BotaoEditar();
-            this.panelControl = new DevExpress.XtraEditors.PanelControl();
+            this.pnControl = new DevExpress.XtraEditors.PanelControl();
             this.gcArquivos = new DevExpress.XtraEditors.GroupControl();
             this.arquivosForm = new SysFileManager.ArquivosForm();
             this.gcPagamentos = new DevExpress.XtraEditors.GroupControl();
@@ -37,7 +37,9 @@ namespace SysNorteGrupo.UI.Sinistros
             this.colobservacao1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colid_sinistros = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gcInfoBasica = new DevExpress.XtraEditors.GroupControl();
+            this.ckConcluido = new DevExpress.XtraEditors.CheckEdit();
             this.memoEdit1 = new DevExpress.XtraEditors.MemoEdit();
+            this.bdgSinistros = new System.Windows.Forms.BindingSource(this.components);
             this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
             this.dtConclusao = new DevExpress.XtraEditors.DateEdit();
             this.dtOcorrido = new DevExpress.XtraEditors.DateEdit();
@@ -73,6 +75,7 @@ namespace SysNorteGrupo.UI.Sinistros
             this.btnRemoverReb = new DevExpress.XtraEditors.SimpleButton();
             this.btnAdicionarReb = new DevExpress.XtraEditors.SimpleButton();
             this.cbReboque = new DevExpress.XtraEditors.SearchLookUpEdit();
+            this.bdgVeiRebSinistros = new System.Windows.Forms.BindingSource(this.components);
             this.bdgReboques = new System.Windows.Forms.BindingSource(this.components);
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -129,6 +132,11 @@ namespace SysNorteGrupo.UI.Sinistros
             this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl9 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.cbCliente = new DevExpress.XtraEditors.SearchLookUpEdit();
             this.bdgCliente = new System.Windows.Forms.BindingSource(this.components);
             this.searchLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -163,19 +171,13 @@ namespace SysNorteGrupo.UI.Sinistros
             this.gridColumn44 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn45 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colvalor_total = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl9 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.validatorPag = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
-            this.bdgSinistros = new System.Windows.Forms.BindingSource(this.components);
-            this.bdgVeiRebSinistros = new System.Windows.Forms.BindingSource(this.components);
             this.validator = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
+            this.pnPrincipal = new DevExpress.XtraEditors.PanelControl();
             ((System.ComponentModel.ISupportInitialize)(this.pnBotoes)).BeginInit();
             this.pnBotoes.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl)).BeginInit();
-            this.panelControl.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pnControl)).BeginInit();
+            this.pnControl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gcArquivos)).BeginInit();
             this.gcArquivos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gcPagamentos)).BeginInit();
@@ -187,7 +189,9 @@ namespace SysNorteGrupo.UI.Sinistros
             ((System.ComponentModel.ISupportInitialize)(this.gridView3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcInfoBasica)).BeginInit();
             this.gcInfoBasica.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ckConcluido.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.memoEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdgSinistros)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtConclusao.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtConclusao.Properties)).BeginInit();
@@ -200,6 +204,7 @@ namespace SysNorteGrupo.UI.Sinistros
             ((System.ComponentModel.ISupportInitialize)(this.bdgReboquesTab)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbReboque.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdgVeiRebSinistros)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdgReboques)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbVeiculo.Properties)).BeginInit();
@@ -209,9 +214,9 @@ namespace SysNorteGrupo.UI.Sinistros
             ((System.ComponentModel.ISupportInitialize)(this.bdgCliente)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1View)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.validatorPag)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bdgSinistros)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bdgVeiRebSinistros)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.validator)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pnPrincipal)).BeginInit();
+            this.pnPrincipal.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnBotoes
@@ -306,21 +311,20 @@ namespace SysNorteGrupo.UI.Sinistros
             this.btnEditar.UseVisualStyleBackColor = false;
             this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
-            // panelControl
+            // pnControl
             // 
-            this.panelControl.Controls.Add(this.gcArquivos);
-            this.panelControl.Controls.Add(this.gcPagamentos);
-            this.panelControl.Controls.Add(this.gcInfoBasica);
-            this.panelControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl.Location = new System.Drawing.Point(0, 66);
-            this.panelControl.Name = "panelControl";
-            this.panelControl.Size = new System.Drawing.Size(848, 586);
-            this.panelControl.TabIndex = 2;
+            this.pnControl.Controls.Add(this.gcArquivos);
+            this.pnControl.Controls.Add(this.gcPagamentos);
+            this.pnControl.Controls.Add(this.gcInfoBasica);
+            this.pnControl.Location = new System.Drawing.Point(0, 29);
+            this.pnControl.Name = "pnControl";
+            this.pnControl.Size = new System.Drawing.Size(848, 557);
+            this.pnControl.TabIndex = 2;
             // 
             // gcArquivos
             // 
             this.gcArquivos.Controls.Add(this.arquivosForm);
-            this.gcArquivos.Location = new System.Drawing.Point(3, 408);
+            this.gcArquivos.Location = new System.Drawing.Point(3, 377);
             this.gcArquivos.Name = "gcArquivos";
             this.gcArquivos.Size = new System.Drawing.Size(841, 178);
             this.gcArquivos.TabIndex = 2;
@@ -343,7 +347,7 @@ namespace SysNorteGrupo.UI.Sinistros
             this.gcPagamentos.Controls.Add(this.labelControl4);
             this.gcPagamentos.Controls.Add(this.tfValorPag);
             this.gcPagamentos.Controls.Add(this.gridControlPagamentos);
-            this.gcPagamentos.Location = new System.Drawing.Point(3, 248);
+            this.gcPagamentos.Location = new System.Drawing.Point(3, 218);
             this.gcPagamentos.Name = "gcPagamentos";
             this.gcPagamentos.Size = new System.Drawing.Size(841, 157);
             this.gcPagamentos.TabIndex = 1;
@@ -386,10 +390,10 @@ namespace SysNorteGrupo.UI.Sinistros
             this.tfObservacaoPag.Name = "tfObservacaoPag";
             this.tfObservacaoPag.Size = new System.Drawing.Size(383, 20);
             this.tfObservacaoPag.TabIndex = 3;
-            conditionValidationRule4.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule4.ErrorText = "Observação não pode ser vazia";
-            conditionValidationRule4.ErrorType = DevExpress.XtraEditors.DXErrorProvider.ErrorType.Critical;
-            this.validatorPag.SetValidationRule(this.tfObservacaoPag, conditionValidationRule4);
+            conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule1.ErrorText = "Observação não pode ser vazia";
+            conditionValidationRule1.ErrorType = DevExpress.XtraEditors.DXErrorProvider.ErrorType.Critical;
+            this.validatorPag.SetValidationRule(this.tfObservacaoPag, conditionValidationRule1);
             // 
             // bdgPagamentos
             // 
@@ -421,15 +425,15 @@ namespace SysNorteGrupo.UI.Sinistros
             this.tfValorPag.Properties.Precision = 2;
             this.tfValorPag.Size = new System.Drawing.Size(90, 20);
             this.tfValorPag.TabIndex = 1;
-            conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.Greater;
-            conditionValidationRule1.ErrorText = "Valor do pagamento deve ser maior que R$0,01";
-            conditionValidationRule1.ErrorType = DevExpress.XtraEditors.DXErrorProvider.ErrorType.Critical;
-            conditionValidationRule1.Value1 = new decimal(new int[] {
+            conditionValidationRule2.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.Greater;
+            conditionValidationRule2.ErrorText = "Valor do pagamento deve ser maior que R$0,01";
+            conditionValidationRule2.ErrorType = DevExpress.XtraEditors.DXErrorProvider.ErrorType.Critical;
+            conditionValidationRule2.Value1 = new decimal(new int[] {
             1,
             0,
             0,
             131072});
-            this.validatorPag.SetValidationRule(this.tfValorPag, conditionValidationRule1);
+            this.validatorPag.SetValidationRule(this.tfValorPag, conditionValidationRule2);
             // 
             // gridControlPagamentos
             // 
@@ -485,6 +489,7 @@ namespace SysNorteGrupo.UI.Sinistros
             // 
             // gcInfoBasica
             // 
+            this.gcInfoBasica.Controls.Add(this.ckConcluido);
             this.gcInfoBasica.Controls.Add(this.memoEdit1);
             this.gcInfoBasica.Controls.Add(this.textEdit1);
             this.gcInfoBasica.Controls.Add(this.dtConclusao);
@@ -500,31 +505,42 @@ namespace SysNorteGrupo.UI.Sinistros
             this.gcInfoBasica.Controls.Add(this.labelControl8);
             this.gcInfoBasica.Controls.Add(this.labelControl7);
             this.gcInfoBasica.Controls.Add(this.labelControl3);
-            this.gcInfoBasica.Controls.Add(this.cbCliente);
             this.gcInfoBasica.Controls.Add(this.labelControl2);
             this.gcInfoBasica.Controls.Add(this.labelControl9);
             this.gcInfoBasica.Controls.Add(this.labelControl6);
             this.gcInfoBasica.Controls.Add(this.labelControl10);
-            this.gcInfoBasica.Controls.Add(this.labelControl1);
-            this.gcInfoBasica.Location = new System.Drawing.Point(3, 3);
+            this.gcInfoBasica.Location = new System.Drawing.Point(3, -3);
             this.gcInfoBasica.Name = "gcInfoBasica";
-            this.gcInfoBasica.Size = new System.Drawing.Size(840, 242);
+            this.gcInfoBasica.Size = new System.Drawing.Size(840, 221);
             this.gcInfoBasica.TabIndex = 0;
             this.gcInfoBasica.Text = "INFORMAÇÕES BÁSICAS";
+            // 
+            // ckConcluido
+            // 
+            this.ckConcluido.Location = new System.Drawing.Point(699, 47);
+            this.ckConcluido.Name = "ckConcluido";
+            this.ckConcluido.Properties.Caption = "SINISTRO CONCLUIDO";
+            this.ckConcluido.Size = new System.Drawing.Size(136, 19);
+            this.ckConcluido.TabIndex = 14;
+            this.ckConcluido.CheckedChanged += new System.EventHandler(this.ckConcluido_CheckedChanged);
             // 
             // memoEdit1
             // 
             this.memoEdit1.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdgSinistros, "observacoes", true));
-            this.memoEdit1.Location = new System.Drawing.Point(5, 176);
+            this.memoEdit1.Location = new System.Drawing.Point(5, 156);
             this.memoEdit1.Name = "memoEdit1";
             this.memoEdit1.Size = new System.Drawing.Size(830, 61);
             this.memoEdit1.TabIndex = 13;
             this.memoEdit1.UseOptimizedRendering = true;
             // 
+            // bdgSinistros
+            // 
+            this.bdgSinistros.DataSource = typeof(EntitiesGrupo.sinistro);
+            // 
             // textEdit1
             // 
             this.textEdit1.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdgSinistros, "numero_bo", true));
-            this.textEdit1.Location = new System.Drawing.Point(687, 123);
+            this.textEdit1.Location = new System.Drawing.Point(690, 114);
             this.textEdit1.Name = "textEdit1";
             this.textEdit1.Size = new System.Drawing.Size(145, 20);
             this.textEdit1.TabIndex = 12;
@@ -533,7 +549,8 @@ namespace SysNorteGrupo.UI.Sinistros
             // 
             this.dtConclusao.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdgSinistros, "data_conclusao", true));
             this.dtConclusao.EditValue = null;
-            this.dtConclusao.Location = new System.Drawing.Point(724, 97);
+            this.dtConclusao.Enabled = false;
+            this.dtConclusao.Location = new System.Drawing.Point(727, 92);
             this.dtConclusao.Name = "dtConclusao";
             this.dtConclusao.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -546,7 +563,7 @@ namespace SysNorteGrupo.UI.Sinistros
             // 
             this.dtOcorrido.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdgSinistros, "data_ocorrido", true));
             this.dtOcorrido.EditValue = null;
-            this.dtOcorrido.Location = new System.Drawing.Point(724, 72);
+            this.dtOcorrido.Location = new System.Drawing.Point(727, 70);
             this.dtOcorrido.Name = "dtOcorrido";
             this.dtOcorrido.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -554,14 +571,14 @@ namespace SysNorteGrupo.UI.Sinistros
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dtOcorrido.Size = new System.Drawing.Size(108, 20);
             this.dtOcorrido.TabIndex = 10;
-            conditionValidationRule5.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule5.ErrorText = "Informe a data do ocorrido";
-            this.validator.SetValidationRule(this.dtOcorrido, conditionValidationRule5);
+            conditionValidationRule3.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule3.ErrorText = "Informe a data do ocorrido";
+            this.validator.SetValidationRule(this.dtOcorrido, conditionValidationRule3);
             // 
             // tfId
             // 
             this.tfId.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdgSinistros, "id", true));
-            this.tfId.Location = new System.Drawing.Point(724, 24);
+            this.tfId.Location = new System.Drawing.Point(727, 23);
             this.tfId.Name = "tfId";
             this.tfId.Properties.ReadOnly = true;
             this.tfId.Size = new System.Drawing.Size(108, 20);
@@ -569,8 +586,7 @@ namespace SysNorteGrupo.UI.Sinistros
             // 
             // ckReboques
             // 
-            this.ckReboques.Enabled = false;
-            this.ckReboques.Location = new System.Drawing.Point(62, 46);
+            this.ckReboques.Location = new System.Drawing.Point(62, 24);
             this.ckReboques.Name = "ckReboques";
             this.ckReboques.Properties.Caption = "Reboques";
             this.ckReboques.Size = new System.Drawing.Size(75, 19);
@@ -579,8 +595,7 @@ namespace SysNorteGrupo.UI.Sinistros
             // 
             // ckVeiculo
             // 
-            this.ckVeiculo.Enabled = false;
-            this.ckVeiculo.Location = new System.Drawing.Point(5, 46);
+            this.ckVeiculo.Location = new System.Drawing.Point(5, 24);
             this.ckVeiculo.Name = "ckVeiculo";
             this.ckVeiculo.Properties.Caption = "Veículo";
             this.ckVeiculo.Size = new System.Drawing.Size(60, 19);
@@ -591,7 +606,7 @@ namespace SysNorteGrupo.UI.Sinistros
             // 
             this.gridControlReboques.DataSource = this.bdgReboquesTab;
             this.gridControlReboques.Enabled = false;
-            this.gridControlReboques.Location = new System.Drawing.Point(5, 69);
+            this.gridControlReboques.Location = new System.Drawing.Point(5, 47);
             this.gridControlReboques.MainView = this.gridView2;
             this.gridControlReboques.Name = "gridControlReboques";
             this.gridControlReboques.Size = new System.Drawing.Size(604, 87);
@@ -836,7 +851,7 @@ namespace SysNorteGrupo.UI.Sinistros
             this.btnRemoverReb.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.btnRemoverReb.Enabled = false;
             this.btnRemoverReb.Image = global::SysNorteGrupo.Properties.Resources.State_Validation_Invalid;
-            this.btnRemoverReb.Location = new System.Drawing.Point(519, 45);
+            this.btnRemoverReb.Location = new System.Drawing.Point(519, 23);
             this.btnRemoverReb.Name = "btnRemoverReb";
             this.btnRemoverReb.Size = new System.Drawing.Size(90, 23);
             this.btnRemoverReb.TabIndex = 5;
@@ -852,7 +867,7 @@ namespace SysNorteGrupo.UI.Sinistros
             this.btnAdicionarReb.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.btnAdicionarReb.Enabled = false;
             this.btnAdicionarReb.Image = global::SysNorteGrupo.Properties.Resources.Action_SingleChoiceAction;
-            this.btnAdicionarReb.Location = new System.Drawing.Point(422, 45);
+            this.btnAdicionarReb.Location = new System.Drawing.Point(422, 23);
             this.btnAdicionarReb.Name = "btnAdicionarReb";
             this.btnAdicionarReb.Size = new System.Drawing.Size(91, 23);
             this.btnAdicionarReb.TabIndex = 4;
@@ -863,7 +878,7 @@ namespace SysNorteGrupo.UI.Sinistros
             // 
             this.cbReboque.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdgVeiRebSinistros, "id_reboque", true));
             this.cbReboque.Enabled = false;
-            this.cbReboque.Location = new System.Drawing.Point(335, 47);
+            this.cbReboque.Location = new System.Drawing.Point(335, 25);
             this.cbReboque.Name = "cbReboque";
             this.cbReboque.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -875,6 +890,10 @@ namespace SysNorteGrupo.UI.Sinistros
             this.cbReboque.Size = new System.Drawing.Size(81, 20);
             this.cbReboque.TabIndex = 3;
             this.cbReboque.EditValueChanged += new System.EventHandler(this.cbReboque_EditValueChanged);
+            // 
+            // bdgVeiRebSinistros
+            // 
+            this.bdgVeiRebSinistros.DataSource = typeof(EntitiesGrupo.vei_reb_sinistros);
             // 
             // bdgReboques
             // 
@@ -1077,7 +1096,7 @@ namespace SysNorteGrupo.UI.Sinistros
             // 
             this.cbVeiculo.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdgVeiRebSinistros, "id_veiculo", true));
             this.cbVeiculo.Enabled = false;
-            this.cbVeiculo.Location = new System.Drawing.Point(191, 47);
+            this.cbVeiculo.Location = new System.Drawing.Point(191, 25);
             this.cbVeiculo.Name = "cbVeiculo";
             this.cbVeiculo.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -1299,7 +1318,7 @@ namespace SysNorteGrupo.UI.Sinistros
             // 
             // labelControl8
             // 
-            this.labelControl8.Location = new System.Drawing.Point(618, 100);
+            this.labelControl8.Location = new System.Drawing.Point(621, 95);
             this.labelControl8.Name = "labelControl8";
             this.labelControl8.Size = new System.Drawing.Size(96, 13);
             this.labelControl8.TabIndex = 0;
@@ -1307,7 +1326,7 @@ namespace SysNorteGrupo.UI.Sinistros
             // 
             // labelControl7
             // 
-            this.labelControl7.Location = new System.Drawing.Point(618, 74);
+            this.labelControl7.Location = new System.Drawing.Point(621, 72);
             this.labelControl7.Name = "labelControl7";
             this.labelControl7.Size = new System.Drawing.Size(90, 13);
             this.labelControl7.TabIndex = 0;
@@ -1315,17 +1334,57 @@ namespace SysNorteGrupo.UI.Sinistros
             // 
             // labelControl3
             // 
-            this.labelControl3.Location = new System.Drawing.Point(277, 50);
+            this.labelControl3.Location = new System.Drawing.Point(277, 28);
             this.labelControl3.Name = "labelControl3";
             this.labelControl3.Size = new System.Drawing.Size(52, 13);
             this.labelControl3.TabIndex = 0;
             this.labelControl3.Text = "REBOQUE:";
             // 
+            // labelControl2
+            // 
+            this.labelControl2.Location = new System.Drawing.Point(138, 28);
+            this.labelControl2.Name = "labelControl2";
+            this.labelControl2.Size = new System.Drawing.Size(47, 13);
+            this.labelControl2.TabIndex = 0;
+            this.labelControl2.Text = "VEÍCULO:";
+            // 
+            // labelControl9
+            // 
+            this.labelControl9.Location = new System.Drawing.Point(621, 117);
+            this.labelControl9.Name = "labelControl9";
+            this.labelControl9.Size = new System.Drawing.Size(64, 13);
+            this.labelControl9.TabIndex = 0;
+            this.labelControl9.Text = "NUMERO BO:";
+            // 
+            // labelControl6
+            // 
+            this.labelControl6.Location = new System.Drawing.Point(706, 26);
+            this.labelControl6.Name = "labelControl6";
+            this.labelControl6.Size = new System.Drawing.Size(15, 13);
+            this.labelControl6.TabIndex = 0;
+            this.labelControl6.Text = "ID:";
+            // 
+            // labelControl10
+            // 
+            this.labelControl10.Location = new System.Drawing.Point(7, 139);
+            this.labelControl10.Name = "labelControl10";
+            this.labelControl10.Size = new System.Drawing.Size(77, 13);
+            this.labelControl10.TabIndex = 0;
+            this.labelControl10.Text = "OBSERVAÇÕES:";
+            // 
+            // labelControl1
+            // 
+            this.labelControl1.Location = new System.Drawing.Point(5, 6);
+            this.labelControl1.Name = "labelControl1";
+            this.labelControl1.Size = new System.Drawing.Size(45, 13);
+            this.labelControl1.TabIndex = 0;
+            this.labelControl1.Text = "CLIENTE:";
+            // 
             // cbCliente
             // 
             this.cbCliente.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdgSinistros, "id_cliente", true));
             this.cbCliente.EditValue = "";
-            this.cbCliente.Location = new System.Drawing.Point(58, 24);
+            this.cbCliente.Location = new System.Drawing.Point(57, 3);
             this.cbCliente.Name = "cbCliente";
             this.cbCliente.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -1336,10 +1395,10 @@ namespace SysNorteGrupo.UI.Sinistros
             this.cbCliente.Properties.View = this.searchLookUpEdit1View;
             this.cbCliente.Size = new System.Drawing.Size(551, 20);
             this.cbCliente.TabIndex = 1;
-            conditionValidationRule3.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.Greater;
-            conditionValidationRule3.ErrorText = "Selecione um cliente";
-            conditionValidationRule3.Value1 = ((long)(0));
-            this.validator.SetValidationRule(this.cbCliente, conditionValidationRule3);
+            conditionValidationRule4.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.Greater;
+            conditionValidationRule4.ErrorText = "Selecione um cliente";
+            conditionValidationRule4.Value1 = ((long)(0));
+            this.validator.SetValidationRule(this.cbCliente, conditionValidationRule4);
             this.cbCliente.EditValueChanged += new System.EventHandler(this.cbCliente_EditValueChanged);
             // 
             // bdgCliente
@@ -1591,66 +1650,29 @@ namespace SysNorteGrupo.UI.Sinistros
             this.colvalor_total.Name = "colvalor_total";
             this.colvalor_total.OptionsColumn.AllowEdit = false;
             // 
-            // labelControl2
+            // pnPrincipal
             // 
-            this.labelControl2.Location = new System.Drawing.Point(138, 50);
-            this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(47, 13);
-            this.labelControl2.TabIndex = 0;
-            this.labelControl2.Text = "VEÍCULO:";
-            // 
-            // labelControl9
-            // 
-            this.labelControl9.Location = new System.Drawing.Point(618, 126);
-            this.labelControl9.Name = "labelControl9";
-            this.labelControl9.Size = new System.Drawing.Size(64, 13);
-            this.labelControl9.TabIndex = 0;
-            this.labelControl9.Text = "NUMERO BO:";
-            // 
-            // labelControl6
-            // 
-            this.labelControl6.Location = new System.Drawing.Point(703, 27);
-            this.labelControl6.Name = "labelControl6";
-            this.labelControl6.Size = new System.Drawing.Size(15, 13);
-            this.labelControl6.TabIndex = 0;
-            this.labelControl6.Text = "ID:";
-            // 
-            // labelControl10
-            // 
-            this.labelControl10.Location = new System.Drawing.Point(7, 159);
-            this.labelControl10.Name = "labelControl10";
-            this.labelControl10.Size = new System.Drawing.Size(77, 13);
-            this.labelControl10.TabIndex = 0;
-            this.labelControl10.Text = "OBSERVAÇÕES:";
-            // 
-            // labelControl1
-            // 
-            this.labelControl1.Location = new System.Drawing.Point(6, 27);
-            this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(45, 13);
-            this.labelControl1.TabIndex = 0;
-            this.labelControl1.Text = "CLIENTE:";
-            // 
-            // bdgSinistros
-            // 
-            this.bdgSinistros.DataSource = typeof(EntitiesGrupo.sinistro);
-            // 
-            // bdgVeiRebSinistros
-            // 
-            this.bdgVeiRebSinistros.DataSource = typeof(EntitiesGrupo.vei_reb_sinistros);
+            this.pnPrincipal.Controls.Add(this.pnControl);
+            this.pnPrincipal.Controls.Add(this.labelControl1);
+            this.pnPrincipal.Controls.Add(this.cbCliente);
+            this.pnPrincipal.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnPrincipal.Location = new System.Drawing.Point(0, 66);
+            this.pnPrincipal.Name = "pnPrincipal";
+            this.pnPrincipal.Size = new System.Drawing.Size(848, 586);
+            this.pnPrincipal.TabIndex = 3;
             // 
             // SinistrosForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.panelControl);
+            this.Controls.Add(this.pnPrincipal);
             this.Controls.Add(this.pnBotoes);
             this.Name = "SinistrosForm";
             this.Size = new System.Drawing.Size(848, 652);
             ((System.ComponentModel.ISupportInitialize)(this.pnBotoes)).EndInit();
             this.pnBotoes.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl)).EndInit();
-            this.panelControl.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pnControl)).EndInit();
+            this.pnControl.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gcArquivos)).EndInit();
             this.gcArquivos.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gcPagamentos)).EndInit();
@@ -1664,7 +1686,9 @@ namespace SysNorteGrupo.UI.Sinistros
             ((System.ComponentModel.ISupportInitialize)(this.gcInfoBasica)).EndInit();
             this.gcInfoBasica.ResumeLayout(false);
             this.gcInfoBasica.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ckConcluido.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.memoEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdgSinistros)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtConclusao.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtConclusao.Properties)).EndInit();
@@ -1677,6 +1701,7 @@ namespace SysNorteGrupo.UI.Sinistros
             ((System.ComponentModel.ISupportInitialize)(this.bdgReboquesTab)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbReboque.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdgVeiRebSinistros)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdgReboques)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbVeiculo.Properties)).EndInit();
@@ -1686,9 +1711,10 @@ namespace SysNorteGrupo.UI.Sinistros
             ((System.ComponentModel.ISupportInitialize)(this.bdgCliente)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1View)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.validatorPag)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bdgSinistros)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bdgVeiRebSinistros)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.validator)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pnPrincipal)).EndInit();
+            this.pnPrincipal.ResumeLayout(false);
+            this.pnPrincipal.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1711,7 +1737,7 @@ namespace SysNorteGrupo.UI.Sinistros
         private DevExpress.XtraEditors.LabelControl labelControl3;
         private DevExpress.XtraEditors.SimpleButton btnAdicionarReb;
         private DevExpress.XtraEditors.SimpleButton btnRemoverReb;
-        private DevExpress.XtraEditors.PanelControl panelControl;
+        private DevExpress.XtraEditors.PanelControl pnControl;
         private DevExpress.XtraGrid.GridControl gridControlReboques;
         private System.ComponentModel.IContainer components;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView2;
@@ -1852,5 +1878,7 @@ namespace SysNorteGrupo.UI.Sinistros
         private System.Windows.Forms.BindingSource bdgSinistros;
         private System.Windows.Forms.BindingSource bdgVeiRebSinistros;
         private DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider validator;
+        private DevExpress.XtraEditors.CheckEdit ckConcluido;
+        private DevExpress.XtraEditors.PanelControl pnPrincipal;
     }
 }

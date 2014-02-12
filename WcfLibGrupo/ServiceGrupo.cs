@@ -1137,6 +1137,15 @@ namespace WcfLibGrupo
                         pagamentos_sinistro.repo.Save(new pagamentos_sinistro() { valor = ps.valor, observacao = ps.observacao, id_sinistros = _id_sinistro});
                     }
 
+                    foreach(veiculo vei in listaDeTodosVeiculos()){
+                        historico_veic_reb_sinistros.repo.Save(new historico_veic_reb_sinistros() { id_reboque = 0, id_veiculo = vei.id, identificador = 'v',
+                            valor = vei.valor, id_sinistro = _id_sinistro });
+                    }
+
+                    foreach(reboque reb in listaDeTodosReboques()){
+                        historico_veic_reb_sinistros.repo.Save(new historico_veic_reb_sinistros() { id_reboque = reb.id, id_veiculo = 0, identificador = 'r',
+                            valor = reb.valor, id_sinistro = _id_sinistro});
+                    }
 
 
                     scope.Complete();

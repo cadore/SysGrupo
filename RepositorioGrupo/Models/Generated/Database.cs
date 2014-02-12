@@ -820,19 +820,19 @@ namespace EntitiesGrupo
 
 
 
-		[Column] public long situacao_pagamento { get; set; }
+		[Column] public long situacao_sinistro { get; set; }
 
 
 
 
 
-		[Column] public DateTime data_ocorrido { get; set; }
+		[Column] public DateTime? data_ocorrido { get; set; }
 
 
 
 
 
-		[Column] public DateTime data_conclusao { get; set; }
+		[Column] public DateTime? data_conclusao { get; set; }
 
 
 

@@ -1,0 +1,917 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+CAUTION: Do not modify this file unless you know what you are doing.
+         Unexpected results may occur if the code is changed deliberately.
+-->
+<dbmodel>
+<schema name="public" protected="true" rect-visible="true" fill-color="#e1e1e1" sql-disabled="true">
+</schema>
+
+<database name="sysgrupodb" encoding="UTF8">
+	<role name="postgres"/>
+	<tablespace name="pg_default"/>
+</database>
+
+<table name="preferencias_do_sistema">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="50" y="50"/>
+	<column name="valor_cota">
+		<type name="numeric" length="12" precision="2"/>
+	</column>
+</table>
+
+<sequence name="usuarios_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="public"/>
+	<role name="postgres"/>
+</sequence>
+
+<table name="usuarios">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="293.6" y="50"/>
+	<column name="id" not-null="true" default-value="nextval('usuarios_id_seq'::regclass)">
+		<type name="bigint"/>
+	</column>
+	<column name="login">
+		<type name="character varying" length="255"/>
+	</column>
+	<column name="senha">
+		<type name="character varying" length="1024"/>
+	</column>
+	<column name="nome_completo">
+		<type name="character varying" length="255"/>
+	</column>
+	<column name="contato">
+		<type name="character varying" length="255"/>
+	</column>
+	<column name="email">
+		<type name="character varying" length="255"/>
+	</column>
+	<column name="inativo">
+		<type name="boolean"/>
+	</column>
+	<constraint name="PK_usuarios_do_sistema_id" type="pk-constr" factor="100" table="public.usuarios">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="permicoes_usuarios_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="public"/>
+	<role name="postgres"/>
+</sequence>
+
+<table name="permicoes_usuarios">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="652.6" y="50"/>
+	<column name="id" not-null="true" default-value="nextval('permicoes_usuarios_id_seq'::regclass)">
+		<type name="bigint"/>
+	</column>
+	<column name="id_usuarios">
+		<type name="bigint"/>
+	</column>
+	<column name="inativar_sinistro">
+		<type name="boolean"/>
+	</column>
+	<column name="financeiro">
+		<type name="boolean"/>
+	</column>
+	<column name="usuarios">
+		<type name="boolean"/>
+	</column>
+	<column name="relatorios">
+		<type name="boolean"/>
+	</column>
+	<column name="cadastrar_veiculo">
+		<type name="boolean"/>
+	</column>
+	<column name="inativar_veiculo">
+		<type name="boolean"/>
+	</column>
+	<column name="cadastrar_cliente">
+		<type name="boolean"/>
+	</column>
+	<column name="inativar_cliente">
+		<type name="boolean"/>
+	</column>
+	<column name="cadastrar_sinistro">
+		<type name="boolean"/>
+	</column>
+	<column name="finalizar_sinistro">
+		<type name="boolean"/>
+	</column>
+	<constraint name="PK_restricoes_usuarios_id" type="pk-constr" factor="100" table="public.permicoes_usuarios">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+	<constraint name="permicoes_usuarios_uq" type="uq-constr" factor="100" table="public.permicoes_usuarios">
+		<columns names="id_usuarios" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="cliente_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="public"/>
+	<role name="postgres"/>
+</sequence>
+
+<table name="cliente">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="916.6" y="36"/>
+	<column name="id" not-null="true" default-value="nextval('cliente_id_seq'::regclass)">
+		<type name="bigint"/>
+	</column>
+	<column name="nome_completo">
+		<type name="character varying" length="255"/>
+	</column>
+	<column name="tipo_cliente">
+		<type name="character"/>
+	</column>
+	<column name="documento">
+		<type name="character varying" length="255"/>
+	</column>
+	<column name="inscricao_rg">
+		<type name="character varying" length="255"/>
+	</column>
+	<column name="isento_ICMS">
+		<type name="boolean"/>
+	</column>
+	<column name="telefone_fixo">
+		<type name="character varying" length="255"/>
+	</column>
+	<column name="telefone_celular">
+		<type name="character varying" length="255"/>
+	</column>
+	<column name="email_principal">
+		<type name="character varying" length="255"/>
+	</column>
+	<column name="email_secundario">
+		<type name="character varying" length="255"/>
+	</column>
+	<column name="numero">
+		<type name="character varying" length="255"/>
+	</column>
+	<column name="complemento">
+		<type name="character varying" length="255"/>
+	</column>
+	<column name="cep">
+		<type name="character varying" length="255"/>
+	</column>
+	<column name="referencia_comercial">
+		<type name="character varying" length="255"/>
+	</column>
+	<column name="contato_referencia_comercial">
+		<type name="character varying" length="255"/>
+	</column>
+	<column name="referencia_de_servico">
+		<type name="character varying" length="255"/>
+	</column>
+	<column name="contato_referencia_de_servico">
+		<type name="character varying" length="255"/>
+	</column>
+	<column name="referencia_de_transporte">
+		<type name="character varying" length="255"/>
+	</column>
+	<column name="contato_referencia_de_transporte">
+		<type name="character varying" length="255"/>
+	</column>
+	<column name="observacoes">
+		<type name="character varying" length="1024"/>
+	</column>
+	<column name="data_cadastro">
+		<type name="date"/>
+	</column>
+	<column name="data_ativacao">
+		<type name="date"/>
+	</column>
+	<column name="data_inativacao">
+		<type name="date"/>
+	</column>
+	<column name="inativo">
+		<type name="boolean"/>
+	</column>
+	<column name="id_cidades" not-null="true">
+		<type name="bigint"/>
+	</column>
+	<column name="id_enderecos" not-null="true">
+		<type name="bigint"/>
+	</column>
+	<column name="id_bairros" not-null="true">
+		<type name="bigint"/>
+	</column>
+	<column name="id_estados" not-null="true">
+		<type name="bigint"/>
+	</column>
+	<column name="uf_estado">
+		<type name="character varying" length="255"/>
+	</column>
+	<constraint name="PK_clientes_id" type="pk-constr" factor="100" table="public.cliente">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="cad_bairros_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="public"/>
+	<role name="postgres"/>
+</sequence>
+
+<table name="cad_bairros">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="1383.6" y="50"/>
+	<column name="id" not-null="true" default-value="nextval('cad_bairros_id_seq'::regclass)">
+		<type name="bigint"/>
+	</column>
+	<column name="nome_bairro">
+		<type name="character varying" length="255"/>
+	</column>
+	<column name="id_cidades" not-null="true">
+		<type name="bigint"/>
+	</column>
+	<constraint name="PK_bairros_id" type="pk-constr" factor="100" table="public.cad_bairros">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="cad_cidades_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="public"/>
+	<role name="postgres"/>
+</sequence>
+
+<table name="cad_cidades">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="3.99999" y="238.4"/>
+	<column name="id" not-null="true" default-value="nextval('cad_cidades_id_seq'::regclass)">
+		<type name="bigint"/>
+	</column>
+	<column name="cidade">
+		<type name="character varying" length="255"/>
+	</column>
+	<column name="uf">
+		<type name="character varying" length="255"/>
+	</column>
+	<column name="cod_ibge">
+		<type name="character varying" length="255"/>
+	</column>
+	<column name="area">
+		<type name="bigint"/>
+	</column>
+	<constraint name="PK_cidade_id" type="pk-constr" factor="100" table="public.cad_cidades">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="cad_enderecos_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="public"/>
+	<role name="postgres"/>
+</sequence>
+
+<table name="cad_enderecos">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="301" y="246.4"/>
+	<column name="id" not-null="true" default-value="nextval('cad_enderecos_id_seq'::regclass)">
+		<type name="bigint"/>
+	</column>
+	<column name="cep">
+		<type name="character varying" length="255"/>
+	</column>
+	<column name="endereco">
+		<type name="character varying" length="255"/>
+	</column>
+	<column name="bairro_id">
+		<type name="bigint"/>
+	</column>
+	<column name="id_cidades" not-null="true">
+		<type name="bigint"/>
+	</column>
+	<constraint name="PK_enderecos_id" type="pk-constr" factor="100" table="public.cad_enderecos">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="cad_estados_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="public"/>
+	<role name="postgres"/>
+</sequence>
+
+<table name="cad_estados">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="595" y="314.4"/>
+	<column name="id" not-null="true" default-value="nextval('cad_estados_id_seq'::regclass)">
+		<type name="bigint"/>
+	</column>
+	<column name="uf">
+		<type name="character varying"/>
+	</column>
+	<column name="nome_estado">
+		<type name="character varying"/>
+	</column>
+	<column name="cod_ibge">
+		<type name="character varying"/>
+	</column>
+	<constraint name="PK_estados_id" type="pk-constr" factor="100" table="public.cad_estados">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="veiculos_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="public"/>
+	<role name="postgres"/>
+</sequence>
+
+<table name="veiculos">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="1334" y="488.4"/>
+	<column name="id" not-null="true" default-value="nextval('veiculos_id_seq'::regclass)">
+		<type name="bigint"/>
+	</column>
+	<column name="id_cliente" not-null="true">
+		<type name="bigint"/>
+	</column>
+	<column name="cor_predominante">
+		<type name="character varying" length="255"/>
+	</column>
+	<column name="inativo">
+		<type name="boolean"/>
+	</column>
+	<column name="data_cadastro">
+		<type name="date"/>
+	</column>
+	<column name="data_ativacao">
+		<type name="date"/>
+	</column>
+	<column name="data_inativacao">
+		<type name="date"/>
+	</column>
+	<column name="tara">
+		<type name="numeric" length="12" precision="0"/>
+	</column>
+	<column name="capacidade">
+		<type name="numeric" length="12" precision="0"/>
+	</column>
+	<column name="observacao">
+		<type name="character varying" length="255"/>
+	</column>
+	<column name="cod_renavam">
+		<type name="character varying" length="255"/>
+	</column>
+	<column name="numero_chassi">
+		<type name="character varying" length="255"/>
+	</column>
+	<column name="id_especies_veiculos" not-null="true">
+		<type name="bigint"/>
+	</column>
+	<column name="id_modelo_veiculos" not-null="true">
+		<type name="character varying" length="100"/>
+	</column>
+	<column name="id_marca_veiculos" not-null="true">
+		<type name="bigint"/>
+	</column>
+	<column name="id_ano_modelo_veiculos" not-null="true">
+		<type name="bigint"/>
+	</column>
+	<column name="tipo_combustivel">
+		<type name="character varying" length="255"/>
+	</column>
+	<column name="ano_fabricacao">
+		<type name="integer"/>
+	</column>
+	<column name="pot_cil">
+		<type name="character varying" length="255"/>
+	</column>
+	<column name="valor">
+		<type name="numeric" length="12" precision="2"/>
+	</column>
+	<column name="placa">
+		<type name="character varying" length="255"/>
+	</column>
+	<column name="id_cidades">
+		<type name="bigint"/>
+	</column>
+	<column name="uf_estado">
+		<type name="character varying"/>
+	</column>
+	<constraint name="FK_veiculos_id" type="pk-constr" factor="100" table="public.veiculos">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="reboques_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="public"/>
+	<role name="postgres"/>
+</sequence>
+
+<table name="reboques">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="1367" y="180.4"/>
+	<column name="id" not-null="true" default-value="nextval('reboques_id_seq'::regclass)">
+		<type name="bigint"/>
+	</column>
+	<column name="id_veiculo" not-null="true">
+		<type name="bigint"/>
+	</column>
+	<column name="id_cliente">
+		<type name="bigint"/>
+	</column>
+	<column name="tara">
+		<type name="numeric" length="12" precision="0"/>
+	</column>
+	<column name="ano_fabricacao">
+		<type name="integer"/>
+	</column>
+	<column name="chassi">
+		<type name="character varying" length="255"/>
+	</column>
+	<column name="capacidade">
+		<type name="numeric" length="12" precision="0"/>
+	</column>
+	<column name="cor_chassi">
+		<type name="character varying" length="255"/>
+	</column>
+	<column name="renavam">
+		<type name="character varying" length="255"/>
+	</column>
+	<column name="placa">
+		<type name="character varying" length="255"/>
+	</column>
+	<column name="ano_modelo">
+		<type name="integer"/>
+	</column>
+	<column name="cor_carroceria">
+		<type name="character varying" length="255"/>
+	</column>
+	<column name="id_estado">
+		<type name="bigint"/>
+	</column>
+	<column name="uf_estado">
+		<type name="character varying" length="255"/>
+	</column>
+	<column name="inativo">
+		<type name="bool"/>
+	</column>
+	<constraint name="FK_reboques_id" type="pk-constr" factor="100" table="public.reboques">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="sinistros_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="public"/>
+	<role name="postgres"/>
+</sequence>
+
+<table name="sinistros">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="9.99999" y="381.8"/>
+	<column name="id" not-null="true" default-value="nextval('sinistros_id_seq'::regclass)">
+		<type name="bigint"/>
+	</column>
+	<column name="valor_total">
+		<type name="numeric" length="12" precision="2"/>
+	</column>
+	<column name="situacao_sinistro">
+		<type name="bigint"/>
+	</column>
+	<column name="data_ocorrido">
+		<type name="date"/>
+	</column>
+	<column name="data_conclusao">
+		<type name="date"/>
+	</column>
+	<column name="data_cadastro">
+		<type name="date"/>
+	</column>
+	<column name="data_inativacao">
+		<type name="date"/>
+	</column>
+	<column name="observacoes">
+		<type name="character varying" length="1024"/>
+	</column>
+	<column name="numero_bo">
+		<type name="character varying"/>
+	</column>
+	<column name="id_cliente" not-null="true">
+		<type name="bigint"/>
+	</column>
+	<constraint name="PK_sinistros_id" type="pk-constr" factor="100" table="public.sinistros">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="pagamentos_sinistro_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="public"/>
+	<role name="postgres"/>
+</sequence>
+
+<table name="pagamentos_sinistro">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="382" y="435.8"/>
+	<column name="id" not-null="true" default-value="nextval('pagamentos_sinistro_id_seq'::regclass)">
+		<type name="bigint"/>
+	</column>
+	<column name="valor">
+		<type name="numeric" length="12" precision="2"/>
+	</column>
+	<column name="observacao">
+		<type name="character varying" length="255"/>
+	</column>
+	<column name="id_sinistros" not-null="true">
+		<type name="bigint"/>
+	</column>
+	<constraint name="PK_pagamentos_sinistro_id" type="pk-constr" factor="100" table="public.pagamentos_sinistro">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="especies_veiculos_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="public"/>
+	<role name="postgres"/>
+</sequence>
+
+<table name="especies_veiculos">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="677" y="491.8"/>
+	<column name="id" not-null="true" default-value="nextval('especies_veiculos_id_seq'::regclass)">
+		<type name="bigint"/>
+	</column>
+	<column name="especie">
+		<type name="character varying"/>
+	</column>
+	<constraint name="PK_especies_id" type="pk-constr" factor="100" table="public.especies_veiculos">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="ano_modelo_veiculos_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="public"/>
+	<role name="postgres"/>
+</sequence>
+
+<table name="ano_modelo_veiculos">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="967" y="533.8"/>
+	<column name="id" not-null="true" default-value="nextval('ano_modelo_veiculos_id_seq'::regclass)">
+		<type name="bigint"/>
+	</column>
+	<column name="nome" not-null="true">
+		<type name="character varying" length="255"/>
+	</column>
+	<column name="modelo" not-null="true">
+		<type name="character varying" length="100"/>
+	</column>
+	<column name="valor" not-null="true">
+		<type name="numeric" length="12" precision="2"/>
+	</column>
+	<column name="tipo" not-null="true">
+		<type name="character varying" length="8"/>
+	</column>
+	<constraint name="ano_modelo_pkey" type="pk-constr" factor="100" table="public.ano_modelo_veiculos">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="marca_veiculos_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="public"/>
+	<role name="postgres"/>
+</sequence>
+
+<table name="marca_veiculos">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="1048" y="739.8"/>
+	<column name="id" not-null="true" default-value="nextval('marca_veiculos_id_seq'::regclass)">
+		<type name="bigint"/>
+	</column>
+	<column name="nome" not-null="true">
+		<type name="character varying" length="255"/>
+	</column>
+	<column name="tipo" not-null="true">
+		<type name="character varying" length="8"/>
+	</column>
+	<constraint name="marca_pkey" type="pk-constr" factor="100" table="public.marca_veiculos">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="modelo_veiculos">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="56" y="616.2"/>
+	<column name="id" not-null="true">
+		<type name="character varying" length="100"/>
+	</column>
+	<column name="nome" not-null="true">
+		<type name="character varying" length="255"/>
+	</column>
+	<column name="marca" not-null="true">
+		<type name="bigint"/>
+	</column>
+	<column name="tipo" not-null="true">
+		<type name="character varying" length="8"/>
+	</column>
+	<constraint name="modelo_pkey" type="pk-constr" factor="100" table="public.modelo_veiculos">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="historico_veic_reb_sinistros_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="public"/>
+	<role name="postgres"/>
+</sequence>
+
+<table name="historico_veic_reb_sinistros">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="359" y="588.2"/>
+	<column name="id" not-null="true" default-value="nextval('historico_veic_reb_sinistros_id_seq'::regclass)">
+		<type name="bigint"/>
+	</column>
+	<column name="id_reboque">
+		<type name="bigint"/>
+	</column>
+	<column name="id_veiculo">
+		<type name="bigint"/>
+	</column>
+	<column name="identificador">
+		<type name="character"/>
+	</column>
+	<column name="valor">
+		<type name="numeric" length="19" precision="2"/>
+	</column>
+	<column name="id_sinistro">
+		<type name="bigint"/>
+	</column>
+	<constraint name="PK_historico_veic_reb_sinistros_id" type="pk-constr" factor="100" table="public.historico_veic_reb_sinistros">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="vei_reb_sinistros">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="622" y="602.2"/>
+	<column name="id" not-null="true">
+		<type name="bigint"/>
+	</column>
+	<column name="id_reboque">
+		<type name="bigint"/>
+	</column>
+	<column name="id_veiculo">
+		<type name="bigint"/>
+	</column>
+	<column name="id_sinistro">
+		<type name="bigint"/>
+	</column>
+	<constraint name="PK_vei_reb_sinistros_id" type="pk-constr" factor="100" table="public.vei_reb_sinistros">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="especies_reboques">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="689" y="547"/>
+	<column name="id">
+		<type name="bigserial"/>
+	</column>
+	<column name="especie">
+		<type name="character varying" length="255"/>
+	</column>
+	<constraint name="PK_especies_reboque_id" type="pk-constr" factor="10" table="public.especies_reboques">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<relationship name="especies_reboque_hm_reboques" type="rel1n"
+	 src-col-pattern="id_especies_reboques"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 col-indexes="14" constr-indexes="1"
+	 src-table="public.especies_reboques"
+	 dst-table="public.reboques"
+	 src-required="false" dst-required="false"/>
+
+<constraint name="usuarios_fk" type="fk-constr"	 comparison-type="MATCH FULL"
+	 upd-action="CASCADE" del-action="RESTRICT" ref-table="public.usuarios" table="public.permicoes_usuarios">
+	<columns names="id_usuarios" ref-type="src-columns"/>
+	<columns names="id" ref-type="dst-columns"/>
+</constraint>
+<constraint name="cad_cidades_fk" type="fk-constr"	 comparison-type="MATCH FULL"
+	 upd-action="CASCADE" del-action="RESTRICT" ref-table="public.cad_cidades" table="public.cliente">
+	<columns names="id_cidades" ref-type="src-columns"/>
+	<columns names="id" ref-type="dst-columns"/>
+</constraint>
+<constraint name="cad_enderecos_fk" type="fk-constr"	 comparison-type="MATCH FULL"
+	 upd-action="CASCADE" del-action="RESTRICT" ref-table="public.cad_enderecos" table="public.cliente">
+	<columns names="id_enderecos" ref-type="src-columns"/>
+	<columns names="id" ref-type="dst-columns"/>
+</constraint>
+<constraint name="cad_bairros_fk" type="fk-constr"	 comparison-type="MATCH FULL"
+	 upd-action="CASCADE" del-action="RESTRICT" ref-table="public.cad_bairros" table="public.cliente">
+	<columns names="id_bairros" ref-type="src-columns"/>
+	<columns names="id" ref-type="dst-columns"/>
+</constraint>
+<constraint name="cad_estados_fk" type="fk-constr"	 comparison-type="MATCH FULL"
+	 upd-action="CASCADE" del-action="RESTRICT" ref-table="public.cad_estados" table="public.cliente">
+	<columns names="id_estados" ref-type="src-columns"/>
+	<columns names="id" ref-type="dst-columns"/>
+</constraint>
+<constraint name="cad_cidades_fk" type="fk-constr"	 comparison-type="MATCH FULL"
+	 upd-action="CASCADE" del-action="RESTRICT" ref-table="public.cad_cidades" table="public.cad_bairros">
+	<columns names="id_cidades" ref-type="src-columns"/>
+	<columns names="id" ref-type="dst-columns"/>
+</constraint>
+<constraint name="cad_cidades_fk" type="fk-constr"	 comparison-type="MATCH FULL"
+	 upd-action="CASCADE" del-action="RESTRICT" ref-table="public.cad_cidades" table="public.cad_enderecos">
+	<columns names="id_cidades" ref-type="src-columns"/>
+	<columns names="id" ref-type="dst-columns"/>
+</constraint>
+<constraint name="cliente_fk" type="fk-constr"	 comparison-type="MATCH FULL"
+	 upd-action="CASCADE" del-action="RESTRICT" ref-table="public.cliente" table="public.veiculos">
+	<columns names="id_cliente" ref-type="src-columns"/>
+	<columns names="id" ref-type="dst-columns"/>
+</constraint>
+<constraint name="cad_cidades_fk" type="fk-constr"	 comparison-type="MATCH FULL"
+	 upd-action="CASCADE" del-action="SET NULL" ref-table="public.cad_cidades" table="public.veiculos">
+	<columns names="id_cidades" ref-type="src-columns"/>
+	<columns names="id" ref-type="dst-columns"/>
+</constraint>
+<constraint name="especies_veiculos_fk" type="fk-constr"	 comparison-type="MATCH FULL"
+	 upd-action="CASCADE" del-action="RESTRICT" ref-table="public.especies_veiculos" table="public.veiculos">
+	<columns names="id_especies_veiculos" ref-type="src-columns"/>
+	<columns names="id" ref-type="dst-columns"/>
+</constraint>
+<constraint name="modelo_veiculos_fk" type="fk-constr"	 comparison-type="MATCH FULL"
+	 upd-action="CASCADE" del-action="RESTRICT" ref-table="public.modelo_veiculos" table="public.veiculos">
+	<columns names="id_modelo_veiculos" ref-type="src-columns"/>
+	<columns names="id" ref-type="dst-columns"/>
+</constraint>
+<constraint name="marca_veiculos_fk" type="fk-constr"	 comparison-type="MATCH FULL"
+	 upd-action="CASCADE" del-action="RESTRICT" ref-table="public.marca_veiculos" table="public.veiculos">
+	<columns names="id_marca_veiculos" ref-type="src-columns"/>
+	<columns names="id" ref-type="dst-columns"/>
+</constraint>
+<constraint name="ano_modelo_veiculos_fk" type="fk-constr"	 comparison-type="MATCH FULL"
+	 upd-action="CASCADE" del-action="RESTRICT" ref-table="public.ano_modelo_veiculos" table="public.veiculos">
+	<columns names="id_ano_modelo_veiculos" ref-type="src-columns"/>
+	<columns names="id" ref-type="dst-columns"/>
+</constraint>
+<constraint name="veiculos_fk" type="fk-constr"	 comparison-type="MATCH FULL"
+	 upd-action="CASCADE" del-action="RESTRICT" ref-table="public.veiculos" table="public.reboques">
+	<columns names="id_veiculo" ref-type="src-columns"/>
+	<columns names="id" ref-type="dst-columns"/>
+</constraint>
+<constraint name="cliente_fk" type="fk-constr"	 comparison-type="MATCH FULL"
+	 upd-action="CASCADE" del-action="SET NULL" ref-table="public.cliente" table="public.reboques">
+	<columns names="id_cliente" ref-type="src-columns"/>
+	<columns names="id" ref-type="dst-columns"/>
+</constraint>
+<constraint name="cliente_fk" type="fk-constr"	 comparison-type="MATCH FULL"
+	 upd-action="CASCADE" del-action="RESTRICT" ref-table="public.cliente" table="public.sinistros">
+	<columns names="id_cliente" ref-type="src-columns"/>
+	<columns names="id" ref-type="dst-columns"/>
+</constraint>
+<constraint name="sinistros_fk" type="fk-constr"	 comparison-type="MATCH FULL"
+	 upd-action="CASCADE" del-action="RESTRICT" ref-table="public.sinistros" table="public.pagamentos_sinistro">
+	<columns names="id_sinistros" ref-type="src-columns"/>
+	<columns names="id" ref-type="dst-columns"/>
+</constraint>
+<relationship name="rel_permicoes_usuarios_usuarios" type="relfk"
+	 src-table="public.permicoes_usuarios"
+	 dst-table="public.usuarios"
+	 src-required="true" dst-required="true"/>
+
+<relationship name="rel_cliente_cad_cidades" type="relfk"
+	 src-table="public.cliente"
+	 dst-table="public.cad_cidades"
+	 src-required="true" dst-required="true"/>
+
+<relationship name="rel_cliente_cad_enderecos" type="relfk"
+	 src-table="public.cliente"
+	 dst-table="public.cad_enderecos"
+	 src-required="true" dst-required="true"/>
+
+<relationship name="rel_cliente_cad_bairros" type="relfk"
+	 src-table="public.cliente"
+	 dst-table="public.cad_bairros"
+	 src-required="true" dst-required="true"/>
+
+<relationship name="rel_cliente_cad_estados" type="relfk"
+	 src-table="public.cliente"
+	 dst-table="public.cad_estados"
+	 src-required="true" dst-required="true"/>
+
+<relationship name="rel_cad_bairros_cad_cidades" type="relfk"
+	 src-table="public.cad_bairros"
+	 dst-table="public.cad_cidades"
+	 src-required="true" dst-required="true"/>
+
+<relationship name="rel_cad_enderecos_cad_cidades" type="relfk"
+	 src-table="public.cad_enderecos"
+	 dst-table="public.cad_cidades"
+	 src-required="true" dst-required="true"/>
+
+<relationship name="rel_veiculos_cliente" type="relfk"
+	 src-table="public.veiculos"
+	 dst-table="public.cliente"
+	 src-required="true" dst-required="true"/>
+
+<relationship name="rel_veiculos_cad_cidades" type="relfk"
+	 src-table="public.veiculos"
+	 dst-table="public.cad_cidades"
+	 src-required="true" dst-required="true"/>
+
+<relationship name="rel_veiculos_especies_veiculos" type="relfk"
+	 src-table="public.veiculos"
+	 dst-table="public.especies_veiculos"
+	 src-required="true" dst-required="true"/>
+
+<relationship name="rel_veiculos_modelo_veiculos" type="relfk"
+	 src-table="public.veiculos"
+	 dst-table="public.modelo_veiculos"
+	 src-required="true" dst-required="true"/>
+
+<relationship name="rel_veiculos_marca_veiculos" type="relfk"
+	 src-table="public.veiculos"
+	 dst-table="public.marca_veiculos"
+	 src-required="true" dst-required="true"/>
+
+<relationship name="rel_veiculos_ano_modelo_veiculos" type="relfk"
+	 src-table="public.veiculos"
+	 dst-table="public.ano_modelo_veiculos"
+	 src-required="true" dst-required="true"/>
+
+<relationship name="rel_reboques_veiculos" type="relfk"
+	 src-table="public.reboques"
+	 dst-table="public.veiculos"
+	 src-required="true" dst-required="true"/>
+
+<relationship name="rel_reboques_cliente" type="relfk"
+	 src-table="public.reboques"
+	 dst-table="public.cliente"
+	 src-required="true" dst-required="true"/>
+
+<relationship name="rel_sinistros_cliente" type="relfk"
+	 src-table="public.sinistros"
+	 dst-table="public.cliente"
+	 src-required="true" dst-required="true"/>
+
+<relationship name="rel_pagamentos_sinistro_sinistros" type="relfk"
+	 src-table="public.pagamentos_sinistro"
+	 dst-table="public.sinistros"
+	 src-required="true" dst-required="true"/>
+
+</dbmodel>
