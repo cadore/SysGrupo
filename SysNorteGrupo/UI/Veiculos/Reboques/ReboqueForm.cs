@@ -74,6 +74,10 @@ namespace SysNorteGrupo.UI.Veiculos.Reboques
                 {
                     cbAnoFabricacao.Properties.Items.Add(arrayList[i]);
                 }
+                for (int i = 0; i < arrayList.Count; i++)
+                {
+                    cbAnoModelo.Properties.Items.Add(arrayList[i]);
+                }
 
                 tfDataAgendamento.Properties.MinValue = DateTime.Now.Date.AddDays(1);
 
@@ -150,15 +154,20 @@ namespace SysNorteGrupo.UI.Veiculos.Reboques
         {
             try
             {
-                DialogResult rs = XtraMessageBox.Show(String.Format("CONFIRMA INATIVAÇÃO DO REBOQUE DE PLACA {0}?\n\nNÃO SERÁ POSSÍVEL REVERTER ESTA AÇÃO!", tfPlaca.Text),
+                DialogResult rs = XtraMessageBox.Show(String.Format("CONFIRMA INATIVAÇÃO DE TODOS REBOQUES DO VEÍCULO?\n\nNÃO SERÁ POSSÍVEL REVERTER ESTA AÇÃO!", tfPlaca.Text),
                     "SYSNORTE",
                     MessageBoxButtons.OKCancel);
                 if (rs == DialogResult.OK)
                 {
-                    reboque r = ((reboque)bdgReboqueLista.Current);
-                    r.inativo = true;
-                    r.data_inativacao = conn.retornaDataHoraLocal();
-                    tfId.Text = Convert.ToInt64(conn.salvarReboque(r)).ToString();
+                    List<reboque> rbs = (List<reboque>)bdgReboqueLista.DataSource;
+                    foreach (reboque r in rbs)
+                    {
+                        r.inativo = true;
+                        r.data_inativacao = conn.retornaDataHoraLocal();
+                    }
+                    
+                    conn.salvarReboques(rbs);
+                    //tfId.Text = Convert.ToInt64(conn.salvarReboque(r)).ToString();
 
                     pnInformacoes.Enabled = false;
                     btnSalvar.Enabled = false;
@@ -179,12 +188,58 @@ namespace SysNorteGrupo.UI.Veiculos.Reboques
             btnSalvar.Enabled = true;
             btnEditar.Enabled = false;
             btnInativar.Enabled = true;
+
+            bdgReboqueLista.MoveFirst();
         }
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
             try
             {
+                long id_cli = Convert.ToInt64(cbCliente.EditValue);
+                long id_veic = Convert.ToInt64(cbVeiculos.EditValue);
+
+                List<reboque> original = (List<reboque>)bdgReboqueLista.DataSource;
+                List<reboque> paralela = new List<reboque>();
+                
+                foreach (reboque reb in original)
+                {
+                    if (String.IsNullOrEmpty(reb.placa))
+                        paralela.Add(reb);
+                }
+
+                paralela.ForEach(x => original.Remove(x));
+                
+                grdReboques.Refresh();
+
+                if (original.Count == 0)
+                {
+                    XtraMessageBox.Show("VOCÊ DEVE INFORMAR AO MENOS UM REBOQUE PARA O VEÍCULO.", "SYSNORTE - GRUPO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
+                    //remover evento cbCliente e cbveiculo
+
+                    this.cbCliente.EditValueChanged -= new EventHandler(this.cbCliente_EditValueChanged);
+                    this.cbVeiculos.EditValueChanged -= new EventHandler(this.cbVeiculos_EditValueChanged);
+                    this.bdgReboqueLista.CurrentChanged -= new EventHandler(this.bdgReboqueLista_CurrentChanged);
+
+                    bdgReboqueLista.Clear();
+                    bdgReboqueLista.Add(new reboque() { data_ativacao = conn.retornaDataHoraLocal().Date.AddDays(1), id_cliente = id_cli, id_veiculo = id_veic });
+
+                    bdgReboqueLista.MoveLast();
+
+                    this.cbCliente.EditValueChanged += new EventHandler(this.cbCliente_EditValueChanged);
+                    this.cbVeiculos.EditValueChanged += new EventHandler(this.cbVeiculos_EditValueChanged);
+                    this.bdgReboqueLista.CurrentChanged += new EventHandler(this.bdgReboqueLista_CurrentChanged);
+
+                    return;
+                }
+
+                conn.salvarReboques(original);
+
+                XtraMessageBox.Show("REBOQUES SALVOS COM SUCESSO PARA O VEÍCULO INDICADO.", "SYSNORTE - GRUPO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
+                pnPrincipal.Enabled = false;
+
                 /*bool empty = Util.textFieldIsEmpty(tfId);
                 //seta validações
                 setValidations();
@@ -364,6 +419,7 @@ namespace SysNorteGrupo.UI.Veiculos.Reboques
         {
             try
             {
+                //bool empty = Util.textFieldIsEmpty(tfId);
                 bool empty = Util.textFieldIsEmpty(tfId);
                 //seta validações
                 setValidations();
@@ -376,6 +432,15 @@ namespace SysNorteGrupo.UI.Veiculos.Reboques
                         XtraMessageBox.Show(String.Format("A PLACA {0} JÁ ENCONTRA-SE CADASTRADA. VERIFIQUE!", tfPlaca.Text));
                         return;
                     }
+
+                   /* bool placaPresente = false;
+                    ((List<reboque>)bdgReboqueLista.DataSource).ForEach(x => placaPresente = x.placa == tfPlaca.Text ? true : false);
+
+                    if (placaPresente)
+                    {
+                        XtraMessageBox.Show(String.Format("A PLACA {0} JÁ ENCONTRA-SE INCLUÍDA NA LISTA DE REBOQUES. VERIFIQUE!", tfPlaca.Text));
+                        return;
+                    }*/
 
                     //verifica chassi unico
                     if (conn.verificaSeNChassiReboqueEhUnico(tfChassi.Text, !empty) == false)
@@ -401,7 +466,7 @@ namespace SysNorteGrupo.UI.Veiculos.Reboques
                             return;
                     }
 
-                    reboque r = ((reboque)bdgReboqueLista.Current);
+                    reboque r = (reboque)bdgReboqueLista.Current;
 
                     DateTime dataAtiv = conn.retornaDataHoraLocal().Date.AddDays(1);
                     if (ckAgendarCad.Checked)
@@ -417,14 +482,16 @@ namespace SysNorteGrupo.UI.Veiculos.Reboques
 
                     this.cbCliente.EditValueChanged -= new EventHandler(this.cbCliente_EditValueChanged);
 
-                    bdgReboqueLista.Add(new reboque() { data_ativacao = conn.retornaDataHoraLocal().Date.AddDays(1), id_cliente = r.id_cliente, id_cidade = r.id_cidade });
+                    bdgReboqueLista.Add(new reboque() { data_ativacao = conn.retornaDataHoraLocal().Date.AddDays(1), id_cliente = r.id_cliente, id_veiculo = r.id_veiculo });
 
                     bdgReboqueLista.MoveLast();
 
                     cbCorCarroceria.EditValue = null;
                     cbCorChassi.EditValue = null;
+                    lbCorCarroceria.BackColor = Color.Transparent;
+                    lbCorChassi.BackColor = Color.Transparent;
 
-                    tfPlaca.Focus();
+                    //tfPlaca.Focus();
 
                     this.cbCliente.EditValueChanged += new EventHandler(this.cbCliente_EditValueChanged);
 
@@ -449,6 +516,14 @@ namespace SysNorteGrupo.UI.Veiculos.Reboques
                 bdgReboqueLista.RemoveCurrent();
                 //bdgReboqueLista.Add(new reboque() { data_ativacao = conn.retornaDataHoraLocal().Date.AddDays(1) });
             }
+        }
+
+        private void bdgReboqueLista_CurrentChanged(object sender, EventArgs e)
+        {
+            reboque r = (reboque)bdgReboqueLista.Current;
+
+            cbCorCarroceria.EditValue = r.cor_carroceria;
+            cbCorChassi.EditValue = r.cor_chassi;
         }
     }
 }

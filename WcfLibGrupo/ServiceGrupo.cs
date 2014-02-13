@@ -667,15 +667,48 @@ namespace WcfLibGrupo
 
         #region reboques
 
-        public long salvarReboque(reboque reboque_obj)
+        public long salvarReboques(List<reboque> reboques)
         {
             try
             {
-                reboque_obj.Save();
-                return Convert.ToInt64(reboque_obj.id);
+                using (var scope = reboque.repo.GetTransaction())
+                {                    
+                    foreach(reboque reb in reboques) 
+                    {
+                        reb.Save();
+                    }
+
+                    scope.Complete();
+                }
+                return 0;
             }
             catch (Exception ex)
             {
+                reboque.repo.AbortTransaction();
+                throw new FaultException(
+                    new FaultReason(String.Format("EXCECÃO: {0}{1}INNER EXCEPTION: {2}", ex.Message, Environment.NewLine, ex.InnerException)),
+                    new FaultCode("1000"));
+            }
+        }
+
+        public long salvarReboque(reboque reboq)
+        {
+            try
+            {
+                long return_id = 0;
+                using (var scope = reboque.repo.GetTransaction())
+                {
+                    reboq.Save();
+
+                    scope.Complete();
+
+                    return_id = reboq.id;
+                }
+                return return_id;
+            }
+            catch (Exception ex)
+            {
+                reboque.repo.AbortTransaction();
                 throw new FaultException(
                     new FaultReason(String.Format("EXCECÃO: {0}{1}INNER EXCEPTION: {2}", ex.Message, Environment.NewLine, ex.InnerException)),
                     new FaultCode("1000"));

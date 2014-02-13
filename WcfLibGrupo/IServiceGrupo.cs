@@ -144,7 +144,10 @@ namespace WcfLibGrupo
         #region reboques
 
         [OperationContract]
-        long salvarReboque(reboque veiculo_obj);
+        long salvarReboques(List<reboque> reboques);
+
+        [OperationContract]
+        long salvarReboque(reboque reboq);
 
         [OperationContract]
         List<especies_reboque> listaDeEspeciesReboques();
