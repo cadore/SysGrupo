@@ -145,6 +145,9 @@
     <Compile Include="UI\Veiculos\VeiculosForm.Designer.cs">
       <DependentUpon>VeiculosForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Utils\Botoes\BotaoImprimir.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Utils\Botoes\BotaoBuscar.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -311,6 +314,8 @@
     <None Include="Resources\reboque_48.png" />
     <None Include="Resources\veiculos_48.png" />
     <None Include="Resources\Action_LinkUnlink_Link.png" />
+    <None Include="Resources\check-48.png" />
+    <None Include="Resources\impressora48.png" />
     <Content Include="TODO.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

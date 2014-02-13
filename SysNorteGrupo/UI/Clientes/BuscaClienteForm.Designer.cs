@@ -73,6 +73,7 @@
             this.colid_bairros = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colcotas = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colvalor_total = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.btnImprimirContrato = new SysNorteGrupo.Utils.BotaoImprimir();
             ((System.ComponentModel.ISupportInitialize)(this.pbBotoes)).BeginInit();
             this.pbBotoes.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
@@ -91,6 +92,7 @@
             this.pbBotoes.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(82)))), ((int)(((byte)(155)))));
             this.pbBotoes.Appearance.Options.UseBackColor = true;
             this.pbBotoes.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.pbBotoes.Controls.Add(this.btnImprimirContrato);
             this.pbBotoes.Controls.Add(this.btnFechar);
             this.pbBotoes.Controls.Add(this.btnBuscar);
             this.pbBotoes.Controls.Add(this.panelControl2);
@@ -112,7 +114,7 @@
             this.btnFechar.ForeColor = System.Drawing.Color.White;
             this.btnFechar.Image = ((System.Drawing.Image)(resources.GetObject("btnFechar.Image")));
             this.btnFechar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnFechar.Location = new System.Drawing.Point(906, 8);
+            this.btnFechar.Location = new System.Drawing.Point(903, 6);
             this.btnFechar.Name = "btnFechar";
             this.btnFechar.Size = new System.Drawing.Size(110, 56);
             this.btnFechar.TabIndex = 6;
@@ -129,7 +131,7 @@
             this.btnBuscar.ForeColor = System.Drawing.Color.White;
             this.btnBuscar.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscar.Image")));
             this.btnBuscar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBuscar.Location = new System.Drawing.Point(700, 8);
+            this.btnBuscar.Location = new System.Drawing.Point(603, 6);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(116, 56);
             this.btnBuscar.TabIndex = 5;
@@ -144,7 +146,7 @@
             this.panelControl2.Controls.Add(this.ckInativo);
             this.panelControl2.Controls.Add(this.ckAtivo);
             this.panelControl2.Controls.Add(this.labelControl3);
-            this.panelControl2.Location = new System.Drawing.Point(528, 15);
+            this.panelControl2.Location = new System.Drawing.Point(435, 15);
             this.panelControl2.Name = "panelControl2";
             this.panelControl2.Size = new System.Drawing.Size(153, 44);
             this.panelControl2.TabIndex = 4;
@@ -195,7 +197,7 @@
             this.tfNomeDocumento.Location = new System.Drawing.Point(98, 39);
             this.tfNomeDocumento.Name = "tfNomeDocumento";
             this.tfNomeDocumento.Properties.Mask.EditMask = "\\d+";
-            this.tfNomeDocumento.Size = new System.Drawing.Size(413, 20);
+            this.tfNomeDocumento.Size = new System.Drawing.Size(331, 20);
             this.tfNomeDocumento.TabIndex = 0;
             this.tfNomeDocumento.KeyUp += new System.Windows.Forms.KeyEventHandler(this.tfNomeDocumento_KeyUp);
             // 
@@ -497,6 +499,22 @@
             this.colvalor_total.VisibleIndex = 4;
             this.colvalor_total.Width = 103;
             // 
+            // btnImprimirContrato
+            // 
+            this.btnImprimirContrato.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(199)))));
+            this.btnImprimirContrato.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnImprimirContrato.Font = new System.Drawing.Font("Segoe UI Light", 12F);
+            this.btnImprimirContrato.ForeColor = System.Drawing.Color.White;
+            this.btnImprimirContrato.Image = ((System.Drawing.Image)(resources.GetObject("btnImprimirContrato.Image")));
+            this.btnImprimirContrato.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnImprimirContrato.Location = new System.Drawing.Point(725, 6);
+            this.btnImprimirContrato.Name = "btnImprimirContrato";
+            this.btnImprimirContrato.Size = new System.Drawing.Size(133, 56);
+            this.btnImprimirContrato.TabIndex = 7;
+            this.btnImprimirContrato.Text = "Imprimir";
+            this.btnImprimirContrato.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnImprimirContrato.UseVisualStyleBackColor = false;
+            // 
             // BuscaClienteForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -567,5 +585,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn colcotas;
         private System.Windows.Forms.BindingSource bdgCliente;
         private DevExpress.XtraGrid.Columns.GridColumn colvalor_total;
+        private Utils.BotaoImprimir btnImprimirContrato;
     }
 }
