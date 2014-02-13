@@ -177,7 +177,9 @@ namespace SysNorteGrupo.UI.Veiculos.Reboques
         {
             reboque reb = (reboque)bdgReboque.Current;
 
-            ReboqueForm rf = new ReboqueForm(reb) { formPrincipal = formPrincipal };
+            List<reboque> listaReboque = conn.listaDeReboquesPorIdVeiculo(reb.id_veiculo, false);
+
+            ReboqueForm rf = new ReboqueForm(listaReboque) { formPrincipal = formPrincipal };
             formPrincipal.adicionarControleNavegacao(rf);
         }
     }

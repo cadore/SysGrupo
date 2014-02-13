@@ -31,6 +31,8 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BuscaReboqueForm));
             this.pnBotoes = new DevExpress.XtraEditors.PanelControl();
+            this.btnFechar = new SysNorteGrupo.Utils.BotaoSair();
+            this.btnBuscar = new SysNorteGrupo.Utils.BotaoBuscar();
             this.cbVeiculo = new DevExpress.XtraEditors.SearchLookUpEdit();
             this.bdgVeiculo = new System.Windows.Forms.BindingSource(this.components);
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -91,8 +93,6 @@
             this.gridColumn6 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colid_enderecos = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colid_bairros = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.btnFechar = new SysNorteGrupo.Utils.BotaoSair();
-            this.btnBuscar = new SysNorteGrupo.Utils.BotaoBuscar();
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
             this.ckInativo = new DevExpress.XtraEditors.CheckEdit();
@@ -156,10 +156,10 @@
             this.pnBotoes.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(82)))), ((int)(((byte)(155)))));
             this.pnBotoes.Appearance.Options.UseBackColor = true;
             this.pnBotoes.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.pnBotoes.Controls.Add(this.cbVeiculo);
-            this.pnBotoes.Controls.Add(this.cbCliente);
             this.pnBotoes.Controls.Add(this.btnFechar);
             this.pnBotoes.Controls.Add(this.btnBuscar);
+            this.pnBotoes.Controls.Add(this.cbVeiculo);
+            this.pnBotoes.Controls.Add(this.cbCliente);
             this.pnBotoes.Controls.Add(this.labelControl5);
             this.pnBotoes.Controls.Add(this.panelControl2);
             this.pnBotoes.Controls.Add(this.labelControl4);
@@ -172,6 +172,40 @@
             this.pnBotoes.Name = "pnBotoes";
             this.pnBotoes.Size = new System.Drawing.Size(926, 94);
             this.pnBotoes.TabIndex = 3;
+            // 
+            // btnFechar
+            // 
+            this.btnFechar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(199)))));
+            this.btnFechar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFechar.Font = new System.Drawing.Font("Segoe UI Light", 12F);
+            this.btnFechar.ForeColor = System.Drawing.Color.White;
+            this.btnFechar.Image = ((System.Drawing.Image)(resources.GetObject("btnFechar.Image")));
+            this.btnFechar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnFechar.Location = new System.Drawing.Point(815, 29);
+            this.btnFechar.Name = "btnFechar";
+            this.btnFechar.Size = new System.Drawing.Size(105, 56);
+            this.btnFechar.TabIndex = 7;
+            this.btnFechar.Text = "SAIR";
+            this.btnFechar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnFechar.UseVisualStyleBackColor = false;
+            this.btnFechar.Click += new System.EventHandler(this.btnFechar_Click);
+            // 
+            // btnBuscar
+            // 
+            this.btnBuscar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(199)))));
+            this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBuscar.Font = new System.Drawing.Font("Segoe UI Light", 12F);
+            this.btnBuscar.ForeColor = System.Drawing.Color.White;
+            this.btnBuscar.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscar.Image")));
+            this.btnBuscar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnBuscar.Location = new System.Drawing.Point(598, 29);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(129, 56);
+            this.btnBuscar.TabIndex = 6;
+            this.btnBuscar.Text = "BUSCAR";
+            this.btnBuscar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnBuscar.UseVisualStyleBackColor = false;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // cbVeiculo
             // 
@@ -633,40 +667,6 @@
             this.colid_bairros.Name = "colid_bairros";
             this.colid_bairros.OptionsColumn.AllowEdit = false;
             // 
-            // btnFechar
-            // 
-            this.btnFechar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(199)))));
-            this.btnFechar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFechar.Font = new System.Drawing.Font("Segoe UI Light", 12F);
-            this.btnFechar.ForeColor = System.Drawing.Color.White;
-            this.btnFechar.Image = ((System.Drawing.Image)(resources.GetObject("btnFechar.Image")));
-            this.btnFechar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnFechar.Location = new System.Drawing.Point(799, 29);
-            this.btnFechar.Name = "btnFechar";
-            this.btnFechar.Size = new System.Drawing.Size(110, 56);
-            this.btnFechar.TabIndex = 3;
-            this.btnFechar.Text = "Sair";
-            this.btnFechar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnFechar.UseVisualStyleBackColor = false;
-            this.btnFechar.Click += new System.EventHandler(this.btnFechar_Click);
-            // 
-            // btnBuscar
-            // 
-            this.btnBuscar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(199)))));
-            this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBuscar.Font = new System.Drawing.Font("Segoe UI Light", 12F);
-            this.btnBuscar.ForeColor = System.Drawing.Color.White;
-            this.btnBuscar.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscar.Image")));
-            this.btnBuscar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBuscar.Location = new System.Drawing.Point(614, 29);
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(116, 56);
-            this.btnBuscar.TabIndex = 2;
-            this.btnBuscar.Text = "Buscar";
-            this.btnBuscar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnBuscar.UseVisualStyleBackColor = false;
-            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
-            // 
             // labelControl5
             // 
             this.labelControl5.Appearance.ForeColor = System.Drawing.Color.White;
@@ -816,8 +816,6 @@
             this.colcotas});
             this.gridView2.GridControl = this.gridControl;
             this.gridView2.Name = "gridView2";
-            this.gridView2.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
-            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.colcod_renavam, DevExpress.Data.ColumnSortOrder.Ascending)});
             // 
             // colid
             // 
@@ -827,7 +825,7 @@
             this.colid.OptionsColumn.AllowEdit = false;
             this.colid.Visible = true;
             this.colid.VisibleIndex = 0;
-            this.colid.Width = 49;
+            this.colid.Width = 79;
             // 
             // colid_cliente
             // 
@@ -862,8 +860,8 @@
             this.colvalor.Name = "colvalor";
             this.colvalor.OptionsColumn.AllowEdit = false;
             this.colvalor.Visible = true;
-            this.colvalor.VisibleIndex = 8;
-            this.colvalor.Width = 106;
+            this.colvalor.VisibleIndex = 6;
+            this.colvalor.Width = 156;
             // 
             // colplaca
             // 
@@ -873,7 +871,7 @@
             this.colplaca.OptionsColumn.AllowEdit = false;
             this.colplaca.Visible = true;
             this.colplaca.VisibleIndex = 2;
-            this.colplaca.Width = 63;
+            this.colplaca.Width = 105;
             // 
             // colano_fabricacao
             // 
@@ -887,8 +885,6 @@
             this.colcod_renavam.FieldName = "cod_renavam";
             this.colcod_renavam.Name = "colcod_renavam";
             this.colcod_renavam.OptionsColumn.AllowEdit = false;
-            this.colcod_renavam.Visible = true;
-            this.colcod_renavam.VisibleIndex = 3;
             // 
             // colnumero_chassi
             // 
@@ -896,8 +892,6 @@
             this.colnumero_chassi.FieldName = "numero_chassi";
             this.colnumero_chassi.Name = "colnumero_chassi";
             this.colnumero_chassi.OptionsColumn.AllowEdit = false;
-            this.colnumero_chassi.Visible = true;
-            this.colnumero_chassi.VisibleIndex = 4;
             this.colnumero_chassi.Width = 143;
             // 
             // coltipo_combustivel
@@ -955,9 +949,7 @@
             this.colinativo.FieldName = "inativo";
             this.colinativo.Name = "colinativo";
             this.colinativo.OptionsColumn.AllowEdit = false;
-            this.colinativo.Visible = true;
-            this.colinativo.VisibleIndex = 10;
-            this.colinativo.Width = 64;
+            this.colinativo.Width = 105;
             // 
             // coldata_cadastro
             // 
@@ -968,8 +960,8 @@
             this.coldata_cadastro.Name = "coldata_cadastro";
             this.coldata_cadastro.OptionsColumn.AllowEdit = false;
             this.coldata_cadastro.Visible = true;
-            this.coldata_cadastro.VisibleIndex = 5;
-            this.coldata_cadastro.Width = 67;
+            this.coldata_cadastro.VisibleIndex = 3;
+            this.coldata_cadastro.Width = 111;
             // 
             // coldata_ativacao
             // 
@@ -980,8 +972,8 @@
             this.coldata_ativacao.Name = "coldata_ativacao";
             this.coldata_ativacao.OptionsColumn.AllowEdit = false;
             this.coldata_ativacao.Visible = true;
-            this.coldata_ativacao.VisibleIndex = 6;
-            this.coldata_ativacao.Width = 63;
+            this.coldata_ativacao.VisibleIndex = 4;
+            this.coldata_ativacao.Width = 130;
             // 
             // coldata_inativacao
             // 
@@ -992,8 +984,8 @@
             this.coldata_inativacao.Name = "coldata_inativacao";
             this.coldata_inativacao.OptionsColumn.AllowEdit = false;
             this.coldata_inativacao.Visible = true;
-            this.coldata_inativacao.VisibleIndex = 7;
-            this.coldata_inativacao.Width = 71;
+            this.coldata_inativacao.VisibleIndex = 5;
+            this.coldata_inativacao.Width = 131;
             // 
             // colnome_cliente
             // 
@@ -1003,7 +995,7 @@
             this.colnome_cliente.OptionsColumn.AllowEdit = false;
             this.colnome_cliente.Visible = true;
             this.colnome_cliente.VisibleIndex = 1;
-            this.colnome_cliente.Width = 249;
+            this.colnome_cliente.Width = 377;
             // 
             // colcotas
             // 
@@ -1014,8 +1006,8 @@
             this.colcotas.Name = "colcotas";
             this.colcotas.OptionsColumn.AllowEdit = false;
             this.colcotas.Visible = true;
-            this.colcotas.VisibleIndex = 9;
-            this.colcotas.Width = 57;
+            this.colcotas.VisibleIndex = 7;
+            this.colcotas.Width = 84;
             // 
             // repositoryItemTextEdit1
             // 
@@ -1115,8 +1107,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn6;
         private DevExpress.XtraGrid.Columns.GridColumn colid_enderecos;
         private DevExpress.XtraGrid.Columns.GridColumn colid_bairros;
-        private Utils.BotaoSair btnFechar;
-        private Utils.BotaoBuscar btnBuscar;
         private DevExpress.XtraEditors.LabelControl labelControl5;
         private DevExpress.XtraEditors.PanelControl panelControl2;
         private DevExpress.XtraEditors.CheckEdit ckInativo;
@@ -1157,5 +1147,7 @@
         private System.Windows.Forms.BindingSource bdgVeiculo;
         private System.Windows.Forms.BindingSource bdgCliente;
         private System.Windows.Forms.BindingSource bdgReboque;
+        private Utils.BotaoBuscar btnBuscar;
+        private Utils.BotaoSair btnFechar;
     }
 }

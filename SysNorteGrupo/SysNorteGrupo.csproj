@@ -204,6 +204,9 @@
     <EmbeddedResource Include="UI\Veiculos\BuscaVeiculoForm.resx">
       <DependentUpon>BuscaVeiculoForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\Veiculos\Reboques\BuscaReboqueForm.resx">
+      <DependentUpon>BuscaReboqueForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\Veiculos\Reboques\ReboqueForm.resx">
       <DependentUpon>ReboqueForm.cs</DependentUpon>
     </EmbeddedResource>

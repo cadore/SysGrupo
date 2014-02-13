@@ -16,13 +16,13 @@ namespace SysNorteGrupo.UI.Veiculos.Reboques
     {
         private IServiceGrupo conn = null;
         public FormPrincipal formPrincipal = null;
-        private reboque reboque_instc = null;
+        //private reboque reboque_instc = null;
         private Color backColor = UtilsSistema.backColorFoco;
         private CustomValidationRuleDataAgendamento cVRDA;
 
-        public ReboqueForm(reboque reb)
+        public ReboqueForm(List<reboque> reb)
         {
-            reboque_instc = reb;
+            //reboque_instc = reb;
             InitializeComponent();
 
             conn = GerenteDeConexoes.iniciaConexao();
@@ -45,28 +45,34 @@ namespace SysNorteGrupo.UI.Veiculos.Reboques
             try
             {
                 setBackColor();
-                if (reboque_instc == null)
+                if (reb == null)
                 {
-                    reboque_instc = new reboque() { data_ativacao = conn.retornaDataHoraLocal().Date.AddDays(1) };
                     pnInformacoes.Enabled = false;
+
+                    bdgReboqueLista.DataSource = new List<reboque>();
+                    bdgReboqueLista.Add(new reboque() { data_ativacao = conn.retornaDataHoraLocal().Date.AddDays(1) });
                 }
                 else
                 {
+                    bdgReboqueLista.DataSource = reb;
+                    bdgReboqueLista.MoveFirst();
+
                     pnInformacoes.Enabled = true;
                     btnSalvar.Enabled = false;
                     btnEditar.Enabled = true;
                     ckAgendarCad.Visible = false;
 
-                    tfDataAgendamento.EditValue = reboque_instc.data_ativacao;
-                    bdgCidade.DataSource = conn.listaDeCidadesPorEstado(reboque_instc.uf_estado);
+                    //tfDataAgendamento.EditValue = reboque_instc.data_ativacao;
+                    bdgCidade.DataSource = conn.listaDeCidadesPorEstado(((reboque)bdgReboqueLista.Current).uf_estado);
 
-                    arquivosFormReb.DIRETORIO = String.Format(@"{0}{1}\", conn.SUBDIR_REBOQUES(), reboque_instc.id);
+                    arquivosFormReb.DIRETORIO = String.Format(@"{0}{1}\", conn.SUBDIR_REBOQUES(), ((reboque)bdgReboqueLista.Current).id);
+
+                    arquivosFormReb.executaBusca();
 
                     arquivosFormReb.Enabled = true;
                 }
 
-                bdgReboqueLista.DataSource = new List<reboque>();
-                bdgReboqueLista.Add(reboque_instc);
+                
                 //((reboque)bdgReboqueLista.Current).id_cidade = 0;
 
                 ArrayList arrayList = new ListaAnos().retornaAnos();
@@ -81,8 +87,8 @@ namespace SysNorteGrupo.UI.Veiculos.Reboques
 
                 tfDataAgendamento.Properties.MinValue = DateTime.Now.Date.AddDays(1);
 
-                cbCorChassi.EditValue = reboque_instc.cor_chassi;
-                cbCorCarroceria.EditValue = reboque_instc.cor_carroceria;
+                cbCorChassi.EditValue = ((reboque)bdgReboqueLista.Current).cor_chassi;
+                cbCorCarroceria.EditValue = ((reboque)bdgReboqueLista.Current).cor_carroceria;
             }
             catch (Exception ex)
             {

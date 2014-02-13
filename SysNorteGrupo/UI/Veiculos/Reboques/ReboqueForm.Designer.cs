@@ -123,6 +123,7 @@
             this.cbCidade = new DevExpress.XtraEditors.SearchLookUpEdit();
             this.bdgCidade = new System.Windows.Forms.BindingSource(this.components);
             this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.colCidadecidade = new DevExpress.XtraGrid.Columns.GridColumn();
             this.btnRemover = new DevExpress.XtraEditors.SimpleButton();
             this.btnAdicionar = new DevExpress.XtraEditors.SimpleButton();
             this.tfValor = new DevExpress.XtraEditors.CalcEdit();
@@ -175,7 +176,6 @@
             this.labelControl14 = new DevExpress.XtraEditors.LabelControl();
             this.tfId = new DevExpress.XtraEditors.TextEdit();
             this.validator = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
-            this.colCidadecidade = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.pnBotoes)).BeginInit();
             this.pnBotoes.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pnPrincipal)).BeginInit();
@@ -899,7 +899,7 @@
             this.cbCidade.Properties.ValueMember = "id";
             this.cbCidade.Properties.View = this.gridView2;
             this.cbCidade.Size = new System.Drawing.Size(474, 20);
-            this.cbCidade.TabIndex = 23;
+            this.cbCidade.TabIndex = 12;
             conditionValidationRule3.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
             conditionValidationRule3.ErrorText = "Selecione uma cidade";
             this.validator.SetValidationRule(this.cbCidade, conditionValidationRule3);
@@ -916,6 +916,16 @@
             this.gridView2.Name = "gridView2";
             this.gridView2.OptionsSelection.EnableAppearanceFocusedCell = false;
             this.gridView2.OptionsView.ShowGroupPanel = false;
+            // 
+            // colCidadecidade
+            // 
+            this.colCidadecidade.Caption = "gridColumn1";
+            this.colCidadecidade.CustomizationCaption = "CIDADE";
+            this.colCidadecidade.FieldName = "nome_cidade";
+            this.colCidadecidade.Name = "colCidadecidade";
+            this.colCidadecidade.OptionsColumn.AllowEdit = false;
+            this.colCidadecidade.Visible = true;
+            this.colCidadecidade.VisibleIndex = 0;
             // 
             // btnRemover
             // 
@@ -1421,16 +1431,6 @@
             // validator
             // 
             this.validator.ValidationMode = DevExpress.XtraEditors.DXErrorProvider.ValidationMode.Manual;
-            // 
-            // colCidadecidade
-            // 
-            this.colCidadecidade.Caption = "gridColumn1";
-            this.colCidadecidade.CustomizationCaption = "CIDADE";
-            this.colCidadecidade.FieldName = "nome_cidade";
-            this.colCidadecidade.Name = "colCidadecidade";
-            this.colCidadecidade.OptionsColumn.AllowEdit = false;
-            this.colCidadecidade.Visible = true;
-            this.colCidadecidade.VisibleIndex = 0;
             // 
             // ReboqueForm
             // 
