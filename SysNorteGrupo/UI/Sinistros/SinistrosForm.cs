@@ -43,6 +43,7 @@ namespace SysNorteGrupo.UI.Sinistros
             {
                 arquivosForm.conn = conn;
                 arquivosForm.DIRETORIO = String.Format(@"{0}{1}\", conn.SUBDIR_SINISTROS(), sinistro_instc.id);
+                arquivosForm.executaBusca();
                 pnPrincipal.Enabled = false;
             }
             bdgSinistros.DataSource = sinistro_instc;
@@ -219,6 +220,7 @@ namespace SysNorteGrupo.UI.Sinistros
         private void btnEditar_Click(object sender, EventArgs e)
         {
             pnControl.Enabled = true;
+            pnPrincipal.Enabled = true;
         }
 
         private void btnAdicionarPag_Click(object sender, EventArgs e)
@@ -241,8 +243,10 @@ namespace SysNorteGrupo.UI.Sinistros
         {
             bool tf_vazio = Util.textFieldIsEmpty(tfId);
             long situacao = 0;
+            string mensagem_situacao = "Confirma a edição de sinistro concluido para NÃO concluido?";
             if (ckConcluido.Checked)
             {
+                mensagem_situacao = "Confirma a data de conclusão para dia: " + dtConclusao.Text + "?";
                 situacao = 1;
             }
             if(situacao == 0){
@@ -278,6 +282,21 @@ namespace SysNorteGrupo.UI.Sinistros
                         MessageBox.Show("Adicione no minimo um pagamento.");
                         return;
                     }
+                    if (tf_vazio)
+                    {
+                        DialogResult dr = MessageBox.Show("Confirma a data do ocorrido para dia: "+dtOcorrido.Text+"?", "SYSNORTE", MessageBoxButtons.OKCancel);
+                        if(dr == DialogResult.Cancel){
+                            dtOcorrido.Focus();
+                            return;
+                        }
+                    }
+                    if(sinistro_instc.situacao_sinistro != situacao && ckConcluido.Checked){
+                        DialogResult dr = MessageBox.Show(mensagem_situacao, "SYSNORTE", MessageBoxButtons.OKCancel);
+                        if(dr == DialogResult.Cancel){
+                            dtConclusao.Focus();
+                            return;
+                        }
+                    }
                     List<vei_reb_sinistros> listVr = new List<vei_reb_sinistros>();
                     if (ckVeiculo.Checked)
                     {
@@ -308,7 +327,6 @@ namespace SysNorteGrupo.UI.Sinistros
                     _sinistro.situacao_sinistro = situacao;
                     long id = conn.SalvaSinistro(_sinistro, listVr, listPag);
                     tfId.Text = id.ToString();
-                    MessageBox.Show("Salvo com sucesso!");
                 }
             }
             catch (Exception ex)
@@ -325,6 +343,18 @@ namespace SysNorteGrupo.UI.Sinistros
             else
             {
                 dtConclusao.Enabled = false;
+            }
+        }
+
+        private void pnControl_EnabledChanged(object sender, EventArgs e)
+        {
+            bool flag = Util.textFieldIsEmpty(tfId);
+            if(flag){
+                gcArquivos.Enabled = false;
+            }
+            else
+            {
+                gcArquivos.Enabled = true;
             }
         }       
     }

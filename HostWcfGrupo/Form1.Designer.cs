@@ -35,6 +35,7 @@
             // 
             // btnStartStop
             // 
+            this.btnStartStop.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnStartStop.Location = new System.Drawing.Point(0, 12);
             this.btnStartStop.Name = "btnStartStop";
             this.btnStartStop.Size = new System.Drawing.Size(392, 43);
@@ -70,8 +71,13 @@
             this.Controls.Add(this.tfStatus);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnStartStop);
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(408, 235);
+            this.MinimumSize = new System.Drawing.Size(408, 235);
             this.Name = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
+            this.WindowState = System.Windows.Forms.FormWindowState.Minimized;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();

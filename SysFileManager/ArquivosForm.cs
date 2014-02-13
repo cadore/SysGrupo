@@ -32,6 +32,10 @@ namespace SysFileManager
             try
             {
                 bdgArquivos.Clear();
+                if (conn.verificaDiretorioExistente(DIRETORIO) == false)
+                {
+                    conn.criaDiretorio(DIRETORIO);
+                }
                 List<ArquivosModel> listAm = conn.retornaTodosArquivosPorDiretorio(DIRETORIO);
                 bdgArquivos.DataSource = listAm;
             }
@@ -103,6 +107,7 @@ namespace SysFileManager
                         progressBar.Update();
                         conn.upload(b1, DIRETORIO + nome);                        
                     }
+                    executaBusca();
                     MessageBox.Show("Arquivo enviado com sucesso!");
                     progressBar.Properties.ShowTitle = false;
                     progressBar.Position = 0;
@@ -114,8 +119,7 @@ namespace SysFileManager
                 progressBar.Properties.ShowTitle = false;
                 progressBar.Position = 0;
                 MessageBox.Show("Erro ao copiar arquivo.\n" + ex.Message);
-            }
-            executaBusca();
+            }            
         }
 
         private void gridControl1_Click(object sender, EventArgs e)
@@ -136,8 +140,7 @@ namespace SysFileManager
             try
             {
 
-                ArquivosModel am = (ArquivosModel)bdgArquivos.Current;
-                Byte[] by = conn.download(am.nome_completo);
+                ArquivosModel am = (ArquivosModel)bdgArquivos.Current;                
                 SaveFileDialog sfd = new SaveFileDialog();
                 sfd.AutoUpgradeEnabled = true;
                 sfd.Title = "Salvar Arquivo";
@@ -147,6 +150,7 @@ namespace SysFileManager
                 DialogResult rs = sfd.ShowDialog();
                 if (rs == DialogResult.OK)
                 {
+                    Byte[] by = conn.download(am.nome_completo);
                     File.WriteAllBytes(sfd.FileName, by);
                     DialogResult dr = MessageBox.Show("Arquivo salvo com sucesso.\nDeseja abrir?", "SYSNORTE", MessageBoxButtons.YesNo);
                     if(dr == DialogResult.Yes){
@@ -156,7 +160,7 @@ namespace SysFileManager
                         }
                         else
                         {
-                            MessageBox.Show("Erro ao abrir arquivo.\n Arquivo não encontrado.");
+                            MessageBox.Show("Erro ao abrir arquivo, ele não foi encontrado.");
                         }
                     }
                 }
@@ -170,9 +174,12 @@ namespace SysFileManager
             try
             {
                 ArquivosModel am = (ArquivosModel)bdgArquivos.Current;
-                conn.excluirArquivo(am.nome_completo);
-                MessageBox.Show("Arquivo excluido com sucesso.");
+                DialogResult rs = MessageBox.Show("Tem certeza que deseja excluir o arquivo: "+am.nome+"?", "SYSNORTE", MessageBoxButtons.YesNo);
+                if(rs == DialogResult.Yes){
+                    conn.excluirArquivo(am.nome_completo);
+                }
                 executaBusca();
+                MessageBox.Show("Arquivo excluido com sucesso.");                
             }catch(Exception ex){
                 MessageBox.Show("Erro ao excluir arquivo.\n"+ex.Message);
             }

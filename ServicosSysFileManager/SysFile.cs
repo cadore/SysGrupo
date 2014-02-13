@@ -19,10 +19,11 @@ namespace ServicosSysFileManager
                 DirectoryInfo dir = new DirectoryInfo(diretorio);
                 foreach (FileInfo file in dir.GetFiles())
                 {
-                    string[] nomes = file.Name.Split('.');
+                    string _nome = file.Name.Replace(file.Extension, "");
+
                     listAm.Add(new ArquivosModel()
                     {
-                        nome = nomes[0],
+                        nome = _nome,
                         tamanho = Convert.ToInt32(file.Length / 1024),
                         extensao = file.Extension,
                         diretorio = file.DirectoryName,

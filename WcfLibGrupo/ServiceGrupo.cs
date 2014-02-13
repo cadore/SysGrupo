@@ -1154,7 +1154,6 @@ namespace WcfLibGrupo
             }
             catch (Exception ex)
             {
-                Console.WriteLine(0);
                 sinistro.repo.AbortTransaction();
                 throw new FaultException(
                     new FaultReason(String.Format("EXCECÃO: {0}{1}INNER EXCEPTION: {2}", ex.Message, Environment.NewLine, ex.InnerException)),

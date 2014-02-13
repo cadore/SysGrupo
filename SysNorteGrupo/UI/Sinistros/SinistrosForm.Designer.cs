@@ -320,13 +320,14 @@ namespace SysNorteGrupo.UI.Sinistros
             this.pnControl.Name = "pnControl";
             this.pnControl.Size = new System.Drawing.Size(848, 557);
             this.pnControl.TabIndex = 2;
+            this.pnControl.EnabledChanged += new System.EventHandler(this.pnControl_EnabledChanged);
             // 
             // gcArquivos
             // 
             this.gcArquivos.Controls.Add(this.arquivosForm);
-            this.gcArquivos.Location = new System.Drawing.Point(3, 377);
+            this.gcArquivos.Location = new System.Drawing.Point(0, 377);
             this.gcArquivos.Name = "gcArquivos";
-            this.gcArquivos.Size = new System.Drawing.Size(841, 178);
+            this.gcArquivos.Size = new System.Drawing.Size(848, 178);
             this.gcArquivos.TabIndex = 2;
             this.gcArquivos.Text = "ARQUIVOS";
             // 
@@ -335,7 +336,7 @@ namespace SysNorteGrupo.UI.Sinistros
             this.arquivosForm.Dock = System.Windows.Forms.DockStyle.Fill;
             this.arquivosForm.Location = new System.Drawing.Point(2, 21);
             this.arquivosForm.Name = "arquivosForm";
-            this.arquivosForm.Size = new System.Drawing.Size(837, 155);
+            this.arquivosForm.Size = new System.Drawing.Size(844, 155);
             this.arquivosForm.TabIndex = 2;
             // 
             // gcPagamentos
@@ -347,9 +348,9 @@ namespace SysNorteGrupo.UI.Sinistros
             this.gcPagamentos.Controls.Add(this.labelControl4);
             this.gcPagamentos.Controls.Add(this.tfValorPag);
             this.gcPagamentos.Controls.Add(this.gridControlPagamentos);
-            this.gcPagamentos.Location = new System.Drawing.Point(3, 218);
+            this.gcPagamentos.Location = new System.Drawing.Point(0, 218);
             this.gcPagamentos.Name = "gcPagamentos";
-            this.gcPagamentos.Size = new System.Drawing.Size(841, 157);
+            this.gcPagamentos.Size = new System.Drawing.Size(848, 157);
             this.gcPagamentos.TabIndex = 1;
             this.gcPagamentos.Text = "PAGAMENTOS DO SINISTRO";
             // 
@@ -509,9 +510,9 @@ namespace SysNorteGrupo.UI.Sinistros
             this.gcInfoBasica.Controls.Add(this.labelControl9);
             this.gcInfoBasica.Controls.Add(this.labelControl6);
             this.gcInfoBasica.Controls.Add(this.labelControl10);
-            this.gcInfoBasica.Location = new System.Drawing.Point(3, -3);
+            this.gcInfoBasica.Location = new System.Drawing.Point(0, -3);
             this.gcInfoBasica.Name = "gcInfoBasica";
-            this.gcInfoBasica.Size = new System.Drawing.Size(840, 221);
+            this.gcInfoBasica.Size = new System.Drawing.Size(848, 221);
             this.gcInfoBasica.TabIndex = 0;
             this.gcInfoBasica.Text = "INFORMAÇÕES BÁSICAS";
             // 

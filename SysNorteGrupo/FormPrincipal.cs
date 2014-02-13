@@ -136,6 +136,18 @@ namespace SysNorteGrupo
         {
             ReboqueForm rf = new ReboqueForm(null) { formPrincipal = this };
             adicionarControleNavegacao(rf);
+        }
+
+        private void barButtonItem6_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            BuscaSinistrosForm bsf = new BuscaSinistrosForm() { formPrincipal = this};
+            adicionarControleNavegacao(bsf);
+        }
+
+        private void barButtonItem3_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            BuscaReboqueForm brf = new BuscaReboqueForm() { formPrincipal = this};
+            adicionarControleNavegacao(brf);
         }         
     }
 }
