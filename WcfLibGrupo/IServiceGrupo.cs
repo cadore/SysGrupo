@@ -254,6 +254,15 @@ namespace WcfLibGrupo
         [OperationContract]
         List<reboque> listaDeTodosReboques();
 
+        [OperationContract]
+        List<pagamentos_sinistro> listaDePagamentosSinistrosPorIdSinistro(long id_sinistro);
+
+        [OperationContract]
+        decimal somaDePagamentosSinistrosPorIdSinistro(long id_sinistro);
+
+        [OperationContract]
+        List<sinistro> listaDeTodosSinistros();
+
         #endregion
     }
 

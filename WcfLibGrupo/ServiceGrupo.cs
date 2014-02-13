@@ -1194,6 +1194,53 @@ namespace WcfLibGrupo
             }
         }
 
+        public List<sinistro> listaDeTodosSinistros()
+        {
+            try
+            {
+                var sql = Sql.Builder.Select("*").From("sinistros");//.Where("id_sinistros=@0", id_sinistro);
+                return sinistro.Fetch(sql);
+            }
+            catch (Exception ex)
+            {
+                throw new FaultException(
+                    new FaultReason(String.Format("EXCECÃO: {0}{1}INNER EXCEPTION: {2}", ex.Message, Environment.NewLine, ex.InnerException)),
+                    new FaultCode("1000"));
+            }
+        }
+
+        public List<pagamentos_sinistro> listaDePagamentosSinistrosPorIdSinistro(long id_sinistro)
+        {
+            try
+            {
+                var sql = Sql.Builder.Select("*").From("pagamentos_sinistro").Where("id_sinistros=@0", id_sinistro);
+                return pagamentos_sinistro.Fetch(sql);
+            }
+            catch (Exception ex)
+            {
+                throw new FaultException(
+                    new FaultReason(String.Format("EXCECÃO: {0}{1}INNER EXCEPTION: {2}", ex.Message, Environment.NewLine, ex.InnerException)),
+                    new FaultCode("1000"));
+            }
+        }
+
+        public decimal somaDePagamentosSinistrosPorIdSinistro(long id_sinistro)
+        {
+            try
+            {
+                string sql = String.Format("SELECT SUM(valor) FROM pagamentos_sinistro WHERE id_sinistros='{0}';", id_sinistro);
+                decimal rs = sinistro.repo.ExecuteScalar<decimal>(sql);
+                return rs;
+                
+            }
+            catch (Exception ex)
+            {
+                throw new FaultException(
+                    new FaultReason(String.Format("EXCECÃO: {0}{1}INNER EXCEPTION: {2}", ex.Message, Environment.NewLine, ex.InnerException)),
+                    new FaultCode("1000"));
+            }
+        }
+
         #endregion
     }
 }

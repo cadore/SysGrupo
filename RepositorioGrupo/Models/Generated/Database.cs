@@ -810,7 +810,7 @@ namespace EntitiesGrupo
 
 	[ExplicitColumns]
     public partial class sinistro : SysGrupoRepo.Record<sinistro>  
-    {
+    {   
 
 
 
@@ -863,6 +863,24 @@ namespace EntitiesGrupo
 
 
 		[Column] public long id_cliente { get; set; }
+
+
+
+        public decimal valor_total { get; set; }
+
+
+
+
+        public string nome_cliente { get; set; }
+
+
+
+
+        public string situacao { get; set; }
+
+
+
+        public string veiculos_reboques { get; set; }
 
 
 
