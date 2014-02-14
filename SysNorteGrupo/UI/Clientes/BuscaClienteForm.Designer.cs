@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BuscaClienteForm));
             this.pbBotoes = new DevExpress.XtraEditors.PanelControl();
+            this.btnImprimirContrato = new SysNorteGrupo.Utils.BotaoImprimir();
             this.btnFechar = new SysNorteGrupo.Utils.BotaoSair();
             this.btnBuscar = new SysNorteGrupo.Utils.BotaoBuscar();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
@@ -73,7 +74,6 @@
             this.colid_bairros = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colcotas = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colvalor_total = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.btnImprimirContrato = new SysNorteGrupo.Utils.BotaoImprimir();
             ((System.ComponentModel.ISupportInitialize)(this.pbBotoes)).BeginInit();
             this.pbBotoes.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
@@ -105,6 +105,22 @@
             this.pbBotoes.Name = "pbBotoes";
             this.pbBotoes.Size = new System.Drawing.Size(1021, 71);
             this.pbBotoes.TabIndex = 1;
+            // 
+            // btnImprimirContrato
+            // 
+            this.btnImprimirContrato.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(199)))));
+            this.btnImprimirContrato.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnImprimirContrato.Font = new System.Drawing.Font("Segoe UI Light", 12F);
+            this.btnImprimirContrato.ForeColor = System.Drawing.Color.White;
+            this.btnImprimirContrato.Image = ((System.Drawing.Image)(resources.GetObject("btnImprimirContrato.Image")));
+            this.btnImprimirContrato.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnImprimirContrato.Location = new System.Drawing.Point(725, 6);
+            this.btnImprimirContrato.Name = "btnImprimirContrato";
+            this.btnImprimirContrato.Size = new System.Drawing.Size(124, 56);
+            this.btnImprimirContrato.TabIndex = 7;
+            this.btnImprimirContrato.Text = "Imprimir";
+            this.btnImprimirContrato.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnImprimirContrato.UseVisualStyleBackColor = false;
             // 
             // btnFechar
             // 
@@ -498,22 +514,6 @@
             this.colvalor_total.Visible = true;
             this.colvalor_total.VisibleIndex = 4;
             this.colvalor_total.Width = 103;
-            // 
-            // btnImprimirContrato
-            // 
-            this.btnImprimirContrato.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(199)))));
-            this.btnImprimirContrato.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnImprimirContrato.Font = new System.Drawing.Font("Segoe UI Light", 12F);
-            this.btnImprimirContrato.ForeColor = System.Drawing.Color.White;
-            this.btnImprimirContrato.Image = ((System.Drawing.Image)(resources.GetObject("btnImprimirContrato.Image")));
-            this.btnImprimirContrato.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnImprimirContrato.Location = new System.Drawing.Point(725, 6);
-            this.btnImprimirContrato.Name = "btnImprimirContrato";
-            this.btnImprimirContrato.Size = new System.Drawing.Size(124, 56);
-            this.btnImprimirContrato.TabIndex = 7;
-            this.btnImprimirContrato.Text = "Imprimir";
-            this.btnImprimirContrato.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnImprimirContrato.UseVisualStyleBackColor = false;
             // 
             // BuscaClienteForm
             // 

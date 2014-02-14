@@ -38,7 +38,7 @@ namespace SysNorteGrupo.UI.Clientes
             cbEstados_EditValueChanged(null, null);
             cbCidade_EditValueChanged(null, null);
 
-            MessageBox.Show(cliente_instc.id.ToString());
+            //MessageBox.Show(cliente_instc.id.ToString());
 
             if(cliente_instc == null){
                 cliente_instc = new cliente() { isento_ICMS = false, cotas = 0, valor_total = 0 };
@@ -77,7 +77,10 @@ namespace SysNorteGrupo.UI.Clientes
             validador.SetValidationRule(tfDocumento, vldDocumento);
 
             if (cliente_instc.id == 0)
+            {
                 reabilitarPaineis(false);
+                arquivosFormCli.Enabled = false;
+            }
             else
             {
                 grpTipo.EditValue = cliente_instc.tipo_cliente;
@@ -85,6 +88,8 @@ namespace SysNorteGrupo.UI.Clientes
                 panelArquivos.Enabled = true;
 
                 arquivosFormCli.DIRETORIO = String.Format(@"{0}{1}\", conn.SUBDIR_CLIENTES(), cliente_instc.id);
+                arquivosFormCli.executaBusca();
+                arquivosFormCli.Enabled = true;
 
                 //carregar cidades pelo estado, bairros endereços
                 try
@@ -314,7 +319,7 @@ namespace SysNorteGrupo.UI.Clientes
         private void cbCidade_EditValueChanged(object sender, EventArgs e)
         {
             //if (cbCidade.EditValue != null || cbCidade.EditValue != DBNull.Value || Convert.ToInt32(cbCidade.EditValue) > 0)
-            if (Convert.ToInt32(cbCidade.EditValue) > 0)
+            if (cbCidade.EditValue != null || Convert.ToInt64(cbCidade.EditValue) > 0)
             {
                 //MessageBox.Show(cbCidade.EditValue.ToString());
                 try
@@ -394,12 +399,13 @@ namespace SysNorteGrupo.UI.Clientes
 
         private void cbEndereco_EditValueChanged(object sender, EventArgs e)
         {
-            if (Convert.ToInt32(cbEndereco.EditValue) > 0)
+            /*if (Convert.ToInt32(cbEndereco.EditValue) > 0)
             {
                 endereco end = (endereco)bdgEnderecos.Current;
                 ((cliente)bdgCliente.Current).cep = end.cep;
                 tfCep.Text = end.cep;
-            }
+            }*/
+            formPrincipal.adicionarControleNavegacao(new ClienteForm(null) { formPrincipal = formPrincipal });
         }
 
     }

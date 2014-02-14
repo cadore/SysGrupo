@@ -215,7 +215,7 @@ namespace EntitiesGrupo
 
 
 
-		[Column] public string _endereco { get; set; }
+        [Column("endereco")] public string _endereco { get; set; }
 
 
 
@@ -591,13 +591,7 @@ namespace EntitiesGrupo
 
 
 		[Column] public long id_bairros { get; set; }
-
-
-
-
-
-        [Column] public long id_estados { get; set; }
-
+        
 
 
         [Column]
