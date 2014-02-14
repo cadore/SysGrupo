@@ -316,6 +316,7 @@
     <None Include="Resources\Action_LinkUnlink_Link.png" />
     <None Include="Resources\check-48.png" />
     <None Include="Resources\impressora48.png" />
+    <None Include="Resources\impressora40.png" />
     <Content Include="TODO.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

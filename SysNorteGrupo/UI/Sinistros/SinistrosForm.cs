@@ -23,6 +23,7 @@ namespace SysNorteGrupo.UI.Sinistros
         public FormPrincipal formPrincipal = null;
         private sinistro sinistro_instc = null;
         private Color backColor = UtilsSistema.backColorFoco;
+        private ConditionValidationRule conditionValidationRule4;
         public SinistrosForm(sinistro _sinistro_instc)
         {
             sinistro_instc = _sinistro_instc;
@@ -195,11 +196,12 @@ namespace SysNorteGrupo.UI.Sinistros
 
         private void ckReboques_CheckedChanged(object sender, EventArgs e)
         {
-            cbVeiculo.EditValue = 0;
+            //cbVeiculo.EditValue = 0;
             cbReboque.EditValue = 0;
             bdgReboquesTab.Clear();
             if (ckReboques.Checked)
             {
+                cbVeiculo.Enabled = false;
                 cbReboque.Enabled = true;
                 gridControlReboques.Enabled = true;
                 if(!ckVeiculo.Checked){
@@ -208,6 +210,7 @@ namespace SysNorteGrupo.UI.Sinistros
             }
             else
             {
+                cbVeiculo.Enabled = true;
                 cbReboque.Enabled = false;
                 btnAdicionarReb.Enabled = false;
                 btnRemoverReb.Enabled = false;
@@ -246,17 +249,23 @@ namespace SysNorteGrupo.UI.Sinistros
             string mensagem_situacao = "Confirma a edição de sinistro concluido para NÃO concluido?";
             if (ckConcluido.Checked)
             {
-                mensagem_situacao = "Confirma a data de conclusão para dia: " + dtConclusao.Text + "?";
+                mensagem_situacao = String.Format("Confirma a data de conclusão para dia: {0}?", dtConclusao.Text);
                 situacao = 1;
             }
-            if(situacao == 0){
-                ConditionValidationRule conditionValidationRule4 = new ConditionValidationRule();
-                conditionValidationRule4.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            else
+            {
+                situacao = 0;
+            }
+            if(situacao == 1){
+                conditionValidationRule4 = new ConditionValidationRule();
+                conditionValidationRule4.ConditionOperator = ConditionOperator.IsNotBlank;
                 conditionValidationRule4.ErrorText = "Informe a data de finalização";
                 validator.SetValidationRule(dtConclusao, conditionValidationRule4);
             }
             else
             {
+                if (conditionValidationRule4 == null) conditionValidationRule4 = new ConditionValidationRule();
+                conditionValidationRule4.ConditionOperator = ConditionOperator.None;
                 validator.SetValidationRule(dtConclusao, null);
             }
             try

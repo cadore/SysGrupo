@@ -509,7 +509,7 @@
             this.btnImprimirContrato.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnImprimirContrato.Location = new System.Drawing.Point(725, 6);
             this.btnImprimirContrato.Name = "btnImprimirContrato";
-            this.btnImprimirContrato.Size = new System.Drawing.Size(133, 56);
+            this.btnImprimirContrato.Size = new System.Drawing.Size(124, 56);
             this.btnImprimirContrato.TabIndex = 7;
             this.btnImprimirContrato.Text = "Imprimir";
             this.btnImprimirContrato.TextAlign = System.Drawing.ContentAlignment.MiddleRight;

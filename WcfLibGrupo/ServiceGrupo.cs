@@ -1230,6 +1230,12 @@ namespace WcfLibGrupo
             {
                 string sql = String.Format("SELECT SUM(valor) FROM pagamentos_sinistro WHERE id_sinistros='{0}';", id_sinistro);
                 decimal rs = sinistro.repo.ExecuteScalar<decimal>(sql);
+
+                if (rs.Equals(DBNull.Value))
+                {
+                    rs = 0;
+                }
+
                 return rs;
                 
             }

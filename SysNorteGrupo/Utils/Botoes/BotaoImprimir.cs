@@ -22,7 +22,7 @@ namespace SysNorteGrupo.Utils
             //this.MouseUp += new MouseEventHandler(_MouseUp);
             //this.MouseMove += new MouseEventHandler(_MouseMove);
 
-            this.Image = global::SysNorteGrupo.Properties.Resources.impressora48;
+            this.Image = global::SysNorteGrupo.Properties.Resources.impressora40;
             this.Size = new Size(93, 31);
             this.ImageAlign = ContentAlignment.MiddleLeft;
             this.TextAlign = ContentAlignment.MiddleRight;
