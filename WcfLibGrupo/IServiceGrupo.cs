@@ -150,6 +150,9 @@ namespace WcfLibGrupo
         long salvarReboque(reboque reboq);
 
         [OperationContract]
+        List<reboque> listaDeTodosReboques();
+
+        [OperationContract]
         List<especies_reboque> listaDeEspeciesReboques();
 
         [OperationContract]
@@ -249,13 +252,31 @@ namespace WcfLibGrupo
         #region sinistros
 
         [OperationContract]
-        long SalvaSinistro(sinistro obj, List<vei_reb_sinistros> listVR, List<pagamentos_sinistro> listPag);
+        long SalvaSinistro(sinistro obj, List<vei_reb_sinistros> listVR, List<pagamentos_sinistro> listPag);        
 
         [OperationContract]
-        List<reboque> listaDeTodosReboques();
+        List<sinistro> listaDeSinistrosPorIdESituacao(long id_sinistro, int situacao);
+
+        [OperationContract]
+        List<sinistro> listaDeSinistrosPorId(long id_sinistro);
 
         [OperationContract]
         List<pagamentos_sinistro> listaDePagamentosSinistrosPorIdSinistro(long id_sinistro);
+
+        [OperationContract]
+        List<sinistro> listaDeSinistrosPorSituacao(int situacao);
+
+        [OperationContract]
+        List<sinistro> listaDeSinistrosPorIdClienteESituacao(long id_cliente, int situacao);
+
+        [OperationContract]
+        List<sinistro> listaDeSinistrosPorIdCliente(long id_cliente);
+
+        [OperationContract]
+        List<long> listaIdSinistroPorIdVeiculo(long id_veiculo);
+
+        [OperationContract]
+        List<long> listaIdSinistroPorIdReboque(long id_reboque);
 
         [OperationContract]
         decimal somaDePagamentosSinistrosPorIdSinistro(long id_sinistro);
@@ -265,5 +286,4 @@ namespace WcfLibGrupo
 
         #endregion
     }
-
 }

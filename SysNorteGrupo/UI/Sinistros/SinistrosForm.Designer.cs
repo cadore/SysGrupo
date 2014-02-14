@@ -10,11 +10,11 @@ namespace SysNorteGrupo.UI.Sinistros
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SinistrosForm));
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule2 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule3 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule4 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SinistrosForm));
             this.pnBotoes = new DevExpress.XtraEditors.PanelControl();
             this.btnSalvar = new SysNorteGrupo.Utils.BotaoSalvar();
             this.btnSair = new SysNorteGrupo.Utils.BotaoSair();
@@ -174,6 +174,7 @@ namespace SysNorteGrupo.UI.Sinistros
             this.validatorPag = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
             this.validator = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
             this.pnPrincipal = new DevExpress.XtraEditors.PanelControl();
+            this.btnImprimirRelSinistro = new SysNorteGrupo.Utils.BotaoImprimir();
             ((System.ComponentModel.ISupportInitialize)(this.pnBotoes)).BeginInit();
             this.pnBotoes.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pnControl)).BeginInit();
@@ -224,6 +225,7 @@ namespace SysNorteGrupo.UI.Sinistros
             this.pnBotoes.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(82)))), ((int)(((byte)(155)))));
             this.pnBotoes.Appearance.Options.UseBackColor = true;
             this.pnBotoes.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.pnBotoes.Controls.Add(this.btnImprimirRelSinistro);
             this.pnBotoes.Controls.Add(this.btnSalvar);
             this.pnBotoes.Controls.Add(this.btnSair);
             this.pnBotoes.Controls.Add(this.btnNovo);
@@ -1662,6 +1664,23 @@ namespace SysNorteGrupo.UI.Sinistros
             this.pnPrincipal.Size = new System.Drawing.Size(848, 586);
             this.pnPrincipal.TabIndex = 3;
             // 
+            // btnImprimirRelSinistro
+            // 
+            this.btnImprimirRelSinistro.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(199)))));
+            this.btnImprimirRelSinistro.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnImprimirRelSinistro.Font = new System.Drawing.Font("Segoe UI Light", 12F);
+            this.btnImprimirRelSinistro.ForeColor = System.Drawing.Color.White;
+            this.btnImprimirRelSinistro.Image = ((System.Drawing.Image)(resources.GetObject("btnImprimirRelSinistro.Image")));
+            this.btnImprimirRelSinistro.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnImprimirRelSinistro.Location = new System.Drawing.Point(389, 7);
+            this.btnImprimirRelSinistro.Name = "btnImprimirRelSinistro";
+            this.btnImprimirRelSinistro.Size = new System.Drawing.Size(170, 53);
+            this.btnImprimirRelSinistro.TabIndex = 4;
+            this.btnImprimirRelSinistro.Text = "Imprimir Rel. de Conclusão";
+            this.btnImprimirRelSinistro.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnImprimirRelSinistro.UseVisualStyleBackColor = false;
+            this.btnImprimirRelSinistro.Click += new System.EventHandler(this.btnImprimirRelSinistro_Click);
+            // 
             // SinistrosForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1881,5 +1900,6 @@ namespace SysNorteGrupo.UI.Sinistros
         private DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider validator;
         private DevExpress.XtraEditors.CheckEdit ckConcluido;
         private DevExpress.XtraEditors.PanelControl pnPrincipal;
+        private Utils.BotaoImprimir btnImprimirRelSinistro;
     }
 }

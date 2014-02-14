@@ -34,15 +34,23 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="DevExpress.BonusSkins.v13.2, Version=13.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Charts.v13.2.Core, Version=13.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Data.v13.2, Version=13.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Office.v13.2.Core, Version=13.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.PivotGrid.v13.2.Core, Version=13.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Printing.v13.2.Core, Version=13.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.RichEdit.v13.2.Core, Version=13.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Sparkline.v13.2.Core, Version=13.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Utils.v13.2, Version=13.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Utils.v13.2.UI, Version=13.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraBars.v13.2, Version=13.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraCharts.v13.2, Version=13.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraEditors.v13.2, Version=13.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraPrinting.v13.2, Version=13.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraGrid.v13.2, Version=13.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraLayout.v13.2, Version=13.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraReports.v13.2, Version=13.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraReports.v13.2.Extensions, Version=13.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="SecureApp">
@@ -76,6 +84,13 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ConclusaoSinistro.cs" />
+    <Compile Include="Reports\RelatorioConclusaoSinistro.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\RelatorioConclusaoSinistro.Designer.cs">
+      <DependentUpon>RelatorioConclusaoSinistro.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Sinistros\BuscaSinistrosForm.cs">
       <SubType>UserControl</SubType>
@@ -181,6 +196,9 @@
       <DependentUpon>FormPrincipal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Reports\RelatorioConclusaoSinistro.resx">
+      <DependentUpon>RelatorioConclusaoSinistro.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\Sinistros\BuscaSinistrosForm.resx">
       <DependentUpon>BuscaSinistrosForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -265,6 +283,8 @@
     <None Include="Properties\DataSources\PetaPoco.Transaction.datasource" />
     <None Include="Properties\DataSources\SysNorteGrupo.Properties.Resources.datasource" />
     <None Include="Properties\DataSources\SysNorteGrupo.Properties.Settings.datasource" />
+    <None Include="Properties\DataSources\SysNorteGrupo.Reports.ConclusaoSinistro.datasource" />
+    <None Include="Properties\DataSources\SysNorteGrupo.Reports.ListaConclusaoSinistro.datasource" />
     <None Include="Properties\DataSources\SysNorteGrupo.Utils.Centraliza.datasource" />
     <None Include="Properties\DataSources\SysNorteGrupo.Utils.Cores.datasource" />
     <None Include="Properties\DataSources\SysNorteGrupo.Utils.CryptoUtil.datasource" />

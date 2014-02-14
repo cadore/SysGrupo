@@ -894,10 +894,6 @@ namespace EntitiesGrupo
     {
 
 
-        [Column] 
-        public long id { get; set; }
-
-
         [Column]
         public long id_sinistro { get; set; }
 

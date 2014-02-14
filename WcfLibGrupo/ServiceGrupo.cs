@@ -526,7 +526,12 @@ namespace WcfLibGrupo
             try
             {
                 var sql = Sql.Builder.Append("SELECT SUM(valor) FROM veiculos WHERE inativo=@0", inativo);
-                return Convert.ToDecimal(veiculo.repo.ExecuteScalar<decimal>(sql));
+                var rs = db.ExecuteScalar<string>(sql);
+                if (rs.Equals(DBNull.Value) || String.IsNullOrEmpty(rs))
+                {
+                    return 0;
+                }
+                return Convert.ToDecimal(rs); 
             }
             catch (Exception ex)
             {
@@ -637,8 +642,12 @@ namespace WcfLibGrupo
             {
                 string sql = String.Format("SELECT SUM(valor) FROM veiculos WHERE id_cliente = '{0}' AND inativo = '{1}';", id_cliente, inativo);
 
-                decimal rs = veiculo.repo.ExecuteScalar<decimal>(sql);
-                return rs;
+                var rs = db.ExecuteScalar<string>(sql);
+                if (rs.Equals(DBNull.Value) || String.IsNullOrEmpty(rs))
+                {
+                    return 0;
+                }
+                return Convert.ToDecimal(rs); 
             }
             catch (Exception ex)
             {
@@ -810,7 +819,12 @@ namespace WcfLibGrupo
             try
             {
                 var sql = Sql.Builder.Append("SELECT SUM(valor) FROM reboques WHERE inativo=@0", inativo);
-                return Convert.ToDecimal(reboque.repo.ExecuteScalar<decimal>(sql));
+                var rs = db.ExecuteScalar<string>(sql);
+                if (rs.Equals(DBNull.Value) || String.IsNullOrEmpty(rs))
+                {
+                    return 0;
+                }
+                return Convert.ToDecimal(rs); 
             }
             catch (Exception ex)
             {
@@ -922,8 +936,12 @@ namespace WcfLibGrupo
             {
                 string sql = String.Format("SELECT SUM(valor) FROM reboques WHERE id_cliente = '{0}' AND inativo = '{1}';", id_cliente, inativo);
 
-                decimal rs = reboque.repo.ExecuteScalar<decimal>(sql);
-                return rs;
+                var rs = db.ExecuteScalar<string>(sql);
+                if (rs.Equals(DBNull.Value) || String.IsNullOrEmpty(rs))
+                {
+                    return 0;
+                }
+                return Convert.ToDecimal(rs); 
             }
             catch (Exception ex)
             {
@@ -1209,6 +1227,111 @@ namespace WcfLibGrupo
             }
         }
 
+        public List<sinistro> listaDeSinistrosPorIdESituacao(long id_sinistro, int situacao)
+        {
+            try
+            {
+                var sql = Sql.Builder.Select("*").From("sinistros").Where("id=@0", id_sinistro).Where("situacao_sinistro=@0", situacao);
+                return sinistro.Fetch(sql);
+            }
+            catch (Exception ex)
+            {
+                throw new FaultException(
+                    new FaultReason(String.Format("EXCECÃO: {0}{1}INNER EXCEPTION: {2}", ex.Message, Environment.NewLine, ex.InnerException)),
+                    new FaultCode("1000"));
+            }
+        }
+
+        public List<sinistro> listaDeSinistrosPorId(long id_sinistro)
+        {
+            try
+            {
+                var sql = Sql.Builder.Select("*").From("sinistros").Where("id=@0", id_sinistro);
+                return sinistro.Fetch(sql);
+            }
+            catch (Exception ex)
+            {
+                throw new FaultException(
+                    new FaultReason(String.Format("EXCECÃO: {0}{1}INNER EXCEPTION: {2}", ex.Message, Environment.NewLine, ex.InnerException)),
+                    new FaultCode("1000"));
+            }
+        }
+
+        public List<sinistro> listaDeSinistrosPorSituacao(int situacao)
+        {
+            try
+            {
+                var sql = Sql.Builder.Select("*").From("sinistros").Where("situacao_sinistro=@0", situacao);
+                return sinistro.Fetch(sql);
+            }
+            catch (Exception ex)
+            {
+                throw new FaultException(
+                    new FaultReason(String.Format("EXCECÃO: {0}{1}INNER EXCEPTION: {2}", ex.Message, Environment.NewLine, ex.InnerException)),
+                    new FaultCode("1000"));
+            }
+        }
+
+        public List<sinistro> listaDeSinistrosPorIdClienteESituacao(long id_cliente, int situacao)
+        {
+            try
+            {
+                var sql = Sql.Builder.Select("*").From("sinistros").Where("id_cliente=@0", id_cliente).Where("situacao_sinistro=@0", situacao);
+                return sinistro.Fetch(sql);
+            }
+            catch (Exception ex)
+            {
+                throw new FaultException(
+                    new FaultReason(String.Format("EXCECÃO: {0}{1}INNER EXCEPTION: {2}", ex.Message, Environment.NewLine, ex.InnerException)),
+                    new FaultCode("1000"));
+            }
+        }
+
+        public List<sinistro> listaDeSinistrosPorIdCliente(long id_cliente)
+        {
+            try
+            {
+                var sql = Sql.Builder.Select("*").From("sinistros").Where("id_cliente=@0", id_cliente);
+                return sinistro.Fetch(sql);
+            }
+            catch (Exception ex)
+            {
+                throw new FaultException(
+                    new FaultReason(String.Format("EXCECÃO: {0}{1}INNER EXCEPTION: {2}", ex.Message, Environment.NewLine, ex.InnerException)),
+                    new FaultCode("1000"));
+            }
+        }
+
+        public List<long> listaIdSinistroPorIdVeiculo(long id_veiculo)
+        {
+            try
+            {
+                var sql = Sql.Builder.Select("id_sinistro").From("vei_reb_sinistros").Where("id_veiculo=@0", id_veiculo);
+                return db.Fetch<long>(sql);
+            }
+            catch (Exception ex)
+            {
+                throw new FaultException(
+                    new FaultReason(String.Format("EXCECÃO: {0}{1}INNER EXCEPTION: {2}", ex.Message, Environment.NewLine, ex.InnerException)),
+                    new FaultCode("1000"));
+            }
+        }
+
+        public List<long> listaIdSinistroPorIdReboque(long id_reboque)
+        {
+            try
+            {
+                var sql = Sql.Builder.Select("id_sinistro").From("vei_reb_sinistros").Where("id_reboque=@0", id_reboque);
+                return db.Fetch<long>(sql);
+            }
+            catch (Exception ex)
+            {
+                throw new FaultException(
+                    new FaultReason(String.Format("EXCECÃO: {0}{1}INNER EXCEPTION: {2}", ex.Message, Environment.NewLine, ex.InnerException)),
+                    new FaultCode("1000"));
+            }
+        }
+
         public List<pagamentos_sinistro> listaDePagamentosSinistrosPorIdSinistro(long id_sinistro)
         {
             try
@@ -1228,16 +1351,13 @@ namespace WcfLibGrupo
         {
             try
             {
-                string sql = String.Format("SELECT SUM(valor) FROM pagamentos_sinistro WHERE id_sinistros='{0}';", id_sinistro);
-                decimal rs = sinistro.repo.ExecuteScalar<decimal>(sql);
-
-                if (rs.Equals(DBNull.Value))
+                var sql = Sql.Builder.Append("SELECT SUM(valor) FROM pagamentos_sinistro WHERE id_sinistros=@0", id_sinistro);
+                var rs = db.ExecuteScalar<string>(sql);
+                if (rs.Equals(DBNull.Value) || String.IsNullOrEmpty(rs))
                 {
-                    rs = 0;
+                    return 0;
                 }
-
-                return rs;
-                
+                return Convert.ToDecimal(rs);                
             }
             catch (Exception ex)
             {

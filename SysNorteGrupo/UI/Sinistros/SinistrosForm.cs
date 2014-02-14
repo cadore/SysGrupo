@@ -14,6 +14,10 @@ using System.Collections;
 using System.Windows.Documents;
 using SysNorteGrupo.Utils;
 using DevExpress.XtraEditors.DXErrorProvider;
+using SysNorteGrupo.Reports;
+using DevExpress.XtraReports.UI;
+using DevExpress.Utils.OAuth;
+using DevExpress.XtraPrinting;
 
 namespace SysNorteGrupo.UI.Sinistros
 {
@@ -105,6 +109,7 @@ namespace SysNorteGrupo.UI.Sinistros
         private void cbVeiculo_EditValueChanged(object sender, EventArgs e)
         {
             bdgReboques.Clear();
+            bdgReboquesTab.Clear();
             if (Convert.ToInt32(cbVeiculo.EditValue) > 0)
             {
                 bdgReboques.DataSource = conn.listaDeReboquesPorIdVeiculo(Convert.ToInt32(cbVeiculo.EditValue), false);
@@ -201,7 +206,7 @@ namespace SysNorteGrupo.UI.Sinistros
             bdgReboquesTab.Clear();
             if (ckReboques.Checked)
             {
-                cbVeiculo.Enabled = false;
+                //cbVeiculo.Enabled = false;
                 cbReboque.Enabled = true;
                 gridControlReboques.Enabled = true;
                 if(!ckVeiculo.Checked){
@@ -210,7 +215,7 @@ namespace SysNorteGrupo.UI.Sinistros
             }
             else
             {
-                cbVeiculo.Enabled = true;
+                //cbVeiculo.Enabled = true;
                 cbReboque.Enabled = false;
                 btnAdicionarReb.Enabled = false;
                 btnRemoverReb.Enabled = false;
@@ -365,6 +370,43 @@ namespace SysNorteGrupo.UI.Sinistros
             {
                 gcArquivos.Enabled = true;
             }
-        }       
+        }
+
+        private void btnImprimirRelSinistro_Click(object sender, EventArgs e)
+        {
+            RelatorioConclusaoSinistro report = new RelatorioConclusaoSinistro();
+            report.bdgListaConclusaoSinistro.DataSource = listaFinal();
+
+            report.dataRelatorio.Value = DateTime.Now.ToShortDateString();
+            report.dataRelatorio.Visible = false;
+
+            PdfExportOptions po = new PdfExportOptions() {ImageQuality = PdfJpegImageQuality.Highest, Compressed = true };
+
+            report.ExportToPdf("C:\\Users\\William\\Desktop\\teste.pdf", po);
+
+            /*ReportPrintTool tool = new ReportPrintTool(report);
+            tool.ShowRibbonPreview();//.ShowPreview();*/
+        }
+
+        List<ListaConclusaoSinistro> listaFinal()
+        {
+            List<ReboquesRelatorio> reboques = new List<ReboquesRelatorio>();
+            reboques.Add(new ReboquesRelatorio() { cotas = "1", modelo = "reboque1", placa = "placa1", valor = "valor1" });
+            reboques.Add(new ReboquesRelatorio() { cotas = "2", modelo = "reboque2", placa = "placa2", valor = "valor2" });
+            reboques.Add(new ReboquesRelatorio() { cotas = "3", modelo = "reboque3", placa = "placa3", valor = "valor3" });
+
+            List<VeiculosRelatorio> veiculos = new List<VeiculosRelatorio>();
+            veiculos.Add( new VeiculosRelatorio() { cotas = "1", modelo="veiculo1", placa="placa1", valor="valor1", listaReboques = reboques });
+            veiculos.Add(new VeiculosRelatorio() { cotas = "2", modelo = "veiculo2", placa = "placa2", valor = "valor2", listaReboques = reboques });
+            veiculos.Add(new VeiculosRelatorio() { cotas = "3", modelo = "veiculo3", placa = "placa3", valor = "valor3", listaReboques = reboques });
+
+            List<ListaConclusaoSinistro> principal = new List<ListaConclusaoSinistro>();
+
+            principal.Add(new ListaConclusaoSinistro() { cliente = "TESTE1", listaVeiculo = veiculos });
+            principal.Add(new ListaConclusaoSinistro() { cliente = "TESTE2", listaVeiculo = veiculos });
+            principal.Add(new ListaConclusaoSinistro() { cliente = "TESTE3", listaVeiculo = veiculos });
+
+            return principal;
+        }
     }
 }

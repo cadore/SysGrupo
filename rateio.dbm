@@ -702,10 +702,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 <table name="vei_reb_sinistros">
 	<schema name="public"/>
 	<role name="postgres"/>
-	<position x="622" y="602.2"/>
-	<column name="id" not-null="true">
-		<type name="bigint"/>
-	</column>
+	<position x="670" y="614.2"/>
 	<column name="id_reboque">
 		<type name="bigint"/>
 	</column>
@@ -715,9 +712,6 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<column name="id_sinistro">
 		<type name="bigint"/>
 	</column>
-	<constraint name="PK_vei_reb_sinistros_id" type="pk-constr" factor="100" table="public.vei_reb_sinistros">
-		<columns names="id" ref-type="src-columns"/>
-	</constraint>
 </table>
 
 <table name="especies_reboques">

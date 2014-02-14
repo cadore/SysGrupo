@@ -24,38 +24,100 @@ namespace SysNorteGrupo.UI.Sinistros
             conn = GerenteDeConexoes.iniciaConexao();
             bdgClientes.DataSource = conn.listaDeTodosClientes();
             bdgVeiculos.DataSource = conn.listaDeTodosVeiculos();
+            bdgReboques.DataSource = conn.listaDeTodosReboques();
         }
 
         private void executaBusca()
         {
+            List<sinistro> listSinOrig = new List<sinistro>();
             try
             {
-                List<sinistro> listSinOrig = new List<sinistro>();
-                List<sinistro> listSin = new List<sinistro>();
-                listSinOrig = conn.listaDeTodosSinistros();
-
-                foreach (sinistro s in listSinOrig)
+                if (String.IsNullOrEmpty(cbCliente.Text) && String.IsNullOrEmpty(cbVeiculo.Text) && String.IsNullOrEmpty(cbReboque.Text))
                 {
-                    if (s.situacao_sinistro == 0)
+                    if (situacao == -1)
                     {
-                        s.situacao = "EM ANDAMENTO";
+                        listSinOrig = conn.listaDeTodosSinistros();
                     }
-                    else if (s.situacao_sinistro == 1)
+                    else
                     {
-                        s.situacao = "CONCLUÍDO";
+                        listSinOrig = conn.listaDeSinistrosPorSituacao(situacao);
                     }
-                    cliente c = conn.retornaClientePorId(s.id_cliente);
-                    s.nome_cliente = c.nome_completo;
-                    MessageBox.Show(s.id.ToString());
-                    s.valor_total = conn.somaDePagamentosSinistrosPorIdSinistro(s.id);
-                    listSin.Add(s);
+                    preencheLista(listSinOrig);
                 }
-                bdgSinistros.DataSource = listSin;
+                else
+                {
+                    if (cbReboque.EditValue != null && Convert.ToInt32(cbReboque.EditValue) > 0)
+                    {
+                        if (situacao == -1)
+                        {
+                            List<long> listIdSinistro = conn.listaIdSinistroPorIdReboque(Convert.ToInt64(cbReboque.EditValue));
+                            foreach(long id_sinistro in listIdSinistro){
+                                listSinOrig.AddRange(conn.listaDeSinistrosPorId(id_sinistro));
+                            }
+                        }
+                        else
+                        {
+                            List<long> listIdSinistro = conn.listaIdSinistroPorIdReboque(Convert.ToInt64(cbReboque.EditValue));
+                            foreach (long id_sinistro in listIdSinistro)
+                            {
+                                listSinOrig = conn.listaDeSinistrosPorIdESituacao(id_sinistro, situacao);
+                            }
+                        }
+                        preencheLista(listSinOrig);
+                        return;
+                    }
+                    if (cbVeiculo.EditValue != null && Convert.ToInt32(cbVeiculo.EditValue) > 0)
+                    {
+                        if (situacao == -1)
+                        {
+                            
+                        }
+                        else
+                        {
+                            
+                        }
+                        preencheLista(listSinOrig);
+                        return;
+                    }
+                    if (cbCliente.EditValue != null && Convert.ToInt32(cbCliente.EditValue) > 0)
+                    {
+                        if(situacao == -1){
+                            listSinOrig = conn.listaDeSinistrosPorIdCliente(Convert.ToInt32(cbCliente.EditValue));
+                        }
+                        else
+                        {
+                            listSinOrig = conn.listaDeSinistrosPorIdClienteESituacao(Convert.ToInt32(cbCliente.EditValue), situacao);
+                        }
+                        preencheLista(listSinOrig);
+                        return;
+                    }
+                }
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Erro ao executar a busca.\n"+ex.Message);
             }
+        }
+
+        private void preencheLista(List<sinistro> listSinOrig)
+        {
+            List<sinistro> listSin = new List<sinistro>();
+            foreach (sinistro s in listSinOrig)
+            {
+                if (s.situacao_sinistro == 0)
+                {
+                    s.situacao = "EM ANDAMENTO";
+                }
+                else if (s.situacao_sinistro == 1)
+                {
+                    s.situacao = "CONCLUÍDO";
+                }
+                cliente c = conn.retornaClientePorId(s.id_cliente);
+                s.nome_cliente = c.nome_completo;
+                s.valor_total = conn.somaDePagamentosSinistrosPorIdSinistro(s.id);
+                listSin.Add(s);
+            }
+            bdgSinistros.DataSource = listSin;
         }
 
         private void btnFechar_Click(object sender, EventArgs e)
@@ -83,16 +145,9 @@ namespace SysNorteGrupo.UI.Sinistros
             }
         }
 
-        private void tfId_KeyUp(object sender, KeyEventArgs e)
-        {
-            cbCliente.EditValue = 0;
-            cbVeiculo.EditValue = 0;
-            cbReboque.EditValue = 0;
-        }
-
         private void cbCliente_EditValueChanged(object sender, EventArgs e)
         {
-            tfId.Text = null;
+            cbVeiculo.EditValue = 0;
             cbReboque.EditValue = 0;
             if (Convert.ToInt64(cbCliente.EditValue) > 0)
             {
@@ -102,12 +157,13 @@ namespace SysNorteGrupo.UI.Sinistros
             else
             {
                 bdgVeiculos.DataSource = conn.listaDeTodosVeiculos();
+                bdgReboques.DataSource = conn.listaDeTodosReboques();
             }
         }
 
         private void cbVeiculo_EditValueChanged(object sender, EventArgs e)
         {
-            tfId.Text = null;
+            bdgReboques.Clear();
             if(Convert.ToInt64(cbVeiculo.EditValue)  > 0){
                 bdgReboques.DataSource = conn.listaDeReboquesPorIdVeiculo(Convert.ToInt64(cbVeiculo.EditValue), false);
             }
@@ -126,7 +182,6 @@ namespace SysNorteGrupo.UI.Sinistros
 
         private void cbReboque_EditValueChanged(object sender, EventArgs e)
         {
-            tfId.Text = null;
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)

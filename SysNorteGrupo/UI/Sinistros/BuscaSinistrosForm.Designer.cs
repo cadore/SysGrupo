@@ -28,12 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BuscaSinistrosForm));
             this.pbBotoes = new DevExpress.XtraEditors.PanelControl();
             this.cbSituacao = new DevExpress.XtraEditors.ComboBoxEdit();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.cbReboque = new DevExpress.XtraEditors.SearchLookUpEdit();
-            this.bdgReboques = new System.Windows.Forms.BindingSource();
+            this.bdgReboques = new System.Windows.Forms.BindingSource(this.components);
             this.searchLookUpEdit3View = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn9 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn10 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -59,7 +60,7 @@
             this.gridColumn21 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn22 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.cbVeiculo = new DevExpress.XtraEditors.SearchLookUpEdit();
-            this.bdgVeiculos = new System.Windows.Forms.BindingSource();
+            this.bdgVeiculos = new System.Windows.Forms.BindingSource(this.components);
             this.searchLookUpEdit2View = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colid_cliente = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -87,7 +88,7 @@
             this.colnome_cliente = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn8 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.cbCliente = new DevExpress.XtraEditors.SearchLookUpEdit();
-            this.bdgClientes = new System.Windows.Forms.BindingSource();
+            this.bdgClientes = new System.Windows.Forms.BindingSource(this.components);
             this.searchLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colnome_completo = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -125,9 +126,7 @@
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.tfId = new DevExpress.XtraEditors.TextEdit();
-            this.bdgSinistros = new System.Windows.Forms.BindingSource();
+            this.bdgSinistros = new System.Windows.Forms.BindingSource(this.components);
             this.gridControl = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn23 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -155,7 +154,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.cbCliente.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdgClientes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1View)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tfId.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdgSinistros)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
@@ -176,8 +174,6 @@
             this.pbBotoes.Controls.Add(this.labelControl5);
             this.pbBotoes.Controls.Add(this.labelControl4);
             this.pbBotoes.Controls.Add(this.labelControl2);
-            this.pbBotoes.Controls.Add(this.labelControl1);
-            this.pbBotoes.Controls.Add(this.tfId);
             this.pbBotoes.Dock = System.Windows.Forms.DockStyle.Top;
             this.pbBotoes.Location = new System.Drawing.Point(0, 0);
             this.pbBotoes.Name = "pbBotoes";
@@ -187,7 +183,7 @@
             // cbSituacao
             // 
             this.cbSituacao.EditValue = "TODAS AS SITUAÇÕES";
-            this.cbSituacao.Location = new System.Drawing.Point(527, 39);
+            this.cbSituacao.Location = new System.Drawing.Point(472, 39);
             this.cbSituacao.Name = "cbSituacao";
             this.cbSituacao.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -202,7 +198,7 @@
             // labelControl3
             // 
             this.labelControl3.Appearance.ForeColor = System.Drawing.Color.White;
-            this.labelControl3.Location = new System.Drawing.Point(527, 20);
+            this.labelControl3.Location = new System.Drawing.Point(472, 20);
             this.labelControl3.Name = "labelControl3";
             this.labelControl3.Size = new System.Drawing.Size(121, 13);
             this.labelControl3.TabIndex = 1;
@@ -210,7 +206,7 @@
             // 
             // cbReboque
             // 
-            this.cbReboque.Location = new System.Drawing.Point(436, 39);
+            this.cbReboque.Location = new System.Drawing.Point(381, 39);
             this.cbReboque.Name = "cbReboque";
             this.cbReboque.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -406,7 +402,7 @@
             // 
             // cbVeiculo
             // 
-            this.cbVeiculo.Location = new System.Drawing.Point(346, 39);
+            this.cbVeiculo.Location = new System.Drawing.Point(291, 39);
             this.cbVeiculo.Name = "cbVeiculo";
             this.cbVeiculo.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -618,7 +614,7 @@
             // 
             // cbCliente
             // 
-            this.cbCliente.Location = new System.Drawing.Point(61, 39);
+            this.cbCliente.Location = new System.Drawing.Point(6, 39);
             this.cbCliente.Name = "cbCliente";
             this.cbCliente.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -901,7 +897,7 @@
             this.btnBuscar.ForeColor = System.Drawing.Color.White;
             this.btnBuscar.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscar.Image")));
             this.btnBuscar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBuscar.Location = new System.Drawing.Point(710, 8);
+            this.btnBuscar.Location = new System.Drawing.Point(655, 8);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(116, 56);
             this.btnBuscar.TabIndex = 5;
@@ -913,7 +909,7 @@
             // labelControl5
             // 
             this.labelControl5.Appearance.ForeColor = System.Drawing.Color.White;
-            this.labelControl5.Location = new System.Drawing.Point(436, 20);
+            this.labelControl5.Location = new System.Drawing.Point(381, 20);
             this.labelControl5.Name = "labelControl5";
             this.labelControl5.Size = new System.Drawing.Size(52, 13);
             this.labelControl5.TabIndex = 1;
@@ -922,7 +918,7 @@
             // labelControl4
             // 
             this.labelControl4.Appearance.ForeColor = System.Drawing.Color.White;
-            this.labelControl4.Location = new System.Drawing.Point(347, 20);
+            this.labelControl4.Location = new System.Drawing.Point(292, 20);
             this.labelControl4.Name = "labelControl4";
             this.labelControl4.Size = new System.Drawing.Size(47, 13);
             this.labelControl4.TabIndex = 1;
@@ -931,30 +927,11 @@
             // labelControl2
             // 
             this.labelControl2.Appearance.ForeColor = System.Drawing.Color.White;
-            this.labelControl2.Location = new System.Drawing.Point(61, 20);
+            this.labelControl2.Location = new System.Drawing.Point(6, 20);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(45, 13);
             this.labelControl2.TabIndex = 1;
             this.labelControl2.Text = "CLIENTE:";
-            // 
-            // labelControl1
-            // 
-            this.labelControl1.Appearance.ForeColor = System.Drawing.Color.White;
-            this.labelControl1.Location = new System.Drawing.Point(10, 20);
-            this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(26, 13);
-            this.labelControl1.TabIndex = 1;
-            this.labelControl1.Text = "COD:";
-            // 
-            // tfId
-            // 
-            this.tfId.Location = new System.Drawing.Point(9, 39);
-            this.tfId.Name = "tfId";
-            this.tfId.Properties.Mask.EditMask = "\\d+";
-            this.tfId.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
-            this.tfId.Size = new System.Drawing.Size(48, 20);
-            this.tfId.TabIndex = 0;
-            this.tfId.KeyUp += new System.Windows.Forms.KeyEventHandler(this.tfId_KeyUp);
             // 
             // bdgSinistros
             // 
@@ -1132,7 +1109,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.cbCliente.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdgClientes)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1View)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tfId.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdgSinistros)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
@@ -1149,8 +1125,6 @@
         private Utils.BotaoBuscar btnBuscar;
         private DevExpress.XtraEditors.LabelControl labelControl3;
         private DevExpress.XtraEditors.LabelControl labelControl2;
-        private DevExpress.XtraEditors.LabelControl labelControl1;
-        private DevExpress.XtraEditors.TextEdit tfId;
         private DevExpress.XtraEditors.SearchLookUpEdit cbReboque;
         private DevExpress.XtraGrid.Views.Grid.GridView searchLookUpEdit3View;
         private DevExpress.XtraEditors.SearchLookUpEdit cbVeiculo;
