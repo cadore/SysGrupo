@@ -93,6 +93,16 @@ namespace SysNorteGrupo.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Article_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("Article_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap BO_Customer_32x32 {
             get {
                 object obj = ResourceManager.GetObject("BO_Customer_32x32", resourceCulture);
@@ -153,6 +163,16 @@ namespace SysNorteGrupo.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap IDE_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("IDE_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap impressora40 {
             get {
                 object obj = ResourceManager.GetObject("impressora40", resourceCulture);
@@ -186,6 +206,16 @@ namespace SysNorteGrupo.Properties {
         internal static System.Drawing.Bitmap reboque_48 {
             get {
                 object obj = ResourceManager.GetObject("reboque_48", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Report_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("Report_32x32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

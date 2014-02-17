@@ -72,7 +72,7 @@ namespace SysNorteGrupo.UI.Sinistros
             else
             {
                 btnImprimirRelSinistro.Enabled = false;
-                btnGerarCobranca.Enabled = false;
+                //btnGerarCobranca.Enabled = false;
             }
             bdgSinistros.DataSource = sinistro_instc;
         }
@@ -369,6 +369,8 @@ namespace SysNorteGrupo.UI.Sinistros
             return lista;
         }
 
+        decimal totalParticipacaoCliente = 0;
+
         List<ReboquesRelatorio> listaReboques(long id_veiculo, DateTime data_ativacao)
         {
             List<ReboquesRelatorio> reboques = new List<ReboquesRelatorio>();
@@ -377,14 +379,17 @@ namespace SysNorteGrupo.UI.Sinistros
                 reboques.Add(new ReboquesRelatorio()
                 { 
                     placa = r.placa,
-                    modelo = "MODELO REBOQUE?!",
+                    modelo = r.modelo,
                     valor = r.valor,
                     cotas = (cotas).ToString(),
                     participacao = valor_por_cota * cotas
                 });
+                totalParticipacaoCliente += valor_por_cota * cotas;
             }
             return reboques;
         }
+
+        
 
         List<VeiculosRelatorio> listaVeiculos(long id_cliente, DateTime data_ativacao)
         {
@@ -400,6 +405,7 @@ namespace SysNorteGrupo.UI.Sinistros
                     participacao = valor_por_cota * cotas,
                     listaReboques = listaReboques(v.id, v.data_ativacao)
                 });
+                totalParticipacaoCliente += valor_por_cota * cotas;
             }
 
             return veiculos;
@@ -409,7 +415,7 @@ namespace SysNorteGrupo.UI.Sinistros
         {
             List<ListaClientesRateio> principal = new List<ListaClientesRateio>();
             foreach(cliente c in conn.listaDeClientesPorDataDeAtivacao(dtOcorrido.DateTime)){
-                principal.Add(new ListaClientesRateio() { cliente = c.nome_completo, listaVeiculo = listaVeiculos(c.id, c.data_ativacao), totalParticipacao = 0 });
+                principal.Add(new ListaClientesRateio() { cliente = c.nome_completo, listaVeiculo = listaVeiculos(c.id, c.data_ativacao), totalParticipacao = totalParticipacaoCliente });
             }
 
             return principal;
@@ -451,51 +457,71 @@ namespace SysNorteGrupo.UI.Sinistros
             }
         }
 
+
         private void btnGerarCobranca_Click(object sender, EventArgs e)
         {
-            Instrucao_Itau instrucao = new Instrucao_Itau();
-            instrucao.Descricao = "Não receber após o vencimento.";
-            BoletoUtil bu = new BoletoUtil() 
+            foreach (ListaClientesRateio c in listaFinal())
             {
-                aceite = "N",
-                carteiraBoleto = "109",
-                codigoBancoBoleto = 347,
-                dataProcessamento = conn.retornaDataHoraLocal(),
-                dataVencimento = conn.retornaDataHoraLocal().Date.AddDays(15),
-                nossoNumeroBoleto = "22222222",
-                percMulta = 5,
-                especieDocumento = new EspecieDocumento_Itau("19"),
-                instrucaoBoleto = instrucao,
-                jurosMora = 28,
-                mostrarCodigoCarteira = true,
-                mostrarComprovanteEntrega = true,
-                numeroDocumento = "00018438463",
-                numeroParcela = 1,
-                percJurosMora = Convert.ToDecimal(0.02),
-                valorBoleto = Convert.ToDecimal(2368.26),
-                diretorioNome = "C:\\Users\\William\\Desktop\\boleto_temp\\testeBoleto.html"
+                
+                Instrucao_Itau instrucao = new Instrucao_Itau();
+                instrucao.Descricao = "Não receber após o vencimento.";
+                BoletoUtil bu = new BoletoUtil()
+                {
+                    aceite = "N",
+                    carteiraBoleto = "109",
+                    codigoBancoBoleto = 341,
+                    dataProcessamento = conn.retornaDataHoraLocal(),
+                    dataVencimento = conn.retornaDataHoraLocal().Date.AddDays(15),
+                    nossoNumeroBoleto = "22222222",
+                    percMulta = 5,
+                    especieDocumento = new EspecieDocumento_Itau("99"),
+                    instrucaoBoleto = instrucao,
+                    jurosMora = 28,
+                    mostrarCodigoCarteira = true,
+                    mostrarComprovanteEntrega = true,
+                    numeroDocumento = "00018438463",
+                    numeroParcela = 1,
+                    percJurosMora = Convert.ToDecimal(0.02),
+                    valorBoleto = Convert.ToDecimal(c.totalParticipacao),
+                    diretorioNome = String.Format(@"C:\Users\Ganzer\Documents\boletos\Boleto{0}.html", c.cliente)
 
-            };
-            SacadoUtil su = new SacadoUtil() 
-            {
-                enderecoSacado = "Av Mato Grosso SN",
-                bairroSacado = "Centro",
-                cepSacado = "78.455-000",
-                cidadeSacado = "Lucas Do Rio Verde",
-                cpfCnpjSacado = "125.652.598-65", 
-                nomeSacado = "Fulano de Tal", 
-                ufSacado = "MT"
-            };
-            CedenteUtil ceu = new CedenteUtil()
-            {
-                nomeCedente = "SYS NORTE TECNOLOGIA", 
-                cpfCnpjCedente = "00.021.001/0001-06", 
-                codigoCedente = "001", 
-                agenciaCedente = "0810", 
-                contaCedente = "4022800", 
-                digitoContaCedente = "9"
-            };
-            //new GerenteDeBoletos().geraBoleto(bu, ceu, su);
+                };
+                SacadoUtil su = new SacadoUtil()
+                {
+                    enderecoSacado = "Av Mato Grosso SN",
+                    bairroSacado = "Centro",
+                    cepSacado = "78.455-000",
+                    cidadeSacado = "Lucas Do Rio Verde",
+                    cpfCnpjSacado = "125.652.598-65",
+                    nomeSacado = c.cliente,
+                    ufSacado = "MT"
+                };
+                CedenteUtil ceu = new CedenteUtil()
+                {
+                    nomeCedente = "SYS NORTE TECNOLOGIA",
+                    cpfCnpjCedente = "00.021.001/0001-06",
+                    codigoCedente = "001",
+                    agenciaCedente = "0810",
+                    contaCedente = "4022800",
+                    digitoContaCedente = "9"
+                };
+                new GerenteDeBoletos().geraBoleto(bu, ceu, su);
+            }
+            
+            /*//// load htmlstring to control to convert
+            XtraReport report = new XtraReport();
+            report.PaperKind = System.Drawing.Printing.PaperKind.A4;
+            XRRichText richText = new XRRichText();
+            DetailBand db = new DetailBand();
+            report.Bands.Add(db);
+            //richText.SizeF = new SizeF(800, 90);
+            richText.LocationF = new PointF(0, 0);
+            report.Bands[BandKind.Detail].Controls.Add(richText);
+
+            richText.LoadFile(@"C:\Users\Ganzer\Documents\boletos\testeBoleto.html", XRRichTextStreamType.HtmlText);
+
+            report.ExportOptions.Pdf.ShowPrintDialogOnOpen = true;
+            report.ExportToPdf(@"C:\Users\Ganzer\Documents\boletos\testeBoleto.pdf");*/
         }
     }
 }

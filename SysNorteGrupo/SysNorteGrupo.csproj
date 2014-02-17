@@ -89,6 +89,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Reports\Clientes\RelatorioRelacaoCliente.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\Clientes\RelatorioRelacaoCliente.Designer.cs">
+      <DependentUpon>RelatorioRelacaoCliente.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reports\Models\ConclusaoSinistro.cs" />
     <Compile Include="Reports\Sinistros\RelatorioConclusaoSinistro.cs">
       <SubType>Component</SubType>
@@ -207,6 +213,9 @@
       <DependentUpon>FormPrincipal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Reports\Clientes\RelatorioRelacaoCliente.resx">
+      <DependentUpon>RelatorioRelacaoCliente.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reports\Sinistros\RelatorioConclusaoSinistro.resx">
       <DependentUpon>RelatorioConclusaoSinistro.cs</DependentUpon>
     </EmbeddedResource>
@@ -299,6 +308,7 @@
     <None Include="Properties\DataSources\SysNorteGrupo.Properties.Resources.datasource" />
     <None Include="Properties\DataSources\SysNorteGrupo.Properties.Settings.datasource" />
     <None Include="Properties\DataSources\SysNorteGrupo.Reports.ConclusaoSinistro.datasource" />
+    <None Include="Properties\DataSources\SysNorteGrupo.Reports.ListaClientesRateio.datasource" />
     <None Include="Properties\DataSources\SysNorteGrupo.Reports.ListaConclusaoSinistro.datasource" />
     <None Include="Properties\DataSources\SysNorteGrupo.Utils.Centraliza.datasource" />
     <None Include="Properties\DataSources\SysNorteGrupo.Utils.Cores.datasource" />
@@ -352,6 +362,10 @@
     <None Include="Resources\check-48.png" />
     <None Include="Resources\impressora48.png" />
     <None Include="Resources\impressora40.png" />
+    <None Include="Resources\Open_32x32.png" />
+    <None Include="Resources\IDE_32x32.png" />
+    <None Include="Resources\Report_32x32.png" />
+    <None Include="Resources\Article_32x32.png" />
     <Content Include="TODO.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

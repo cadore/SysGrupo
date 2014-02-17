@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BuscaClienteForm));
             this.pbBotoes = new DevExpress.XtraEditors.PanelControl();
             this.btnImprimirContrato = new SysNorteGrupo.Utils.BotaoImprimir();
@@ -43,7 +42,7 @@
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.tfId = new DevExpress.XtraEditors.TextEdit();
             this.gridControl = new DevExpress.XtraGrid.GridControl();
-            this.bdgCliente = new System.Windows.Forms.BindingSource(this.components);
+            this.bdgCliente = new System.Windows.Forms.BindingSource();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colnome_completo = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -116,11 +115,12 @@
             this.btnImprimirContrato.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnImprimirContrato.Location = new System.Drawing.Point(725, 6);
             this.btnImprimirContrato.Name = "btnImprimirContrato";
-            this.btnImprimirContrato.Size = new System.Drawing.Size(124, 56);
+            this.btnImprimirContrato.Size = new System.Drawing.Size(149, 56);
             this.btnImprimirContrato.TabIndex = 7;
-            this.btnImprimirContrato.Text = "Imprimir";
+            this.btnImprimirContrato.Text = "                Imprimir Rel. de Bens";
             this.btnImprimirContrato.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnImprimirContrato.UseVisualStyleBackColor = false;
+            this.btnImprimirContrato.Click += new System.EventHandler(this.btnImprimirContrato_Click);
             // 
             // btnFechar
             // 

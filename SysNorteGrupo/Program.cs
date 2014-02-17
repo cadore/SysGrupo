@@ -30,6 +30,16 @@ namespace SysNorteGrupo
             SkinManager.EnableFormSkins();
             UserLookAndFeel.Default.SetSkinStyle("Office 2013"); //Office 2013 //The Asphalt World
 
+            
+
+            // The following line provides localization for data formats. 
+            System.Threading.Thread.CurrentThread.CurrentCulture =
+                new System.Globalization.CultureInfo("pt-BR");
+
+            // The following line provides localization for the application's user interface. 
+            System.Threading.Thread.CurrentThread.CurrentUICulture =
+                new System.Globalization.CultureInfo("pt-BR");
+
             IServiceGrupo conn = GerenteDeConexoes.iniciaConexao();
             UtilsSistema.backColorFoco = conn.backColorFoco();
             UtilsSistema.franquiaSinistro = conn.franquiaSinistro();

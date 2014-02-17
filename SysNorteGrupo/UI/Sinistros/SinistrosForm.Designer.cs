@@ -9,7 +9,6 @@ namespace SysNorteGrupo.UI.Sinistros
 
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SinistrosForm));
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule2 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
@@ -29,7 +28,7 @@ namespace SysNorteGrupo.UI.Sinistros
             this.btnRemoverPag = new DevExpress.XtraEditors.SimpleButton();
             this.btnAdicionarPag = new DevExpress.XtraEditors.SimpleButton();
             this.tfObservacaoPag = new DevExpress.XtraEditors.TextEdit();
-            this.bdgPagamentos = new System.Windows.Forms.BindingSource(this.components);
+            this.bdgPagamentos = new System.Windows.Forms.BindingSource();
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.tfValorPag = new DevExpress.XtraEditors.CalcEdit();
@@ -40,8 +39,8 @@ namespace SysNorteGrupo.UI.Sinistros
             this.colid_sinistros = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gcInfoBasica = new DevExpress.XtraEditors.GroupControl();
             this.cbReboque3 = new DevExpress.XtraEditors.SearchLookUpEdit();
-            this.bdgSinistros = new System.Windows.Forms.BindingSource(this.components);
-            this.bdgReboques3 = new System.Windows.Forms.BindingSource(this.components);
+            this.bdgSinistros = new System.Windows.Forms.BindingSource();
+            this.bdgReboques3 = new System.Windows.Forms.BindingSource();
             this.gridView4 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn46 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn47 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -67,7 +66,7 @@ namespace SysNorteGrupo.UI.Sinistros
             this.gridColumn67 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn68 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.cbReboque2 = new DevExpress.XtraEditors.SearchLookUpEdit();
-            this.bdgReboques2 = new System.Windows.Forms.BindingSource(this.components);
+            this.bdgReboques2 = new System.Windows.Forms.BindingSource();
             this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colid_cliente = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -99,7 +98,7 @@ namespace SysNorteGrupo.UI.Sinistros
             this.dtOcorrido = new DevExpress.XtraEditors.DateEdit();
             this.tfId = new DevExpress.XtraEditors.TextEdit();
             this.cbReboque1 = new DevExpress.XtraEditors.SearchLookUpEdit();
-            this.bdgReboques1 = new System.Windows.Forms.BindingSource(this.components);
+            this.bdgReboques1 = new System.Windows.Forms.BindingSource();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -125,7 +124,7 @@ namespace SysNorteGrupo.UI.Sinistros
             this.gridColumn22 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn23 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.cbVeiculo = new DevExpress.XtraEditors.SearchLookUpEdit();
-            this.bdgVeiculos = new System.Windows.Forms.BindingSource(this.components);
+            this.bdgVeiculos = new System.Windows.Forms.BindingSource();
             this.searchLookUpEdit2View = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn24 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn25 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -163,7 +162,7 @@ namespace SysNorteGrupo.UI.Sinistros
             this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.cbCliente = new DevExpress.XtraEditors.SearchLookUpEdit();
-            this.bdgCliente = new System.Windows.Forms.BindingSource(this.components);
+            this.bdgCliente = new System.Windows.Forms.BindingSource();
             this.searchLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn38 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colnome_completo = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -196,8 +195,8 @@ namespace SysNorteGrupo.UI.Sinistros
             this.gridColumn44 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn45 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colvalor_total = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.validatorPag = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
-            this.validator = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
+            this.validatorPag = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider();
+            this.validator = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider();
             this.pnPrincipal = new DevExpress.XtraEditors.PanelControl();
             ((System.ComponentModel.ISupportInitialize)(this.pnBotoes)).BeginInit();
             this.pnBotoes.SuspendLayout();
@@ -264,7 +263,6 @@ namespace SysNorteGrupo.UI.Sinistros
             // btnGerarCobranca
             // 
             this.btnGerarCobranca.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(199)))));
-            this.btnGerarCobranca.Enabled = false;
             this.btnGerarCobranca.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGerarCobranca.Font = new System.Drawing.Font("Segoe UI Light", 12F);
             this.btnGerarCobranca.ForeColor = System.Drawing.Color.White;

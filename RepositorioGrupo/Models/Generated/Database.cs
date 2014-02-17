@@ -1158,6 +1158,9 @@ namespace EntitiesGrupo
 
 		[Column] public string placa { get; set; }
 
+        [Column] public string marca { get; set; }
+        
+        [Column] public string modelo { get; set; }
         
 		[Column] public decimal capacidade { get; set; }
 
@@ -1237,6 +1240,37 @@ namespace EntitiesGrupo
 
 	}
 
+    [TableName("empresa")]
+    [PrimaryKey("id")]
+    [ExplicitColumns]
+    public partial class empresa : SysGrupoRepo.Record<empresa>
+    {
+        [Column] public long id { get; set; }
+
+        [Column] public string razao_social { get; set; }
+
+        [Column] public string nome_fantasia { get; set; }
+        
+        [Column] public string cnpj { get; set; }
+    }
+
+    [TableName("empresa_dados_bancarios")]
+    [PrimaryKey("id")]
+    [ExplicitColumns]
+    public partial class empresa_dados_bancarios : SysGrupoRepo.Record<empresa_dados_bancarios>
+    {
+        [Column] public long id { get; set; }
+
+        [Column] public long id_cliente { get; set; }
+
+        [Column] public string codigo_banco { get; set; }
+
+        [Column] public string agencia { get; set; }
+
+        [Column] public string conta { get; set; }
+
+        [Column] public string digito_conta { get; set; }
+    }
 
 }
 

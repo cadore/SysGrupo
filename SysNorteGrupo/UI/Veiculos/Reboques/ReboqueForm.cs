@@ -474,6 +474,8 @@ namespace SysNorteGrupo.UI.Veiculos.Reboques
 
                     reboque r = (reboque)bdgReboqueLista.Current;
 
+                    r.ordem = bdgReboqueLista.Count;
+
                     DateTime dataAtiv = conn.retornaDataHoraLocal().Date.AddDays(1);
                     if (ckAgendarCad.Checked)
                     {

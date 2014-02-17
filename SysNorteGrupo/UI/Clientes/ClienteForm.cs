@@ -35,8 +35,8 @@ namespace SysNorteGrupo.UI.Clientes
 
             //acrescentar id_estados
             //cbEstados.EditValue = cliente_instc.
-            cbEstados_EditValueChanged(null, null);
-            cbCidade_EditValueChanged(null, null);
+            //cbEstados_EditValueChanged(null, null);
+            //cbCidade_EditValueChanged(null, null);
 
             //MessageBox.Show(cliente_instc.id.ToString());
 
@@ -72,6 +72,8 @@ namespace SysNorteGrupo.UI.Clientes
                     }
                 }
             }
+
+            //Console.WriteLine(cliente_instc.id);
             
             ValidadorCPFCNPJ vldDocumento = new ValidadorCPFCNPJ() { ErrorText = "O CPF/CNPJ informado é inválido.", ErrorType = ErrorType.Warning };
             validador.SetValidationRule(tfDocumento, vldDocumento);
@@ -347,7 +349,8 @@ namespace SysNorteGrupo.UI.Clientes
 
         private void btnNovo_Click(object sender, EventArgs e)
         {
-            //remover eventos combobox
+            formPrincipal.adicionarControleNavegacao(new ClienteForm(null) { formPrincipal = formPrincipal });
+           /* //remover eventos combobox
             this.cbEstados.EditValueChanged -= new EventHandler(this.cbEstados_EditValueChanged);
             this.cbCidade.EditValueChanged -= new EventHandler(this.cbCidade_EditValueChanged);
             
@@ -377,7 +380,7 @@ namespace SysNorteGrupo.UI.Clientes
             {
                 errorProvier.SetError(c, null);
             }
-            //fim
+            //fim*/
         }
 
         public class ValidadorCPFCNPJ : ValidationRule
@@ -399,13 +402,13 @@ namespace SysNorteGrupo.UI.Clientes
 
         private void cbEndereco_EditValueChanged(object sender, EventArgs e)
         {
-            /*if (Convert.ToInt32(cbEndereco.EditValue) > 0)
+            if (Convert.ToInt32(cbEndereco.EditValue) > 0)
             {
                 endereco end = (endereco)bdgEnderecos.Current;
                 ((cliente)bdgCliente.Current).cep = end.cep;
                 tfCep.Text = end.cep;
-            }*/
-            formPrincipal.adicionarControleNavegacao(new ClienteForm(null) { formPrincipal = formPrincipal });
+            }
+            //formPrincipal.adicionarControleNavegacao(new ClienteForm(null) { formPrincipal = formPrincipal });
         }
 
     }
