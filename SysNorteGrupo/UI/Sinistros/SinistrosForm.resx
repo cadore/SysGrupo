@@ -118,6 +118,25 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="btnGerarCobranca.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACsAAAAoCAYAAABnyQNuAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
+        EwAACxMBAJqcGAAAAAd0SU1FB94CDg04BRHSKIsAAALYSURBVFhH7dhbiE1RHMdxUkTGLZNriZrc8jDy
+        qCT3pwmjeSDkkrxMeHMpHjyQPMqrBykvnlDkUvKAchny5MG1JOUW5b59f7v/0nHOPuc4819rmlPzr0/2
+        3rNn7Z816+y1zhpUq7IskzPoi+qxx/auaKA07HWcNCciuozfiBp2vV0bjimY7DTB2uvAT0QNuxk6P5if
+        ZdkvpzcYhzWIH9aubcEd3HQ6j5FYi2RhJ2I+2p3mWXudSDYM9kF/xs9OzzEWSYdBF/QnPOd0CiMQZxio
+        aOQ0VCHsLKg39Cn2WIXBCMPgQf7AWsVNq2tQqBtQaRio8WP5WZwajzAMnmE5inLkFFY31qIXtir07Ays
+        wDKnRdZe6Fk9p/zZ/9DN/1shrN4EO7DNaQOGIIStWw2FhYbB8fwsTrUiDIO61ZueHYWp0JTrMcnaS9Oz
+        1vh29ECzmMcltCC8uupWQ2Gh+3fhNZ463cVouMN+wgu8xBddoELPatWlBYjXGGsvDIPv0Kym535ERVUL
+        qw+RPqkKdlYXqNCze/ED+g95qHdLp9tHFl6OoKKqhT1a8ovla4Pd0PJOveBxH6XD4O90y/FhVFRDYe2a
+        Zp050LTr0WbthWEQNyx03g2N5SdOeiOk61no/EB+lmVfnV6hcInIcbRhMAyaGLxarL2mGAa3odBJP2Ba
+        xDyGXuoeV1E6g8UPG7todx2aJqx7zB6y39PP9V1J1WmXohbtroTC3rNLurYfFVUtbL+sgbCpaiBsqioK
+        q62hh9CuywVoX/aWHV+EFiBX7FxfTbTUC/dewzckqaKwethODIW2d7Qc1O6JFuKacTowHfqZNuk2Ityr
+        pd9bJKmisFoRbbVXnn6uYIvtWN8etMERNoI1t3fpWMXxNPRpWPWsloFtmI2l2ISZmAttUCyEenEB9iDc
+        uwTvkKSKwqq0JamHygfoO1M41/F7O9a/5feG7aboVS1sv6wmCptlfwDsdnfp+YntDAAAAABJRU5ErkJg
+        gg==
+</value>
+  </data>
   <data name="btnImprimirRelSinistro.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACsAAAAoCAYAAABnyQNuAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
@@ -230,33 +249,33 @@
 </value>
   </data>
   <metadata name="bdgPagamentos.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>523, 17</value>
+    <value>245, 11</value>
   </metadata>
   <metadata name="validatorPag.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>664, 17</value>
+    <value>386, 11</value>
   </metadata>
   <metadata name="bdgSinistros.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>783, 17</value>
+    <value>505, 11</value>
+  </metadata>
+  <metadata name="bdgReboques3.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>992, 11</value>
+  </metadata>
+  <metadata name="bdgReboques2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>857, 11</value>
   </metadata>
   <metadata name="validator.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>1059, 17</value>
+    <value>624, 11</value>
   </metadata>
-  <metadata name="bdgReboquesTab.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
-  <metadata name="bdgVeiRebSinistros.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>902, 17</value>
-  </metadata>
-  <metadata name="bdgReboques.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>165, 17</value>
+  <metadata name="bdgReboques1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>725, 13</value>
   </metadata>
   <metadata name="bdgVeiculos.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>293, 17</value>
+    <value>15, 11</value>
   </metadata>
   <metadata name="bdgCliente.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>412, 17</value>
+    <value>134, 11</value>
   </metadata>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>50</value>
+    <value>54</value>
   </metadata>
 </root>

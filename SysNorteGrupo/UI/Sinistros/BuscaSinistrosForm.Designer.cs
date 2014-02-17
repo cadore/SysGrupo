@@ -217,7 +217,6 @@
             this.cbReboque.Properties.View = this.searchLookUpEdit3View;
             this.cbReboque.Size = new System.Drawing.Size(85, 20);
             this.cbReboque.TabIndex = 9;
-            this.cbReboque.EditValueChanged += new System.EventHandler(this.cbReboque_EditValueChanged);
             // 
             // bdgReboques
             // 
@@ -948,6 +947,7 @@
             this.gridControl.TabIndex = 3;
             this.gridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
+            this.gridControl.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.gridControl_MouseDoubleClick);
             // 
             // gridView1
             // 

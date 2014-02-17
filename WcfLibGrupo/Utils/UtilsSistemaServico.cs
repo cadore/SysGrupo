@@ -34,9 +34,17 @@ namespace WcfLibGrupo.Utils
         public static string SUBDIR_SINISTROS;            
         #endregion
 
+        #region sistema
+        public static decimal valor_por_cota { get; set; }
+
+        public static decimal franquiaSinistro { get; set; }
+        #endregion
+
 
         public static void carregaConfigurações(){
             SysFile sf = new SysFile();
+            valor_por_cota = Convert.ToDecimal(10000.00);
+            franquiaSinistro = Convert.ToDecimal(5);
             diretorio_raiz_documentos = LeitorINI.ReadValue("diretorios", "diretorio_raiz_documentos");
             smtpServer = LeitorINI.ReadValue("email", "smtpServer");
             ssl = Convert.ToBoolean(LeitorINI.ReadValue("email", "ssl"));

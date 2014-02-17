@@ -8,9 +8,7 @@ namespace SysNorteGrupo.Utils
 
         public static Color backColorFoco { get; set; }
 
-        public UtilsSistema()
-        {
-            valor_por_cota = Convert.ToDecimal(10000.00);
-        }
+        public static decimal franquiaSinistro { get; set; }
+
     }
 }

@@ -132,7 +132,7 @@ namespace SysNorteGrupo.UI.Veiculos.Reboques
         private void cbCliente_EditValueChanged(object sender, EventArgs e)
         {
             if (Convert.ToInt32(cbCliente.EditValue) > 0)
-                bdgVeiculo.DataSource = conn.listaDeVeiculosPorIdCliente(Convert.ToInt64(cbCliente.EditValue), false);
+                bdgVeiculo.DataSource = conn.listaDeVeiculosPorIdClienteEInatividade(Convert.ToInt64(cbCliente.EditValue), false);
             else
             {
                 bdgVeiculo.Clear();

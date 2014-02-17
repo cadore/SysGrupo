@@ -6,12 +6,11 @@ using DevExpress.XtraReports.UI;
 
 namespace SysNorteGrupo.Reports
 {
-    public partial class RelatorioConclusaoSinistro : DevExpress.XtraReports.UI.XtraReport
+    public partial class RelatorioPagamentosConclusaoSinistro : DevExpress.XtraReports.UI.XtraReport
     {
-        public RelatorioConclusaoSinistro()
+        public RelatorioPagamentosConclusaoSinistro()
         {
             InitializeComponent();
         }
-
     }
 }

@@ -60,7 +60,7 @@ namespace SysNorteGrupo.UI.Veiculos
             }
             else if(tipoPesquisa == 2)
             {
-                listVei = conn.listaDeVeiculosPorIdCliente(Convert.ToInt64(cbCliente.EditValue), _inativo);
+                listVei = conn.listaDeVeiculosPorIdClienteEInatividade(Convert.ToInt64(cbCliente.EditValue), _inativo);
             }
             else
             {

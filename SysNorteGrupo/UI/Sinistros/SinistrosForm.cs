@@ -1,23 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Drawing;
-using System.Data;
-using System.Text;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using WcfLibGrupo;
 using EntitiesGrupo;
-using System.Collections;
 using System.Windows.Documents;
 using SysNorteGrupo.Utils;
 using DevExpress.XtraEditors.DXErrorProvider;
 using SysNorteGrupo.Reports;
 using DevExpress.XtraReports.UI;
-using DevExpress.Utils.OAuth;
-using DevExpress.XtraPrinting;
+using BoletoNet;
 
 namespace SysNorteGrupo.UI.Sinistros
 {
@@ -28,6 +21,7 @@ namespace SysNorteGrupo.UI.Sinistros
         private sinistro sinistro_instc = null;
         private Color backColor = UtilsSistema.backColorFoco;
         private ConditionValidationRule conditionValidationRule4;
+        private List<reboque> listRebTab = new List<reboque>();
         public SinistrosForm(sinistro _sinistro_instc)
         {
             sinistro_instc = _sinistro_instc;
@@ -36,20 +30,49 @@ namespace SysNorteGrupo.UI.Sinistros
             conn = GerenteDeConexoes.iniciaConexao();
 
             bdgCliente.DataSource = conn.listaDeClientesPorInatividade(false);
-            bdgReboquesTab.DataSource = new List<reboque>();            
-            bdgPagamentos.DataSource = new List<pagamentos_sinistro>();            
+            bdgPagamentos.DataSource = new List<pagamentos_sinistro>();
+            bdgPagamentos.Add(new pagamentos_sinistro());
+            bdgReboques1.DataSource = new List<reboque>();
+            bdgReboques2.DataSource = new List<reboque>();
+            bdgReboques3.DataSource = new List<reboque>();
 
             if(sinistro_instc == null){
-                sinistro_instc = new sinistro() {data_cadastro = conn.retornaDataHoraLocal(), data_ocorrido = null, data_conclusao = null };
-                bdgPagamentos.Add(new pagamentos_sinistro());
+                sinistro_instc = new sinistro() {data_cadastro = conn.retornaDataHoraLocal(), data_ocorrido = null, data_conclusao = null };                
+                bdgSinistros.DataSource = sinistro_instc;
                 pnControl.Enabled = false;
             }
             else
             {
+                cbCliente.EditValue = sinistro_instc.id_cliente;
+                bdgVeiculos.DataSource = conn.listaDeVeiculosPorIdCliente(sinistro_instc.id_cliente);
+                cbVeiculo.EditValue = sinistro_instc.id_veiculo;
+                bdgReboques1.DataSource = conn.listaDeReboquesPorIdCliente(sinistro_instc.id_cliente, false);
+                if(sinistro_instc.data_conclusao != null){
+                    ckConcluido.Checked = true;
+                }
+                else
+                {
+                    ckConcluido.Checked = false;
+                }
+                List<pagamentos_sinistro> listPag = conn.listaDePagamentosSinistrosPorIdSinistro(sinistro_instc.id);
+                if(listPag.Count > 0){
+                    bdgPagamentos.DataSource = listPag;
+                }
                 arquivosForm.conn = conn;
                 arquivosForm.DIRETORIO = String.Format(@"{0}{1}\", conn.SUBDIR_SINISTROS(), sinistro_instc.id);
                 arquivosForm.executaBusca();
                 pnPrincipal.Enabled = false;
+                btnEditar.Enabled = true;
+            }
+            if (ckConcluido.Checked)
+            {
+                btnImprimirRelSinistro.Enabled = true;
+                btnGerarCobranca.Enabled = true;
+            }
+            else
+            {
+                btnImprimirRelSinistro.Enabled = false;
+                btnGerarCobranca.Enabled = false;
             }
             bdgSinistros.DataSource = sinistro_instc;
         }
@@ -96,6 +119,11 @@ namespace SysNorteGrupo.UI.Sinistros
         private void cbCliente_EditValueChanged(object sender, EventArgs e)
         {
             bdgVeiculos.Clear();
+            bdgReboques1.Clear();
+            bdgReboques2.Clear();
+            bdgReboques3.Clear();
+            bdgVeiculos.DataSource = conn.listaDeVeiculosPorIdClienteEInatividade(Convert.ToInt64(cbCliente.EditValue), false);
+            bdgReboques1.DataSource = conn.listaDeReboquesPorIdCliente(Convert.ToInt64(cbCliente.EditValue), false);
             if (Convert.ToInt32(cbCliente.EditValue) > 0)
             {
                 pnControl.Enabled = true;
@@ -108,127 +136,22 @@ namespace SysNorteGrupo.UI.Sinistros
 
         private void cbVeiculo_EditValueChanged(object sender, EventArgs e)
         {
-            bdgReboques.Clear();
-            bdgReboquesTab.Clear();
+            bdgReboques1.Clear();
+            bdgReboques2.Clear();
+            bdgReboques3.Clear();
             if (Convert.ToInt32(cbVeiculo.EditValue) > 0)
             {
-                bdgReboques.DataSource = conn.listaDeReboquesPorIdVeiculo(Convert.ToInt32(cbVeiculo.EditValue), false);
-            }
-        }
-
-        private void btnAdicionarTab_Click(object sender, EventArgs e)
-        {
-            if (Convert.ToInt32(cbReboque.EditValue) > 0)
-            {
-                btnAdicionarReb.Enabled = false;
-                List<reboque> listReb = (List<reboque>)bdgReboques.DataSource;
-                List<reboque> listRebTab = (List<reboque>)bdgReboquesTab.DataSource;
-                foreach(reboque r in listReb){
-                    if (r.placa.Equals(cbReboque.Text))
-                    {
-                        r.cotas = r.valor / UtilsSistema.valor_por_cota;
-                        if (!listRebTab.Contains(r))
-                        {
-                            bdgReboquesTab.Add(r);
-                        }
-                    }
-                }
-                cbReboque.EditValue = 0;
-            }
-            
-        }
-
-        private void cbReboque_EditValueChanged(object sender, EventArgs e)
-        {
-            if (Convert.ToInt32(cbReboque.EditValue) > 0)
-            {
-                List<reboque> listReb = (List<reboque>)bdgReboques.DataSource;
-                List<reboque> listRebTab = (List<reboque>)bdgReboquesTab.DataSource;
-                foreach (reboque r in listReb)
-                {
-                    if (r.placa.Equals(cbReboque.Text))
-                    {
-                        if (!listRebTab.Contains(r))
-                        {
-                            btnAdicionarReb.Enabled = true;
-                        }
-                        else
-                        {
-                            btnAdicionarReb.Enabled = false;
-                        }
-                    }
-                }                
-            }
-            else
-            {
-                btnAdicionarReb.Enabled = false;
-            }
-        }
-
-        private void gridControlReboques_Click(object sender, EventArgs e)
-        {
-            if(bdgReboquesTab.Current != null){
-                btnRemoverReb.Enabled = true;
-            }
-            else
-            {
-                btnRemoverReb.Enabled = false;
-            }
-        }
-
-        private void btnRemoverTab_Click(object sender, EventArgs e)
-        {
-            bdgReboquesTab.RemoveCurrent();
-            cbReboque.EditValue = 0;
-            btnRemoverReb.Enabled = false;
-        }
-
-        private void ckVeiculo_CheckedChanged(object sender, EventArgs e)
-        {
-            bdgVeiculos.Clear();
-            bdgReboques.Clear();
-            bdgReboquesTab.Clear();
-            if(ckVeiculo.Checked){
-                cbVeiculo.Enabled = true;
-                bdgVeiculos.DataSource = conn.listaDeVeiculosPorIdCliente(Convert.ToInt32(cbCliente.EditValue), false);
-            }
-            else
-            {
-                cbVeiculo.Enabled = false;
-                bdgReboques.DataSource = conn.listaDeReboquesPorIdCliente(Convert.ToInt32(cbCliente.EditValue), false);
-            }
-        }
-
-        private void ckReboques_CheckedChanged(object sender, EventArgs e)
-        {
-            //cbVeiculo.EditValue = 0;
-            cbReboque.EditValue = 0;
-            bdgReboquesTab.Clear();
-            if (ckReboques.Checked)
-            {
-                //cbVeiculo.Enabled = false;
-                cbReboque.Enabled = true;
-                gridControlReboques.Enabled = true;
-                if(!ckVeiculo.Checked){
-                    bdgReboques.DataSource = conn.listaDeReboquesPorIdCliente(Convert.ToInt32(cbCliente.EditValue), false);
-                }
-            }
-            else
-            {
-                //cbVeiculo.Enabled = true;
-                cbReboque.Enabled = false;
-                btnAdicionarReb.Enabled = false;
-                btnRemoverReb.Enabled = false;
-                gridControlReboques.Enabled = false;
-                bdgReboquesTab.Clear();
-                gridControlReboques.Update();
-            }
+                bdgReboques1.DataSource = conn.listaDeReboquesPorIdVeiculo(Convert.ToInt32(cbVeiculo.EditValue), false);
+            }            
+            bdgReboques2.DataSource = new List<reboque>();//conn.listaDeReboquesPorIdVeiculo(Convert.ToInt32(cbVeiculo.EditValue), false);
+            bdgReboques3.DataSource = new List<reboque>(); //conn.listaDeReboquesPorIdVeiculo(Convert.ToInt32(cbVeiculo.EditValue), false);
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
             pnControl.Enabled = true;
             pnPrincipal.Enabled = true;
+            btnEditar.Enabled = false;
         }
 
         private void btnAdicionarPag_Click(object sender, EventArgs e)
@@ -273,60 +196,38 @@ namespace SysNorteGrupo.UI.Sinistros
                 conditionValidationRule4.ConditionOperator = ConditionOperator.None;
                 validator.SetValidationRule(dtConclusao, null);
             }
-            try
+            if (validator.Validate())
             {
-                if (ckVeiculo.Checked && cbVeiculo.EditValue == null)
+                try
                 {
-                    MessageBox.Show("Selecione um veiculo.");
-                    return;
-                }
-                if (ckReboques.Checked && bdgReboquesTab.Count < 1)
-                {
-                    MessageBox.Show("Selecione um reboque.");
-                    return;
-                }
-                if (validator.Validate())
-                {
-                    if (!ckVeiculo.Checked && !ckReboques.Checked)
+                    if (bdgPagamentos.Count <= 0 && ckConcluido.Checked)
                     {
-                        MessageBox.Show("Selecione um veiculo ou um reboque.");
-                        return;
-                    }
-                    if(bdgPagamentos.Count <= 0 && ckConcluido.Checked){
                         MessageBox.Show("Adicione no minimo um pagamento.");
                         return;
                     }
                     if (tf_vazio)
                     {
-                        DialogResult dr = MessageBox.Show("Confirma a data do ocorrido para dia: "+dtOcorrido.Text+"?", "SYSNORTE", MessageBoxButtons.OKCancel);
-                        if(dr == DialogResult.Cancel){
+                        DialogResult dr = MessageBox.Show("Confirma a data do ocorrido para dia: " + dtOcorrido.Text + "?", "SYSNORTE", MessageBoxButtons.OKCancel);
+                        if (dr == DialogResult.Cancel)
+                        {
                             dtOcorrido.Focus();
                             return;
                         }
                     }
-                    if(sinistro_instc.situacao_sinistro != situacao && ckConcluido.Checked){
+                    if (sinistro_instc.situacao_sinistro != situacao && ckConcluido.Checked)
+                    {
                         DialogResult dr = MessageBox.Show(mensagem_situacao, "SYSNORTE", MessageBoxButtons.OKCancel);
-                        if(dr == DialogResult.Cancel){
+                        if (dr == DialogResult.Cancel)
+                        {
                             dtConclusao.Focus();
                             return;
                         }
                     }
-                    List<vei_reb_sinistros> listVr = new List<vei_reb_sinistros>();
-                    if (ckVeiculo.Checked)
-                    {
-                        listVr.Add(new vei_reb_sinistros() { id_veiculo = Convert.ToInt64(cbVeiculo.EditValue), id_reboque = 0 });
-                    }
-                    if (ckReboques.Checked)
-                    {
-                        foreach (reboque reb in (List<reboque>)bdgReboquesTab.DataSource)
-                        {
-                            listVr.Add(new vei_reb_sinistros() { id_reboque = reb.id, id_veiculo = 0 });
-                        }
-                    }                    
                     List<pagamentos_sinistro> listPag = (List<pagamentos_sinistro>)bdgPagamentos.DataSource;
                     List<pagamentos_sinistro> listPagTemp = new List<pagamentos_sinistro>();
 
-                    foreach(pagamentos_sinistro ps in listPag){
+                    foreach (pagamentos_sinistro ps in listPag)
+                    {
                         if (ps.valor == 0 || String.IsNullOrEmpty(ps.observacao))
                         {
                             listPagTemp.Add(ps);
@@ -337,15 +238,28 @@ namespace SysNorteGrupo.UI.Sinistros
                         listPag.Remove(ps_temp);
                     }
                     sinistro _sinistro = (sinistro)bdgSinistros.Current;
-                    _sinistro.data_cadastro = conn.retornaDataHoraLocal();                    
+                    _sinistro.data_cadastro = conn.retornaDataHoraLocal();
                     _sinistro.situacao_sinistro = situacao;
-                    long id = conn.SalvaSinistro(_sinistro, listVr, listPag);
+                    _sinistro.id_veiculo = Convert.ToInt64(cbVeiculo.EditValue);
+                    long id = conn.SalvaSinistro(_sinistro, listPag);
                     tfId.Text = id.ToString();
+                    pnPrincipal.Enabled = false;
+                    btnEditar.Enabled = true;
+                    if (ckConcluido.Checked)
+                    {
+                        btnImprimirRelSinistro.Enabled = true;
+                        btnGerarCobranca.Enabled = true;
+                    }
+                    else
+                    {                        
+                        btnImprimirRelSinistro.Enabled = false;
+                        btnGerarCobranca.Enabled = false;
+                    }
                 }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Ocorreu um erro ao executar a solicitação.\n"+ex.Message);
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Ocorreu um erro ao executar a solicitação.\n" + ex.Message);
+                }
             }
         }
 
@@ -356,6 +270,7 @@ namespace SysNorteGrupo.UI.Sinistros
             }
             else
             {
+                dtConclusao.Text = "";
                 dtConclusao.Enabled = false;
             }
         }
@@ -374,39 +289,213 @@ namespace SysNorteGrupo.UI.Sinistros
 
         private void btnImprimirRelSinistro_Click(object sender, EventArgs e)
         {
-            RelatorioConclusaoSinistro report = new RelatorioConclusaoSinistro();
+            RelatorioPagamentosConclusaoSinistro rpcs = new RelatorioPagamentosConclusaoSinistro();
+            rpcs.bindingSource.DataSource = listaConclusao();
+            RelatorioConclusaoSinistro report = new RelatorioConclusaoSinistro(rpcs);
             report.bdgListaConclusaoSinistro.DataSource = listaFinal();
+            report.dataRelatorio.Value = "RELATÓRIO GERADO EM: " + conn.retornaDataHoraLocal();
+            report.assinatura.Value = "GERADO POR SYSNORTE TECNOLOGIA";
+            foreach(DevExpress.XtraReports.Parameters.Parameter p in report.Parameters){
+                p.Visible = false;
+            }            
 
-            report.dataRelatorio.Value = DateTime.Now.ToShortDateString();
-            report.dataRelatorio.Visible = false;
+            /*PdfExportOptions po = new PdfExportOptions() {ImageQuality = PdfJpegImageQuality.Highest, Compressed = true };
+            report.ExportToPdf("C:\\Users\\William\\Desktop\\testePDF.pdf", po);*/
 
-            PdfExportOptions po = new PdfExportOptions() {ImageQuality = PdfJpegImageQuality.Highest, Compressed = true };
+            /*HtmlExportOptions htmlOptions = report.ExportOptions.Html;
+            htmlOptions.CharacterSet = "UTF-8";
+            htmlOptions.TableLayout = false;
+            htmlOptions.RemoveSecondarySymbols = false;
+            htmlOptions.Title = "Teste relatório HTML";
+            htmlOptions.ExportMode = HtmlExportMode.SingleFilePageByPage;
+            htmlOptions.PageBorderColor = Color.Blue;
+            htmlOptions.PageBorderWidth = 3;            
+            report.ExportToHtml("C:\\Users\\William\\Desktop\\testeHTML.html");*/
+            ReportPrintTool tool = new ReportPrintTool(report);              
+            tool.ShowRibbonPreviewDialog();
+        }
+        decimal valor_por_cota = 0;
+        List<ConclusaoSinistro> listaConclusao()
+        {
+            decimal valor_total_sinistro = Convert.ToDecimal(colvalor1.SummaryText.Replace("TOTAL: R$", ""));
+            string veiculo_reboques = "";            
+            decimal valor_total_dos_bens_sinistrados = 0;
+            sinistro ss = (sinistro)bdgSinistros.Current;
+            valor_por_cota = valor_total_sinistro / ss.cotas_na_data;
+            if (ss.id_veiculo > 0)
+            {
+                veiculo v = conn.retornaVeiculoPorId(ss.id_veiculo);
+                veiculo_reboques = veiculo_reboques + v.placa + " / ";// +conn.retornaModeloPorId(v.id_modelo_veiculos).nome;
+                valor_total_dos_bens_sinistrados = valor_total_dos_bens_sinistrados + v.valor;
+            }
+            if (ss.id_reboque1 > 0)
+            {
+                reboque r = conn.retornaReboquePorId(ss.id_reboque1);
+                veiculo_reboques = veiculo_reboques + r.placa + " / ";
+                valor_total_dos_bens_sinistrados = valor_total_dos_bens_sinistrados + r.valor;
+            }
+            if (ss.id_reboque2 > 0)
+            {
+                reboque r = conn.retornaReboquePorId(ss.id_reboque2);
+                veiculo_reboques = veiculo_reboques + r.placa + " / ";
+                valor_total_dos_bens_sinistrados = valor_total_dos_bens_sinistrados + r.valor;
+            }
+            if (ss.id_reboque3 > 0)
+            {
+                reboque r = conn.retornaReboquePorId(ss.id_reboque3);
+                veiculo_reboques = veiculo_reboques + r.placa + " / ";
+                valor_total_dos_bens_sinistrados = valor_total_dos_bens_sinistrados + r.valor;
+            }
 
-            report.ExportToPdf("C:\\Users\\William\\Desktop\\teste.pdf", po);
+            List<ConclusaoSinistro> lista = new List<ConclusaoSinistro>();
+            lista.Add(new ConclusaoSinistro()
+            {
+                listaPagamentos = listaPag(),
+                boletimOcorrencia = tfBO.Text,
+                cliente = cbCliente.Text,
+                dataOcorrido = dtOcorrido.Text,
+                dataConclusao = dtConclusao.Text,
+                observacao = tfObservacao.Text,
+                veiculoReboquesSinistrados = veiculo_reboques,
+                cotasNaData = ss.cotas_na_data,
+                totalDeClientes = ss.clientes_no_rateio.ToString(),
+                valorPorCota = valor_por_cota,
+                valorTotalSinistro = valor_total_sinistro,
+                valorTotalDosBensSinistrados = valor_total_dos_bens_sinistrados,
+                cotasDosBensSinistrados = (valor_total_dos_bens_sinistrados / UtilsSistema.valor_por_cota).ToString(),
+                franquia = (UtilsSistema.franquiaSinistro + "% - R$ " + valor_total_dos_bens_sinistrados / 100 * UtilsSistema.franquiaSinistro).ToString()
 
-            /*ReportPrintTool tool = new ReportPrintTool(report);
-            tool.ShowRibbonPreview();//.ShowPreview();*/
+            });
+            return lista;
         }
 
-        List<ListaConclusaoSinistro> listaFinal()
+        List<ReboquesRelatorio> listaReboques(long id_veiculo, DateTime data_ativacao)
         {
             List<ReboquesRelatorio> reboques = new List<ReboquesRelatorio>();
-            reboques.Add(new ReboquesRelatorio() { cotas = "1", modelo = "reboque1", placa = "placa1", valor = "valor1" });
-            reboques.Add(new ReboquesRelatorio() { cotas = "2", modelo = "reboque2", placa = "placa2", valor = "valor2" });
-            reboques.Add(new ReboquesRelatorio() { cotas = "3", modelo = "reboque3", placa = "placa3", valor = "valor3" });
+            foreach(reboque r in conn.listaDeReboquesPorIdVeiculoEdataAtivacao(id_veiculo, data_ativacao)){
+                decimal cotas = r.valor / UtilsSistema.valor_por_cota;
+                reboques.Add(new ReboquesRelatorio()
+                { 
+                    placa = r.placa,
+                    modelo = "MODELO REBOQUE?!",
+                    valor = r.valor,
+                    cotas = (cotas).ToString(),
+                    participacao = valor_por_cota * cotas
+                });
+            }
+            return reboques;
+        }
 
+        List<VeiculosRelatorio> listaVeiculos(long id_cliente, DateTime data_ativacao)
+        {
             List<VeiculosRelatorio> veiculos = new List<VeiculosRelatorio>();
-            veiculos.Add( new VeiculosRelatorio() { cotas = "1", modelo="veiculo1", placa="placa1", valor="valor1", listaReboques = reboques });
-            veiculos.Add(new VeiculosRelatorio() { cotas = "2", modelo = "veiculo2", placa = "placa2", valor = "valor2", listaReboques = reboques });
-            veiculos.Add(new VeiculosRelatorio() { cotas = "3", modelo = "veiculo3", placa = "placa3", valor = "valor3", listaReboques = reboques });
+            foreach(veiculo v in conn.listaDeVeiculosPorIdClienteEDataAtivacao(id_cliente, data_ativacao)){
+                decimal cotas = v.valor / UtilsSistema.valor_por_cota;
+                veiculos.Add(new VeiculosRelatorio() 
+                {
+                    placa = v.placa, 
+                    modelo = conn.retornaModeloPorId(v.id_modelo_veiculos).nome,
+                    valor = v.valor,
+                    cotas = (cotas).ToString(),
+                    participacao = valor_por_cota * cotas,
+                    listaReboques = listaReboques(v.id, v.data_ativacao)
+                });
+            }
 
-            List<ListaConclusaoSinistro> principal = new List<ListaConclusaoSinistro>();
+            return veiculos;
+        }
 
-            principal.Add(new ListaConclusaoSinistro() { cliente = "TESTE1", listaVeiculo = veiculos });
-            principal.Add(new ListaConclusaoSinistro() { cliente = "TESTE2", listaVeiculo = veiculos });
-            principal.Add(new ListaConclusaoSinistro() { cliente = "TESTE3", listaVeiculo = veiculos });
+        List<ListaClientesRateio> listaFinal()
+        {
+            List<ListaClientesRateio> principal = new List<ListaClientesRateio>();
+            foreach(cliente c in conn.listaDeClientesPorDataDeAtivacao(dtOcorrido.DateTime)){
+                principal.Add(new ListaClientesRateio() { cliente = c.nome_completo, listaVeiculo = listaVeiculos(c.id, c.data_ativacao), totalParticipacao = 0 });
+            }
 
             return principal;
+        }
+
+        List<PagamentosSinistroRelatorio> listaPag()
+        {
+            List<PagamentosSinistroRelatorio> listp = new List<PagamentosSinistroRelatorio>();
+            foreach(pagamentos_sinistro p in (List<pagamentos_sinistro>)bdgPagamentos.DataSource){
+                listp.Add(new PagamentosSinistroRelatorio() { observação = p.observacao, valor = p.valor });
+            }
+            return listp;
+        }       
+
+        private void cbReboque1_EditValueChanged(object sender, EventArgs e)
+        {
+            List<reboque> listReboque = (List<reboque>)bdgReboques1.DataSource;
+            bdgReboques2.Clear();
+            bdgReboques3.Clear();
+            foreach (reboque r in listReboque)
+            {
+                if (!r.placa.Equals(cbReboque1.Text))
+                {
+                    bdgReboques2.Add(r);
+                }
+            }
+        }
+
+        private void cbReboque2_EditValueChanged(object sender, EventArgs e)
+        {
+            List<reboque> listReboque = (List<reboque>)bdgReboques2.DataSource;
+            bdgReboques3.Clear();
+            foreach (reboque r in listReboque)
+            {
+                if (!r.placa.Equals(cbReboque2.Text))
+                {
+                    bdgReboques3.Add(r);
+                }
+            }
+        }
+
+        private void btnGerarCobranca_Click(object sender, EventArgs e)
+        {
+            Instrucao_Itau instrucao = new Instrucao_Itau();
+            instrucao.Descricao = "Não receber após o vencimento.";
+            BoletoUtil bu = new BoletoUtil() 
+            {
+                aceite = "N",
+                carteiraBoleto = "109",
+                codigoBancoBoleto = 347,
+                dataProcessamento = conn.retornaDataHoraLocal(),
+                dataVencimento = conn.retornaDataHoraLocal().Date.AddDays(15),
+                nossoNumeroBoleto = "22222222",
+                percMulta = 5,
+                especieDocumento = new EspecieDocumento_Itau("19"),
+                instrucaoBoleto = instrucao,
+                jurosMora = 28,
+                mostrarCodigoCarteira = true,
+                mostrarComprovanteEntrega = true,
+                numeroDocumento = "00018438463",
+                numeroParcela = 1,
+                percJurosMora = Convert.ToDecimal(0.02),
+                valorBoleto = Convert.ToDecimal(2368.26),
+                diretorioNome = "C:\\Users\\William\\Desktop\\boleto_temp\\testeBoleto.html"
+
+            };
+            SacadoUtil su = new SacadoUtil() 
+            {
+                enderecoSacado = "Av Mato Grosso SN",
+                bairroSacado = "Centro",
+                cepSacado = "78.455-000",
+                cidadeSacado = "Lucas Do Rio Verde",
+                cpfCnpjSacado = "125.652.598-65", 
+                nomeSacado = "Fulano de Tal", 
+                ufSacado = "MT"
+            };
+            CedenteUtil ceu = new CedenteUtil()
+            {
+                nomeCedente = "SYS NORTE TECNOLOGIA", 
+                cpfCnpjCedente = "00.021.001/0001-06", 
+                codigoCedente = "001", 
+                agenciaCedente = "0810", 
+                contaCedente = "4022800", 
+                digitoContaCedente = "9"
+            };
+            //new GerenteDeBoletos().geraBoleto(bu, ceu, su);
         }
     }
 }

@@ -24,6 +24,12 @@ namespace WcfLibGrupo
         [OperationContract]
         Color backColorFoco();
 
+        [OperationContract]
+        decimal franquiaSinistro();
+
+        [OperationContract]
+        decimal valorPorCota();
+
         #endregion
 
         #region usuarios
@@ -83,6 +89,12 @@ namespace WcfLibGrupo
         [OperationContract]
         bool verificaSeInscricaoRgEhUnico(string insc);
 
+        [OperationContract]
+        int countClientesPorDataDeAtivacao(DateTime? data);
+
+        [OperationContract]
+        List<cliente> listaDeClientesPorDataDeAtivacao(DateTime? data);
+
         #endregion
 
         #region fipe
@@ -99,6 +111,9 @@ namespace WcfLibGrupo
         [OperationContract]
         ano_modelo_veiculo recuperaValorPorIdModelo(long id_modelo);
 
+        [OperationContract]
+        modelo_veiculo retornaModeloPorId(string id_modelo);
+
         #endregion
 
         #region veiculos
@@ -107,7 +122,16 @@ namespace WcfLibGrupo
         long salvarVeiculo(veiculo veiculo_obj);
 
         [OperationContract]
+        veiculo retornaVeiculoPorId(long id_veiculo);
+
+        [OperationContract]
         List<especies_veiculo> listaDeEspeciesVeiculos();
+
+        [OperationContract]
+        List<veiculo> listaDeVeiculosPorIdCliente(long id_cliente);
+
+        [OperationContract]
+        List<veiculo> listaDeVeiculosPorIdClienteEDataAtivacao(long id_cliente, DateTime data_ativacao);
 
         [OperationContract]
         List<veiculo> listaDeVeiculosPorInatividade(bool inativo);
@@ -119,7 +143,7 @@ namespace WcfLibGrupo
         List<veiculo> listaDeVeiculosPorId(long id, bool inativo);
 
         [OperationContract]
-        List<veiculo> listaDeVeiculosPorIdCliente(long id_cliente, bool inativo);
+        List<veiculo> listaDeVeiculosPorIdClienteEInatividade(long id_cliente, bool inativo);
 
         [OperationContract]
         decimal somaDeValoresDeVeiculosPorInatividade(bool inativo);
@@ -137,6 +161,9 @@ namespace WcfLibGrupo
         decimal somaValorTotalVeiculoPorIdClienteEInatividade(long id_cliente, bool inativo);
 
         [OperationContract]
+        decimal somaValorTotalVeiculoPorDataAtivacao(DateTime? data);
+
+        [OperationContract]
         List<veiculo> listaDeTodosVeiculos();
 
         #endregion
@@ -148,6 +175,9 @@ namespace WcfLibGrupo
 
         [OperationContract]
         long salvarReboque(reboque reboq);
+
+        [OperationContract]
+        reboque retornaReboquePorId(long id_reboque);
 
         [OperationContract]
         List<reboque> listaDeTodosReboques();
@@ -171,6 +201,9 @@ namespace WcfLibGrupo
         List<reboque> listaDeReboquesPorIdVeiculo(long id_veiculo, bool inativo);
 
         [OperationContract]
+        List<reboque> listaDeReboquesPorIdVeiculoEdataAtivacao(long id_veiculo, DateTime data);
+
+        [OperationContract]
         decimal somaDeValoresDeReboquesPorInatividade(bool inativo);
 
         [OperationContract]
@@ -184,6 +217,9 @@ namespace WcfLibGrupo
 
         [OperationContract]
         decimal somaValorTotalReboquesPorIdClienteEInatividade(long id_cliente, bool inativo);
+
+        [OperationContract]
+        decimal somaValorTotalReboquesPorDataAtivacao(DateTime? data);
 
         #endregion
 
@@ -252,7 +288,7 @@ namespace WcfLibGrupo
         #region sinistros
 
         [OperationContract]
-        long SalvaSinistro(sinistro obj, List<vei_reb_sinistros> listVR, List<pagamentos_sinistro> listPag);        
+        long SalvaSinistro(sinistro obj, List<pagamentos_sinistro> listPag);        
 
         [OperationContract]
         List<sinistro> listaDeSinistrosPorIdESituacao(long id_sinistro, int situacao);
@@ -273,10 +309,16 @@ namespace WcfLibGrupo
         List<sinistro> listaDeSinistrosPorIdCliente(long id_cliente);
 
         [OperationContract]
-        List<long> listaIdSinistroPorIdVeiculo(long id_veiculo);
+        List<sinistro> listaDeSinistroPorIdVeiculo(long id_veiculo);
 
         [OperationContract]
-        List<long> listaIdSinistroPorIdReboque(long id_reboque);
+        List<sinistro> listaDeSinistroPorIdVeiculoESituacao(long id_veiculo, int situacao);
+
+        [OperationContract]
+        List<sinistro> listaDeSinistroPorIdReboque(long id_reboque);
+
+        [OperationContract]
+        List<sinistro> listaDeSinistroPorIdReboqueESituacao(long id_reboque, int situacao);
 
         [OperationContract]
         decimal somaDePagamentosSinistrosPorIdSinistro(long id_sinistro);

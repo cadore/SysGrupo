@@ -860,6 +860,39 @@ namespace EntitiesGrupo
 
 
 
+
+        [Column]
+        public long id_veiculo { get; set; }
+
+
+
+        [Column]
+        public long id_reboque1 { get; set; }
+
+
+
+        [Column]
+        public long id_reboque2 { get; set; }
+
+
+
+        [Column]
+        public long id_reboque3 { get; set; }
+
+
+
+
+        [Column]
+        public decimal cotas_na_data { get; set; }
+
+
+
+
+        [Column]
+        public int clientes_no_rateio { get; set; }
+
+
+
         public decimal valor_total { get; set; }
 
 
@@ -880,36 +913,6 @@ namespace EntitiesGrupo
 
 	}
 
-
-
-    [TableName("vei_reb_sinistros")]
-
-
-    [PrimaryKey("id")]
-
-
-
-    [ExplicitColumns]
-    public partial class vei_reb_sinistros : SysGrupoRepo.Record<vei_reb_sinistros>
-    {
-
-
-        [Column]
-        public long id_sinistro { get; set; }
-
-
-
-        [Column]
-        public long id_veiculo { get; set; }
-
-
-
-        [Column]
-        public long id_reboque { get; set; }
-
-
-
-    }
 
 
 

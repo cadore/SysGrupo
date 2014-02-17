@@ -33,6 +33,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Boleto.Net">
+      <HintPath>..\packages\Boleto.Net.2.0.17\lib\net20\Boleto.Net.dll</HintPath>
+    </Reference>
     <Reference Include="DevExpress.BonusSkins.v13.2, Version=13.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Charts.v13.2.Core, Version=13.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Data.v13.2, Version=13.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
@@ -60,6 +63,7 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Remoting" />
     <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -85,12 +89,18 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Reports\ConclusaoSinistro.cs" />
-    <Compile Include="Reports\RelatorioConclusaoSinistro.cs">
+    <Compile Include="Reports\Models\ConclusaoSinistro.cs" />
+    <Compile Include="Reports\Sinistros\RelatorioConclusaoSinistro.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Reports\RelatorioConclusaoSinistro.Designer.cs">
+    <Compile Include="Reports\Sinistros\RelatorioConclusaoSinistro.Designer.cs">
       <DependentUpon>RelatorioConclusaoSinistro.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Sinistros\RelatorioPagamentosConclusaoSinistro.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\Sinistros\RelatorioPagamentosConclusaoSinistro.Designer.cs">
+      <DependentUpon>RelatorioPagamentosConclusaoSinistro.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Sinistros\BuscaSinistrosForm.cs">
       <SubType>UserControl</SubType>
@@ -160,6 +170,7 @@
     <Compile Include="UI\Veiculos\VeiculosForm.Designer.cs">
       <DependentUpon>VeiculosForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Utils\GerenteDeBoletos.cs" />
     <Compile Include="Utils\Botoes\BotaoImprimir.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -196,8 +207,11 @@
       <DependentUpon>FormPrincipal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
-    <EmbeddedResource Include="Reports\RelatorioConclusaoSinistro.resx">
+    <EmbeddedResource Include="Reports\Sinistros\RelatorioConclusaoSinistro.resx">
       <DependentUpon>RelatorioConclusaoSinistro.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Sinistros\RelatorioPagamentosConclusaoSinistro.resx">
+      <DependentUpon>RelatorioPagamentosConclusaoSinistro.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Sinistros\BuscaSinistrosForm.resx">
       <DependentUpon>BuscaSinistrosForm.cs</DependentUpon>
@@ -237,6 +251,7 @@
     <EmbeddedResource Include="UI\Veiculos\VeiculosForm.resx">
       <DependentUpon>VeiculosForm.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\DataSources\EntitiesGrupo.ano_modelo_veiculo.datasource" />
     <None Include="Properties\DataSources\EntitiesGrupo.arquivos_associado.datasource" />
     <None Include="Properties\DataSources\EntitiesGrupo.arquivos_cliente.datasource" />

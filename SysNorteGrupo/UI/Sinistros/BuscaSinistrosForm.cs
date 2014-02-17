@@ -26,7 +26,6 @@ namespace SysNorteGrupo.UI.Sinistros
             bdgVeiculos.DataSource = conn.listaDeTodosVeiculos();
             bdgReboques.DataSource = conn.listaDeTodosReboques();
         }
-
         private void executaBusca()
         {
             List<sinistro> listSinOrig = new List<sinistro>();
@@ -50,18 +49,11 @@ namespace SysNorteGrupo.UI.Sinistros
                     {
                         if (situacao == -1)
                         {
-                            List<long> listIdSinistro = conn.listaIdSinistroPorIdReboque(Convert.ToInt64(cbReboque.EditValue));
-                            foreach(long id_sinistro in listIdSinistro){
-                                listSinOrig.AddRange(conn.listaDeSinistrosPorId(id_sinistro));
-                            }
+                            listSinOrig = conn.listaDeSinistroPorIdReboque(Convert.ToInt64(cbReboque.EditValue));
                         }
                         else
                         {
-                            List<long> listIdSinistro = conn.listaIdSinistroPorIdReboque(Convert.ToInt64(cbReboque.EditValue));
-                            foreach (long id_sinistro in listIdSinistro)
-                            {
-                                listSinOrig = conn.listaDeSinistrosPorIdESituacao(id_sinistro, situacao);
-                            }
+                            listSinOrig = conn.listaDeSinistroPorIdReboqueESituacao(Convert.ToInt64(cbReboque.EditValue), situacao);
                         }
                         preencheLista(listSinOrig);
                         return;
@@ -70,11 +62,11 @@ namespace SysNorteGrupo.UI.Sinistros
                     {
                         if (situacao == -1)
                         {
-                            
+                            listSinOrig = conn.listaDeSinistroPorIdVeiculo(Convert.ToInt64(cbVeiculo.EditValue));
                         }
                         else
                         {
-                            
+                            listSinOrig = conn.listaDeSinistroPorIdVeiculoESituacao(Convert.ToInt64(cbVeiculo.EditValue), situacao);
                         }
                         preencheLista(listSinOrig);
                         return;
@@ -113,8 +105,17 @@ namespace SysNorteGrupo.UI.Sinistros
                     s.situacao = "CONCLUÍDO";
                 }
                 cliente c = conn.retornaClientePorId(s.id_cliente);
+                veiculo v = new veiculo();
+                reboque r1 = new reboque();
+                reboque r2 = new reboque();
+                reboque r3 = new reboque();
+                if (s.id_veiculo > 0)v = conn.retornaVeiculoPorId(s.id_veiculo);
+                if (s.id_reboque1 > 0) r1 = conn.retornaReboquePorId(s.id_reboque1);
+                if (s.id_reboque2 > 0) r2 = conn.retornaReboquePorId(s.id_reboque2);
+                if (s.id_reboque3 > 0) r3 = conn.retornaReboquePorId(s.id_reboque3);
                 s.nome_cliente = c.nome_completo;
                 s.valor_total = conn.somaDePagamentosSinistrosPorIdSinistro(s.id);
+                s.veiculos_reboques = String.Format(@"{0} / {1} / {2} / {3}", v.placa, r1.placa, r2.placa, r3.placa);
                 listSin.Add(s);
             }
             bdgSinistros.DataSource = listSin;
@@ -151,7 +152,7 @@ namespace SysNorteGrupo.UI.Sinistros
             cbReboque.EditValue = 0;
             if (Convert.ToInt64(cbCliente.EditValue) > 0)
             {
-                bdgVeiculos.DataSource = conn.listaDeVeiculosPorIdCliente(Convert.ToInt64(cbCliente.EditValue), false);
+                bdgVeiculos.DataSource = conn.listaDeVeiculosPorIdClienteEInatividade(Convert.ToInt64(cbCliente.EditValue), false);
                 bdgReboques.DataSource = conn.listaDeReboquesPorIdCliente(Convert.ToInt64(cbCliente.EditValue), false);
             }
             else
@@ -179,14 +180,15 @@ namespace SysNorteGrupo.UI.Sinistros
                 }
             }
         }
-
-        private void cbReboque_EditValueChanged(object sender, EventArgs e)
-        {
-        }
-
         private void btnBuscar_Click(object sender, EventArgs e)
         {
             executaBusca();
+        }
+        private void gridControl_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            sinistro si = (sinistro)bdgSinistros.Current;
+            SinistrosForm sif = new SinistrosForm(si){ formPrincipal = this.formPrincipal};
+            formPrincipal.adicionarControleNavegacao(sif);
         }
     }
 }

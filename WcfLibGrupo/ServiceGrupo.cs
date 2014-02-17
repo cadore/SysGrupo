@@ -32,6 +32,16 @@ namespace WcfLibGrupo
             return UtilsSistemaServico.backColorFoco;
         }
 
+        public decimal franquiaSinistro()
+        {
+            return UtilsSistemaServico.franquiaSinistro;
+        }
+
+        public decimal valorPorCota()
+        {
+            return UtilsSistemaServico.valor_por_cota;
+        }
+
         #endregion
 
         #region db
@@ -363,6 +373,39 @@ namespace WcfLibGrupo
                     new FaultCode("ERRDB"));
             }
         }
+
+        public int countClientesPorDataDeAtivacao(DateTime? data)
+        {
+            try
+            {
+                var sql = Sql.Builder.Append("SELECT Count(*) FROM cliente WHERE data_ativacao<=@0", data);
+
+                int rs = cliente.repo.ExecuteScalar<int>(sql);
+
+                return rs;
+            }
+            catch (Exception ex)
+            {
+                throw new FaultException(
+                    new FaultReason(String.Format("EXCEPT: {0}\n\nINNER EXCEPT: {1}", ex.Message, ex.InnerException)),
+                    new FaultCode("ERRDB"));
+            }
+        }
+
+        public List<cliente> listaDeClientesPorDataDeAtivacao(DateTime? data)
+        {
+            try
+            {
+                var sql = Sql.Builder.Append("SELECT * FROM cliente WHERE data_ativacao<=@0", data);
+                return cliente.Fetch(sql);
+            }
+            catch (Exception ex)
+            {
+                throw new FaultException(
+                    new FaultReason(String.Format("EXCEPT: {0}\n\nINNER EXCEPT: {1}", ex.Message, ex.InnerException)),
+                    new FaultCode("ERRDB"));
+            }
+        }
         #endregion
 
         #region fipe
@@ -427,6 +470,21 @@ namespace WcfLibGrupo
             }
         }
 
+        public modelo_veiculo retornaModeloPorId(string id_modelo)
+        {
+            try
+            {
+                var sql = Sql.Builder.Select("*").From("modelo_veiculos").Where("id=@0", id_modelo);
+                return modelo_veiculo.SingleOrDefault(sql);
+            }
+            catch (Exception ex)
+            {
+                throw new FaultException(
+                    new FaultReason(String.Format("EXCECÃO: {0}{1}INNER EXCEPTION: {2}", ex.Message, Environment.NewLine, ex.InnerException)),
+                    new FaultCode("1000"));
+            }
+        }
+
         #endregion
 
         #region Veiculos
@@ -446,12 +504,58 @@ namespace WcfLibGrupo
             }
         }
 
+        public veiculo retornaVeiculoPorId(long id_veiculo)
+        {
+            try
+            {
+                var sql = Sql.Builder.Select("*").From("veiculos").Where("id=@0", id_veiculo);
+                return veiculo.SingleOrDefault(sql);
+            }
+            catch (Exception ex)
+            {
+                reboque.repo.AbortTransaction();
+                throw new FaultException(
+                    new FaultReason(String.Format("EXCECÃO: {0}{1}INNER EXCEPTION: {2}", ex.Message, Environment.NewLine, ex.InnerException)),
+                    new FaultCode("1000"));
+            }
+        }
+
         public List<especies_veiculo> listaDeEspeciesVeiculos()
         {
             try
             {
                 var sql = Sql.Builder.Select("*").From("especies_veiculos").OrderBy("id");
                 return especies_veiculo.Fetch(sql);
+            }
+            catch (Exception ex)
+            {
+                throw new FaultException(
+                    new FaultReason(String.Format("EXCECÃO: {0}{1}INNER EXCEPTION: {2}", ex.Message, Environment.NewLine, ex.InnerException)),
+                    new FaultCode("1000"));
+            }
+        }
+
+        public List<veiculo> listaDeVeiculosPorIdCliente(long id_cliente)
+        {
+            try
+            {
+                var sql = Sql.Builder.Select("*").From("veiculos").Where("id_cliente=@0", id_cliente);
+                return veiculo.Fetch(sql);
+            }
+            catch (Exception ex)
+            {
+                throw new FaultException(
+                    new FaultReason(String.Format("EXCECÃO: {0}{1}INNER EXCEPTION: {2}", ex.Message, Environment.NewLine, ex.InnerException)),
+                    new FaultCode("1000"));
+            }
+        }
+
+        public List<veiculo> listaDeVeiculosPorIdClienteEDataAtivacao(long id_cliente, DateTime data_ativacao)
+        {
+            try
+            {
+                var sql = Sql.Builder.Select("*").From("veiculos").Where("id_cliente=@0", id_cliente).Where("data_ativacao<=@0", data_ativacao);
+                return veiculo.Fetch(sql);
             }
             catch (Exception ex)
             {
@@ -506,7 +610,7 @@ namespace WcfLibGrupo
             }
         }
 
-        public List<veiculo> listaDeVeiculosPorIdCliente(long id_cliente, bool inativo)
+        public List<veiculo> listaDeVeiculosPorIdClienteEInatividade(long id_cliente, bool inativo)
         {
             try
             {
@@ -657,6 +761,27 @@ namespace WcfLibGrupo
             }
         }
 
+        public decimal somaValorTotalVeiculoPorDataAtivacao(DateTime? data)
+        {
+            try
+            {
+                var sql = Sql.Builder.Append("SELECT SUM(valor) FROM veiculos WHERE data_ativacao<=@0;", data);
+
+                var rs = db.ExecuteScalar<string>(sql);
+                if (rs.Equals(DBNull.Value) || String.IsNullOrEmpty(rs))
+                {
+                    return 0;
+                }
+                return Convert.ToDecimal(rs);
+            }
+            catch (Exception ex)
+            {
+                throw new FaultException(
+                    new FaultReason(String.Format("EXCEPT: {0}\n\nINNER EXCEPT: {1}", ex.Message, ex.InnerException)),
+                    new FaultCode("ERRDB"));
+            }
+        }
+
         public List<veiculo> listaDeTodosVeiculos()
         {
             try
@@ -714,6 +839,22 @@ namespace WcfLibGrupo
                     return_id = reboq.id;
                 }
                 return return_id;
+            }
+            catch (Exception ex)
+            {
+                reboque.repo.AbortTransaction();
+                throw new FaultException(
+                    new FaultReason(String.Format("EXCECÃO: {0}{1}INNER EXCEPTION: {2}", ex.Message, Environment.NewLine, ex.InnerException)),
+                    new FaultCode("1000"));
+            }
+        }
+
+        public reboque retornaReboquePorId(long id_reboque)
+        {
+            try
+            {
+                var sql = Sql.Builder.Select("*").From("reboques").Where("id=@0", id_reboque);
+                return reboque.SingleOrDefault(sql);
             }
             catch (Exception ex)
             {
@@ -804,6 +945,21 @@ namespace WcfLibGrupo
             try
             {
                 var sql = Sql.Builder.Select("*").From("reboques").Where("id_veiculo=@0", id_veiculo).Where("inativo=@0", inativo).OrderBy("id");
+                return reboque.Fetch(sql);
+            }
+            catch (Exception ex)
+            {
+                throw new FaultException(
+                    new FaultReason(String.Format("EXCECÃO: {0}{1}INNER EXCEPTION: {2}", ex.Message, Environment.NewLine, ex.InnerException)),
+                    new FaultCode("1000"));
+            }
+        }
+
+        public List<reboque> listaDeReboquesPorIdVeiculoEdataAtivacao(long id_veiculo, DateTime data)
+        {
+            try
+            {
+                var sql = Sql.Builder.Select("*").From("reboques").Where("id_veiculo=@0", id_veiculo).Where("data_ativacao=@0", data);
                 return reboque.Fetch(sql);
             }
             catch (Exception ex)
@@ -942,6 +1098,27 @@ namespace WcfLibGrupo
                     return 0;
                 }
                 return Convert.ToDecimal(rs); 
+            }
+            catch (Exception ex)
+            {
+                throw new FaultException(
+                    new FaultReason(String.Format("EXCEPT: {0}\n\nINNER EXCEPT: {1}", ex.Message, ex.InnerException)),
+                    new FaultCode("ERRDB"));
+            }
+        }
+
+        public decimal somaValorTotalReboquesPorDataAtivacao(DateTime? data)
+        {
+            try
+            {
+                var sql = Sql.Builder.Append("SELECT SUM(valor) FROM reboques WHERE data_ativacao<=@0;", data);
+
+                var rs = db.ExecuteScalar<string>(sql);
+                if (rs.Equals(DBNull.Value) || String.IsNullOrEmpty(rs))
+                {
+                    return 0;
+                }
+                return Convert.ToDecimal(rs);
             }
             catch (Exception ex)
             {
@@ -1172,33 +1349,55 @@ namespace WcfLibGrupo
 
         #region sinistros
 
-        public long SalvaSinistro(sinistro obj, List<vei_reb_sinistros> listVR, List<pagamentos_sinistro> listPag)
+        public long SalvaSinistro(sinistro obj, List<pagamentos_sinistro> listPag)
         {
             try
             {
+                long _id_sinistroOriginal = obj.id;
                 long _id_sinistro;
                 using (var scope = sinistro.repo.GetTransaction())
-                {                    
+                {
+                    obj.clientes_no_rateio = countClientesPorDataDeAtivacao(obj.data_ocorrido);
+                    obj.cotas_na_data = (somaValorTotalReboquesPorDataAtivacao(obj.data_ocorrido) / UtilsSistemaServico.valor_por_cota) +
+                        (somaValorTotalVeiculoPorDataAtivacao(obj.data_ocorrido) / UtilsSistemaServico.valor_por_cota);
                     obj.Save();
-                    _id_sinistro = Convert.ToInt64(obj.id);
-                    foreach(vei_reb_sinistros vr in listVR){
-                        vei_reb_sinistros.repo.Save(new vei_reb_sinistros() { id_reboque = vr.id_reboque, id_veiculo = vr.id_veiculo, id_sinistro = _id_sinistro });
-                    }
+                    _id_sinistro = Convert.ToInt64(obj.id);                    
                     foreach(pagamentos_sinistro ps in listPag){
-                        pagamentos_sinistro.repo.Save(new pagamentos_sinistro() { valor = ps.valor, observacao = ps.observacao, id_sinistros = _id_sinistro});
+                        ps.id_sinistros = _id_sinistro;
+                        ps.Save();
                     }
+                    if (_id_sinistroOriginal == 0)
+                    {
+                        foreach(veiculo vei in listaDeTodosVeiculos()){
+                            historico_veic_reb_sinistros hv = new historico_veic_reb_sinistros()
+                            {
+                                id_reboque = 0,
+                                id_veiculo = vei.id,
+                                identificador = 'v',
+                                valor = vei.valor,
+                                id_sinistro = _id_sinistro
+                            };
+                            if (historico_veic_reb_sinistros.repo.IsNew(hv))
+                            {
+                                historico_veic_reb_sinistros.repo.Save(hv);
+                            }
+                        }
 
-                    foreach(veiculo vei in listaDeTodosVeiculos()){
-                        historico_veic_reb_sinistros.repo.Save(new historico_veic_reb_sinistros() { id_reboque = 0, id_veiculo = vei.id, identificador = 'v',
-                            valor = vei.valor, id_sinistro = _id_sinistro });
+                        foreach(reboque reb in listaDeTodosReboques()){
+                            historico_veic_reb_sinistros hr = new historico_veic_reb_sinistros() 
+                            { 
+                                id_reboque = reb.id,
+                                id_veiculo = 0,
+                                identificador = 'r',
+                                valor = reb.valor,
+                                id_sinistro = _id_sinistro
+                            };
+                            if (historico_veic_reb_sinistros.repo.IsNew(hr))
+                            {
+                                historico_veic_reb_sinistros.repo.Save(hr);
+                            }
+                        }
                     }
-
-                    foreach(reboque reb in listaDeTodosReboques()){
-                        historico_veic_reb_sinistros.repo.Save(new historico_veic_reb_sinistros() { id_reboque = reb.id, id_veiculo = 0, identificador = 'r',
-                            valor = reb.valor, id_sinistro = _id_sinistro});
-                    }
-
-
                     scope.Complete();
                 }
                 return _id_sinistro;
@@ -1216,7 +1415,7 @@ namespace WcfLibGrupo
         {
             try
             {
-                var sql = Sql.Builder.Select("*").From("sinistros");//.Where("id_sinistros=@0", id_sinistro);
+                var sql = Sql.Builder.Select("*").From("sinistros");
                 return sinistro.Fetch(sql);
             }
             catch (Exception ex)
@@ -1302,12 +1501,12 @@ namespace WcfLibGrupo
             }
         }
 
-        public List<long> listaIdSinistroPorIdVeiculo(long id_veiculo)
+        public List<sinistro> listaDeSinistroPorIdVeiculo(long id_veiculo)
         {
             try
             {
-                var sql = Sql.Builder.Select("id_sinistro").From("vei_reb_sinistros").Where("id_veiculo=@0", id_veiculo);
-                return db.Fetch<long>(sql);
+                var sql = Sql.Builder.Select("*").From("sinistros").Where("id_veiculo=@0", id_veiculo);
+                return sinistro.Fetch(sql);
             }
             catch (Exception ex)
             {
@@ -1317,12 +1516,46 @@ namespace WcfLibGrupo
             }
         }
 
-        public List<long> listaIdSinistroPorIdReboque(long id_reboque)
+        public List<sinistro> listaDeSinistroPorIdVeiculoESituacao(long id_veiculo, int situacao)
         {
             try
             {
-                var sql = Sql.Builder.Select("id_sinistro").From("vei_reb_sinistros").Where("id_reboque=@0", id_reboque);
-                return db.Fetch<long>(sql);
+                var sql = Sql.Builder.Select("*").From("sinistros").Where("id_veiculo=@0", id_veiculo).Where("situacao_sinistro=@0", situacao);
+                return sinistro.Fetch(sql);
+            }
+            catch (Exception ex)
+            {
+                throw new FaultException(
+                    new FaultReason(String.Format("EXCECÃO: {0}{1}INNER EXCEPTION: {2}", ex.Message, Environment.NewLine, ex.InnerException)),
+                    new FaultCode("1000"));
+            }
+        }
+
+        public List<sinistro> listaDeSinistroPorIdReboque(long id_reboque)
+        {
+            try
+            {
+                var sql = Sql.Builder.Append("SELECT * FROM sinistros WHERE id_reboque1=@0 " +
+                "UNION SELECT * FROM sinistros WHERE id_reboque2=@0 " +
+                "UNION SELECT * FROM sinistros WHERE id_reboque2=@0 ", id_reboque);
+                return sinistro.Fetch(sql);
+            }
+            catch (Exception ex)
+            {
+                throw new FaultException(
+                    new FaultReason(String.Format("EXCECÃO: {0}{1}INNER EXCEPTION: {2}", ex.Message, Environment.NewLine, ex.InnerException)),
+                    new FaultCode("1000"));
+            }
+        }
+
+        public List<sinistro> listaDeSinistroPorIdReboqueESituacao(long id_reboque, int situacao)
+        {
+            try
+            {
+                var sql = Sql.Builder.Append("SELECT * FROM sinistros WHERE id_reboque1=@0 AND situacao_sinistro=@1 " +
+                "UNION SELECT * FROM sinistros WHERE id_reboque2=@0 AND situacao_sinistro=@1 " +
+                "UNION SELECT * FROM sinistros WHERE id_reboque2=@0 AND situacao_sinistro=@1 ", id_reboque, situacao);
+                return sinistro.Fetch(sql);
             }
             catch (Exception ex)
             {
@@ -1346,7 +1579,6 @@ namespace WcfLibGrupo
                     new FaultCode("1000"));
             }
         }
-
         public decimal somaDePagamentosSinistrosPorIdSinistro(long id_sinistro)
         {
             try

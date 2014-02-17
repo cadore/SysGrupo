@@ -30,12 +30,13 @@ namespace SysNorteGrupo
             SkinManager.EnableFormSkins();
             UserLookAndFeel.Default.SetSkinStyle("Office 2013"); //Office 2013 //The Asphalt World
 
-            UtilsSistema uts = new UtilsSistema();
             IServiceGrupo conn = GerenteDeConexoes.iniciaConexao();
             UtilsSistema.backColorFoco = conn.backColorFoco();
+            UtilsSistema.franquiaSinistro = conn.franquiaSinistro();
+            UtilsSistema.valor_por_cota = conn.valorPorCota();
 
-            Application.Run(new FormPrincipal(new usuario(), new permicoes_usuario()));
-            //startApplication();
+            //Application.Run(new FormPrincipal(new usuario(), new permicoes_usuario()));
+            startApplication();
         }
 
         public static void startApplication()

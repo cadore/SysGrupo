@@ -126,7 +126,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 <table name="cliente">
 	<schema name="public"/>
 	<role name="postgres"/>
-	<position x="916.6" y="36"/>
+	<position x="928.6" y="48.8889"/>
 	<column name="id" not-null="true" default-value="nextval('cliente_id_seq'::regclass)">
 		<type name="bigint"/>
 	</column>
@@ -208,9 +208,6 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<column name="id_bairros" not-null="true">
 		<type name="bigint"/>
 	</column>
-	<column name="id_estados" not-null="true">
-		<type name="bigint"/>
-	</column>
 	<column name="uf_estado">
 		<type name="character varying" length="255"/>
 	</column>
@@ -256,7 +253,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 <table name="cad_cidades">
 	<schema name="public"/>
 	<role name="postgres"/>
-	<position x="3.99999" y="238.4"/>
+	<position x="43.3333" y="168.289"/>
 	<column name="id" not-null="true" default-value="nextval('cad_cidades_id_seq'::regclass)">
 		<type name="bigint"/>
 	</column>
@@ -288,7 +285,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 <table name="cad_enderecos">
 	<schema name="public"/>
 	<role name="postgres"/>
-	<position x="301" y="246.4"/>
+	<position x="376.333" y="243.844"/>
 	<column name="id" not-null="true" default-value="nextval('cad_enderecos_id_seq'::regclass)">
 		<type name="bigint"/>
 	</column>
@@ -320,7 +317,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 <table name="cad_estados">
 	<schema name="public"/>
 	<role name="postgres"/>
-	<position x="595" y="314.4"/>
+	<position x="655" y="291.622"/>
 	<column name="id" not-null="true" default-value="nextval('cad_estados_id_seq'::regclass)">
 		<type name="bigint"/>
 	</column>
@@ -349,7 +346,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 <table name="veiculos">
 	<schema name="public"/>
 	<role name="postgres"/>
-	<position x="1334" y="488.4"/>
+	<position x="57.1111" y="360.511"/>
 	<column name="id" not-null="true" default-value="nextval('veiculos_id_seq'::regclass)">
 		<type name="bigint"/>
 	</column>
@@ -435,7 +432,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 <table name="reboques">
 	<schema name="public"/>
 	<role name="postgres"/>
-	<position x="1367" y="180.4"/>
+	<position x="1375.89" y="156.067"/>
 	<column name="id" not-null="true" default-value="nextval('reboques_id_seq'::regclass)">
 		<type name="bigint"/>
 	</column>
@@ -478,8 +475,26 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<column name="uf_estado">
 		<type name="character varying" length="255"/>
 	</column>
+	<column name="id_especies_reboques">
+		<type name="bigint"/>
+	</column>
 	<column name="inativo">
-		<type name="bool"/>
+		<type name="boolean"/>
+	</column>
+	<column name="valor">
+		<type name="numeric" length="19" precision="2"/>
+	</column>
+	<column name="data_ativacao">
+		<type name="date"/>
+	</column>
+	<column name="data_cadastro">
+		<type name="date"/>
+	</column>
+	<column name="data_inativacao">
+		<type name="date"/>
+	</column>
+	<column name="ordem">
+		<type name="bigint"/>
 	</column>
 	<constraint name="FK_reboques_id" type="pk-constr" factor="100" table="public.reboques">
 		<columns names="id" ref-type="src-columns"/>
@@ -497,7 +512,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 <table name="sinistros">
 	<schema name="public"/>
 	<role name="postgres"/>
-	<position x="9.99999" y="381.8"/>
+	<position x="60" y="773.244"/>
 	<column name="id" not-null="true" default-value="nextval('sinistros_id_seq'::regclass)">
 		<type name="bigint"/>
 	</column>
@@ -528,6 +543,24 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<column name="id_cliente" not-null="true">
 		<type name="bigint"/>
 	</column>
+	<column name="id_veiculo">
+		<type name="bigint"/>
+	</column>
+	<column name="id_reboque1">
+		<type name="bigint"/>
+	</column>
+	<column name="id_reboque2">
+		<type name="bigint"/>
+	</column>
+	<column name="id_reboque3">
+		<type name="bigint"/>
+	</column>
+	<column name="cotas_na_data">
+		<type name="numeric" length="19" precision="2"/>
+	</column>
+	<column name="clientes_no_rateio">
+		<type name="bigint"/>
+	</column>
 	<constraint name="PK_sinistros_id" type="pk-constr" factor="100" table="public.sinistros">
 		<columns names="id" ref-type="src-columns"/>
 	</constraint>
@@ -544,7 +577,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 <table name="pagamentos_sinistro">
 	<schema name="public"/>
 	<role name="postgres"/>
-	<position x="382" y="435.8"/>
+	<position x="471" y="437.689"/>
 	<column name="id" not-null="true" default-value="nextval('pagamentos_sinistro_id_seq'::regclass)">
 		<type name="bigint"/>
 	</column>
@@ -573,7 +606,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 <table name="especies_veiculos">
 	<schema name="public"/>
 	<role name="postgres"/>
-	<position x="677" y="491.8"/>
+	<position x="491.444" y="578.8"/>
 	<column name="id" not-null="true" default-value="nextval('especies_veiculos_id_seq'::regclass)">
 		<type name="bigint"/>
 	</column>
@@ -596,7 +629,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 <table name="ano_modelo_veiculos">
 	<schema name="public"/>
 	<role name="postgres"/>
-	<position x="967" y="533.8"/>
+	<position x="780.556" y="546.578"/>
 	<column name="id" not-null="true" default-value="nextval('ano_modelo_veiculos_id_seq'::regclass)">
 		<type name="bigint"/>
 	</column>
@@ -628,7 +661,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 <table name="marca_veiculos">
 	<schema name="public"/>
 	<role name="postgres"/>
-	<position x="1048" y="739.8"/>
+	<position x="1097.89" y="548.8"/>
 	<column name="id" not-null="true" default-value="nextval('marca_veiculos_id_seq'::regclass)">
 		<type name="bigint"/>
 	</column>
@@ -646,7 +679,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 <table name="modelo_veiculos">
 	<schema name="public"/>
 	<role name="postgres"/>
-	<position x="56" y="616.2"/>
+	<position x="458.889" y="786.533"/>
 	<column name="id" not-null="true">
 		<type name="character varying" length="100"/>
 	</column>
@@ -675,7 +708,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 <table name="historico_veic_reb_sinistros">
 	<schema name="public"/>
 	<role name="postgres"/>
-	<position x="359" y="588.2"/>
+	<position x="789.222" y="687.645"/>
 	<column name="id" not-null="true" default-value="nextval('historico_veic_reb_sinistros_id_seq'::regclass)">
 		<type name="bigint"/>
 	</column>
@@ -699,44 +732,28 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	</constraint>
 </table>
 
-<table name="vei_reb_sinistros">
+<sequence name="especies_reboque_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
 	<schema name="public"/>
 	<role name="postgres"/>
-	<position x="670" y="614.2"/>
-	<column name="id_reboque">
-		<type name="bigint"/>
-	</column>
-	<column name="id_veiculo">
-		<type name="bigint"/>
-	</column>
-	<column name="id_sinistro">
-		<type name="bigint"/>
-	</column>
-</table>
+</sequence>
 
 <table name="especies_reboques">
 	<schema name="public"/>
 	<role name="postgres"/>
-	<position x="689" y="547"/>
-	<column name="id">
-		<type name="bigserial"/>
+	<position x="1115.11" y="636.533"/>
+	<column name="id" not-null="true" default-value="nextval('especies_reboque_id_seq'::regclass)">
+		<type name="bigint"/>
 	</column>
 	<column name="especie">
 		<type name="character varying" length="255"/>
 	</column>
-	<constraint name="PK_especies_reboque_id" type="pk-constr" factor="10" table="public.especies_reboques">
+	<constraint name="PK_especies_reboque_id" type="pk-constr" factor="100" table="public.especies_reboques">
 		<columns names="id" ref-type="src-columns"/>
 	</constraint>
 </table>
-
-<relationship name="especies_reboque_hm_reboques" type="rel1n"
-	 src-col-pattern="id_especies_reboques"
-	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
-	 src-fk-pattern="{st}_fk"
-	 col-indexes="14" constr-indexes="1"
-	 src-table="public.especies_reboques"
-	 dst-table="public.reboques"
-	 src-required="false" dst-required="false"/>
 
 <constraint name="usuarios_fk" type="fk-constr"	 comparison-type="MATCH FULL"
 	 upd-action="CASCADE" del-action="RESTRICT" ref-table="public.usuarios" table="public.permicoes_usuarios">
@@ -756,11 +773,6 @@ CAUTION: Do not modify this file unless you know what you are doing.
 <constraint name="cad_bairros_fk" type="fk-constr"	 comparison-type="MATCH FULL"
 	 upd-action="CASCADE" del-action="RESTRICT" ref-table="public.cad_bairros" table="public.cliente">
 	<columns names="id_bairros" ref-type="src-columns"/>
-	<columns names="id" ref-type="dst-columns"/>
-</constraint>
-<constraint name="cad_estados_fk" type="fk-constr"	 comparison-type="MATCH FULL"
-	 upd-action="CASCADE" del-action="RESTRICT" ref-table="public.cad_estados" table="public.cliente">
-	<columns names="id_estados" ref-type="src-columns"/>
 	<columns names="id" ref-type="dst-columns"/>
 </constraint>
 <constraint name="cad_cidades_fk" type="fk-constr"	 comparison-type="MATCH FULL"
@@ -803,6 +815,11 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<columns names="id_ano_modelo_veiculos" ref-type="src-columns"/>
 	<columns names="id" ref-type="dst-columns"/>
 </constraint>
+<constraint name="especies_reboque_fk" type="fk-constr"	 comparison-type="MATCH FULL"
+	 upd-action="CASCADE" del-action="SET NULL" ref-table="public.especies_reboques" table="public.reboques">
+	<columns names="id_especies_reboques" ref-type="src-columns"/>
+	<columns names="id" ref-type="dst-columns"/>
+</constraint>
 <constraint name="veiculos_fk" type="fk-constr"	 comparison-type="MATCH FULL"
 	 upd-action="CASCADE" del-action="RESTRICT" ref-table="public.veiculos" table="public.reboques">
 	<columns names="id_veiculo" ref-type="src-columns"/>
@@ -843,11 +860,6 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	 dst-table="public.cad_bairros"
 	 src-required="true" dst-required="true"/>
 
-<relationship name="rel_cliente_cad_estados" type="relfk"
-	 src-table="public.cliente"
-	 dst-table="public.cad_estados"
-	 src-required="true" dst-required="true"/>
-
 <relationship name="rel_cad_bairros_cad_cidades" type="relfk"
 	 src-table="public.cad_bairros"
 	 dst-table="public.cad_cidades"
@@ -886,6 +898,11 @@ CAUTION: Do not modify this file unless you know what you are doing.
 <relationship name="rel_veiculos_ano_modelo_veiculos" type="relfk"
 	 src-table="public.veiculos"
 	 dst-table="public.ano_modelo_veiculos"
+	 src-required="true" dst-required="true"/>
+
+<relationship name="rel_reboques_especies_reboques" type="relfk"
+	 src-table="public.reboques"
+	 dst-table="public.especies_reboques"
 	 src-required="true" dst-required="true"/>
 
 <relationship name="rel_reboques_veiculos" type="relfk"

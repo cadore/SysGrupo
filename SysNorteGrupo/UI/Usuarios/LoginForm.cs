@@ -36,8 +36,8 @@ namespace SysNorteGrupo.UI.Usuarios
 
             lbSenha.Visible = false;
 
-            tfLogin.Text = "admin";
-            tfSenha.Text = "admin";
+            /*tfLogin.Text = "admin";
+            tfSenha.Text = "admin";*/
         }
 
         void executaLogin()
