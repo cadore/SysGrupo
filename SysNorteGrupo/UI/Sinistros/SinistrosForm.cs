@@ -11,6 +11,7 @@ using DevExpress.XtraEditors.DXErrorProvider;
 using SysNorteGrupo.Reports;
 using DevExpress.XtraReports.UI;
 using BoletoNet;
+using DevExpress.XtraRichEdit;
 
 namespace SysNorteGrupo.UI.Sinistros
 {
@@ -457,10 +458,10 @@ namespace SysNorteGrupo.UI.Sinistros
             }
         }
 
-
+        
         private void btnGerarCobranca_Click(object sender, EventArgs e)
         {
-            foreach (ListaClientesRateio c in listaFinal())
+            /*foreach (ListaClientesRateio c in listaFinal())
             {
                 
                 Instrucao_Itau instrucao = new Instrucao_Itau();
@@ -506,22 +507,77 @@ namespace SysNorteGrupo.UI.Sinistros
                     digitoContaCedente = "9"
                 };
                 new GerenteDeBoletos().geraBoleto(bu, ceu, su);
-            }
+            }*/
+
+            Instrucao_Itau instrucao = new Instrucao_Itau();
+            instrucao.Descricao = "Não receber após o vencimento.";
+            BoletoUtil bu = new BoletoUtil()
+            {
+                aceite = "N",
+                carteiraBoleto = "109",
+                codigoBancoBoleto = 341,
+                dataProcessamento = conn.retornaDataHoraLocal(),
+                dataVencimento = conn.retornaDataHoraLocal().Date.AddDays(15),
+                nossoNumeroBoleto = "22222222",
+                percMulta = 5,
+                especieDocumento = new EspecieDocumento_Itau("99"),
+                instrucaoBoleto = instrucao,
+                jurosMora = 28,
+                mostrarCodigoCarteira = true,
+                mostrarComprovanteEntrega = true,
+                numeroDocumento = "00018438463",
+                numeroParcela = 1,
+                percJurosMora = Convert.ToDecimal(0.02),
+                valorBoleto = Convert.ToDecimal(2534),
+                diretorioNome = @"C:\Users\Ganzer\Documents\boletos\Boleto.html"//String.Format(@"C:\Users\Ganzer\Documents\boletos\Boleto{0}.html", c.cliente)
+
+            };
+            SacadoUtil su = new SacadoUtil()
+            {
+                enderecoSacado = "Av Mato Grosso SN",
+                bairroSacado = "Centro",
+                cepSacado = "78.455-000",
+                cidadeSacado = "Lucas Do Rio Verde",
+                cpfCnpjSacado = "125.652.598-65",
+                nomeSacado = "CLIENTE",
+                ufSacado = "MT"
+            };
+            CedenteUtil ceu = new CedenteUtil()
+            {
+                nomeCedente = "SYS NORTE TECNOLOGIA",
+                cpfCnpjCedente = "00.021.001/0001-06",
+                codigoCedente = "001",
+                agenciaCedente = "0810",
+                contaCedente = "4022800",
+                digitoContaCedente = "9"
+            };
+            new GerenteDeBoletos().geraBoleto(bu, ceu, su);
             
             /*//// load htmlstring to control to convert
             XtraReport report = new XtraReport();
-            report.PaperKind = System.Drawing.Printing.PaperKind.A4;
+            //report.PaperKind = System.Drawing.Printing.PaperKind.A4;
+
             XRRichText richText = new XRRichText();
             DetailBand db = new DetailBand();
+
             report.Bands.Add(db);
-            //richText.SizeF = new SizeF(800, 90);
+            richText.SizeF = new SizeF(800, 50);
             richText.LocationF = new PointF(0, 0);
+
+            richText.LoadFile(@"C:\Users\Ganzer\Documents\boletos\Boleto.html", XRRichTextStreamType.HtmlText);
+
+            
+            report.Bands[BandKind.Detail].Borders = DevExpress.XtraPrinting.BorderSide.None;
+
             report.Bands[BandKind.Detail].Controls.Add(richText);
 
-            richText.LoadFile(@"C:\Users\Ganzer\Documents\boletos\testeBoleto.html", XRRichTextStreamType.HtmlText);
-
             report.ExportOptions.Pdf.ShowPrintDialogOnOpen = true;
-            report.ExportToPdf(@"C:\Users\Ganzer\Documents\boletos\testeBoleto.pdf");*/
+            report.ExportToPdf(@"C:\Users\Ganzer\Documents\boletos\testeBoleto.pdf");
+
+            report.ShowPreviewDialog();*/
+
+            //RichEditDocumentServer reds = new RichEditDocumentServer();
+
         }
     }
 }
