@@ -39,6 +39,7 @@
     <Reference Include="DevExpress.BonusSkins.v13.2, Version=13.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Charts.v13.2.Core, Version=13.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Data.v13.2, Version=13.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Docs.v13.2, Version=13.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Office.v13.2.Core, Version=13.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.PivotGrid.v13.2.Core, Version=13.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Printing.v13.2.Core, Version=13.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
@@ -54,6 +55,12 @@
     <Reference Include="DevExpress.XtraLayout.v13.2, Version=13.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraReports.v13.2, Version=13.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraReports.v13.2.Extensions, Version=13.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="PdfSharp">
+      <HintPath>..\packages\PDFsharp.1.32.3057.0\lib\net20\PdfSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="PdfSharp.Charting">
+      <HintPath>..\packages\PDFsharp.1.32.3057.0\lib\net20\PdfSharp.Charting.dll</HintPath>
+    </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="SecureApp">
@@ -107,6 +114,12 @@
     </Compile>
     <Compile Include="Reports\Sinistros\RelatorioPagamentosConclusaoSinistro.Designer.cs">
       <DependentUpon>RelatorioPagamentosConclusaoSinistro.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\teste\testeboleto.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\teste\testeboleto.Designer.cs">
+      <DependentUpon>testeboleto.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Sinistros\BuscaSinistrosForm.cs">
       <SubType>UserControl</SubType>
@@ -221,6 +234,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\Sinistros\RelatorioPagamentosConclusaoSinistro.resx">
       <DependentUpon>RelatorioPagamentosConclusaoSinistro.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\teste\testeboleto.resx">
+      <DependentUpon>testeboleto.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Sinistros\BuscaSinistrosForm.resx">
       <DependentUpon>BuscaSinistrosForm.cs</DependentUpon>

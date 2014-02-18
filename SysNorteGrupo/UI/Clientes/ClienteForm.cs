@@ -1,11 +1,20 @@
-﻿using DevExpress.XtraEditors;
+﻿using BoletoNet;
+using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.DXErrorProvider;
+using DevExpress.XtraReports.UI;
+using DevExpress.XtraRichEdit;
 using DevExpress.XtraTab;
 using EntitiesGrupo;
+using PdfSharp.Pdf.Printing;
 using SysFileManager;
+using SysNorteGrupo.Reports.teste;
 using SysNorteGrupo.Utils;
 using System;
+using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
+using System.Drawing.Printing;
+using System.IO;
 using System.Reflection;
 using System.Windows.Forms;
 using WcfLibGrupo;
@@ -20,7 +29,7 @@ namespace SysNorteGrupo.UI.Clientes
 
         IServiceGrupo conn = null;
 
-        private Color backColor = UtilsSistema.backColorFoco;
+        private System.Drawing.Color backColor = UtilsSistema.backColorFoco;
 
         public ClienteForm(cliente cliente_instc)
         {
@@ -411,5 +420,150 @@ namespace SysNorteGrupo.UI.Clientes
             //formPrincipal.adicionarControleNavegacao(new ClienteForm(null) { formPrincipal = formPrincipal });
         }
 
+
+        partial class clienteteste
+        {
+            public decimal valor { get; set; }
+            public string cliente { get; set; }
+        }
+
+        partial class geradorpdf
+        {
+            public string diretorio { get; set; }
+            public string cliente { get; set; }
+        }
+
+
+        List<geradorpdf> pdfs = new List<geradorpdf>();
+        private void button1_Click(object sender, EventArgs e)
+        {
+            var currentDirectory = Directory.GetCurrentDirectory() + @"\pdf\wkhtmltopdf.exe";
+
+            List<clienteteste> cls = new List<clienteteste>();
+            cls.Add(new clienteteste() { cliente = "CLIENTE1", valor = Convert.ToDecimal(1225) });
+            cls.Add(new clienteteste() { cliente = "CLIENTE2", valor = Convert.ToDecimal(1500) });
+            cls.Add(new clienteteste() { cliente = "CLIENTE3", valor = Convert.ToDecimal(1800) });
+            cls.Add(new clienteteste() { cliente = "CLIENTE4", valor = Convert.ToDecimal(1900) });
+            cls.Add(new clienteteste() { cliente = "CLIENTE5", valor = Convert.ToDecimal(900) });
+            cls.Add(new clienteteste() { cliente = "CLIENTE6", valor = Convert.ToDecimal(1100) });
+            cls.Add(new clienteteste() { cliente = "CLIENTE7", valor = Convert.ToDecimal(825) });
+            cls.Add(new clienteteste() { cliente = "CLIENTE8", valor = Convert.ToDecimal(740) });
+
+            List<BoletoBancario> boletos = new List<BoletoBancario>();
+            
+
+            foreach (clienteteste c in cls)
+            {
+
+                Instrucao_Itau instrucao = new Instrucao_Itau() { Descricao = "Não receber após o vencimento." };
+
+                BoletoUtil bu = new BoletoUtil()
+                {
+                    aceite = "N",
+                    carteiraBoleto = "109",
+                    codigoBancoBoleto = 341,
+                    dataProcessamento = conn.retornaDataHoraLocal(),
+                    dataVencimento = conn.retornaDataHoraLocal().Date.AddDays(15),
+                    nossoNumeroBoleto = "22222222",
+                    percMulta = 5,
+                    especieDocumento = new EspecieDocumento_Itau("99"),
+                    instrucaoBoleto = instrucao,
+                    jurosMora = 28,
+                    mostrarCodigoCarteira = true,
+                    mostrarComprovanteEntrega = true,
+                    numeroDocumento = "00018438463",
+                    numeroParcela = 1,
+                    percJurosMora = Convert.ToDecimal(0.02),
+                    valorBoleto = c.valor,
+                    diretorioNome = String.Format(@"C:\Users\Ganzer\Documents\boletos\Boleto{0}.html", c.cliente)
+
+                };
+
+                SacadoUtil su = new SacadoUtil()
+                {
+                    enderecoSacado = "Av Mato Grosso SN",
+                    bairroSacado = "Centro",
+                    cepSacado = "78.455-000",
+                    cidadeSacado = "Lucas Do Rio Verde",
+                    cpfCnpjSacado = "125.652.598-65",
+                    nomeSacado = c.cliente,
+                    ufSacado = "MT"
+                };
+
+                CedenteUtil ceu = new CedenteUtil()
+                {
+                    nomeCedente = "SYS NORTE TECNOLOGIA",
+                    cpfCnpjCedente = "00.021.001/0001-06",
+                    codigoCedente = "001",
+                    agenciaCedente = "0810",
+                    contaCedente = "4022800",
+                    digitoContaCedente = "9"
+                };
+
+                pdfs.Add(new geradorpdf() { cliente = c.cliente, diretorio = bu.diretorioNome });
+                BoletoBancario bl = new GerenteDeBoletos().geraBoleto(bu, ceu, su);
+
+                bl.MontaHtmlNoArquivoLocal(bu.diretorioNome);
+                boletos.Add(bl);
+            }
+
+            foreach (geradorpdf bb in pdfs)
+            {
+                //Console.WriteLine(currentDirectory);
+                try
+                {
+                    Process p = new Process();
+                    //string str = System.Web.HttpContext.Current.Server.MapPath("wkhtmltopdf.exe");
+
+                    p.StartInfo.FileName = currentDirectory;
+                    p.StartInfo.Arguments = String.Format(" \"{0}\" {1}", bb.diretorio, String.Format(@"C:\Users\Ganzer\Documents\boletos\Boleto{0}.pdf", bb.cliente));
+                    p.StartInfo.UseShellExecute = false;
+                    p.StartInfo.RedirectStandardInput = true;
+                    p.StartInfo.RedirectStandardOutput = true;
+                    p.StartInfo.RedirectStandardError = true;
+                    p.StartInfo.CreateNoWindow = true;
+                    p.Start();
+
+                    p.WaitForExit();
+                    //System.Threading.Thread.Sleep(500);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+                finally
+                {
+                    if(File.Exists(bb.diretorio))
+                    {
+                        File.Delete(bb.diretorio);
+                    }
+                }
+            }
+
+            print();
+        }
+        
+        public void print()
+        {
+
+            DirectoryInfo dir = new DirectoryInfo(@"C:\Users\Ganzer\Documents\boletos\");
+            foreach (FileInfo f in dir.GetFiles())
+            {
+
+                PdfFilePrinter.AdobeReaderPath = @"C:\Program Files (x86)\Adobe\Reader 11.0\Reader\AcroRd32.exe";
+
+                PdfFilePrinter printer = new PdfFilePrinter(f.FullName, "Microsoft XPS Document Writer");
+
+                try
+                {
+                    printer.Print();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+            
+        }
     }
 }

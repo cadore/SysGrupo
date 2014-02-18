@@ -5,7 +5,7 @@ namespace SysNorteGrupo.Utils
     public class GerenteDeBoletos
     {
 
-        public void geraBoleto(BoletoUtil boletoU, CedenteUtil cedenteU, SacadoUtil sacadoU)
+        public BoletoBancario geraBoleto(BoletoUtil boletoU, CedenteUtil cedenteU, SacadoUtil sacadoU)
         {
             Cedente cedente = new Cedente(cedenteU.cpfCnpjCedente, cedenteU.nomeCedente, cedenteU.agenciaCedente, cedenteU.contaCedente, cedenteU.digitoContaCedente);
             cedente.Codigo = cedenteU.codigoCedente;
@@ -28,13 +28,19 @@ namespace SysNorteGrupo.Utils
             boleto.PercMulta = boletoU.percMulta;
 
 
-            BoletoBancario boleto_bancario = new BoletoBancario();
-            boleto_bancario.CodigoBanco = boletoU.codigoBancoBoleto;
-            boleto_bancario.Boleto = boleto;
-            boleto_bancario.MostrarCodigoCarteira = boletoU.mostrarCodigoCarteira;
+            BoletoBancario boleto_bancario = new BoletoBancario() 
+            { 
+                CodigoBanco = boletoU.codigoBancoBoleto,
+                Boleto = boleto, 
+                MostrarCodigoCarteira = boletoU.mostrarCodigoCarteira 
+            };
+
             boleto_bancario.Boleto.Valida();
+
             boleto_bancario.MostrarComprovanteEntrega = boletoU.mostrarComprovanteEntrega;
-            boleto_bancario.MontaHtmlNoArquivoLocal(boletoU.diretorioNome);
+
+            return boleto_bancario;
+            //boleto_bancario.MontaHtmlNoArquivoLocal(boletoU.diretorioNome);
         }
 
     }
