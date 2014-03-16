@@ -23,42 +23,56 @@ namespace SysNorteGrupo
         [STAThread]
         static void Main()
         {
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
+            try
+            {
+                Application.EnableVisualStyles();
+                Application.SetCompatibleTextRenderingDefault(false);
 
-            BonusSkins.Register();
-            SkinManager.EnableFormSkins();
-            UserLookAndFeel.Default.SetSkinStyle("Office 2013"); //Office 2013 //The Asphalt World
+                BonusSkins.Register();
+                SkinManager.EnableFormSkins();
+                UserLookAndFeel.Default.SetSkinStyle("Office 2013"); //Office 2013 //The Asphalt World
 
-            
 
-            // The following line provides localization for data formats. 
-            System.Threading.Thread.CurrentThread.CurrentCulture =
-                new System.Globalization.CultureInfo("pt-BR");
 
-            // The following line provides localization for the application's user interface. 
-            System.Threading.Thread.CurrentThread.CurrentUICulture =
-                new System.Globalization.CultureInfo("pt-BR");
+                // The following line provides localization for data formats. 
+                System.Threading.Thread.CurrentThread.CurrentCulture =
+                    new System.Globalization.CultureInfo("pt-BR");
 
-            IServiceGrupo conn = GerenteDeConexoes.iniciaConexao();
-            UtilsSistema.backColorFoco = conn.backColorFoco();
-            UtilsSistema.franquiaSinistro = conn.franquiaSinistro();
-            UtilsSistema.valor_por_cota = conn.valorPorCota();
+                // The following line provides localization for the application's user interface. 
+                System.Threading.Thread.CurrentThread.CurrentUICulture =
+                    new System.Globalization.CultureInfo("pt-BR");
 
-            //Application.Run(new FormPrincipal(new usuario(), new permicoes_usuario()));
-            startApplication();
+                IServiceGrupo conn = GerenteDeConexoes.iniciaConexao();
+                UtilsSistema.backColorFoco = conn.backColorFoco();
+                UtilsSistema.franquiaSinistro = conn.franquiaSinistro();
+                UtilsSistema.valor_por_cota = conn.valorPorCota();
+
+                //Application.Run(new FormPrincipal(new usuario(), new permicoes_usuario()));
+                startApplication();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         public static void startApplication()
         {
-            LoginForm frmLogin = new LoginForm();
-            if (frmLogin.ShowDialog() == DialogResult.OK)
+            try
             {
-                Application.Run(new FormPrincipal(usuario_instc, permicao_instc));
+                LoginForm frmLogin = new LoginForm();
+                if (frmLogin.ShowDialog() == DialogResult.OK)
+                {
+                    Application.Run(new FormPrincipal(usuario_instc, permicao_instc));
+                }
+                else
+                {
+                    Application.Exit();
+                }
             }
-            else
+            catch (Exception ex)
             {
-                Application.Exit();
+                throw new Exception(ex.Message);
             }
         }
     }

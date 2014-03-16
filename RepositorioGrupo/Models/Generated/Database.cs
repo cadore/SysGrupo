@@ -151,6 +151,20 @@ namespace EntitiesGrupo
 
 	}
 
+
+    [TableName("validacoes_sistema")]
+
+    [PrimaryKey("id")]
+
+    [ExplicitColumns]
+    public partial class validacoes_sistema : SysGrupoRepo.Record<validacoes_sistema>
+    {
+        [Column] public long id { get; set; }
+        [Column] public DateTime data_verificacao { get; set; }
+        [Column] public DateTime data_expiracao { get; set; }
+        [Column] public bool inativo { get; set; }
+    }
+
     
 	[TableName("estados")]
 
@@ -607,7 +621,6 @@ namespace EntitiesGrupo
 
 
 	}
-
     
 	[TableName("cidades")]
 

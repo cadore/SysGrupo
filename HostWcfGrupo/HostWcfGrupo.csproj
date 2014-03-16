@@ -59,6 +59,8 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utils\GerenteDeConexoes.cs" />
+    <Compile Include="Utils\ValidacaoSistema\ValidacaoUtilizacao.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -87,6 +89,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\RepositorioGrupo\RepositorioGrupo.csproj">
+      <Project>{70ba46a9-1743-4e93-a4d3-7b67fa822d00}</Project>
+      <Name>RepositorioGrupo</Name>
+    </ProjectReference>
     <ProjectReference Include="..\WcfLibGrupo\WcfLibGrupo.csproj">
       <Project>{4e95265e-7c25-4f8b-a055-0ac97466b0e3}</Project>
       <Name>WcfLibGrupo</Name>

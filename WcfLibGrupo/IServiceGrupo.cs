@@ -30,6 +30,24 @@ namespace WcfLibGrupo
         [OperationContract]
         decimal valorPorCota();
 
+        [OperationContract]
+        validacoes_sistema retornaUltimaValidacaoSistema();
+
+        [OperationContract]
+        long salvarValidacaoSistema(validacoes_sistema obj);
+
+        [OperationContract]
+        long CountValidacoesSistema();
+
+        [OperationContract]
+        void excluiTodasValidacoes();
+
+        #endregion
+
+        #region empresa
+
+        empresa retornaEmpresa();
+
         #endregion
 
         #region usuarios

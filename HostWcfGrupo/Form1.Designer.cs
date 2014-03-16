@@ -61,7 +61,7 @@
             this.tfStatus.ReadOnly = true;
             this.tfStatus.Size = new System.Drawing.Size(392, 119);
             this.tfStatus.TabIndex = 2;
-            this.tfStatus.Text = "Service started";
+            this.tfStatus.Text = "";
             // 
             // Form1
             // 
@@ -77,7 +77,7 @@
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
-            this.WindowState = System.Windows.Forms.FormWindowState.Minimized;
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();

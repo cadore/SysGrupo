@@ -72,6 +72,7 @@ namespace SysNorteGrupo.UI.Usuarios
                 }
                 catch (Exception ex)
                 {
+                    this.DialogResult = System.Windows.Forms.DialogResult.Cancel;
                     MessageBox.Show(ex.Message);
                 }
             }

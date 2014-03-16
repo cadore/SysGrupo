@@ -84,7 +84,6 @@ namespace SysNorteGrupo.Utils
         public decimal jurosMora { get; set; }
         public decimal percJurosMora { get; set; }
         public decimal percMulta { get; set; }
-
         public string diretorioNome { get; set; }
     }
 }

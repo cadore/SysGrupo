@@ -1,4 +1,5 @@
 ﻿using System.ServiceModel;
+using System.Windows;
 using WcfLibGrupo;
 
 namespace SysNorteGrupo
@@ -7,15 +8,14 @@ namespace SysNorteGrupo
     {
         private static EndpointAddress vEndPoint;
         private static IServiceGrupo conn = null;
-        private static string URLstring = null;
         public static IServiceGrupo iniciaConexao()
         {
-            URLstring = "http://localhost:8001/grupo/service";
+            string url = "net.tcp://192.168.1.11:8001/grupo/service";
 
-            WSHttpBinding b = new WSHttpBinding(SecurityMode.None);
+            NetTcpBinding b = new NetTcpBinding(SecurityMode.None);
             b.MaxBufferPoolSize = b.MaxBufferPoolSize * 2552350000256000154;
             b.MaxReceivedMessageSize = b.MaxReceivedMessageSize * 5000;
-            vEndPoint = new EndpointAddress(URLstring);
+            vEndPoint = new EndpointAddress(url);
             ChannelFactory<IServiceGrupo> cf = new ChannelFactory<IServiceGrupo>(b, vEndPoint);
             conn = cf.CreateChannel();
             return conn;

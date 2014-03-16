@@ -24,7 +24,14 @@ namespace WcfLibGrupo
 
         public DateTime retornaDataHoraUTC()
         {
-            return Datas.getUTCDateTime();
+            try
+            {
+                return Datas.getUTCDateTime();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
 
         public Color backColorFoco()
@@ -42,10 +49,75 @@ namespace WcfLibGrupo
             return UtilsSistemaServico.valor_por_cota;
         }
 
+        public void excluiTodasValidacoes()
+        {
+            db.Execute("DELETE FROM validacoes_sistema");
+        }
+
+        public long CountValidacoesSistema()
+        {
+            try
+            {
+                var sql = Sql.Builder.Append("SELECT Count(id) FROM validacoes_sistema");
+                return db.ExecuteScalar<long>(sql);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message + "\n" + ex.InnerException);
+            }
+        }
+
+        public validacoes_sistema retornaUltimaValidacaoSistema()
+        {
+            try
+            {
+                var sql = Sql.Builder.Append("SELECT * FROM validacoes_sistema ORDER BY id DESC LIMIT 1");
+                return validacoes_sistema.SingleOrDefault(sql);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message + "\n" + ex.InnerException);
+            }
+        }
+
+        public long salvarValidacaoSistema(validacoes_sistema obj)
+        {
+            try
+            {
+                obj.Save();
+                return Convert.ToInt64(obj.id);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message + "\n" + ex.InnerException);
+            }
+        }
+
         #endregion
 
         #region db
         private static Database db = new Database("postgresql");
+        #endregion
+
+        #region empresa
+
+        public empresa retornaEmpresa()
+        {
+            try
+            {
+                var sql = Sql.Builder.Select("*").From("empresa");
+                return empresa.SingleOrDefault(sql);
+            }
+            catch (Exception ex)
+            {
+                usuario.repo.AbortTransaction();
+
+                throw new FaultException(
+                    new FaultReason(String.Format("EXCECÃO: {0}{1}INNER EXCEPTION: {2}", ex.Message, Environment.NewLine, ex.InnerException)),
+                    new FaultCode("1000"));
+            }
+        }
+
         #endregion
 
         #region Usuario

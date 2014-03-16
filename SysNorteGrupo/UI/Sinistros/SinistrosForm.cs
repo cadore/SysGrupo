@@ -529,7 +529,7 @@ namespace SysNorteGrupo.UI.Sinistros
                 numeroParcela = 1,
                 percJurosMora = Convert.ToDecimal(0.02),
                 valorBoleto = Convert.ToDecimal(2534),
-                diretorioNome = @"C:\Users\Ganzer\Documents\boletos\Boleto.html"//String.Format(@"C:\Users\Ganzer\Documents\boletos\Boleto{0}.html", c.cliente)
+                diretorioNome = @"C:\Users\Ganzer\Documents\boletos\Boleto.html"
 
             };
             SacadoUtil su = new SacadoUtil()

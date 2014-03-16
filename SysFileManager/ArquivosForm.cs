@@ -43,6 +43,10 @@ namespace SysFileManager
             {
                 MessageBox.Show(ex.Message);
             }
+            finally
+            {
+                vereficaArquivos();
+            }
         }
 
         private void btnRefresh_Click(object sender, EventArgs e)
@@ -58,16 +62,28 @@ namespace SysFileManager
             }
         }
 
+        void vereficaArquivos(){
+            if(bdgArquivos.Current != null){
+                btnExcluir.Enabled = true;
+                btnDownload.Enabled = true;
+            }
+            else
+            {
+                btnExcluir.Enabled = false;
+                btnDownload.Enabled = false;
+            }
+        }
+
         private void btnAdicionar_Click(object sender, EventArgs e)
         {
             try
             {
-                OpenFileDialog sf = new OpenFileDialog();
-                sf.Filter = "Todos os Arquivos|*.*";
-                sf.AutoUpgradeEnabled = true;
-                if (sf.ShowDialog() == DialogResult.OK)
+                OpenFileDialog ofd = new OpenFileDialog();
+                ofd.Filter = "Todos os Arquivos|*.*";
+                ofd.AutoUpgradeEnabled = true;
+                if (ofd.ShowDialog() == DialogResult.OK)
                 {
-                    FileInfo fi = new FileInfo(sf.FileName);                    
+                    FileInfo fi = new FileInfo(ofd.FileName);                    
                     if (fi.Length > (30 * 1024) * 1024)
                     {
                         MessageBox.Show("O arquivo: '" + fi.Name + "' excede o tamanho de 30MB");
@@ -86,12 +102,13 @@ namespace SysFileManager
                     }
                     progressBar.Properties.ShowTitle = true;
                     progressBar.Position = 5;
-                    FileStream f1 = new FileStream(sf.FileName, FileMode.Open);                    
+                    FileStream f1 = new FileStream(ofd.FileName, FileMode.Open);                    
                     long length = Convert.ToInt64(f1.Length);
                     Byte[] b1 = new Byte[length];
                     f1.Read(b1, 0, (Int32)length);
                     string nome = fi.Name;
                     int max = ((Int32)length);
+
                     if (((Int32)length > 1024))
                     {
                         max = ((Int32)length / 1024);
@@ -124,15 +141,7 @@ namespace SysFileManager
 
         private void gridControl1_Click(object sender, EventArgs e)
         {
-            if(bdgArquivos.Current != null){
-                btnExcluir.Enabled = true;
-                btnDownload.Enabled = true;
-            }
-            else
-            {
-                btnExcluir.Enabled = false;
-                btnDownload.Enabled = false;
-            }
+            vereficaArquivos();
         }
 
         private void btnDownload_Click(object sender, EventArgs e)
@@ -184,34 +193,6 @@ namespace SysFileManager
                 MessageBox.Show("Erro ao excluir arquivo.\n"+ex.Message);
             }
         }
-
-        /*private void simpleButton1_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                FileInfo f1 = new FileInfo(@"C:\Users\William\Desktop\1.txt");
-                FileInfo f2 = new FileInfo(@"C:\Users\William\Desktop\2.txt");
-                FileInfo f3 = new FileInfo(@"C:\Users\William\Desktop\3.txt");
-
-                List<string> des = new List<string>();
-                des.Add("william.cadore@hotmail.com");
-                //des.Add("guilherme.ganzer@gmail.com");
-
-                List<FileInfo> an = new List<FileInfo>();
-                an.Add(f1);
-                an.Add(f2);
-                an.Add(f3);
-
-                if (conn.EnviaEmail(des, "", "", "TESTE ENVIO", "TESTANDO ENVIO EMAIL", false, MailPriority.Normal, an))
-                {
-                    MessageBox.Show("Email enviado!");
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }*/
     }
 }
 

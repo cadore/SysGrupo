@@ -12,12 +12,23 @@ namespace HostWcfGrupo
         /// The main entry point for the application.
         /// </summary>
         [STAThread]
-        static void Main()
+        static void Main(string[] args)
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //System.Diagnostics.Process.Start(@"D:\CADORE\Programação\C#\Projetos\SysGrupo\SysNorteGrupo\bin\Debug\SysNorteGrupo.exe");
-            Application.Run(new Form1());
+            int i = 0;
+            if(args.Length != 0){
+                if (args[0].Equals("local"))
+                {
+                    i = 1;
+                }
+                else
+                {
+                    i = 0;
+                }
+            }
+
+            Application.Run(new Form1(i));
         }
     }
 }
