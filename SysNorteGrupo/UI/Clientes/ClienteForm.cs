@@ -1,11 +1,9 @@
-﻿using BoletoNet;
-using DevExpress.XtraEditors;
+﻿using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.DXErrorProvider;
 using DevExpress.XtraReports.UI;
 using DevExpress.XtraRichEdit;
 using DevExpress.XtraTab;
 using EntitiesGrupo;
-using PdfSharp.Pdf.Printing;
 using SysFileManager;
 using SysNorteGrupo.Reports.teste;
 using SysNorteGrupo.Utils;
@@ -422,7 +420,7 @@ namespace SysNorteGrupo.UI.Clientes
         }
 
 
-        partial class clienteteste
+        /*partial class clienteteste
         {
             public decimal valor { get; set; }
             public string cliente { get; set; }
@@ -432,10 +430,10 @@ namespace SysNorteGrupo.UI.Clientes
         {
             public string diretorio { get; set; }
             public string cliente { get; set; }
-        }
+        }*/
 
 
-        List<geradorpdf> pdfs = new List<geradorpdf>();
+        /*List<geradorpdf> pdfs = new List<geradorpdf>();
         private void button1_Click(object sender, EventArgs e)
         {
             var currentDirectory = Directory.GetCurrentDirectory() + @"\pdf\wkhtmltopdf.exe";
@@ -565,6 +563,6 @@ namespace SysNorteGrupo.UI.Clientes
                 }
             }
             
-        }
+        }*/ 
     }
 }

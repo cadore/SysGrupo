@@ -33,9 +33,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Boleto.Net">
-      <HintPath>..\packages\Boleto.Net.2.0.17\lib\net20\Boleto.Net.dll</HintPath>
-    </Reference>
     <Reference Include="DevExpress.BonusSkins.v13.2, Version=13.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <Private>True</Private>
     </Reference>
@@ -92,12 +89,6 @@
     </Reference>
     <Reference Include="DevExpress.XtraReports.v13.2.Extensions, Version=13.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <Private>True</Private>
-    </Reference>
-    <Reference Include="PdfSharp">
-      <HintPath>..\packages\PDFsharp.1.32.3057.0\lib\net20\PdfSharp.dll</HintPath>
-    </Reference>
-    <Reference Include="PdfSharp.Charting">
-      <HintPath>..\packages\PDFsharp.1.32.3057.0\lib\net20\PdfSharp.Charting.dll</HintPath>
     </Reference>
     <Reference Include="PresentationCore">
       <Private>True</Private>
@@ -368,7 +359,6 @@
     <EmbeddedResource Include="UI\Veiculos\VeiculosForm.resx">
       <DependentUpon>VeiculosForm.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="packages.config" />
     <None Include="Properties\DataSources\EntitiesGrupo.ano_modelo_veiculo.datasource" />
     <None Include="Properties\DataSources\EntitiesGrupo.arquivos_associado.datasource" />
     <None Include="Properties\DataSources\EntitiesGrupo.arquivos_cliente.datasource" />

@@ -1,4 +1,5 @@
-﻿using System.ServiceModel;
+﻿using SysNorteGrupo.Utils;
+using System.ServiceModel;
 using System.Windows;
 using WcfLibGrupo;
 
@@ -10,7 +11,7 @@ namespace SysNorteGrupo
         private static IServiceGrupo conn = null;
         public static IServiceGrupo iniciaConexao()
         {
-            string url = "net.tcp://192.168.1.11:8001/grupo/service";
+            string url = FilesINI.ReadValue("sistema", "enderecoServico");
 
             NetTcpBinding b = new NetTcpBinding(SecurityMode.None);
             b.MaxBufferPoolSize = b.MaxBufferPoolSize * 2552350000256000154;

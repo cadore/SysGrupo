@@ -1,4 +1,4 @@
-﻿using BoletoNet;
+﻿/*using BoletoNet;
 using System;
 namespace SysNorteGrupo.Utils
 {
@@ -86,4 +86,4 @@ namespace SysNorteGrupo.Utils
         public decimal percMulta { get; set; }
         public string diretorioNome { get; set; }
     }
-}
+}*/

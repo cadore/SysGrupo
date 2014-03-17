@@ -14,7 +14,7 @@ namespace SysNorteGrupo.Utils
         [DllImport("kernel32.dll", EntryPoint = "WritePrivateProfileString")]
         private static extern bool WritePrivateProfileString(string lpAppName, string lpKeyName, string lpString, string lpFileName);
 
-        static string iniFile = Path.Combine(Directory.GetCurrentDirectory(), "config.ini");
+        static string iniFile = Path.Combine(Directory.GetCurrentDirectory(), "config.sysini");
 
         public static String ReadValue(string session, string key)
         {

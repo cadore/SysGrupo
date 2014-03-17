@@ -10,7 +10,6 @@ using SysNorteGrupo.Utils;
 using DevExpress.XtraEditors.DXErrorProvider;
 using SysNorteGrupo.Reports;
 using DevExpress.XtraReports.UI;
-using BoletoNet;
 using DevExpress.XtraRichEdit;
 
 namespace SysNorteGrupo.UI.Sinistros
@@ -508,7 +507,7 @@ namespace SysNorteGrupo.UI.Sinistros
                 };
                 new GerenteDeBoletos().geraBoleto(bu, ceu, su);
             }*/
-
+            /*
             Instrucao_Itau instrucao = new Instrucao_Itau();
             instrucao.Descricao = "Não receber após o vencimento.";
             BoletoUtil bu = new BoletoUtil()
@@ -552,7 +551,7 @@ namespace SysNorteGrupo.UI.Sinistros
                 digitoContaCedente = "9"
             };
             new GerenteDeBoletos().geraBoleto(bu, ceu, su);
-            
+            */
             /*//// load htmlstring to control to convert
             XtraReport report = new XtraReport();
             //report.PaperKind = System.Drawing.Printing.PaperKind.A4;
