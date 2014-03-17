@@ -96,6 +96,9 @@ namespace SysNorteGrupo.UI.Clientes
                 grpTipo.EditValue = cliente_instc.tipo_cliente;
 
                 panelArquivos.Enabled = true;
+                btnEditar.Enabled = true;
+                btnSalvar.Enabled = false;
+                panelComponentes.Enabled = false;
 
                 arquivosFormCli.DIRETORIO = String.Format(@"{0}{1}\", conn.SUBDIR_CLIENTES(), cliente_instc.id);
                 arquivosFormCli.executaBusca();
@@ -165,11 +168,17 @@ namespace SysNorteGrupo.UI.Clientes
             panelArquivos.Enabled = true;
             btnSalvar.Enabled = true;
             btnEditar.Enabled = false;
+            panelComponentes.Enabled = true;
+
+            arquivosFormCli.DIRETORIO = String.Format(@"{0}{1}\", conn.SUBDIR_CLIENTES(), ((cliente)bdgCliente.Current).id);
+            arquivosFormCli.executaBusca();
+            arquivosFormCli.Enabled = true;
         }
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
-            if (!ckIsento.Checked && tfInscricao.Text == string.Empty)
+            bool vazio = Util.textFieldIsEmpty(tfId);
+            if (!ckIsento.Checked && tfInscricao.Text == String.Empty)
             {
                 XtraMessageBox.Show("Informe o RG / INSCRIÇÃO caso o cliente não seja isento ou caso seja pessoa física.", "SYSNORTE GRUPO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 tfInscricao.Focus();
@@ -186,14 +195,14 @@ namespace SysNorteGrupo.UI.Clientes
                     return;
                 }
 
-                if (!conn.verificaSeCpfCnpjEhUnico(tfDocumento.EditValue.ToString()))
+                if (!conn.verificaSeCpfCnpjEhUnico(tfDocumento.EditValue.ToString(), !vazio))
                 {
                     XtraMessageBox.Show("O CPF/CNPJ informado já encontra-se cadastrado. Verifique!", "SYSNORTE GRUPO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     tfDocumento.Focus();
                     return;
                 }
 
-                if (!conn.verificaSeInscricaoRgEhUnico(tfInscricao.EditValue.ToString()))
+                if (!conn.verificaSeInscricaoRgEhUnico(tfInscricao.EditValue.ToString(), !vazio))
                 {
                     XtraMessageBox.Show("A INSCRIÇÃO/RG informado(a) já encontra-se cadastrado(a). Verifique!", "SYSNORTE GRUPO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     tfInscricao.Focus();
@@ -203,7 +212,7 @@ namespace SysNorteGrupo.UI.Clientes
                 int index_princ = tfEmailPrincipal.Text.IndexOf("@");
                 string _email_principal = tfEmailPrincipal.Text.Insert(index_princ, "@");
 
-                if (!conn.verificaSeEmailPrincipalEhUnico(_email_principal))
+                if (!conn.verificaSeEmailPrincipalEhUnico(_email_principal, !vazio))
                 {
                     XtraMessageBox.Show("O Email principal informado já encontra-se cadastrado. Verifique!", "SYSNORTE GRUPO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     tfEmailPrincipal.Focus();
@@ -229,6 +238,7 @@ namespace SysNorteGrupo.UI.Clientes
                     reabilitarPaineis(false);
                     btnSalvar.Enabled = false;
                     btnEditar.Enabled = true;
+                    panelArquivos.Enabled = false;
                 }
                 catch (Exception ex)
                 {

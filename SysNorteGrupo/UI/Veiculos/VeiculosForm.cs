@@ -193,34 +193,38 @@ namespace SysNorteGrupo.UI.Veiculos
             btnSalvar.Enabled = true;
             btnEditar.Enabled = false;
             btnInativar.Enabled = true;
+
+            arquivosForm.DIRETORIO = conn.SUBDIR_VEICULOS() + veiculo_instc.id.ToString() + @"\";
+            arquivosForm.executaBusca();
+            arquivosForm.Enabled = true;
         }
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
             try
             {
-                    bool empty = Util.textFieldIsEmpty(tfId);
+                    bool vazio = Util.textFieldIsEmpty(tfId);
                     //seta validações
                     setValidations();
                     //valida
                     if(validator.Validate())
                     {       
                         //verifica placa unica
-                        if (conn.verificaSePlacaVeiculoEhUnica(tfPlaca.Text, !empty) == false)
+                        if (conn.verificaSePlacaVeiculoEhUnica(tfPlaca.Text, !vazio) == false)
                         {
                             XtraMessageBox.Show("A PLACA "+tfPlaca.Text+" JÁ ENCONTRA-SE CADASTRADA. VERIFIQUE!");
                             return;
                         }
 
                         //verifica chassi unico
-                        if (conn.verificaSeNChassiEhUnico(tfChassi.Text, !empty) == false)
+                        if (conn.verificaSeNChassiEhUnico(tfChassi.Text, !vazio) == false)
                         {
                             XtraMessageBox.Show("O CHASSI " + tfChassi.Text + " JÁ ENCONTRA-SE CADASTRADO. VERIFIQUE!");
                             return;
                         }
 
                         //verifica renavam
-                        if (conn.verificaSeRenavamEhUnico(tfRenavam.Text, !empty) == false)
+                        if (conn.verificaSeRenavamEhUnico(tfRenavam.Text, !vazio) == false)
                         {
                             XtraMessageBox.Show("O RENAVAM " + tfRenavam.Text + " JÁ ENCONTRA-SE CADASTRADO. VERIFIQUE!");
                             return;
@@ -245,7 +249,7 @@ namespace SysNorteGrupo.UI.Veiculos
                         if(ckAgendarCad.CheckState == CheckState.Checked){
                             dataAtiv = tfDataAgendamento.DateTime;
                         }
-                        if (empty)
+                        if (vazio)
                         {
                             v.data_ativacao = dataAtiv;
                             v.inativo = false;

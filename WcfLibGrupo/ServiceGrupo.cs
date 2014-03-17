@@ -467,15 +467,26 @@ namespace WcfLibGrupo
             }
         }
 
-        public bool verificaSeCpfCnpjEhUnico(string doc)
+        public bool verificaSeCpfCnpjEhUnico(string doc, bool vazio)
         {
             try
             {
+                long count;
+
+                if (vazio == true)
+                {
+                    count = 1;
+                }
+                else
+                {
+                    count = 0;
+                }
+
                 var sql = String.Format("SELECT Count(*) FROM cliente WHERE documento='{0}';", doc);
 
                 long rs = cliente.repo.ExecuteScalar<long>(sql);
 
-                if (rs > 0)
+                if (rs > count)
                     return false;
                 else
                     return true;
@@ -488,17 +499,27 @@ namespace WcfLibGrupo
             }
         }
 
-        public bool verificaSeEmailPrincipalEhUnico(string email) 
+        public bool verificaSeEmailPrincipalEhUnico(string email, bool vazio) 
         {
             try
             {
+                long count;
+
+                if (vazio == true)
+                {
+                    count = 1;
+                }
+                else
+                {
+                    count = 0;
+                }
 
                 string sql = String.Format("SELECT Count(*) FROM cliente WHERE email_principal='{0}';", email);
                 //var sql = Sql.Builder.Select("*").From("cliente").Where("email_principal=@0", email);
 
                 long rs = cliente.repo.ExecuteScalar<long>(sql);
 
-                if (rs > 0)
+                if (rs > count)
                     return false;
                 else
                     return true;
@@ -511,15 +532,26 @@ namespace WcfLibGrupo
             }
         }
 
-        public bool verificaSeInscricaoRgEhUnico(string insc)
+        public bool verificaSeInscricaoRgEhUnico(string insc, bool vazio)
         {
             try
             {
+                long count;
+
+                if (vazio == true)
+                {
+                    count = 1;
+                }
+                else
+                {
+                    count = 0;
+                }
+
                 var sql = String.Format("SELECT Count(*) FROM cliente WHERE inscricao_rg='{0}';", insc);
 
                 long rs = cliente.repo.ExecuteScalar<long>(sql);
 
-                if (rs > 0)
+                if (rs > count)
                     return false;
                 else
                     return true;

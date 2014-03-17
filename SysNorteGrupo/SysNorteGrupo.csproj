@@ -244,16 +244,16 @@
     <Compile Include="UI\Veiculos\BuscaVeiculoForm.Designer.cs">
       <DependentUpon>BuscaVeiculoForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Veiculos\Reboques\BuscaReboqueForm.cs">
+    <Compile Include="UI\Reboques\BuscaReboqueForm.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UI\Veiculos\Reboques\BuscaReboqueForm.Designer.cs">
+    <Compile Include="UI\Reboques\BuscaReboqueForm.Designer.cs">
       <DependentUpon>BuscaReboqueForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Veiculos\Reboques\ReboqueForm.cs">
+    <Compile Include="UI\Reboques\ReboqueForm.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UI\Veiculos\Reboques\ReboqueForm.Designer.cs">
+    <Compile Include="UI\Reboques\ReboqueForm.Designer.cs">
       <DependentUpon>ReboqueForm.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Sinistros\SinistrosForm.cs">
@@ -347,10 +347,10 @@
     <EmbeddedResource Include="UI\Veiculos\BuscaVeiculoForm.resx">
       <DependentUpon>BuscaVeiculoForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Veiculos\Reboques\BuscaReboqueForm.resx">
+    <EmbeddedResource Include="UI\Reboques\BuscaReboqueForm.resx">
       <DependentUpon>BuscaReboqueForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Veiculos\Reboques\ReboqueForm.resx">
+    <EmbeddedResource Include="UI\Reboques\ReboqueForm.resx">
       <DependentUpon>ReboqueForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Sinistros\SinistrosForm.resx">

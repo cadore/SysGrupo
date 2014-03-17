@@ -110,13 +110,13 @@ namespace WcfLibGrupo
         cliente retornaClientePorId(long id);
 
         [OperationContract]
-        bool verificaSeCpfCnpjEhUnico(string doc);
+        bool verificaSeCpfCnpjEhUnico(string doc, bool vazio);
 
         [OperationContract]
-        bool verificaSeEmailPrincipalEhUnico(string email);
+        bool verificaSeEmailPrincipalEhUnico(string email, bool vazio);
 
         [OperationContract]
-        bool verificaSeInscricaoRgEhUnico(string insc);
+        bool verificaSeInscricaoRgEhUnico(string insc, bool vazio);
 
         [OperationContract]
         int countClientesPorDataDeAtivacao(DateTime? data);

@@ -61,14 +61,13 @@ namespace SysNorteGrupo.UI.Veiculos.Reboques
                     btnSalvar.Enabled = false;
                     btnEditar.Enabled = true;
                     ckAgendarCad.Visible = false;
+                    pnPrincipal.Enabled = false;
 
                     //tfDataAgendamento.EditValue = reboque_instc.data_ativacao;
                     bdgCidade.DataSource = conn.listaDeCidadesPorEstado(((reboque)bdgReboqueLista.Current).uf_estado);
 
                     arquivosFormReb.DIRETORIO = String.Format(@"{0}{1}\", conn.SUBDIR_REBOQUES(), ((reboque)bdgReboqueLista.Current).id);
-
                     arquivosFormReb.executaBusca();
-
                     arquivosFormReb.Enabled = true;
                 }
 
@@ -194,8 +193,11 @@ namespace SysNorteGrupo.UI.Veiculos.Reboques
             btnSalvar.Enabled = true;
             btnEditar.Enabled = false;
             btnInativar.Enabled = true;
-
             bdgReboqueLista.MoveFirst();
+
+            arquivosFormReb.DIRETORIO = String.Format(@"{0}{1}\", conn.SUBDIR_REBOQUES(), ((reboque)bdgReboqueLista.Current).id);
+            arquivosFormReb.executaBusca();
+            arquivosFormReb.Enabled = true;
         }
 
         private void btnSalvar_Click(object sender, EventArgs e)
@@ -241,10 +243,10 @@ namespace SysNorteGrupo.UI.Veiculos.Reboques
                 }
 
                 conn.salvarReboques(original);
-
-                XtraMessageBox.Show("REBOQUES SALVOS COM SUCESSO PARA O VEÍCULO INDICADO.", "SYSNORTE - GRUPO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-
+                btnSalvar.Enabled = false;
+                XtraMessageBox.Show("REBOQUES SALVOS COM SUCESSO PARA O VEÍCULO INDICADO.", "SYSNORTE TECNOLOGIA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 pnPrincipal.Enabled = false;
+                btnEditar.Enabled = true;
 
                 /*bool empty = Util.textFieldIsEmpty(tfId);
                 //seta validações

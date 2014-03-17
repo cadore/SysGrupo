@@ -123,7 +123,7 @@ namespace SysNorteGrupo.UI.Veiculos.Reboques
         {
             tfPlaca.Text = "";
             tfId.Text = "";
-            cbCliente.EditValue = null;
+            cbVeiculo.EditValue = null;
             verificaTipoPesquisaSearchLookUpEdit(cbCliente, 2);
         }
 
@@ -138,30 +138,30 @@ namespace SysNorteGrupo.UI.Veiculos.Reboques
         private void executaBusca()
         {
             List<reboque> listRetorno = new List<reboque>();
-            List<reboque> listVei = null;
+            List<reboque> listReb = null;
 
             if (tipoPesquisa == 0)
             {
-                listVei = conn.listaDeReboquesPorId(Convert.ToInt64(tfId.Text), _inativo);
+                listReb = conn.listaDeReboquesPorId(Convert.ToInt64(tfId.Text), _inativo);
             }
             else if (tipoPesquisa == 1)
             {
-                listVei = conn.listaDeReboquesPorPlaca(tfPlaca.Text, _inativo);
+                listReb = conn.listaDeReboquesPorPlaca(tfPlaca.Text, _inativo);
             }
             else if (tipoPesquisa == 2)
             {
-                listVei = conn.listaDeReboquesPorIdCliente(Convert.ToInt64(cbCliente.EditValue), _inativo);
+                listReb = conn.listaDeReboquesPorIdCliente(Convert.ToInt64(cbCliente.EditValue), _inativo);
             }
             else if (tipoPesquisa == 3)
             {
-                listVei = conn.listaDeReboquesPorIdVeiculo(Convert.ToInt64(cbVeiculo.EditValue), _inativo);
+                listReb = conn.listaDeReboquesPorIdVeiculo(Convert.ToInt64(cbVeiculo.EditValue), _inativo);
             }
             else
             {
-                listVei = conn.listaDeReboquesPorInatividade(_inativo);
+                listReb = conn.listaDeReboquesPorInatividade(_inativo);
             }
 
-            foreach (reboque r in listVei)
+            foreach (reboque r in listReb)
             {
                 cliente cli = conn.retornaClientePorId(r.id_cliente);
                 decimal cotas = r.valor / UtilsSistema.valor_por_cota;
