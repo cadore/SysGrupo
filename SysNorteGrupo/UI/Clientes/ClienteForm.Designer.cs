@@ -31,6 +31,7 @@ namespace SysNorteGrupo.UI.Clientes
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ClienteForm));
+            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule2 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule3 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule4 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
@@ -42,7 +43,6 @@ namespace SysNorteGrupo.UI.Clientes
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule10 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule11 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule12 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
-            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             this.pnBotoes = new DevExpress.XtraEditors.PanelControl();
             this.button1 = new System.Windows.Forms.Button();
             this.btnSair = new SysNorteGrupo.Utils.BotaoSair();
@@ -50,6 +50,7 @@ namespace SysNorteGrupo.UI.Clientes
             this.btnSalvar = new SysNorteGrupo.Utils.BotaoEditar();
             this.btnNovo = new SysNorteGrupo.Utils.BotaoNovo();
             this.panelComponentes = new DevExpress.XtraEditors.PanelControl();
+            this.grpTipo = new DevExpress.XtraEditors.RadioGroup();
             this.panelArquivos = new DevExpress.XtraEditors.PanelControl();
             this.arquivosFormCli = new SysFileManager.ArquivosForm();
             this.panelReferencias = new DevExpress.XtraEditors.PanelControl();
@@ -132,7 +133,6 @@ namespace SysNorteGrupo.UI.Clientes
             this.tfInscricao = new DevExpress.XtraEditors.TextEdit();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
-            this.grpTipo = new DevExpress.XtraEditors.RadioGroup();
             this.tfTotalBens = new DevExpress.XtraEditors.TextEdit();
             this.tfTotalCotas = new DevExpress.XtraEditors.TextEdit();
             this.tfId = new DevExpress.XtraEditors.TextEdit();
@@ -144,6 +144,7 @@ namespace SysNorteGrupo.UI.Clientes
             this.pnBotoes.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelComponentes)).BeginInit();
             this.panelComponentes.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.grpTipo.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelArquivos)).BeginInit();
             this.panelArquivos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelReferencias)).BeginInit();
@@ -192,7 +193,6 @@ namespace SysNorteGrupo.UI.Clientes
             ((System.ComponentModel.ISupportInitialize)(this.tfNome.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfDocumento.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfInscricao.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.grpTipo.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfTotalBens.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfTotalCotas.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfId.Properties)).BeginInit();
@@ -310,6 +310,20 @@ namespace SysNorteGrupo.UI.Clientes
             this.panelComponentes.Name = "panelComponentes";
             this.panelComponentes.Size = new System.Drawing.Size(1083, 521);
             this.panelComponentes.TabIndex = 1;
+            // 
+            // grpTipo
+            // 
+            this.grpTipo.Location = new System.Drawing.Point(370, 4);
+            this.grpTipo.Name = "grpTipo";
+            this.grpTipo.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
+            new DevExpress.XtraEditors.Controls.RadioGroupItem('f', "Pessoa Física"),
+            new DevExpress.XtraEditors.Controls.RadioGroupItem('j', "Pessoa Jurídica")});
+            this.grpTipo.Size = new System.Drawing.Size(222, 29);
+            this.grpTipo.TabIndex = 0;
+            conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule1.ErrorText = "Selecione o tipo de pessoa";
+            this.validador.SetValidationRule(this.grpTipo, conditionValidationRule1);
+            this.grpTipo.SelectedIndexChanged += new System.EventHandler(this.grpTipo_SelectedIndexChanged);
             // 
             // panelArquivos
             // 
@@ -1096,20 +1110,6 @@ namespace SysNorteGrupo.UI.Clientes
             this.labelControl2.TabIndex = 4;
             this.labelControl2.Text = "CPF/CNPJ:";
             // 
-            // grpTipo
-            // 
-            this.grpTipo.Location = new System.Drawing.Point(370, 4);
-            this.grpTipo.Name = "grpTipo";
-            this.grpTipo.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
-            new DevExpress.XtraEditors.Controls.RadioGroupItem('f', "Pessoa Física"),
-            new DevExpress.XtraEditors.Controls.RadioGroupItem('j', "Pessoa Jurídica")});
-            this.grpTipo.Size = new System.Drawing.Size(222, 29);
-            this.grpTipo.TabIndex = 0;
-            conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule1.ErrorText = "Selecione o tipo de pessoa";
-            this.validador.SetValidationRule(this.grpTipo, conditionValidationRule1);
-            this.grpTipo.SelectedIndexChanged += new System.EventHandler(this.grpTipo_SelectedIndexChanged);
-            // 
             // tfTotalBens
             // 
             this.tfTotalBens.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdgCliente, "valor_total", true));
@@ -1201,6 +1201,7 @@ namespace SysNorteGrupo.UI.Clientes
             ((System.ComponentModel.ISupportInitialize)(this.panelComponentes)).EndInit();
             this.panelComponentes.ResumeLayout(false);
             this.panelComponentes.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.grpTipo.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelArquivos)).EndInit();
             this.panelArquivos.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.panelReferencias)).EndInit();
@@ -1255,7 +1256,6 @@ namespace SysNorteGrupo.UI.Clientes
             ((System.ComponentModel.ISupportInitialize)(this.tfNome.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfDocumento.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfInscricao.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.grpTipo.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfTotalBens.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfTotalCotas.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfId.Properties)).EndInit();

@@ -93,8 +93,6 @@ namespace SysNorteGrupo.UI.Clientes
             }
             else
             {
-                grpTipo.EditValue = cliente_instc.tipo_cliente;
-
                 panelArquivos.Enabled = true;
                 btnEditar.Enabled = true;
                 btnSalvar.Enabled = false;
@@ -111,6 +109,7 @@ namespace SysNorteGrupo.UI.Clientes
                     bdgCidades.DataSource = conn.listaDeCidadesPorEstado(cliente_instc.uf_estado);
                     cbCidade.Enabled = true;
                     cbCidade.EditValue = cliente_instc.id_cidades;
+                    grpTipo.EditValue = Convert.ToChar(cliente_instc.tipo_cliente); 
                 }
                 catch (Exception ex)
                 {
