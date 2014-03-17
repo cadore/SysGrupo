@@ -1,7 +1,9 @@
 ﻿using EntitiesGrupo;
+using HostWcfGrupo.Utils;
 using HostWcfGrupo.Utils.ValidacaoSistema;
 using System;
 using System.Diagnostics;
+using System.IO;
 using System.ServiceModel;
 using System.Windows.Forms;
 using WcfLibGrupo;
@@ -20,7 +22,7 @@ namespace HostWcfGrupo
             try
             {                
                 this.Text = "SysNorteGrupo Server";
-                if (verificaAutenticidade())
+                if (verificaAutenticidade(i))
                 {
                     service(1);
                 }
@@ -31,28 +33,89 @@ namespace HostWcfGrupo
                 tfStatus.Text += "\n\n" + ex.Message + "\n" + ex.InnerException;
             }
         }
-        private bool verificaAutenticidade(){
+        private bool verificaAutenticidade(int i){
             ServiceGrupo sg = new ServiceGrupo();
             DateTime dataUTC = new DateTime();
             try
             {
-                dataUTC = sg.retornaDataHoraUTC().Date;
+                dataUTC = sg.retornaDataHoraUTC();
             }
-            catch (Exception ex){}
+            catch (Exception){}
             try
             {
-                btnStartStop.Enabled = true;                
-                if (sg.retornaDataHoraLocal().Date != dataUTC)
+                btnStartStop.Enabled = true;
+                try
                 {
-                    MessageBox.Show("Não foi possivel verificar a validade do sistema, verifique se a data da maquina esta correta e tente novamente.");
+                    if(sg.retornaDataHoraLocal().Date != dataUTC.Date){
+                        string execData = String.Format("Set-Date {0:yyyy-MM-dd}", dataUTC);
+                        Util.executeProcess(execData, null, true);
+                    }
+                    string execHora = String.Format("Set-Date {0:HH:mm:ss}", dataUTC);
+                    Util.executeProcess(execHora, null, true);
+                }catch(Exception ex){
+                    MessageBox.Show("Ocorreu um erro, não foi possivel verificar a validade do sistema, verifique se a data da maquina esta correta e tente novamente.\n"+ex.Message);
                     Environment.Exit(0);
                     return false;
                 }
-                if(sg.CountValidacoesSistema() > 100){
-                    sg.excluiTodasValidacoes();
-                }
-                validacoes_sistema vs = sg.retornaUltimaValidacaoSistema();
                 int VerificaOnline = verificaOnline();
+                if(i > 0)
+                {
+                    DialogResult rs = MessageBox.Show("Sistema iniciado em modo de autenticação local.\nSe você obtem o arquivo de liberação, pressione OK, caso contrario contate o suporte!",
+                        "SYSNORTE TECNOLOGIA", MessageBoxButtons.OKCancel);
+                    if (rs == DialogResult.Cancel)
+                    {
+                        Environment.Exit(0);
+                    }
+                    OpenFileDialog ofd = new OpenFileDialog();
+                    ofd.InitialDirectory = Environment.ExpandEnvironmentVariables("%HOMEDRIVE%%HOMEPATH%") + @"\Documents\";
+                    ofd.AutoUpgradeEnabled = true;
+                    ofd.Filter = "Arquivo SYSNORTE|*.sysnorte";
+                    DialogResult dr = ofd.ShowDialog();
+                    if (dr == DialogResult.OK)
+                    {
+                        string value = "";
+                        if (InputBox.MessageInputBox("SYSNORTE TECNOLOGIA", "Informe a senha do arquivo:", ref value, true) == DialogResult.OK)
+                        {
+                            string senhaArquivo = value;
+                            string arquivoSaida = UtilsSistemaServico.SUBDIR_TEMP_FILES + String.Format("{0:yyyy-MM-dd}_sysnorte", sg.retornaDataHoraLocal());
+                            Cryptology.DecryptFile(ofd.FileName, arquivoSaida, senhaArquivo);
+                            StreamReader arquivo = new StreamReader(arquivoSaida);                            
+                            //0               1               2          3       4      5
+                            //SYSNORTE|01.345.678/0001-69|2014-03-16|2014-03-17|SYSGRUPO|SYSNORTE
+                            string[] ta = arquivo.ReadToEnd().Split('|');
+                            arquivo.Close();
+                            File.Delete(arquivoSaida);
+                            int arquivoValido = verificaArquivoValido(ta);
+                            if (arquivoValido == 1)
+                            {
+                                empresa _empresa = sg.retornaEmpresa();
+                                if(!ta[1].Equals(_empresa.cnpj))
+                                {
+                                    MessageBox.Show("Arquivo inválido para numero de documento informado!");
+                                    Environment.Exit(0);
+                                }
+                                if(sg.retornaDataHoraLocal() < DateTime.Parse(ta[2]) || sg.retornaDataHoraLocal() > DateTime.Parse(ta[3]) )
+                                {
+                                    MessageBox.Show("Arquivo invalido para esta data!");
+                                    Environment.Exit(0);
+                                }
+                            }
+                            else
+                            {
+                                MessageBox.Show("Arquivo inválido!");
+                            }
+
+                        }
+                        else
+                        {
+                            Environment.Exit(0);
+                        }
+                    }
+                    else
+                    {
+                        Environment.Exit(0);
+                    }
+                }                    
                 if (VerificaOnline == 1)
                 {
                     return true;
@@ -61,22 +124,8 @@ namespace HostWcfGrupo
                 {                    
                     btnStartStop.Enabled = false;
                     tfStatus.Text = "Não foi possivel iniciar o serviço."
-                        + "\nStatus esta definido como inativo, contate o suporte.";
+                        + "\nOcorreu um erro na verificação ou status esta definido como inativo, contate o suporte.";
                     return false;
-                }
-                else if (VerificaOnline == -1)
-                {
-                    if(!vs.inativo && vs.data_expiracao >= sg.retornaDataHoraLocal()){
-                        return true;
-                    }
-                    else
-                    {
-                        btnStartStop.Enabled = false;
-                        tfStatus.Text = "Não foi possivel iniciar o serviço."
-                            +"\nTentativa de verificação online falhou, e status local esta definido como inativo"
-                            +"\nVerifique a conexao com a internet ou contate o suporte.";
-                        return false;
-                    }
                 }
             }
             catch (Exception ex)
@@ -86,15 +135,24 @@ namespace HostWcfGrupo
             return false;
         }
 
-        private int verificaOnline()
-        {            
+        int verificaArquivoValido(string[] ta)
+        {
             int flag = 0;
             try
             {
-                ServiceGrupo sg = new ServiceGrupo();
-                empresa _empresa = sg.retornaEmpresa();
-                ValidacaoUtilizacao vu = new ValidacoesDAO().recuperarPorNome(_empresa.razao_social);
-                if (vu.inativo == false && vu.data_expiracao.Date >= sg.retornaDataHoraLocal().Date)
+                /*MessageBox.Show(ta[0]);
+                MessageBox.Show(ta[1]);
+                MessageBox.Show(ta[2]);
+                MessageBox.Show(ta[3]);
+                MessageBox.Show(ta[4]);
+                MessageBox.Show(ta[5]);
+                MessageBox.Show(ta[6]);*/
+                if (ta[0].Trim().Equals("SYSNORTE")
+                    && !String.IsNullOrEmpty(ta[1])
+                    && !String.IsNullOrEmpty(ta[2])
+                    && !String.IsNullOrEmpty(ta[3])
+                    && ta[4].Trim().Equals("SYSGRUPO")
+                    && ta[5].Trim().Equals("SYSNORTE"))
                 {
                     flag = 1;
                 }
@@ -102,17 +160,48 @@ namespace HostWcfGrupo
                 {
                     flag = 0;
                 }
-                validacoes_sistema vs = new validacoes_sistema()
-                {
-                    inativo = vu.inativo,
-                    data_expiracao = vu.data_expiracao,
-                    data_verificacao = sg.retornaDataHoraLocal()
-                };
-                sg.salvarValidacaoSistema(vs);
             }
             catch (Exception ex)
             {
-                flag = -1;            
+                flag = -1;
+                throw new Exception(ex.Message);
+            }
+            return flag;
+        }
+
+        private int verificaOnline()
+        {            
+            int flag = 0;
+            try
+            {
+                ServiceGrupo sg = new ServiceGrupo();
+                empresa _empresa = sg.retornaEmpresa();
+                ValidacaoUtilizacao vu = new ValidacoesDAO().recuperarClientePorCnpj(_empresa.cnpj);
+                if(_empresa.cnpj.Equals(vu.cnpj))
+                {
+                    if (vu.inativo == false && vu.data_expiracao.Date >= sg.retornaDataHoraLocal().Date)
+                    {
+                        flag = 1;
+                    }
+                    else
+                    {
+                        flag = 0;
+                    }
+                    validacoes_sistema vs = new validacoes_sistema()
+                    {
+                        inativo = vu.inativo,
+                        data_expiracao = vu.data_expiracao,
+                        data_verificacao = sg.retornaDataHoraLocal()
+                    };
+                }
+                else
+                {
+                    flag = 0;
+                }
+            }
+            catch (Exception ex)
+            {
+                flag = 0;            
             }
             return flag;
         }
@@ -143,15 +232,14 @@ namespace HostWcfGrupo
             try
             {
                 if (i == 1)
-                {
+                {                    
                     host = new ServiceHost(typeof(ServiceGrupo));
                     var b = new NetTcpBinding(SecurityMode.None);
                     b.MaxBufferPoolSize = b.MaxBufferPoolSize * 2552350000256000154;
                     b.MaxReceivedMessageSize = b.MaxReceivedMessageSize * 5000;
                     b.Security.Message.ClientCredentialType = MessageCredentialType.None;
-                    host.AddServiceEndpoint(typeof(IServiceGrupo), b, new Uri("net.tcp://localhost:8001/grupo/service"));
-                    host.Open();
-                    UtilsSistemaServico.carregaConfigurações();
+                    host.AddServiceEndpoint(typeof(IServiceGrupo), b, new Uri(UtilsSistemaServico.enderecoServico));
+                    host.Open();                    
                     status = "started";
                     btnStartStop.Text = "Stop service";
                     tfStatus.Text = "Service started successfully.";

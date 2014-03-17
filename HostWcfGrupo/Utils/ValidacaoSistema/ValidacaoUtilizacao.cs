@@ -8,6 +8,7 @@ namespace HostWcfGrupo.Utils.ValidacaoSistema
         public long id { get; set; }
         public string razao_social { get; set; }
         public string nome_fantasia { get; set; }
+        public string cnpj { get; set; }
         public bool inativo { get; set; }
         public DateTime data_expiracao { get; set; }
         public DateTime data_cadastro { get; set; }
@@ -15,10 +16,10 @@ namespace HostWcfGrupo.Utils.ValidacaoSistema
 
     public class ValidacoesDAO
     {
-        public static string GET_BY_NOME_STATMENT = 
-            "SELECT id, razao_social, inativo, data_cadastro, data_expiracao, nome_fantasia FROM clientes_sys WHERE razao_social = razao_social;";
+        public static string GET_BY_CNPJ_STATMENT =
+            "SELECT id, razao_social, inativo, data_cadastro, data_expiracao, nome_fantasia, cnpj FROM clientes_sysgrupo WHERE cnpj = cnpj;";
 
-        public ValidacaoUtilizacao recuperarPorNome(string nome)
+        public ValidacaoUtilizacao recuperarClientePorCnpj(string cnpj)
         {
             NpgsqlConnection conn = null;
             NpgsqlCommand stmt = null;
@@ -28,18 +29,17 @@ namespace HostWcfGrupo.Utils.ValidacaoSistema
             try
             {
                 conn = GerenteDeConexoes.getConnection();
-                stmt = new NpgsqlCommand(GET_BY_NOME_STATMENT, conn);
-                stmt.Parameters.AddWithValue("razao_social", nome);
+                stmt = new NpgsqlCommand(GET_BY_CNPJ_STATMENT, conn);
+                stmt.Parameters.AddWithValue("cnpj", cnpj);
                 dr = stmt.ExecuteReader();
                 if(dr.Read()){
-                    //id, razao_social, inativo, data_cadastro, data_expiracao, nome_fantasia
                     long _id = Convert.ToInt64(dr[0]);
                     string _razao_social = dr[1].ToString();
                     bool _inativo = Convert.ToBoolean(dr[2]);
                     DateTime _data_cadastro = Convert.ToDateTime(dr[3]);
                     DateTime _data_expiracao = Convert.ToDateTime(dr[4]);
-                    
                     string _nome_fantasia = dr[5].ToString();
+                    string _cnpj = dr[6].ToString();
                     
                     validacao = new ValidacaoUtilizacao()
                     {
@@ -48,7 +48,8 @@ namespace HostWcfGrupo.Utils.ValidacaoSistema
                         inativo = _inativo,
                         data_expiracao = _data_expiracao,
                         data_cadastro = _data_cadastro,
-                        nome_fantasia = _nome_fantasia
+                        nome_fantasia = _nome_fantasia,
+                        cnpj = _cnpj
                     };
                 }
                 return validacao;

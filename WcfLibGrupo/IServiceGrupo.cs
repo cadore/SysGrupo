@@ -30,17 +30,25 @@ namespace WcfLibGrupo
         [OperationContract]
         decimal valorPorCota();
 
-        [OperationContract]
-        validacoes_sistema retornaUltimaValidacaoSistema();
+        #endregion
+
+        #region logs
 
         [OperationContract]
-        long salvarValidacaoSistema(validacoes_sistema obj);
+        int createLog(log _log);
 
         [OperationContract]
-        long CountValidacoesSistema();
+        List<log> ReadLog(string parameter, string parameterTwo, string parameterThree);
+
+        #endregion
+
+        #region BackupDB
 
         [OperationContract]
-        void excluiTodasValidacoes();
+        string createBackup(string password);
+
+        [OperationContract]
+        bool restoreBackup(string fileInput, string password);
 
         #endregion
 
@@ -56,6 +64,9 @@ namespace WcfLibGrupo
 
         [OperationContract]
         List<usuario> listaDeUsuariosAtivos();
+
+        [OperationContract]
+        List<usuario> listaDeTodosUsuarios();
 
         [OperationContract]
         usuario recuperaUsuarioPorId(long id);

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WcfLibGrupo.Utils;
 
 namespace HostWcfGrupo
 {
@@ -27,7 +28,7 @@ namespace HostWcfGrupo
                     i = 0;
                 }
             }
-
+            UtilsSistemaServico.carregaConfigurações();
             Application.Run(new Form1(i));
         }
     }

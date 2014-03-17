@@ -29,8 +29,8 @@ namespace SysNorteGrupo.UI.Clientes
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ClienteForm));
-            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule2 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule3 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule4 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
@@ -42,7 +42,9 @@ namespace SysNorteGrupo.UI.Clientes
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule10 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule11 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule12 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
+            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             this.pnBotoes = new DevExpress.XtraEditors.PanelControl();
+            this.button1 = new System.Windows.Forms.Button();
             this.btnSair = new SysNorteGrupo.Utils.BotaoSair();
             this.btnEditar = new SysNorteGrupo.Utils.BotaoEditar();
             this.btnSalvar = new SysNorteGrupo.Utils.BotaoEditar();
@@ -56,7 +58,7 @@ namespace SysNorteGrupo.UI.Clientes
             this.labelControl16 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl15 = new DevExpress.XtraEditors.LabelControl();
             this.tfRefcomercial = new DevExpress.XtraEditors.TextEdit();
-            this.bdgCliente = new System.Windows.Forms.BindingSource();
+            this.bdgCliente = new System.Windows.Forms.BindingSource(this.components);
             this.tfContcomercial = new DevExpress.XtraEditors.TextEdit();
             this.xtraTabPage2 = new DevExpress.XtraTab.XtraTabPage();
             this.labelControl17 = new DevExpress.XtraEditors.LabelControl();
@@ -74,7 +76,7 @@ namespace SysNorteGrupo.UI.Clientes
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.tfObservacoes = new DevExpress.XtraEditors.MemoEdit();
             this.cbEndereco = new DevExpress.XtraEditors.SearchLookUpEdit();
-            this.bdgEnderecos = new System.Windows.Forms.BindingSource();
+            this.bdgEnderecos = new System.Windows.Forms.BindingSource(this.components);
             this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colcep = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -82,7 +84,7 @@ namespace SysNorteGrupo.UI.Clientes
             this.colbairro_id = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn6 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.cbBairro = new DevExpress.XtraEditors.SearchLookUpEdit();
-            this.bdgBairros = new System.Windows.Forms.BindingSource();
+            this.bdgBairros = new System.Windows.Forms.BindingSource(this.components);
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colnome_bairro = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -91,14 +93,14 @@ namespace SysNorteGrupo.UI.Clientes
             this.tfCep = new DevExpress.XtraEditors.TextEdit();
             this.tfNumero = new DevExpress.XtraEditors.TextEdit();
             this.cbEstados = new DevExpress.XtraEditors.SearchLookUpEdit();
-            this.bdgEstados = new System.Windows.Forms.BindingSource();
+            this.bdgEstados = new System.Windows.Forms.BindingSource(this.components);
             this.gridView3 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
             this.coluf = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colnome_estado = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colcod_ibge = new DevExpress.XtraGrid.Columns.GridColumn();
             this.cbCidade = new DevExpress.XtraEditors.SearchLookUpEdit();
-            this.bdgCidades = new System.Windows.Forms.BindingSource();
+            this.bdgCidades = new System.Windows.Forms.BindingSource(this.components);
             this.searchLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.col_cidade = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -137,8 +139,7 @@ namespace SysNorteGrupo.UI.Clientes
             this.labelControl9 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl24 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl23 = new DevExpress.XtraEditors.LabelControl();
-            this.validador = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider();
-            this.button1 = new System.Windows.Forms.Button();
+            this.validador = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pnBotoes)).BeginInit();
             this.pnBotoes.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelComponentes)).BeginInit();
@@ -214,6 +215,16 @@ namespace SysNorteGrupo.UI.Clientes
             this.pnBotoes.Size = new System.Drawing.Size(1083, 69);
             this.pnBotoes.TabIndex = 0;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(641, 25);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 11;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // btnSair
             // 
             this.btnSair.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(199)))));
@@ -285,10 +296,10 @@ namespace SysNorteGrupo.UI.Clientes
             // 
             // panelComponentes
             // 
+            this.panelComponentes.Controls.Add(this.grpTipo);
             this.panelComponentes.Controls.Add(this.panelArquivos);
             this.panelComponentes.Controls.Add(this.panelReferencias);
             this.panelComponentes.Controls.Add(this.panelCadastro);
-            this.panelComponentes.Controls.Add(this.grpTipo);
             this.panelComponentes.Controls.Add(this.tfTotalBens);
             this.panelComponentes.Controls.Add(this.tfTotalCotas);
             this.panelComponentes.Controls.Add(this.tfId);
@@ -554,10 +565,10 @@ namespace SysNorteGrupo.UI.Clientes
             this.cbEndereco.Properties.View = this.gridView2;
             this.cbEndereco.Size = new System.Drawing.Size(349, 20);
             this.cbEndereco.TabIndex = 2;
-            conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.Greater;
-            conditionValidationRule1.ErrorText = "Informe um endereço";
-            conditionValidationRule1.Value1 = 0;
-            this.validador.SetValidationRule(this.cbEndereco, conditionValidationRule1);
+            conditionValidationRule2.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.Greater;
+            conditionValidationRule2.ErrorText = "Informe um endereço";
+            conditionValidationRule2.Value1 = 0;
+            this.validador.SetValidationRule(this.cbEndereco, conditionValidationRule2);
             this.cbEndereco.EditValueChanged += new System.EventHandler(this.cbEndereco_EditValueChanged);
             // 
             // bdgEnderecos
@@ -629,10 +640,10 @@ namespace SysNorteGrupo.UI.Clientes
             this.cbBairro.Properties.View = this.gridView1;
             this.cbBairro.Size = new System.Drawing.Size(349, 20);
             this.cbBairro.TabIndex = 1;
-            conditionValidationRule2.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.Greater;
-            conditionValidationRule2.ErrorText = "Selecione um bairro para o endereço";
-            conditionValidationRule2.Value1 = 0;
-            this.validador.SetValidationRule(this.cbBairro, conditionValidationRule2);
+            conditionValidationRule3.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.Greater;
+            conditionValidationRule3.ErrorText = "Selecione um bairro para o endereço";
+            conditionValidationRule3.Value1 = 0;
+            this.validador.SetValidationRule(this.cbBairro, conditionValidationRule3);
             // 
             // bdgBairros
             // 
@@ -687,9 +698,9 @@ namespace SysNorteGrupo.UI.Clientes
             this.tfCep.Properties.ReadOnly = true;
             this.tfCep.Size = new System.Drawing.Size(166, 20);
             this.tfCep.TabIndex = 4;
-            conditionValidationRule3.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule3.ErrorText = "Informe o CEP";
-            this.validador.SetValidationRule(this.tfCep, conditionValidationRule3);
+            conditionValidationRule4.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule4.ErrorText = "Informe o CEP";
+            this.validador.SetValidationRule(this.tfCep, conditionValidationRule4);
             // 
             // tfNumero
             // 
@@ -698,9 +709,9 @@ namespace SysNorteGrupo.UI.Clientes
             this.tfNumero.Name = "tfNumero";
             this.tfNumero.Size = new System.Drawing.Size(174, 20);
             this.tfNumero.TabIndex = 3;
-            conditionValidationRule4.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule4.ErrorText = "Informe o número do endereço";
-            this.validador.SetValidationRule(this.tfNumero, conditionValidationRule4);
+            conditionValidationRule5.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule5.ErrorText = "Informe o número do endereço";
+            this.validador.SetValidationRule(this.tfNumero, conditionValidationRule5);
             // 
             // cbEstados
             // 
@@ -717,9 +728,9 @@ namespace SysNorteGrupo.UI.Clientes
             this.cbEstados.Properties.View = this.gridView3;
             this.cbEstados.Size = new System.Drawing.Size(62, 20);
             this.cbEstados.TabIndex = 0;
-            conditionValidationRule5.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule5.ErrorText = "Selecione um estado para o endereço";
-            this.validador.SetValidationRule(this.cbEstados, conditionValidationRule5);
+            conditionValidationRule6.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule6.ErrorText = "Selecione um estado para o endereço";
+            this.validador.SetValidationRule(this.cbEstados, conditionValidationRule6);
             this.cbEstados.EditValueChanged += new System.EventHandler(this.cbEstados_EditValueChanged);
             // 
             // bdgEstados
@@ -785,10 +796,10 @@ namespace SysNorteGrupo.UI.Clientes
             this.cbCidade.Properties.View = this.searchLookUpEdit1View;
             this.cbCidade.Size = new System.Drawing.Size(268, 20);
             this.cbCidade.TabIndex = 0;
-            conditionValidationRule6.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.Greater;
-            conditionValidationRule6.ErrorText = "Selecione uma cidade para o endereço";
-            conditionValidationRule6.Value1 = 0;
-            this.validador.SetValidationRule(this.cbCidade, conditionValidationRule6);
+            conditionValidationRule7.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.Greater;
+            conditionValidationRule7.ErrorText = "Selecione uma cidade para o endereço";
+            conditionValidationRule7.Value1 = 0;
+            this.validador.SetValidationRule(this.cbCidade, conditionValidationRule7);
             this.cbCidade.EditValueChanged += new System.EventHandler(this.cbCidade_EditValueChanged);
             // 
             // bdgCidades
@@ -974,9 +985,9 @@ namespace SysNorteGrupo.UI.Clientes
             this.tfEmailPrincipal.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
             this.tfEmailPrincipal.Size = new System.Drawing.Size(443, 20);
             this.tfEmailPrincipal.TabIndex = 2;
-            conditionValidationRule7.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule7.ErrorText = "Informe o Email principal";
-            this.validador.SetValidationRule(this.tfEmailPrincipal, conditionValidationRule7);
+            conditionValidationRule8.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule8.ErrorText = "Informe o Email principal";
+            this.validador.SetValidationRule(this.tfEmailPrincipal, conditionValidationRule8);
             // 
             // tfTelCelular
             // 
@@ -988,9 +999,9 @@ namespace SysNorteGrupo.UI.Clientes
             this.tfTelCelular.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
             this.tfTelCelular.Size = new System.Drawing.Size(157, 20);
             this.tfTelCelular.TabIndex = 1;
-            conditionValidationRule8.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule8.ErrorText = "Informe o contato de telefone celular";
-            this.validador.SetValidationRule(this.tfTelCelular, conditionValidationRule8);
+            conditionValidationRule9.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule9.ErrorText = "Informe o contato de telefone celular";
+            this.validador.SetValidationRule(this.tfTelCelular, conditionValidationRule9);
             // 
             // tfTelFixo
             // 
@@ -1001,9 +1012,9 @@ namespace SysNorteGrupo.UI.Clientes
             this.tfTelFixo.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Simple;
             this.tfTelFixo.Size = new System.Drawing.Size(157, 20);
             this.tfTelFixo.TabIndex = 0;
-            conditionValidationRule9.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule9.ErrorText = "Informe o contato de telefone fixo";
-            this.validador.SetValidationRule(this.tfTelFixo, conditionValidationRule9);
+            conditionValidationRule10.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule10.ErrorText = "Informe o contato de telefone fixo";
+            this.validador.SetValidationRule(this.tfTelFixo, conditionValidationRule10);
             // 
             // grpInfoBasica
             // 
@@ -1047,9 +1058,9 @@ namespace SysNorteGrupo.UI.Clientes
             this.tfNome.Name = "tfNome";
             this.tfNome.Size = new System.Drawing.Size(443, 20);
             this.tfNome.TabIndex = 0;
-            conditionValidationRule10.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule10.ErrorText = "Informe o nome completo";
-            this.validador.SetValidationRule(this.tfNome, conditionValidationRule10);
+            conditionValidationRule11.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule11.ErrorText = "Informe o nome completo";
+            this.validador.SetValidationRule(this.tfNome, conditionValidationRule11);
             // 
             // tfDocumento
             // 
@@ -1058,9 +1069,9 @@ namespace SysNorteGrupo.UI.Clientes
             this.tfDocumento.Name = "tfDocumento";
             this.tfDocumento.Size = new System.Drawing.Size(274, 20);
             this.tfDocumento.TabIndex = 1;
-            conditionValidationRule11.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule11.ErrorText = "Informe o cpf/cnpj do cliente";
-            this.validador.SetValidationRule(this.tfDocumento, conditionValidationRule11);
+            conditionValidationRule12.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule12.ErrorText = "Informe o cpf/cnpj do cliente";
+            this.validador.SetValidationRule(this.tfDocumento, conditionValidationRule12);
             // 
             // tfInscricao
             // 
@@ -1095,9 +1106,9 @@ namespace SysNorteGrupo.UI.Clientes
             new DevExpress.XtraEditors.Controls.RadioGroupItem('j', "Pessoa Jurídica")});
             this.grpTipo.Size = new System.Drawing.Size(222, 29);
             this.grpTipo.TabIndex = 0;
-            conditionValidationRule12.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule12.ErrorText = "Selecione o tipo de pessoa";
-            this.validador.SetValidationRule(this.grpTipo, conditionValidationRule12);
+            conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule1.ErrorText = "Selecione o tipo de pessoa";
+            this.validador.SetValidationRule(this.grpTipo, conditionValidationRule1);
             this.grpTipo.SelectedIndexChanged += new System.EventHandler(this.grpTipo_SelectedIndexChanged);
             // 
             // tfTotalBens
@@ -1176,16 +1187,6 @@ namespace SysNorteGrupo.UI.Clientes
             // validador
             // 
             this.validador.ValidationMode = DevExpress.XtraEditors.DXErrorProvider.ValidationMode.Manual;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(641, 25);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 11;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // ClienteForm
             // 

@@ -34,6 +34,7 @@ namespace SysNorteGrupo.UI.Clientes
         public ClienteForm(cliente cliente_instc)
         {
             InitializeComponent();
+            button1.Visible = false;
 
             conn = GerenteDeConexoes.iniciaConexao();
 

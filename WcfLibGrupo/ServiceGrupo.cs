@@ -15,6 +15,10 @@ namespace WcfLibGrupo
 {
     public class ServiceGrupo : IServiceGrupo
     {
+        #region db
+        private static Database db = new Database("postgresql");
+        #endregion
+
         #region sistema
 
         public DateTime retornaDataHoraLocal()
@@ -48,55 +52,122 @@ namespace WcfLibGrupo
         {
             return UtilsSistemaServico.valor_por_cota;
         }
+        #endregion        
 
-        public void excluiTodasValidacoes()
-        {
-            db.Execute("DELETE FROM validacoes_sistema");
-        }
+        #region logs
 
-        public long CountValidacoesSistema()
+        public int createLog(log _log)
         {
+            int _return = 0;
             try
             {
-                var sql = Sql.Builder.Append("SELECT Count(id) FROM validacoes_sistema");
-                return db.ExecuteScalar<long>(sql);
+                string _pathLog = UtilsSistemaServico.SUBDIR_LOG;
+                string _fileLog = _pathLog + @"log.syslog";
+                //string newLogMessage = "      DATA		 | USUÁRIO  |        MAQUINA(IP)  	  |   EVENTO  |   MENSAGEM FINAL";
+
+                string logMessage = String.Format("{0:dd/MM/yyyy HH:mm:ss}", _log.dateTime)//_log.dateTime.ToShortDateString() + " " + _log.dateTime.ToShortTimeString()
+                    + " | " + _log.user
+                    + " | " + _log.host
+                    + " | " + _log.eventLog
+                    + " | " + _log.message;
+                if (!Directory.Exists(_pathLog))
+                {
+                    Directory.CreateDirectory(_pathLog);
+                }
+                /*if (!File.Exists(_fileLog))
+                {
+                    using (StreamWriter fileLog = new StreamWriter(_fileLog, true))
+                    {
+                        fileLog.WriteLine(newLogMessage);
+                        fileLog.WriteLine();
+                    }
+                }*/
+                using (StreamWriter fileLog = new StreamWriter(_fileLog, true))
+                {
+                    fileLog.WriteLine(logMessage);
+                    fileLog.Close();
+                }
+                _return = 1;
+            }
+            catch (Exception e)
+            {
+                _return = 0;
+            }
+            return _return;
+        }
+
+        public List<log> ReadLog(string parameter, string parameterTwo, string parameterThree)
+        {
+            string _pathLog = UtilsSistemaServico.SUBDIR_LOG;
+            string _fileLog = _pathLog + @"log.syslog";
+            string line;
+            List<log> _log = new List<log>();
+            StreamReader file = new StreamReader(_fileLog);
+
+            while ((line = file.ReadLine()) != null)
+            {
+                if (line.ToString().IndexOf(parameter) > -1
+                    && line.ToString().IndexOf(parameterTwo) > -1
+                    && line.ToString().IndexOf(parameterThree) > -1)
+                {
+                    string[] param = line.Split('|');
+                    _log.Add(new log()
+                    {
+                        dateTime = param[0],
+                        user = param[1],
+                        host = param[2],
+                        eventLog = param[3],
+                        message = param[4]
+                    });
+                }
+            }
+            _log.Reverse();
+            return _log;
+        }
+
+        #endregion 
+
+        #region backupDB
+        public string createBackup(string password)
+        {
+            string host = "localhost";
+            string port = "5432";
+            string username = "postgres";
+            string role = username;
+            string format = "plain";
+            string section = "data";
+            string encoding = "UTF8";
+            string database = "sysgrupodb";
+            try
+            {
+                return new UtilDB().createBackup(host, port, username, role, format, section, encoding, database, password);
             }
             catch (Exception ex)
             {
-                throw new Exception(ex.Message + "\n" + ex.InnerException);
+                throw new FaultException(
+                    new FaultReason(String.Format("EXCECÃO: {0}{1}INNER EXCEPTION: {2}", ex.Message, Environment.NewLine, ex.InnerException)),
+                    new FaultCode("1000"));
             }
         }
 
-        public validacoes_sistema retornaUltimaValidacaoSistema()
+        public bool restoreBackup(string fileInput, string password)
         {
+            string host = "localhost";
+            string port = "5432";
+            string username = "postgres";
+            string database = "sysgrupodb";
             try
             {
-                var sql = Sql.Builder.Append("SELECT * FROM validacoes_sistema ORDER BY id DESC LIMIT 1");
-                return validacoes_sistema.SingleOrDefault(sql);
+                return new UtilDB().restoreBackup(host, port, username, fileInput, database, password);
             }
             catch (Exception ex)
             {
-                throw new Exception(ex.Message + "\n" + ex.InnerException);
+                throw new FaultException(
+                    new FaultReason(String.Format("EXCECÃO: {0}{1}INNER EXCEPTION: {2}", ex.Message, Environment.NewLine, ex.InnerException)),
+                    new FaultCode("1000"));
             }
         }
 
-        public long salvarValidacaoSistema(validacoes_sistema obj)
-        {
-            try
-            {
-                obj.Save();
-                return Convert.ToInt64(obj.id);
-            }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.Message + "\n" + ex.InnerException);
-            }
-        }
-
-        #endregion
-
-        #region db
-        private static Database db = new Database("postgresql");
         #endregion
 
         #region empresa
@@ -149,6 +220,21 @@ namespace WcfLibGrupo
             try
             {
                 var sql = Sql.Builder.Select("*").From("usuarios").Where("inativo = @0", "FALSE").OrderBy("id");
+                return usuario.Fetch(sql);
+            }
+            catch (Exception ex)
+            {
+                throw new FaultException(
+                    new FaultReason(String.Format("EXCECÃO: {0}{1}INNER EXCEPTION: {2}", ex.Message, Environment.NewLine, ex.InnerException)),
+                    new FaultCode("1000"));
+            }
+        }
+
+        public List<usuario> listaDeTodosUsuarios()
+        {
+            try
+            {
+                var sql = Sql.Builder.Select("*").From("usuarios").OrderBy("id");
                 return usuario.Fetch(sql);
             }
             catch (Exception ex)
@@ -1378,26 +1464,26 @@ namespace WcfLibGrupo
 
         public string SUBDIR_EMPRESA()
         {
-            return UtilsSistemaServico.SUBDIR_EMPRESA;
+            return UtilsSistemaServico.SUBDIR_FILES_EMPRESA;
         }
 
         public string SUBDIR_CLIENTES()
         {
-            return UtilsSistemaServico.SUBDIR_CLIENTES;
+            return UtilsSistemaServico.SUBDIR_FILES_CLIENTES;
         }
 
         public string SUBDIR_VEICULOS(){
-            return UtilsSistemaServico.SUBDIR_VEICULOS;
+            return UtilsSistemaServico.SUBDIR_FILES_VEICULOS;
         }
 
         public string SUBDIR_REBOQUES()
         {
-            return UtilsSistemaServico.SUBDIR_REBOQUES;
+            return UtilsSistemaServico.SUBDIR_FILES_REBOQUES;
         }
 
         public string SUBDIR_SINISTROS()
         {
-            return UtilsSistemaServico.SUBDIR_SINISTROS;
+            return UtilsSistemaServico.SUBDIR_FILES_SINISTROS;
         } 
 
         #endregion

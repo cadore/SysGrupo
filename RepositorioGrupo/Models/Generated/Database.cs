@@ -1285,6 +1285,21 @@ namespace EntitiesGrupo
         [Column] public string digito_conta { get; set; }
     }
 
+
+    public partial class log
+    {
+
+        public string eventLog { get; set; }
+
+        public string message { get; set; }
+
+        public string user { get; set; }
+
+        public string dateTime { get; set; }
+
+        public string host { get; set; }
+    }
+
 }
 
 

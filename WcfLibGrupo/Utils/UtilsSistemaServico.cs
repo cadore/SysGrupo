@@ -9,6 +9,9 @@ namespace WcfLibGrupo.Utils
         #region sistema
 
         public static Color backColorFoco;
+        public static string enderecoServico;
+        public static decimal valor_por_cota { get; set; }
+        public static decimal franquiaSinistro { get; set; }
 
         #endregion
 
@@ -27,24 +30,20 @@ namespace WcfLibGrupo.Utils
         #region diretorios
         public static string diretorio_raiz_documentos;
 
-        public static string SUBDIR_EMPRESA;
-        public static string SUBDIR_CLIENTES;
-        public static string SUBDIR_VEICULOS;
-        public static string SUBDIR_REBOQUES;
-        public static string SUBDIR_SINISTROS;            
+        public static string SUBDIR_FILES_EMPRESA;
+        public static string SUBDIR_FILES_CLIENTES;
+        public static string SUBDIR_FILES_VEICULOS;
+        public static string SUBDIR_FILES_REBOQUES;
+        public static string SUBDIR_FILES_SINISTROS;
+        public static string SUBDIR_TEMP_FILES;
+        public static string SUBDIR_LOG;
+        public static string SUBDIR_BACKUP;
         #endregion
-
-        #region sistema
-        public static decimal valor_por_cota { get; set; }
-
-        public static decimal franquiaSinistro { get; set; }
-        #endregion
-
 
         public static void carregaConfigurações(){
             SysFile sf = new SysFile();
             valor_por_cota = Convert.ToDecimal(10000.00);
-            franquiaSinistro = Convert.ToDecimal(5);
+            franquiaSinistro = Convert.ToDecimal(5);            
             diretorio_raiz_documentos = LeitorINI.ReadValue("diretorios", "diretorio_raiz_documentos");
             smtpServer = LeitorINI.ReadValue("email", "smtpServer");
             ssl = Convert.ToBoolean(LeitorINI.ReadValue("email", "ssl"));
@@ -56,20 +55,27 @@ namespace WcfLibGrupo.Utils
             backColorFoco = Color.FromArgb(Convert.ToInt32(LeitorINI.ReadValue("backColorFoco", "backColorFocoR")),
                 Convert.ToInt32(LeitorINI.ReadValue("backColorFoco", "backColorFocoG")),
                 Convert.ToInt32(LeitorINI.ReadValue("backColorFoco", "backColorFocoB")));
+            enderecoServico = LeitorINI.ReadValue("sistema", "enderecoServico");
 
-            SUBDIR_EMPRESA = diretorio_raiz_documentos + @"\empresa\";
-            SUBDIR_CLIENTES = diretorio_raiz_documentos + @"\clientes\";
-            SUBDIR_VEICULOS = diretorio_raiz_documentos + @"\veiculos\";
-            SUBDIR_REBOQUES = diretorio_raiz_documentos + @"\reboques\";
-            SUBDIR_SINISTROS = diretorio_raiz_documentos + @"\sinistros\";
+            SUBDIR_FILES_EMPRESA = diretorio_raiz_documentos + @"\files\empresa\";
+            SUBDIR_FILES_CLIENTES = diretorio_raiz_documentos + @"\files\clientes\";
+            SUBDIR_FILES_VEICULOS = diretorio_raiz_documentos + @"\files\veiculos\";
+            SUBDIR_FILES_REBOQUES = diretorio_raiz_documentos + @"\files\reboques\";
+            SUBDIR_FILES_SINISTROS = diretorio_raiz_documentos + @"\files\sinistros\";
+            SUBDIR_LOG = diretorio_raiz_documentos + @"\log\";
+            SUBDIR_TEMP_FILES = diretorio_raiz_documentos + @"\temp\";
+            SUBDIR_BACKUP = diretorio_raiz_documentos + @"\backup\";
 
             if(!sf.verificaDiretorioExistente(diretorio_raiz_documentos)){
                 sf.criaDiretorio(diretorio_raiz_documentos);
-                sf.criaDiretorio(SUBDIR_EMPRESA);
-                sf.criaDiretorio(SUBDIR_CLIENTES);
-                sf.criaDiretorio(SUBDIR_VEICULOS);
-                sf.criaDiretorio(SUBDIR_REBOQUES);
-                sf.criaDiretorio(SUBDIR_SINISTROS);
+                sf.criaDiretorio(SUBDIR_FILES_EMPRESA);
+                sf.criaDiretorio(SUBDIR_FILES_CLIENTES);
+                sf.criaDiretorio(SUBDIR_FILES_VEICULOS);
+                sf.criaDiretorio(SUBDIR_FILES_REBOQUES);
+                sf.criaDiretorio(SUBDIR_FILES_SINISTROS);
+                sf.criaDiretorio(SUBDIR_TEMP_FILES);
+                sf.criaDiretorio(SUBDIR_LOG);
+                sf.criaDiretorio(SUBDIR_BACKUP);
             }
         }
     }

@@ -197,6 +197,12 @@
     <Compile Include="Reports\teste\testeboleto.Designer.cs">
       <DependentUpon>testeboleto.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Logs\BuscaLogs.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Logs\BuscaLogs.Designer.cs">
+      <DependentUpon>BuscaLogs.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Sinistros\BuscaSinistrosForm.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -234,6 +240,12 @@
     </Compile>
     <Compile Include="UI\Usuarios\UsuarioForm.Designer.cs">
       <DependentUpon>UsuarioForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UtilForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UtilForm.Designer.cs">
+      <DependentUpon>UtilForm.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Veiculos\BuscaVeiculoForm.cs">
       <SubType>UserControl</SubType>
@@ -295,6 +307,7 @@
     <Compile Include="Utils\FilesINI.cs" />
     <Compile Include="Utils\GerenteDeConexoes.cs" />
     <Compile Include="Utils\ListaAnos.cs" />
+    <Compile Include="Utils\Logs\Log.cs" />
     <Compile Include="Utils\Util.cs" />
     <Compile Include="Utils\UtilsSistema.cs" />
     <Compile Include="Utils\Validations.cs" />
@@ -313,6 +326,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\teste\testeboleto.resx">
       <DependentUpon>testeboleto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Logs\BuscaLogs.resx">
+      <DependentUpon>BuscaLogs.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Sinistros\BuscaSinistrosForm.resx">
       <DependentUpon>BuscaSinistrosForm.cs</DependentUpon>
@@ -363,6 +379,7 @@
     <None Include="Properties\DataSources\EntitiesGrupo.endereco.datasource" />
     <None Include="Properties\DataSources\EntitiesGrupo.especies_veiculo.datasource" />
     <None Include="Properties\DataSources\EntitiesGrupo.estado.datasource" />
+    <None Include="Properties\DataSources\EntitiesGrupo.log.datasource" />
     <None Include="Properties\DataSources\EntitiesGrupo.marca_veiculo.datasource" />
     <None Include="Properties\DataSources\EntitiesGrupo.modelo_veiculo.datasource" />
     <None Include="Properties\DataSources\EntitiesGrupo.pagamentos_sinistro.datasource" />

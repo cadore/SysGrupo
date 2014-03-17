@@ -14,7 +14,7 @@ namespace WcfLibGrupo.Utils
         [DllImport("kernel32.dll", EntryPoint = "WritePrivateProfileString")]
         private static extern bool WritePrivateProfileString(string lpAppName, string lpKeyName, string lpString, string lpFileName);
 
-        static string iniFile = Path.Combine(Directory.GetCurrentDirectory(), "configServico.sysn");
+        static string iniFile = Path.Combine(Directory.GetCurrentDirectory(), "config.sysini");
 
         public static string getCaminhoArquivoINI(string caminhoArquivo)
         {

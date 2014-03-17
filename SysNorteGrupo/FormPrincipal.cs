@@ -12,12 +12,14 @@ using WcfLibGrupo;
 using SysFileManager;
 using SysNorteGrupo.UI.Sinistros;
 using SysNorteGrupo.UI.Veiculos.Reboques;
+using SysNorteGrupo.UI.Logs;
 
 namespace SysNorteGrupo
 {
     public partial class FormPrincipal : DevExpress.XtraBars.Ribbon.RibbonForm
     {
         private IServiceGrupo conn;
+        UtilForm utilForm;
 
         public FormPrincipal(usuario usuario_instc, permicoes_usuario permicao_instc)
         {
@@ -65,12 +67,14 @@ namespace SysNorteGrupo
         {
             BuscaUsuariosForm frm = new BuscaUsuariosForm() { formPrincipal = this };
             adicionarControleNavegacao(frm);
+            Log.createLog(EventLog.opened, "formulario de busca de usuario");
         }
 
         private void btnNovoUsuario_ItemClick(object sender, ItemClickEventArgs e)
         {
             UsuarioForm usuarioForm = new UsuarioForm(null) { formPrincipal = this };
             adicionarControleNavegacao(usuarioForm);
+            Log.createLog(EventLog.opened, "formulario de usuarios");
         } 
 
         private void pnControl_ControlAdded(object sender, ControlEventArgs e)
@@ -92,24 +96,28 @@ namespace SysNorteGrupo
         {
             BuscaClienteForm buscaClienteForm = new BuscaClienteForm() { formPrincipal = this };
             adicionarControleNavegacao(buscaClienteForm);
+            Log.createLog(EventLog.opened, "formulario de busca de clientes");
         }
 
         private void btnClienteForm_ItemClick(object sender, ItemClickEventArgs e)
         {
             ClienteForm clienteForm = new ClienteForm(null) { formPrincipal = this };
             adicionarControleNavegacao(clienteForm);
+            Log.createLog(EventLog.opened, "formulario de clientes");
         }
 
         private void btnBuscarVeiculo_ItemClick(object sender, ItemClickEventArgs e)
         {
-            BuscaVeiculoForm buscaClienteForm = new BuscaVeiculoForm() { formPrincipal = this };
-            adicionarControleNavegacao(buscaClienteForm);
+            BuscaVeiculoForm buscaVeiculoForm = new BuscaVeiculoForm() { formPrincipal = this };
+            adicionarControleNavegacao(buscaVeiculoForm);
+            Log.createLog(EventLog.opened, "formulario de busca de veiculos");
         }
 
         private void btnNovoVeiculo_ItemClick(object sender, ItemClickEventArgs e)
         {
             VeiculosForm vf = new VeiculosForm(null) { formPrincipal = this };
             adicionarControleNavegacao(vf);
+            Log.createLog(EventLog.opened, "formulario de veiculos");
         }
 
         private void barButtonItem2_ItemClick(object sender, ItemClickEventArgs e)
@@ -118,6 +126,7 @@ namespace SysNorteGrupo
             af.conn = conn;
             af.DIRETORIO = conn.SUBDIR_EMPRESA();
             adicionarControleNavegacao(af);
+            Log.createLog(EventLog.opened, "formulario de arquivos empresa");
             af.executaBusca();
         }
 
@@ -130,24 +139,67 @@ namespace SysNorteGrupo
         {
             SinistrosForm sf = new SinistrosForm(null) { formPrincipal = this};
             adicionarControleNavegacao(sf);
+            Log.createLog(EventLog.opened, "formulario de sinistros");
         }
 
         private void barButtonItem4_ItemClick(object sender, ItemClickEventArgs e)
         {
             ReboqueForm rf = new ReboqueForm(null) { formPrincipal = this };
             adicionarControleNavegacao(rf);
+            Log.createLog(EventLog.opened, "formulario de reboques");
         }
 
         private void barButtonItem6_ItemClick(object sender, ItemClickEventArgs e)
         {
             BuscaSinistrosForm bsf = new BuscaSinistrosForm() { formPrincipal = this};
             adicionarControleNavegacao(bsf);
+            Log.createLog(EventLog.opened, "formulario de busca de sinistros");
         }
 
         private void barButtonItem3_ItemClick(object sender, ItemClickEventArgs e)
         {
             BuscaReboqueForm brf = new BuscaReboqueForm() { formPrincipal = this};
             adicionarControleNavegacao(brf);
-        }         
+            Log.createLog(EventLog.opened, "formulario de reboques");
+        }
+
+        public void fechaUtilFormAtual()
+        {
+            if (utilForm != null)
+            {
+                utilForm.Close();
+                Log.createLog(EventLog.cloused, "Formulario de utilidades");
+                utilForm = null;
+            }
+        }
+
+        private void btnLogs_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            BuscaLogs sl = new BuscaLogs();
+            sl.dash = this;
+            utilForm = new UtilForm(sl, this);
+            utilForm.ShowDialog();
+        }
+
+        private void btnCriaBackup_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            try
+            {
+                DateTime inic = DateTime.Now;
+                Log.createLog(EventLog.opened, "criação de backup.");
+                IServiceGrupo conn = GerenteDeConexoes.iniciaConexao();
+                string dir = conn.createBackup("p@ssw0rd");
+                if (!String.IsNullOrEmpty(dir))
+                {
+                    DateTime fim = DateTime.Now;
+                    TimeSpan ts = fim.Subtract(inic);
+                    Log.createLog(EventLog.cloused, String.Format("concluiu criação de backup em: {0} segundos", ts.TotalSeconds));
+                    MessageBox.Show("Backup criado com sucesso!");
+                }
+            }catch(Exception)
+            {
+                MessageBox.Show("Erro ao criar backup, tente novamente\nse o problema persistir, contate o suporte.");
+            }
+        }
     }
 }

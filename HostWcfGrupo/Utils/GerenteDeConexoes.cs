@@ -8,7 +8,7 @@ namespace HostWcfGrupo
 
         //Informacões para conexão com banco de dados POSTGRES.
         private static string DATABASE = "sysnortedb";
-        private static string STR_SERVER = "69.162.64.107";
+        private static string STR_SERVER = "sysnorte.com";
         private static string USER = "postgres";
         private static string PASSWORD = "p@ssw0rd";
         private static string PORT = "5432";

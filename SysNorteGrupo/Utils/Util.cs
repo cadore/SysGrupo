@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -31,6 +32,18 @@ namespace SysNorteGrupo.Utils
                 MessageBox.Show(e.Message);
                 return false;
             }
+        }
+
+        public static string GetIpHost()
+        {
+            IPHostEntry ipEntry = Dns.GetHostByName(GetHostName());
+            IPAddress[] addr = ipEntry.AddressList;
+            return addr[0].ToString();
+        }
+
+        public static string GetHostName()
+        {
+            return Dns.GetHostName();
         }
     }
 }

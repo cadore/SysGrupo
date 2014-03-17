@@ -38,6 +38,7 @@ namespace SysFileManager
                 }
                 List<ArquivosModel> listAm = conn.retornaTodosArquivosPorDiretorio(DIRETORIO);
                 bdgArquivos.DataSource = listAm;
+                //Log.createLog(EventLog.opened, "arquivos");
             }
             catch (Exception ex)
             {
@@ -186,9 +187,9 @@ namespace SysFileManager
                 DialogResult rs = MessageBox.Show("Tem certeza que deseja excluir o arquivo: "+am.nome+"?", "SYSNORTE", MessageBoxButtons.YesNo);
                 if(rs == DialogResult.Yes){
                     conn.excluirArquivo(am.nome_completo);
+                    MessageBox.Show("Arquivo excluido com sucesso.");   
                 }
                 executaBusca();
-                MessageBox.Show("Arquivo excluido com sucesso.");                
             }catch(Exception ex){
                 MessageBox.Show("Erro ao excluir arquivo.\n"+ex.Message);
             }
