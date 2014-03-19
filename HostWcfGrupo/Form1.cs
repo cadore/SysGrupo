@@ -199,7 +199,7 @@ namespace HostWcfGrupo
                     flag = 0;
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 flag = 0;            
             }

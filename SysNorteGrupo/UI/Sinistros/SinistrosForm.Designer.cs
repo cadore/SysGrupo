@@ -1910,7 +1910,6 @@ namespace SysNorteGrupo.UI.Sinistros
         private DevExpress.XtraGrid.Views.Grid.GridView searchLookUpEdit2View;
         private DevExpress.XtraEditors.LabelControl labelControl3;
         private DevExpress.XtraEditors.PanelControl pnControl;
-        private System.ComponentModel.IContainer components;
         private System.Windows.Forms.BindingSource bdgReboques1;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;

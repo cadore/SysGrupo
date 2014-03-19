@@ -89,7 +89,7 @@ namespace WcfLibGrupo
                 }
                 _return = 1;
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 _return = 0;
             }

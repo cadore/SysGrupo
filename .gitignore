@@ -201,3 +201,7 @@ RepositorioGrupo/FakesAssemblies/Npgsql.2.0.14.3.Fakes.xml
 WcfLibGrupo/ServiceGrupo.cs.orig
 SysNorteGrupo/SysNorteGrupo.csproj.orig
 SysNorteGrupo/Properties/licenses.licx.orig
+setup/cliente_config.iss
+setup/host_config.iss
+setup/HostSysGrupo_setup.exe
+setup/SysGrupoCliente_setup.exe
