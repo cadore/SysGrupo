@@ -98,7 +98,7 @@ namespace SysNorteGrupo.UI.Clientes
             this.bdgEstados = new System.Windows.Forms.BindingSource(this.components);
             this.gridView3 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.coluf = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.coluf = nhttp://www.caelum.com.br/curso-java-ee-web-services/ew DevExpress.XtraGrid.Columns.GridColumn();
             this.colnome_estado = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colcod_ibge = new DevExpress.XtraGrid.Columns.GridColumn();
             this.cbCidade = new DevExpress.XtraEditors.SearchLookUpEdit();
@@ -125,7 +125,7 @@ namespace SysNorteGrupo.UI.Clientes
             this.tfEmailSecundario = new DevExpress.XtraEditors.TextEdit();
             this.tfEmailPrincipal = new DevExpress.XtraEditors.TextEdit();
             this.tfTelCelular = new DevExpress.XtraEditors.TextEdit();
-            this.tfTelFixo = new DevExpress.XtraEditors.TextEdit();
+            this.tfTelFixo http://www.caelum.com.br/curso-java-ee-web-services/= new DevExpress.XtraEditors.TextEdit();
             this.grpInfoBasica = new DevExpress.XtraEditors.GroupControl();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.ckIsento = new DevExpress.XtraEditors.CheckEdit();
