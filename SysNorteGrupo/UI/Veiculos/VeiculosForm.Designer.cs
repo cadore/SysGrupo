@@ -81,6 +81,7 @@ namespace SysNorteGrupo.UI.Veiculos
             this.colid_bairros = new DevExpress.XtraGrid.Columns.GridColumn();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.pnInformacoes = new DevExpress.XtraEditors.PanelControl();
+            this.groupControl3 = new DevExpress.XtraEditors.GroupControl();
             this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
             this.tfCotas = new DevExpress.XtraEditors.TextEdit();
             this.cbCidade = new DevExpress.XtraEditors.SearchLookUpEdit();
@@ -161,6 +162,7 @@ namespace SysNorteGrupo.UI.Veiculos
             this.btnSalvar = new SysNorteGrupo.Utils.BotaoEditar();
             this.bdgVeiculo = new System.Windows.Forms.BindingSource(this.components);
             this.bdgCliente = new System.Windows.Forms.BindingSource(this.components);
+            this.arquivosForm = new SysFileManager.ArquivosForm();
             this.bdgCidade = new System.Windows.Forms.BindingSource(this.components);
             this.bdgEstado = new System.Windows.Forms.BindingSource(this.components);
             this.bdgEspecie = new System.Windows.Forms.BindingSource(this.components);
@@ -168,8 +170,6 @@ namespace SysNorteGrupo.UI.Veiculos
             this.bdgModelo = new System.Windows.Forms.BindingSource(this.components);
             this.bdgMarca = new System.Windows.Forms.BindingSource(this.components);
             this.bdgCor = new System.Windows.Forms.BindingSource(this.components);
-            this.groupControl3 = new DevExpress.XtraEditors.GroupControl();
-            this.arquivosForm = new ArquivosForm();
             ((System.ComponentModel.ISupportInitialize)(this.pnBotoes)).BeginInit();
             this.pnBotoes.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pnPrincipal)).BeginInit();
@@ -179,6 +179,8 @@ namespace SysNorteGrupo.UI.Veiculos
             ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1View)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pnInformacoes)).BeginInit();
             this.pnInformacoes.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl3)).BeginInit();
+            this.groupControl3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).BeginInit();
             this.groupControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tfCotas.Properties)).BeginInit();
@@ -220,8 +222,6 @@ namespace SysNorteGrupo.UI.Veiculos
             ((System.ComponentModel.ISupportInitialize)(this.bdgModelo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdgMarca)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdgCor)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.groupControl3)).BeginInit();
-            this.groupControl3.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnBotoes
@@ -496,6 +496,17 @@ namespace SysNorteGrupo.UI.Veiculos
             this.pnInformacoes.Name = "pnInformacoes";
             this.pnInformacoes.Size = new System.Drawing.Size(789, 466);
             this.pnInformacoes.TabIndex = 0;
+            this.pnInformacoes.EnabledChanged += new System.EventHandler(this.pnInformacoes_EnabledChanged);
+            // 
+            // groupControl3
+            // 
+            this.groupControl3.Controls.Add(this.arquivosForm);
+            this.groupControl3.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.groupControl3.Location = new System.Drawing.Point(2, 257);
+            this.groupControl3.Name = "groupControl3";
+            this.groupControl3.Size = new System.Drawing.Size(785, 207);
+            this.groupControl3.TabIndex = 7;
+            this.groupControl3.Text = "ARQUIVOS";
             // 
             // groupControl2
             // 
@@ -921,8 +932,10 @@ namespace SysNorteGrupo.UI.Veiculos
             this.tfRenavam.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdgVeiculo, "cod_renavam", true));
             this.tfRenavam.Location = new System.Drawing.Point(470, 24);
             this.tfRenavam.Name = "tfRenavam";
-            this.tfRenavam.Properties.Mask.EditMask = "d";
-            this.tfRenavam.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.tfRenavam.Properties.Mask.BeepOnError = true;
+            this.tfRenavam.Properties.Mask.EditMask = "\\d{11}";
+            this.tfRenavam.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
+            this.tfRenavam.Properties.Mask.ShowPlaceHolders = false;
             this.tfRenavam.Size = new System.Drawing.Size(118, 20);
             this.tfRenavam.TabIndex = 1;
             conditionValidationRule8.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
@@ -1350,6 +1363,14 @@ namespace SysNorteGrupo.UI.Veiculos
             // 
             this.bdgCliente.DataSource = typeof(EntitiesGrupo.cliente);
             // 
+            // arquivosForm
+            // 
+            this.arquivosForm.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.arquivosForm.Location = new System.Drawing.Point(2, 21);
+            this.arquivosForm.Name = "arquivosForm";
+            this.arquivosForm.Size = new System.Drawing.Size(781, 184);
+            this.arquivosForm.TabIndex = 0;
+            // 
             // bdgCidade
             // 
             this.bdgCidade.DataSource = typeof(EntitiesGrupo.cidade);
@@ -1378,24 +1399,6 @@ namespace SysNorteGrupo.UI.Veiculos
             // 
             this.bdgCor.DataSource = typeof(SysNorteGrupo.Utils.Cores);
             // 
-            // groupControl3
-            // 
-            this.groupControl3.Controls.Add(this.arquivosForm);
-            this.groupControl3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.groupControl3.Location = new System.Drawing.Point(2, 257);
-            this.groupControl3.Name = "groupControl3";
-            this.groupControl3.Size = new System.Drawing.Size(785, 207);
-            this.groupControl3.TabIndex = 7;
-            this.groupControl3.Text = "ARQUIVOS";
-            // 
-            // arquivosForm1
-            // 
-            this.arquivosForm.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.arquivosForm.Location = new System.Drawing.Point(2, 21);
-            this.arquivosForm.Name = "arquivosForm1";
-            this.arquivosForm.Size = new System.Drawing.Size(781, 184);
-            this.arquivosForm.TabIndex = 0;
-            // 
             // VeiculosForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1415,6 +1418,8 @@ namespace SysNorteGrupo.UI.Veiculos
             ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1View)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pnInformacoes)).EndInit();
             this.pnInformacoes.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl3)).EndInit();
+            this.groupControl3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).EndInit();
             this.groupControl2.ResumeLayout(false);
             this.groupControl2.PerformLayout();
@@ -1458,8 +1463,6 @@ namespace SysNorteGrupo.UI.Veiculos
             ((System.ComponentModel.ISupportInitialize)(this.bdgModelo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdgMarca)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdgCor)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.groupControl3)).EndInit();
-            this.groupControl3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

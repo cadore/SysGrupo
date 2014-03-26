@@ -113,6 +113,7 @@
     <ProjectReference Include="..\WcfLibGrupo\WcfLibGrupo.csproj">
       <Project>{4e95265e-7c25-4f8b-a055-0ac97466b0e3}</Project>
       <Name>WcfLibGrupo</Name>
+      <Private>True</Private>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

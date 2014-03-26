@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Windows.Documents;
 
 namespace SysNorteGrupo.Reports
@@ -9,6 +10,17 @@ namespace SysNorteGrupo.Reports
         public decimal totalParticipacao { get; set; }
         public List<VeiculosRelatorio> listaVeiculo { get; set; }        
     }
+
+    public class ListaClientesInclusao
+    {
+        public string cliente { get; set; }
+        public decimal totalDeBens { get; set; }
+        public decimal totalDeCotas { get; set; }
+        public DateTime dataInclusao { get; set; }
+        public List<VeiculosRelatorio> listaVeiculo { get; set; }
+    }
+
+
 
     public class ReboquesRelatorio
     {

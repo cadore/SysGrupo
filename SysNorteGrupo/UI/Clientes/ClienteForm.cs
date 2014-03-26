@@ -5,6 +5,8 @@ using DevExpress.XtraRichEdit;
 using DevExpress.XtraTab;
 using EntitiesGrupo;
 using SysFileManager;
+using SysNorteGrupo.Reports;
+using SysNorteGrupo.Reports.Clientes;
 using SysNorteGrupo.Reports.teste;
 using SysNorteGrupo.Utils;
 using System;
@@ -426,6 +428,74 @@ namespace SysNorteGrupo.UI.Clientes
                 tfCep.Text = end.cep;
             }
             //formPrincipal.adicionarControleNavegacao(new ClienteForm(null) { formPrincipal = formPrincipal });
+        }
+
+        private void btnImprimirContrato_Click(object sender, EventArgs e)
+        {
+            RelatorioRelacaoCliente report = new RelatorioRelacaoCliente();
+            report.bdgClientesLista.DataSource = listaFinal();
+            report.dataRelatorio.Value = "RELATÓRIO GERADO EM: " + conn.retornaDataHoraLocal();
+            report.assinatura.Value = "GERADO POR SYSNORTE TECNOLOGIA";
+            foreach (DevExpress.XtraReports.Parameters.Parameter p in report.Parameters)
+            {
+                p.Visible = false;
+            }
+            ReportPrintTool tool = new ReportPrintTool(report);
+            tool.ShowRibbonPreviewDialog();
+        }
+        List<ListaClientesInclusao> listaFinal()
+        {
+            List<ListaClientesInclusao> principal = new List<ListaClientesInclusao>();
+
+            cliente c = (cliente)bdgCliente.Current;
+
+            principal.Add(new ListaClientesInclusao() { 
+                cliente = c.nome_completo,
+                listaVeiculo = listaVeiculos(c.id),
+                totalDeBens = Convert.ToDecimal(tfTotalBens.Text),
+                totalDeCotas = Convert.ToDecimal(tfTotalCotas.Text),
+                dataInclusao = c.data_ativacao
+            });
+
+            return principal;
+        }
+        List<VeiculosRelatorio> listaVeiculos(long id_cliente)
+        {
+            List<VeiculosRelatorio> veiculos = new List<VeiculosRelatorio>();
+            foreach (veiculo v in conn.listaDeVeiculosPorIdCliente(id_cliente))
+            {
+                decimal cotas = v.valor / UtilsSistema.valor_por_cota;
+                veiculos.Add(new VeiculosRelatorio()
+                {
+                    placa = v.placa,
+                    modelo = conn.retornaModeloPorId(v.id_modelo_veiculos).nome,
+                    valor = v.valor,
+                    cotas = (cotas).ToString(),
+                    //participacao = valor_por_cota * cotas,
+                    listaReboques = listaReboques(v.id)
+                });
+            }
+
+            return veiculos;
+        }
+
+        decimal valor_por_cota = 0;
+        List<ReboquesRelatorio> listaReboques(long id_veiculo)
+        {
+            List<ReboquesRelatorio> reboques = new List<ReboquesRelatorio>();
+            foreach (reboque r in conn.listaDeReboquesPorIdVeiculo(id_veiculo, false))
+            {
+                decimal cotas = r.valor / UtilsSistema.valor_por_cota;
+                reboques.Add(new ReboquesRelatorio()
+                {
+                    placa = r.placa,
+                    modelo = r.modelo,
+                    valor = r.valor,
+                    cotas = (cotas).ToString(),
+                    participacao = valor_por_cota * cotas
+                });
+            }
+            return reboques;
         }
 
 

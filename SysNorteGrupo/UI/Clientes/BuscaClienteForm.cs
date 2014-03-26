@@ -138,89 +138,8 @@ namespace SysNorteGrupo.UI.Clientes
         private void gridControl_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             cliente cli = (cliente) bdgCliente.Current;
-
-            //MessageBox.Show(cli.id.ToString());
-
             ClienteForm cf = new ClienteForm(cli) { formPrincipal = formPrincipal };
             formPrincipal.adicionarControleNavegacao(cf);
-        }
-
-        private void btnImprimirContrato_Click(object sender, EventArgs e)
-        {
-            RelatorioRelacaoCliente report = new RelatorioRelacaoCliente();
-            report.bdgVeiculosReboques.DataSource = listaFinal();
-            report.dataRelatorio.Value = "RELATÓRIO GERADO EM: " + conn.retornaDataHoraLocal();
-            //report.assinatura.Value = "GERADO POR SYSNORTE TECNOLOGIA";
-            foreach (DevExpress.XtraReports.Parameters.Parameter p in report.Parameters)
-            {
-                p.Visible = false;
-            }
-
-            /*PdfExportOptions po = new PdfExportOptions() {ImageQuality = PdfJpegImageQuality.Highest, Compressed = true };
-            report.ExportToPdf("C:\\Users\\William\\Desktop\\testePDF.pdf", po);*/
-
-            /*HtmlExportOptions htmlOptions = report.ExportOptions.Html;
-            htmlOptions.CharacterSet = "UTF-8";
-            htmlOptions.TableLayout = false;
-            htmlOptions.RemoveSecondarySymbols = false;
-            htmlOptions.Title = "Teste relatório HTML";
-            htmlOptions.ExportMode = HtmlExportMode.SingleFilePageByPage;
-            htmlOptions.PageBorderColor = Color.Blue;
-            htmlOptions.PageBorderWidth = 3;            
-            report.ExportToHtml("C:\\Users\\William\\Desktop\\testeHTML.html");*/
-            ReportPrintTool tool = new ReportPrintTool(report);
-            tool.ShowRibbonPreviewDialog();
-        }
-
-        decimal valor_por_cota = 0;
-
-        List<ReboquesRelatorio> listaReboques(long id_veiculo)
-        {
-            List<ReboquesRelatorio> reboques = new List<ReboquesRelatorio>();
-            foreach (reboque r in conn.listaDeReboquesPorIdVeiculo(id_veiculo, false))
-            {
-                decimal cotas = r.valor / UtilsSistema.valor_por_cota;
-                reboques.Add(new ReboquesRelatorio()
-                {
-                    placa = r.placa,
-                    modelo = r.modelo,
-                    valor = r.valor,
-                    cotas = (cotas).ToString(),
-                    participacao = valor_por_cota * cotas
-                });
-            }
-            return reboques;
-        }
-
-        List<VeiculosRelatorio> listaVeiculos(long id_cliente)
-        {
-            List<VeiculosRelatorio> veiculos = new List<VeiculosRelatorio>();
-            foreach (veiculo v in conn.listaDeVeiculosPorIdCliente(id_cliente))
-            {
-                decimal cotas = v.valor / UtilsSistema.valor_por_cota;
-                veiculos.Add(new VeiculosRelatorio()
-                {
-                    placa = v.placa,
-                    modelo = conn.retornaModeloPorId(v.id_modelo_veiculos).nome,
-                    valor = v.valor,
-                    cotas = (cotas).ToString(),
-                    //participacao = valor_por_cota * cotas,
-                    listaReboques = listaReboques(v.id)
-                });
-            }
-
-            return veiculos;
-        }
-
-        List<ListaClientesRateio> listaFinal()
-        {
-            List<ListaClientesRateio> principal = new List<ListaClientesRateio>();
-
-            cliente c = (cliente)bdgCliente.Current;
-
-            principal.Add(new ListaClientesRateio() { cliente = c.nome_completo, listaVeiculo = listaVeiculos(c.id), totalParticipacao = 0 });
-
-            return principal;
         }
     }
 }

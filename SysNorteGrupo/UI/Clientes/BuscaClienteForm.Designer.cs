@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BuscaClienteForm));
             this.pbBotoes = new DevExpress.XtraEditors.PanelControl();
-            this.btnImprimirContrato = new SysNorteGrupo.Utils.BotaoImprimir();
             this.btnFechar = new SysNorteGrupo.Utils.BotaoSair();
             this.btnBuscar = new SysNorteGrupo.Utils.BotaoBuscar();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
@@ -42,7 +42,7 @@
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.tfId = new DevExpress.XtraEditors.TextEdit();
             this.gridControl = new DevExpress.XtraGrid.GridControl();
-            this.bdgCliente = new System.Windows.Forms.BindingSource();
+            this.bdgCliente = new System.Windows.Forms.BindingSource(this.components);
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colnome_completo = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -91,7 +91,6 @@
             this.pbBotoes.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(82)))), ((int)(((byte)(155)))));
             this.pbBotoes.Appearance.Options.UseBackColor = true;
             this.pbBotoes.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.pbBotoes.Controls.Add(this.btnImprimirContrato);
             this.pbBotoes.Controls.Add(this.btnFechar);
             this.pbBotoes.Controls.Add(this.btnBuscar);
             this.pbBotoes.Controls.Add(this.panelControl2);
@@ -104,23 +103,6 @@
             this.pbBotoes.Name = "pbBotoes";
             this.pbBotoes.Size = new System.Drawing.Size(1021, 71);
             this.pbBotoes.TabIndex = 1;
-            // 
-            // btnImprimirContrato
-            // 
-            this.btnImprimirContrato.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(199)))));
-            this.btnImprimirContrato.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnImprimirContrato.Font = new System.Drawing.Font("Segoe UI Light", 12F);
-            this.btnImprimirContrato.ForeColor = System.Drawing.Color.White;
-            this.btnImprimirContrato.Image = ((System.Drawing.Image)(resources.GetObject("btnImprimirContrato.Image")));
-            this.btnImprimirContrato.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnImprimirContrato.Location = new System.Drawing.Point(725, 6);
-            this.btnImprimirContrato.Name = "btnImprimirContrato";
-            this.btnImprimirContrato.Size = new System.Drawing.Size(149, 56);
-            this.btnImprimirContrato.TabIndex = 7;
-            this.btnImprimirContrato.Text = "                Imprimir Rel. de Bens";
-            this.btnImprimirContrato.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnImprimirContrato.UseVisualStyleBackColor = false;
-            this.btnImprimirContrato.Click += new System.EventHandler(this.btnImprimirContrato_Click);
             // 
             // btnFechar
             // 
@@ -585,6 +567,5 @@
         private DevExpress.XtraGrid.Columns.GridColumn colcotas;
         private System.Windows.Forms.BindingSource bdgCliente;
         private DevExpress.XtraGrid.Columns.GridColumn colvalor_total;
-        private Utils.BotaoImprimir btnImprimirContrato;
     }
 }

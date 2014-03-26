@@ -22,10 +22,10 @@ namespace HostWcfGrupo
             try
             {                
                 this.Text = "SysNorteGrupo Server";
-                if (verificaAutenticidade(i))
-                {
+                //if (verificaAutenticidade(i))
+                //{
                     service(1);
-                }
+                //}
             }
             catch (Exception ex)
             {

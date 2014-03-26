@@ -257,6 +257,7 @@ namespace SysNorteGrupo.UI.Veiculos
                         }
                         long id = Convert.ToInt64(conn.salvarVeiculo(v));
                         tfId.Text = id.ToString();
+                        ((veiculo)(bdgVeiculo.DataSource)).id = id;
 
                         pnPrincipal.Enabled = false;
                         btnSalvar.Enabled = false;
@@ -392,6 +393,18 @@ namespace SysNorteGrupo.UI.Veiculos
             if(tfValor.EditValue != null){
                 decimal valor = Convert.ToDecimal(tfValor.EditValue.ToString().Trim());
                 tfCotas.Text = (valor / UtilsSistema.valor_por_cota).ToString();
+            }
+        }
+
+        private void pnInformacoes_EnabledChanged(object sender, EventArgs e)
+        {
+            if(Util.textFieldIsEmpty(tfId))
+            {
+                arquivosForm.Enabled = false;
+            }
+            else
+            {
+                arquivosForm.Enabled = true;
             }
         }
     }

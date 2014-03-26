@@ -179,7 +179,7 @@
     <Compile Include="Reports\Clientes\RelatorioRelacaoCliente.Designer.cs">
       <DependentUpon>RelatorioRelacaoCliente.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reports\Models\ConclusaoSinistro.cs" />
+    <Compile Include="Reports\Models\ModelsRelatorios.cs" />
     <Compile Include="Reports\Sinistros\RelatorioConclusaoSinistro.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -417,6 +417,7 @@
     <None Include="Properties\DataSources\SysNorteGrupo.Properties.Resources.datasource" />
     <None Include="Properties\DataSources\SysNorteGrupo.Properties.Settings.datasource" />
     <None Include="Properties\DataSources\SysNorteGrupo.Reports.ConclusaoSinistro.datasource" />
+    <None Include="Properties\DataSources\SysNorteGrupo.Reports.ListaClientesInclusao.datasource" />
     <None Include="Properties\DataSources\SysNorteGrupo.Reports.ListaClientesRateio.datasource" />
     <None Include="Properties\DataSources\SysNorteGrupo.Reports.ListaConclusaoSinistro.datasource" />
     <None Include="Properties\DataSources\SysNorteGrupo.Utils.Centraliza.datasource" />
