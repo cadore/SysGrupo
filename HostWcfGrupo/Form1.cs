@@ -229,6 +229,7 @@ namespace HostWcfGrupo
 
         private void service(int i)
         {
+            string url = UtilsSistemaServico.enderecoServico;
             try
             {
                 if (i == 1)
@@ -237,8 +238,10 @@ namespace HostWcfGrupo
                     var b = new NetTcpBinding(SecurityMode.None);
                     b.MaxBufferPoolSize = b.MaxBufferPoolSize * 2552350000256000154;
                     b.MaxReceivedMessageSize = b.MaxReceivedMessageSize * 5000;
+                    
                     b.Security.Message.ClientCredentialType = MessageCredentialType.None;
-                    host.AddServiceEndpoint(typeof(IServiceGrupo), b, new Uri(UtilsSistemaServico.enderecoServico));
+
+                    host.AddServiceEndpoint(typeof(IServiceGrupo), b, new Uri(url));
                     host.Open();                    
                     status = "started";
                     btnStartStop.Text = "Stop service";
