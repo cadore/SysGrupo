@@ -239,9 +239,14 @@ namespace HostWcfGrupo
                     b.MaxBufferPoolSize = b.MaxBufferPoolSize * 2552350000256000154;
                     b.MaxReceivedMessageSize = b.MaxReceivedMessageSize * 5000;
                     
-                    b.Security.Message.ClientCredentialType = MessageCredentialType.None;                    
-                    
+                    b.Security.Message.ClientCredentialType = MessageCredentialType.None;
+<<<<<<< HEAD
+
                     host.AddServiceEndpoint(typeof(IServiceGrupo), b, new Uri(url));
+=======
+                    
+                    host.AddServiceEndpoint(typeof(IServiceGrupo), b, new Uri(UtilsSistemaServico.enderecoServico));
+>>>>>>> 17e5542d436aa97848137e918acb7af47f54a023
                     host.Open();                    
                     status = "started";
                     btnStartStop.Text = "Stop service";
