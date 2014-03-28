@@ -28,11 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BuscaReboqueForm));
             this.pnBotoes = new DevExpress.XtraEditors.PanelControl();
             this.cbCliente = new DevExpress.XtraEditors.SearchLookUpEdit();
-            this.bdgCliente = new System.Windows.Forms.BindingSource(this.components);
+            this.bdgCliente = new System.Windows.Forms.BindingSource();
             this.searchLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn25 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colnome_completo = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -67,7 +66,7 @@
             this.btnFechar = new SysNorteGrupo.Utils.BotaoSair();
             this.btnBuscar = new SysNorteGrupo.Utils.BotaoBuscar();
             this.cbVeiculo = new DevExpress.XtraEditors.SearchLookUpEdit();
-            this.bdgVeiculo = new System.Windows.Forms.BindingSource(this.components);
+            this.bdgVeiculo = new System.Windows.Forms.BindingSource();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -105,7 +104,7 @@
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.tfId = new DevExpress.XtraEditors.TextEdit();
             this.gridControl = new DevExpress.XtraGrid.GridControl();
-            this.bdgReboque = new System.Windows.Forms.BindingSource(this.components);
+            this.bdgReboque = new System.Windows.Forms.BindingSource();
             this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colid_cliente = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -707,9 +706,9 @@
             this.panelControl2.Controls.Add(this.ckInativo);
             this.panelControl2.Controls.Add(this.ckAtivo);
             this.panelControl2.Controls.Add(this.labelControl3);
-            this.panelControl2.Location = new System.Drawing.Point(439, 41);
+            this.panelControl2.Location = new System.Drawing.Point(423, 39);
             this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(153, 44);
+            this.panelControl2.Size = new System.Drawing.Size(153, 46);
             this.panelControl2.TabIndex = 4;
             // 
             // ckInativo

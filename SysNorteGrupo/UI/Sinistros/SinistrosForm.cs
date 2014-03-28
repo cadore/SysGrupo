@@ -25,9 +25,12 @@ namespace SysNorteGrupo.UI.Sinistros
         public SinistrosForm(sinistro _sinistro_instc)
         {
             sinistro_instc = _sinistro_instc;
-            InitializeComponent();
+            InitializeComponent();   
+
+            btnGerarCobranca.Visible = false;
+
             setBackColor();
-            conn = GerenteDeConexoes.iniciaConexao();
+            conn = GerenteDeConexoes.recuperaConexao();
 
             bdgCliente.DataSource = conn.listaDeClientesPorInatividade(false);
             bdgPagamentos.DataSource = new List<pagamentos_sinistro>();
@@ -108,12 +111,14 @@ namespace SysNorteGrupo.UI.Sinistros
         private void btnSair_Click(object sender, EventArgs e)
         {
             formPrincipal.adicionarControleNavegacao(null);
+            Log.createLog(EventLog.exited, "formulario de pesquisa de sinistros");
         }      
 
         private void btnNovo_Click(object sender, EventArgs e)
         {
             SinistrosForm sf = new SinistrosForm(null) { formPrincipal = this.formPrincipal };
             formPrincipal.adicionarControleNavegacao(sf);
+            Log.createLog(EventLog.opened, "novo formulario de sinistros");
         }
 
         private void cbCliente_EditValueChanged(object sender, EventArgs e)
@@ -152,7 +157,7 @@ namespace SysNorteGrupo.UI.Sinistros
             pnControl.Enabled = true;
             pnPrincipal.Enabled = true;
             btnEditar.Enabled = false;
-
+            Log.createLog(EventLog.edited, String.Format("sinistro ID: {0}", tfId.Text));
             arquivosForm.DIRETORIO = String.Format(@"{0}{1}\", conn.SUBDIR_SINISTROS(), sinistro_instc.id);
             arquivosForm.executaBusca();
         }
@@ -246,6 +251,8 @@ namespace SysNorteGrupo.UI.Sinistros
                     _sinistro.id_veiculo = Convert.ToInt64(cbVeiculo.EditValue);
                     long id = conn.SalvaSinistro(_sinistro, listPag);
                     tfId.Text = id.ToString();
+                    ((sinistro)bdgSinistros.Current).id = id;
+                    Log.createLog(EventLog.saveEdited, String.Format("sinistro ID: {0}", id));
                     pnPrincipal.Enabled = false;
                     btnEditar.Enabled = true;
                     if (ckConcluido.Checked)
@@ -302,8 +309,8 @@ namespace SysNorteGrupo.UI.Sinistros
             report.assinatura.Value = "GERADO POR SYSNORTE TECNOLOGIA";
             foreach(DevExpress.XtraReports.Parameters.Parameter p in report.Parameters){
                 p.Visible = false;
-            }            
-
+            }
+            Log.createLog(EventLog.visualized, String.Format("relatorio de conslusão do sinistro ID: {0}", tfId.Text));
             /*PdfExportOptions po = new PdfExportOptions() {ImageQuality = PdfJpegImageQuality.Highest, Compressed = true };
             report.ExportToPdf("C:\\Users\\William\\Desktop\\testePDF.pdf", po);*/
 

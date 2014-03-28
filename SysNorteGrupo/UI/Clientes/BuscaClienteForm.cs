@@ -40,7 +40,7 @@ namespace SysNorteGrupo.UI.Clientes
                 //}
             }
 
-            conn = GerenteDeConexoes.iniciaConexao();
+            conn = GerenteDeConexoes.recuperaConexao();
         }
 
         void preencheFundoControls(Control item)
@@ -93,6 +93,7 @@ namespace SysNorteGrupo.UI.Clientes
                 listRetorno.Add(v);
             }
             bdgCliente.DataSource = listRetorno;
+            Log.createLog(EventLog.executedSearch, "");
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
@@ -133,6 +134,7 @@ namespace SysNorteGrupo.UI.Clientes
         private void btnFechar_Click(object sender, EventArgs e)
         {
             formPrincipal.adicionarControleNavegacao(null);
+            Log.createLog(EventLog.exited, "formulario de busca de clientes");
         }
 
         private void gridControl_MouseDoubleClick(object sender, MouseEventArgs e)

@@ -24,7 +24,7 @@ namespace SysNorteGrupo.UI.Usuarios
         {
             InitializeComponent();
             usr = _usr;
-            conn = GerenteDeConexoes.iniciaConexao();
+            conn = GerenteDeConexoes.recuperaConexao();
 
             if(usr == null){
                 usr = new usuario();
@@ -147,6 +147,7 @@ namespace SysNorteGrupo.UI.Usuarios
         private void btnSair_Click(object sender, EventArgs e)
         {
             formPrincipal.adicionarControleNavegacao(null);
+            Log.createLog(EventLog.exited, String.Format("formulario de usuarios"));
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
@@ -155,6 +156,7 @@ namespace SysNorteGrupo.UI.Usuarios
             btnSalvar.Enabled = true;
             btnEditar.Enabled = false;
             lbAlterarSenha.Visible = true;
+            Log.createLog(EventLog.edited, String.Format("usuario ID: {0}", tfId.Text));
         }
 
         private void btnSalvar_Click(object sender, EventArgs e)
@@ -181,6 +183,8 @@ namespace SysNorteGrupo.UI.Usuarios
                     }
                     long id = conn.salvarUsuario(user, pup);
                     tfId.Text = id.ToString();
+                    ((usuario)bdgUsuarios.Current).id = id;
+                    Log.createLog(EventLog.saveEdited, String.Format("usuario ID: {0}", tfId.Text));
 
                     pnControl.Enabled = false;
                     btnSalvar.Enabled = false;
@@ -255,8 +259,8 @@ namespace SysNorteGrupo.UI.Usuarios
 
         private void btnNovo_Click_1(object sender, EventArgs e)
         {
-            UsuarioForm usr = new UsuarioForm(null);
-            usr.formPrincipal = formPrincipal;
+            UsuarioForm usr = new UsuarioForm(null) { formPrincipal = this.formPrincipal };
+            Log.createLog(EventLog.opened, "novo formulario de usuario");
             formPrincipal.adicionarControleNavegacao(usr);
         }
     }

@@ -237,8 +237,9 @@ namespace HostWcfGrupo
                     host = new ServiceHost(typeof(ServiceGrupo));
                     var b = new NetTcpBinding(SecurityMode.None);
                     b.MaxBufferPoolSize = b.MaxBufferPoolSize * 2552350000256000154;
-                    b.MaxReceivedMessageSize = b.MaxReceivedMessageSize * 5000;                    
-                    b.Security.Message.ClientCredentialType = MessageCredentialType.None;   
+                    b.MaxReceivedMessageSize = b.MaxReceivedMessageSize * 5000;
+                    b.ReceiveTimeout = TimeSpan.FromMinutes(20);
+                    b.Security.Message.ClientCredentialType = MessageCredentialType.None;
                     host.AddServiceEndpoint(typeof(IServiceGrupo), b, new Uri(url));
                     host.Open();                    
                     status = "started";

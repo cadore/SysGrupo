@@ -38,7 +38,7 @@ namespace SysNorteGrupo.Utils
 
         private static int generateLog(String _eventLog, String _message)
         {
-            IServiceGrupo conn = GerenteDeConexoes.iniciaConexao();
+            IServiceGrupo conn = GerenteDeConexoes.recuperaConexao();
             string _ip = Util.GetIpHost();
             string _host = Util.GetHostName();
             string _user = String.Empty;
@@ -53,7 +53,7 @@ namespace SysNorteGrupo.Utils
 
         public List<log> readLog(string parameter, string parameterTwo, string parameterThree)
         {
-            IServiceGrupo conn = GerenteDeConexoes.iniciaConexao();
+            IServiceGrupo conn = GerenteDeConexoes.recuperaConexao();
             return conn.ReadLog(parameter, parameterTwo, parameterThree);
         }
     }
@@ -67,9 +67,11 @@ namespace SysNorteGrupo.Utils
         public static string saveEdited = "salvou edição";
         public static string executedSearch = "executou a pesquisa";
         public static string visualized = "visualizou";
+        public static string inatived = "inativou";
         public static string cloused = "fechou";
         public static string exited = "saiu";
         public static string entered = "entrou";
+        public static string exception = "exception";
 
         public static string deleted = "excluiu";
         public static string added = "adicionou";

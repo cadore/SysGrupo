@@ -161,10 +161,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FormPrincipal.cs">
+    <Compile Include="UI\FormPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormPrincipal.designer.cs">
+    <Compile Include="UI\FormPrincipal.designer.cs">
       <DependentUpon>FormPrincipal.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\Resources.Designer.cs">
@@ -241,10 +241,10 @@
     <Compile Include="UI\Usuarios\UsuarioForm.Designer.cs">
       <DependentUpon>UsuarioForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="UtilForm.cs">
+    <Compile Include="UI\UtilForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UtilForm.Designer.cs">
+    <Compile Include="UI\UtilForm.Designer.cs">
       <DependentUpon>UtilForm.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Veiculos\BuscaVeiculoForm.cs">
@@ -308,10 +308,11 @@
     <Compile Include="Utils\GerenteDeConexoes.cs" />
     <Compile Include="Utils\ListaAnos.cs" />
     <Compile Include="Utils\Logs\Log.cs" />
+    <Compile Include="Utils\UserIdleDetect.cs" />
     <Compile Include="Utils\Util.cs" />
     <Compile Include="Utils\UtilsSistema.cs" />
     <Compile Include="Utils\Validations.cs" />
-    <EmbeddedResource Include="FormPrincipal.resx">
+    <EmbeddedResource Include="UI\FormPrincipal.resx">
       <DependentUpon>FormPrincipal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />

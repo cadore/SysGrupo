@@ -22,7 +22,7 @@ namespace SysNorteGrupo.UI.Logs
         public BuscaLogs()
         {
             InitializeComponent();
-            conn = GerenteDeConexoes.iniciaConexao();
+            conn = GerenteDeConexoes.recuperaConexao();
             Log.createLog(EventLog.opened, "Formulario de Logs");
             loadItemsCombos();
         }
@@ -57,9 +57,10 @@ namespace SysNorteGrupo.UI.Logs
                 collEventLog.Add("saiu");
                 collEventLog.Add("entrou");
                 collEventLog.Add("excluiu");
+                collEventLog.Add("exception");
                 collEventLog.Add("adicionou");
                 collEventLog.Add("baixou");
-                collEventLog.Add("nullo");
+                collEventLog.Add("nullo");                
             }
             finally
             {

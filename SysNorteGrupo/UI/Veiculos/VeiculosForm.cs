@@ -24,7 +24,7 @@ namespace SysNorteGrupo.UI.Veiculos
         {
             veiculo_instc = vei;
             InitializeComponent();
-            conn = GerenteDeConexoes.iniciaConexao();
+            conn = GerenteDeConexoes.recuperaConexao();
             arquivosForm.conn = this.conn;         
 
             try
@@ -193,7 +193,7 @@ namespace SysNorteGrupo.UI.Veiculos
             btnSalvar.Enabled = true;
             btnEditar.Enabled = false;
             btnInativar.Enabled = true;
-
+            Log.createLog(EventLog.edited, String.Format("veiculo ID: {0}", tfId.Text));
             arquivosForm.DIRETORIO = conn.SUBDIR_VEICULOS() + veiculo_instc.id.ToString() + @"\";
             arquivosForm.executaBusca();
             arquivosForm.Enabled = true;
@@ -258,6 +258,7 @@ namespace SysNorteGrupo.UI.Veiculos
                         long id = Convert.ToInt64(conn.salvarVeiculo(v));
                         tfId.Text = id.ToString();
                         ((veiculo)(bdgVeiculo.DataSource)).id = id;
+                        Log.createLog(EventLog.saveEdited, String.Format("veiculo ID: {0}", tfId.Text));
 
                         pnPrincipal.Enabled = false;
                         btnSalvar.Enabled = false;
@@ -337,11 +338,13 @@ namespace SysNorteGrupo.UI.Veiculos
         private void btnSair_Click(object sender, EventArgs e)
         {
             formPrincipal.adicionarControleNavegacao(null);
+            Log.createLog(EventLog.exited, String.Format("formulario de veiculos"));
         }
 
         private void btnNovo_Click(object sender, EventArgs e)
         {
             formPrincipal.adicionarControleNavegacao(new VeiculosForm(null) { formPrincipal = formPrincipal });
+            Log.createLog(EventLog.opened, String.Format("novo formulario de veiculos"));
         }
 
         private void VeiculosForm_Load(object sender, EventArgs e)
@@ -374,6 +377,7 @@ namespace SysNorteGrupo.UI.Veiculos
                     v.data_inativacao = conn.retornaDataHoraLocal();
                     long id = Convert.ToInt64(conn.salvarVeiculo(v));
                     tfId.Text = id.ToString();
+                    Log.createLog(EventLog.inatived, String.Format("veiculo ID: {0}", tfId.Text));
 
                     pnPrincipal.Enabled = false;
                     btnSalvar.Enabled = false;

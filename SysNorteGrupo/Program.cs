@@ -42,7 +42,9 @@ namespace SysNorteGrupo
                 System.Threading.Thread.CurrentThread.CurrentUICulture =
                     new System.Globalization.CultureInfo("pt-BR");
 
-                IServiceGrupo conn = GerenteDeConexoes.iniciaConexao();
+                GerenteDeConexoes.iniciaConexao();
+                IServiceGrupo conn = GerenteDeConexoes.recuperaConexao();
+
                 UtilsSistema.backColorFoco = conn.backColorFoco();
                 UtilsSistema.franquiaSinistro = conn.franquiaSinistro();
                 UtilsSistema.valor_por_cota = conn.valorPorCota();
@@ -60,6 +62,7 @@ namespace SysNorteGrupo
         {
             try
             {
+                Log.createLog(EventLog.entered, String.Format("ao sistema, aguardando autenticação"));
                 LoginForm frmLogin = new LoginForm();
                 if (frmLogin.ShowDialog() == DialogResult.OK)
                 {

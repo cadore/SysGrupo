@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ReboqueForm));
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule2 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
@@ -55,7 +54,7 @@
             this.pnPrincipal = new DevExpress.XtraEditors.PanelControl();
             this.pnTabela = new DevExpress.XtraEditors.PanelControl();
             this.grdReboques = new DevExpress.XtraGrid.GridControl();
-            this.bdgReboqueLista = new System.Windows.Forms.BindingSource(this.components);
+            this.bdgReboqueLista = new System.Windows.Forms.BindingSource();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colrenavam = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colchassi = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -82,14 +81,14 @@
             this.colcotas = new DevExpress.XtraGrid.Columns.GridColumn();
             this.arquivosFormReb = new SysFileManager.ArquivosForm();
             this.cbVeiculos = new DevExpress.XtraEditors.SearchLookUpEdit();
-            this.bdgVeiculo = new System.Windows.Forms.BindingSource(this.components);
+            this.bdgVeiculo = new System.Windows.Forms.BindingSource();
             this.gridView9 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colplacaveic = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colestadoveic = new DevExpress.XtraGrid.Columns.GridColumn();
             this.labelControl22 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.cbCliente = new DevExpress.XtraEditors.SearchLookUpEdit();
-            this.bdgCliente = new System.Windows.Forms.BindingSource(this.components);
+            this.bdgCliente = new System.Windows.Forms.BindingSource();
             this.searchLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colnome_completo = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -126,7 +125,7 @@
             this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.cbCidade = new DevExpress.XtraEditors.SearchLookUpEdit();
-            this.bdgCidade = new System.Windows.Forms.BindingSource(this.components);
+            this.bdgCidade = new System.Windows.Forms.BindingSource();
             this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colCidadecidade = new DevExpress.XtraGrid.Columns.GridColumn();
             this.btnRemover = new DevExpress.XtraEditors.SimpleButton();
@@ -135,14 +134,14 @@
             this.labelControl16 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl18 = new DevExpress.XtraEditors.LabelControl();
             this.cbCorCarroceria = new DevExpress.XtraEditors.SearchLookUpEdit();
-            this.bdgCor = new System.Windows.Forms.BindingSource(this.components);
+            this.bdgCor = new System.Windows.Forms.BindingSource();
             this.gridView8 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn13 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn14 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.lbCorCarroceria = new DevExpress.XtraEditors.LabelControl();
             this.labelControl21 = new DevExpress.XtraEditors.LabelControl();
             this.cbCorChassi = new DevExpress.XtraEditors.SearchLookUpEdit();
-            this.bdgCorChassi = new System.Windows.Forms.BindingSource(this.components);
+            this.bdgCorChassi = new System.Windows.Forms.BindingSource();
             this.gridView7 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colid_cor = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colnome_cor = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -153,14 +152,14 @@
             this.tfDataAgendamento = new DevExpress.XtraEditors.DateEdit();
             this.labelControl12 = new DevExpress.XtraEditors.LabelControl();
             this.cbEstado = new DevExpress.XtraEditors.SearchLookUpEdit();
-            this.bdgEstado = new System.Windows.Forms.BindingSource(this.components);
+            this.bdgEstado = new System.Windows.Forms.BindingSource();
             this.gridView5 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn9 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.coluf = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colnome_estado = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colcod_ibge = new DevExpress.XtraGrid.Columns.GridColumn();
             this.cbEspecie = new DevExpress.XtraEditors.SearchLookUpEdit();
-            this.bdgEspecie = new System.Windows.Forms.BindingSource(this.components);
+            this.bdgEspecie = new System.Windows.Forms.BindingSource();
             this.gridView3 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn8 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colespecie = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -180,7 +179,7 @@
             this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl14 = new DevExpress.XtraEditors.LabelControl();
             this.tfId = new DevExpress.XtraEditors.TextEdit();
-            this.validator = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
+            this.validator = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider();
             ((System.ComponentModel.ISupportInitialize)(this.pnBotoes)).BeginInit();
             this.pnBotoes.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pnPrincipal)).BeginInit();
@@ -1405,8 +1404,11 @@
             this.tfRenavam.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdgReboqueLista, "renavam", true));
             this.tfRenavam.Location = new System.Drawing.Point(751, 23);
             this.tfRenavam.Name = "tfRenavam";
-            this.tfRenavam.Properties.Mask.EditMask = "d";
-            this.tfRenavam.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.tfRenavam.Properties.Mask.BeepOnError = true;
+            this.tfRenavam.Properties.Mask.EditMask = "[0-9]{11}";
+            this.tfRenavam.Properties.Mask.IgnoreMaskBlank = false;
+            this.tfRenavam.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
+            this.tfRenavam.Properties.Mask.ShowPlaceHolders = false;
             this.tfRenavam.Size = new System.Drawing.Size(130, 20);
             this.tfRenavam.TabIndex = 3;
             conditionValidationRule15.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;

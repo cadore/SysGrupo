@@ -116,7 +116,7 @@ namespace SysFileManager
                     }
                     if ((Int32)length > 1048576)
                     {
-                        max = ((Int32)length / 1024) / 1024;
+                        max = ((Int32)length / 1024 / 1024);
                     }
                     progressBar.Properties.Maximum = max;                    
                     for (int i = 0; i < max; i++)

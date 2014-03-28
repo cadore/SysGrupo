@@ -26,7 +26,7 @@ namespace SysNorteGrupo.UI.Veiculos
         public BuscaVeiculoForm()
         {
             InitializeComponent();
-            conn = GerenteDeConexoes.iniciaConexao();
+            conn = GerenteDeConexoes.recuperaConexao();
             bdgCliente.DataSource = conn.listaDeClientesPorInatividade(false);
 
             foreach (Control c in pnBotoes.Controls)
@@ -77,6 +77,7 @@ namespace SysNorteGrupo.UI.Veiculos
                 listRetorno.Add(v);
             }
             bdgVeiculo.DataSource = listRetorno;
+            Log.createLog(EventLog.executedSearch, String.Format(""));
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
@@ -87,6 +88,7 @@ namespace SysNorteGrupo.UI.Veiculos
         private void btnFechar_Click(object sender, EventArgs e)
         {
             formPrincipal.adicionarControleNavegacao(null);
+            Log.createLog(EventLog.exited, String.Format("formulario de busca veiculos"));
         }
 
         private void ckAtivo_CheckedChanged(object sender, EventArgs e)

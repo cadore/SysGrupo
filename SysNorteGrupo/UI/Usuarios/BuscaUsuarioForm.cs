@@ -20,7 +20,7 @@ namespace SysNorteGrupo.UI.Usuarios
         public BuscaUsuariosForm()
         {
             InitializeComponent();
-            conn = GerenteDeConexoes.iniciaConexao();
+            conn = GerenteDeConexoes.recuperaConexao();
         }
 
         private void executaBusca()
@@ -37,6 +37,7 @@ namespace SysNorteGrupo.UI.Usuarios
             {
                 bindingSource.DataSource = conn.listaDeUsuariosAtivos();
             }
+            Log.createLog(EventLog.executedSearch, "");
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
@@ -107,6 +108,7 @@ namespace SysNorteGrupo.UI.Usuarios
         private void btnSair_Click(object sender, EventArgs e)
         {
             formPrincipal.adicionarControleNavegacao(null);
+            Log.createLog(EventLog.exited, String.Format("formulario de pesquisa de usuarios"));
         }
     }
 }

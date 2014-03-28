@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule2 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginForm));
@@ -37,10 +36,11 @@
             this.tfSenha = new DevExpress.XtraEditors.TextEdit();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.pnControl = new DevExpress.XtraEditors.PanelControl();
+            this.lbAviso = new DevExpress.XtraEditors.LabelControl();
             this.btnEntrar = new SysNorteGrupo.Utils.BotaoEntrar();
             this.lbSenha = new DevExpress.XtraEditors.LabelControl();
             this.btnSair = new SysNorteGrupo.Utils.BotaoSair();
-            this.validator = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
+            this.validator = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider();
             ((System.ComponentModel.ISupportInitialize)(this.tfLogin.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfSenha.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pnControl)).BeginInit();
@@ -100,6 +100,7 @@
             this.pnControl.Appearance.Options.UseBackColor = true;
             this.pnControl.AutoSize = true;
             this.pnControl.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.pnControl.Controls.Add(this.lbAviso);
             this.pnControl.Controls.Add(this.btnEntrar);
             this.pnControl.Controls.Add(this.lbSenha);
             this.pnControl.Controls.Add(this.btnSair);
@@ -112,6 +113,18 @@
             this.pnControl.Name = "pnControl";
             this.pnControl.Size = new System.Drawing.Size(523, 239);
             this.pnControl.TabIndex = 2;
+            // 
+            // lbAviso
+            // 
+            this.lbAviso.Appearance.ForeColor = System.Drawing.Color.Gold;
+            this.lbAviso.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.lbAviso.Location = new System.Drawing.Point(12, 109);
+            this.lbAviso.Name = "lbAviso";
+            this.lbAviso.Size = new System.Drawing.Size(499, 39);
+            this.lbAviso.TabIndex = 6;
+            this.lbAviso.Text = "SISTEMA BLOQUEADO POR QUESTÕES DE SEGURANÇA, VOCÊ ESTEVE AUSENTE POR MUITO TEMPO." +
+    "\r\nINFORME SUAS CREDENCIAIS PARA EFETUAR LOGIN NOVAMENTE.";
+            this.lbAviso.Visible = false;
             // 
             // btnEntrar
             // 
@@ -133,11 +146,12 @@
             // lbSenha
             // 
             this.lbSenha.Appearance.ForeColor = System.Drawing.Color.OrangeRed;
-            this.lbSenha.Location = new System.Drawing.Point(193, 98);
+            this.lbSenha.Location = new System.Drawing.Point(193, 94);
             this.lbSenha.Name = "lbSenha";
             this.lbSenha.Size = new System.Drawing.Size(154, 13);
             this.lbSenha.TabIndex = 4;
             this.lbSenha.Text = "LOGIN OU SENHA INCORRETOS";
+            this.lbSenha.Visible = false;
             // 
             // btnSair
             // 
@@ -194,5 +208,6 @@
         private DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider validator;
         private DevExpress.XtraEditors.LabelControl lbSenha;
         private Utils.BotaoEntrar btnEntrar;
+        public DevExpress.XtraEditors.LabelControl lbAviso;
     }
 }

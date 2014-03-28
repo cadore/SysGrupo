@@ -1,21 +1,13 @@
 ﻿using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.DXErrorProvider;
 using DevExpress.XtraReports.UI;
-using DevExpress.XtraRichEdit;
 using DevExpress.XtraTab;
 using EntitiesGrupo;
-using SysFileManager;
 using SysNorteGrupo.Reports;
 using SysNorteGrupo.Reports.Clientes;
-using SysNorteGrupo.Reports.teste;
 using SysNorteGrupo.Utils;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
-using System.Drawing;
-using System.Drawing.Printing;
-using System.IO;
-using System.Reflection;
 using System.Windows.Forms;
 using WcfLibGrupo;
 
@@ -35,8 +27,7 @@ namespace SysNorteGrupo.UI.Clientes
         {
             InitializeComponent();
             button1.Visible = false;
-
-            conn = GerenteDeConexoes.iniciaConexao();
+            conn = GerenteDeConexoes.recuperaConexao();
 
             arquivosFormCli.conn = conn;
 
@@ -143,6 +134,7 @@ namespace SysNorteGrupo.UI.Clientes
                     cbBairro.Enabled = false;
                     cbEndereco.Enabled = false;
                 }
+                btnImprimirContrato.Enabled = true;
             }
         }
 
@@ -170,10 +162,10 @@ namespace SysNorteGrupo.UI.Clientes
             btnSalvar.Enabled = true;
             btnEditar.Enabled = false;
             panelComponentes.Enabled = true;
-
             arquivosFormCli.DIRETORIO = String.Format(@"{0}{1}\", conn.SUBDIR_CLIENTES(), ((cliente)bdgCliente.Current).id);
             arquivosFormCli.executaBusca();
             arquivosFormCli.Enabled = true;
+            Log.createLog(EventLog.edited, String.Format("cliente ID: {0}", tfId.Text));
         }
 
         private void btnSalvar_Click(object sender, EventArgs e)
@@ -233,8 +225,11 @@ namespace SysNorteGrupo.UI.Clientes
                     }
 
                     cli.inativo = false;
-
-                    tfId.Text = conn.salvarCliente(cli).ToString();
+                    long id = conn.salvarCliente(cli);
+                    ((cliente)bdgCliente.Current).id = id;
+                    tfId.Text = id.ToString();
+                    btnImprimirContrato.Enabled = true;
+                    Log.createLog(EventLog.saveEdited, String.Format("cliente ID: {0}", id));
 
                     reabilitarPaineis(false);
                     btnSalvar.Enabled = false;
@@ -297,6 +292,7 @@ namespace SysNorteGrupo.UI.Clientes
         private void btnFechar_Click(object sender, EventArgs e)
         {
             formPrincipal.adicionarControleNavegacao(null);
+            Log.createLog(EventLog.executedSearch, "formulario de clientes");
         }
 
         private void ClienteForm_Load(object sender, EventArgs e)
@@ -369,6 +365,7 @@ namespace SysNorteGrupo.UI.Clientes
         private void btnNovo_Click(object sender, EventArgs e)
         {
             formPrincipal.adicionarControleNavegacao(new ClienteForm(null) { formPrincipal = formPrincipal });
+            Log.createLog(EventLog.opened, String.Format("novo formulario de clientes"));
            /* //remover eventos combobox
             this.cbEstados.EditValueChanged -= new EventHandler(this.cbEstados_EditValueChanged);
             this.cbCidade.EditValueChanged -= new EventHandler(this.cbCidade_EditValueChanged);
@@ -441,6 +438,7 @@ namespace SysNorteGrupo.UI.Clientes
                 p.Visible = false;
             }
             ReportPrintTool tool = new ReportPrintTool(report);
+            Log.createLog(EventLog.visualized, String.Format("relatorios de bens, cliente ID: {0}", tfId.Text));
             tool.ShowRibbonPreviewDialog();
         }
         List<ListaClientesInclusao> listaFinal()

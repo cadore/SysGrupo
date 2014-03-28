@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using WcfLibGrupo;
 using EntitiesGrupo;
+using SysNorteGrupo.Utils;
 
 namespace SysNorteGrupo.UI.Sinistros
 {
@@ -21,7 +22,7 @@ namespace SysNorteGrupo.UI.Sinistros
         public BuscaSinistrosForm()
         {
             InitializeComponent();
-            conn = GerenteDeConexoes.iniciaConexao();
+            conn = GerenteDeConexoes.recuperaConexao();
             bdgClientes.DataSource = conn.listaDeTodosClientes();
             bdgVeiculos.DataSource = conn.listaDeTodosVeiculos();
             bdgReboques.DataSource = conn.listaDeTodosReboques();
@@ -119,11 +120,13 @@ namespace SysNorteGrupo.UI.Sinistros
                 listSin.Add(s);
             }
             bdgSinistros.DataSource = listSin;
+            Log.createLog(EventLog.executedSearch, "");
         }
 
         private void btnFechar_Click(object sender, EventArgs e)
         {
             formPrincipal.adicionarControleNavegacao(null);
+            Log.createLog(EventLog.exited, "formulario de pesquisa de sinistros");
         }
 
         private void cbSituacao_SelectedIndexChanged(object sender, EventArgs e)
