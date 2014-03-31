@@ -35,12 +35,10 @@ namespace SysNorteGrupo
 
 
                 // The following line provides localization for data formats. 
-                System.Threading.Thread.CurrentThread.CurrentCulture =
-                    new System.Globalization.CultureInfo("pt-BR");
+                System.Threading.Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("pt-BR");
 
                 // The following line provides localization for the application's user interface. 
-                System.Threading.Thread.CurrentThread.CurrentUICulture =
-                    new System.Globalization.CultureInfo("pt-BR");
+                System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("pt-BR");
 
                 GerenteDeConexoes.iniciaConexao();
                 IServiceGrupo conn = GerenteDeConexoes.recuperaConexao();
@@ -66,6 +64,7 @@ namespace SysNorteGrupo
                 LoginForm frmLogin = new LoginForm();
                 if (frmLogin.ShowDialog() == DialogResult.OK)
                 {
+                    Log.usuario_ativo = usuario_instc;
                     Application.Run(new FormPrincipal(usuario_instc, permicao_instc));
                 }
                 else

@@ -46,7 +46,7 @@ namespace SysNorteGrupo.UI.Logs
 
             try
             {
-                collEventLog.Add("");
+                collEventLog.Add("TODOS");
                 collEventLog.Add("abriu");
                 collEventLog.Add("registrou");
                 collEventLog.Add("editou");
@@ -73,7 +73,7 @@ namespace SysNorteGrupo.UI.Logs
 
             try
             {
-                collUser.Add("");
+                collUser.Add("TODOS");
                 List<usuario> lisUsuario = conn.listaDeTodosUsuarios();
                 foreach (usuario u in lisUsuario)
                 {

@@ -450,7 +450,7 @@
     <ProjectReference Include="..\WcfLibGrupo\WcfLibGrupo.csproj">
       <Project>{4e95265e-7c25-4f8b-a055-0ac97466b0e3}</Project>
       <Name>WcfLibGrupo</Name>
-      <Private>True</Private>
+      <!--<Private>True</Private>-->
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />
@@ -481,6 +481,7 @@
     <Content Include="favicon.ico" />
     <Content Include="TODO.txt" />
   </ItemGroup>
+  <!--<Import Project="$(MSBuildExtensionsPath)\Ilmerge.CSharp.targets" />-->
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.

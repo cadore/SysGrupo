@@ -13,7 +13,7 @@ namespace SysNorteGrupo.Utils
 {
     public class Log
     {
-        private static usuario usuario_ativo = Program.usuario_instc;
+        public static usuario usuario_ativo;
         public static void createLog(String _eventLog, String _message)
         {
             int i;
