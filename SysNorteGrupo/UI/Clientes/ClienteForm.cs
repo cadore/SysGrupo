@@ -181,7 +181,8 @@ namespace SysNorteGrupo.UI.Clientes
             if (validador.Validate())
             {
 
-                if (Convert.ToChar(grpTipo.EditValue) == 'j' && !ckIsento.Checked && !Validations.validIE(tfInscricao.EditValue.ToString(), cbEstados.Text))
+                if (Convert.ToChar(grpTipo.EditValue) == 'j' && !ckIsento.Checked && !Validations.validIE(tfInscricao.EditValue.ToString()
+                    .Replace('.', ' ').Replace('-', ' ').Trim(), cbEstados.Text))
                 {
                     XtraMessageBox.Show("O INSCRIÇÃO ESTADUAL informada é inválida ou não foi selecionado um ESTADO para o endereço. Verifique!", "SYSNORTE GRUPO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     tfInscricao.Focus();

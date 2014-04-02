@@ -220,15 +220,44 @@ namespace SysNorteGrupo
                 DateTime inic = DateTime.Now;
                 Log.createLog(EventLog.opened, "criação de backup.");
                 IServiceGrupo conn = GerenteDeConexoes.recuperaConexao();
-                string dir = conn.createBackup("p@ssw0rd");
-                if (!String.IsNullOrEmpty(dir))
+                string fileBackup = conn.createBackup("p@ssw0rd");
+                if (!String.IsNullOrEmpty(fileBackup))
                 {
                     DateTime fim = DateTime.Now;
                     TimeSpan ts = fim.Subtract(inic);
                     Log.createLog(EventLog.cloused, String.Format("concluiu criação de backup em: {0} segundos", ts.TotalSeconds));
-                    MessageBox.Show("Backup criado com sucesso!");
+                    DialogResult rs = MessageBox.Show("Backup criado com sucesso!\nDeseja exportar arquivo para um local?",
+                        "SYSNORTE TECNOLOGIA", MessageBoxButtons.YesNo);
+                    if (rs == DialogResult.Yes)
+                    {
+                        MessageBox.Show("0");
+                        SaveFileDialog sfd = new SaveFileDialog();
+                        sfd.AutoUpgradeEnabled = true;
+                        sfd.Title = "Salvar Arquivo";
+                        sfd.InitialDirectory = Environment.ExpandEnvironmentVariables("%HOMEDRIVE%%HOMEPATH%") + @"\Documents\";
+                        sfd.Filter = "Arquivo de backup SYSNORTE|*.syscrypt";
+                        sfd.FileName = String.Format(@"backupSystem{0:yyyy-MM-dd_HH-mm}.syscrypt", fim);
+                        MessageBox.Show("1");
+                        DialogResult dr = sfd.ShowDialog();
+                        if (dr == DialogResult.OK)
+                        {
+                            MessageBox.Show("2");
+                            Byte[] by = conn.download(fileBackup);
+                            MessageBox.Show("3");
+                            File.WriteAllBytes(sfd.FileName, by);
+                            MessageBox.Show("4");
+                            Log.createLog(EventLog.empty, String.Format("Exportou arquivo de backup."));
+                            MessageBox.Show("Arquivo salvo com sucesso.", "SYSNORTE TECNOLOGIA");
+                        }
+                        else
+                        {
+                            MessageBox.Show("else");
+                        }
+                    }
                 }
-            }catch(Exception)
+                
+            }
+            catch(Exception)
             {
                 MessageBox.Show("Erro ao criar backup, tente novamente\nse o problema persistir, contate o suporte.");
             }
