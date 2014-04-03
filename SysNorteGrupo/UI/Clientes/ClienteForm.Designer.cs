@@ -29,6 +29,7 @@ namespace SysNorteGrupo.UI.Clientes
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ClienteForm));
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule2 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
@@ -59,7 +60,7 @@ namespace SysNorteGrupo.UI.Clientes
             this.labelControl16 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl15 = new DevExpress.XtraEditors.LabelControl();
             this.tfRefcomercial = new DevExpress.XtraEditors.TextEdit();
-            this.bdgCliente = new System.Windows.Forms.BindingSource();
+            this.bdgCliente = new System.Windows.Forms.BindingSource(this.components);
             this.tfContcomercial = new DevExpress.XtraEditors.TextEdit();
             this.xtraTabPage2 = new DevExpress.XtraTab.XtraTabPage();
             this.labelControl17 = new DevExpress.XtraEditors.LabelControl();
@@ -73,11 +74,11 @@ namespace SysNorteGrupo.UI.Clientes
             this.tfConttransporte = new DevExpress.XtraEditors.TextEdit();
             this.panelCadastro = new DevExpress.XtraEditors.PanelControl();
             this.grpEndereco = new DevExpress.XtraEditors.GroupControl();
-            this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
+            this.btnCadEndereco = new DevExpress.XtraEditors.SimpleButton();
+            this.btnCadBairro = new DevExpress.XtraEditors.SimpleButton();
             this.tfObservacoes = new DevExpress.XtraEditors.MemoEdit();
             this.cbEndereco = new DevExpress.XtraEditors.SearchLookUpEdit();
-            this.bdgEnderecos = new System.Windows.Forms.BindingSource();
+            this.bdgEnderecos = new System.Windows.Forms.BindingSource(this.components);
             this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colcep = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -85,7 +86,7 @@ namespace SysNorteGrupo.UI.Clientes
             this.colbairro_id = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn6 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.cbBairro = new DevExpress.XtraEditors.SearchLookUpEdit();
-            this.bdgBairros = new System.Windows.Forms.BindingSource();
+            this.bdgBairros = new System.Windows.Forms.BindingSource(this.components);
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colnome_bairro = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -94,14 +95,14 @@ namespace SysNorteGrupo.UI.Clientes
             this.tfCep = new DevExpress.XtraEditors.TextEdit();
             this.tfNumero = new DevExpress.XtraEditors.TextEdit();
             this.cbEstados = new DevExpress.XtraEditors.SearchLookUpEdit();
-            this.bdgEstados = new System.Windows.Forms.BindingSource();
+            this.bdgEstados = new System.Windows.Forms.BindingSource(this.components);
             this.gridView3 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
             this.coluf = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colnome_estado = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colcod_ibge = new DevExpress.XtraGrid.Columns.GridColumn();
             this.cbCidade = new DevExpress.XtraEditors.SearchLookUpEdit();
-            this.bdgCidades = new System.Windows.Forms.BindingSource();
+            this.bdgCidades = new System.Windows.Forms.BindingSource(this.components);
             this.searchLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.col_cidade = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -139,7 +140,7 @@ namespace SysNorteGrupo.UI.Clientes
             this.labelControl9 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl24 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl23 = new DevExpress.XtraEditors.LabelControl();
-            this.validador = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider();
+            this.validador = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pnBotoes)).BeginInit();
             this.pnBotoes.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelComponentes)).BeginInit();
@@ -530,8 +531,8 @@ namespace SysNorteGrupo.UI.Clientes
             // 
             this.grpEndereco.AppearanceCaption.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grpEndereco.AppearanceCaption.Options.UseFont = true;
-            this.grpEndereco.Controls.Add(this.simpleButton2);
-            this.grpEndereco.Controls.Add(this.simpleButton1);
+            this.grpEndereco.Controls.Add(this.btnCadEndereco);
+            this.grpEndereco.Controls.Add(this.btnCadBairro);
             this.grpEndereco.Controls.Add(this.tfObservacoes);
             this.grpEndereco.Controls.Add(this.cbEndereco);
             this.grpEndereco.Controls.Add(this.cbBairro);
@@ -554,25 +555,27 @@ namespace SysNorteGrupo.UI.Clientes
             this.grpEndereco.TabIndex = 2;
             this.grpEndereco.Text = "INFORMAÇÕES DE ENDEREÇO";
             // 
-            // simpleButton2
+            // btnCadEndereco
             // 
-            this.simpleButton2.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
-            this.simpleButton2.Image = global::SysNorteGrupo.Properties.Resources.Action_LinkUnlink_Link;
-            this.simpleButton2.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-            this.simpleButton2.Location = new System.Drawing.Point(426, 70);
-            this.simpleButton2.Name = "simpleButton2";
-            this.simpleButton2.Size = new System.Drawing.Size(30, 19);
-            this.simpleButton2.TabIndex = 7;
+            this.btnCadEndereco.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
+            this.btnCadEndereco.Image = global::SysNorteGrupo.Properties.Resources.Action_LinkUnlink_Link;
+            this.btnCadEndereco.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+            this.btnCadEndereco.Location = new System.Drawing.Point(426, 70);
+            this.btnCadEndereco.Name = "btnCadEndereco";
+            this.btnCadEndereco.Size = new System.Drawing.Size(30, 19);
+            this.btnCadEndereco.TabIndex = 7;
+            this.btnCadEndereco.Click += new System.EventHandler(this.btnCadEndereco_Click);
             // 
-            // simpleButton1
+            // btnCadBairro
             // 
-            this.simpleButton1.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
-            this.simpleButton1.Image = global::SysNorteGrupo.Properties.Resources.Action_LinkUnlink_Link;
-            this.simpleButton1.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-            this.simpleButton1.Location = new System.Drawing.Point(426, 47);
-            this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(30, 19);
-            this.simpleButton1.TabIndex = 7;
+            this.btnCadBairro.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
+            this.btnCadBairro.Image = global::SysNorteGrupo.Properties.Resources.Action_LinkUnlink_Link;
+            this.btnCadBairro.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+            this.btnCadBairro.Location = new System.Drawing.Point(426, 47);
+            this.btnCadBairro.Name = "btnCadBairro";
+            this.btnCadBairro.Size = new System.Drawing.Size(30, 19);
+            this.btnCadBairro.TabIndex = 7;
+            this.btnCadBairro.Click += new System.EventHandler(this.btnCadBairro_Click);
             // 
             // tfObservacoes
             // 
@@ -1315,9 +1318,9 @@ namespace SysNorteGrupo.UI.Clientes
         private DevExpress.XtraEditors.LabelControl labelControl8;
         private DevExpress.XtraEditors.LabelControl labelControl11;
         private DevExpress.XtraEditors.LabelControl labelControl10;
-        private DevExpress.XtraEditors.SearchLookUpEdit cbEndereco;
+        public DevExpress.XtraEditors.SearchLookUpEdit cbEndereco;
+        public DevExpress.XtraEditors.SearchLookUpEdit cbBairro;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView2;
-        private DevExpress.XtraEditors.SearchLookUpEdit cbBairro;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private DevExpress.XtraTab.XtraTabControl xtraTabControl1;
         private DevExpress.XtraTab.XtraTabPage xtraTabPage1;
@@ -1369,8 +1372,8 @@ namespace SysNorteGrupo.UI.Clientes
         private DevExpress.XtraGrid.Columns.GridColumn colbairro_id;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn6;
         private DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider validador;
-        private DevExpress.XtraEditors.SimpleButton simpleButton2;
-        private DevExpress.XtraEditors.SimpleButton simpleButton1;
+        private DevExpress.XtraEditors.SimpleButton btnCadEndereco;
+        private DevExpress.XtraEditors.SimpleButton btnCadBairro;
         private Utils.BotaoNovo btnNovo;
         private Utils.BotaoSair btnSair;
         private Utils.BotaoEditar btnEditar;

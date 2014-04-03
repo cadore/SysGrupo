@@ -24,7 +24,7 @@ namespace SysNorteGrupo.UI.Veiculos
         {
             veiculo_instc = vei;
             InitializeComponent();
-            conn = GerenteDeConexoes.recuperaConexao();
+            conn = GerenteDeConexoes.conexaoServico();
             arquivosForm.conn = this.conn;         
 
             try

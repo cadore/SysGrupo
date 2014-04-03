@@ -27,7 +27,7 @@ namespace SysNorteGrupo.UI.Veiculos.Reboques
         {
             InitializeComponent();
 
-            conn = GerenteDeConexoes.recuperaConexao();
+            conn = GerenteDeConexoes.conexaoServico();
             bdgCliente.DataSource = conn.listaDeClientesPorInatividade(false);
             bdgVeiculo.DataSource = conn.listaDeVeiculosPorInatividade(false);
 

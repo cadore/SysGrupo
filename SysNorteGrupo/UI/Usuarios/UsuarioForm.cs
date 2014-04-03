@@ -24,7 +24,7 @@ namespace SysNorteGrupo.UI.Usuarios
         {
             InitializeComponent();
             usr = _usr;
-            conn = GerenteDeConexoes.recuperaConexao();
+            conn = GerenteDeConexoes.conexaoServico();
 
             if(usr == null){
                 usr = new usuario();

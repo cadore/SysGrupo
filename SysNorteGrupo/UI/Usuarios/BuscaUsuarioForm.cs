@@ -20,7 +20,7 @@ namespace SysNorteGrupo.UI.Usuarios
         public BuscaUsuariosForm()
         {
             InitializeComponent();
-            conn = GerenteDeConexoes.recuperaConexao();
+            conn = GerenteDeConexoes.conexaoServico();
         }
 
         private void executaBusca()

@@ -38,7 +38,7 @@ namespace SysNorteGrupo.Utils
 
         private static int generateLog(String _eventLog, String _message)
         {
-            IServiceGrupo conn = GerenteDeConexoes.recuperaConexao();
+            IServiceGrupo conn = GerenteDeConexoes.conexaoServico();
             string _ip = Util.GetIpHost();
             string _host = Util.GetHostName();
             string _user = String.Empty;
@@ -53,7 +53,7 @@ namespace SysNorteGrupo.Utils
 
         public List<log> readLog(string parameter, string parameterTwo, string parameterThree)
         {
-            IServiceGrupo conn = GerenteDeConexoes.recuperaConexao();
+            IServiceGrupo conn = GerenteDeConexoes.conexaoServico();
             return conn.ReadLog(parameter, parameterTwo, parameterThree);
         }
     }

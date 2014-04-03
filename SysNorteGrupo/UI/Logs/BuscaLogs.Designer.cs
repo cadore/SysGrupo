@@ -1,4 +1,5 @@
 ﻿using EntitiesGrupo;
+using SysNorteGrupo.Utils;
 
 namespace SysNorteGrupo.UI.Logs
 {
@@ -265,7 +266,7 @@ namespace SysNorteGrupo.UI.Logs
         private DevExpress.XtraEditors.LabelControl labelControl1;
         private DevExpress.XtraEditors.ComboBoxEdit cbUsuario;
         private DevExpress.XtraEditors.LabelControl labelControl2;
-        private Utils.BotaoSair btnSair;
-        private Utils.BotaoBuscar bntBuscar;
+        private BotaoSair btnSair;
+        private BotaoBuscar bntBuscar;
     }
 }

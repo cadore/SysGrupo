@@ -166,7 +166,7 @@ namespace EntitiesGrupo
     }
 
     
-	[TableName("estados")]
+	[TableName("cad_estados")]
 
 
 	[PrimaryKey("id")]
@@ -204,7 +204,7 @@ namespace EntitiesGrupo
 	}
 
     
-	[TableName("enderecos")]
+	[TableName("cad_enderecos")]
 
 
 	[PrimaryKey("id")]
@@ -248,7 +248,7 @@ namespace EntitiesGrupo
 	}
 
     
-	[TableName("bairros")]
+	[TableName("cad_bairros")]
 
 
 	[PrimaryKey("id")]
@@ -622,7 +622,7 @@ namespace EntitiesGrupo
 
 	}
     
-	[TableName("cidades")]
+	[TableName("cad_cidades")]
 
 
 	[PrimaryKey("id")]

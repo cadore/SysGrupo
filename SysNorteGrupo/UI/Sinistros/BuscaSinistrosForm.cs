@@ -22,7 +22,7 @@ namespace SysNorteGrupo.UI.Sinistros
         public BuscaSinistrosForm()
         {
             InitializeComponent();
-            conn = GerenteDeConexoes.recuperaConexao();
+            conn = GerenteDeConexoes.conexaoServico();
             bdgClientes.DataSource = conn.listaDeTodosClientes();
             bdgVeiculos.DataSource = conn.listaDeTodosVeiculos();
             bdgReboques.DataSource = conn.listaDeTodosReboques();

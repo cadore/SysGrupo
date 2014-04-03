@@ -255,6 +255,12 @@ namespace WcfLibGrupo
         #region cidades, bairros, enderecos
 
         [OperationContract]
+        long SalvaBairro(bairro obj);
+
+        [OperationContract]
+        long SalvaEndereco(endereco obj);
+
+        [OperationContract]
         List<estado> listaDeEstados();
 
         [OperationContract]

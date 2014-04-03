@@ -5,6 +5,7 @@ using DevExpress.XtraTab;
 using EntitiesGrupo;
 using SysNorteGrupo.Reports;
 using SysNorteGrupo.Reports.Clientes;
+using SysNorteGrupo.UI.Enderecos;
 using SysNorteGrupo.Utils;
 using System;
 using System.Collections.Generic;
@@ -27,7 +28,7 @@ namespace SysNorteGrupo.UI.Clientes
         {
             InitializeComponent();
             button1.Visible = false;
-            conn = GerenteDeConexoes.recuperaConexao();
+            conn = GerenteDeConexoes.conexaoServico();
 
             arquivosFormCli.conn = conn;
 
@@ -430,7 +431,7 @@ namespace SysNorteGrupo.UI.Clientes
 
         private void btnImprimirContrato_Click(object sender, EventArgs e)
         {
-            RelatorioRelacaoCliente report = new RelatorioRelacaoCliente();
+            RelatorioInclusãoCliente report = new RelatorioInclusãoCliente();
             report.bdgClientesLista.DataSource = listaFinal();
             report.dataRelatorio.Value = "RELATÓRIO GERADO EM: " + conn.retornaDataHoraLocal();
             report.assinatura.Value = "GERADO POR SYSNORTE TECNOLOGIA";
@@ -495,6 +496,42 @@ namespace SysNorteGrupo.UI.Clientes
                 });
             }
             return reboques;
+        }
+
+        private void btnCadBairro_Click(object sender, EventArgs e)
+        {
+            if (Convert.ToInt64(cbCidade.EditValue) > 0)
+            {
+                CadastraBairroForm cbf = new CadastraBairroForm(this, cbCidade.Text, Convert.ToInt64(cbCidade.EditValue));
+                DialogResult rs = cbf.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show(String.Format("SELECIONE A CIDADE CORRENSPONDENTE AO BAIRRO PARA PODER CADASTRAR NOVO."));
+            }
+        }
+
+        private void btnCadEndereco_Click(object sender, EventArgs e)
+        {
+            if (Convert.ToInt64(cbBairro.EditValue) > 0)
+            {
+                CadastraEnderecoForm cef = new CadastraEnderecoForm(this, cbBairro.Text, Convert.ToInt64(cbBairro.EditValue), Convert.ToInt64(cbCidade.EditValue));
+                DialogResult rs = cef.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show(String.Format("SELECIONE O BAIRRO CORRENSPONDENTE AO ENDEREÇO PARA PODER CADASTRAR NOVO."));
+            }
+        }
+
+        public void carregaBairrosPorIdCidade()
+        {
+            bdgBairros.DataSource = conn.listaDeBairrosPorCidade(Convert.ToInt64(cbCidade.EditValue));
+        }
+
+        public void carregaEnderecosPorIdCidade()
+        {        
+            bdgEnderecos.DataSource = conn.listaDeEnderecosPorCidade(Convert.ToInt64(cbCidade.EditValue));
         }
 
 

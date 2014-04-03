@@ -30,7 +30,7 @@ namespace SysNorteGrupo.UI.Sinistros
             btnGerarCobranca.Visible = false;
 
             setBackColor();
-            conn = GerenteDeConexoes.recuperaConexao();
+            conn = GerenteDeConexoes.conexaoServico();
 
             bdgCliente.DataSource = conn.listaDeClientesPorInatividade(false);
             bdgPagamentos.DataSource = new List<pagamentos_sinistro>();
