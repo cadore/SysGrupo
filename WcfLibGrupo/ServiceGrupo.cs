@@ -189,6 +189,25 @@ namespace WcfLibGrupo
             }
         }
 
+        public decimal retornaTotalDeBensDaEmpresaPorInatividade(bool inativo)
+        {
+            try
+            {
+                var sqlVeiculos = Sql.Builder.Append("SELECT SUM(valor) as soma FROM veiculos WHERE inativo = @0", inativo);
+                var sqlReboques = Sql.Builder.Append("SELECT SUM(valor) as soma FROM reboques WHERE inativo = @0", inativo);
+                decimal total = db.ExecuteScalar<decimal>(sqlVeiculos) + db.ExecuteScalar<decimal>(sqlReboques);
+                return total;
+            }
+            catch (Exception ex)
+            {
+                usuario.repo.AbortTransaction();
+
+                throw new FaultException(
+                    new FaultReason(String.Format("EXCECÃO: {0}{1}INNER EXCEPTION: {2}", ex.Message, Environment.NewLine, ex.InnerException)),
+                    new FaultCode("1000"));
+            }
+        }
+
         #endregion
 
         #region Usuario

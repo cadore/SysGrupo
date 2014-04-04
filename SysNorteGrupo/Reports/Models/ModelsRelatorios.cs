@@ -8,6 +8,7 @@ namespace SysNorteGrupo.Reports
 
     public class RelatorioClientesECotasModel
     {
+        public decimal percentCotas { get; set; }
         public decimal cotas { get; set; }
         public decimal valorTotalDeBens { get; set; }
         public DateTime dataInclusao { get; set; }

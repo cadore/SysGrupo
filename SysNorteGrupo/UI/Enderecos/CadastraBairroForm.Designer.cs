@@ -31,43 +31,49 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CadastraBairroForm));
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
-            this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.groupControl = new DevExpress.XtraEditors.GroupControl();
             this.btnSalvar = new DevExpress.XtraEditors.SimpleButton();
             this.btnCancelar = new DevExpress.XtraEditors.SimpleButton();
             this.tfNomeBairro = new DevExpress.XtraEditors.TextEdit();
-            this.bdgBairro = new System.Windows.Forms.BindingSource(this.components);
             this.lbNomeCidade = new DevExpress.XtraEditors.LabelControl();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.validator = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
-            this.panelControl1.SuspendLayout();
+            this.bdgBairro = new System.Windows.Forms.BindingSource(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl)).BeginInit();
+            this.groupControl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tfNomeBairro.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bdgBairro)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.validator)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdgBairro)).BeginInit();
             this.SuspendLayout();
             // 
-            // panelControl1
+            // groupControl
             // 
-            this.panelControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.UltraFlat;
-            this.panelControl1.Controls.Add(this.btnSalvar);
-            this.panelControl1.Controls.Add(this.btnCancelar);
-            this.panelControl1.Controls.Add(this.tfNomeBairro);
-            this.panelControl1.Controls.Add(this.lbNomeCidade);
-            this.panelControl1.Controls.Add(this.labelControl3);
-            this.panelControl1.Controls.Add(this.labelControl1);
-            this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl1.Location = new System.Drawing.Point(0, 0);
-            this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(426, 126);
-            this.panelControl1.TabIndex = 0;
+            this.groupControl.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.groupControl.Appearance.ForeColor = System.Drawing.Color.Black;
+            this.groupControl.Appearance.Options.UseBackColor = true;
+            this.groupControl.Appearance.Options.UseForeColor = true;
+            this.groupControl.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
+            this.groupControl.CaptionLocation = DevExpress.Utils.Locations.Top;
+            this.groupControl.Controls.Add(this.btnSalvar);
+            this.groupControl.Controls.Add(this.btnCancelar);
+            this.groupControl.Controls.Add(this.tfNomeBairro);
+            this.groupControl.Controls.Add(this.lbNomeCidade);
+            this.groupControl.Controls.Add(this.labelControl3);
+            this.groupControl.Controls.Add(this.labelControl1);
+            this.groupControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupControl.Location = new System.Drawing.Point(0, 0);
+            this.groupControl.Name = "groupControl";
+            this.groupControl.Size = new System.Drawing.Size(426, 147);
+            this.groupControl.TabIndex = 0;
+            this.groupControl.Text = "CADASTRO DE NOVO BAIRRO";
             // 
             // btnSalvar
             // 
             this.btnSalvar.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.btnSalvar.Image = ((System.Drawing.Image)(resources.GetObject("btnSalvar.Image")));
             this.btnSalvar.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleLeft;
-            this.btnSalvar.Location = new System.Drawing.Point(205, 80);
+            this.btnSalvar.Location = new System.Drawing.Point(205, 99);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(104, 41);
             this.btnSalvar.TabIndex = 1;
@@ -79,7 +85,7 @@
             this.btnCancelar.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.btnCancelar.Image = ((System.Drawing.Image)(resources.GetObject("btnCancelar.Image")));
             this.btnCancelar.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleLeft;
-            this.btnCancelar.Location = new System.Drawing.Point(315, 80);
+            this.btnCancelar.Location = new System.Drawing.Point(315, 99);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(104, 41);
             this.btnCancelar.TabIndex = 2;
@@ -89,7 +95,7 @@
             // tfNomeBairro
             // 
             this.tfNomeBairro.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdgBairro, "nome_bairro", true));
-            this.tfNomeBairro.Location = new System.Drawing.Point(54, 35);
+            this.tfNomeBairro.Location = new System.Drawing.Point(54, 54);
             this.tfNomeBairro.Name = "tfNomeBairro";
             this.tfNomeBairro.Size = new System.Drawing.Size(365, 20);
             this.tfNomeBairro.TabIndex = 0;
@@ -98,14 +104,10 @@
             conditionValidationRule1.ErrorType = DevExpress.XtraEditors.DXErrorProvider.ErrorType.Critical;
             this.validator.SetValidationRule(this.tfNomeBairro, conditionValidationRule1);
             // 
-            // bdgBairro
-            // 
-            this.bdgBairro.DataSource = typeof(EntitiesGrupo.bairro);
-            // 
             // lbNomeCidade
             // 
             this.lbNomeCidade.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.Horizontal;
-            this.lbNomeCidade.Location = new System.Drawing.Point(53, 5);
+            this.lbNomeCidade.Location = new System.Drawing.Point(53, 24);
             this.lbNomeCidade.Name = "lbNomeCidade";
             this.lbNomeCidade.Size = new System.Drawing.Size(68, 13);
             this.lbNomeCidade.TabIndex = 0;
@@ -113,7 +115,7 @@
             // 
             // labelControl3
             // 
-            this.labelControl3.Location = new System.Drawing.Point(5, 38);
+            this.labelControl3.Location = new System.Drawing.Point(5, 57);
             this.labelControl3.Name = "labelControl3";
             this.labelControl3.Size = new System.Drawing.Size(43, 13);
             this.labelControl3.TabIndex = 0;
@@ -121,18 +123,23 @@
             // 
             // labelControl1
             // 
-            this.labelControl1.Location = new System.Drawing.Point(5, 5);
+            this.labelControl1.Location = new System.Drawing.Point(5, 24);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(42, 13);
             this.labelControl1.TabIndex = 0;
             this.labelControl1.Text = "CIDADE:";
             // 
+            // bdgBairro
+            // 
+            this.bdgBairro.DataSource = typeof(EntitiesGrupo.bairro);
+            // 
             // CadastraBairroForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(426, 126);
-            this.Controls.Add(this.panelControl1);
+            this.ClientSize = new System.Drawing.Size(426, 147);
+            this.ControlBox = false;
+            this.Controls.Add(this.groupControl);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.KeyPreview = true;
             this.MaximizeBox = false;
@@ -142,19 +149,19 @@
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.CadastraBairroForm_KeyDown);
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
-            this.panelControl1.ResumeLayout(false);
-            this.panelControl1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl)).EndInit();
+            this.groupControl.ResumeLayout(false);
+            this.groupControl.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tfNomeBairro.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bdgBairro)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.validator)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdgBairro)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private DevExpress.XtraEditors.PanelControl panelControl1;
+        private DevExpress.XtraEditors.GroupControl groupControl;
         private System.Windows.Forms.BindingSource bdgBairro;
         private DevExpress.XtraEditors.LabelControl lbNomeCidade;
         private DevExpress.XtraEditors.LabelControl labelControl1;

@@ -290,34 +290,47 @@ namespace SysNorteGrupo
 
         private void btnRelClientesECotas_ItemClick(object sender, ItemClickEventArgs e)
         {
-            bool inatividadeCliente = false;
-            bool inatividadeItens = false;
-            List<RelatorioClientesECotasModel> listReport = new List<RelatorioClientesECotasModel>();
-            List<cliente> listClientes = conn.listaDeClientesPorInatividade(inatividadeCliente);
-            foreach(cliente c in listClientes)
+            try
             {
-                decimal valor_veiculos = conn.somaValorTotalVeiculoPorIdClienteEInatividade(c.id, inatividadeItens);
-                decimal valor_reboques = conn.somaValorTotalReboquesPorIdClienteEInatividade(c.id, inatividadeItens);
-                decimal valor_total_bens = valor_veiculos + valor_reboques;
-                decimal total_cotas = valor_total_bens / UtilsSistema.valor_por_cota;
+                bool inatividadeCliente = false;
+                bool inatividadeItens = false;
+                List<RelatorioClientesECotasModel> listReport = new List<RelatorioClientesECotasModel>();
+                List<cliente> listClientes = conn.listaDeClientesPorInatividade(inatividadeCliente);
+                decimal total_cotas_grupo = conn.retornaTotalDeBensDaEmpresaPorInatividade(inatividadeItens) / UtilsSistema.valor_por_cota;
+                foreach (cliente c in listClientes)
+                {
+                    decimal valor_veiculos = conn.somaValorTotalVeiculoPorIdClienteEInatividade(c.id, inatividadeItens);
+                    decimal valor_reboques = conn.somaValorTotalReboquesPorIdClienteEInatividade(c.id, inatividadeItens);
+                    decimal valor_total_bens = valor_veiculos + valor_reboques;
+                    decimal total_cotas = valor_total_bens / UtilsSistema.valor_por_cota;
+                    decimal porcento_cotas = (total_cotas * 100) / total_cotas_grupo;
 
-                listReport.Add(new RelatorioClientesECotasModel() { 
-                    nomeCliente = c.nome_completo, dataInclusao = c.data_ativacao, cotas = total_cotas, valorTotalDeBens = valor_total_bens 
-                });
-                MessageBox.Show(valor_total_bens.ToString());
+                    listReport.Add(new RelatorioClientesECotasModel()
+                    {
+                        nomeCliente = c.nome_completo,
+                        dataInclusao = c.data_ativacao,
+                        cotas = total_cotas,
+                        valorTotalDeBens = valor_total_bens,
+                        percentCotas = porcento_cotas
+                    });
+                }
+
+                RelatorioClientesECotas report = new RelatorioClientesECotas();
+                report.bdgRelatorio.DataSource = listReport;
+                report.dataRelatorio.Value = "RELATÓRIO GERADO EM: " + conn.retornaDataHoraLocal();
+                report.assinatura.Value = "GERADO POR SYSNORTE TECNOLOGIA";
+                foreach (DevExpress.XtraReports.Parameters.Parameter p in report.Parameters)
+                {
+                    p.Visible = false;
+                }
+                ReportPrintTool tool = new ReportPrintTool(report);
+                Log.createLog(EventLog.visualized, String.Format("relatorios de clientes e cotas"));
+                tool.ShowRibbonPreviewDialog();
             }
-            
-            RelatorioClientesECotas report = new RelatorioClientesECotas();
-            report.bdgRelatorio.DataSource = listReport;
-            report.dataRelatorio.Value = "RELATÓRIO GERADO EM: " + conn.retornaDataHoraLocal();
-            report.assinatura.Value = "GERADO POR SYSNORTE TECNOLOGIA";
-            foreach (DevExpress.XtraReports.Parameters.Parameter p in report.Parameters)
+            catch (Exception ex)
             {
-                p.Visible = false;
+                MessageBox.Show(ex.Message);
             }
-            ReportPrintTool tool = new ReportPrintTool(report);
-            Log.createLog(EventLog.visualized, String.Format("relatorios de clientes e cotas"));
-            tool.ShowRibbonPreviewDialog();
         }
     }
 }

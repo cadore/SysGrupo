@@ -54,7 +54,11 @@ namespace WcfLibGrupo
 
         #region empresa
 
+        [OperationContract]
         empresa retornaEmpresa();
+
+        [OperationContract]
+        decimal retornaTotalDeBensDaEmpresaPorInatividade(bool inativo);
 
         #endregion
 

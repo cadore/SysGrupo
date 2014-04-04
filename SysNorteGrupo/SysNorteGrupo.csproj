@@ -39,7 +39,8 @@
     <SignAssembly>false</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
-    <AssemblyOriginatorKeyFile>SysNorteAssembly.pfx</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="DevExpress.BonusSkins.v13.2, Version=13.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
@@ -455,7 +456,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="SysNorteAssembly.pfx" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\RepositorioGrupo\RepositorioGrupo.csproj">
@@ -497,6 +497,7 @@
     <None Include="Resources\Report_32x32.png" />
     <None Include="Resources\Article_32x32.png" />
     <Content Include="favicon.ico" />
+    <None Include="Resources\sigla_SysNorte.png" />
     <Content Include="TODO.txt" />
   </ItemGroup>
   <!--<Import Project="$(MSBuildExtensionsPath)\Ilmerge.CSharp.targets" />-->

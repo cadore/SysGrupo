@@ -111,7 +111,6 @@ namespace SysNorteGrupo.UI.Usuarios
             if (formPrincipal == null)
             {
                 this.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-                this.Close();
             }
             else
             {   

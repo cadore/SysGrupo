@@ -34,7 +34,6 @@ namespace SysNorteGrupo.UI.Enderecos
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.Cancel;
-            this.Dispose();
         }
 
         private void btnSalvar_Click(object sender, EventArgs e)

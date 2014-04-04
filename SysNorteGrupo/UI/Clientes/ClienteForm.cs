@@ -135,7 +135,7 @@ namespace SysNorteGrupo.UI.Clientes
                     cbBairro.Enabled = false;
                     cbEndereco.Enabled = false;
                 }
-                btnImprimirContrato.Enabled = true;
+                btnImprimirContrato.Visible = true;
             }
         }
 
@@ -230,7 +230,7 @@ namespace SysNorteGrupo.UI.Clientes
                     long id = conn.salvarCliente(cli);
                     ((cliente)bdgCliente.Current).id = id;
                     tfId.Text = id.ToString();
-                    btnImprimirContrato.Enabled = true;
+                    btnImprimirContrato.Visible = true;
                     Log.createLog(EventLog.saveEdited, String.Format("cliente ID: {0}", id));
 
                     reabilitarPaineis(false);

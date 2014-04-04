@@ -30,9 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CadastraEnderecoForm));
+            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule3 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
-            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule2 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
-            this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.groupControls = new DevExpress.XtraEditors.GroupControl();
             this.btnSalvar = new DevExpress.XtraEditors.SimpleButton();
             this.btnCancelar = new DevExpress.XtraEditors.SimpleButton();
             this.tfCep = new DevExpress.XtraEditors.TextEdit();
@@ -43,37 +43,38 @@
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.validator = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
-            this.panelControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControls)).BeginInit();
+            this.groupControls.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tfCep.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdgEndereco)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfEndereco.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.validator)).BeginInit();
             this.SuspendLayout();
             // 
-            // panelControl1
+            // groupControls
             // 
-            this.panelControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
-            this.panelControl1.Controls.Add(this.btnSalvar);
-            this.panelControl1.Controls.Add(this.btnCancelar);
-            this.panelControl1.Controls.Add(this.tfCep);
-            this.panelControl1.Controls.Add(this.tfEndereco);
-            this.panelControl1.Controls.Add(this.labelControl3);
-            this.panelControl1.Controls.Add(this.lbBairro);
-            this.panelControl1.Controls.Add(this.labelControl2);
-            this.panelControl1.Controls.Add(this.labelControl1);
-            this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl1.Location = new System.Drawing.Point(0, 0);
-            this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(520, 142);
-            this.panelControl1.TabIndex = 0;
+            this.groupControls.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
+            this.groupControls.Controls.Add(this.btnSalvar);
+            this.groupControls.Controls.Add(this.btnCancelar);
+            this.groupControls.Controls.Add(this.tfCep);
+            this.groupControls.Controls.Add(this.tfEndereco);
+            this.groupControls.Controls.Add(this.labelControl3);
+            this.groupControls.Controls.Add(this.lbBairro);
+            this.groupControls.Controls.Add(this.labelControl2);
+            this.groupControls.Controls.Add(this.labelControl1);
+            this.groupControls.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupControls.Location = new System.Drawing.Point(0, 0);
+            this.groupControls.Name = "groupControls";
+            this.groupControls.Size = new System.Drawing.Size(520, 160);
+            this.groupControls.TabIndex = 0;
+            this.groupControls.Text = "CADASTRO DE NOVO ENDEREÇO";
             // 
             // btnSalvar
             // 
             this.btnSalvar.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.btnSalvar.Image = ((System.Drawing.Image)(resources.GetObject("btnSalvar.Image")));
             this.btnSalvar.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleLeft;
-            this.btnSalvar.Location = new System.Drawing.Point(299, 94);
+            this.btnSalvar.Location = new System.Drawing.Point(299, 114);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(104, 41);
             this.btnSalvar.TabIndex = 2;
@@ -85,7 +86,7 @@
             this.btnCancelar.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.btnCancelar.Image = ((System.Drawing.Image)(resources.GetObject("btnCancelar.Image")));
             this.btnCancelar.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleLeft;
-            this.btnCancelar.Location = new System.Drawing.Point(409, 94);
+            this.btnCancelar.Location = new System.Drawing.Point(409, 114);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(104, 41);
             this.btnCancelar.TabIndex = 3;
@@ -95,17 +96,17 @@
             // tfCep
             // 
             this.tfCep.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdgEndereco, "cep", true));
-            this.tfCep.Location = new System.Drawing.Point(69, 58);
+            this.tfCep.Location = new System.Drawing.Point(69, 78);
             this.tfCep.Name = "tfCep";
             this.tfCep.Properties.Mask.BeepOnError = true;
             this.tfCep.Properties.Mask.EditMask = "00.000-000";
             this.tfCep.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Simple;
             this.tfCep.Size = new System.Drawing.Size(444, 20);
             this.tfCep.TabIndex = 1;
-            conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule1.ErrorText = "Informe o cep do endereço.";
-            conditionValidationRule1.ErrorType = DevExpress.XtraEditors.DXErrorProvider.ErrorType.Critical;
-            this.validator.SetValidationRule(this.tfCep, conditionValidationRule1);
+            conditionValidationRule3.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule3.ErrorText = "Informe o cep do endereço.";
+            conditionValidationRule3.ErrorType = DevExpress.XtraEditors.DXErrorProvider.ErrorType.Critical;
+            this.validator.SetValidationRule(this.tfCep, conditionValidationRule3);
             // 
             // bdgEndereco
             // 
@@ -114,18 +115,18 @@
             // tfEndereco
             // 
             this.tfEndereco.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdgEndereco, "_endereco", true));
-            this.tfEndereco.Location = new System.Drawing.Point(69, 32);
+            this.tfEndereco.Location = new System.Drawing.Point(69, 52);
             this.tfEndereco.Name = "tfEndereco";
             this.tfEndereco.Size = new System.Drawing.Size(444, 20);
             this.tfEndereco.TabIndex = 0;
-            conditionValidationRule2.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule2.ErrorText = "Informe o endereço.";
-            conditionValidationRule2.ErrorType = DevExpress.XtraEditors.DXErrorProvider.ErrorType.Critical;
-            this.validator.SetValidationRule(this.tfEndereco, conditionValidationRule2);
+            conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule1.ErrorText = "Informe o endereço.";
+            conditionValidationRule1.ErrorType = DevExpress.XtraEditors.DXErrorProvider.ErrorType.Critical;
+            this.validator.SetValidationRule(this.tfEndereco, conditionValidationRule1);
             // 
             // labelControl3
             // 
-            this.labelControl3.Location = new System.Drawing.Point(5, 61);
+            this.labelControl3.Location = new System.Drawing.Point(5, 81);
             this.labelControl3.Name = "labelControl3";
             this.labelControl3.Size = new System.Drawing.Size(23, 13);
             this.labelControl3.TabIndex = 0;
@@ -134,7 +135,7 @@
             // lbBairro
             // 
             this.lbBairro.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.Horizontal;
-            this.lbBairro.Location = new System.Drawing.Point(54, 5);
+            this.lbBairro.Location = new System.Drawing.Point(54, 25);
             this.lbBairro.Name = "lbBairro";
             this.lbBairro.Size = new System.Drawing.Size(36, 13);
             this.lbBairro.TabIndex = 0;
@@ -142,7 +143,7 @@
             // 
             // labelControl2
             // 
-            this.labelControl2.Location = new System.Drawing.Point(5, 35);
+            this.labelControl2.Location = new System.Drawing.Point(5, 55);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(58, 13);
             this.labelControl2.TabIndex = 0;
@@ -150,7 +151,7 @@
             // 
             // labelControl1
             // 
-            this.labelControl1.Location = new System.Drawing.Point(5, 5);
+            this.labelControl1.Location = new System.Drawing.Point(5, 25);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(43, 13);
             this.labelControl1.TabIndex = 0;
@@ -160,8 +161,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(520, 142);
-            this.Controls.Add(this.panelControl1);
+            this.ClientSize = new System.Drawing.Size(520, 160);
+            this.ControlBox = false;
+            this.Controls.Add(this.groupControls);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.KeyPreview = true;
             this.MaximizeBox = false;
@@ -172,9 +174,9 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "CadastraEnderecoForm";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.CadastraEnderecoForm_KeyDown);
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
-            this.panelControl1.ResumeLayout(false);
-            this.panelControl1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControls)).EndInit();
+            this.groupControls.ResumeLayout(false);
+            this.groupControls.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tfCep.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdgEndereco)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfEndereco.Properties)).EndInit();
@@ -185,7 +187,7 @@
 
         #endregion
 
-        private DevExpress.XtraEditors.PanelControl panelControl1;
+        private DevExpress.XtraEditors.GroupControl groupControls;
         private DevExpress.XtraEditors.TextEdit tfEndereco;
         private DevExpress.XtraEditors.LabelControl lbBairro;
         private DevExpress.XtraEditors.LabelControl labelControl2;
