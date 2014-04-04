@@ -22,7 +22,7 @@ namespace SysNorteGrupo.UI.Logs
         public BuscaLogs()
         {
             InitializeComponent();
-            conn = GerenteDeConexoes.recuperaConexao();
+            conn = GerenteDeConexoes.conexaoServico();
             Log.createLog(EventLog.opened, "Formulario de Logs");
             loadItemsCombos();
         }

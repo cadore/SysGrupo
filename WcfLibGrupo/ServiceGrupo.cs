@@ -1337,6 +1337,35 @@ namespace WcfLibGrupo
 
         #region cidades, bairros, enderecos
 
+        public long SalvaBairro(bairro obj)
+        {
+            try
+            {
+                obj.Save();
+                return Convert.ToInt64(obj.id);
+            }
+            catch (Exception ex)
+            {
+                throw new FaultException(
+                    new FaultReason(String.Format("EXCECÃO: {0}{1}INNER EXCEPTION: {2}", ex.Message, Environment.NewLine, ex.InnerException)),
+                    new FaultCode("1000"));
+            }
+        }
+
+        public long SalvaEndereco(endereco obj)
+        {
+            try
+            {
+                obj.Save();
+                return obj.id;
+            }
+            catch (Exception ex)
+            {
+                throw new FaultException(
+                    new FaultReason(String.Format("EXCECÃO: {0}{1}INNER EXCEPTION: {2}", ex.Message, Environment.NewLine, ex.InnerException)),
+                    new FaultCode("1000"));
+            }
+        }
         public List<estado> listaDeEstados()
         {
             try

@@ -109,7 +109,7 @@
       <Private>False</Private>
     </Reference>
     <Reference Include="SecureApp">
-      <HintPath>..\..\..\..\Documents\Visual Studio 2013\Projects\DentistSystem\DentistSystem\bin\Debug\SecureApp.dll</HintPath>
+      <HintPath>..\..\..\DLL's\SecureApp.dll</HintPath>
     </Reference>
     <Reference Include="System">
       <Private>False</Private>
@@ -164,6 +164,18 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Reports\Clientes\RelatorioClientesECotas.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\Clientes\RelatorioClientesECotas.Designer.cs">
+      <DependentUpon>RelatorioClientesECotas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Enderecos\CadastraEnderecoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Enderecos\CadastraEnderecoForm.Designer.cs">
+      <DependentUpon>CadastraEnderecoForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\FormPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -175,11 +187,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Reports\Clientes\RelatorioRelacaoCliente.cs">
+    <Compile Include="Reports\Clientes\RelatorioInclusãoCliente.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Reports\Clientes\RelatorioRelacaoCliente.Designer.cs">
-      <DependentUpon>RelatorioRelacaoCliente.cs</DependentUpon>
+    <Compile Include="Reports\Clientes\RelatorioInclusãoCliente.Designer.cs">
+      <DependentUpon>RelatorioInclusãoCliente.cs</DependentUpon>
     </Compile>
     <Compile Include="Reports\Models\ModelsRelatorios.cs" />
     <Compile Include="Reports\Sinistros\RelatorioConclusaoSinistro.cs">
@@ -193,12 +205,6 @@
     </Compile>
     <Compile Include="Reports\Sinistros\RelatorioPagamentosConclusaoSinistro.Designer.cs">
       <DependentUpon>RelatorioPagamentosConclusaoSinistro.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Reports\teste\testeboleto.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Reports\teste\testeboleto.Designer.cs">
-      <DependentUpon>testeboleto.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Logs\BuscaLogs.cs">
       <SubType>UserControl</SubType>
@@ -249,6 +255,12 @@
     </Compile>
     <Compile Include="UI\UtilForm.Designer.cs">
       <DependentUpon>UtilForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Enderecos\CadastraBairroForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Enderecos\CadastraBairroForm.Designer.cs">
+      <DependentUpon>CadastraBairroForm.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Veiculos\BuscaVeiculoForm.cs">
       <SubType>UserControl</SubType>
@@ -315,21 +327,24 @@
     <Compile Include="Utils\Util.cs" />
     <Compile Include="Utils\UtilsSistema.cs" />
     <Compile Include="Utils\Validations.cs" />
+    <EmbeddedResource Include="Reports\Clientes\RelatorioClientesECotas.resx">
+      <DependentUpon>RelatorioClientesECotas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Enderecos\CadastraEnderecoForm.resx">
+      <DependentUpon>CadastraEnderecoForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\FormPrincipal.resx">
       <DependentUpon>FormPrincipal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
-    <EmbeddedResource Include="Reports\Clientes\RelatorioRelacaoCliente.resx">
-      <DependentUpon>RelatorioRelacaoCliente.cs</DependentUpon>
+    <EmbeddedResource Include="Reports\Clientes\RelatorioInclusãoCliente.resx">
+      <DependentUpon>RelatorioInclusãoCliente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\Sinistros\RelatorioConclusaoSinistro.resx">
       <DependentUpon>RelatorioConclusaoSinistro.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\Sinistros\RelatorioPagamentosConclusaoSinistro.resx">
       <DependentUpon>RelatorioPagamentosConclusaoSinistro.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Reports\teste\testeboleto.resx">
-      <DependentUpon>testeboleto.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Logs\BuscaLogs.resx">
       <DependentUpon>BuscaLogs.cs</DependentUpon>
@@ -356,6 +371,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Usuarios\UsuarioForm.resx">
       <DependentUpon>UsuarioForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Enderecos\CadastraBairroForm.resx">
+      <DependentUpon>CadastraBairroForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Veiculos\BuscaVeiculoForm.resx">
       <DependentUpon>BuscaVeiculoForm.cs</DependentUpon>
@@ -423,6 +441,7 @@
     <None Include="Properties\DataSources\SysNorteGrupo.Reports.ListaClientesInclusao.datasource" />
     <None Include="Properties\DataSources\SysNorteGrupo.Reports.ListaClientesRateio.datasource" />
     <None Include="Properties\DataSources\SysNorteGrupo.Reports.ListaConclusaoSinistro.datasource" />
+    <None Include="Properties\DataSources\SysNorteGrupo.Reports.RelatorioClientesECotas.datasource" />
     <None Include="Properties\DataSources\SysNorteGrupo.Utils.Centraliza.datasource" />
     <None Include="Properties\DataSources\SysNorteGrupo.Utils.Cores.datasource" />
     <None Include="Properties\DataSources\SysNorteGrupo.Utils.CryptoUtil.datasource" />
@@ -453,7 +472,6 @@
     <ProjectReference Include="..\WcfLibGrupo\WcfLibGrupo.csproj">
       <Project>{4e95265e-7c25-4f8b-a055-0ac97466b0e3}</Project>
       <Name>WcfLibGrupo</Name>
-      <!--<Private>True</Private>-->
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

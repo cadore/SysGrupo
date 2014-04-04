@@ -13,7 +13,7 @@ namespace SysNorteGrupo
         public static IServiceGrupo conn = null;
         private static string url;
 
-        public static void iniciaConexao()
+        public static void iniciaConexaoServico()
         {
             try
             {
@@ -37,7 +37,7 @@ namespace SysNorteGrupo
             }
         }
 
-        public static IServiceGrupo recuperaConexao()
+        public static IServiceGrupo conexaoServico()
         {
             try
             {

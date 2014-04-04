@@ -26,7 +26,7 @@ namespace SysNorteGrupo.UI.Veiculos
         public BuscaVeiculoForm()
         {
             InitializeComponent();
-            conn = GerenteDeConexoes.recuperaConexao();
+            conn = GerenteDeConexoes.conexaoServico();
             bdgCliente.DataSource = conn.listaDeClientesPorInatividade(false);
 
             foreach (Control c in pnBotoes.Controls)

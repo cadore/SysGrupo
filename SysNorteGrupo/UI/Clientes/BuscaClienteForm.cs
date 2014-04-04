@@ -40,7 +40,7 @@ namespace SysNorteGrupo.UI.Clientes
                 //}
             }
 
-            conn = GerenteDeConexoes.recuperaConexao();
+            conn = GerenteDeConexoes.conexaoServico();
         }
 
         void preencheFundoControls(Control item)

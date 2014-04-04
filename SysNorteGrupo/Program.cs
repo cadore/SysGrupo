@@ -40,8 +40,8 @@ namespace SysNorteGrupo
                 // The following line provides localization for the application's user interface. 
                 System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("pt-BR");
 
-                GerenteDeConexoes.iniciaConexao();
-                IServiceGrupo conn = GerenteDeConexoes.recuperaConexao();
+                GerenteDeConexoes.iniciaConexaoServico();
+                IServiceGrupo conn = GerenteDeConexoes.conexaoServico();
 
                 UtilsSistema.backColorFoco = conn.backColorFoco();
                 UtilsSistema.franquiaSinistro = conn.franquiaSinistro();

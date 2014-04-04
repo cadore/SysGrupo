@@ -30,7 +30,7 @@ namespace SysNorteGrupo.UI.Usuarios
             InitializeComponent();
             this.Text = "SysNorteGrupo Login - SysNorte Tecnologia Copyright ©  2013 Versão: 1.0.0.0";
             tfSenha.Properties.UseSystemPasswordChar = true;
-            conn = GerenteDeConexoes.recuperaConexao();
+            conn = GerenteDeConexoes.conexaoServico();
 
             foreach (Control c in pnControl.Controls)
             {
@@ -66,7 +66,7 @@ namespace SysNorteGrupo.UI.Usuarios
                         }
                         else
                         {
-                            GerenteDeConexoes.iniciaConexao();
+                            GerenteDeConexoes.iniciaConexaoServico();
                             formPrincipal.adicionarControleNavegacao(formPrincipal.controleAtual);
                             formPrincipal.thisIDLE = false;
                             Log.createLog(EventLog.entered, String.Format("ao sistema após bloquear por inatividade"));

@@ -14,6 +14,10 @@ using SysNorteGrupo.UI.Sinistros;
 using SysNorteGrupo.UI.Veiculos.Reboques;
 using SysNorteGrupo.UI.Logs;
 using UserIdle;
+using System.Collections.Generic;
+using SysNorteGrupo.Reports.Clientes;
+using SysNorteGrupo.Reports;
+using DevExpress.XtraReports.UI;
 
 namespace SysNorteGrupo
 {
@@ -35,7 +39,7 @@ namespace SysNorteGrupo
                 this.Close();                
             }
             InitializeComponent();
-            conn = GerenteDeConexoes.recuperaConexao();
+            conn = GerenteDeConexoes.conexaoServico();
             //carregaPermissoes(permicao_instc);
             this.Text = tituloJanela = "SysNorteGrupo - SysNorte Tecnologia Copyright ©  2013 Versão: 1.0.0.0";            
         }
@@ -219,7 +223,7 @@ namespace SysNorteGrupo
             {
                 DateTime inic = DateTime.Now;
                 Log.createLog(EventLog.opened, "criação de backup.");
-                IServiceGrupo conn = GerenteDeConexoes.recuperaConexao();
+                IServiceGrupo conn = GerenteDeConexoes.conexaoServico();
                 string fileBackup = conn.createBackup("p@ssw0rd");
                 if (!String.IsNullOrEmpty(fileBackup))
                 {
@@ -268,7 +272,7 @@ namespace SysNorteGrupo
             try
             {
                 Log.createLog(EventLog.empty, "tentativa de reiniciar a conexão com o servidor");
-                GerenteDeConexoes.iniciaConexao();
+                GerenteDeConexoes.iniciaConexaoServico();
                 Log.createLog(EventLog.empty, "conexão reiniciada com sucesso");
                 MessageBox.Show("Conexão reiniciada com sucesso!");
             }
@@ -282,6 +286,38 @@ namespace SysNorteGrupo
         private void FormPrincipal_FormClosing(object sender, FormClosingEventArgs e)
         {
             Log.createLog(EventLog.cloused, "aplicação no formulário principal.");
+        }
+
+        private void btnRelClientesECotas_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            bool inatividadeCliente = false;
+            bool inatividadeItens = false;
+            List<RelatorioClientesECotasModel> listReport = new List<RelatorioClientesECotasModel>();
+            List<cliente> listClientes = conn.listaDeClientesPorInatividade(inatividadeCliente);
+            foreach(cliente c in listClientes)
+            {
+                decimal valor_veiculos = conn.somaValorTotalVeiculoPorIdClienteEInatividade(c.id, inatividadeItens);
+                decimal valor_reboques = conn.somaValorTotalReboquesPorIdClienteEInatividade(c.id, inatividadeItens);
+                decimal valor_total_bens = valor_veiculos + valor_reboques;
+                decimal total_cotas = valor_total_bens / UtilsSistema.valor_por_cota;
+
+                listReport.Add(new RelatorioClientesECotasModel() { 
+                    nomeCliente = c.nome_completo, dataInclusao = c.data_ativacao, cotas = total_cotas, valorTotalDeBens = valor_total_bens 
+                });
+                MessageBox.Show(valor_total_bens.ToString());
+            }
+            
+            RelatorioClientesECotas report = new RelatorioClientesECotas();
+            report.bdgRelatorio.DataSource = listReport;
+            report.dataRelatorio.Value = "RELATÓRIO GERADO EM: " + conn.retornaDataHoraLocal();
+            report.assinatura.Value = "GERADO POR SYSNORTE TECNOLOGIA";
+            foreach (DevExpress.XtraReports.Parameters.Parameter p in report.Parameters)
+            {
+                p.Visible = false;
+            }
+            ReportPrintTool tool = new ReportPrintTool(report);
+            Log.createLog(EventLog.visualized, String.Format("relatorios de clientes e cotas"));
+            tool.ShowRibbonPreviewDialog();
         }
     }
 }

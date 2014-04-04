@@ -1,4 +1,5 @@
 ﻿using SysFileManager;
+using SysNorteGrupo.Utils;
 namespace SysNorteGrupo.UI.Sinistros
 {
     partial class SinistrosForm
@@ -1895,10 +1896,10 @@ namespace SysNorteGrupo.UI.Sinistros
 
         #endregion
 
-        private Utils.BotaoSalvar btnSalvar;
-        private Utils.BotaoSair btnSair;
-        private Utils.BotaoNovo btnNovo;
-        private Utils.BotaoEditar btnEditar;
+        private BotaoSalvar btnSalvar;
+        private BotaoSair btnSair;
+        private BotaoNovo btnNovo;
+        private BotaoEditar btnEditar;
         private DevExpress.XtraEditors.GroupControl gcInfoBasica;
         private DevExpress.XtraEditors.LabelControl labelControl1;
         private DevExpress.XtraEditors.SearchLookUpEdit cbCliente;
@@ -2022,8 +2023,8 @@ namespace SysNorteGrupo.UI.Sinistros
         private DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider validator;
         private DevExpress.XtraEditors.CheckEdit ckConcluido;
         private DevExpress.XtraEditors.PanelControl pnPrincipal;
-        private Utils.BotaoImprimir btnImprimirRelSinistro;
-        private Utils.BotaoImprimir btnGerarCobranca;
+        private BotaoImprimir btnImprimirRelSinistro;
+        private BotaoImprimir btnGerarCobranca;
         private DevExpress.XtraEditors.SearchLookUpEdit cbReboque3;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView4;
         private DevExpress.XtraEditors.SearchLookUpEdit cbReboque2;

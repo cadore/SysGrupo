@@ -47,6 +47,7 @@
             this.btnLogs = new DevExpress.XtraBars.BarButtonItem();
             this.btnCriaBackup = new DevExpress.XtraBars.BarButtonItem();
             this.btnReiniciaConexao = new DevExpress.XtraBars.BarButtonItem();
+            this.btnRelClientesECotas = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribClientes = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribVeiculos = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -54,6 +55,8 @@
             this.ribUsuarios = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPage3 = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            this.ribbonPageGroup7 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage2 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup5 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -86,12 +89,14 @@
             this.barButtonItem6,
             this.btnLogs,
             this.btnCriaBackup,
-            this.btnReiniciaConexao});
+            this.btnReiniciaConexao,
+            this.btnRelClientesECotas});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.MaxItemId = 23;
+            this.ribbon.MaxItemId = 24;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1,
+            this.ribbonPage3,
             this.ribbonPage2});
             this.ribbon.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemTextEdit1});
@@ -247,6 +252,15 @@
             this.btnReiniciaConexao.Name = "btnReiniciaConexao";
             this.btnReiniciaConexao.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnReiniciaConexao_ItemClick);
             // 
+            // btnRelClientesECotas
+            // 
+            this.btnRelClientesECotas.Caption = "Clientes e Cotas";
+            this.btnRelClientesECotas.Glyph = ((System.Drawing.Image)(resources.GetObject("btnRelClientesECotas.Glyph")));
+            this.btnRelClientesECotas.Id = 23;
+            this.btnRelClientesECotas.Name = "btnRelClientesECotas";
+            this.btnRelClientesECotas.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.btnRelClientesECotas.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnRelClientesECotas_ItemClick);
+            // 
             // ribbonPage1
             // 
             this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -312,6 +326,21 @@
             this.ribbonPageGroup1.Name = "ribbonPageGroup1";
             this.ribbonPageGroup1.ShowCaptionButton = false;
             this.ribbonPageGroup1.Text = "Arquivos";
+            // 
+            // ribbonPage3
+            // 
+            this.ribbonPage3.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
+            this.ribbonPageGroup7});
+            this.ribbonPage3.Name = "ribbonPage3";
+            this.ribbonPage3.Text = "Relatórios";
+            // 
+            // ribbonPageGroup7
+            // 
+            this.ribbonPageGroup7.AllowTextClipping = false;
+            this.ribbonPageGroup7.ItemLinks.Add(this.btnRelClientesECotas);
+            this.ribbonPageGroup7.Name = "ribbonPageGroup7";
+            this.ribbonPageGroup7.ShowCaptionButton = false;
+            this.ribbonPageGroup7.Text = "Relatórios Clientes";
             // 
             // ribbonPage2
             // 
@@ -427,5 +456,8 @@
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup5;
         private DevExpress.XtraBars.BarButtonItem btnReiniciaConexao;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup6;
+        private DevExpress.XtraBars.BarButtonItem btnRelClientesECotas;
+        private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage3;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup7;
     }
 }

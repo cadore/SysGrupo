@@ -4,6 +4,16 @@ using System.Windows.Documents;
 
 namespace SysNorteGrupo.Reports
 {
+    #region relatorio de cotas por cliente
+
+    public class RelatorioClientesECotasModel
+    {
+        public decimal cotas { get; set; }
+        public decimal valorTotalDeBens { get; set; }
+        public DateTime dataInclusao { get; set; }
+        public string nomeCliente { get; set; }
+    }
+    #endregion
     public class ListaClientesRateio
     {        
         public string cliente { get; set; }

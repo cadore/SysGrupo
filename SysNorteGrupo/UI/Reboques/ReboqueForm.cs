@@ -25,7 +25,7 @@ namespace SysNorteGrupo.UI.Veiculos.Reboques
             //reboque_instc = reb;
             InitializeComponent();
 
-            conn = GerenteDeConexoes.recuperaConexao();
+            conn = GerenteDeConexoes.conexaoServico();
 
             arquivosFormReb.conn = conn;
 
