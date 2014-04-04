@@ -48,7 +48,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="ManagerDBLibrary">
-      <HintPath>..\..\..\..\Desktop\ManagerDBLibrary.dll</HintPath>
+      <HintPath>..\..\ManagerDBUI\ManagerDBLibrary\bin\Debug\ManagerDBLibrary.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />

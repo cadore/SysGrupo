@@ -29,7 +29,6 @@ namespace SysNorteGrupo.UI.Clientes
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ClienteForm));
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule2 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
@@ -60,7 +59,7 @@ namespace SysNorteGrupo.UI.Clientes
             this.labelControl16 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl15 = new DevExpress.XtraEditors.LabelControl();
             this.tfRefcomercial = new DevExpress.XtraEditors.TextEdit();
-            this.bdgCliente = new System.Windows.Forms.BindingSource(this.components);
+            this.bdgCliente = new System.Windows.Forms.BindingSource();
             this.tfContcomercial = new DevExpress.XtraEditors.TextEdit();
             this.xtraTabPage2 = new DevExpress.XtraTab.XtraTabPage();
             this.labelControl17 = new DevExpress.XtraEditors.LabelControl();
@@ -78,7 +77,7 @@ namespace SysNorteGrupo.UI.Clientes
             this.btnCadBairro = new DevExpress.XtraEditors.SimpleButton();
             this.tfObservacoes = new DevExpress.XtraEditors.MemoEdit();
             this.cbEndereco = new DevExpress.XtraEditors.SearchLookUpEdit();
-            this.bdgEnderecos = new System.Windows.Forms.BindingSource(this.components);
+            this.bdgEnderecos = new System.Windows.Forms.BindingSource();
             this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colcep = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -86,7 +85,7 @@ namespace SysNorteGrupo.UI.Clientes
             this.colbairro_id = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn6 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.cbBairro = new DevExpress.XtraEditors.SearchLookUpEdit();
-            this.bdgBairros = new System.Windows.Forms.BindingSource(this.components);
+            this.bdgBairros = new System.Windows.Forms.BindingSource();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colnome_bairro = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -95,14 +94,14 @@ namespace SysNorteGrupo.UI.Clientes
             this.tfCep = new DevExpress.XtraEditors.TextEdit();
             this.tfNumero = new DevExpress.XtraEditors.TextEdit();
             this.cbEstados = new DevExpress.XtraEditors.SearchLookUpEdit();
-            this.bdgEstados = new System.Windows.Forms.BindingSource(this.components);
+            this.bdgEstados = new System.Windows.Forms.BindingSource();
             this.gridView3 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
             this.coluf = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colnome_estado = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colcod_ibge = new DevExpress.XtraGrid.Columns.GridColumn();
             this.cbCidade = new DevExpress.XtraEditors.SearchLookUpEdit();
-            this.bdgCidades = new System.Windows.Forms.BindingSource(this.components);
+            this.bdgCidades = new System.Windows.Forms.BindingSource();
             this.searchLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.col_cidade = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -140,7 +139,7 @@ namespace SysNorteGrupo.UI.Clientes
             this.labelControl9 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl24 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl23 = new DevExpress.XtraEditors.LabelControl();
-            this.validador = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
+            this.validador = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider();
             ((System.ComponentModel.ISupportInitialize)(this.pnBotoes)).BeginInit();
             this.pnBotoes.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelComponentes)).BeginInit();
@@ -232,6 +231,7 @@ namespace SysNorteGrupo.UI.Clientes
             this.btnImprimirContrato.Text = "           Imprimir Rel. de Bens";
             this.btnImprimirContrato.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnImprimirContrato.UseVisualStyleBackColor = false;
+            this.btnImprimirContrato.Visible = false;
             this.btnImprimirContrato.Click += new System.EventHandler(this.btnImprimirContrato_Click);
             // 
             // button1
