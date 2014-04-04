@@ -232,7 +232,6 @@ namespace SysNorteGrupo.UI.Clientes
             this.btnImprimirContrato.Text = "           Imprimir Rel. de Bens";
             this.btnImprimirContrato.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnImprimirContrato.UseVisualStyleBackColor = false;
-            this.btnImprimirContrato.Visible = false;
             this.btnImprimirContrato.Click += new System.EventHandler(this.btnImprimirContrato_Click);
             // 
             // button1
