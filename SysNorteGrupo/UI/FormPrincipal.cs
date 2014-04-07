@@ -32,8 +32,7 @@ namespace SysNorteGrupo
         
         public FormPrincipal(usuario usuario_instc, permicoes_usuario permicao_instc)
         {
-            var userIdleDetect = UserIdleDetect.StartDetection(UserIdleDetect.minutes(3));            
-            userIdleDetect.UserIdleDetected += userIdleDetect_UserIdleDetected;
+            startIDLE();
             if (usuario_instc == null)
             {
                 Program.startApplication();
@@ -45,41 +44,33 @@ namespace SysNorteGrupo
             this.Text = tituloJanela = "SysNorteGrupo - SysNorte Tecnologia Copyright ©  2013 Versão: 1.0.0.0";            
         }
 
+        void startIDLE()
+        {
+            int minutos = 5;
+            if (ConfigSistema.minutosIDLE > 0)
+            {
+                minutos = ConfigSistema.minutosIDLE;
+            }
+            var userIdleDetect = UserIdleDetect.StartDetection(UserIdleDetect.minutes(minutos));
+            userIdleDetect.UserIdleDetected += userIdleDetect_UserIdleDetected;
+        }
 
         void userIdleDetect_UserIdleDetected(object sender, EventArgs e)
         {
             this.Invoke((MethodInvoker)delegate()
             {
-                IDLE(true);
+                bool idle = true;
+                if (idle && !thisIDLE)
+                {
+                    Log.createLog(EventLog.empty, String.Format("bloqueou aplicação por estar mais que {0} minutos inativo", FilesINI.ReadValue("sistema", "IDLE")));
+                    thisIDLE = true;
+                    this.pnControl.Controls.Clear();
+                    LoginForm loginFormIDLE = new LoginForm();
+                    loginFormIDLE.formPrincipal = this;
+                    loginFormIDLE.lbAviso.Visible = true;
+                    loginFormIDLE.ShowDialog();
+                }
             });
-        }       
-
-        void IDLE(bool idle)
-        {
-            //MessageBox.Show(idle.ToString() + " \n" + thisIDLE.ToString());
-            if(idle && !thisIDLE)
-            {
-                Log.createLog(EventLog.empty, String.Format("bloqueou aplicação por estar mais que 3 minutos inativo"));
-                thisIDLE = true;
-                this.pnControl.Controls.Clear();
-                LoginForm loginFormIDLE = new LoginForm();
-                loginFormIDLE.formPrincipal = this;
-                loginFormIDLE.lbAviso.Visible = true;
-                loginFormIDLE.ShowDialog();
-            }            
-        }
-        
-        private void loadImageBackground()
-        {
-            try
-            {
-                string path = Directory.GetCurrentDirectory() + "\\images\\backgroundSystem.png";
-                pnControl.ContentImage = Image.FromFile(path);
-
-            }catch(Exception ex){
-                MessageBox.Show(String.Format("{0}\n{1}", ex.Message, ex.InnerException));
-            }
-            
         }
 
         void carregaPermissoes(permicoes_usuario p)
@@ -297,13 +288,13 @@ namespace SysNorteGrupo
                 bool inatividadeItens = false;
                 List<RelatorioClientesECotasModel> listReport = new List<RelatorioClientesECotasModel>();
                 List<cliente> listClientes = conn.listaDeClientesPorInatividade(inatividadeCliente);
-                decimal total_cotas_grupo = conn.retornaTotalDeBensDaEmpresaPorInatividade(inatividadeItens) / UtilsSistema.valor_por_cota;
+                decimal total_cotas_grupo = conn.retornaTotalDeBensDaEmpresaPorInatividade(inatividadeItens) / ConfigSistema.valor_por_cota;
                 foreach (cliente c in listClientes)
                 {
                     decimal valor_veiculos = conn.somaValorTotalVeiculoPorIdClienteEInatividade(c.id, inatividadeItens);
                     decimal valor_reboques = conn.somaValorTotalReboquesPorIdClienteEInatividade(c.id, inatividadeItens);
                     decimal valor_total_bens = valor_veiculos + valor_reboques;
-                    decimal total_cotas = valor_total_bens / UtilsSistema.valor_por_cota;
+                    decimal total_cotas = valor_total_bens / ConfigSistema.valor_por_cota;
                     decimal porcento_cotas = (total_cotas * 100) / total_cotas_grupo;
 
                     listReport.Add(new RelatorioClientesECotasModel()
@@ -338,6 +329,12 @@ namespace SysNorteGrupo
         {
             ConfigEnderecoServico ces = new ConfigEnderecoServico();
             ces.ShowDialog();
+        }
+
+        private void btnPrefSistema_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            PreferenciasSistema ps = new PreferenciasSistema();
+            ps.ShowDialog();
         }
     }
 }

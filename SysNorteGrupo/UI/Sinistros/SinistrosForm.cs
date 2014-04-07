@@ -19,7 +19,7 @@ namespace SysNorteGrupo.UI.Sinistros
         public IServiceGrupo conn;
         public FormPrincipal formPrincipal = null;
         private sinistro sinistro_instc = null;
-        private Color backColor = UtilsSistema.backColorFoco;
+        private Color backColor = ConfigSistema.backColorFoco;
         private ConditionValidationRule conditionValidationRule4;
         private List<reboque> listRebTab = new List<reboque>();
         public SinistrosForm(sinistro _sinistro_instc)
@@ -399,8 +399,8 @@ namespace SysNorteGrupo.UI.Sinistros
                 valorPorCota = valor_por_cota,
                 valorTotalSinistro = valor_total_sinistro,
                 valorTotalDosBensSinistrados = valor_total_dos_bens_sinistrados,
-                cotasDosBensSinistrados = (valor_total_dos_bens_sinistrados / UtilsSistema.valor_por_cota).ToString(),
-                franquia = (UtilsSistema.franquiaSinistro + "% - R$ " + valor_total_dos_bens_sinistrados / 100 * UtilsSistema.franquiaSinistro).ToString()
+                cotasDosBensSinistrados = (valor_total_dos_bens_sinistrados / ConfigSistema.valor_por_cota).ToString(),
+                franquia = (ConfigSistema.franquiaSinistro + "% - R$ " + valor_total_dos_bens_sinistrados / 100 * ConfigSistema.franquiaSinistro).ToString()
 
             });
             return lista;
@@ -412,7 +412,7 @@ namespace SysNorteGrupo.UI.Sinistros
         {
             List<ReboquesRelatorio> reboques = new List<ReboquesRelatorio>();
             foreach(reboque r in conn.listaDeReboquesPorIdVeiculoEdataAtivacao(id_veiculo, data_ativacao)){
-                decimal cotas = r.valor / UtilsSistema.valor_por_cota;
+                decimal cotas = r.valor / ConfigSistema.valor_por_cota;
                 reboques.Add(new ReboquesRelatorio()
                 { 
                     placa = r.placa,
@@ -432,7 +432,7 @@ namespace SysNorteGrupo.UI.Sinistros
         {
             List<VeiculosRelatorio> veiculos = new List<VeiculosRelatorio>();
             foreach(veiculo v in conn.listaDeVeiculosPorIdClienteEDataAtivacao(id_cliente, data_ativacao)){
-                decimal cotas = v.valor / UtilsSistema.valor_por_cota;
+                decimal cotas = v.valor / ConfigSistema.valor_por_cota;
                 veiculos.Add(new VeiculosRelatorio() 
                 {
                     placa = v.placa, 

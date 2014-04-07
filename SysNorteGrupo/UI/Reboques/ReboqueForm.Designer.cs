@@ -1,4 +1,4 @@
-﻿using SysNorteGrupo.UI.Botoes;
+﻿using SysNorteGrupo.UI.Utils.Botoes;
 namespace SysNorteGrupo.UI.Veiculos.Reboques
 {
     partial class ReboqueForm

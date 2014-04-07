@@ -26,7 +26,7 @@ namespace SysNorteGrupo.UI.Clientes
         private int tipoPesquisa = -1;
         private bool _inativo = false;
 
-        private Color backColor = UtilsSistema.backColorFoco;
+        private Color backColor = ConfigSistema.backColorFoco;
 
         public BuscaClienteForm()
         {
@@ -87,7 +87,7 @@ namespace SysNorteGrupo.UI.Clientes
             {
                 decimal valor_veiculos = conn.somaValorTotalVeiculoPorIdClienteEInatividade(v.id, false);
                 decimal valor_reboques = conn.somaValorTotalReboquesPorIdClienteEInatividade(v.id, false);
-                decimal total_cotas = (valor_veiculos + valor_reboques) / UtilsSistema.valor_por_cota;
+                decimal total_cotas = (valor_veiculos + valor_reboques) / ConfigSistema.valor_por_cota;
                 v.cotas = total_cotas;
                 v.valor_total = (valor_veiculos + valor_reboques);
                 listRetorno.Add(v);

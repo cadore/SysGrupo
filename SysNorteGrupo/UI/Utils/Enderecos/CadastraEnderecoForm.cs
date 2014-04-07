@@ -12,7 +12,7 @@ using EntitiesGrupo;
 using SysNorteGrupo.UI.Clientes;
 using WcfLibGrupo;
 
-namespace SysNorteGrupo.UI.Enderecos
+namespace SysNorteGrupo.UI.Utils.Enderecos
 {
     public partial class CadastraEnderecoForm : DevExpress.XtraEditors.XtraForm
     {

@@ -21,7 +21,7 @@ namespace SysNorteGrupo.UI.Usuarios
     {
 
         private IServiceGrupo conn = null;
-        private Color backColor = UtilsSistema.backColorFoco;
+        private Color backColor = ConfigSistema.backColorFoco;
         public FormPrincipal formPrincipal;
         private UserIdleDetect userIdleDetectTimeExit;
 

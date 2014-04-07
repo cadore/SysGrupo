@@ -1,4 +1,4 @@
-﻿using SysNorteGrupo.UI.Botoes;
+﻿using SysNorteGrupo.UI.Utils.Botoes;
 namespace SysNorteGrupo.UI.Usuarios
 {
     partial class BuscaUsuariosForm

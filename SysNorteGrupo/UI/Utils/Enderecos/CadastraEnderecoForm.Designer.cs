@@ -1,4 +1,4 @@
-﻿namespace SysNorteGrupo.UI.Enderecos
+﻿namespace SysNorteGrupo.UI.Utils.Enderecos
 {
     partial class CadastraEnderecoForm
     {

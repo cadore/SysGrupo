@@ -49,6 +49,7 @@
             this.btnReiniciaConexao = new DevExpress.XtraBars.BarButtonItem();
             this.btnRelClientesECotas = new DevExpress.XtraBars.BarButtonItem();
             this.btnConfigEnderecoServico = new DevExpress.XtraBars.BarButtonItem();
+            this.btnPrefSistema = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribClientes = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribVeiculos = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -62,6 +63,7 @@
             this.ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup5 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup6 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPageGroup8 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.repositoryItemTextEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.pnControl = new DevExpress.XtraEditors.PanelControl();
@@ -92,9 +94,10 @@
             this.btnCriaBackup,
             this.btnReiniciaConexao,
             this.btnRelClientesECotas,
-            this.btnConfigEnderecoServico});
+            this.btnConfigEnderecoServico,
+            this.btnPrefSistema});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.MaxItemId = 25;
+            this.ribbon.MaxItemId = 26;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1,
@@ -274,6 +277,14 @@
             this.btnConfigEnderecoServico.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
             this.btnConfigEnderecoServico.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnConfigEnderecoServico_ItemClick);
             // 
+            // btnPrefSistema
+            // 
+            this.btnPrefSistema.Caption = "Preferências do Sistema";
+            this.btnPrefSistema.Id = 25;
+            this.btnPrefSistema.Name = "btnPrefSistema";
+            this.btnPrefSistema.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.btnPrefSistema.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnPrefSistema_ItemClick);
+            // 
             // ribbonPage1
             // 
             this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -351,7 +362,8 @@
             this.ribUsuarios,
             this.ribbonPageGroup4,
             this.ribbonPageGroup5,
-            this.ribbonPageGroup6});
+            this.ribbonPageGroup6,
+            this.ribbonPageGroup8});
             this.ribbonPage2.Name = "ribbonPage2";
             this.ribbonPage2.Text = "Sistema";
             // 
@@ -388,6 +400,14 @@
             this.ribbonPageGroup6.Name = "ribbonPageGroup6";
             this.ribbonPageGroup6.ShowCaptionButton = false;
             this.ribbonPageGroup6.Text = "Conexão com Servidor";
+            // 
+            // ribbonPageGroup8
+            // 
+            this.ribbonPageGroup8.AllowTextClipping = false;
+            this.ribbonPageGroup8.ItemLinks.Add(this.btnPrefSistema);
+            this.ribbonPageGroup8.Name = "ribbonPageGroup8";
+            this.ribbonPageGroup8.ShowCaptionButton = false;
+            this.ribbonPageGroup8.Text = "Preferências do Sistema";
             // 
             // repositoryItemTextEdit1
             // 
@@ -474,5 +494,7 @@
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage3;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup7;
         private DevExpress.XtraBars.BarButtonItem btnConfigEnderecoServico;
+        private DevExpress.XtraBars.BarButtonItem btnPrefSistema;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup8;
     }
 }

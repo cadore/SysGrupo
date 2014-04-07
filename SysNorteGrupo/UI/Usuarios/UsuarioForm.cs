@@ -18,7 +18,7 @@ namespace SysNorteGrupo.UI.Usuarios
         private string status = "save";
         private usuario usr = null;
         private permicoes_usuario pu = null;
-        private Color backColor = UtilsSistema.backColorFoco;
+        private Color backColor = ConfigSistema.backColorFoco;
 
         public UsuarioForm(usuario _usr)
         {

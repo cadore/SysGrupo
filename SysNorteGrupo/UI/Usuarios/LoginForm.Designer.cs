@@ -1,4 +1,4 @@
-﻿using SysNorteGrupo.UI.Botoes;
+﻿using SysNorteGrupo.UI.Utils.Botoes;
 namespace SysNorteGrupo.UI.Usuarios
 {
     partial class LoginForm
@@ -29,7 +29,6 @@ namespace SysNorteGrupo.UI.Usuarios
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule2 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginForm));
@@ -39,10 +38,10 @@ namespace SysNorteGrupo.UI.Usuarios
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.pnControl = new DevExpress.XtraEditors.PanelControl();
             this.lbAviso = new DevExpress.XtraEditors.LabelControl();
-            this.btnEntrar = new BotaoEntrar();
+            this.btnEntrar = new SysNorteGrupo.UI.Utils.Botoes.BotaoEntrar();
             this.lbSenha = new DevExpress.XtraEditors.LabelControl();
-            this.btnSair = new BotaoSair();
-            this.validator = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
+            this.btnSair = new SysNorteGrupo.UI.Utils.Botoes.BotaoSair();
+            this.validator = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider();
             ((System.ComponentModel.ISupportInitialize)(this.tfLogin.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfSenha.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pnControl)).BeginInit();
@@ -180,6 +179,7 @@ namespace SysNorteGrupo.UI.Usuarios
             this.ClientSize = new System.Drawing.Size(523, 239);
             this.ControlBox = false;
             this.Controls.Add(this.pnControl);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(539, 278);

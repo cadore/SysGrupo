@@ -171,16 +171,16 @@
     <Compile Include="Reports\Clientes\RelatorioClientesECotas.Designer.cs">
       <DependentUpon>RelatorioClientesECotas.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\ConfigEnderecoServico.cs">
+    <Compile Include="UI\Utils\ConfigEnderecoServico.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\ConfigEnderecoServico.Designer.cs">
+    <Compile Include="UI\Utils\ConfigEnderecoServico.Designer.cs">
       <DependentUpon>ConfigEnderecoServico.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Enderecos\CadastraEnderecoForm.cs">
+    <Compile Include="UI\Utils\Enderecos\CadastraEnderecoForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\Enderecos\CadastraEnderecoForm.Designer.cs">
+    <Compile Include="UI\Utils\Enderecos\CadastraEnderecoForm.Designer.cs">
       <DependentUpon>CadastraEnderecoForm.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\FormPrincipal.cs">
@@ -263,11 +263,23 @@
     <Compile Include="UI\UtilForm.Designer.cs">
       <DependentUpon>UtilForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Enderecos\CadastraBairroForm.cs">
+    <Compile Include="UI\Utils\Enderecos\CadastraBairroForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\Enderecos\CadastraBairroForm.Designer.cs">
+    <Compile Include="UI\Utils\Enderecos\CadastraBairroForm.Designer.cs">
       <DependentUpon>CadastraBairroForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Utils\PleaseWaitForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Utils\PleaseWaitForm.Designer.cs">
+      <DependentUpon>PleaseWaitForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Utils\PreferenciasSistema.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Utils\PreferenciasSistema.Designer.cs">
+      <DependentUpon>PreferenciasSistema.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Veiculos\BuscaVeiculoForm.cs">
       <SubType>UserControl</SubType>
@@ -300,28 +312,28 @@
       <DependentUpon>VeiculosForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Utils\Boletos\GerenteDeBoletos.cs" />
-    <Compile Include="UI\Botoes\BotaoImprimir.cs">
+    <Compile Include="UI\Utils\Botoes\BotaoImprimir.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="UI\Botoes\BotaoBuscar.cs">
+    <Compile Include="UI\Utils\Botoes\BotaoBuscar.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="UI\Botoes\BotaoEditar.cs">
+    <Compile Include="UI\Utils\Botoes\BotaoEditar.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="UI\Botoes\BotaoEntrar.cs">
+    <Compile Include="UI\Utils\Botoes\BotaoEntrar.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="UI\Botoes\BotaoInativar.cs">
+    <Compile Include="UI\Utils\Botoes\BotaoInativar.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="UI\Botoes\BotaoNovo.cs">
+    <Compile Include="UI\Utils\Botoes\BotaoNovo.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="UI\Botoes\BotaoSair.cs">
+    <Compile Include="UI\Utils\Botoes\BotaoSair.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="UI\Botoes\BotaoSalvar.cs">
+    <Compile Include="UI\Utils\Botoes\BotaoSalvar.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Utils\Centraliza.cs" />
@@ -332,15 +344,15 @@
     <Compile Include="Utils\Logs\Log.cs" />
     <Compile Include="Utils\UserIdleDetect.cs" />
     <Compile Include="Utils\Util.cs" />
-    <Compile Include="Utils\UtilsSistema.cs" />
+    <Compile Include="Utils\ConfigSistema.cs" />
     <Compile Include="Utils\Validations.cs" />
     <EmbeddedResource Include="Reports\Clientes\RelatorioClientesECotas.resx">
       <DependentUpon>RelatorioClientesECotas.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\ConfigEnderecoServico.resx">
+    <EmbeddedResource Include="UI\Utils\ConfigEnderecoServico.resx">
       <DependentUpon>ConfigEnderecoServico.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Enderecos\CadastraEnderecoForm.resx">
+    <EmbeddedResource Include="UI\Utils\Enderecos\CadastraEnderecoForm.resx">
       <DependentUpon>CadastraEnderecoForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\FormPrincipal.resx">
@@ -382,8 +394,14 @@
     <EmbeddedResource Include="UI\Usuarios\UsuarioForm.resx">
       <DependentUpon>UsuarioForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Enderecos\CadastraBairroForm.resx">
+    <EmbeddedResource Include="UI\Utils\Enderecos\CadastraBairroForm.resx">
       <DependentUpon>CadastraBairroForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Utils\PleaseWaitForm.resx">
+      <DependentUpon>PleaseWaitForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Utils\PreferenciasSistema.resx">
+      <DependentUpon>PreferenciasSistema.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Veiculos\BuscaVeiculoForm.resx">
       <DependentUpon>BuscaVeiculoForm.cs</DependentUpon>

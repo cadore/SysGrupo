@@ -21,7 +21,7 @@ namespace SysNorteGrupo.UI.Veiculos
         public FormPrincipal formPrincipal = null;
         private int tipoPesquisa = -1;
         private bool _inativo = false;
-        private Color backColor = UtilsSistema.backColorFoco;
+        private Color backColor = ConfigSistema.backColorFoco;
 
         public BuscaVeiculoForm()
         {
@@ -70,7 +70,7 @@ namespace SysNorteGrupo.UI.Veiculos
             foreach (veiculo v in listVei)
             {
                 cliente cli = conn.retornaClientePorId(v.id_cliente);
-                decimal cotas = v.valor / UtilsSistema.valor_por_cota;
+                decimal cotas = v.valor / ConfigSistema.valor_por_cota;
 
                 v.nome_cliente = cli.nome_completo;
                 v.cotas = cotas;

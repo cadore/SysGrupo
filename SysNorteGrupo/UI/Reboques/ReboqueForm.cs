@@ -17,7 +17,7 @@ namespace SysNorteGrupo.UI.Veiculos.Reboques
         private IServiceGrupo conn = null;
         public FormPrincipal formPrincipal = null;
         //private reboque reboque_instc = null;
-        private Color backColor = UtilsSistema.backColorFoco;
+        private Color backColor = ConfigSistema.backColorFoco;
         private CustomValidationRuleDataAgendamento cVRDA;
 
         public ReboqueForm(List<reboque> reb)

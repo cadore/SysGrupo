@@ -9,6 +9,7 @@ using SysNorteGrupo.Utils;
 using SysNorteGrupo.UI.Usuarios;
 using EntitiesGrupo;
 using WcfLibGrupo;
+using SysNorteGrupo.UI.Utils;
 
 namespace SysNorteGrupo
 {
@@ -40,13 +41,18 @@ namespace SysNorteGrupo
                 // The following line provides localization for the application's user interface. 
                 System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("pt-BR");
 
-                GerenteDeConexoes.iniciaConexaoServico();
-                IServiceGrupo conn = GerenteDeConexoes.conexaoServico();
+                iniciaConexao();
 
-                UtilsSistema.backColorFoco = conn.backColorFoco();
-                UtilsSistema.franquiaSinistro = conn.franquiaSinistro();
-                UtilsSistema.valor_por_cota = conn.valorPorCota();
-
+                try
+                {
+                    ConfigSistema.carregaConfiguracoes();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(String.Format("Ocorreu um erro no carregamento das configurações.\n\n{0}\n{1}", ex.Message, ex.InnerException));
+                    Environment.Exit(0);
+                }                
+               
                 //Application.Run(new FormPrincipal(new usuario(), new permicoes_usuario()));
                 startApplication();
             }
@@ -75,6 +81,33 @@ namespace SysNorteGrupo
             catch (Exception ex)
             {
                 throw new Exception(ex.Message);
+            }
+        }
+
+        static void iniciaConexao()
+        {
+            try
+            {
+                GerenteDeConexoes.iniciaConexaoServico();
+            }
+            catch (Exception)
+            {
+                DialogResult rs = MessageBox.Show("Não foi possível conectar ao servidor.\nInforme o endereço e a porta para conectar!",
+                    "SYSNORTE TECNOLOGIA", MessageBoxButtons.OKCancel);
+                if (rs == DialogResult.OK)
+                {
+                    ConfigEnderecoServico ces = new ConfigEnderecoServico();
+                    ces.ckConectarSaida.Enabled = false;
+                    DialogResult dr = ces.ShowDialog();
+                    if (dr == DialogResult.Cancel)
+                    {
+                        Environment.Exit(0);
+                    }
+                }
+                else
+                {
+                    Environment.Exit(0);
+                }
             }
         }
     }

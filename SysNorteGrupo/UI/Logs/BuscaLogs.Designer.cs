@@ -1,5 +1,5 @@
 ﻿using EntitiesGrupo;
-using SysNorteGrupo.UI.Botoes;
+using SysNorteGrupo.UI.Utils.Botoes;
 
 namespace SysNorteGrupo.UI.Logs
 {

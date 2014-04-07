@@ -1,5 +1,5 @@
 ﻿using SysFileManager;
-using SysNorteGrupo.UI.Botoes;
+using SysNorteGrupo.UI.Utils.Botoes;
 namespace SysNorteGrupo.UI.Clientes
 {
     partial class ClienteForm

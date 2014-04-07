@@ -2,7 +2,7 @@
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
 
-namespace SysNorteGrupo.UI.Botoes
+namespace SysNorteGrupo.UI.Utils.Botoes
 {
     public class BotaoBuscar : Button
     {

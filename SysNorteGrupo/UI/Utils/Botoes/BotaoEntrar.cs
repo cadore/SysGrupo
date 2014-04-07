@@ -3,11 +3,11 @@ using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
 
-namespace SysNorteGrupo.UI.Botoes
+namespace SysNorteGrupo.UI.Utils.Botoes
 {
-    public class BotaoSalvar : Button
+    public class BotaoEntrar : Button
     {
-        public BotaoSalvar()
+        public BotaoEntrar()
         {
             this.SetStyle(ControlStyles.SupportsTransparentBackColor |
                       ControlStyles.Opaque |
@@ -23,7 +23,7 @@ namespace SysNorteGrupo.UI.Botoes
             //this.MouseUp += new MouseEventHandler(_MouseUp);
             //this.MouseMove += new MouseEventHandler(_MouseMove);
 
-            this.Image = global::SysNorteGrupo.Properties.Resources.save;
+            this.Image = global::SysNorteGrupo.Properties.Resources.next;
             this.Size = new System.Drawing.Size(93, 31);
             this.ImageAlign = ContentAlignment.MiddleLeft;
             this.TextAlign = ContentAlignment.MiddleRight;
@@ -71,6 +71,5 @@ namespace SysNorteGrupo.UI.Botoes
             // the default control color
             g.FillRectangle(SystemBrushes.Control, clipRect);
         }
-
     }
 }

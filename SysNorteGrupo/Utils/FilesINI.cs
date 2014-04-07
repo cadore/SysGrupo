@@ -26,7 +26,7 @@ namespace SysNorteGrupo.Utils
             WritePrivateProfileString(section, Key, Value, iniFile);
         }
 
-        public static string _GetIniValue(string section, string key, string nomeArquivo)
+        private static string _GetIniValue(string section, string key, string nomeArquivo)
         {
             const int chars = 1024;
             StringBuilder buffer = new StringBuilder(chars);

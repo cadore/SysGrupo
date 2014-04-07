@@ -1,12 +1,13 @@
-﻿using System.Drawing;
+﻿using System;
+using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
 
-namespace SysNorteGrupo.UI.Botoes
+namespace SysNorteGrupo.UI.Utils.Botoes
 {
-    public class BotaoSair : Button
+    public class BotaoInativar : Button
     {
-        public BotaoSair()
+        public BotaoInativar()
         {
             this.SetStyle(ControlStyles.SupportsTransparentBackColor |
                       ControlStyles.Opaque |
@@ -22,8 +23,8 @@ namespace SysNorteGrupo.UI.Botoes
             //this.MouseUp += new MouseEventHandler(_MouseUp);
             //this.MouseMove += new MouseEventHandler(_MouseMove);
 
-            this.Image = global::SysNorteGrupo.Properties.Resources.cancel;
-            this.Size = new Size(93, 31);
+            this.Image = global::SysNorteGrupo.Properties.Resources.minus;
+            this.Size = new System.Drawing.Size(93, 31);
             this.ImageAlign = ContentAlignment.MiddleLeft;
             this.TextAlign = ContentAlignment.MiddleRight;
             this.ForeColor = Color.White;

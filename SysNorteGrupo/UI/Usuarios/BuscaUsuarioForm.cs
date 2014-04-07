@@ -15,7 +15,7 @@ namespace SysNorteGrupo.UI.Usuarios
         private IServiceGrupo conn = null;
         public FormPrincipal formPrincipal = null;
         private int tipoPesquisa = -1;
-        private Color backColor = UtilsSistema.backColorFoco;
+        private Color backColor = ConfigSistema.backColorFoco;
 
         public BuscaUsuariosForm()
         {

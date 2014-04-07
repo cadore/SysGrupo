@@ -17,7 +17,7 @@ namespace SysNorteGrupo.UI.Veiculos
         private IServiceGrupo conn = null;
         public FormPrincipal formPrincipal = null;
         private veiculo veiculo_instc = null;
-        private Color backColor = UtilsSistema.backColorFoco;
+        private Color backColor = ConfigSistema.backColorFoco;
         private CustomValidationRuleDataAgendamento cVRDA;
 
         public VeiculosForm(veiculo vei)
@@ -396,7 +396,7 @@ namespace SysNorteGrupo.UI.Veiculos
         {
             if(tfValor.EditValue != null){
                 decimal valor = Convert.ToDecimal(tfValor.EditValue.ToString().Trim());
-                tfCotas.Text = (valor / UtilsSistema.valor_por_cota).ToString();
+                tfCotas.Text = (valor / ConfigSistema.valor_por_cota).ToString();
             }
         }
 

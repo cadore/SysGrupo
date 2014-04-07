@@ -21,7 +21,7 @@ namespace SysNorteGrupo.UI.Veiculos.Reboques
         public FormPrincipal formPrincipal = null;
         private int tipoPesquisa = -1;
         private bool _inativo = false;
-        private Color backColor = UtilsSistema.backColorFoco;
+        private Color backColor = ConfigSistema.backColorFoco;
 
         public BuscaReboqueForm()
         {
@@ -165,7 +165,7 @@ namespace SysNorteGrupo.UI.Veiculos.Reboques
             foreach (reboque r in listReb)
             {
                 cliente cli = conn.retornaClientePorId(r.id_cliente);
-                decimal cotas = r.valor / UtilsSistema.valor_por_cota;
+                decimal cotas = r.valor / ConfigSistema.valor_por_cota;
 
                 r.nome_cliente = cli.nome_completo;
                 r.cotas = cotas;

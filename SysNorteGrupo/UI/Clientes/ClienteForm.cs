@@ -5,7 +5,7 @@ using DevExpress.XtraTab;
 using EntitiesGrupo;
 using SysNorteGrupo.Reports;
 using SysNorteGrupo.Reports.Clientes;
-using SysNorteGrupo.UI.Enderecos;
+using SysNorteGrupo.UI.Utils.Enderecos;
 using SysNorteGrupo.Utils;
 using System;
 using System.Collections.Generic;
@@ -22,7 +22,7 @@ namespace SysNorteGrupo.UI.Clientes
 
         IServiceGrupo conn = null;
 
-        private System.Drawing.Color backColor = UtilsSistema.backColorFoco;
+        private System.Drawing.Color backColor = ConfigSistema.backColorFoco;
 
         public ClienteForm(cliente cliente_instc)
         {
@@ -464,7 +464,7 @@ namespace SysNorteGrupo.UI.Clientes
             List<VeiculosRelatorio> veiculos = new List<VeiculosRelatorio>();
             foreach (veiculo v in conn.listaDeVeiculosPorIdCliente(id_cliente))
             {
-                decimal cotas = v.valor / UtilsSistema.valor_por_cota;
+                decimal cotas = v.valor / ConfigSistema.valor_por_cota;
                 veiculos.Add(new VeiculosRelatorio()
                 {
                     placa = v.placa,
@@ -485,7 +485,7 @@ namespace SysNorteGrupo.UI.Clientes
             List<ReboquesRelatorio> reboques = new List<ReboquesRelatorio>();
             foreach (reboque r in conn.listaDeReboquesPorIdVeiculo(id_veiculo, false))
             {
-                decimal cotas = r.valor / UtilsSistema.valor_por_cota;
+                decimal cotas = r.valor / ConfigSistema.valor_por_cota;
                 reboques.Add(new ReboquesRelatorio()
                 {
                     placa = r.placa,

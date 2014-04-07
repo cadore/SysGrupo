@@ -1,5 +1,5 @@
 ﻿using SysFileManager;
-using SysNorteGrupo.UI.Botoes;
+using SysNorteGrupo.UI.Utils.Botoes;
 using SysNorteGrupo.Utils;
 namespace SysNorteGrupo.UI.Sinistros
 {
