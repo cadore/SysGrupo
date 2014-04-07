@@ -1,13 +1,12 @@
-﻿using System;
-using System.Drawing;
+﻿using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
 
-namespace SysNorteGrupo.Utils
+namespace SysNorteGrupo.UI.Botoes
 {
-    public class BotaoEntrar : Button
+    public class BotaoBuscar : Button
     {
-        public BotaoEntrar()
+        public BotaoBuscar()
         {
             this.SetStyle(ControlStyles.SupportsTransparentBackColor |
                       ControlStyles.Opaque |
@@ -23,8 +22,8 @@ namespace SysNorteGrupo.Utils
             //this.MouseUp += new MouseEventHandler(_MouseUp);
             //this.MouseMove += new MouseEventHandler(_MouseMove);
 
-            this.Image = global::SysNorteGrupo.Properties.Resources.next;
-            this.Size = new System.Drawing.Size(93, 31);
+            this.Image = global::SysNorteGrupo.Properties.Resources.search;
+            this.Size = new Size(93, 31);
             this.ImageAlign = ContentAlignment.MiddleLeft;
             this.TextAlign = ContentAlignment.MiddleRight;
             this.ForeColor = Color.White;

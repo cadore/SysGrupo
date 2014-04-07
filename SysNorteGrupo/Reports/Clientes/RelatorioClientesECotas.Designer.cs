@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             DevExpress.XtraReports.UI.XRSummary xrSummary1 = new DevExpress.XtraReports.UI.XRSummary();
             DevExpress.XtraReports.UI.XRSummary xrSummary2 = new DevExpress.XtraReports.UI.XRSummary();
             DevExpress.XtraReports.UI.XRSummary xrSummary3 = new DevExpress.XtraReports.UI.XRSummary();
@@ -59,7 +58,7 @@
             this.xrLabel12 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel9 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel7 = new DevExpress.XtraReports.UI.XRLabel();
-            this.bdgRelatorio = new System.Windows.Forms.BindingSource(this.components);
+            this.bdgRelatorio = new System.Windows.Forms.BindingSource();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdgRelatorio)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
@@ -205,14 +204,14 @@
             // 
             // TopMargin
             // 
-            this.TopMargin.HeightF = 23.95833F;
+            this.TopMargin.HeightF = 24F;
             this.TopMargin.Name = "TopMargin";
             this.TopMargin.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 100F);
             this.TopMargin.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
             // 
             // BottomMargin
             // 
-            this.BottomMargin.HeightF = 18.75F;
+            this.BottomMargin.HeightF = 19F;
             this.BottomMargin.Name = "BottomMargin";
             this.BottomMargin.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 100F);
             this.BottomMargin.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
@@ -354,7 +353,7 @@
             this.PageFooter,
             this.ReportFooter});
             this.DataSource = this.bdgRelatorio;
-            this.Margins = new System.Drawing.Printing.Margins(55, 64, 24, 19);
+            this.Margins = new System.Drawing.Printing.Margins(55, 69, 24, 19);
             this.Parameters.AddRange(new DevExpress.XtraReports.Parameters.Parameter[] {
             this.assinatura,
             this.dataRelatorio});

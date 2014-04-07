@@ -1,4 +1,5 @@
 ﻿using SysFileManager;
+using SysNorteGrupo.UI.Botoes;
 namespace SysNorteGrupo.UI.Clientes
 {
     partial class ClienteForm
@@ -43,12 +44,12 @@ namespace SysNorteGrupo.UI.Clientes
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule11 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule12 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             this.pnBotoes = new DevExpress.XtraEditors.PanelControl();
-            this.btnImprimirContrato = new SysNorteGrupo.Utils.BotaoImprimir();
+            this.btnImprimirContrato = new BotaoImprimir();
             this.button1 = new System.Windows.Forms.Button();
-            this.btnSair = new SysNorteGrupo.Utils.BotaoSair();
-            this.btnEditar = new SysNorteGrupo.Utils.BotaoEditar();
-            this.btnSalvar = new SysNorteGrupo.Utils.BotaoEditar();
-            this.btnNovo = new SysNorteGrupo.Utils.BotaoNovo();
+            this.btnSair = new BotaoSair();
+            this.btnEditar = new BotaoEditar();
+            this.btnSalvar = new BotaoEditar();
+            this.btnNovo = new BotaoNovo();
             this.panelComponentes = new DevExpress.XtraEditors.PanelControl();
             this.grpTipo = new DevExpress.XtraEditors.RadioGroup();
             this.panelArquivos = new DevExpress.XtraEditors.PanelControl();
@@ -1373,10 +1374,10 @@ namespace SysNorteGrupo.UI.Clientes
         private DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider validador;
         private DevExpress.XtraEditors.SimpleButton btnCadEndereco;
         private DevExpress.XtraEditors.SimpleButton btnCadBairro;
-        private Utils.BotaoNovo btnNovo;
-        private Utils.BotaoSair btnSair;
-        private Utils.BotaoEditar btnEditar;
-        private Utils.BotaoEditar btnSalvar;
+        private BotaoNovo btnNovo;
+        private BotaoSair btnSair;
+        private BotaoEditar btnEditar;
+        private BotaoEditar btnSalvar;
         private DevExpress.XtraEditors.PanelControl panelArquivos;
         private DevExpress.XtraEditors.LabelControl labelControl24;
         private DevExpress.XtraEditors.LabelControl labelControl23;
@@ -1384,6 +1385,6 @@ namespace SysNorteGrupo.UI.Clientes
         private DevExpress.XtraEditors.TextEdit tfTotalCotas;
         private ArquivosForm arquivosFormCli;
         private System.Windows.Forms.Button button1;
-        private Utils.BotaoImprimir btnImprimirContrato;
+        private BotaoImprimir btnImprimirContrato;
     }
 }

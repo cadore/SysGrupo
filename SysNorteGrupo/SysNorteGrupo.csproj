@@ -171,6 +171,12 @@
     <Compile Include="Reports\Clientes\RelatorioClientesECotas.Designer.cs">
       <DependentUpon>RelatorioClientesECotas.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\ConfigEnderecoServico.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\ConfigEnderecoServico.Designer.cs">
+      <DependentUpon>ConfigEnderecoServico.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Enderecos\CadastraEnderecoForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -294,28 +300,28 @@
       <DependentUpon>VeiculosForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Utils\Boletos\GerenteDeBoletos.cs" />
-    <Compile Include="Utils\Botoes\BotaoImprimir.cs">
+    <Compile Include="UI\Botoes\BotaoImprimir.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Utils\Botoes\BotaoBuscar.cs">
+    <Compile Include="UI\Botoes\BotaoBuscar.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Utils\Botoes\BotaoEditar.cs">
+    <Compile Include="UI\Botoes\BotaoEditar.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Utils\Botoes\BotaoEntrar.cs">
+    <Compile Include="UI\Botoes\BotaoEntrar.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Utils\Botoes\BotaoInativar.cs">
+    <Compile Include="UI\Botoes\BotaoInativar.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Utils\Botoes\BotaoNovo.cs">
+    <Compile Include="UI\Botoes\BotaoNovo.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Utils\Botoes\BotaoSair.cs">
+    <Compile Include="UI\Botoes\BotaoSair.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Utils\Botoes\BotaoSalvar.cs">
+    <Compile Include="UI\Botoes\BotaoSalvar.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Utils\Centraliza.cs" />
@@ -330,6 +336,9 @@
     <Compile Include="Utils\Validations.cs" />
     <EmbeddedResource Include="Reports\Clientes\RelatorioClientesECotas.resx">
       <DependentUpon>RelatorioClientesECotas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ConfigEnderecoServico.resx">
+      <DependentUpon>ConfigEnderecoServico.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Enderecos\CadastraEnderecoForm.resx">
       <DependentUpon>CadastraEnderecoForm.cs</DependentUpon>

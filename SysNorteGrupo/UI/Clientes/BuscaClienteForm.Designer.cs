@@ -1,4 +1,5 @@
-﻿namespace SysNorteGrupo.UI.Clientes
+﻿using SysNorteGrupo.UI.Botoes;
+namespace SysNorteGrupo.UI.Clientes
 {
     partial class BuscaClienteForm
     {
@@ -31,8 +32,8 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BuscaClienteForm));
             this.pbBotoes = new DevExpress.XtraEditors.PanelControl();
-            this.btnFechar = new SysNorteGrupo.Utils.BotaoSair();
-            this.btnBuscar = new SysNorteGrupo.Utils.BotaoBuscar();
+            this.btnFechar = new BotaoSair();
+            this.btnBuscar = new BotaoBuscar();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
             this.ckInativo = new DevExpress.XtraEditors.CheckEdit();
             this.ckAtivo = new DevExpress.XtraEditors.CheckEdit();
@@ -562,8 +563,8 @@
         private DevExpress.XtraEditors.CheckEdit ckInativo;
         private DevExpress.XtraEditors.CheckEdit ckAtivo;
         private DevExpress.XtraEditors.LabelControl labelControl3;
-        private Utils.BotaoBuscar btnBuscar;
-        private Utils.BotaoSair btnFechar;
+        private BotaoBuscar btnBuscar;
+        private BotaoSair btnFechar;
         private DevExpress.XtraGrid.Columns.GridColumn colcotas;
         private System.Windows.Forms.BindingSource bdgCliente;
         private DevExpress.XtraGrid.Columns.GridColumn colvalor_total;

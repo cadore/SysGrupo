@@ -1,4 +1,5 @@
-﻿namespace SysNorteGrupo.UI.Veiculos
+﻿using SysNorteGrupo.UI.Botoes;
+namespace SysNorteGrupo.UI.Veiculos
 {
     partial class BuscaVeiculoForm
     {
@@ -61,8 +62,8 @@
             this.gridColumn6 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colid_enderecos = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colid_bairros = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.btnFechar = new SysNorteGrupo.Utils.BotaoSair();
-            this.btnBuscar = new SysNorteGrupo.Utils.BotaoBuscar();
+            this.btnFechar = new BotaoSair();
+            this.btnBuscar = new BotaoBuscar();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
             this.ckInativo = new DevExpress.XtraEditors.CheckEdit();
             this.ckAtivo = new DevExpress.XtraEditors.CheckEdit();
@@ -779,8 +780,8 @@
         #endregion
 
         private DevExpress.XtraEditors.PanelControl pnBotoes;
-        private Utils.BotaoSair btnFechar;
-        private Utils.BotaoBuscar btnBuscar;
+        private BotaoSair btnFechar;
+        private BotaoBuscar btnBuscar;
         private DevExpress.XtraEditors.PanelControl panelControl2;
         private DevExpress.XtraEditors.CheckEdit ckInativo;
         private DevExpress.XtraEditors.CheckEdit ckAtivo;

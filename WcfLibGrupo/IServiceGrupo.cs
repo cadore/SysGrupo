@@ -365,6 +365,12 @@ namespace WcfLibGrupo
         [OperationContract]
         List<sinistro> listaDeTodosSinistros();
 
+        [OperationContract]
+        bool verificaSeVeiculoEstaEmSinistroAtivo(long idVeiculo, bool edit, int situacaoSinistro);
+
+        [OperationContract]
+        bool verificaSeReboqueEstaEmSinistroAtivo(long idVeiculo, bool edit, int situacaoSinistro, int numeroReboque);
+
         #endregion
     }
 }

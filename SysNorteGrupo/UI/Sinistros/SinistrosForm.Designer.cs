@@ -1,4 +1,5 @@
 ﻿using SysFileManager;
+using SysNorteGrupo.UI.Botoes;
 using SysNorteGrupo.Utils;
 namespace SysNorteGrupo.UI.Sinistros
 {
@@ -16,12 +17,12 @@ namespace SysNorteGrupo.UI.Sinistros
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule3 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule4 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             this.pnBotoes = new DevExpress.XtraEditors.PanelControl();
-            this.btnGerarCobranca = new SysNorteGrupo.Utils.BotaoImprimir();
-            this.btnImprimirRelSinistro = new SysNorteGrupo.Utils.BotaoImprimir();
-            this.btnSalvar = new SysNorteGrupo.Utils.BotaoSalvar();
-            this.btnSair = new SysNorteGrupo.Utils.BotaoSair();
-            this.btnNovo = new SysNorteGrupo.Utils.BotaoNovo();
-            this.btnEditar = new SysNorteGrupo.Utils.BotaoEditar();
+            this.btnGerarCobranca = new BotaoImprimir();
+            this.btnImprimirRelSinistro = new BotaoImprimir();
+            this.btnSalvar = new BotaoSalvar();
+            this.btnSair = new BotaoSair();
+            this.btnNovo = new BotaoNovo();
+            this.btnEditar = new BotaoEditar();
             this.pnControl = new DevExpress.XtraEditors.PanelControl();
             this.gcArquivos = new DevExpress.XtraEditors.GroupControl();
             this.arquivosForm = new SysFileManager.ArquivosForm();

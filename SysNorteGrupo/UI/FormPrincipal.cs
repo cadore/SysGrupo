@@ -18,6 +18,7 @@ using System.Collections.Generic;
 using SysNorteGrupo.Reports.Clientes;
 using SysNorteGrupo.Reports;
 using DevExpress.XtraReports.UI;
+using SysNorteGrupo.UI.Utils;
 
 namespace SysNorteGrupo
 {
@@ -331,6 +332,12 @@ namespace SysNorteGrupo
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void btnConfigEnderecoServico_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            ConfigEnderecoServico ces = new ConfigEnderecoServico();
+            ces.ShowDialog();
         }
     }
 }

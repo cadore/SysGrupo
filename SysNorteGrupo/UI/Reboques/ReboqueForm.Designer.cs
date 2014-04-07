@@ -1,4 +1,5 @@
-﻿namespace SysNorteGrupo.UI.Veiculos.Reboques
+﻿using SysNorteGrupo.UI.Botoes;
+namespace SysNorteGrupo.UI.Veiculos.Reboques
 {
     partial class ReboqueForm
     {
@@ -46,11 +47,11 @@
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule15 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule16 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             this.pnBotoes = new DevExpress.XtraEditors.PanelControl();
-            this.btnSair = new SysNorteGrupo.Utils.BotaoSair();
-            this.btnInativar = new SysNorteGrupo.Utils.BotaoInativar();
-            this.btnNovo = new SysNorteGrupo.Utils.BotaoNovo();
-            this.btnEditar = new SysNorteGrupo.Utils.BotaoEditar();
-            this.btnSalvar = new SysNorteGrupo.Utils.BotaoSalvar();
+            this.btnSair = new BotaoSair();
+            this.btnInativar = new BotaoInativar();
+            this.btnNovo = new BotaoNovo();
+            this.btnEditar = new BotaoEditar();
+            this.btnSalvar = new BotaoSalvar();
             this.pnPrincipal = new DevExpress.XtraEditors.PanelControl();
             this.pnTabela = new DevExpress.XtraEditors.PanelControl();
             this.grdReboques = new DevExpress.XtraGrid.GridControl();
@@ -1660,11 +1661,11 @@
         private DevExpress.XtraGrid.Columns.GridColumn colestadoveic;
         private DevExpress.XtraEditors.LabelControl labelControl2;
         private DevExpress.XtraEditors.TextEdit tfId;
-        private Utils.BotaoSalvar btnSalvar;
-        private Utils.BotaoEditar btnEditar;
-        private Utils.BotaoNovo btnNovo;
-        private Utils.BotaoInativar btnInativar;
-        private Utils.BotaoSair btnSair;
+        private BotaoSalvar btnSalvar;
+        private BotaoEditar btnEditar;
+        private BotaoNovo btnNovo;
+        private BotaoInativar btnInativar;
+        private BotaoSair btnSair;
         public System.Windows.Forms.BindingSource bdgCliente;
         public System.Windows.Forms.BindingSource bdgVeiculo;
         public System.Windows.Forms.BindingSource bdgEspecie;

@@ -48,16 +48,17 @@
             this.btnCriaBackup = new DevExpress.XtraBars.BarButtonItem();
             this.btnReiniciaConexao = new DevExpress.XtraBars.BarButtonItem();
             this.btnRelClientesECotas = new DevExpress.XtraBars.BarButtonItem();
+            this.btnConfigEnderecoServico = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribClientes = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribVeiculos = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.ribUsuarios = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage3 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup7 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage2 = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            this.ribUsuarios = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup5 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup6 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -90,9 +91,10 @@
             this.btnLogs,
             this.btnCriaBackup,
             this.btnReiniciaConexao,
-            this.btnRelClientesECotas});
+            this.btnRelClientesECotas,
+            this.btnConfigEnderecoServico});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.MaxItemId = 24;
+            this.ribbon.MaxItemId = 25;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1,
@@ -236,6 +238,7 @@
             this.btnLogs.Caption = "Visualizar Logs";
             this.btnLogs.Id = 20;
             this.btnLogs.Name = "btnLogs";
+            this.btnLogs.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
             this.btnLogs.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnLogs_ItemClick);
             // 
             // btnCriaBackup
@@ -243,6 +246,7 @@
             this.btnCriaBackup.Caption = "Criar backup BD";
             this.btnCriaBackup.Id = 21;
             this.btnCriaBackup.Name = "btnCriaBackup";
+            this.btnCriaBackup.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
             this.btnCriaBackup.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnCriaBackup_ItemClick);
             // 
             // btnReiniciaConexao
@@ -250,6 +254,7 @@
             this.btnReiniciaConexao.Caption = "Reiniciar Conexao";
             this.btnReiniciaConexao.Id = 22;
             this.btnReiniciaConexao.Name = "btnReiniciaConexao";
+            this.btnReiniciaConexao.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
             this.btnReiniciaConexao.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnReiniciaConexao_ItemClick);
             // 
             // btnRelClientesECotas
@@ -261,13 +266,20 @@
             this.btnRelClientesECotas.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
             this.btnRelClientesECotas.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnRelClientesECotas_ItemClick);
             // 
+            // btnConfigEnderecoServico
+            // 
+            this.btnConfigEnderecoServico.Caption = "Configurar endereço do Servidor";
+            this.btnConfigEnderecoServico.Id = 24;
+            this.btnConfigEnderecoServico.Name = "btnConfigEnderecoServico";
+            this.btnConfigEnderecoServico.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.btnConfigEnderecoServico.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnConfigEnderecoServico_ItemClick);
+            // 
             // ribbonPage1
             // 
             this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.ribClientes,
             this.ribVeiculos,
             this.ribbonPageGroup2,
-            this.ribUsuarios,
             this.ribbonPageGroup3,
             this.ribbonPageGroup1});
             this.ribbonPage1.Name = "ribbonPage1";
@@ -300,15 +312,6 @@
             this.ribbonPageGroup2.Name = "ribbonPageGroup2";
             this.ribbonPageGroup2.ShowCaptionButton = false;
             this.ribbonPageGroup2.Text = "Reboques";
-            // 
-            // ribUsuarios
-            // 
-            this.ribUsuarios.AllowTextClipping = false;
-            this.ribUsuarios.ItemLinks.Add(this.btnBuscarUsuario);
-            this.ribUsuarios.ItemLinks.Add(this.btnNovoUsuario);
-            this.ribUsuarios.Name = "ribUsuarios";
-            this.ribUsuarios.ShowCaptionButton = false;
-            this.ribUsuarios.Text = "Usuarios";
             // 
             // ribbonPageGroup3
             // 
@@ -345,11 +348,21 @@
             // ribbonPage2
             // 
             this.ribbonPage2.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
+            this.ribUsuarios,
             this.ribbonPageGroup4,
             this.ribbonPageGroup5,
             this.ribbonPageGroup6});
             this.ribbonPage2.Name = "ribbonPage2";
             this.ribbonPage2.Text = "Sistema";
+            // 
+            // ribUsuarios
+            // 
+            this.ribUsuarios.AllowTextClipping = false;
+            this.ribUsuarios.ItemLinks.Add(this.btnBuscarUsuario);
+            this.ribUsuarios.ItemLinks.Add(this.btnNovoUsuario);
+            this.ribUsuarios.Name = "ribUsuarios";
+            this.ribUsuarios.ShowCaptionButton = false;
+            this.ribUsuarios.Text = "Usuarios";
             // 
             // ribbonPageGroup4
             // 
@@ -371,6 +384,7 @@
             // 
             this.ribbonPageGroup6.AllowTextClipping = false;
             this.ribbonPageGroup6.ItemLinks.Add(this.btnReiniciaConexao);
+            this.ribbonPageGroup6.ItemLinks.Add(this.btnConfigEnderecoServico);
             this.ribbonPageGroup6.Name = "ribbonPageGroup6";
             this.ribbonPageGroup6.ShowCaptionButton = false;
             this.ribbonPageGroup6.Text = "Conexão com Servidor";
@@ -459,5 +473,6 @@
         private DevExpress.XtraBars.BarButtonItem btnRelClientesECotas;
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage3;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup7;
+        private DevExpress.XtraBars.BarButtonItem btnConfigEnderecoServico;
     }
 }

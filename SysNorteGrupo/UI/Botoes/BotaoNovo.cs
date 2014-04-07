@@ -2,11 +2,11 @@
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
 
-namespace SysNorteGrupo.Utils
+namespace SysNorteGrupo.UI.Botoes
 {
-    public class BotaoEditar : Button
+    public class BotaoNovo : Button
     {
-        public BotaoEditar()
+        public BotaoNovo()
         {
             this.SetStyle(ControlStyles.SupportsTransparentBackColor |
                       ControlStyles.Opaque |
@@ -22,8 +22,8 @@ namespace SysNorteGrupo.Utils
             //this.MouseUp += new MouseEventHandler(_MouseUp);
             //this.MouseMove += new MouseEventHandler(_MouseMove);
 
-            this.Image = global::SysNorteGrupo.Properties.Resources.edit;
-            this.Size = new System.Drawing.Size(93, 31);
+            this.Image = global::SysNorteGrupo.Properties.Resources.add;
+            this.Size = new Size(93, 31);
             this.ImageAlign = ContentAlignment.MiddleLeft;
             this.TextAlign = ContentAlignment.MiddleRight;
             this.ForeColor = Color.White;

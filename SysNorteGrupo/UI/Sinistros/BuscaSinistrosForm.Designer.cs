@@ -1,4 +1,5 @@
-﻿namespace SysNorteGrupo.UI.Sinistros
+﻿using SysNorteGrupo.UI.Botoes;
+namespace SysNorteGrupo.UI.Sinistros
 {
     partial class BuscaSinistrosForm
     {
@@ -121,8 +122,8 @@
             this.coluf_estado = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colcotas = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colvalor_total = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.btnFechar = new SysNorteGrupo.Utils.BotaoSair();
-            this.btnBuscar = new SysNorteGrupo.Utils.BotaoBuscar();
+            this.btnFechar = new BotaoSair();
+            this.btnBuscar = new BotaoBuscar();
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
@@ -1121,8 +1122,8 @@
         private DevExpress.XtraEditors.PanelControl pbBotoes;
         private DevExpress.XtraEditors.SearchLookUpEdit cbCliente;
         private DevExpress.XtraGrid.Views.Grid.GridView searchLookUpEdit1View;
-        private Utils.BotaoSair btnFechar;
-        private Utils.BotaoBuscar btnBuscar;
+        private BotaoSair btnFechar;
+        private BotaoBuscar btnBuscar;
         private DevExpress.XtraEditors.LabelControl labelControl3;
         private DevExpress.XtraEditors.LabelControl labelControl2;
         private DevExpress.XtraEditors.SearchLookUpEdit cbReboque;

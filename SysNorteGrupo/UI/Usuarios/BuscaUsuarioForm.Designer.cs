@@ -1,4 +1,5 @@
-﻿namespace SysNorteGrupo.UI.Usuarios
+﻿using SysNorteGrupo.UI.Botoes;
+namespace SysNorteGrupo.UI.Usuarios
 {
     partial class BuscaUsuariosForm
     {
@@ -46,8 +47,8 @@
             this.tfNomeLogin = new DevExpress.XtraEditors.TextEdit();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.tfId = new DevExpress.XtraEditors.TextEdit();
-            this.btnBuscar = new SysNorteGrupo.Utils.BotaoBuscar();
-            this.btnSair = new SysNorteGrupo.Utils.BotaoSair();
+            this.btnBuscar = new BotaoBuscar();
+            this.btnSair = new BotaoSair();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
@@ -287,8 +288,8 @@
         private DevExpress.XtraEditors.LabelControl labelControl1;
         private DevExpress.XtraEditors.LabelControl labelControl2;
         private DevExpress.XtraEditors.TextEdit tfNomeLogin;
-        private Utils.BotaoBuscar btnBuscar;
-        private Utils.BotaoSair btnSair;
+        private BotaoBuscar btnBuscar;
+        private BotaoSair btnSair;
 
     }
 }

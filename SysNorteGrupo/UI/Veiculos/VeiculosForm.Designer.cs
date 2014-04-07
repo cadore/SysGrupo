@@ -1,4 +1,5 @@
 ﻿using SysFileManager;
+using SysNorteGrupo.UI.Botoes;
 using SysNorteGrupo.Utils;
 namespace SysNorteGrupo.UI.Veiculos
 {
@@ -155,11 +156,11 @@ namespace SysNorteGrupo.UI.Veiculos
             this.lbCor = new DevExpress.XtraEditors.LabelControl();
             this.labelControl12 = new DevExpress.XtraEditors.LabelControl();
             this.validator = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
-            this.btnInativar = new SysNorteGrupo.Utils.BotaoInativar();
-            this.btnSair = new SysNorteGrupo.Utils.BotaoSair();
-            this.btnNovo = new SysNorteGrupo.Utils.BotaoNovo();
-            this.btnEditar = new SysNorteGrupo.Utils.BotaoEditar();
-            this.btnSalvar = new SysNorteGrupo.Utils.BotaoEditar();
+            this.btnInativar = new BotaoInativar();
+            this.btnSair = new BotaoSair();
+            this.btnNovo = new BotaoNovo();
+            this.btnEditar = new BotaoEditar();
+            this.btnSalvar = new BotaoEditar();
             this.bdgVeiculo = new System.Windows.Forms.BindingSource(this.components);
             this.bdgCliente = new System.Windows.Forms.BindingSource(this.components);
             this.arquivosForm = new SysFileManager.ArquivosForm();
@@ -1397,7 +1398,7 @@ namespace SysNorteGrupo.UI.Veiculos
             // 
             // bdgCor
             // 
-            this.bdgCor.DataSource = typeof(SysNorteGrupo.Utils.Cores);
+            this.bdgCor.DataSource = typeof(Cores);
             // 
             // VeiculosForm
             // 

@@ -66,6 +66,7 @@ namespace SysNorteGrupo.UI.Sinistros
                 arquivosForm.executaBusca();
                 pnPrincipal.Enabled = false;
                 btnEditar.Enabled = true;
+                btnSalvar.Enabled = false;
             }
             if (ckConcluido.Checked)
             {
@@ -157,6 +158,7 @@ namespace SysNorteGrupo.UI.Sinistros
             pnControl.Enabled = true;
             pnPrincipal.Enabled = true;
             btnEditar.Enabled = false;
+            btnSalvar.Enabled = true;
             Log.createLog(EventLog.edited, String.Format("sinistro ID: {0}", tfId.Text));
             arquivosForm.DIRETORIO = String.Format(@"{0}{1}\", conn.SUBDIR_SINISTROS(), sinistro_instc.id);
             arquivosForm.executaBusca();
@@ -249,6 +251,29 @@ namespace SysNorteGrupo.UI.Sinistros
                     _sinistro.data_cadastro = conn.retornaDataHoraLocal();
                     _sinistro.situacao_sinistro = situacao;
                     _sinistro.id_veiculo = Convert.ToInt64(cbVeiculo.EditValue);
+
+                    if (Convert.ToInt64(cbVeiculo.EditValue) > 0 && !conn.verificaSeVeiculoEstaEmSinistroAtivo(Convert.ToInt64(cbVeiculo.EditValue), !tf_vazio, 0))
+                    {
+                        MessageBox.Show(string.Format("CONTEM UM SINISTRO EM ABERTO PARA O VEICULO {0}, VERIFIQUE!", cbVeiculo.Text));
+                        return;
+                    }
+
+                    if (Convert.ToInt64(cbReboque1.EditValue) > 0 && !conn.verificaSeReboqueEstaEmSinistroAtivo(Convert.ToInt64(cbReboque1.EditValue), !tf_vazio, 0, 1))
+                    {
+                        MessageBox.Show(string.Format("CONTEM UM SINISTRO EM ABERTO PARA O REBOQUE {0}, VERIFIQUE!", cbReboque1.Text));
+                        return;
+                    }
+                    if (Convert.ToInt64(cbReboque2.EditValue) > 0 && !conn.verificaSeReboqueEstaEmSinistroAtivo(Convert.ToInt64(cbReboque2.EditValue), !tf_vazio, 0, 2))
+                    {
+                        MessageBox.Show(string.Format("CONTEM UM SINISTRO EM ABERTO PARA O REBOQUE {0}, VERIFIQUE!", cbReboque2.Text));
+                        return;
+                    }
+                    if (Convert.ToInt64(cbReboque3.EditValue) > 0 && !conn.verificaSeReboqueEstaEmSinistroAtivo(Convert.ToInt64(cbReboque3.EditValue), !tf_vazio, 0, 3))
+                    {
+                        MessageBox.Show(string.Format("CONTEM UM SINISTRO EM ABERTO PARA O REBOQUE {0}, VERIFIQUE!", cbReboque3.Text));
+                        return;
+                    }
+
                     long id = conn.SalvaSinistro(_sinistro, listPag);
                     tfId.Text = id.ToString();
                     ((sinistro)bdgSinistros.Current).id = id;

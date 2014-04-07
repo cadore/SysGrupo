@@ -1,12 +1,13 @@
-﻿using System.Drawing;
+﻿using System;
+using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
 
-namespace SysNorteGrupo.Utils
+namespace SysNorteGrupo.UI.Botoes
 {
-    public class BotaoImprimir : Button
+    public class BotaoSalvar : Button
     {
-        public BotaoImprimir()
+        public BotaoSalvar()
         {
             this.SetStyle(ControlStyles.SupportsTransparentBackColor |
                       ControlStyles.Opaque |
@@ -22,8 +23,8 @@ namespace SysNorteGrupo.Utils
             //this.MouseUp += new MouseEventHandler(_MouseUp);
             //this.MouseMove += new MouseEventHandler(_MouseMove);
 
-            this.Image = global::SysNorteGrupo.Properties.Resources.impressora40;
-            this.Size = new Size(93, 31);
+            this.Image = global::SysNorteGrupo.Properties.Resources.save;
+            this.Size = new System.Drawing.Size(93, 31);
             this.ImageAlign = ContentAlignment.MiddleLeft;
             this.TextAlign = ContentAlignment.MiddleRight;
             this.ForeColor = Color.White;
@@ -70,5 +71,6 @@ namespace SysNorteGrupo.Utils
             // the default control color
             g.FillRectangle(SystemBrushes.Control, clipRect);
         }
+
     }
 }

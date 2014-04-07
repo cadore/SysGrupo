@@ -1,5 +1,5 @@
 ﻿using EntitiesGrupo;
-using SysNorteGrupo.Utils;
+using SysNorteGrupo.UI.Botoes;
 
 namespace SysNorteGrupo.UI.Logs
 {
@@ -47,8 +47,8 @@ namespace SysNorteGrupo.UI.Logs
             this.cbEentoLog = new DevExpress.XtraEditors.ComboBoxEdit();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.tfParameter = new DevExpress.XtraEditors.TextEdit();
-            this.bntBuscar = new SysNorteGrupo.Utils.BotaoBuscar();
-            this.btnSair = new SysNorteGrupo.Utils.BotaoSair();
+            this.bntBuscar = new BotaoBuscar();
+            this.btnSair = new BotaoSair();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdgLog)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();

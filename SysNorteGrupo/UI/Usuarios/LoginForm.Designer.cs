@@ -1,4 +1,5 @@
-﻿namespace SysNorteGrupo.UI.Usuarios
+﻿using SysNorteGrupo.UI.Botoes;
+namespace SysNorteGrupo.UI.Usuarios
 {
     partial class LoginForm
     {
@@ -38,9 +39,9 @@
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.pnControl = new DevExpress.XtraEditors.PanelControl();
             this.lbAviso = new DevExpress.XtraEditors.LabelControl();
-            this.btnEntrar = new SysNorteGrupo.Utils.BotaoEntrar();
+            this.btnEntrar = new BotaoEntrar();
             this.lbSenha = new DevExpress.XtraEditors.LabelControl();
-            this.btnSair = new SysNorteGrupo.Utils.BotaoSair();
+            this.btnSair = new BotaoSair();
             this.validator = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.tfLogin.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfSenha.Properties)).BeginInit();
@@ -206,10 +207,10 @@
         private DevExpress.XtraEditors.TextEdit tfSenha;
         private DevExpress.XtraEditors.LabelControl labelControl2;
         private DevExpress.XtraEditors.PanelControl pnControl;
-        private Utils.BotaoSair btnSair;
+        private BotaoSair btnSair;
         private DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider validator;
         private DevExpress.XtraEditors.LabelControl lbSenha;
-        private Utils.BotaoEntrar btnEntrar;
+        private BotaoEntrar btnEntrar;
         public DevExpress.XtraEditors.LabelControl lbAviso;
     }
 }

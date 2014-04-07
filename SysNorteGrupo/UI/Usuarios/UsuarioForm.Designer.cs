@@ -1,4 +1,5 @@
-﻿namespace SysNorteGrupo.UI.Usuarios
+﻿using SysNorteGrupo.UI.Botoes;
+namespace SysNorteGrupo.UI.Usuarios
 {
     partial class UsuarioForm
     {
@@ -66,10 +67,10 @@
             this.tfNome = new DevExpress.XtraEditors.TextEdit();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
-            this.btnSair = new SysNorteGrupo.Utils.BotaoSair();
-            this.btnNovo = new SysNorteGrupo.Utils.BotaoNovo();
-            this.btnEditar = new SysNorteGrupo.Utils.BotaoEditar();
-            this.btnSalvar = new SysNorteGrupo.Utils.BotaoEditar();
+            this.btnSair = new BotaoSair();
+            this.btnNovo = new BotaoNovo();
+            this.btnEditar = new BotaoEditar();
+            this.btnSalvar = new BotaoEditar();
             this.dxValidationProvider = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
@@ -576,10 +577,10 @@
         private DevExpress.XtraEditors.SimpleButton btnSelecionarT;
         private DevExpress.XtraEditors.TextEdit tfId;
         private DevExpress.XtraEditors.LabelControl labelControl9;
-        private Utils.BotaoEditar btnSalvar;
-        private Utils.BotaoEditar btnEditar;
-        private Utils.BotaoSair btnSair;
-        private Utils.BotaoNovo btnNovo;
+        private BotaoEditar btnSalvar;
+        private BotaoEditar btnEditar;
+        private BotaoSair btnSair;
+        private BotaoNovo btnNovo;
         private System.Windows.Forms.BindingSource bdgPermicoes;
     }
 }

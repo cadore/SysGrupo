@@ -1,4 +1,5 @@
-﻿namespace SysNorteGrupo.UI.Veiculos.Reboques
+﻿using SysNorteGrupo.UI.Botoes;
+namespace SysNorteGrupo.UI.Veiculos.Reboques
 {
     partial class BuscaReboqueForm
     {
@@ -63,8 +64,8 @@
             this.gridColumn31 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn32 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colvalor_total = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.btnFechar = new SysNorteGrupo.Utils.BotaoSair();
-            this.btnBuscar = new SysNorteGrupo.Utils.BotaoBuscar();
+            this.btnFechar = new BotaoSair();
+            this.btnBuscar = new BotaoBuscar();
             this.cbVeiculo = new DevExpress.XtraEditors.SearchLookUpEdit();
             this.bdgVeiculo = new System.Windows.Forms.BindingSource();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -1115,8 +1116,8 @@
         private System.Windows.Forms.BindingSource bdgVeiculo;
         private System.Windows.Forms.BindingSource bdgCliente;
         private System.Windows.Forms.BindingSource bdgReboque;
-        private Utils.BotaoBuscar btnBuscar;
-        private Utils.BotaoSair btnFechar;
+        private BotaoBuscar btnBuscar;
+        private BotaoSair btnFechar;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn3;

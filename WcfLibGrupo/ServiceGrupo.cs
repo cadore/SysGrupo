@@ -1837,6 +1837,71 @@ namespace WcfLibGrupo
             }
         }
 
+        public bool verificaSeVeiculoEstaEmSinistroAtivo(long idVeiculo, bool edit, int situacaoSinistro)
+        {
+            try
+            {
+                long count;
+
+                if (edit == true)
+                {
+                    count = 1;
+                }
+                else
+                {
+                    count = 0;
+                }
+
+                string sql = String.Format("SELECT Count(*) FROM sinistros WHERE id_veiculo='{0}' AND situacao_sinistro='{1}';", idVeiculo, situacaoSinistro);
+
+                long rs = reboque.repo.ExecuteScalar<long>(sql);
+
+                if (rs > count)
+                    return false;
+                else
+                    return true;
+            }
+            catch (Exception ex)
+            {
+                throw new FaultException(
+                    new FaultReason(String.Format("EXCEPT: {0}\n\nINNER EXCEPT: {1}", ex.Message, ex.InnerException)),
+                    new FaultCode("ERRDB"));
+            }
+        }
+
+        public bool verificaSeReboqueEstaEmSinistroAtivo(long idVeiculo, bool edit, int situacaoSinistro, int numeroReboque)
+        {
+            try
+            {
+                long count;
+
+                if (edit == true)
+                {
+                    count = 1;
+                }
+                else
+                {
+                    count = 0;
+                }
+
+                string sql = String.Format("SELECT Count(*) FROM sinistros WHERE id_reboque{2}='{0}' AND situacao_sinistro='{1}';",
+                    idVeiculo, situacaoSinistro, numeroReboque);
+
+                long rs = reboque.repo.ExecuteScalar<long>(sql);
+
+                if (rs > count)
+                    return false;
+                else
+                    return true;
+            }
+            catch (Exception ex)
+            {
+                throw new FaultException(
+                    new FaultReason(String.Format("EXCEPT: {0}\n\nINNER EXCEPT: {1}", ex.Message, ex.InnerException)),
+                    new FaultCode("ERRDB"));
+            }
+        }
+
         #endregion
     }
 }
