@@ -1,4 +1,6 @@
-﻿using SysNorteGrupo.Utils;
+﻿using DevExpress.XtraSplashScreen;
+using SysNorteGrupo.UI.Utils;
+using SysNorteGrupo.Utils;
 using System;
 using System.ServiceModel;
 using System.Windows;
@@ -29,10 +31,11 @@ namespace SysNorteGrupo
             conn = null;*/
             try
             {
+                SplashScreenManager.ShowForm(typeof(PleaseWaitForm));
+
                 ipServico = FilesINI.ReadValue("sistema", "ipServico");
                 porta = FilesINI.ReadValue("sistema", "porta");
                 carregaURL(ipServico, porta);
-
                 netTcpBinding = new NetTcpBinding(SecurityMode.None);                
                 netTcpBinding.MaxBufferPoolSize = netTcpBinding.MaxBufferPoolSize * 2552350000256000154;
                 netTcpBinding.MaxReceivedMessageSize = netTcpBinding.MaxReceivedMessageSize * 5000;
@@ -40,12 +43,16 @@ namespace SysNorteGrupo
                 vEndPoint = new EndpointAddress(url);
                 ChannelFactory<IServiceGrupo> cf = new ChannelFactory<IServiceGrupo>(netTcpBinding, vEndPoint);
                 conn = cf.CreateChannel();
-                conn.retornaDataHoraLocal();
+                conn.retornaDataHoraLocal();                
             }
             catch (Exception ex)
             {
                 //MessageBox.Show(ex.Message);
                 throw new Exception(ex.Message, ex.InnerException);
+            }
+            finally
+            {
+                SplashScreenManager.CloseForm();
             }
         }
 

@@ -19,6 +19,7 @@ using SysNorteGrupo.Reports.Clientes;
 using SysNorteGrupo.Reports;
 using DevExpress.XtraReports.UI;
 using SysNorteGrupo.UI.Utils;
+using DevExpress.XtraSplashScreen;
 
 namespace SysNorteGrupo
 {
@@ -26,12 +27,12 @@ namespace SysNorteGrupo
     {
         private IServiceGrupo conn;
         private UtilForm utilForm;
-        private string tituloJanela;
         public UserControl controleAtual = null;
         public bool thisIDLE = false;        
         
-        public FormPrincipal(usuario usuario_instc, permicoes_usuario permicao_instc)
+        public FormPrincipal(usuario usuario_instc)
         {
+            SplashScreenManager.ShowForm(typeof(SplashForm));
             startIDLE();
             if (usuario_instc == null)
             {
@@ -41,7 +42,8 @@ namespace SysNorteGrupo
             InitializeComponent();
             conn = GerenteDeConexoes.conexaoServico();
             //carregaPermissoes(permicao_instc);
-            this.Text = tituloJanela = "SysNorteGrupo - SysNorte Tecnologia Copyright ©  2013 Versão: 1.0.0.0";            
+            this.Text = "SysNorteGrupo - SysNorte Tecnologia Copyright ©  2013 Versão: 1.0.0.0";
+            SplashScreenManager.CloseForm();
         }
 
         void startIDLE()
@@ -51,6 +53,7 @@ namespace SysNorteGrupo
             {
                 minutos = ConfigSistema.minutosIDLE;
             }
+
             var userIdleDetect = UserIdleDetect.StartDetection(UserIdleDetect.minutes(minutos));
             userIdleDetect.UserIdleDetected += userIdleDetect_UserIdleDetected;
         }
@@ -82,12 +85,27 @@ namespace SysNorteGrupo
 
         public void adicionarControleNavegacao(UserControl controle)
         {
-            this.pnControl.Controls.Clear();
-            if(controle != null){
-                this.pnControl.Controls.Add(controle);
-                this.MinimumSize = controle.Size + new Size(0, ribbon.Height) + new Size(20, 35);
+            try
+            {
+                SplashScreenManager.ShowForm(typeof(PleaseWaitForm));
+                controle.Visible = false;
+                this.pnControl.Controls.Clear();
+                if (controle != null)
+                {
+                    this.pnControl.Controls.Add(controle);
+                    this.MinimumSize = controle.Size + new Size(0, ribbon.Height) + new Size(20, 35);
+                }
+                controleAtual = controle;
             }
-            controleAtual = controle;
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ocorreu um erro durante a solicitação.\n" + ex.Message);
+            }
+            finally
+            {
+                controle.Visible = true;
+                SplashScreenManager.CloseForm();
+            }
         }
 
         private void btnBuscarUsuarios_ItemClick(object sender, ItemClickEventArgs e)
@@ -211,51 +229,49 @@ namespace SysNorteGrupo
 
         private void btnCriaBackup_ItemClick(object sender, ItemClickEventArgs e)
         {
-            try
+            DialogResult drc = MessageBox.Show("Confirma criação de backup?\nO servidor será parado durante a operação.", "SYSNORTE TECNOLOGIA", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            if (drc == DialogResult.OK)
             {
-                DateTime inic = DateTime.Now;
-                Log.createLog(EventLog.opened, "criação de backup.");
-                IServiceGrupo conn = GerenteDeConexoes.conexaoServico();
-                string fileBackup = conn.createBackup("p@ssw0rd");
-                if (!String.IsNullOrEmpty(fileBackup))
+                try
                 {
-                    DateTime fim = DateTime.Now;
-                    TimeSpan ts = fim.Subtract(inic);
-                    Log.createLog(EventLog.cloused, String.Format("concluiu criação de backup em: {0} segundos", ts.TotalSeconds));
-                    DialogResult rs = MessageBox.Show("Backup criado com sucesso!\nDeseja exportar arquivo para um local?",
-                        "SYSNORTE TECNOLOGIA", MessageBoxButtons.YesNo);
-                    if (rs == DialogResult.Yes)
+                    SplashScreenManager.ShowForm(typeof (PleaseWaitForm));
+                    DateTime inic = DateTime.Now;
+                    Log.createLog(EventLog.opened, "criação de backup.");
+                    IServiceGrupo conn = GerenteDeConexoes.conexaoServico();
+                    string fileBackup = conn.createBackup("p@ssw0rd");
+                    SplashScreenManager.CloseForm();
+                    if (!String.IsNullOrEmpty(fileBackup))
                     {
-                        MessageBox.Show("0");
-                        SaveFileDialog sfd = new SaveFileDialog();
-                        sfd.AutoUpgradeEnabled = true;
-                        sfd.Title = "Salvar Arquivo";
-                        sfd.InitialDirectory = Environment.ExpandEnvironmentVariables("%HOMEDRIVE%%HOMEPATH%") + @"\Documents\";
-                        sfd.Filter = "Arquivo de backup SYSNORTE|*.syscrypt";
-                        sfd.FileName = String.Format(@"backupSystem{0:yyyy-MM-dd_HH-mm}.syscrypt", fim);
-                        MessageBox.Show("1");
-                        DialogResult dr = sfd.ShowDialog();
-                        if (dr == DialogResult.OK)
+                        DateTime fim = DateTime.Now;
+                        TimeSpan ts = fim.Subtract(inic);
+                        Log.createLog(EventLog.cloused, String.Format("concluiu criação de backup em: {0} segundos", ts.TotalSeconds));
+                        DialogResult rs = MessageBox.Show("Backup criado com sucesso!\nDeseja exportar arquivo para um local?",
+                            "SYSNORTE TECNOLOGIA", MessageBoxButtons.YesNo);
+                        if (rs == DialogResult.Yes)
                         {
-                            MessageBox.Show("2");
-                            Byte[] by = conn.download(fileBackup);
-                            MessageBox.Show("3");
-                            File.WriteAllBytes(sfd.FileName, by);
-                            MessageBox.Show("4");
-                            Log.createLog(EventLog.empty, String.Format("Exportou arquivo de backup."));
-                            MessageBox.Show("Arquivo salvo com sucesso.", "SYSNORTE TECNOLOGIA");
-                        }
-                        else
-                        {
-                            MessageBox.Show("else");
+                            SaveFileDialog sfd = new SaveFileDialog();
+                            sfd.AutoUpgradeEnabled = true;
+                            sfd.Title = "Salvar Arquivo";
+                            sfd.InitialDirectory = Environment.ExpandEnvironmentVariables("%HOMEDRIVE%%HOMEPATH%") + @"\Documents\";
+                            sfd.Filter = "Arquivo de backup SYSNORTE|*.syscrypt";
+                            sfd.FileName = String.Format(@"backupSystem{0:yyyy-MM-dd_HH-mm}.syscrypt", fim);
+                            DialogResult dr = sfd.ShowDialog();
+                            if (dr == DialogResult.OK)
+                            {
+                                Byte[] by = conn.download(fileBackup);
+                                File.WriteAllBytes(sfd.FileName, by);
+                                Log.createLog(EventLog.empty, String.Format("Exportou arquivo de backup."));
+                                MessageBox.Show("Arquivo salvo com sucesso.", "SYSNORTE TECNOLOGIA");
+                            }
                         }
                     }
+
                 }
-                
-            }
-            catch(Exception)
-            {
-                MessageBox.Show("Erro ao criar backup, tente novamente\nse o problema persistir, contate o suporte.");
+                catch (Exception)
+                {
+                    SplashScreenManager.CloseForm();
+                    MessageBox.Show("Erro ao criar backup, tente novamente\nse o problema persistir, contate o suporte.");
+                }
             }
         }
 
@@ -284,6 +300,7 @@ namespace SysNorteGrupo
         {
             try
             {
+                SplashScreenManager.ShowForm(typeof(PleaseWaitForm));
                 bool inatividadeCliente = false;
                 bool inatividadeItens = false;
                 List<RelatorioClientesECotasModel> listReport = new List<RelatorioClientesECotasModel>();
@@ -317,11 +334,15 @@ namespace SysNorteGrupo
                 }
                 ReportPrintTool tool = new ReportPrintTool(report);
                 Log.createLog(EventLog.visualized, String.Format("relatorios de clientes e cotas"));
-                tool.ShowRibbonPreviewDialog();
+                tool.ShowRibbonPreviewDialog();                
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                SplashScreenManager.CloseForm();
             }
         }
 
@@ -335,6 +356,11 @@ namespace SysNorteGrupo
         {
             PreferenciasSistema ps = new PreferenciasSistema();
             ps.ShowDialog();
+        }
+
+        private void btnLimpaPanel_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            this.pnControl.Controls.Clear();
         }
     }
 }

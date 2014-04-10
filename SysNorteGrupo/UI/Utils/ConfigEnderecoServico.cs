@@ -67,7 +67,7 @@ namespace SysNorteGrupo.UI.Utils
                 }
                 catch(Exception)
                 {
-                    MessageBox.Show("Não foi possível conectar ao servidor, verifique o endereço e a porta e tente novamente.");
+                    MessageBox.Show("Não foi possível conectar ao servidor, verifique o endereço e a porta e tente novamente.\n");
                     return;
                 }
             }

@@ -29,8 +29,10 @@ namespace SysNorteGrupo.UI.Usuarios
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule2 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
+            DevExpress.XtraSplashScreen.SplashScreenManager splashScreenManager = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::SysNorteGrupo.UI.Utils.SplashForm), false, false);
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginForm));
             this.tfLogin = new DevExpress.XtraEditors.TextEdit();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
@@ -38,10 +40,10 @@ namespace SysNorteGrupo.UI.Usuarios
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.pnControl = new DevExpress.XtraEditors.PanelControl();
             this.lbAviso = new DevExpress.XtraEditors.LabelControl();
-            this.btnEntrar = new SysNorteGrupo.UI.Utils.Botoes.BotaoEntrar();
             this.lbSenha = new DevExpress.XtraEditors.LabelControl();
+            this.validator = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
+            this.btnEntrar = new SysNorteGrupo.UI.Utils.Botoes.BotaoEntrar();
             this.btnSair = new SysNorteGrupo.UI.Utils.Botoes.BotaoSair();
-            this.validator = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider();
             ((System.ComponentModel.ISupportInitialize)(this.tfLogin.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfSenha.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pnControl)).BeginInit();
@@ -128,6 +130,16 @@ namespace SysNorteGrupo.UI.Usuarios
     "\r\nINFORME SUAS CREDENCIAIS PARA EFETUAR LOGIN NOVAMENTE.";
             this.lbAviso.Visible = false;
             // 
+            // lbSenha
+            // 
+            this.lbSenha.Appearance.ForeColor = System.Drawing.Color.OrangeRed;
+            this.lbSenha.Location = new System.Drawing.Point(193, 94);
+            this.lbSenha.Name = "lbSenha";
+            this.lbSenha.Size = new System.Drawing.Size(154, 13);
+            this.lbSenha.TabIndex = 4;
+            this.lbSenha.Text = "LOGIN OU SENHA INCORRETOS";
+            this.lbSenha.Visible = false;
+            // 
             // btnEntrar
             // 
             this.btnEntrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(199)))));
@@ -144,16 +156,6 @@ namespace SysNorteGrupo.UI.Usuarios
             this.btnEntrar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnEntrar.UseVisualStyleBackColor = false;
             this.btnEntrar.Click += new System.EventHandler(this.btnEntrar_Click);
-            // 
-            // lbSenha
-            // 
-            this.lbSenha.Appearance.ForeColor = System.Drawing.Color.OrangeRed;
-            this.lbSenha.Location = new System.Drawing.Point(193, 94);
-            this.lbSenha.Name = "lbSenha";
-            this.lbSenha.Size = new System.Drawing.Size(154, 13);
-            this.lbSenha.TabIndex = 4;
-            this.lbSenha.Text = "LOGIN OU SENHA INCORRETOS";
-            this.lbSenha.Visible = false;
             // 
             // btnSair
             // 

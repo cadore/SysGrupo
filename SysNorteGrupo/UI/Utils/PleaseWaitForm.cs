@@ -14,7 +14,7 @@ namespace SysNorteGrupo.UI.Utils
         public PleaseWaitForm()
         {
             InitializeComponent();
-            this.progressPanel1.AutoHeight = true;
+            this.panelProgesso.AutoHeight = true;
         }
 
         #region Overrides
@@ -22,12 +22,12 @@ namespace SysNorteGrupo.UI.Utils
         public override void SetCaption(string caption)
         {
             base.SetCaption(caption);
-            this.progressPanel1.Caption = caption;
+            this.panelProgesso.Caption = caption;
         }
         public override void SetDescription(string description)
         {
             base.SetDescription(description);
-            this.progressPanel1.Description = description;
+            this.panelProgesso.Description = description;
         }
         public override void ProcessCommand(Enum cmd, object arg)
         {

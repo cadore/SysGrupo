@@ -281,6 +281,12 @@
     <Compile Include="UI\Utils\PreferenciasSistema.Designer.cs">
       <DependentUpon>PreferenciasSistema.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Utils\SplashForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Utils\SplashForm.Designer.cs">
+      <DependentUpon>SplashForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Veiculos\BuscaVeiculoForm.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -402,6 +408,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Utils\PreferenciasSistema.resx">
       <DependentUpon>PreferenciasSistema.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Utils\SplashForm.resx">
+      <DependentUpon>SplashForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Veiculos\BuscaVeiculoForm.resx">
       <DependentUpon>BuscaVeiculoForm.cs</DependentUpon>
@@ -528,6 +537,7 @@
     <None Include="Resources\Article_32x32.png" />
     <Content Include="favicon.ico" />
     <None Include="Resources\sigla_SysNorte.png" />
+    <None Include="Resources\02_logo_SysNorte.png" />
     <Content Include="TODO.txt" />
   </ItemGroup>
   <!--<Import Project="$(MSBuildExtensionsPath)\Ilmerge.CSharp.targets" />-->

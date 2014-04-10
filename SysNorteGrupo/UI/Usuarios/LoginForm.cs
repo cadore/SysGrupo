@@ -14,6 +14,8 @@ using EntitiesGrupo;
 using SysNorteGrupo.Utils;
 using SecureApp;
 using UserIdle;
+using DevExpress.XtraSplashScreen;
+using SysNorteGrupo.UI.Utils;
 
 namespace SysNorteGrupo.UI.Usuarios
 {
@@ -32,6 +34,7 @@ namespace SysNorteGrupo.UI.Usuarios
             tfSenha.Properties.UseSystemPasswordChar = true;
             conn = GerenteDeConexoes.conexaoServico();
 
+
             foreach (Control c in pnControl.Controls)
             {
                 preencheFundoControls(c);
@@ -41,6 +44,7 @@ namespace SysNorteGrupo.UI.Usuarios
 
             /*tfLogin.Text = "admin";
             tfSenha.Text = "admin";*/
+            Thread.Sleep(1500);
         }
 
         void executaLogin()
@@ -53,15 +57,14 @@ namespace SysNorteGrupo.UI.Usuarios
             {
                 try
                 {
+                    SplashScreenManager.ShowForm(typeof(PleaseWaitForm));
                     bool flag = conn.verificaUsuarioAtivoPorLoginESenha(login, senha);                    
                     if (flag)
-                    {                        
+                    {
                         if(formPrincipal == null)
                         {
                             usuario usuario_instc = conn.recuperaUsuarioPorLoginEhSenha(login, senha);
-                            permicoes_usuario permicoes_instc = conn.recuperaPermicoesDoUsuarioPorIdUsuario(usuario_instc.id);
                             Program.usuario_instc = usuario_instc;
-                            Program.permicao_instc = permicoes_instc;
                             Log.createLog(EventLog.entered, String.Format("ao sistema após validar credenciais"));
                         }
                         else
@@ -79,16 +82,20 @@ namespace SysNorteGrupo.UI.Usuarios
                         Log.createLog(EventLog.empty, String.Format("falha ao tentar executar login, login ou senha incorretos. LOGIN: {0} SENHA: {1}",
                             tfLogin.Text, new DTICrypto().Cifrar(tfSenha.Text, Util.chaveSecureApp)));
                         Program.usuario_instc = null;
-                        Program.permicao_instc = null;
                         lbSenha.Visible = true;
                         tfSenha.Focus();
                         tfSenha.SelectAll();
+                        SplashScreenManager.CloseForm();
                     }
                 }
                 catch (Exception ex)
-                {
+                {                    
                     this.DialogResult = System.Windows.Forms.DialogResult.Cancel;
                     MessageBox.Show(ex.Message);
+                }
+                finally
+                {
+                    SplashScreenManager.CloseForm();
                 }
             }
             

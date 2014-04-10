@@ -50,6 +50,9 @@
             this.btnRelClientesECotas = new DevExpress.XtraBars.BarButtonItem();
             this.btnConfigEnderecoServico = new DevExpress.XtraBars.BarButtonItem();
             this.btnPrefSistema = new DevExpress.XtraBars.BarButtonItem();
+            this.btnLimpaPanel = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem7 = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribClientes = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribVeiculos = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -67,6 +70,7 @@
             this.repositoryItemTextEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.pnControl = new DevExpress.XtraEditors.PanelControl();
+            this.barStaticItem1 = new DevExpress.XtraBars.BarStaticItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             this.backstageViewControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).BeginInit();
@@ -95,9 +99,12 @@
             this.btnReiniciaConexao,
             this.btnRelClientesECotas,
             this.btnConfigEnderecoServico,
-            this.btnPrefSistema});
+            this.btnPrefSistema,
+            this.btnLimpaPanel,
+            this.barButtonItem1,
+            this.barButtonItem7});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.MaxItemId = 26;
+            this.ribbon.MaxItemId = 31;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1,
@@ -108,6 +115,7 @@
             this.ribbon.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.Office2013;
             this.ribbon.Size = new System.Drawing.Size(1020, 144);
             this.ribbon.StatusBar = this.ribbonStatusBar;
+            this.ribbon.Toolbar.ItemLinks.Add(this.btnLimpaPanel);
             this.ribbon.Click += new System.EventHandler(this.ribbon_Click);
             // 
             // backstageViewControl1
@@ -193,7 +201,7 @@
             // 
             // barButtonItem2
             // 
-            this.barButtonItem2.Caption = "Arquivos";
+            this.barButtonItem2.Caption = "Arquivos da empresa";
             this.barButtonItem2.Glyph = global::SysNorteGrupo.Properties.Resources.Article_32x32;
             this.barButtonItem2.Id = 15;
             this.barButtonItem2.Name = "barButtonItem2";
@@ -239,6 +247,7 @@
             // btnLogs
             // 
             this.btnLogs.Caption = "Visualizar Logs";
+            this.btnLogs.Glyph = ((System.Drawing.Image)(resources.GetObject("btnLogs.Glyph")));
             this.btnLogs.Id = 20;
             this.btnLogs.Name = "btnLogs";
             this.btnLogs.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
@@ -246,7 +255,8 @@
             // 
             // btnCriaBackup
             // 
-            this.btnCriaBackup.Caption = "Criar backup BD";
+            this.btnCriaBackup.Caption = "Criar Backup    DB";
+            this.btnCriaBackup.Glyph = ((System.Drawing.Image)(resources.GetObject("btnCriaBackup.Glyph")));
             this.btnCriaBackup.Id = 21;
             this.btnCriaBackup.Name = "btnCriaBackup";
             this.btnCriaBackup.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
@@ -255,6 +265,7 @@
             // btnReiniciaConexao
             // 
             this.btnReiniciaConexao.Caption = "Reiniciar Conexao";
+            this.btnReiniciaConexao.Glyph = ((System.Drawing.Image)(resources.GetObject("btnReiniciaConexao.Glyph")));
             this.btnReiniciaConexao.Id = 22;
             this.btnReiniciaConexao.Name = "btnReiniciaConexao";
             this.btnReiniciaConexao.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
@@ -272,6 +283,7 @@
             // btnConfigEnderecoServico
             // 
             this.btnConfigEnderecoServico.Caption = "Configurar endereço do Servidor";
+            this.btnConfigEnderecoServico.Glyph = ((System.Drawing.Image)(resources.GetObject("btnConfigEnderecoServico.Glyph")));
             this.btnConfigEnderecoServico.Id = 24;
             this.btnConfigEnderecoServico.Name = "btnConfigEnderecoServico";
             this.btnConfigEnderecoServico.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
@@ -279,11 +291,35 @@
             // 
             // btnPrefSistema
             // 
+            this.btnPrefSistema.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
             this.btnPrefSistema.Caption = "Preferências do Sistema";
+            this.btnPrefSistema.Glyph = ((System.Drawing.Image)(resources.GetObject("btnPrefSistema.Glyph")));
             this.btnPrefSistema.Id = 25;
+            this.btnPrefSistema.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("btnPrefSistema.LargeGlyph")));
             this.btnPrefSistema.Name = "btnPrefSistema";
             this.btnPrefSistema.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
             this.btnPrefSistema.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnPrefSistema_ItemClick);
+            // 
+            // btnLimpaPanel
+            // 
+            this.btnLimpaPanel.Caption = "Limpar Area de Trabalho";
+            this.btnLimpaPanel.Glyph = ((System.Drawing.Image)(resources.GetObject("btnLimpaPanel.Glyph")));
+            this.btnLimpaPanel.Id = 26;
+            this.btnLimpaPanel.Name = "btnLimpaPanel";
+            this.btnLimpaPanel.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.btnLimpaPanel.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnLimpaPanel_ItemClick);
+            // 
+            // barButtonItem1
+            // 
+            this.barButtonItem1.Caption = "barButtonItem1";
+            this.barButtonItem1.Id = 28;
+            this.barButtonItem1.Name = "barButtonItem1";
+            // 
+            // barButtonItem7
+            // 
+            this.barButtonItem7.Caption = "barButtonItem7";
+            this.barButtonItem7.Id = 29;
+            this.barButtonItem7.Name = "barButtonItem7";
             // 
             // ribbonPage1
             // 
@@ -390,7 +426,7 @@
             this.ribbonPageGroup5.ItemLinks.Add(this.btnCriaBackup);
             this.ribbonPageGroup5.Name = "ribbonPageGroup5";
             this.ribbonPageGroup5.ShowCaptionButton = false;
-            this.ribbonPageGroup5.Text = "Backup";
+            this.ribbonPageGroup5.Text = "Banco de dados e Backup";
             // 
             // ribbonPageGroup6
             // 
@@ -429,6 +465,12 @@
             this.pnControl.Size = new System.Drawing.Size(1020, 440);
             this.pnControl.TabIndex = 2;
             this.pnControl.ControlAdded += new System.Windows.Forms.ControlEventHandler(this.pnControl_ControlAdded);
+            // 
+            // barStaticItem1
+            // 
+            this.barStaticItem1.Id = -1;
+            this.barStaticItem1.Name = "barStaticItem1";
+            this.barStaticItem1.TextAlignment = System.Drawing.StringAlignment.Near;
             // 
             // FormPrincipal
             // 
@@ -496,5 +538,9 @@
         private DevExpress.XtraBars.BarButtonItem btnConfigEnderecoServico;
         private DevExpress.XtraBars.BarButtonItem btnPrefSistema;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup8;
+        private DevExpress.XtraBars.BarButtonItem btnLimpaPanel;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem1;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem7;
+        private DevExpress.XtraBars.BarStaticItem barStaticItem1;
     }
 }

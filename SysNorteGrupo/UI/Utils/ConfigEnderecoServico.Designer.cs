@@ -30,23 +30,23 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ConfigEnderecoServico));
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
-            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.tfIP = new DevExpress.XtraEditors.TextEdit();
-            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
-            this.tfPorta = new DevExpress.XtraEditors.TextEdit();
-            this.ckConectarSaida = new DevExpress.XtraEditors.CheckEdit();
+            this.btnAplicar = new DevExpress.XtraEditors.SimpleButton();
             this.btnCancelar = new DevExpress.XtraEditors.SimpleButton();
-            this.btnSalvar = new DevExpress.XtraEditors.SimpleButton();
+            this.ckConectarSaida = new DevExpress.XtraEditors.CheckEdit();
+            this.tfPorta = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
+            this.tfIP = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tfIP.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tfPorta.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ckConectarSaida.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tfPorta.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tfIP.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // panelControl1
             // 
-            this.panelControl1.Controls.Add(this.btnSalvar);
+            this.panelControl1.Controls.Add(this.btnAplicar);
             this.panelControl1.Controls.Add(this.btnCancelar);
             this.panelControl1.Controls.Add(this.ckConectarSaida);
             this.panelControl1.Controls.Add(this.tfPorta);
@@ -59,51 +59,17 @@
             this.panelControl1.Size = new System.Drawing.Size(361, 128);
             this.panelControl1.TabIndex = 0;
             // 
-            // labelControl1
+            // btnAplicar
             // 
-            this.labelControl1.Location = new System.Drawing.Point(12, 15);
-            this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(72, 13);
-            this.labelControl1.TabIndex = 0;
-            this.labelControl1.Text = "ENDEREÇO/IP:";
-            // 
-            // tfIP
-            // 
-            this.tfIP.EditValue = "";
-            this.tfIP.Location = new System.Drawing.Point(90, 12);
-            this.tfIP.Name = "tfIP";
-            this.tfIP.Properties.Mask.EditMask = "localhost|(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)(\\.(25[0-5]|2[0-4][0-9]|[01]?[0-9" +
-    "][0-9]?)){3}";
-            this.tfIP.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
-            this.tfIP.Size = new System.Drawing.Size(263, 20);
-            this.tfIP.TabIndex = 0;
-            // 
-            // labelControl2
-            // 
-            this.labelControl2.Location = new System.Drawing.Point(12, 41);
-            this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(38, 13);
-            this.labelControl2.TabIndex = 0;
-            this.labelControl2.Text = "PORTA:";
-            // 
-            // tfPorta
-            // 
-            this.tfPorta.Location = new System.Drawing.Point(90, 38);
-            this.tfPorta.Name = "tfPorta";
-            this.tfPorta.Properties.Mask.BeepOnError = true;
-            this.tfPorta.Properties.Mask.EditMask = "\\d{4}";
-            this.tfPorta.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
-            this.tfPorta.Size = new System.Drawing.Size(74, 20);
-            this.tfPorta.TabIndex = 1;
-            // 
-            // ckConectarSaida
-            // 
-            this.ckConectarSaida.EditValue = true;
-            this.ckConectarSaida.Location = new System.Drawing.Point(170, 39);
-            this.ckConectarSaida.Name = "ckConectarSaida";
-            this.ckConectarSaida.Properties.Caption = "TENTAR CONECTAR NA SAIDA?";
-            this.ckConectarSaida.Size = new System.Drawing.Size(183, 19);
-            this.ckConectarSaida.TabIndex = 2;
+            this.btnAplicar.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
+            this.btnAplicar.Image = ((System.Drawing.Image)(resources.GetObject("btnAplicar.Image")));
+            this.btnAplicar.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleLeft;
+            this.btnAplicar.Location = new System.Drawing.Point(139, 78);
+            this.btnAplicar.Name = "btnAplicar";
+            this.btnAplicar.Size = new System.Drawing.Size(104, 41);
+            this.btnAplicar.TabIndex = 3;
+            this.btnAplicar.Text = "APLICAR";
+            this.btnAplicar.Click += new System.EventHandler(this.btnSalvar_Click);
             // 
             // btnCancelar
             // 
@@ -117,17 +83,51 @@
             this.btnCancelar.Text = "CANCELAR";
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
-            // btnSalvar
+            // ckConectarSaida
             // 
-            this.btnSalvar.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
-            this.btnSalvar.Image = ((System.Drawing.Image)(resources.GetObject("btnSalvar.Image")));
-            this.btnSalvar.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleLeft;
-            this.btnSalvar.Location = new System.Drawing.Point(139, 78);
-            this.btnSalvar.Name = "btnSalvar";
-            this.btnSalvar.Size = new System.Drawing.Size(104, 41);
-            this.btnSalvar.TabIndex = 3;
-            this.btnSalvar.Text = "SALVAR";
-            this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
+            this.ckConectarSaida.EditValue = true;
+            this.ckConectarSaida.Location = new System.Drawing.Point(170, 39);
+            this.ckConectarSaida.Name = "ckConectarSaida";
+            this.ckConectarSaida.Properties.Caption = "TENTAR CONECTAR NA SAIDA?";
+            this.ckConectarSaida.Size = new System.Drawing.Size(183, 19);
+            this.ckConectarSaida.TabIndex = 2;
+            // 
+            // tfPorta
+            // 
+            this.tfPorta.Location = new System.Drawing.Point(90, 38);
+            this.tfPorta.Name = "tfPorta";
+            this.tfPorta.Properties.Mask.BeepOnError = true;
+            this.tfPorta.Properties.Mask.EditMask = "\\d{4}";
+            this.tfPorta.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
+            this.tfPorta.Size = new System.Drawing.Size(74, 20);
+            this.tfPorta.TabIndex = 1;
+            // 
+            // labelControl2
+            // 
+            this.labelControl2.Location = new System.Drawing.Point(12, 41);
+            this.labelControl2.Name = "labelControl2";
+            this.labelControl2.Size = new System.Drawing.Size(38, 13);
+            this.labelControl2.TabIndex = 0;
+            this.labelControl2.Text = "PORTA:";
+            // 
+            // tfIP
+            // 
+            this.tfIP.EditValue = "";
+            this.tfIP.Location = new System.Drawing.Point(90, 12);
+            this.tfIP.Name = "tfIP";
+            this.tfIP.Properties.Mask.EditMask = "localhost|(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)(\\.(25[0-5]|2[0-4][0-9]|[01]?[0-9" +
+    "][0-9]?)){3}";
+            this.tfIP.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
+            this.tfIP.Size = new System.Drawing.Size(263, 20);
+            this.tfIP.TabIndex = 0;
+            // 
+            // labelControl1
+            // 
+            this.labelControl1.Location = new System.Drawing.Point(12, 15);
+            this.labelControl1.Name = "labelControl1";
+            this.labelControl1.Size = new System.Drawing.Size(72, 13);
+            this.labelControl1.TabIndex = 0;
+            this.labelControl1.Text = "ENDEREÇO/IP:";
             // 
             // ConfigEnderecoServico
             // 
@@ -147,9 +147,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             this.panelControl1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tfIP.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tfPorta.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ckConectarSaida.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tfPorta.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tfIP.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -163,6 +163,6 @@
         private DevExpress.XtraEditors.LabelControl labelControl2;
         public DevExpress.XtraEditors.CheckEdit ckConectarSaida;
         private DevExpress.XtraEditors.SimpleButton btnCancelar;
-        private DevExpress.XtraEditors.SimpleButton btnSalvar;
+        private DevExpress.XtraEditors.SimpleButton btnAplicar;
     }
 }

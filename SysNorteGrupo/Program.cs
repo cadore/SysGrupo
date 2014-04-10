@@ -17,10 +17,7 @@ namespace SysNorteGrupo
     {
 
         public static usuario usuario_instc = null;
-        public static permicoes_usuario permicao_instc = null;
-        /// <summary>
-        /// The main entry point for the application.
-        /// </summary>
+
         [STAThread]
         static void Main()
         {
@@ -71,7 +68,7 @@ namespace SysNorteGrupo
                 if (frmLogin.ShowDialog() == DialogResult.OK)
                 {
                     Log.usuario_ativo = usuario_instc;
-                    Application.Run(new FormPrincipal(usuario_instc, permicao_instc));
+                    Application.Run(new FormPrincipal(usuario_instc));
                 }
                 else
                 {
