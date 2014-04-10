@@ -34,10 +34,7 @@ namespace SysNorteGrupo.UI.Clientes
 
             foreach (Control c in pbBotoes.Controls)
             {
-                //foreach (Control item in c.Controls)
-                //{
                 preencheFundoControls(c);
-                //}
             }
 
             conn = GerenteDeConexoes.conexaoServico();
@@ -69,31 +66,38 @@ namespace SysNorteGrupo.UI.Clientes
 
         private void executaBusca()
         {
-            List<cliente> listCli = new List<cliente>();
-            List<cliente> listRetorno = new List<cliente>();
-            if (tipoPesquisa == 0)
+            try
             {
-                listCli = conn.listaDeClientesPorId(Convert.ToInt64(tfId.Text));
+                List<cliente> listCli = new List<cliente>();
+                List<cliente> listRetorno = new List<cliente>();
+                if (tipoPesquisa == 0)
+                {
+                    listCli = conn.listaDeClientesPorId(Convert.ToInt64(tfId.Text));
+                }
+                else if (tipoPesquisa == 1)
+                {
+                    listCli = conn.listaDeClientesPorNomeOuDocumento(tfNomeDocumento.Text, _inativo);
+                }
+                else
+                {
+                    listCli = conn.listaDeClientesPorInatividade(_inativo);
+                }
+                foreach (cliente v in listCli)
+                {
+                    decimal valor_veiculos = conn.somaValorTotalVeiculoPorIdClienteEInatividade(v.id, false);
+                    decimal valor_reboques = conn.somaValorTotalReboquesPorIdClienteEInatividade(v.id, false);
+                    decimal total_cotas = (valor_veiculos + valor_reboques) / ConfigSistema.valor_por_cota;
+                    v.cotas = total_cotas;
+                    v.valor_total = (valor_veiculos + valor_reboques);
+                    listRetorno.Add(v);
+                }
+                bdgCliente.DataSource = listRetorno;
+                Log.createLog(EventLog.executedSearch, "");
             }
-            else if (tipoPesquisa == 1)
+            catch (Exception ex)
             {
-                listCli = conn.listaDeClientesPorNomeOuDocumento(tfNomeDocumento.Text, _inativo);
+                XtraMessageBox.Show(ex.Message);
             }
-            else
-            {
-                listCli = conn.listaDeClientesPorInatividade(_inativo);
-            }
-            foreach (cliente v in listCli)
-            {
-                decimal valor_veiculos = conn.somaValorTotalVeiculoPorIdClienteEInatividade(v.id, false);
-                decimal valor_reboques = conn.somaValorTotalReboquesPorIdClienteEInatividade(v.id, false);
-                decimal total_cotas = (valor_veiculos + valor_reboques) / ConfigSistema.valor_por_cota;
-                v.cotas = total_cotas;
-                v.valor_total = (valor_veiculos + valor_reboques);
-                listRetorno.Add(v);
-            }
-            bdgCliente.DataSource = listRetorno;
-            Log.createLog(EventLog.executedSearch, "");
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)

@@ -22,9 +22,16 @@ namespace SysNorteGrupo.UI.Utils
 
         private void btnAplicar_Click(object sender, EventArgs e)
         {
-            ConfigSistema.minutosIDLE = Convert.ToInt32(spMinutos.Value);
-            FilesINI.WriteValue("sistema", "IDLE", spMinutos.Value.ToString());
-            this.Close();
+            try
+            {
+                ConfigSistema.minutosIDLE = Convert.ToInt32(spMinutos.Value);
+                FilesINI.WriteValue("sistema", "IDLE", spMinutos.Value.ToString());
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                XtraMessageBox.Show(ex.Message);
+            }
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)

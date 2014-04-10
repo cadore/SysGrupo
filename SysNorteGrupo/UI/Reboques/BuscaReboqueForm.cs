@@ -26,11 +26,16 @@ namespace SysNorteGrupo.UI.Veiculos.Reboques
         public BuscaReboqueForm()
         {
             InitializeComponent();
-
-            conn = GerenteDeConexoes.conexaoServico();
-            bdgCliente.DataSource = conn.listaDeClientesPorInatividade(false);
-            bdgVeiculo.DataSource = conn.listaDeVeiculosPorInatividade(false);
-
+            try
+            {
+                conn = GerenteDeConexoes.conexaoServico();
+                bdgCliente.DataSource = conn.listaDeClientesPorInatividade(false);
+                bdgVeiculo.DataSource = conn.listaDeVeiculosPorInatividade(false);
+            }
+            catch (Exception ex)
+            {
+                XtraMessageBox.Show(ex.Message);
+            }
             foreach (Control c in pnBotoes.Controls)
             {
                 preencheFundoControls(c);
@@ -138,41 +143,48 @@ namespace SysNorteGrupo.UI.Veiculos.Reboques
 
         private void executaBusca()
         {
-            List<reboque> listRetorno = new List<reboque>();
-            List<reboque> listReb = null;
+            try
+            {
+                List<reboque> listRetorno = new List<reboque>();
+                List<reboque> listReb = null;
 
-            if (tipoPesquisa == 0)
-            {
-                listReb = conn.listaDeReboquesPorId(Convert.ToInt64(tfId.Text), _inativo);
-            }
-            else if (tipoPesquisa == 1)
-            {
-                listReb = conn.listaDeReboquesPorPlaca(tfPlaca.Text, _inativo);
-            }
-            else if (tipoPesquisa == 2)
-            {
-                listReb = conn.listaDeReboquesPorIdCliente(Convert.ToInt64(cbCliente.EditValue), _inativo);
-            }
-            else if (tipoPesquisa == 3)
-            {
-                listReb = conn.listaDeReboquesPorIdVeiculo(Convert.ToInt64(cbVeiculo.EditValue), _inativo);
-            }
-            else
-            {
-                listReb = conn.listaDeReboquesPorInatividade(_inativo);
-            }
+                if (tipoPesquisa == 0)
+                {
+                    listReb = conn.listaDeReboquesPorId(Convert.ToInt64(tfId.Text), _inativo);
+                }
+                else if (tipoPesquisa == 1)
+                {
+                    listReb = conn.listaDeReboquesPorPlaca(tfPlaca.Text, _inativo);
+                }
+                else if (tipoPesquisa == 2)
+                {
+                    listReb = conn.listaDeReboquesPorIdCliente(Convert.ToInt64(cbCliente.EditValue), _inativo);
+                }
+                else if (tipoPesquisa == 3)
+                {
+                    listReb = conn.listaDeReboquesPorIdVeiculo(Convert.ToInt64(cbVeiculo.EditValue), _inativo);
+                }
+                else
+                {
+                    listReb = conn.listaDeReboquesPorInatividade(_inativo);
+                }
 
-            foreach (reboque r in listReb)
-            {
-                cliente cli = conn.retornaClientePorId(r.id_cliente);
-                decimal cotas = r.valor / ConfigSistema.valor_por_cota;
+                foreach (reboque r in listReb)
+                {
+                    cliente cli = conn.retornaClientePorId(r.id_cliente);
+                    decimal cotas = r.valor / ConfigSistema.valor_por_cota;
 
-                r.nome_cliente = cli.nome_completo;
-                r.cotas = cotas;
-                listRetorno.Add(r);
+                    r.nome_cliente = cli.nome_completo;
+                    r.cotas = cotas;
+                    listRetorno.Add(r);
+                }
+                bdgReboque.DataSource = listRetorno;
+                Log.createLog(EventLog.executedSearch, "");
             }
-            bdgReboque.DataSource = listRetorno;
-            Log.createLog(EventLog.executedSearch, "");
+            catch (Exception ex)
+            {
+                XtraMessageBox.Show(ex.Message);
+            }
         }
 
         private void gridControl_DoubleClick(object sender, EventArgs e)

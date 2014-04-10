@@ -37,7 +37,7 @@ namespace SysNorteGrupo.UI.Veiculos
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                XtraMessageBox.Show(ex.Message);
             }
 
             try
@@ -75,7 +75,7 @@ namespace SysNorteGrupo.UI.Veiculos
 
                 cbCor.EditValue = veiculo_instc.cor_predominante;
             }catch(Exception ex){
-                MessageBox.Show(ex.Message);
+                XtraMessageBox.Show(ex.Message);
             }
         }
 
@@ -233,7 +233,7 @@ namespace SysNorteGrupo.UI.Veiculos
                         //confirma agendamento
                         if (ckAgendarCad.CheckState == CheckState.Checked)
                         {
-                            DialogResult dialogResult = MessageBox.Show(
+                            DialogResult dialogResult = XtraMessageBox.Show(
                                 "CONFIRMA O AGENDAMENTO DE CADASTRO DESTE VEÍCULO PARA ÀS 00:00 HORAS DO DIA " + tfDataAgendamento.Text + "?",
                                 "SYSNORTE", MessageBoxButtons.YesNo);
                             if (dialogResult == DialogResult.No)
@@ -268,7 +268,7 @@ namespace SysNorteGrupo.UI.Veiculos
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Ocorreu um erro ao tentar executar sua solicitação.\n\n" + ex.Message);
+                    XtraMessageBox.Show("Ocorreu um erro ao tentar executar sua solicitação.\n\n" + ex.Message);
                     formPrincipal.adicionarControleNavegacao(null);
                 }  
         }
@@ -359,7 +359,7 @@ namespace SysNorteGrupo.UI.Veiculos
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                XtraMessageBox.Show(ex.Message);
             }*/
         }
 
@@ -387,7 +387,7 @@ namespace SysNorteGrupo.UI.Veiculos
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Ocorreu um erro ao tentar executar sua solicitação.\n\n" + ex.Message);
+                XtraMessageBox.Show("Ocorreu um erro ao tentar executar sua solicitação.\n\n" + ex.Message);
                 formPrincipal.adicionarControleNavegacao(null);
             }
         }

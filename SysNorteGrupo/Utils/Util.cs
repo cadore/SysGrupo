@@ -1,10 +1,6 @@
 ﻿using DevExpress.XtraEditors;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace SysNorteGrupo.Utils
@@ -29,21 +25,38 @@ namespace SysNorteGrupo.Utils
                 }
             }catch(Exception e)
             {
-                MessageBox.Show(e.Message);
-                return false;
+                throw new Exception(e.Message, e.InnerException);
             }
         }
 
         public static string GetIpHost()
         {
-            IPHostEntry ipEntry = Dns.GetHostByName(GetHostName());
-            IPAddress[] addr = ipEntry.AddressList;
-            return addr[0].ToString();
+            string _return = "";
+            try
+            {
+                IPHostEntry ipEntry = Dns.GetHostByName(GetHostName());
+                IPAddress[] addr = ipEntry.AddressList;
+                _return = addr[0].ToString();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message, ex.InnerException);
+            }
+            return _return;
         }
 
         public static string GetHostName()
         {
-            return Dns.GetHostName();
+            string _return = "";
+            try
+            {
+                 _return = Dns.GetHostName();
+            }
+            catch(Exception ex)
+            {
+                throw new Exception(ex.Message, ex.InnerException);           
+            }
+            return _return;
         }
     }
 }

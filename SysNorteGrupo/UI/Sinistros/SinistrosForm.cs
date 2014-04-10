@@ -212,12 +212,12 @@ namespace SysNorteGrupo.UI.Sinistros
                 {
                     if (bdgPagamentos.Count <= 0 && ckConcluido.Checked)
                     {
-                        MessageBox.Show("Adicione no minimo um pagamento.");
+                        XtraMessageBox.Show("Adicione no minimo um pagamento.");
                         return;
                     }
                     if (tf_vazio)
                     {
-                        DialogResult dr = MessageBox.Show("Confirma a data do ocorrido para dia: " + dtOcorrido.Text + "?", "SYSNORTE", MessageBoxButtons.OKCancel);
+                        DialogResult dr = XtraMessageBox.Show("Confirma a data do ocorrido para dia: " + dtOcorrido.Text + "?", "SYSNORTE", MessageBoxButtons.OKCancel);
                         if (dr == DialogResult.Cancel)
                         {
                             dtOcorrido.Focus();
@@ -226,7 +226,7 @@ namespace SysNorteGrupo.UI.Sinistros
                     }
                     if (sinistro_instc.situacao_sinistro != situacao && ckConcluido.Checked)
                     {
-                        DialogResult dr = MessageBox.Show(mensagem_situacao, "SYSNORTE", MessageBoxButtons.OKCancel);
+                        DialogResult dr = XtraMessageBox.Show(mensagem_situacao, "SYSNORTE", MessageBoxButtons.OKCancel);
                         if (dr == DialogResult.Cancel)
                         {
                             dtConclusao.Focus();
@@ -254,23 +254,23 @@ namespace SysNorteGrupo.UI.Sinistros
 
                     if (Convert.ToInt64(cbVeiculo.EditValue) > 0 && !conn.verificaSeVeiculoEstaEmSinistroAtivo(Convert.ToInt64(cbVeiculo.EditValue), !tf_vazio, 0))
                     {
-                        MessageBox.Show(string.Format("CONTEM UM SINISTRO EM ABERTO PARA O VEICULO {0}, VERIFIQUE!", cbVeiculo.Text));
+                        XtraMessageBox.Show(string.Format("CONTEM UM SINISTRO EM ABERTO PARA O VEICULO {0}, VERIFIQUE!", cbVeiculo.Text));
                         return;
                     }
 
                     if (Convert.ToInt64(cbReboque1.EditValue) > 0 && !conn.verificaSeReboqueEstaEmSinistroAtivo(Convert.ToInt64(cbReboque1.EditValue), !tf_vazio, 0, 1))
                     {
-                        MessageBox.Show(string.Format("CONTEM UM SINISTRO EM ABERTO PARA O REBOQUE {0}, VERIFIQUE!", cbReboque1.Text));
+                        XtraMessageBox.Show(string.Format("CONTEM UM SINISTRO EM ABERTO PARA O REBOQUE {0}, VERIFIQUE!", cbReboque1.Text));
                         return;
                     }
                     if (Convert.ToInt64(cbReboque2.EditValue) > 0 && !conn.verificaSeReboqueEstaEmSinistroAtivo(Convert.ToInt64(cbReboque2.EditValue), !tf_vazio, 0, 2))
                     {
-                        MessageBox.Show(string.Format("CONTEM UM SINISTRO EM ABERTO PARA O REBOQUE {0}, VERIFIQUE!", cbReboque2.Text));
+                        XtraMessageBox.Show(string.Format("CONTEM UM SINISTRO EM ABERTO PARA O REBOQUE {0}, VERIFIQUE!", cbReboque2.Text));
                         return;
                     }
                     if (Convert.ToInt64(cbReboque3.EditValue) > 0 && !conn.verificaSeReboqueEstaEmSinistroAtivo(Convert.ToInt64(cbReboque3.EditValue), !tf_vazio, 0, 3))
                     {
-                        MessageBox.Show(string.Format("CONTEM UM SINISTRO EM ABERTO PARA O REBOQUE {0}, VERIFIQUE!", cbReboque3.Text));
+                        XtraMessageBox.Show(string.Format("CONTEM UM SINISTRO EM ABERTO PARA O REBOQUE {0}, VERIFIQUE!", cbReboque3.Text));
                         return;
                     }
 
@@ -295,7 +295,7 @@ namespace SysNorteGrupo.UI.Sinistros
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Ocorreu um erro ao executar a solicitação.\n" + ex.Message);
+                    XtraMessageBox.Show("Ocorreu um erro ao executar a solicitação.\n" + ex.Message);
                 }
             }
         }

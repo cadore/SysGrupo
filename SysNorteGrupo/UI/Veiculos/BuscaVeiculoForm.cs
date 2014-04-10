@@ -48,36 +48,43 @@ namespace SysNorteGrupo.UI.Veiculos
 
         private void executaBusca()
         {
-            List<veiculo> listRetorno = new List<veiculo>();
-            List<veiculo> listVei = null;
-            if (tipoPesquisa == 0)
+            try
             {
-                listVei = conn.listaDeVeiculosPorId(Convert.ToInt64(tfId.Text), _inativo);
-            }
-            else if (tipoPesquisa == 1)
-            {
-                listVei = conn.listaDeVeiculosPorPlaca(tfPlaca.Text, _inativo);
-            }
-            else if(tipoPesquisa == 2)
-            {
-                listVei = conn.listaDeVeiculosPorIdClienteEInatividade(Convert.ToInt64(cbCliente.EditValue), _inativo);
-            }
-            else
-            {
-                listVei = conn.listaDeVeiculosPorInatividade(_inativo);
-            }
+                List<veiculo> listRetorno = new List<veiculo>();
+                List<veiculo> listVei = null;
+                if (tipoPesquisa == 0)
+                {
+                    listVei = conn.listaDeVeiculosPorId(Convert.ToInt64(tfId.Text), _inativo);
+                }
+                else if (tipoPesquisa == 1)
+                {
+                    listVei = conn.listaDeVeiculosPorPlaca(tfPlaca.Text, _inativo);
+                }
+                else if (tipoPesquisa == 2)
+                {
+                    listVei = conn.listaDeVeiculosPorIdClienteEInatividade(Convert.ToInt64(cbCliente.EditValue), _inativo);
+                }
+                else
+                {
+                    listVei = conn.listaDeVeiculosPorInatividade(_inativo);
+                }
 
-            foreach (veiculo v in listVei)
-            {
-                cliente cli = conn.retornaClientePorId(v.id_cliente);
-                decimal cotas = v.valor / ConfigSistema.valor_por_cota;
+                foreach (veiculo v in listVei)
+                {
+                    cliente cli = conn.retornaClientePorId(v.id_cliente);
+                    decimal cotas = v.valor / ConfigSistema.valor_por_cota;
 
-                v.nome_cliente = cli.nome_completo;
-                v.cotas = cotas;
-                listRetorno.Add(v);
+                    v.nome_cliente = cli.nome_completo;
+                    v.cotas = cotas;
+                    listRetorno.Add(v);
+                }
+                bdgVeiculo.DataSource = listRetorno;
+                Log.createLog(EventLog.executedSearch, String.Format(""));
             }
-            bdgVeiculo.DataSource = listRetorno;
-            Log.createLog(EventLog.executedSearch, String.Format(""));
+            catch (Exception ex)
+            {
+                XtraMessageBox.Show(ex.Message);
+            }
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)

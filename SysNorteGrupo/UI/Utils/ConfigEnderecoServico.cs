@@ -53,7 +53,7 @@ namespace SysNorteGrupo.UI.Utils
             porta = tfPorta.Text;
             if(!validaIP(ip))
             {
-                MessageBox.Show("IP Inválido!");
+                XtraMessageBox.Show("IP Inválido!");
                 return;
             }
             FilesINI.WriteValue("sistema", "ipServico", ip);
@@ -67,7 +67,7 @@ namespace SysNorteGrupo.UI.Utils
                 }
                 catch(Exception)
                 {
-                    MessageBox.Show("Não foi possível conectar ao servidor, verifique o endereço e a porta e tente novamente.\n");
+                    XtraMessageBox.Show("Não foi possível conectar ao servidor, verifique o endereço e a porta e tente novamente.\n");
                     return;
                 }
             }

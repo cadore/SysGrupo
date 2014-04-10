@@ -40,7 +40,7 @@ namespace SysNorteGrupo.UI.Utils.Enderecos
         {
             if (validator.Validate())
             {
-                DialogResult rs = MessageBox.Show(String.Format("CONFIRMA O CADASTRO DO BAIRRO '{0}'?\nNÃO SERÁ POSSÍVEL REVERTER ESTA AÇÃO.", tfNomeBairro.Text.ToUpper()),
+                DialogResult rs = XtraMessageBox.Show(String.Format("CONFIRMA O CADASTRO DO BAIRRO '{0}'?\nNÃO SERÁ POSSÍVEL REVERTER ESTA AÇÃO.", tfNomeBairro.Text.ToUpper()),
                 "SYSNORTE TECNOLOGIA", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
                 if (rs == DialogResult.OK)
                 {
@@ -55,7 +55,7 @@ namespace SysNorteGrupo.UI.Utils.Enderecos
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show(ex.Message);
+                        XtraMessageBox.Show(ex.Message);
                     }
                 }
             }

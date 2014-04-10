@@ -25,19 +25,26 @@ namespace SysNorteGrupo.UI.Usuarios
 
         private void executaBusca()
         {
-            if (tipoPesquisa == 0)
+            try
             {
-                bindingSource.DataSource = conn.listaDeUsuariosAtivosPorId(Convert.ToInt64(tfId.Text));
+                if (tipoPesquisa == 0)
+                {
+                    bindingSource.DataSource = conn.listaDeUsuariosAtivosPorId(Convert.ToInt64(tfId.Text));
+                }
+                else if (tipoPesquisa == 1)
+                {
+                    bindingSource.DataSource = conn.listaDeUsuariosAtivosPorNomeOuLogin(tfNomeLogin.Text);
+                }
+                else
+                {
+                    bindingSource.DataSource = conn.listaDeUsuariosAtivos();
+                }
+                Log.createLog(EventLog.executedSearch, "");
             }
-            else if (tipoPesquisa == 1)
+            catch (Exception ex)
             {
-                bindingSource.DataSource = conn.listaDeUsuariosAtivosPorNomeOuLogin(tfNomeLogin.Text);
+                XtraMessageBox.Show(ex.Message);
             }
-            else
-            {
-                bindingSource.DataSource = conn.listaDeUsuariosAtivos();
-            }
-            Log.createLog(EventLog.executedSearch, "");
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)

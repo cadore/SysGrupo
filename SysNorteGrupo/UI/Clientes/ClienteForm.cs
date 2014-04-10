@@ -40,7 +40,7 @@ namespace SysNorteGrupo.UI.Clientes
             //cbEstados_EditValueChanged(null, null);
             //cbCidade_EditValueChanged(null, null);
 
-            //MessageBox.Show(cliente_instc.id.ToString());
+            //XtraMessageBox.Show(cliente_instc.id.ToString());
 
             if(cliente_instc == null){
                 cliente_instc = new cliente() { isento_ICMS = false, cotas = 0, valor_total = 0 };
@@ -340,7 +340,7 @@ namespace SysNorteGrupo.UI.Clientes
             //if (cbCidade.EditValue != null || cbCidade.EditValue != DBNull.Value || Convert.ToInt32(cbCidade.EditValue) > 0)
             if (cbCidade.EditValue != null || Convert.ToInt64(cbCidade.EditValue) > 0)
             {
-                //MessageBox.Show(cbCidade.EditValue.ToString());
+                //XtraMessageBox.Show(cbCidade.EditValue.ToString());
                 try
                 {
                     bdgBairros.DataSource = conn.listaDeBairrosPorCidade(Convert.ToInt64(cbCidade.EditValue));
@@ -507,7 +507,7 @@ namespace SysNorteGrupo.UI.Clientes
             }
             else
             {
-                MessageBox.Show(String.Format("SELECIONE A CIDADE CORRENSPONDENTE AO BAIRRO PARA PODER CADASTRAR NOVO."));
+                XtraMessageBox.Show(String.Format("SELECIONE A CIDADE CORRENSPONDENTE AO BAIRRO PARA PODER CADASTRAR NOVO."));
             }
         }
 
@@ -520,7 +520,7 @@ namespace SysNorteGrupo.UI.Clientes
             }
             else
             {
-                MessageBox.Show(String.Format("SELECIONE O BAIRRO CORRENSPONDENTE AO ENDEREÇO PARA PODER CADASTRAR NOVO."));
+                XtraMessageBox.Show(String.Format("SELECIONE O BAIRRO CORRENSPONDENTE AO ENDEREÇO PARA PODER CADASTRAR NOVO."));
             }
         }
 
@@ -643,7 +643,7 @@ namespace SysNorteGrupo.UI.Clientes
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message);
+                    XtraMessageBox.Show(ex.Message);
                 }
                 finally
                 {
@@ -674,7 +674,7 @@ namespace SysNorteGrupo.UI.Clientes
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message);
+                    XtraMessageBox.Show(ex.Message);
                 }
             }
             

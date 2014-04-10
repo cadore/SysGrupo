@@ -20,6 +20,7 @@ using SysNorteGrupo.Reports;
 using DevExpress.XtraReports.UI;
 using SysNorteGrupo.UI.Utils;
 using DevExpress.XtraSplashScreen;
+using DevExpress.XtraEditors;
 
 namespace SysNorteGrupo
 {
@@ -42,7 +43,7 @@ namespace SysNorteGrupo
             InitializeComponent();
             conn = GerenteDeConexoes.conexaoServico();
             //carregaPermissoes(permicao_instc);
-            this.Text = "SysNorteGrupo - SysNorte Tecnologia Copyright ©  2013 Versão: 1.0.0.0";
+            this.Text = String.Format("SysNorte Tecnologia Copyright © 2014 | SysNorteGrupo | Usuário: {0} | Versão: 1.0.0.0", usuario_instc.login);
             SplashScreenManager.CloseForm();
         }
 
@@ -87,11 +88,11 @@ namespace SysNorteGrupo
         {
             try
             {
-                SplashScreenManager.ShowForm(typeof(PleaseWaitForm));
-                controle.Visible = false;
+                SplashScreenManager.ShowForm(typeof(PleaseWaitForm));                
                 this.pnControl.Controls.Clear();
                 if (controle != null)
                 {
+                    controle.Visible = false;
                     this.pnControl.Controls.Add(controle);
                     this.MinimumSize = controle.Size + new Size(0, ribbon.Height) + new Size(20, 35);
                 }
@@ -99,11 +100,14 @@ namespace SysNorteGrupo
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Ocorreu um erro durante a solicitação.\n" + ex.Message);
+                XtraMessageBox.Show("Ocorreu um erro durante a solicitação.\n" + ex.Message);
             }
             finally
             {
-                controle.Visible = true;
+                if (controle != null)
+                {
+                    controle.Visible = true;
+                }
                 SplashScreenManager.CloseForm();
             }
         }
@@ -229,7 +233,7 @@ namespace SysNorteGrupo
 
         private void btnCriaBackup_ItemClick(object sender, ItemClickEventArgs e)
         {
-            DialogResult drc = MessageBox.Show("Confirma criação de backup?\nO servidor será parado durante a operação.", "SYSNORTE TECNOLOGIA", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            DialogResult drc = XtraMessageBox.Show("Confirma criação de backup?\nO servidor será parado durante a operação.", "SYSNORTE TECNOLOGIA", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
             if (drc == DialogResult.OK)
             {
                 try
@@ -245,7 +249,7 @@ namespace SysNorteGrupo
                         DateTime fim = DateTime.Now;
                         TimeSpan ts = fim.Subtract(inic);
                         Log.createLog(EventLog.cloused, String.Format("concluiu criação de backup em: {0} segundos", ts.TotalSeconds));
-                        DialogResult rs = MessageBox.Show("Backup criado com sucesso!\nDeseja exportar arquivo para um local?",
+                        DialogResult rs = XtraMessageBox.Show("Backup criado com sucesso!\nDeseja exportar arquivo para um local?",
                             "SYSNORTE TECNOLOGIA", MessageBoxButtons.YesNo);
                         if (rs == DialogResult.Yes)
                         {
@@ -261,7 +265,7 @@ namespace SysNorteGrupo
                                 Byte[] by = conn.download(fileBackup);
                                 File.WriteAllBytes(sfd.FileName, by);
                                 Log.createLog(EventLog.empty, String.Format("Exportou arquivo de backup."));
-                                MessageBox.Show("Arquivo salvo com sucesso.", "SYSNORTE TECNOLOGIA");
+                                XtraMessageBox.Show("Arquivo salvo com sucesso.", "SYSNORTE TECNOLOGIA");
                             }
                         }
                     }
@@ -269,8 +273,8 @@ namespace SysNorteGrupo
                 }
                 catch (Exception)
                 {
-                    SplashScreenManager.CloseForm();
-                    MessageBox.Show("Erro ao criar backup, tente novamente\nse o problema persistir, contate o suporte.");
+                    //SplashScreenManager.CloseForm();
+                    XtraMessageBox.Show("Erro ao criar backup, tente novamente\nse o problema persistir, contate o suporte.");
                 }
             }
         }
@@ -282,18 +286,28 @@ namespace SysNorteGrupo
                 Log.createLog(EventLog.empty, "tentativa de reiniciar a conexão com o servidor");
                 GerenteDeConexoes.iniciaConexaoServico();
                 Log.createLog(EventLog.empty, "conexão reiniciada com sucesso");
-                MessageBox.Show("Conexão reiniciada com sucesso!");
+                XtraMessageBox.Show("Conexão reiniciada com sucesso!");
             }
             catch (Exception ex)
             {
                 Log.createLog(EventLog.exception, "Ocorreu um erro na tentativa de reiniciar a conexão.\n" + ex.Message);
-                MessageBox.Show("Ocorreu um erro na tentativa de reiniciar a conexão.\n" + ex.Message);
+                XtraMessageBox.Show("Ocorreu um erro na tentativa de reiniciar a conexão.\n" + ex.Message);
             }            
         }
 
         private void FormPrincipal_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Log.createLog(EventLog.cloused, "aplicação no formulário principal.");
+            DialogResult rs = XtraMessageBox.Show("TEM CERTEZA QUE DESEJA SAIR DO SISTEMA?", "SYS NORTE TECNOLOGIA",
+                MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+            if (rs == DialogResult.OK)
+            {
+                Log.createLog(EventLog.cloused, "aplicação no formulário principal.");
+                e.Cancel = false;
+            }
+            else
+            {
+                e.Cancel = true;
+            }
         }
 
         private void btnRelClientesECotas_ItemClick(object sender, ItemClickEventArgs e)
@@ -338,7 +352,7 @@ namespace SysNorteGrupo
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                XtraMessageBox.Show(ex.Message);
             }
             finally
             {

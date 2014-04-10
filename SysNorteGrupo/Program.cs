@@ -10,6 +10,7 @@ using SysNorteGrupo.UI.Usuarios;
 using EntitiesGrupo;
 using WcfLibGrupo;
 using SysNorteGrupo.UI.Utils;
+using DevExpress.XtraEditors;
 
 namespace SysNorteGrupo
 {
@@ -30,12 +31,7 @@ namespace SysNorteGrupo
                 SkinManager.EnableFormSkins();
                 UserLookAndFeel.Default.SetSkinStyle("Office 2013"); //Office 2013 //The Asphalt World
 
-
-
-                // The following line provides localization for data formats. 
                 System.Threading.Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("pt-BR");
-
-                // The following line provides localization for the application's user interface. 
                 System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("pt-BR");
 
                 iniciaConexao();
@@ -46,11 +42,10 @@ namespace SysNorteGrupo
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(String.Format("Ocorreu um erro no carregamento das configurações.\n\n{0}\n{1}", ex.Message, ex.InnerException));
+                    XtraMessageBox.Show(String.Format("Ocorreu um erro no carregamento das configurações.\n\n{0}\n{1}", ex.Message, ex.InnerException));
                     Environment.Exit(0);
-                }                
-               
-                //Application.Run(new FormPrincipal(new usuario(), new permicoes_usuario()));
+                }
+
                 startApplication();
             }
             catch (Exception ex)

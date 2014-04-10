@@ -42,7 +42,7 @@ namespace SysFileManager
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                XtraMessageBox.Show(ex.Message);
             }
             finally
             {
@@ -87,12 +87,12 @@ namespace SysFileManager
                     FileInfo fi = new FileInfo(ofd.FileName);                    
                     if (fi.Length > (30 * 1024) * 1024)
                     {
-                        MessageBox.Show("O arquivo: '" + fi.Name + "' excede o tamanho de 30MB");
+                        XtraMessageBox.Show("O arquivo: '" + fi.Name + "' excede o tamanho de 30MB");
                         return;
                     }
                     if (conn.verificaArquivoExistente(DIRETORIO + fi.Name) == true)
                     {
-                        DialogResult rs = MessageBox.Show("O arquivo com nome: '"+fi.Name+ "' já existe, deseja sobreescrever?", "SYSNORTE", MessageBoxButtons.YesNo);
+                        DialogResult rs = XtraMessageBox.Show("O arquivo com nome: '"+fi.Name+ "' já existe, deseja sobreescrever?", "SYSNORTE", MessageBoxButtons.YesNo);
                         if(rs == DialogResult.No){
                             return;
                         }
@@ -126,7 +126,7 @@ namespace SysFileManager
                         conn.upload(b1, DIRETORIO + nome);                        
                     }
                     executaBusca();
-                    MessageBox.Show("Arquivo enviado com sucesso!");
+                    XtraMessageBox.Show("Arquivo enviado com sucesso!");
                     progressBar.Properties.ShowTitle = false;
                     progressBar.Position = 0;
                     f1.Close();
@@ -136,7 +136,7 @@ namespace SysFileManager
             {
                 progressBar.Properties.ShowTitle = false;
                 progressBar.Position = 0;
-                MessageBox.Show("Erro ao copiar arquivo.\n" + ex.Message);
+                XtraMessageBox.Show("Erro ao copiar arquivo.\n" + ex.Message);
             }            
         }
 
@@ -162,7 +162,7 @@ namespace SysFileManager
                 {
                     Byte[] by = conn.download(am.nome_completo);
                     File.WriteAllBytes(sfd.FileName, by);
-                    DialogResult dr = MessageBox.Show("Arquivo salvo com sucesso.\nDeseja abrir?", "SYSNORTE", MessageBoxButtons.YesNo);
+                    DialogResult dr = XtraMessageBox.Show("Arquivo salvo com sucesso.\nDeseja abrir?", "SYSNORTE", MessageBoxButtons.YesNo);
                     if(dr == DialogResult.Yes){
                         if (File.Exists(sfd.FileName))
                         {
@@ -170,12 +170,13 @@ namespace SysFileManager
                         }
                         else
                         {
-                            MessageBox.Show("Erro ao abrir arquivo, ele não foi encontrado.");
+                            XtraMessageBox.Show("Erro ao abrir arquivo, ele não foi encontrado.");
                         }
                     }
                 }
-            }catch(Exception ex){
-                MessageBox.Show("Erro ao baixar arquivo\n"+ex.Message);
+            }catch(Exception ex)
+            {
+                XtraMessageBox.Show("Erro ao baixar arquivo\n"+ex.Message);
             }
         }
 
@@ -184,14 +185,15 @@ namespace SysFileManager
             try
             {
                 ArquivosModel am = (ArquivosModel)bdgArquivos.Current;
-                DialogResult rs = MessageBox.Show("Tem certeza que deseja excluir o arquivo: "+am.nome+"?", "SYSNORTE", MessageBoxButtons.YesNo);
+                DialogResult rs = XtraMessageBox.Show("Tem certeza que deseja excluir o arquivo: "+am.nome+"?", "SYSNORTE", MessageBoxButtons.YesNo);
                 if(rs == DialogResult.Yes){
                     conn.excluirArquivo(am.nome_completo);
-                    MessageBox.Show("Arquivo excluido com sucesso.");   
+                    XtraMessageBox.Show("Arquivo excluido com sucesso.");   
                 }
                 executaBusca();
-            }catch(Exception ex){
-                MessageBox.Show("Erro ao excluir arquivo.\n"+ex.Message);
+            }catch(Exception ex)
+            {
+                XtraMessageBox.Show("Erro ao excluir arquivo.\n"+ex.Message);
             }
         }
     }

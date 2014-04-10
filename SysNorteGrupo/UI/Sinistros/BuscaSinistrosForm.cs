@@ -88,7 +88,7 @@ namespace SysNorteGrupo.UI.Sinistros
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Erro ao executar a busca.\n"+ex.Message);
+                XtraMessageBox.Show("Erro ao executar a busca.\n"+ex.Message);
             }
         }
 

@@ -30,7 +30,7 @@ namespace SysNorteGrupo.UI.Usuarios
         public LoginForm()
         {
             InitializeComponent();
-            this.Text = "SysNorteGrupo Login - SysNorte Tecnologia Copyright ©  2013 Versão: 1.0.0.0";
+            this.Text = "SysNorteGrupo Login - SysNorte Tecnologia Copyright © 2014 Versão: 1.0.0.0";
             tfSenha.Properties.UseSystemPasswordChar = true;
             conn = GerenteDeConexoes.conexaoServico();
 
@@ -91,7 +91,7 @@ namespace SysNorteGrupo.UI.Usuarios
                 catch (Exception ex)
                 {                    
                     this.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-                    MessageBox.Show(ex.Message);
+                    XtraMessageBox.Show(ex.Message);
                 }
                 finally
                 {
@@ -147,7 +147,7 @@ namespace SysNorteGrupo.UI.Usuarios
             /*this.Invoke((MethodInvoker)delegate()
             {
                 userIdleDetectTimeExit.StopDetection();              
-                MessageBox.Show("VOCÊ ESTEVE AUSENTE POR MAIS DE 20 (VINTE) MINUTOS\nO SISTEMA SERÁ ENCERRADO POR QUESTÕES DE SEGURANÇA.",
+                XtraMessageBox.Show("VOCÊ ESTEVE AUSENTE POR MAIS DE 20 (VINTE) MINUTOS\nO SISTEMA SERÁ ENCERRADO POR QUESTÕES DE SEGURANÇA.",
                     "SYSNORTE TECNOLOGIA - SysNorteGrupo");
                 Environment.Exit(0);
             });*/

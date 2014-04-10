@@ -29,8 +29,15 @@ namespace SysNorteGrupo.UI.Logs
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            Log.createLog(EventLog.executedSearch, "-");
-            bdgLog.DataSource = new Log().readLog(tfParameter.Text, cbEentoLog.Text, cbUsuario.Text);
+            try
+            {
+                Log.createLog(EventLog.executedSearch, "-");
+                bdgLog.DataSource = new Log().readLog(tfParameter.Text, cbEentoLog.Text, cbUsuario.Text);
+            }
+            catch(Exception ex)
+            {
+                XtraMessageBox.Show(ex.Message);
+            }
         }
 
         private void buttonExit_Click(object sender, EventArgs e)
@@ -41,50 +48,57 @@ namespace SysNorteGrupo.UI.Logs
 
         private void loadItemsCombos()
         {
-            ComboBoxItemCollection collEventLog = cbEentoLog.Properties.Items;
-            collEventLog.BeginUpdate();
-
             try
             {
-                collEventLog.Add("TODOS");
-                collEventLog.Add("abriu");
-                collEventLog.Add("registrou");
-                collEventLog.Add("editou");
-                collEventLog.Add("salvou edição");
-                collEventLog.Add("executou a pesquisa");
-                collEventLog.Add("visualizou");
-                collEventLog.Add("fechou");
-                collEventLog.Add("saiu");
-                collEventLog.Add("entrou");
-                collEventLog.Add("excluiu");
-                collEventLog.Add("exception");
-                collEventLog.Add("adicionou");
-                collEventLog.Add("baixou");
-                collEventLog.Add("nullo");                
-            }
-            finally
-            {
-                collEventLog.EndUpdate();
-            }
-            cbEentoLog.SelectedIndex = -1;
+                ComboBoxItemCollection collEventLog = cbEentoLog.Properties.Items;
+                collEventLog.BeginUpdate();
 
-            ComboBoxItemCollection collUser = cbUsuario.Properties.Items;
-            collUser.BeginUpdate();
-
-            try
-            {
-                collUser.Add("TODOS");
-                List<usuario> lisUsuario = conn.listaDeTodosUsuarios();
-                foreach (usuario u in lisUsuario)
+                try
                 {
-                    collUser.Add(u.login);
+                    collEventLog.Add("TODOS");
+                    collEventLog.Add("abriu");
+                    collEventLog.Add("registrou");
+                    collEventLog.Add("editou");
+                    collEventLog.Add("salvou edição");
+                    collEventLog.Add("executou a pesquisa");
+                    collEventLog.Add("visualizou");
+                    collEventLog.Add("fechou");
+                    collEventLog.Add("saiu");
+                    collEventLog.Add("entrou");
+                    collEventLog.Add("excluiu");
+                    collEventLog.Add("exception");
+                    collEventLog.Add("adicionou");
+                    collEventLog.Add("baixou");
+                    collEventLog.Add("nullo");
                 }
+                finally
+                {
+                    collEventLog.EndUpdate();
+                }
+                cbEentoLog.SelectedIndex = -1;
+
+                ComboBoxItemCollection collUser = cbUsuario.Properties.Items;
+                collUser.BeginUpdate();
+
+                try
+                {
+                    collUser.Add("TODOS");
+                    List<usuario> lisUsuario = conn.listaDeTodosUsuarios();
+                    foreach (usuario u in lisUsuario)
+                    {
+                        collUser.Add(u.login);
+                    }
+                }
+                finally
+                {
+                    collUser.EndUpdate();
+                }
+                cbEentoLog.SelectedIndex = -1;
             }
-            finally
+            catch (Exception ex)
             {
-                collUser.EndUpdate();
+                XtraMessageBox.Show(ex.Message);
             }
-            cbEentoLog.SelectedIndex = -1;
         }
     }
 }

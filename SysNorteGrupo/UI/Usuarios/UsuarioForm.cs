@@ -195,7 +195,7 @@ namespace SysNorteGrupo.UI.Usuarios
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Ocorreu um erro ao tentar executar sua solicitação.\n\n"+ex.Message);
+                    XtraMessageBox.Show("Ocorreu um erro ao tentar executar sua solicitação.\n\n"+ex.Message);
                     formPrincipal.adicionarControleNavegacao(null);
                 }
             }
