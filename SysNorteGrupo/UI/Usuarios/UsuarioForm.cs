@@ -7,6 +7,7 @@ using System;
 using System.Drawing;
 using System.Windows.Forms;
 using WcfLibGrupo;
+
 namespace SysNorteGrupo.UI.Usuarios
 {
     public partial class UsuarioForm : XtraUserControl

@@ -1352,6 +1352,20 @@ namespace WcfLibGrupo
             }
         }
 
+        public void excluiReboquePorId(long id)
+        {
+            try
+            {
+                db.Delete<reboque>("WHERE id=@0", id);
+            }
+            catch (Exception ex)
+            {
+                throw new FaultException(
+                    new FaultReason(String.Format("EXCECÃO: {0}{1}INNER EXCEPTION: {2}", ex.Message, Environment.NewLine, ex.InnerException)),
+                    new FaultCode("1000"));
+            }
+        }
+
         #endregion
 
         #region cidades, bairros, enderecos

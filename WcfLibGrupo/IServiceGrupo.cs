@@ -254,6 +254,8 @@ namespace WcfLibGrupo
         [OperationContract]
         decimal somaValorTotalReboquesPorDataAtivacao(DateTime? data);
 
+        [OperationContract]
+        void excluiReboquePorId(long id);
         #endregion
 
         #region cidades, bairros, enderecos

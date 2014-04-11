@@ -58,7 +58,8 @@ namespace SysNorteGrupo.UI.Usuarios
                 try
                 {
                     SplashScreenManager.ShowForm(typeof(PleaseWaitForm));
-                    bool flag = conn.verificaUsuarioAtivoPorLoginESenha(login, senha);                    
+                    bool flag = conn.verificaUsuarioAtivoPorLoginESenha(login, senha);
+                    //SplashScreenManager.CloseForm();
                     if (flag)
                     {
                         if(formPrincipal == null)
@@ -73,19 +74,19 @@ namespace SysNorteGrupo.UI.Usuarios
                             formPrincipal.adicionarControleNavegacao(formPrincipal.controleAtual);
                             formPrincipal.thisIDLE = false;
                             Log.createLog(EventLog.entered, String.Format("ao sistema após bloquear por inatividade"));
-                        }
+                        }                        
                         this.DialogResult = System.Windows.Forms.DialogResult.OK;
                         this.Close();
                     }
                     else
                     {
                         Log.createLog(EventLog.empty, String.Format("falha ao tentar executar login, login ou senha incorretos. LOGIN: {0} SENHA: {1}",
-                            tfLogin.Text, new DTICrypto().Cifrar(tfSenha.Text, Util.chaveSecureApp)));
+                        tfLogin.Text, new DTICrypto().Cifrar(tfSenha.Text, Util.chaveSecureApp)));
                         Program.usuario_instc = null;
                         lbSenha.Visible = true;
                         tfSenha.Focus();
                         tfSenha.SelectAll();
-                        SplashScreenManager.CloseForm();
+                        //SplashScreenManager.CloseForm();
                     }
                 }
                 catch (Exception ex)

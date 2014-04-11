@@ -69,6 +69,10 @@ namespace SysNorteGrupo.UI.Veiculos.Reboques
                     arquivosFormReb.DIRETORIO = String.Format(@"{0}{1}\", conn.SUBDIR_REBOQUES(), ((reboque)bdgReboqueLista.Current).id);
                     arquivosFormReb.executaBusca();
                     arquivosFormReb.Enabled = true;
+
+                    btnEditar.Enabled = true;
+                    btnInativar.Enabled = false;
+                    btnExcluir.Enabled = false;
                 }
 
                 
@@ -185,6 +189,7 @@ namespace SysNorteGrupo.UI.Veiculos.Reboques
                     btnSalvar.Enabled = false;
                     btnEditar.Enabled = false;
                     btnInativar.Enabled = false;
+                    btnExcluir.Enabled = false;
                 }
             }
             catch (Exception ex)
@@ -200,6 +205,7 @@ namespace SysNorteGrupo.UI.Veiculos.Reboques
             btnSalvar.Enabled = true;
             btnEditar.Enabled = false;
             btnInativar.Enabled = true;
+            btnExcluir.Enabled = true;
             bdgReboqueLista.MoveFirst();
             
             //logs
@@ -228,11 +234,10 @@ namespace SysNorteGrupo.UI.Veiculos.Reboques
                     if (String.IsNullOrEmpty(reb.placa))
                         paralela.Add(reb);
                 }
-
                 paralela.ForEach(x => original.Remove(x));
                 
                 grdReboques.Refresh();
-
+                
                 if (original.Count == 0)
                 {
                     XtraMessageBox.Show("VOCÊ DEVE INFORMAR AO MENOS UM REBOQUE PARA O VEÍCULO.", "SYSNORTE TECNOLOGIA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
@@ -254,6 +259,10 @@ namespace SysNorteGrupo.UI.Veiculos.Reboques
 
                     return;
                 }
+                foreach (reboque r in original)
+                {
+
+                }
 
                 conn.salvarReboques(original);
 
@@ -264,9 +273,11 @@ namespace SysNorteGrupo.UI.Veiculos.Reboques
                 }
 
                 btnSalvar.Enabled = false;
-                XtraMessageBox.Show("REBOQUES SALVOS COM SUCESSO PARA O VEÍCULO INDICADO.", "SYSNORTE TECNOLOGIA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 pnPrincipal.Enabled = false;
                 btnEditar.Enabled = true;
+                btnInativar.Enabled = false;
+                btnExcluir.Enabled = false;
+                XtraMessageBox.Show("REBOQUES SALVOS COM SUCESSO PARA O VEÍCULO INDICADO.", "SYSNORTE TECNOLOGIA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);                
 
                 /*bool empty = Util.textFieldIsEmpty(tfId);
                 //seta validações
@@ -554,6 +565,41 @@ namespace SysNorteGrupo.UI.Veiculos.Reboques
 
             cbCorCarroceria.EditValue = r.cor_carroceria;
             cbCorChassi.EditValue = r.cor_chassi;
+        }
+
+        private void tfPlaca_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            bool empty = Util.textFieldIsEmpty(tfId);
+            if (!String.IsNullOrEmpty(tfPlaca.Text) && !conn.verificaSePlacaReboqueEhUnica(tfPlaca.Text, !empty))
+            {
+                XtraMessageBox.Show(String.Format("A PLACA {0} JÁ ENCONTRA-SE CADASTRADA. VERIFIQUE!", tfPlaca.Text));
+                return;
+            }      
+        }
+
+        private void btnExcluir_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DialogResult rs = XtraMessageBox.Show(String.Format("CONFIRMA EXCLUSÃO DO REBOQUE {0}?\n\nNÃO SERÁ POSSÍVEL REVERTER ESTA AÇÃO!", tfPlaca.Text),
+                    "SYSNORTE",
+                    MessageBoxButtons.OKCancel);
+                if (rs == DialogResult.OK)
+                {
+                    reboque r = (reboque)bdgReboqueLista.Current;
+                    
+                    conn.excluiReboquePorId(r.id);
+                    Log.createLog(EventLog.deleted, String.Format(" reboque ID: {0}", r.id));
+                    bdgReboqueLista.DataSource = conn.listaDeReboquesPorIdVeiculo(Convert.ToInt64(cbVeiculos.EditValue), false);
+                    bdgReboqueLista.MoveFirst();
+                    grdReboques.Refresh();
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Windows.MessageBox.Show("Ocorreu um erro ao tentar executar sua solicitação.\n\n" + ex.Message);
+                formPrincipal.adicionarControleNavegacao(null);
+            }
         }
     }
 }

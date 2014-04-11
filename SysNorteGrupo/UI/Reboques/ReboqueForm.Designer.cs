@@ -29,6 +29,7 @@ namespace SysNorteGrupo.UI.Veiculos.Reboques
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ReboqueForm));
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule2 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
@@ -47,15 +48,16 @@ namespace SysNorteGrupo.UI.Veiculos.Reboques
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule15 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule16 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             this.pnBotoes = new DevExpress.XtraEditors.PanelControl();
-            this.btnSair = new BotaoSair();
-            this.btnInativar = new BotaoInativar();
-            this.btnNovo = new BotaoNovo();
-            this.btnEditar = new BotaoEditar();
-            this.btnSalvar = new BotaoSalvar();
+            this.btnExcluir = new SysNorteGrupo.UI.Utils.Botoes.BotaoExcluir();
+            this.btnSair = new SysNorteGrupo.UI.Utils.Botoes.BotaoSair();
+            this.btnInativar = new SysNorteGrupo.UI.Utils.Botoes.BotaoInativar();
+            this.btnNovo = new SysNorteGrupo.UI.Utils.Botoes.BotaoNovo();
+            this.btnEditar = new SysNorteGrupo.UI.Utils.Botoes.BotaoEditar();
+            this.btnSalvar = new SysNorteGrupo.UI.Utils.Botoes.BotaoSalvar();
             this.pnPrincipal = new DevExpress.XtraEditors.PanelControl();
             this.pnTabela = new DevExpress.XtraEditors.PanelControl();
             this.grdReboques = new DevExpress.XtraGrid.GridControl();
-            this.bdgReboqueLista = new System.Windows.Forms.BindingSource();
+            this.bdgReboqueLista = new System.Windows.Forms.BindingSource(this.components);
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colrenavam = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colchassi = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -82,14 +84,14 @@ namespace SysNorteGrupo.UI.Veiculos.Reboques
             this.colcotas = new DevExpress.XtraGrid.Columns.GridColumn();
             this.arquivosFormReb = new SysFileManager.ArquivosForm();
             this.cbVeiculos = new DevExpress.XtraEditors.SearchLookUpEdit();
-            this.bdgVeiculo = new System.Windows.Forms.BindingSource();
+            this.bdgVeiculo = new System.Windows.Forms.BindingSource(this.components);
             this.gridView9 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colplacaveic = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colestadoveic = new DevExpress.XtraGrid.Columns.GridColumn();
             this.labelControl22 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.cbCliente = new DevExpress.XtraEditors.SearchLookUpEdit();
-            this.bdgCliente = new System.Windows.Forms.BindingSource();
+            this.bdgCliente = new System.Windows.Forms.BindingSource(this.components);
             this.searchLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colnome_completo = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -126,7 +128,7 @@ namespace SysNorteGrupo.UI.Veiculos.Reboques
             this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.cbCidade = new DevExpress.XtraEditors.SearchLookUpEdit();
-            this.bdgCidade = new System.Windows.Forms.BindingSource();
+            this.bdgCidade = new System.Windows.Forms.BindingSource(this.components);
             this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colCidadecidade = new DevExpress.XtraGrid.Columns.GridColumn();
             this.btnRemover = new DevExpress.XtraEditors.SimpleButton();
@@ -135,14 +137,14 @@ namespace SysNorteGrupo.UI.Veiculos.Reboques
             this.labelControl16 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl18 = new DevExpress.XtraEditors.LabelControl();
             this.cbCorCarroceria = new DevExpress.XtraEditors.SearchLookUpEdit();
-            this.bdgCor = new System.Windows.Forms.BindingSource();
+            this.bdgCor = new System.Windows.Forms.BindingSource(this.components);
             this.gridView8 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn13 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn14 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.lbCorCarroceria = new DevExpress.XtraEditors.LabelControl();
             this.labelControl21 = new DevExpress.XtraEditors.LabelControl();
             this.cbCorChassi = new DevExpress.XtraEditors.SearchLookUpEdit();
-            this.bdgCorChassi = new System.Windows.Forms.BindingSource();
+            this.bdgCorChassi = new System.Windows.Forms.BindingSource(this.components);
             this.gridView7 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colid_cor = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colnome_cor = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -153,14 +155,14 @@ namespace SysNorteGrupo.UI.Veiculos.Reboques
             this.tfDataAgendamento = new DevExpress.XtraEditors.DateEdit();
             this.labelControl12 = new DevExpress.XtraEditors.LabelControl();
             this.cbEstado = new DevExpress.XtraEditors.SearchLookUpEdit();
-            this.bdgEstado = new System.Windows.Forms.BindingSource();
+            this.bdgEstado = new System.Windows.Forms.BindingSource(this.components);
             this.gridView5 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn9 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.coluf = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colnome_estado = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colcod_ibge = new DevExpress.XtraGrid.Columns.GridColumn();
             this.cbEspecie = new DevExpress.XtraEditors.SearchLookUpEdit();
-            this.bdgEspecie = new System.Windows.Forms.BindingSource();
+            this.bdgEspecie = new System.Windows.Forms.BindingSource(this.components);
             this.gridView3 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn8 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colespecie = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -180,7 +182,7 @@ namespace SysNorteGrupo.UI.Veiculos.Reboques
             this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl14 = new DevExpress.XtraEditors.LabelControl();
             this.tfId = new DevExpress.XtraEditors.TextEdit();
-            this.validator = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider();
+            this.validator = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pnBotoes)).BeginInit();
             this.pnBotoes.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pnPrincipal)).BeginInit();
@@ -237,6 +239,7 @@ namespace SysNorteGrupo.UI.Veiculos.Reboques
             this.pnBotoes.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(82)))), ((int)(((byte)(155)))));
             this.pnBotoes.Appearance.Options.UseBackColor = true;
             this.pnBotoes.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.pnBotoes.Controls.Add(this.btnExcluir);
             this.pnBotoes.Controls.Add(this.btnSair);
             this.pnBotoes.Controls.Add(this.btnInativar);
             this.pnBotoes.Controls.Add(this.btnNovo);
@@ -247,6 +250,24 @@ namespace SysNorteGrupo.UI.Veiculos.Reboques
             this.pnBotoes.Name = "pnBotoes";
             this.pnBotoes.Size = new System.Drawing.Size(901, 69);
             this.pnBotoes.TabIndex = 1;
+            // 
+            // btnExcluir
+            // 
+            this.btnExcluir.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(199)))));
+            this.btnExcluir.Enabled = false;
+            this.btnExcluir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExcluir.Font = new System.Drawing.Font("Segoe UI Light", 12F);
+            this.btnExcluir.ForeColor = System.Drawing.Color.White;
+            this.btnExcluir.Image = ((System.Drawing.Image)(resources.GetObject("btnExcluir.Image")));
+            this.btnExcluir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnExcluir.Location = new System.Drawing.Point(485, 6);
+            this.btnExcluir.Name = "btnExcluir";
+            this.btnExcluir.Size = new System.Drawing.Size(125, 56);
+            this.btnExcluir.TabIndex = 5;
+            this.btnExcluir.Text = "Excluir";
+            this.btnExcluir.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnExcluir.UseVisualStyleBackColor = false;
+            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
             // 
             // btnSair
             // 
@@ -268,6 +289,7 @@ namespace SysNorteGrupo.UI.Veiculos.Reboques
             // btnInativar
             // 
             this.btnInativar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(199)))));
+            this.btnInativar.Enabled = false;
             this.btnInativar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnInativar.Font = new System.Drawing.Font("Segoe UI Light", 12F);
             this.btnInativar.ForeColor = System.Drawing.Color.White;
@@ -302,6 +324,7 @@ namespace SysNorteGrupo.UI.Veiculos.Reboques
             // btnEditar
             // 
             this.btnEditar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(199)))));
+            this.btnEditar.Enabled = false;
             this.btnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEditar.Font = new System.Drawing.Font("Segoe UI Light", 12F);
             this.btnEditar.ForeColor = System.Drawing.Color.White;
@@ -1149,6 +1172,7 @@ namespace SysNorteGrupo.UI.Veiculos.Reboques
             conditionValidationRule8.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
             conditionValidationRule8.ErrorText = "Informe a placa";
             this.validator.SetValidationRule(this.tfPlaca, conditionValidationRule8);
+            this.tfPlaca.Validating += new System.ComponentModel.CancelEventHandler(this.tfPlaca_Validating);
             // 
             // ckAgendarCad
             // 
@@ -1680,5 +1704,6 @@ namespace SysNorteGrupo.UI.Veiculos.Reboques
         private DevExpress.XtraEditors.LabelControl labelControl3;
         private DevExpress.XtraEditors.TextEdit tfModelo;
         private DevExpress.XtraEditors.TextEdit tfMarca;
+        private BotaoExcluir btnExcluir;
     }
 }
