@@ -38,13 +38,49 @@ namespace SysNorteGrupo
             if (usuario_instc == null)
             {
                 Program.startApplication();
-                this.Close();                
+                this.Dispose();                
             }
             InitializeComponent();
             conn = GerenteDeConexoes.conexaoServico();
             //carregaPermissoes(permicao_instc);
             this.Text = String.Format("SysNorte Tecnologia Copyright © 2014 | SysNorteGrupo | Usuário: {0} | Versão: 1.0.0.0", usuario_instc.login);
+            recarregaInformacoesDesktop();
             SplashScreenManager.CloseForm();
+        }
+
+        private void recarregaInformacoesDesktop()
+        {
+            try
+            {
+                long clientes_ativos = conn.totalDeClientesPorInatividade(false);
+                long clientes_inativos = conn.totalDeClientesPorInatividade(true);
+                lbTotal_clientes.Text = String.Format("{0} CLIENTE(S)", clientes_ativos + clientes_inativos);
+                lbClientes_ativos.Text = String.Format("{0} ATIVO(S)", clientes_ativos);
+                lbClientes_inativos.Text = String.Format("{0} INATIVO(S)", clientes_inativos);
+
+
+                long veiculos_ativos = conn.totalDeVeiculosPorInatividade(false);
+                long veiculos_inativos = conn.totalDeVeiculosPorInatividade(true);
+                lbTotal_veiculos.Text = String.Format("{0} VEÍCULO(S)", veiculos_ativos + veiculos_inativos);
+                lbVeiculos_ativos.Text = String.Format("{0} ATIVO(S)", veiculos_ativos);
+                lbVeiculos_inativos.Text = String.Format("{0} INATIVO(S)", veiculos_inativos);
+
+                long reboques_ativos = conn.totalDeReboquesPorInatividade(false);
+                long reboques_inativos = conn.totalDeReboquesPorInatividade(true);
+                lbTotal_reboques.Text = String.Format("{0} REBOQUE(S)", reboques_ativos + reboques_inativos);
+                lbReboques_ativos.Text = String.Format("{0} ATIVO(S)", reboques_ativos);
+                lbReboques_inativos.Text = String.Format("{0} INATIVO(S)", reboques_inativos);
+
+                long sinistros_concluidos = conn.totalDeSinistrosPorSituacao(1);
+                long sinistros_em_andamento = conn.totalDeSinistrosPorSituacao(0);
+                lbTotal_sinistros.Text = String.Format("{0} SINISTRO(S)", sinistros_concluidos + sinistros_em_andamento);
+                lbSinistros_concluidos.Text = String.Format("{0} CONCLUIDO(S)", sinistros_concluidos);
+                lbSinistros_em_andamento.Text = String.Format("{0} EM ANDAMENTO", sinistros_em_andamento);
+            }
+            catch (Exception)
+            {
+                XtraMessageBox.Show(String.Format("Ocorreu um problema ao recuperar as informações da area de trabalho."));
+            }
         }
 
         void startIDLE()
@@ -96,6 +132,11 @@ namespace SysNorteGrupo
                     this.pnControl.Controls.Add(controle);
                     this.MinimumSize = controle.Size + new Size(0, ribbon.Height) + new Size(20, 35);
                 }
+                else
+                {
+                    this.MinimumSize = new Size(0, ribbon.Height) + new Size(720, 561);
+                    recarregaInformacoesDesktop();
+                }
                 controleAtual = controle;
             }
             catch (Exception ex)
@@ -108,6 +149,8 @@ namespace SysNorteGrupo
                 {
                     controle.Visible = true;
                 }
+                this.pnControl.Controls.Add(this.pnInformacoes);
+                this.pnInformacoes.Dock = System.Windows.Forms.DockStyle.Top;
                 SplashScreenManager.CloseForm();
             }
         }
@@ -177,11 +220,6 @@ namespace SysNorteGrupo
             adicionarControleNavegacao(af);
             Log.createLog(EventLog.opened, "formulario de arquivos empresa");
             af.executaBusca();
-        }
-
-        private void ribbon_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void barButtonItem5_ItemClick(object sender, ItemClickEventArgs e)
@@ -372,9 +410,29 @@ namespace SysNorteGrupo
             ps.ShowDialog();
         }
 
-        private void btnLimpaPanel_ItemClick(object sender, ItemClickEventArgs e)
+        private void btnLimparAreaDeTrabalho_ItemClick(object sender, ItemClickEventArgs e)
         {
-            this.pnControl.Controls.Clear();
+            adicionarControleNavegacao(null);
+        }
+
+        private void btnAtualizaInformacoes_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            recarregaInformacoesDesktop();
+        }
+
+        private void ckMostrarPainelInformacoes_CheckedChanged(object sender, ItemClickEventArgs e)
+        {
+            if (ckMostrarPainelInformacoes.Checked)
+            {
+                subPanelInformacoes.Visible = true;
+                btnAtualizaInformacoes.Enabled = true;
+                recarregaInformacoesDesktop();
+            }
+            else
+            {
+                subPanelInformacoes.Visible = false;
+                btnAtualizaInformacoes.Enabled = false;
+            }
         }
     }
 }

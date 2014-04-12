@@ -615,6 +615,22 @@ namespace WcfLibGrupo
                     new FaultCode("ERRDB"));
             }
         }
+
+        public long totalDeClientesPorInatividade(bool inativo)
+        {
+            try
+            {
+                var sql = Sql.Builder.Append("SELECT Count(*) FROM cliente WHERE inativo=@0", inativo);
+                return cliente.repo.ExecuteScalar<long>(sql);
+            }
+            catch (Exception ex)
+            {
+                throw new FaultException(
+                    new FaultReason(String.Format("EXCEPT: {0}\n\nINNER EXCEPT: {1}", ex.Message, ex.InnerException)),
+                    new FaultCode("ERRDB"));
+            }
+        }
+
         #endregion
 
         #region fipe
@@ -696,7 +712,7 @@ namespace WcfLibGrupo
 
         #endregion
 
-        #region Veiculos
+        #region veiculos
 
         public long salvarVeiculo(veiculo veiculo_obj)
         {
@@ -1003,6 +1019,21 @@ namespace WcfLibGrupo
                 throw new FaultException(
                     new FaultReason(String.Format("EXCECÃO: {0}{1}INNER EXCEPTION: {2}", ex.Message, Environment.NewLine, ex.InnerException)),
                     new FaultCode("1000"));
+            }
+        }
+
+        public long totalDeVeiculosPorInatividade(bool inativo)
+        {
+            try
+            {
+                var sql = Sql.Builder.Append("SELECT Count(*) FROM veiculos WHERE inativo=@0", inativo);
+                return veiculo.repo.ExecuteScalar<long>(sql);
+            }
+            catch (Exception ex)
+            {
+                throw new FaultException(
+                    new FaultReason(String.Format("EXCEPT: {0}\n\nINNER EXCEPT: {1}", ex.Message, ex.InnerException)),
+                    new FaultCode("ERRDB"));
             }
         }
 
@@ -1363,6 +1394,21 @@ namespace WcfLibGrupo
                 throw new FaultException(
                     new FaultReason(String.Format("EXCECÃO: {0}{1}INNER EXCEPTION: {2}", ex.Message, Environment.NewLine, ex.InnerException)),
                     new FaultCode("1000"));
+            }
+        }
+
+        public long totalDeReboquesPorInatividade(bool inativo)
+        {
+            try
+            {
+                var sql = Sql.Builder.Append("SELECT Count(*) FROM reboques WHERE inativo=@0", inativo);
+                return reboque.repo.ExecuteScalar<long>(sql);
+            }
+            catch (Exception ex)
+            {
+                throw new FaultException(
+                    new FaultReason(String.Format("EXCEPT: {0}\n\nINNER EXCEPT: {1}", ex.Message, ex.InnerException)),
+                    new FaultCode("ERRDB"));
             }
         }
 
@@ -1907,6 +1953,21 @@ namespace WcfLibGrupo
                     return false;
                 else
                     return true;
+            }
+            catch (Exception ex)
+            {
+                throw new FaultException(
+                    new FaultReason(String.Format("EXCEPT: {0}\n\nINNER EXCEPT: {1}", ex.Message, ex.InnerException)),
+                    new FaultCode("ERRDB"));
+            }
+        }
+
+        public long totalDeSinistrosPorSituacao(int situacao)
+        {
+            try
+            {
+                var sql = Sql.Builder.Append("SELECT Count(*) FROM sinistros WHERE situacao_sinistro=@0", situacao);
+                return sinistro.repo.ExecuteScalar<long>(sql);
             }
             catch (Exception ex)
             {

@@ -185,11 +185,11 @@ namespace SysNorteGrupo.UI.Usuarios
             this.KeyPreview = true;
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(539, 278);
-            this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(539, 278);
             this.Name = "LoginForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.LoginForm_FormClosing);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Login_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.tfLogin.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfSenha.Properties)).EndInit();

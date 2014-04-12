@@ -6,7 +6,7 @@ namespace SysNorteGrupo.Utils
 {
     public class Centraliza
     {
-        private static Point centralizaUserControl(PanelControl p, XtraUserControl u)
+        private static Point centralizaUserControl(PanelControl p, Control u)
         {
             Point point = new Point((p.ClientSize.Width - u.Width) / 2, (p.ClientSize.Height - u.Height) / 2);
             return point;
@@ -14,12 +14,10 @@ namespace SysNorteGrupo.Utils
 
         public static void centralizaControlsPainel(PanelControl p)
         {
-            p.Visible = false;
             foreach (Control cp in p.Controls)
             {
-                cp.Location = centralizaUserControl(p, (XtraUserControl)cp);
+                cp.Location = centralizaUserControl(p, cp);
             }
-            p.Visible = true;
         }
     }
 }

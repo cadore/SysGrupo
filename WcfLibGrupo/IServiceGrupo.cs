@@ -128,6 +128,9 @@ namespace WcfLibGrupo
         [OperationContract]
         List<cliente> listaDeClientesPorDataDeAtivacao(DateTime? data);
 
+        [OperationContract]
+        long totalDeClientesPorInatividade(bool inativo);
+
         #endregion
 
         #region fipe
@@ -199,6 +202,9 @@ namespace WcfLibGrupo
         [OperationContract]
         List<veiculo> listaDeTodosVeiculos();
 
+        [OperationContract]
+        long totalDeVeiculosPorInatividade(bool inativo);
+
         #endregion
 
         #region reboques
@@ -256,6 +262,9 @@ namespace WcfLibGrupo
 
         [OperationContract]
         void excluiReboquePorId(long id);
+
+        [OperationContract]
+        long totalDeReboquesPorInatividade(bool inativo);
         #endregion
 
         #region cidades, bairros, enderecos
@@ -372,6 +381,9 @@ namespace WcfLibGrupo
 
         [OperationContract]
         bool verificaSeReboqueEstaEmSinistroAtivo(long idVeiculo, bool edit, int situacaoSinistro, int numeroReboque);
+
+        [OperationContract]
+        long totalDeSinistrosPorSituacao(int situacao);
 
         #endregion
     }

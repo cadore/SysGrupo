@@ -42,8 +42,8 @@ namespace SysNorteGrupo.UI.Usuarios
             userIdleDetectTimeExit = UserIdleDetect.StartDetection(UserIdleDetect.minutes(20));
             userIdleDetectTimeExit.UserIdleDetected += userIdleDetect_UserIdleDetectedExitSystem;
 
-            /*tfLogin.Text = "admin";
-            tfSenha.Text = "admin";*/
+            tfLogin.Text = "admin";
+            tfSenha.Text = "admin";
             Thread.Sleep(1500);
         }
 
@@ -152,6 +152,11 @@ namespace SysNorteGrupo.UI.Usuarios
                     "SYSNORTE TECNOLOGIA - SysNorteGrupo");
                 Environment.Exit(0);
             });*/
+        }
+
+        private void LoginForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            //btnSair_Click(sender, e);
         }
     }
 }

@@ -50,15 +50,19 @@
             this.btnRelClientesECotas = new DevExpress.XtraBars.BarButtonItem();
             this.btnConfigEnderecoServico = new DevExpress.XtraBars.BarButtonItem();
             this.btnPrefSistema = new DevExpress.XtraBars.BarButtonItem();
-            this.btnLimpaPanel = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem7 = new DevExpress.XtraBars.BarButtonItem();
+            this.btnLimparAreaDeTrabalho = new DevExpress.XtraBars.BarButtonItem();
+            this.btnAtualizaInformacoes = new DevExpress.XtraBars.BarButtonItem();
+            this.subMenuPaineis = new DevExpress.XtraBars.BarSubItem();
+            this.ckMostrarPainelInformacoes = new DevExpress.XtraBars.BarCheckItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribClientes = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribVeiculos = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPageGroup9 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage3 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup7 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage2 = new DevExpress.XtraBars.Ribbon.RibbonPage();
@@ -70,11 +74,30 @@
             this.repositoryItemTextEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.pnControl = new DevExpress.XtraEditors.PanelControl();
+            this.pnInformacoes = new DevExpress.XtraEditors.PanelControl();
+            this.subPanelInformacoes = new DevExpress.XtraEditors.PanelControl();
+            this.lbTotal_clientes = new DevExpress.XtraEditors.LabelControl();
+            this.lbSinistros_em_andamento = new DevExpress.XtraEditors.LabelControl();
+            this.lbTotal_veiculos = new DevExpress.XtraEditors.LabelControl();
+            this.lbReboques_inativos = new DevExpress.XtraEditors.LabelControl();
+            this.lbTotal_reboques = new DevExpress.XtraEditors.LabelControl();
+            this.lbVeiculos_inativos = new DevExpress.XtraEditors.LabelControl();
+            this.lbTotal_sinistros = new DevExpress.XtraEditors.LabelControl();
+            this.lbClientes_inativos = new DevExpress.XtraEditors.LabelControl();
+            this.lbClientes_ativos = new DevExpress.XtraEditors.LabelControl();
+            this.lbSinistros_concluidos = new DevExpress.XtraEditors.LabelControl();
+            this.lbVeiculos_ativos = new DevExpress.XtraEditors.LabelControl();
+            this.lbReboques_ativos = new DevExpress.XtraEditors.LabelControl();
             this.barStaticItem1 = new DevExpress.XtraBars.BarStaticItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             this.backstageViewControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pnControl)).BeginInit();
+            this.pnControl.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pnInformacoes)).BeginInit();
+            this.pnInformacoes.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.subPanelInformacoes)).BeginInit();
+            this.subPanelInformacoes.SuspendLayout();
             this.SuspendLayout();
             // 
             // ribbon
@@ -100,11 +123,14 @@
             this.btnRelClientesECotas,
             this.btnConfigEnderecoServico,
             this.btnPrefSistema,
-            this.btnLimpaPanel,
             this.barButtonItem1,
-            this.barButtonItem7});
+            this.barButtonItem7,
+            this.btnLimparAreaDeTrabalho,
+            this.btnAtualizaInformacoes,
+            this.subMenuPaineis,
+            this.ckMostrarPainelInformacoes});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.MaxItemId = 31;
+            this.ribbon.MaxItemId = 35;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1,
@@ -115,34 +141,33 @@
             this.ribbon.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.Office2013;
             this.ribbon.Size = new System.Drawing.Size(1020, 144);
             this.ribbon.StatusBar = this.ribbonStatusBar;
-            this.ribbon.Toolbar.ItemLinks.Add(this.btnLimpaPanel);
-            this.ribbon.Click += new System.EventHandler(this.ribbon_Click);
             // 
             // backstageViewControl1
             // 
             this.backstageViewControl1.ColorScheme = DevExpress.XtraBars.Ribbon.RibbonControlColorScheme.Yellow;
             this.backstageViewControl1.Controls.Add(this.backstageViewClientControl1);
             this.backstageViewControl1.Items.Add(this.backstageViewTabItem1);
-            this.backstageViewControl1.Location = new System.Drawing.Point(72, 216);
+            this.backstageViewControl1.Location = new System.Drawing.Point(0, 150);
             this.backstageViewControl1.Name = "backstageViewControl1";
             this.backstageViewControl1.Ribbon = this.ribbon;
-            this.backstageViewControl1.SelectedTab = null;
-            this.backstageViewControl1.Size = new System.Drawing.Size(480, 150);
+            this.backstageViewControl1.SelectedTab = this.backstageViewTabItem1;
+            this.backstageViewControl1.SelectedTabIndex = 0;
+            this.backstageViewControl1.Size = new System.Drawing.Size(1020, 261);
             this.backstageViewControl1.TabIndex = 5;
             // 
             // backstageViewClientControl1
             // 
-            this.backstageViewClientControl1.Location = new System.Drawing.Point(189, 63);
+            this.backstageViewClientControl1.Location = new System.Drawing.Point(133, 63);
             this.backstageViewClientControl1.Name = "backstageViewClientControl1";
-            this.backstageViewClientControl1.Size = new System.Drawing.Size(290, 86);
+            this.backstageViewClientControl1.Size = new System.Drawing.Size(886, 197);
             this.backstageViewClientControl1.TabIndex = 0;
             // 
             // backstageViewTabItem1
             // 
-            this.backstageViewTabItem1.Caption = "backstageViewTabItem1";
+            this.backstageViewTabItem1.Caption = "temp";
             this.backstageViewTabItem1.ContentControl = this.backstageViewClientControl1;
             this.backstageViewTabItem1.Name = "backstageViewTabItem1";
-            this.backstageViewTabItem1.Selected = false;
+            this.backstageViewTabItem1.Selected = true;
             // 
             // btnBuscarCliente
             // 
@@ -300,15 +325,6 @@
             this.btnPrefSistema.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
             this.btnPrefSistema.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnPrefSistema_ItemClick);
             // 
-            // btnLimpaPanel
-            // 
-            this.btnLimpaPanel.Caption = "Limpar Area de Trabalho";
-            this.btnLimpaPanel.Glyph = ((System.Drawing.Image)(resources.GetObject("btnLimpaPanel.Glyph")));
-            this.btnLimpaPanel.Id = 26;
-            this.btnLimpaPanel.Name = "btnLimpaPanel";
-            this.btnLimpaPanel.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
-            this.btnLimpaPanel.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnLimpaPanel_ItemClick);
-            // 
             // barButtonItem1
             // 
             this.barButtonItem1.Caption = "barButtonItem1";
@@ -321,6 +337,42 @@
             this.barButtonItem7.Id = 29;
             this.barButtonItem7.Name = "barButtonItem7";
             // 
+            // btnLimparAreaDeTrabalho
+            // 
+            this.btnLimparAreaDeTrabalho.Caption = "Limpar área de trabalho";
+            this.btnLimparAreaDeTrabalho.Glyph = ((System.Drawing.Image)(resources.GetObject("btnLimparAreaDeTrabalho.Glyph")));
+            this.btnLimparAreaDeTrabalho.Id = 31;
+            this.btnLimparAreaDeTrabalho.Name = "btnLimparAreaDeTrabalho";
+            this.btnLimparAreaDeTrabalho.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.btnLimparAreaDeTrabalho.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnLimparAreaDeTrabalho_ItemClick);
+            // 
+            // btnAtualizaInformacoes
+            // 
+            this.btnAtualizaInformacoes.Caption = "Atualizar informações";
+            this.btnAtualizaInformacoes.Glyph = ((System.Drawing.Image)(resources.GetObject("btnAtualizaInformacoes.Glyph")));
+            this.btnAtualizaInformacoes.Id = 32;
+            this.btnAtualizaInformacoes.Name = "btnAtualizaInformacoes";
+            this.btnAtualizaInformacoes.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.btnAtualizaInformacoes.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnAtualizaInformacoes_ItemClick);
+            // 
+            // subMenuPaineis
+            // 
+            this.subMenuPaineis.Caption = "Painel de Informações";
+            this.subMenuPaineis.Glyph = ((System.Drawing.Image)(resources.GetObject("subMenuPaineis.Glyph")));
+            this.subMenuPaineis.Id = 33;
+            this.subMenuPaineis.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.ckMostrarPainelInformacoes, DevExpress.XtraBars.BarItemPaintStyle.Standard)});
+            this.subMenuPaineis.Name = "subMenuPaineis";
+            this.subMenuPaineis.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            // 
+            // ckMostrarPainelInformacoes
+            // 
+            this.ckMostrarPainelInformacoes.Caption = "Mostrar";
+            this.ckMostrarPainelInformacoes.Checked = true;
+            this.ckMostrarPainelInformacoes.Id = 34;
+            this.ckMostrarPainelInformacoes.Name = "ckMostrarPainelInformacoes";
+            this.ckMostrarPainelInformacoes.CheckedChanged += new DevExpress.XtraBars.ItemClickEventHandler(this.ckMostrarPainelInformacoes_CheckedChanged);
+            // 
             // ribbonPage1
             // 
             this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -328,7 +380,8 @@
             this.ribVeiculos,
             this.ribbonPageGroup2,
             this.ribbonPageGroup3,
-            this.ribbonPageGroup1});
+            this.ribbonPageGroup1,
+            this.ribbonPageGroup9});
             this.ribbonPage1.Name = "ribbonPage1";
             this.ribbonPage1.Text = "Geral";
             // 
@@ -376,6 +429,16 @@
             this.ribbonPageGroup1.Name = "ribbonPageGroup1";
             this.ribbonPageGroup1.ShowCaptionButton = false;
             this.ribbonPageGroup1.Text = "Arquivos";
+            // 
+            // ribbonPageGroup9
+            // 
+            this.ribbonPageGroup9.AllowTextClipping = false;
+            this.ribbonPageGroup9.ItemLinks.Add(this.btnLimparAreaDeTrabalho);
+            this.ribbonPageGroup9.ItemLinks.Add(this.btnAtualizaInformacoes);
+            this.ribbonPageGroup9.ItemLinks.Add(this.subMenuPaineis);
+            this.ribbonPageGroup9.Name = "ribbonPageGroup9";
+            this.ribbonPageGroup9.ShowCaptionButton = false;
+            this.ribbonPageGroup9.Text = "Área de Trabalho";
             // 
             // ribbonPage3
             // 
@@ -459,12 +522,169 @@
             // 
             // pnControl
             // 
+            this.pnControl.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.pnControl.ContentImage = global::SysNorteGrupo.Properties.Resources.sigla_SysNorte;
+            this.pnControl.Controls.Add(this.pnInformacoes);
             this.pnControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnControl.Location = new System.Drawing.Point(0, 144);
             this.pnControl.Name = "pnControl";
             this.pnControl.Size = new System.Drawing.Size(1020, 440);
             this.pnControl.TabIndex = 2;
             this.pnControl.ControlAdded += new System.Windows.Forms.ControlEventHandler(this.pnControl_ControlAdded);
+            // 
+            // pnInformacoes
+            // 
+            this.pnInformacoes.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.pnInformacoes.Appearance.Options.UseBackColor = true;
+            this.pnInformacoes.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.pnInformacoes.Controls.Add(this.subPanelInformacoes);
+            this.pnInformacoes.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnInformacoes.Location = new System.Drawing.Point(2, 2);
+            this.pnInformacoes.Name = "pnInformacoes";
+            this.pnInformacoes.Size = new System.Drawing.Size(1016, 355);
+            this.pnInformacoes.TabIndex = 0;
+            // 
+            // subPanelInformacoes
+            // 
+            this.subPanelInformacoes.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.subPanelInformacoes.Appearance.Options.UseBackColor = true;
+            this.subPanelInformacoes.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.subPanelInformacoes.Controls.Add(this.lbTotal_clientes);
+            this.subPanelInformacoes.Controls.Add(this.lbSinistros_em_andamento);
+            this.subPanelInformacoes.Controls.Add(this.lbTotal_veiculos);
+            this.subPanelInformacoes.Controls.Add(this.lbReboques_inativos);
+            this.subPanelInformacoes.Controls.Add(this.lbTotal_reboques);
+            this.subPanelInformacoes.Controls.Add(this.lbVeiculos_inativos);
+            this.subPanelInformacoes.Controls.Add(this.lbTotal_sinistros);
+            this.subPanelInformacoes.Controls.Add(this.lbClientes_inativos);
+            this.subPanelInformacoes.Controls.Add(this.lbClientes_ativos);
+            this.subPanelInformacoes.Controls.Add(this.lbSinistros_concluidos);
+            this.subPanelInformacoes.Controls.Add(this.lbVeiculos_ativos);
+            this.subPanelInformacoes.Controls.Add(this.lbReboques_ativos);
+            this.subPanelInformacoes.Location = new System.Drawing.Point(3, 3);
+            this.subPanelInformacoes.Name = "subPanelInformacoes";
+            this.subPanelInformacoes.Size = new System.Drawing.Size(253, 309);
+            this.subPanelInformacoes.TabIndex = 1;
+            // 
+            // lbTotal_clientes
+            // 
+            this.lbTotal_clientes.Appearance.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTotal_clientes.Appearance.ForeColor = System.Drawing.Color.Black;
+            this.lbTotal_clientes.Location = new System.Drawing.Point(3, 3);
+            this.lbTotal_clientes.Name = "lbTotal_clientes";
+            this.lbTotal_clientes.Size = new System.Drawing.Size(92, 20);
+            this.lbTotal_clientes.TabIndex = 0;
+            this.lbTotal_clientes.Text = "total_clientes";
+            // 
+            // lbSinistros_em_andamento
+            // 
+            this.lbSinistros_em_andamento.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbSinistros_em_andamento.Appearance.ForeColor = System.Drawing.Color.Red;
+            this.lbSinistros_em_andamento.Location = new System.Drawing.Point(4, 244);
+            this.lbSinistros_em_andamento.Name = "lbSinistros_em_andamento";
+            this.lbSinistros_em_andamento.Size = new System.Drawing.Size(136, 15);
+            this.lbSinistros_em_andamento.TabIndex = 0;
+            this.lbSinistros_em_andamento.Text = "sinistros_em_andamento";
+            // 
+            // lbTotal_veiculos
+            // 
+            this.lbTotal_veiculos.Appearance.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTotal_veiculos.Appearance.ForeColor = System.Drawing.Color.Black;
+            this.lbTotal_veiculos.Location = new System.Drawing.Point(3, 70);
+            this.lbTotal_veiculos.Name = "lbTotal_veiculos";
+            this.lbTotal_veiculos.Size = new System.Drawing.Size(95, 20);
+            this.lbTotal_veiculos.TabIndex = 0;
+            this.lbTotal_veiculos.Text = "total_veiculos";
+            // 
+            // lbReboques_inativos
+            // 
+            this.lbReboques_inativos.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbReboques_inativos.Appearance.ForeColor = System.Drawing.Color.Red;
+            this.lbReboques_inativos.Location = new System.Drawing.Point(5, 176);
+            this.lbReboques_inativos.Name = "lbReboques_inativos";
+            this.lbReboques_inativos.Size = new System.Drawing.Size(100, 15);
+            this.lbReboques_inativos.TabIndex = 0;
+            this.lbReboques_inativos.Text = "reboques_inativos";
+            // 
+            // lbTotal_reboques
+            // 
+            this.lbTotal_reboques.Appearance.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTotal_reboques.Appearance.ForeColor = System.Drawing.Color.Black;
+            this.lbTotal_reboques.Location = new System.Drawing.Point(4, 140);
+            this.lbTotal_reboques.Name = "lbTotal_reboques";
+            this.lbTotal_reboques.Size = new System.Drawing.Size(104, 20);
+            this.lbTotal_reboques.TabIndex = 0;
+            this.lbTotal_reboques.Text = "total_reboques";
+            // 
+            // lbVeiculos_inativos
+            // 
+            this.lbVeiculos_inativos.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbVeiculos_inativos.Appearance.ForeColor = System.Drawing.Color.Red;
+            this.lbVeiculos_inativos.Location = new System.Drawing.Point(4, 106);
+            this.lbVeiculos_inativos.Name = "lbVeiculos_inativos";
+            this.lbVeiculos_inativos.Size = new System.Drawing.Size(93, 15);
+            this.lbVeiculos_inativos.TabIndex = 0;
+            this.lbVeiculos_inativos.Text = "veiculos_inativos";
+            // 
+            // lbTotal_sinistros
+            // 
+            this.lbTotal_sinistros.Appearance.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTotal_sinistros.Appearance.ForeColor = System.Drawing.Color.Black;
+            this.lbTotal_sinistros.Location = new System.Drawing.Point(3, 208);
+            this.lbTotal_sinistros.Name = "lbTotal_sinistros";
+            this.lbTotal_sinistros.Size = new System.Drawing.Size(98, 20);
+            this.lbTotal_sinistros.TabIndex = 0;
+            this.lbTotal_sinistros.Text = "total_sinistros";
+            // 
+            // lbClientes_inativos
+            // 
+            this.lbClientes_inativos.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbClientes_inativos.Appearance.ForeColor = System.Drawing.Color.Red;
+            this.lbClientes_inativos.Location = new System.Drawing.Point(4, 39);
+            this.lbClientes_inativos.Name = "lbClientes_inativos";
+            this.lbClientes_inativos.Size = new System.Drawing.Size(91, 15);
+            this.lbClientes_inativos.TabIndex = 0;
+            this.lbClientes_inativos.Text = "clientes_inativos";
+            // 
+            // lbClientes_ativos
+            // 
+            this.lbClientes_ativos.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbClientes_ativos.Appearance.ForeColor = System.Drawing.Color.Green;
+            this.lbClientes_ativos.Location = new System.Drawing.Point(3, 23);
+            this.lbClientes_ativos.Name = "lbClientes_ativos";
+            this.lbClientes_ativos.Size = new System.Drawing.Size(89, 17);
+            this.lbClientes_ativos.TabIndex = 0;
+            this.lbClientes_ativos.Text = "clientes_ativos";
+            // 
+            // lbSinistros_concluidos
+            // 
+            this.lbSinistros_concluidos.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbSinistros_concluidos.Appearance.ForeColor = System.Drawing.Color.Green;
+            this.lbSinistros_concluidos.Location = new System.Drawing.Point(3, 228);
+            this.lbSinistros_concluidos.Name = "lbSinistros_concluidos";
+            this.lbSinistros_concluidos.Size = new System.Drawing.Size(123, 17);
+            this.lbSinistros_concluidos.TabIndex = 0;
+            this.lbSinistros_concluidos.Text = "sinistros_concluidos";
+            // 
+            // lbVeiculos_ativos
+            // 
+            this.lbVeiculos_ativos.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbVeiculos_ativos.Appearance.ForeColor = System.Drawing.Color.Green;
+            this.lbVeiculos_ativos.Location = new System.Drawing.Point(3, 90);
+            this.lbVeiculos_ativos.Name = "lbVeiculos_ativos";
+            this.lbVeiculos_ativos.Size = new System.Drawing.Size(92, 17);
+            this.lbVeiculos_ativos.TabIndex = 0;
+            this.lbVeiculos_ativos.Text = "veiculos_ativos";
+            // 
+            // lbReboques_ativos
+            // 
+            this.lbReboques_ativos.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbReboques_ativos.Appearance.ForeColor = System.Drawing.Color.Green;
+            this.lbReboques_ativos.Location = new System.Drawing.Point(4, 160);
+            this.lbReboques_ativos.Name = "lbReboques_ativos";
+            this.lbReboques_ativos.Size = new System.Drawing.Size(99, 17);
+            this.lbReboques_ativos.TabIndex = 0;
+            this.lbReboques_ativos.Text = "reboques_ativos";
             // 
             // barStaticItem1
             // 
@@ -482,6 +702,7 @@
             this.Controls.Add(this.backstageViewControl1);
             this.Controls.Add(this.ribbon);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MinimumSize = new System.Drawing.Size(720, 561);
             this.Name = "FormPrincipal";
             this.Ribbon = this.ribbon;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -494,6 +715,12 @@
             this.backstageViewControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pnControl)).EndInit();
+            this.pnControl.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pnInformacoes)).EndInit();
+            this.pnInformacoes.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.subPanelInformacoes)).EndInit();
+            this.subPanelInformacoes.ResumeLayout(false);
+            this.subPanelInformacoes.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -538,9 +765,27 @@
         private DevExpress.XtraBars.BarButtonItem btnConfigEnderecoServico;
         private DevExpress.XtraBars.BarButtonItem btnPrefSistema;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup8;
-        private DevExpress.XtraBars.BarButtonItem btnLimpaPanel;
         private DevExpress.XtraBars.BarButtonItem barButtonItem1;
         private DevExpress.XtraBars.BarButtonItem barButtonItem7;
         private DevExpress.XtraBars.BarStaticItem barStaticItem1;
+        private DevExpress.XtraBars.BarButtonItem btnLimparAreaDeTrabalho;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup9;
+        private DevExpress.XtraEditors.PanelControl pnInformacoes;
+        private DevExpress.XtraEditors.LabelControl lbTotal_clientes;
+        private DevExpress.XtraEditors.LabelControl lbClientes_inativos;
+        private DevExpress.XtraEditors.LabelControl lbClientes_ativos;
+        private DevExpress.XtraBars.BarButtonItem btnAtualizaInformacoes;
+        private DevExpress.XtraEditors.LabelControl lbVeiculos_inativos;
+        private DevExpress.XtraEditors.LabelControl lbVeiculos_ativos;
+        private DevExpress.XtraEditors.LabelControl lbTotal_veiculos;
+        private DevExpress.XtraEditors.LabelControl lbReboques_inativos;
+        private DevExpress.XtraEditors.LabelControl lbReboques_ativos;
+        private DevExpress.XtraEditors.LabelControl lbTotal_reboques;
+        private DevExpress.XtraEditors.PanelControl subPanelInformacoes;
+        private DevExpress.XtraEditors.LabelControl lbSinistros_em_andamento;
+        private DevExpress.XtraEditors.LabelControl lbTotal_sinistros;
+        private DevExpress.XtraEditors.LabelControl lbSinistros_concluidos;
+        private DevExpress.XtraBars.BarSubItem subMenuPaineis;
+        private DevExpress.XtraBars.BarCheckItem ckMostrarPainelInformacoes;
     }
 }
