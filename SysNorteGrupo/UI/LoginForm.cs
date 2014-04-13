@@ -42,8 +42,8 @@ namespace SysNorteGrupo.UI.Usuarios
             userIdleDetectTimeExit = UserIdleDetect.StartDetection(UserIdleDetect.minutes(20));
             userIdleDetectTimeExit.UserIdleDetected += userIdleDetect_UserIdleDetectedExitSystem;
 
-            tfLogin.Text = "admin";
-            tfSenha.Text = "admin";
+            //tfLogin.Text = "admin";
+            //tfSenha.Text = "admin";
             Thread.Sleep(1500);
         }
 

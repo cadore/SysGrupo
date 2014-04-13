@@ -64,19 +64,14 @@ namespace SysNorteGrupo
             {
                 while (true)
                 {
-                    DateTime dataHoraServidor = conn.retornaDataHoraLocal();                    
-                    string dataHora = String.Format("{0:dddd, dd/MM/yyyy HH:mm}", dataHoraServidor);
-
-                    char primeiraLetra = char.ToUpper(dataHora[0]);
-                    dataHora = primeiraLetra + dataHora.Substring(1);
-                    lbDataHora.Text = dataHora;
-                    Thread.Sleep(20000);
+                    MessageBox.Show("Chupa essa manga!!!");
+                    Thread.Sleep(5000);
                 }
             }
             catch (Exception)
             {
-                thread.Abort("Thread aborted");
                 XtraMessageBox.Show("Ocorreu um problema ao verificar a Data/Hora do servidor");
+                thread.Abort();
             }
         }
 
@@ -179,7 +174,7 @@ namespace SysNorteGrupo
                 }
                 else
                 {
-                    this.MinimumSize = new Size(720, 561);
+                    this.MinimumSize = new Size(0, ribbon.Height) + new Size(720, 561);
                     recarregaInformacoesDesktop();
                 }
                 controleAtual = controle;
@@ -386,7 +381,6 @@ namespace SysNorteGrupo
             if (rs == DialogResult.OK)
             {
                 Log.createLog(EventLog.cloused, "aplicação no formulário principal.");
-                thread.Abort("Thread aborted");
                 e.Cancel = false;
             }
             else
@@ -457,6 +451,11 @@ namespace SysNorteGrupo
             ps.ShowDialog();
         }
 
+        private void btnLimparAreaDeTrabalho_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            adicionarControleNavegacao(null);
+        }
+
         private void btnAtualizaInformacoes_ItemClick(object sender, ItemClickEventArgs e)
         {
             recarregaInformacoesDesktop();
@@ -475,11 +474,6 @@ namespace SysNorteGrupo
                 subPanelInformacoes.Visible = false;
                 btnAtualizaInformacoes.Enabled = false;
             }
-        }
-
-        private void btnLimparAreaDeTrabalho_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            adicionarControleNavegacao(null);
         }
     }
 }

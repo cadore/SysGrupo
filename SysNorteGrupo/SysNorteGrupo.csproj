@@ -260,10 +260,10 @@
     <Compile Include="UI\Usuarios\UsuarioForm.Designer.cs">
       <DependentUpon>UsuarioForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\UtilForm.cs">
+    <Compile Include="UI\Utils\UtilForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\UtilForm.Designer.cs">
+    <Compile Include="UI\Utils\UtilForm.Designer.cs">
       <DependentUpon>UtilForm.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Utils\Enderecos\CadastraBairroForm.cs">

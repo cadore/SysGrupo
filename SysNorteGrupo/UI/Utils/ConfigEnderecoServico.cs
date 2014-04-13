@@ -73,5 +73,16 @@ namespace SysNorteGrupo.UI.Utils
             }
             this.DialogResult = DialogResult.OK;
         }
+
+        private void ConfigEnderecoServico_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                btnSalvar_Click(sender, e);
+
+            else if (e.KeyCode == Keys.Escape)
+            {
+                btnCancelar_Click(sender, e);
+            }
+        }
     }
 }

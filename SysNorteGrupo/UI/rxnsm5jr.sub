@@ -179,7 +179,7 @@ namespace SysNorteGrupo
                 }
                 else
                 {
-                    this.MinimumSize = new Size(720, 561);
+                    this.MinimumSize = new Size(0, ribbon.Height) + new Size(720, 561);
                     recarregaInformacoesDesktop();
                 }
                 controleAtual = controle;
@@ -457,6 +457,11 @@ namespace SysNorteGrupo
             ps.ShowDialog();
         }
 
+        private void btnLimparAreaDeTrabalho_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            adicionarControleNavegacao(null);
+        }
+
         private void btnAtualizaInformacoes_ItemClick(object sender, ItemClickEventArgs e)
         {
             recarregaInformacoesDesktop();
@@ -475,11 +480,6 @@ namespace SysNorteGrupo
                 subPanelInformacoes.Visible = false;
                 btnAtualizaInformacoes.Enabled = false;
             }
-        }
-
-        private void btnLimparAreaDeTrabalho_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            adicionarControleNavegacao(null);
         }
     }
 }

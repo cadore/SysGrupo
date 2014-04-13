@@ -10,7 +10,7 @@ using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using SysNorteGrupo.Utils;
 
-namespace SysNorteGrupo
+namespace SysNorteGrupo.UI.Utils
 {
     public partial class UtilForm : DevExpress.XtraEditors.XtraForm
     {

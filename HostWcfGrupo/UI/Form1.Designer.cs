@@ -1,4 +1,4 @@
-﻿namespace HostWcfGrupo
+﻿namespace HostWcfGrupo.UI
 {
     partial class Form1
     {
@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DevExpress.XtraSplashScreen.SplashScreenManager splashScreenManager = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::HostWcfGrupo.UI.Utils.SplashForm), false, false);
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.btnStartStop = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.tfStatus = new System.Windows.Forms.RichTextBox();
@@ -71,6 +73,7 @@
             this.Controls.Add(this.tfStatus);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnStartStop);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(408, 235);
             this.MinimumSize = new System.Drawing.Size(408, 235);

@@ -52,10 +52,10 @@
             this.btnPrefSistema = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem7 = new DevExpress.XtraBars.BarButtonItem();
+            this.btnLimparAreaDeTrabalho = new DevExpress.XtraBars.BarButtonItem();
             this.btnAtualizaInformacoes = new DevExpress.XtraBars.BarButtonItem();
             this.subMenuPaineis = new DevExpress.XtraBars.BarSubItem();
             this.ckMostrarPainelInformacoes = new DevExpress.XtraBars.BarCheckItem();
-            this.btnLimparAreaDeTrabalho = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribClientes = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribVeiculos = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -68,6 +68,7 @@
             this.ribbonPage2 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribUsuarios = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPageGroup5 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup6 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup8 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.repositoryItemTextEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
@@ -75,7 +76,6 @@
             this.pnControl = new DevExpress.XtraEditors.PanelControl();
             this.pnInformacoes = new DevExpress.XtraEditors.PanelControl();
             this.subPanelInformacoes = new DevExpress.XtraEditors.PanelControl();
-            this.lbDataHora = new System.Windows.Forms.Label();
             this.lbTotal_clientes = new DevExpress.XtraEditors.LabelControl();
             this.lbSinistros_em_andamento = new DevExpress.XtraEditors.LabelControl();
             this.lbTotal_veiculos = new DevExpress.XtraEditors.LabelControl();
@@ -89,6 +89,7 @@
             this.lbVeiculos_ativos = new DevExpress.XtraEditors.LabelControl();
             this.lbReboques_ativos = new DevExpress.XtraEditors.LabelControl();
             this.barStaticItem1 = new DevExpress.XtraBars.BarStaticItem();
+            this.lbDataHora = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             this.backstageViewControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).BeginInit();
@@ -125,12 +126,12 @@
             this.btnPrefSistema,
             this.barButtonItem1,
             this.barButtonItem7,
+            this.btnLimparAreaDeTrabalho,
             this.btnAtualizaInformacoes,
             this.subMenuPaineis,
-            this.ckMostrarPainelInformacoes,
-            this.btnLimparAreaDeTrabalho});
+            this.ckMostrarPainelInformacoes});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.MaxItemId = 36;
+            this.ribbon.MaxItemId = 35;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1,
@@ -175,8 +176,7 @@
             this.btnBuscarCliente.Glyph = global::SysNorteGrupo.Properties.Resources.BO_Resume_32x32;
             this.btnBuscarCliente.Id = 7;
             this.btnBuscarCliente.Name = "btnBuscarCliente";
-            this.btnBuscarCliente.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
-            | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
+            this.btnBuscarCliente.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
             this.btnBuscarCliente.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnBuscarCliente_ItemClick);
             // 
             // btnNovoCliente
@@ -185,8 +185,7 @@
             this.btnNovoCliente.Glyph = global::SysNorteGrupo.Properties.Resources.BO_Customer_32x32;
             this.btnNovoCliente.Id = 8;
             this.btnNovoCliente.Name = "btnNovoCliente";
-            this.btnNovoCliente.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
-            | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
+            this.btnNovoCliente.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
             this.btnNovoCliente.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnClienteForm_ItemClick);
             // 
             // btnBuscarVeiculo
@@ -195,8 +194,7 @@
             this.btnBuscarVeiculo.Glyph = global::SysNorteGrupo.Properties.Resources.BO_List_32x32;
             this.btnBuscarVeiculo.Id = 11;
             this.btnBuscarVeiculo.Name = "btnBuscarVeiculo";
-            this.btnBuscarVeiculo.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
-            | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
+            this.btnBuscarVeiculo.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
             this.btnBuscarVeiculo.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnBuscarVeiculo_ItemClick);
             // 
             // btnNovoVeiculo
@@ -205,8 +203,7 @@
             this.btnNovoVeiculo.Glyph = global::SysNorteGrupo.Properties.Resources.veiculos_48;
             this.btnNovoVeiculo.Id = 12;
             this.btnNovoVeiculo.Name = "btnNovoVeiculo";
-            this.btnNovoVeiculo.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
-            | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
+            this.btnNovoVeiculo.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
             this.btnNovoVeiculo.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnNovoVeiculo_ItemClick);
             // 
             // btnBuscarUsuario
@@ -234,8 +231,7 @@
             this.barButtonItem2.Glyph = global::SysNorteGrupo.Properties.Resources.Article_32x32;
             this.barButtonItem2.Id = 15;
             this.barButtonItem2.Name = "barButtonItem2";
-            this.barButtonItem2.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
-            | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
+            this.barButtonItem2.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
             this.barButtonItem2.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem2_ItemClick);
             // 
             // barButtonItem3
@@ -244,8 +240,7 @@
             this.barButtonItem3.Glyph = global::SysNorteGrupo.Properties.Resources.BO_List_32x32;
             this.barButtonItem3.Id = 16;
             this.barButtonItem3.Name = "barButtonItem3";
-            this.barButtonItem3.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
-            | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
+            this.barButtonItem3.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
             this.barButtonItem3.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem3_ItemClick);
             // 
             // barButtonItem4
@@ -254,8 +249,7 @@
             this.barButtonItem4.Glyph = global::SysNorteGrupo.Properties.Resources.reboque_48;
             this.barButtonItem4.Id = 17;
             this.barButtonItem4.Name = "barButtonItem4";
-            this.barButtonItem4.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
-            | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
+            this.barButtonItem4.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
             this.barButtonItem4.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem4_ItemClick);
             // 
             // barButtonItem5
@@ -264,8 +258,7 @@
             this.barButtonItem5.Glyph = global::SysNorteGrupo.Properties.Resources.IDE_32x32;
             this.barButtonItem5.Id = 18;
             this.barButtonItem5.Name = "barButtonItem5";
-            this.barButtonItem5.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
-            | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
+            this.barButtonItem5.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
             this.barButtonItem5.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem5_ItemClick);
             // 
             // barButtonItem6
@@ -274,8 +267,7 @@
             this.barButtonItem6.Glyph = global::SysNorteGrupo.Properties.Resources.Report_32x32;
             this.barButtonItem6.Id = 19;
             this.barButtonItem6.Name = "barButtonItem6";
-            this.barButtonItem6.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
-            | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
+            this.barButtonItem6.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
             this.barButtonItem6.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem6_ItemClick);
             // 
             // btnLogs
@@ -346,14 +338,22 @@
             this.barButtonItem7.Id = 29;
             this.barButtonItem7.Name = "barButtonItem7";
             // 
+            // btnLimparAreaDeTrabalho
+            // 
+            this.btnLimparAreaDeTrabalho.Caption = "Limpar área de trabalho";
+            this.btnLimparAreaDeTrabalho.Glyph = ((System.Drawing.Image)(resources.GetObject("btnLimparAreaDeTrabalho.Glyph")));
+            this.btnLimparAreaDeTrabalho.Id = 31;
+            this.btnLimparAreaDeTrabalho.Name = "btnLimparAreaDeTrabalho";
+            this.btnLimparAreaDeTrabalho.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.btnLimparAreaDeTrabalho.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnLimparAreaDeTrabalho_ItemClick);
+            // 
             // btnAtualizaInformacoes
             // 
             this.btnAtualizaInformacoes.Caption = "Atualizar informações";
             this.btnAtualizaInformacoes.Glyph = ((System.Drawing.Image)(resources.GetObject("btnAtualizaInformacoes.Glyph")));
             this.btnAtualizaInformacoes.Id = 32;
             this.btnAtualizaInformacoes.Name = "btnAtualizaInformacoes";
-            this.btnAtualizaInformacoes.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
-            | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
+            this.btnAtualizaInformacoes.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
             this.btnAtualizaInformacoes.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnAtualizaInformacoes_ItemClick);
             // 
             // subMenuPaineis
@@ -364,8 +364,7 @@
             this.subMenuPaineis.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.ckMostrarPainelInformacoes, DevExpress.XtraBars.BarItemPaintStyle.Standard)});
             this.subMenuPaineis.Name = "subMenuPaineis";
-            this.subMenuPaineis.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
-            | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
+            this.subMenuPaineis.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
             // 
             // ckMostrarPainelInformacoes
             // 
@@ -374,16 +373,6 @@
             this.ckMostrarPainelInformacoes.Id = 34;
             this.ckMostrarPainelInformacoes.Name = "ckMostrarPainelInformacoes";
             this.ckMostrarPainelInformacoes.CheckedChanged += new DevExpress.XtraBars.ItemClickEventHandler(this.ckMostrarPainelInformacoes_CheckedChanged);
-            // 
-            // btnLimparAreaDeTrabalho
-            // 
-            this.btnLimparAreaDeTrabalho.Caption = "Limpar Área de Trabalho";
-            this.btnLimparAreaDeTrabalho.Glyph = ((System.Drawing.Image)(resources.GetObject("btnLimparAreaDeTrabalho.Glyph")));
-            this.btnLimparAreaDeTrabalho.Id = 35;
-            this.btnLimparAreaDeTrabalho.Name = "btnLimparAreaDeTrabalho";
-            this.btnLimparAreaDeTrabalho.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
-            | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
-            this.btnLimparAreaDeTrabalho.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnLimparAreaDeTrabalho_ItemClick);
             // 
             // ribbonPage1
             // 
@@ -446,7 +435,7 @@
             // 
             this.ribbonPageGroup9.AllowTextClipping = false;
             this.ribbonPageGroup9.ItemLinks.Add(this.btnLimparAreaDeTrabalho);
-            this.ribbonPageGroup9.ItemLinks.Add(this.btnAtualizaInformacoes, true);
+            this.ribbonPageGroup9.ItemLinks.Add(this.btnAtualizaInformacoes);
             this.ribbonPageGroup9.ItemLinks.Add(this.subMenuPaineis);
             this.ribbonPageGroup9.Name = "ribbonPageGroup9";
             this.ribbonPageGroup9.ShowCaptionButton = false;
@@ -472,6 +461,7 @@
             this.ribbonPage2.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.ribUsuarios,
             this.ribbonPageGroup4,
+            this.ribbonPageGroup5,
             this.ribbonPageGroup6,
             this.ribbonPageGroup8});
             this.ribbonPage2.Name = "ribbonPage2";
@@ -494,15 +484,22 @@
             this.ribbonPageGroup4.ShowCaptionButton = false;
             this.ribbonPageGroup4.Text = "Logs";
             // 
+            // ribbonPageGroup5
+            // 
+            this.ribbonPageGroup5.AllowTextClipping = false;
+            this.ribbonPageGroup5.ItemLinks.Add(this.btnCriaBackup);
+            this.ribbonPageGroup5.Name = "ribbonPageGroup5";
+            this.ribbonPageGroup5.ShowCaptionButton = false;
+            this.ribbonPageGroup5.Text = "Banco de dados e Backup";
+            // 
             // ribbonPageGroup6
             // 
             this.ribbonPageGroup6.AllowTextClipping = false;
             this.ribbonPageGroup6.ItemLinks.Add(this.btnReiniciaConexao);
             this.ribbonPageGroup6.ItemLinks.Add(this.btnConfigEnderecoServico);
-            this.ribbonPageGroup6.ItemLinks.Add(this.btnCriaBackup, true);
             this.ribbonPageGroup6.Name = "ribbonPageGroup6";
             this.ribbonPageGroup6.ShowCaptionButton = false;
-            this.ribbonPageGroup6.Text = "Servidor e Banco de Dados";
+            this.ribbonPageGroup6.Text = "Conexão com Servidor";
             // 
             // ribbonPageGroup8
             // 
@@ -540,7 +537,6 @@
             // 
             this.pnInformacoes.Appearance.BackColor = System.Drawing.Color.Transparent;
             this.pnInformacoes.Appearance.Options.UseBackColor = true;
-            this.pnInformacoes.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.pnInformacoes.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.pnInformacoes.Controls.Add(this.subPanelInformacoes);
             this.pnInformacoes.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -553,7 +549,6 @@
             // 
             this.subPanelInformacoes.Appearance.BackColor = System.Drawing.Color.Transparent;
             this.subPanelInformacoes.Appearance.Options.UseBackColor = true;
-            this.subPanelInformacoes.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.subPanelInformacoes.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.subPanelInformacoes.Controls.Add(this.lbDataHora);
             this.subPanelInformacoes.Controls.Add(this.lbTotal_clientes);
@@ -573,20 +568,6 @@
             this.subPanelInformacoes.Name = "subPanelInformacoes";
             this.subPanelInformacoes.Size = new System.Drawing.Size(1016, 436);
             this.subPanelInformacoes.TabIndex = 1;
-            // 
-            // lbDataHora
-            // 
-            this.lbDataHora.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.lbDataHora.AutoSize = true;
-            this.lbDataHora.Font = new System.Drawing.Font("Segoe UI Symbol", 11.25F);
-            this.lbDataHora.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(82)))), ((int)(((byte)(155)))));
-            this.lbDataHora.Location = new System.Drawing.Point(825, 415);
-            this.lbDataHora.Name = "lbDataHora";
-            this.lbDataHora.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.lbDataHora.Size = new System.Drawing.Size(87, 20);
-            this.lbDataHora.TabIndex = 2;
-            this.lbDataHora.Text = "lbDataHora";
-            this.lbDataHora.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lbTotal_clientes
             // 
@@ -714,6 +695,20 @@
             this.barStaticItem1.Name = "barStaticItem1";
             this.barStaticItem1.TextAlignment = System.Drawing.StringAlignment.Near;
             // 
+            // lbDataHora
+            // 
+            this.lbDataHora.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbDataHora.AutoSize = true;
+            this.lbDataHora.Font = new System.Drawing.Font("Segoe UI Symbol", 11.25F);
+            this.lbDataHora.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(82)))), ((int)(((byte)(155)))));
+            this.lbDataHora.Location = new System.Drawing.Point(825, 415);
+            this.lbDataHora.Name = "lbDataHora";
+            this.lbDataHora.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.lbDataHora.Size = new System.Drawing.Size(87, 20);
+            this.lbDataHora.TabIndex = 2;
+            this.lbDataHora.Text = "lbDataHora";
+            this.lbDataHora.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // FormPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -778,6 +773,7 @@
         private DevExpress.XtraBars.BarButtonItem btnCriaBackup;
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage2;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup4;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup5;
         private DevExpress.XtraBars.BarButtonItem btnReiniciaConexao;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup6;
         private DevExpress.XtraBars.BarButtonItem btnRelClientesECotas;
@@ -789,6 +785,7 @@
         private DevExpress.XtraBars.BarButtonItem barButtonItem1;
         private DevExpress.XtraBars.BarButtonItem barButtonItem7;
         private DevExpress.XtraBars.BarStaticItem barStaticItem1;
+        private DevExpress.XtraBars.BarButtonItem btnLimparAreaDeTrabalho;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup9;
         private DevExpress.XtraEditors.PanelControl pnInformacoes;
         private DevExpress.XtraEditors.LabelControl lbTotal_clientes;
@@ -808,6 +805,5 @@
         private DevExpress.XtraBars.BarSubItem subMenuPaineis;
         private DevExpress.XtraBars.BarCheckItem ckMostrarPainelInformacoes;
         private System.Windows.Forms.Label lbDataHora;
-        private DevExpress.XtraBars.BarButtonItem btnLimparAreaDeTrabalho;
     }
 }

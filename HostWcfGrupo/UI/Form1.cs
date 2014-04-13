@@ -5,11 +5,12 @@ using System;
 using System.Diagnostics;
 using System.IO;
 using System.ServiceModel;
+using System.Threading;
 using System.Windows.Forms;
 using WcfLibGrupo;
 using WcfLibGrupo.Utils;
 
-namespace HostWcfGrupo
+namespace HostWcfGrupo.UI
 {
     public partial class Form1 : Form
     {
@@ -32,6 +33,7 @@ namespace HostWcfGrupo
                 btnStartStop.Enabled = false;
                 tfStatus.Text += "\n\n" + ex.Message + "\n" + ex.InnerException;
             }
+            Thread.Sleep(1500);
         }
         private bool verificaAutenticidade(int i){
             ServiceGrupo sg = new ServiceGrupo();

@@ -1,4 +1,4 @@
-﻿namespace SysNorteGrupo
+﻿namespace SysNorteGrupo.UI.Utils
 {
     partial class UtilForm
     {
