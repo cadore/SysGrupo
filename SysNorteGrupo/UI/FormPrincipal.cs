@@ -381,17 +381,25 @@ namespace SysNorteGrupo
 
         private void FormPrincipal_FormClosing(object sender, FormClosingEventArgs e)
         {
-            DialogResult rs = XtraMessageBox.Show("TEM CERTEZA QUE DESEJA SAIR DO SISTEMA?", "SYS NORTE TECNOLOGIA",
+            try
+            {
+                DialogResult rs = XtraMessageBox.Show("TEM CERTEZA QUE DESEJA SAIR DO SISTEMA?", "SYS NORTE TECNOLOGIA",
                 MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
-            if (rs == DialogResult.OK)
-            {
-                Log.createLog(EventLog.cloused, "aplicação no formulário principal.");
-                thread.Abort("Thread aborted");
-                e.Cancel = false;
+                if (rs == DialogResult.OK)
+                {
+                    Log.createLog(EventLog.cloused, "aplicação no formulário principal.");
+                    thread.Abort("Thread aborted");
+                    e.Cancel = false;
+                }
+                else
+                {
+                    e.Cancel = true;
+                }
             }
-            else
+            catch (Exception ex)
             {
-                e.Cancel = true;
+                MessageBox.Show(String.Format("OCORREU UM ERRO AO TENTAR SAIR DO SISTEMA\n\n{0}", ex.Message));
+                Environment.Exit(0);
             }
         }
 

@@ -43,8 +43,7 @@ namespace EntitiesGrupo
 
 	public partial class SysGrupoRepo : Database
 	{
-		public SysGrupoRepo()
-            : base("Server=localhost;Port=5432;User id=postgres;password=p@ssw0rd;Database=sysgrupodb;", "Npgsql")
+		public SysGrupoRepo() : base("Server=localhost;Port=5432;User id=postgres;password=p@ssw0rd;Database=sysgrupodb;", "Npgsql")
 		{
 			CommonConstruct();
 		}

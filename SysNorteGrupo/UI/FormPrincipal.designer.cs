@@ -571,6 +571,7 @@
             this.subPanelInformacoes.Dock = System.Windows.Forms.DockStyle.Fill;
             this.subPanelInformacoes.Location = new System.Drawing.Point(0, 0);
             this.subPanelInformacoes.Name = "subPanelInformacoes";
+            this.subPanelInformacoes.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.subPanelInformacoes.Size = new System.Drawing.Size(1016, 436);
             this.subPanelInformacoes.TabIndex = 1;
             // 
@@ -580,13 +581,12 @@
             this.lbDataHora.AutoSize = true;
             this.lbDataHora.Font = new System.Drawing.Font("Segoe UI Symbol", 11.25F);
             this.lbDataHora.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(82)))), ((int)(((byte)(155)))));
-            this.lbDataHora.Location = new System.Drawing.Point(825, 415);
+            this.lbDataHora.Location = new System.Drawing.Point(926, 415);
             this.lbDataHora.Name = "lbDataHora";
-            this.lbDataHora.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.lbDataHora.Size = new System.Drawing.Size(87, 20);
             this.lbDataHora.TabIndex = 2;
             this.lbDataHora.Text = "lbDataHora";
-            this.lbDataHora.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbDataHora.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lbTotal_clientes
             // 
