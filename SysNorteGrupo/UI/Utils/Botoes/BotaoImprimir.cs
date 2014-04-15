@@ -23,7 +23,7 @@ namespace SysNorteGrupo.UI.Utils.Botoes
             //this.MouseMove += new MouseEventHandler(_MouseMove);
 
             this.Image = global::SysNorteGrupo.Properties.Resources.impressora40;
-            this.Size = new Size(93, 31);
+            this.Size = new Size(94, 44);
             this.ImageAlign = ContentAlignment.MiddleLeft;
             this.TextAlign = ContentAlignment.MiddleRight;
             this.ForeColor = Color.White;

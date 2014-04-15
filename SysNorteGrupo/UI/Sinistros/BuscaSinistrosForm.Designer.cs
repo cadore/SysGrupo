@@ -30,7 +30,6 @@ namespace SysNorteGrupo.UI.Sinistros
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BuscaSinistrosForm));
             this.pbBotoes = new DevExpress.XtraEditors.PanelControl();
             this.cbSituacao = new DevExpress.XtraEditors.ComboBoxEdit();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
@@ -122,8 +121,8 @@ namespace SysNorteGrupo.UI.Sinistros
             this.coluf_estado = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colcotas = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colvalor_total = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.btnFechar = new BotaoSair();
-            this.btnBuscar = new BotaoBuscar();
+            this.btnFechar = new SysNorteGrupo.UI.Utils.Botoes.BotaoSair();
+            this.btnBuscar = new SysNorteGrupo.UI.Utils.Botoes.BotaoBuscar();
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
@@ -178,13 +177,13 @@ namespace SysNorteGrupo.UI.Sinistros
             this.pbBotoes.Dock = System.Windows.Forms.DockStyle.Top;
             this.pbBotoes.Location = new System.Drawing.Point(0, 0);
             this.pbBotoes.Name = "pbBotoes";
-            this.pbBotoes.Size = new System.Drawing.Size(1022, 71);
+            this.pbBotoes.Size = new System.Drawing.Size(1022, 58);
             this.pbBotoes.TabIndex = 2;
             // 
             // cbSituacao
             // 
             this.cbSituacao.EditValue = "TODAS AS SITUAÇÕES";
-            this.cbSituacao.Location = new System.Drawing.Point(472, 39);
+            this.cbSituacao.Location = new System.Drawing.Point(469, 29);
             this.cbSituacao.Name = "cbSituacao";
             this.cbSituacao.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -199,7 +198,7 @@ namespace SysNorteGrupo.UI.Sinistros
             // labelControl3
             // 
             this.labelControl3.Appearance.ForeColor = System.Drawing.Color.White;
-            this.labelControl3.Location = new System.Drawing.Point(472, 20);
+            this.labelControl3.Location = new System.Drawing.Point(469, 10);
             this.labelControl3.Name = "labelControl3";
             this.labelControl3.Size = new System.Drawing.Size(121, 13);
             this.labelControl3.TabIndex = 1;
@@ -207,7 +206,7 @@ namespace SysNorteGrupo.UI.Sinistros
             // 
             // cbReboque
             // 
-            this.cbReboque.Location = new System.Drawing.Point(381, 39);
+            this.cbReboque.Location = new System.Drawing.Point(378, 29);
             this.cbReboque.Name = "cbReboque";
             this.cbReboque.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -402,7 +401,7 @@ namespace SysNorteGrupo.UI.Sinistros
             // 
             // cbVeiculo
             // 
-            this.cbVeiculo.Location = new System.Drawing.Point(291, 39);
+            this.cbVeiculo.Location = new System.Drawing.Point(288, 29);
             this.cbVeiculo.Name = "cbVeiculo";
             this.cbVeiculo.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -614,7 +613,7 @@ namespace SysNorteGrupo.UI.Sinistros
             // 
             // cbCliente
             // 
-            this.cbCliente.Location = new System.Drawing.Point(6, 39);
+            this.cbCliente.Location = new System.Drawing.Point(3, 29);
             this.cbCliente.Name = "cbCliente";
             this.cbCliente.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -878,11 +877,10 @@ namespace SysNorteGrupo.UI.Sinistros
             this.btnFechar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFechar.Font = new System.Drawing.Font("Segoe UI Light", 12F);
             this.btnFechar.ForeColor = System.Drawing.Color.White;
-            this.btnFechar.Image = ((System.Drawing.Image)(resources.GetObject("btnFechar.Image")));
             this.btnFechar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnFechar.Location = new System.Drawing.Point(906, 8);
+            this.btnFechar.Location = new System.Drawing.Point(913, 8);
             this.btnFechar.Name = "btnFechar";
-            this.btnFechar.Size = new System.Drawing.Size(110, 56);
+            this.btnFechar.Size = new System.Drawing.Size(106, 44);
             this.btnFechar.TabIndex = 6;
             this.btnFechar.Text = "Sair";
             this.btnFechar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -895,11 +893,10 @@ namespace SysNorteGrupo.UI.Sinistros
             this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBuscar.Font = new System.Drawing.Font("Segoe UI Light", 12F);
             this.btnBuscar.ForeColor = System.Drawing.Color.White;
-            this.btnBuscar.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscar.Image")));
             this.btnBuscar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnBuscar.Location = new System.Drawing.Point(655, 8);
             this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(116, 56);
+            this.btnBuscar.Size = new System.Drawing.Size(106, 44);
             this.btnBuscar.TabIndex = 5;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -909,7 +906,7 @@ namespace SysNorteGrupo.UI.Sinistros
             // labelControl5
             // 
             this.labelControl5.Appearance.ForeColor = System.Drawing.Color.White;
-            this.labelControl5.Location = new System.Drawing.Point(381, 20);
+            this.labelControl5.Location = new System.Drawing.Point(378, 10);
             this.labelControl5.Name = "labelControl5";
             this.labelControl5.Size = new System.Drawing.Size(52, 13);
             this.labelControl5.TabIndex = 1;
@@ -918,7 +915,7 @@ namespace SysNorteGrupo.UI.Sinistros
             // labelControl4
             // 
             this.labelControl4.Appearance.ForeColor = System.Drawing.Color.White;
-            this.labelControl4.Location = new System.Drawing.Point(292, 20);
+            this.labelControl4.Location = new System.Drawing.Point(289, 10);
             this.labelControl4.Name = "labelControl4";
             this.labelControl4.Size = new System.Drawing.Size(47, 13);
             this.labelControl4.TabIndex = 1;
@@ -927,7 +924,7 @@ namespace SysNorteGrupo.UI.Sinistros
             // labelControl2
             // 
             this.labelControl2.Appearance.ForeColor = System.Drawing.Color.White;
-            this.labelControl2.Location = new System.Drawing.Point(6, 20);
+            this.labelControl2.Location = new System.Drawing.Point(3, 10);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(45, 13);
             this.labelControl2.TabIndex = 1;
@@ -941,10 +938,10 @@ namespace SysNorteGrupo.UI.Sinistros
             // 
             this.gridControl.DataSource = this.bdgSinistros;
             this.gridControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridControl.Location = new System.Drawing.Point(0, 71);
+            this.gridControl.Location = new System.Drawing.Point(0, 58);
             this.gridControl.MainView = this.gridView1;
             this.gridControl.Name = "gridControl";
-            this.gridControl.Size = new System.Drawing.Size(1022, 461);
+            this.gridControl.Size = new System.Drawing.Size(1022, 474);
             this.gridControl.TabIndex = 3;
             this.gridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});

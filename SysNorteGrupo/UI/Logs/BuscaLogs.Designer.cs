@@ -42,13 +42,13 @@ namespace SysNorteGrupo.UI.Logs
             this.coldateTime = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colhost = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.btnSair = new SysNorteGrupo.UI.Utils.Botoes.BotaoSair();
+            this.bntBuscar = new SysNorteGrupo.UI.Utils.Botoes.BotaoBuscar();
             this.cbUsuario = new DevExpress.XtraEditors.ComboBoxEdit();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.cbEentoLog = new DevExpress.XtraEditors.ComboBoxEdit();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.tfParameter = new DevExpress.XtraEditors.TextEdit();
-            this.bntBuscar = new BotaoBuscar();
-            this.btnSair = new BotaoSair();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdgLog)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
@@ -62,10 +62,10 @@ namespace SysNorteGrupo.UI.Logs
             // gridControl
             // 
             this.gridControl.DataSource = this.bdgLog;
-            this.gridControl.Location = new System.Drawing.Point(0, 69);
+            this.gridControl.Location = new System.Drawing.Point(0, 52);
             this.gridControl.MainView = this.gridView1;
             this.gridControl.Name = "gridControl";
-            this.gridControl.Size = new System.Drawing.Size(993, 504);
+            this.gridControl.Size = new System.Drawing.Size(993, 521);
             this.gridControl.TabIndex = 0;
             this.gridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -127,7 +127,7 @@ namespace SysNorteGrupo.UI.Logs
             // 
             // colhost
             // 
-            this.colhost.Caption = "Host";
+            this.colhost.Caption = "Host(computador)";
             this.colhost.FieldName = "host";
             this.colhost.Name = "colhost";
             this.colhost.OptionsColumn.AllowEdit = false;
@@ -149,8 +149,42 @@ namespace SysNorteGrupo.UI.Logs
             this.panelControl1.Controls.Add(this.tfParameter);
             this.panelControl1.Location = new System.Drawing.Point(0, 0);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(993, 69);
+            this.panelControl1.Size = new System.Drawing.Size(993, 54);
             this.panelControl1.TabIndex = 2;
+            // 
+            // btnSair
+            // 
+            this.btnSair.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(199)))));
+            this.btnSair.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSair.Font = new System.Drawing.Font("Segoe UI Light", 12F);
+            this.btnSair.ForeColor = System.Drawing.Color.White;
+            this.btnSair.Image = ((System.Drawing.Image)(resources.GetObject("btnSair.Image")));
+            this.btnSair.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSair.Location = new System.Drawing.Point(884, 5);
+            this.btnSair.Name = "btnSair";
+            this.btnSair.Size = new System.Drawing.Size(106, 44);
+            this.btnSair.TabIndex = 7;
+            this.btnSair.Text = "Sair";
+            this.btnSair.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnSair.UseVisualStyleBackColor = false;
+            this.btnSair.Click += new System.EventHandler(this.buttonExit_Click);
+            // 
+            // bntBuscar
+            // 
+            this.bntBuscar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(199)))));
+            this.bntBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bntBuscar.Font = new System.Drawing.Font("Segoe UI Light", 12F);
+            this.bntBuscar.ForeColor = System.Drawing.Color.White;
+            this.bntBuscar.Image = ((System.Drawing.Image)(resources.GetObject("bntBuscar.Image")));
+            this.bntBuscar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.bntBuscar.Location = new System.Drawing.Point(710, 5);
+            this.bntBuscar.Name = "bntBuscar";
+            this.bntBuscar.Size = new System.Drawing.Size(106, 44);
+            this.bntBuscar.TabIndex = 6;
+            this.bntBuscar.Text = "Buscar";
+            this.bntBuscar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.bntBuscar.UseVisualStyleBackColor = false;
+            this.bntBuscar.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // cbUsuario
             // 
@@ -194,40 +228,6 @@ namespace SysNorteGrupo.UI.Logs
             this.tfParameter.Name = "tfParameter";
             this.tfParameter.Size = new System.Drawing.Size(484, 20);
             this.tfParameter.TabIndex = 2;
-            // 
-            // bntBuscar
-            // 
-            this.bntBuscar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(199)))));
-            this.bntBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bntBuscar.Font = new System.Drawing.Font("Segoe UI Light", 12F);
-            this.bntBuscar.ForeColor = System.Drawing.Color.White;
-            this.bntBuscar.Image = ((System.Drawing.Image)(resources.GetObject("bntBuscar.Image")));
-            this.bntBuscar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.bntBuscar.Location = new System.Drawing.Point(710, 5);
-            this.bntBuscar.Name = "bntBuscar";
-            this.bntBuscar.Size = new System.Drawing.Size(133, 56);
-            this.bntBuscar.TabIndex = 6;
-            this.bntBuscar.Text = "Pesquisar";
-            this.bntBuscar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.bntBuscar.UseVisualStyleBackColor = false;
-            this.bntBuscar.Click += new System.EventHandler(this.btnSearch_Click);
-            // 
-            // btnSair
-            // 
-            this.btnSair.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(199)))));
-            this.btnSair.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSair.Font = new System.Drawing.Font("Segoe UI Light", 12F);
-            this.btnSair.ForeColor = System.Drawing.Color.White;
-            this.btnSair.Image = ((System.Drawing.Image)(resources.GetObject("btnSair.Image")));
-            this.btnSair.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSair.Location = new System.Drawing.Point(849, 5);
-            this.btnSair.Name = "btnSair";
-            this.btnSair.Size = new System.Drawing.Size(133, 56);
-            this.btnSair.TabIndex = 7;
-            this.btnSair.Text = "Sair";
-            this.btnSair.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnSair.UseVisualStyleBackColor = false;
-            this.btnSair.Click += new System.EventHandler(this.buttonExit_Click);
             // 
             // BuscaLogs
             // 

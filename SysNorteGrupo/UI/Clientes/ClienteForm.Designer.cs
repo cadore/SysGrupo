@@ -30,6 +30,7 @@ namespace SysNorteGrupo.UI.Clientes
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ClienteForm));
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule2 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
@@ -44,12 +45,12 @@ namespace SysNorteGrupo.UI.Clientes
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule11 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule12 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             this.pnBotoes = new DevExpress.XtraEditors.PanelControl();
-            this.btnImprimirContrato = new BotaoImprimir();
+            this.btnImprimirContrato = new SysNorteGrupo.UI.Utils.Botoes.BotaoImprimir();
             this.button1 = new System.Windows.Forms.Button();
-            this.btnSair = new BotaoSair();
-            this.btnEditar = new BotaoEditar();
-            this.btnSalvar = new BotaoEditar();
-            this.btnNovo = new BotaoNovo();
+            this.btnSair = new SysNorteGrupo.UI.Utils.Botoes.BotaoSair();
+            this.btnEditar = new SysNorteGrupo.UI.Utils.Botoes.BotaoEditar();
+            this.btnSalvar = new SysNorteGrupo.UI.Utils.Botoes.BotaoEditar();
+            this.btnNovo = new SysNorteGrupo.UI.Utils.Botoes.BotaoNovo();
             this.panelComponentes = new DevExpress.XtraEditors.PanelControl();
             this.grpTipo = new DevExpress.XtraEditors.RadioGroup();
             this.panelArquivos = new DevExpress.XtraEditors.PanelControl();
@@ -60,7 +61,7 @@ namespace SysNorteGrupo.UI.Clientes
             this.labelControl16 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl15 = new DevExpress.XtraEditors.LabelControl();
             this.tfRefcomercial = new DevExpress.XtraEditors.TextEdit();
-            this.bdgCliente = new System.Windows.Forms.BindingSource();
+            this.bdgCliente = new System.Windows.Forms.BindingSource(this.components);
             this.tfContcomercial = new DevExpress.XtraEditors.TextEdit();
             this.xtraTabPage2 = new DevExpress.XtraTab.XtraTabPage();
             this.labelControl17 = new DevExpress.XtraEditors.LabelControl();
@@ -78,7 +79,7 @@ namespace SysNorteGrupo.UI.Clientes
             this.btnCadBairro = new DevExpress.XtraEditors.SimpleButton();
             this.tfObservacoes = new DevExpress.XtraEditors.MemoEdit();
             this.cbEndereco = new DevExpress.XtraEditors.SearchLookUpEdit();
-            this.bdgEnderecos = new System.Windows.Forms.BindingSource();
+            this.bdgEnderecos = new System.Windows.Forms.BindingSource(this.components);
             this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colcep = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -86,7 +87,7 @@ namespace SysNorteGrupo.UI.Clientes
             this.colbairro_id = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn6 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.cbBairro = new DevExpress.XtraEditors.SearchLookUpEdit();
-            this.bdgBairros = new System.Windows.Forms.BindingSource();
+            this.bdgBairros = new System.Windows.Forms.BindingSource(this.components);
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colnome_bairro = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -95,14 +96,14 @@ namespace SysNorteGrupo.UI.Clientes
             this.tfCep = new DevExpress.XtraEditors.TextEdit();
             this.tfNumero = new DevExpress.XtraEditors.TextEdit();
             this.cbEstados = new DevExpress.XtraEditors.SearchLookUpEdit();
-            this.bdgEstados = new System.Windows.Forms.BindingSource();
+            this.bdgEstados = new System.Windows.Forms.BindingSource(this.components);
             this.gridView3 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
             this.coluf = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colnome_estado = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colcod_ibge = new DevExpress.XtraGrid.Columns.GridColumn();
             this.cbCidade = new DevExpress.XtraEditors.SearchLookUpEdit();
-            this.bdgCidades = new System.Windows.Forms.BindingSource();
+            this.bdgCidades = new System.Windows.Forms.BindingSource(this.components);
             this.searchLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.col_cidade = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -140,7 +141,7 @@ namespace SysNorteGrupo.UI.Clientes
             this.labelControl9 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl24 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl23 = new DevExpress.XtraEditors.LabelControl();
-            this.validador = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider();
+            this.validador = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pnBotoes)).BeginInit();
             this.pnBotoes.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelComponentes)).BeginInit();
@@ -214,7 +215,7 @@ namespace SysNorteGrupo.UI.Clientes
             this.pnBotoes.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnBotoes.Location = new System.Drawing.Point(0, 0);
             this.pnBotoes.Name = "pnBotoes";
-            this.pnBotoes.Size = new System.Drawing.Size(1083, 69);
+            this.pnBotoes.Size = new System.Drawing.Size(1066, 55);
             this.pnBotoes.TabIndex = 0;
             // 
             // btnImprimirContrato
@@ -225,9 +226,9 @@ namespace SysNorteGrupo.UI.Clientes
             this.btnImprimirContrato.ForeColor = System.Drawing.Color.White;
             this.btnImprimirContrato.Image = ((System.Drawing.Image)(resources.GetObject("btnImprimirContrato.Image")));
             this.btnImprimirContrato.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnImprimirContrato.Location = new System.Drawing.Point(361, 5);
+            this.btnImprimirContrato.Location = new System.Drawing.Point(349, 6);
             this.btnImprimirContrato.Name = "btnImprimirContrato";
-            this.btnImprimirContrato.Size = new System.Drawing.Size(146, 56);
+            this.btnImprimirContrato.Size = new System.Drawing.Size(215, 43);
             this.btnImprimirContrato.TabIndex = 12;
             this.btnImprimirContrato.Text = "           Imprimir Rel. de Bens";
             this.btnImprimirContrato.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -252,9 +253,9 @@ namespace SysNorteGrupo.UI.Clientes
             this.btnSair.ForeColor = System.Drawing.Color.White;
             this.btnSair.Image = ((System.Drawing.Image)(resources.GetObject("btnSair.Image")));
             this.btnSair.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSair.Location = new System.Drawing.Point(961, 6);
+            this.btnSair.Location = new System.Drawing.Point(974, 5);
             this.btnSair.Name = "btnSair";
-            this.btnSair.Size = new System.Drawing.Size(110, 56);
+            this.btnSair.Size = new System.Drawing.Size(106, 44);
             this.btnSair.TabIndex = 10;
             this.btnSair.Text = "Sair";
             this.btnSair.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -270,9 +271,9 @@ namespace SysNorteGrupo.UI.Clientes
             this.btnEditar.ForeColor = System.Drawing.Color.White;
             this.btnEditar.Image = ((System.Drawing.Image)(resources.GetObject("btnEditar.Image")));
             this.btnEditar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEditar.Location = new System.Drawing.Point(129, 5);
+            this.btnEditar.Location = new System.Drawing.Point(125, 5);
             this.btnEditar.Name = "btnEditar";
-            this.btnEditar.Size = new System.Drawing.Size(110, 56);
+            this.btnEditar.Size = new System.Drawing.Size(106, 44);
             this.btnEditar.TabIndex = 9;
             this.btnEditar.Text = "Editar";
             this.btnEditar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -289,7 +290,7 @@ namespace SysNorteGrupo.UI.Clientes
             this.btnSalvar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSalvar.Location = new System.Drawing.Point(13, 5);
             this.btnSalvar.Name = "btnSalvar";
-            this.btnSalvar.Size = new System.Drawing.Size(110, 56);
+            this.btnSalvar.Size = new System.Drawing.Size(106, 44);
             this.btnSalvar.TabIndex = 8;
             this.btnSalvar.Text = "Salvar";
             this.btnSalvar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -304,9 +305,9 @@ namespace SysNorteGrupo.UI.Clientes
             this.btnNovo.ForeColor = System.Drawing.Color.White;
             this.btnNovo.Image = ((System.Drawing.Image)(resources.GetObject("btnNovo.Image")));
             this.btnNovo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNovo.Location = new System.Drawing.Point(245, 5);
+            this.btnNovo.Location = new System.Drawing.Point(237, 5);
             this.btnNovo.Name = "btnNovo";
-            this.btnNovo.Size = new System.Drawing.Size(110, 56);
+            this.btnNovo.Size = new System.Drawing.Size(106, 44);
             this.btnNovo.TabIndex = 7;
             this.btnNovo.Text = "Novo";
             this.btnNovo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -326,9 +327,9 @@ namespace SysNorteGrupo.UI.Clientes
             this.panelComponentes.Controls.Add(this.labelControl24);
             this.panelComponentes.Controls.Add(this.labelControl23);
             this.panelComponentes.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelComponentes.Location = new System.Drawing.Point(0, 69);
+            this.panelComponentes.Location = new System.Drawing.Point(0, 55);
             this.panelComponentes.Name = "panelComponentes";
-            this.panelComponentes.Size = new System.Drawing.Size(1083, 521);
+            this.panelComponentes.Size = new System.Drawing.Size(1066, 520);
             this.panelComponentes.TabIndex = 1;
             // 
             // grpTipo
@@ -348,7 +349,7 @@ namespace SysNorteGrupo.UI.Clientes
             // panelArquivos
             // 
             this.panelArquivos.Controls.Add(this.arquivosFormCli);
-            this.panelArquivos.Location = new System.Drawing.Point(13, 315);
+            this.panelArquivos.Location = new System.Drawing.Point(6, 314);
             this.panelArquivos.Name = "panelArquivos";
             this.panelArquivos.Size = new System.Drawing.Size(1058, 201);
             this.panelArquivos.TabIndex = 9;
@@ -364,7 +365,7 @@ namespace SysNorteGrupo.UI.Clientes
             // 
             this.panelReferencias.Controls.Add(this.xtraTabControl1);
             this.panelReferencias.Enabled = false;
-            this.panelReferencias.Location = new System.Drawing.Point(13, 244);
+            this.panelReferencias.Location = new System.Drawing.Point(6, 244);
             this.panelReferencias.Name = "panelReferencias";
             this.panelReferencias.Size = new System.Drawing.Size(1057, 70);
             this.panelReferencias.TabIndex = 8;
@@ -522,7 +523,7 @@ namespace SysNorteGrupo.UI.Clientes
             this.panelCadastro.Controls.Add(this.grpEndereco);
             this.panelCadastro.Controls.Add(this.grpContato);
             this.panelCadastro.Controls.Add(this.grpInfoBasica);
-            this.panelCadastro.Location = new System.Drawing.Point(13, 35);
+            this.panelCadastro.Location = new System.Drawing.Point(6, 35);
             this.panelCadastro.Name = "panelCadastro";
             this.panelCadastro.Size = new System.Drawing.Size(1057, 206);
             this.panelCadastro.TabIndex = 7;
@@ -1216,7 +1217,7 @@ namespace SysNorteGrupo.UI.Clientes
             this.Controls.Add(this.panelComponentes);
             this.Controls.Add(this.pnBotoes);
             this.Name = "ClienteForm";
-            this.Size = new System.Drawing.Size(1083, 590);
+            this.Size = new System.Drawing.Size(1066, 575);
             this.Load += new System.EventHandler(this.ClienteForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pnBotoes)).EndInit();
             this.pnBotoes.ResumeLayout(false);

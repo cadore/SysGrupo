@@ -30,7 +30,6 @@ namespace SysNorteGrupo.UI.Veiculos
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BuscaVeiculoForm));
             this.pnBotoes = new DevExpress.XtraEditors.PanelControl();
             this.cbCliente = new DevExpress.XtraEditors.SearchLookUpEdit();
             this.bdgCliente = new System.Windows.Forms.BindingSource(this.components);
@@ -62,8 +61,8 @@ namespace SysNorteGrupo.UI.Veiculos
             this.gridColumn6 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colid_enderecos = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colid_bairros = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.btnFechar = new BotaoSair();
-            this.btnBuscar = new BotaoBuscar();
+            this.btnFechar = new SysNorteGrupo.UI.Utils.Botoes.BotaoSair();
+            this.btnBuscar = new SysNorteGrupo.UI.Utils.Botoes.BotaoBuscar();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
             this.ckInativo = new DevExpress.XtraEditors.CheckEdit();
             this.ckAtivo = new DevExpress.XtraEditors.CheckEdit();
@@ -135,12 +134,12 @@ namespace SysNorteGrupo.UI.Veiculos
             this.pnBotoes.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnBotoes.Location = new System.Drawing.Point(0, 0);
             this.pnBotoes.Name = "pnBotoes";
-            this.pnBotoes.Size = new System.Drawing.Size(1025, 71);
+            this.pnBotoes.Size = new System.Drawing.Size(1025, 59);
             this.pnBotoes.TabIndex = 2;
             // 
             // cbCliente
             // 
-            this.cbCliente.Location = new System.Drawing.Point(174, 39);
+            this.cbCliente.Location = new System.Drawing.Point(171, 32);
             this.cbCliente.Name = "cbCliente";
             this.cbCliente.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -374,11 +373,10 @@ namespace SysNorteGrupo.UI.Veiculos
             this.btnFechar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFechar.Font = new System.Drawing.Font("Segoe UI Light", 12F);
             this.btnFechar.ForeColor = System.Drawing.Color.White;
-            this.btnFechar.Image = ((System.Drawing.Image)(resources.GetObject("btnFechar.Image")));
             this.btnFechar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnFechar.Location = new System.Drawing.Point(906, 8);
+            this.btnFechar.Location = new System.Drawing.Point(916, 8);
             this.btnFechar.Name = "btnFechar";
-            this.btnFechar.Size = new System.Drawing.Size(110, 56);
+            this.btnFechar.Size = new System.Drawing.Size(106, 44);
             this.btnFechar.TabIndex = 3;
             this.btnFechar.Text = "Sair";
             this.btnFechar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -391,11 +389,10 @@ namespace SysNorteGrupo.UI.Veiculos
             this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBuscar.Font = new System.Drawing.Font("Segoe UI Light", 12F);
             this.btnBuscar.ForeColor = System.Drawing.Color.White;
-            this.btnBuscar.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscar.Image")));
             this.btnBuscar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBuscar.Location = new System.Drawing.Point(700, 8);
+            this.btnBuscar.Location = new System.Drawing.Point(687, 8);
             this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(116, 56);
+            this.btnBuscar.Size = new System.Drawing.Size(106, 44);
             this.btnBuscar.TabIndex = 2;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -408,7 +405,7 @@ namespace SysNorteGrupo.UI.Veiculos
             this.panelControl2.Controls.Add(this.ckInativo);
             this.panelControl2.Controls.Add(this.ckAtivo);
             this.panelControl2.Controls.Add(this.labelControl3);
-            this.panelControl2.Location = new System.Drawing.Point(528, 15);
+            this.panelControl2.Location = new System.Drawing.Point(525, 8);
             this.panelControl2.Name = "panelControl2";
             this.panelControl2.Size = new System.Drawing.Size(153, 44);
             this.panelControl2.TabIndex = 4;
@@ -448,7 +445,7 @@ namespace SysNorteGrupo.UI.Veiculos
             // labelControl4
             // 
             this.labelControl4.Appearance.ForeColor = System.Drawing.Color.White;
-            this.labelControl4.Location = new System.Drawing.Point(174, 20);
+            this.labelControl4.Location = new System.Drawing.Point(171, 13);
             this.labelControl4.Name = "labelControl4";
             this.labelControl4.Size = new System.Drawing.Size(45, 13);
             this.labelControl4.TabIndex = 1;
@@ -457,7 +454,7 @@ namespace SysNorteGrupo.UI.Veiculos
             // labelControl2
             // 
             this.labelControl2.Appearance.ForeColor = System.Drawing.Color.White;
-            this.labelControl2.Location = new System.Drawing.Point(67, 20);
+            this.labelControl2.Location = new System.Drawing.Point(64, 13);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(36, 13);
             this.labelControl2.TabIndex = 1;
@@ -465,7 +462,7 @@ namespace SysNorteGrupo.UI.Veiculos
             // 
             // tfPlaca
             // 
-            this.tfPlaca.Location = new System.Drawing.Point(67, 39);
+            this.tfPlaca.Location = new System.Drawing.Point(64, 32);
             this.tfPlaca.Name = "tfPlaca";
             this.tfPlaca.Properties.Mask.BeepOnError = true;
             this.tfPlaca.Properties.Mask.EditMask = "[A-Z]{3}\\-\\d{4}";
@@ -478,7 +475,7 @@ namespace SysNorteGrupo.UI.Veiculos
             // labelControl1
             // 
             this.labelControl1.Appearance.ForeColor = System.Drawing.Color.White;
-            this.labelControl1.Location = new System.Drawing.Point(10, 20);
+            this.labelControl1.Location = new System.Drawing.Point(7, 13);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(26, 13);
             this.labelControl1.TabIndex = 1;
@@ -486,7 +483,7 @@ namespace SysNorteGrupo.UI.Veiculos
             // 
             // tfId
             // 
-            this.tfId.Location = new System.Drawing.Point(10, 39);
+            this.tfId.Location = new System.Drawing.Point(7, 32);
             this.tfId.Name = "tfId";
             this.tfId.Properties.Mask.EditMask = "\\d+";
             this.tfId.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
@@ -498,12 +495,12 @@ namespace SysNorteGrupo.UI.Veiculos
             // 
             this.gridControl.DataSource = this.bdgVeiculo;
             this.gridControl.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.gridControl.Location = new System.Drawing.Point(0, 70);
+            this.gridControl.Location = new System.Drawing.Point(0, 58);
             this.gridControl.MainView = this.gridView1;
             this.gridControl.Name = "gridControl";
             this.gridControl.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemTextEdit1});
-            this.gridControl.Size = new System.Drawing.Size(1025, 464);
+            this.gridControl.Size = new System.Drawing.Size(1025, 476);
             this.gridControl.TabIndex = 3;
             this.gridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});

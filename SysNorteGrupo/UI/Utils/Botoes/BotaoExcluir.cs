@@ -22,8 +22,8 @@ namespace SysNorteGrupo.UI.Utils.Botoes
             //this.MouseUp += new MouseEventHandler(_MouseUp);
             //this.MouseMove += new MouseEventHandler(_MouseMove);
 
-            this.Image = global::SysNorteGrupo.Properties.Resources.delete;
-            this.Size = new Size(93, 31);
+            this.Image = global::SysNorteGrupo.Properties.Resources.cancel;
+            this.Size = new Size(94, 44);
             this.ImageAlign = ContentAlignment.MiddleLeft;
             this.TextAlign = ContentAlignment.MiddleRight;
             this.ForeColor = Color.White;

@@ -515,13 +515,6 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <None Include="Resources\save.png" />
-    <None Include="Resources\edit.png" />
-    <None Include="Resources\cancel.png" />
-    <None Include="Resources\add.png" />
-    <None Include="Resources\search.png" />
-    <None Include="Resources\minus.png" />
-    <None Include="Resources\next.png" />
     <None Include="Resources\BO_Customer_32x32.png" />
     <None Include="Resources\BO_Resume_32x32.png" />
     <None Include="Resources\BO_List_32x32.png" />
@@ -533,7 +526,6 @@
     <None Include="Resources\Action_LinkUnlink_Link.png" />
     <None Include="Resources\check-48.png" />
     <None Include="Resources\impressora48.png" />
-    <None Include="Resources\impressora40.png" />
     <None Include="Resources\Open_32x32.png" />
     <None Include="Resources\IDE_32x32.png" />
     <None Include="Resources\Report_32x32.png" />
@@ -543,6 +535,14 @@
     <None Include="Resources\delete.png" />
     <None Include="Resources\sigla_SysNorte.png" />
     <None Include="Resources\sigla_SysNorte1.png" />
+    <None Include="Resources\add.png" />
+    <None Include="Resources\cancel.png" />
+    <None Include="Resources\edit.png" />
+    <None Include="Resources\impressora40.png" />
+    <None Include="Resources\minus.png" />
+    <None Include="Resources\next.png" />
+    <None Include="Resources\save.png" />
+    <None Include="Resources\search.png" />
     <Content Include="TODO.txt" />
   </ItemGroup>
   <!--<Import Project="$(MSBuildExtensionsPath)\Ilmerge.CSharp.targets" />-->

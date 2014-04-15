@@ -11,18 +11,19 @@ namespace SysNorteGrupo.UI.Sinistros
 
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SinistrosForm));
+            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule5 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule2 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule3 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
-            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule4 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             this.pnBotoes = new DevExpress.XtraEditors.PanelControl();
-            this.btnGerarCobranca = new BotaoImprimir();
-            this.btnImprimirRelSinistro = new BotaoImprimir();
-            this.btnSalvar = new BotaoSalvar();
-            this.btnSair = new BotaoSair();
-            this.btnNovo = new BotaoNovo();
-            this.btnEditar = new BotaoEditar();
+            this.btnGerarCobranca = new SysNorteGrupo.UI.Utils.Botoes.BotaoImprimir();
+            this.btnImprimirRelSinistro = new SysNorteGrupo.UI.Utils.Botoes.BotaoImprimir();
+            this.btnSalvar = new SysNorteGrupo.UI.Utils.Botoes.BotaoSalvar();
+            this.btnSair = new SysNorteGrupo.UI.Utils.Botoes.BotaoSair();
+            this.btnNovo = new SysNorteGrupo.UI.Utils.Botoes.BotaoNovo();
+            this.btnEditar = new SysNorteGrupo.UI.Utils.Botoes.BotaoEditar();
             this.pnControl = new DevExpress.XtraEditors.PanelControl();
             this.gcArquivos = new DevExpress.XtraEditors.GroupControl();
             this.arquivosForm = new SysFileManager.ArquivosForm();
@@ -30,7 +31,7 @@ namespace SysNorteGrupo.UI.Sinistros
             this.btnRemoverPag = new DevExpress.XtraEditors.SimpleButton();
             this.btnAdicionarPag = new DevExpress.XtraEditors.SimpleButton();
             this.tfObservacaoPag = new DevExpress.XtraEditors.TextEdit();
-            this.bdgPagamentos = new System.Windows.Forms.BindingSource();
+            this.bdgPagamentos = new System.Windows.Forms.BindingSource(this.components);
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.tfValorPag = new DevExpress.XtraEditors.CalcEdit();
@@ -41,8 +42,8 @@ namespace SysNorteGrupo.UI.Sinistros
             this.colid_sinistros = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gcInfoBasica = new DevExpress.XtraEditors.GroupControl();
             this.cbReboque3 = new DevExpress.XtraEditors.SearchLookUpEdit();
-            this.bdgSinistros = new System.Windows.Forms.BindingSource();
-            this.bdgReboques3 = new System.Windows.Forms.BindingSource();
+            this.bdgSinistros = new System.Windows.Forms.BindingSource(this.components);
+            this.bdgReboques3 = new System.Windows.Forms.BindingSource(this.components);
             this.gridView4 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn46 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn47 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -68,7 +69,7 @@ namespace SysNorteGrupo.UI.Sinistros
             this.gridColumn67 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn68 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.cbReboque2 = new DevExpress.XtraEditors.SearchLookUpEdit();
-            this.bdgReboques2 = new System.Windows.Forms.BindingSource();
+            this.bdgReboques2 = new System.Windows.Forms.BindingSource(this.components);
             this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colid_cliente = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -100,7 +101,7 @@ namespace SysNorteGrupo.UI.Sinistros
             this.dtOcorrido = new DevExpress.XtraEditors.DateEdit();
             this.tfId = new DevExpress.XtraEditors.TextEdit();
             this.cbReboque1 = new DevExpress.XtraEditors.SearchLookUpEdit();
-            this.bdgReboques1 = new System.Windows.Forms.BindingSource();
+            this.bdgReboques1 = new System.Windows.Forms.BindingSource(this.components);
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -126,7 +127,7 @@ namespace SysNorteGrupo.UI.Sinistros
             this.gridColumn22 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn23 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.cbVeiculo = new DevExpress.XtraEditors.SearchLookUpEdit();
-            this.bdgVeiculos = new System.Windows.Forms.BindingSource();
+            this.bdgVeiculos = new System.Windows.Forms.BindingSource(this.components);
             this.searchLookUpEdit2View = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn24 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn25 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -164,7 +165,7 @@ namespace SysNorteGrupo.UI.Sinistros
             this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.cbCliente = new DevExpress.XtraEditors.SearchLookUpEdit();
-            this.bdgCliente = new System.Windows.Forms.BindingSource();
+            this.bdgCliente = new System.Windows.Forms.BindingSource(this.components);
             this.searchLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn38 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colnome_completo = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -197,8 +198,8 @@ namespace SysNorteGrupo.UI.Sinistros
             this.gridColumn44 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn45 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colvalor_total = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.validatorPag = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider();
-            this.validator = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider();
+            this.validatorPag = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
+            this.validator = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
             this.pnPrincipal = new DevExpress.XtraEditors.PanelControl();
             ((System.ComponentModel.ISupportInitialize)(this.pnBotoes)).BeginInit();
             this.pnBotoes.SuspendLayout();
@@ -259,7 +260,7 @@ namespace SysNorteGrupo.UI.Sinistros
             this.pnBotoes.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnBotoes.Location = new System.Drawing.Point(0, 0);
             this.pnBotoes.Name = "pnBotoes";
-            this.pnBotoes.Size = new System.Drawing.Size(848, 66);
+            this.pnBotoes.Size = new System.Drawing.Size(848, 60);
             this.pnBotoes.TabIndex = 0;
             // 
             // btnGerarCobranca
@@ -270,11 +271,11 @@ namespace SysNorteGrupo.UI.Sinistros
             this.btnGerarCobranca.ForeColor = System.Drawing.Color.White;
             this.btnGerarCobranca.Image = ((System.Drawing.Image)(resources.GetObject("btnGerarCobranca.Image")));
             this.btnGerarCobranca.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGerarCobranca.Location = new System.Drawing.Point(565, 7);
+            this.btnGerarCobranca.Location = new System.Drawing.Point(527, 7);
             this.btnGerarCobranca.Name = "btnGerarCobranca";
-            this.btnGerarCobranca.Size = new System.Drawing.Size(151, 53);
+            this.btnGerarCobranca.Size = new System.Drawing.Size(167, 44);
             this.btnGerarCobranca.TabIndex = 5;
-            this.btnGerarCobranca.Text = "                     Gerar Cobrança";
+            this.btnGerarCobranca.Text = "Gerar Cobrança";
             this.btnGerarCobranca.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnGerarCobranca.UseVisualStyleBackColor = false;
             this.btnGerarCobranca.Click += new System.EventHandler(this.btnGerarCobranca_Click);
@@ -288,11 +289,11 @@ namespace SysNorteGrupo.UI.Sinistros
             this.btnImprimirRelSinistro.ForeColor = System.Drawing.Color.White;
             this.btnImprimirRelSinistro.Image = ((System.Drawing.Image)(resources.GetObject("btnImprimirRelSinistro.Image")));
             this.btnImprimirRelSinistro.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnImprimirRelSinistro.Location = new System.Drawing.Point(389, 7);
+            this.btnImprimirRelSinistro.Location = new System.Drawing.Point(344, 7);
             this.btnImprimirRelSinistro.Name = "btnImprimirRelSinistro";
-            this.btnImprimirRelSinistro.Size = new System.Drawing.Size(170, 53);
+            this.btnImprimirRelSinistro.Size = new System.Drawing.Size(177, 44);
             this.btnImprimirRelSinistro.TabIndex = 4;
-            this.btnImprimirRelSinistro.Text = "Imprimir Rel. de Conclusão";
+            this.btnImprimirRelSinistro.Text = "Rel. de Conclusão";
             this.btnImprimirRelSinistro.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnImprimirRelSinistro.UseVisualStyleBackColor = false;
             this.btnImprimirRelSinistro.Click += new System.EventHandler(this.btnImprimirRelSinistro_Click);
@@ -309,7 +310,7 @@ namespace SysNorteGrupo.UI.Sinistros
             this.btnSalvar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSalvar.Location = new System.Drawing.Point(8, 7);
             this.btnSalvar.Name = "btnSalvar";
-            this.btnSalvar.Size = new System.Drawing.Size(121, 53);
+            this.btnSalvar.Size = new System.Drawing.Size(106, 44);
             this.btnSalvar.TabIndex = 3;
             this.btnSalvar.Text = "Salvar";
             this.btnSalvar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -326,9 +327,9 @@ namespace SysNorteGrupo.UI.Sinistros
             this.btnSair.ForeColor = System.Drawing.Color.White;
             this.btnSair.Image = ((System.Drawing.Image)(resources.GetObject("btnSair.Image")));
             this.btnSair.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSair.Location = new System.Drawing.Point(722, 7);
+            this.btnSair.Location = new System.Drawing.Point(739, 7);
             this.btnSair.Name = "btnSair";
-            this.btnSair.Size = new System.Drawing.Size(121, 53);
+            this.btnSair.Size = new System.Drawing.Size(106, 44);
             this.btnSair.TabIndex = 2;
             this.btnSair.Text = "Sair";
             this.btnSair.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -345,9 +346,9 @@ namespace SysNorteGrupo.UI.Sinistros
             this.btnNovo.ForeColor = System.Drawing.Color.White;
             this.btnNovo.Image = ((System.Drawing.Image)(resources.GetObject("btnNovo.Image")));
             this.btnNovo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNovo.Location = new System.Drawing.Point(262, 7);
+            this.btnNovo.Location = new System.Drawing.Point(232, 7);
             this.btnNovo.Name = "btnNovo";
-            this.btnNovo.Size = new System.Drawing.Size(121, 53);
+            this.btnNovo.Size = new System.Drawing.Size(106, 44);
             this.btnNovo.TabIndex = 1;
             this.btnNovo.Text = "Novo";
             this.btnNovo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -365,9 +366,9 @@ namespace SysNorteGrupo.UI.Sinistros
             this.btnEditar.ForeColor = System.Drawing.Color.White;
             this.btnEditar.Image = ((System.Drawing.Image)(resources.GetObject("btnEditar.Image")));
             this.btnEditar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEditar.Location = new System.Drawing.Point(135, 7);
+            this.btnEditar.Location = new System.Drawing.Point(120, 7);
             this.btnEditar.Name = "btnEditar";
-            this.btnEditar.Size = new System.Drawing.Size(121, 53);
+            this.btnEditar.Size = new System.Drawing.Size(106, 44);
             this.btnEditar.TabIndex = 0;
             this.btnEditar.Text = "Editar";
             this.btnEditar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -381,14 +382,14 @@ namespace SysNorteGrupo.UI.Sinistros
             this.pnControl.Controls.Add(this.gcInfoBasica);
             this.pnControl.Location = new System.Drawing.Point(0, 29);
             this.pnControl.Name = "pnControl";
-            this.pnControl.Size = new System.Drawing.Size(848, 534);
+            this.pnControl.Size = new System.Drawing.Size(848, 513);
             this.pnControl.TabIndex = 2;
             this.pnControl.EnabledChanged += new System.EventHandler(this.pnControl_EnabledChanged);
             // 
             // gcArquivos
             // 
             this.gcArquivos.Controls.Add(this.arquivosForm);
-            this.gcArquivos.Location = new System.Drawing.Point(0, 336);
+            this.gcArquivos.Location = new System.Drawing.Point(0, 314);
             this.gcArquivos.Name = "gcArquivos";
             this.gcArquivos.Size = new System.Drawing.Size(848, 195);
             this.gcArquivos.TabIndex = 2;
@@ -411,7 +412,7 @@ namespace SysNorteGrupo.UI.Sinistros
             this.gcPagamentos.Controls.Add(this.labelControl4);
             this.gcPagamentos.Controls.Add(this.tfValorPag);
             this.gcPagamentos.Controls.Add(this.gridControlPagamentos);
-            this.gcPagamentos.Location = new System.Drawing.Point(0, 177);
+            this.gcPagamentos.Location = new System.Drawing.Point(0, 157);
             this.gcPagamentos.Name = "gcPagamentos";
             this.gcPagamentos.Size = new System.Drawing.Size(848, 157);
             this.gcPagamentos.TabIndex = 1;
@@ -425,7 +426,7 @@ namespace SysNorteGrupo.UI.Sinistros
             this.btnRemoverPag.Appearance.Options.UseForeColor = true;
             this.btnRemoverPag.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.btnRemoverPag.Image = global::SysNorteGrupo.Properties.Resources.State_Validation_Invalid;
-            this.btnRemoverPag.Location = new System.Drawing.Point(749, 21);
+            this.btnRemoverPag.Location = new System.Drawing.Point(759, 21);
             this.btnRemoverPag.Name = "btnRemoverPag";
             this.btnRemoverPag.Size = new System.Drawing.Size(84, 23);
             this.btnRemoverPag.TabIndex = 5;
@@ -440,7 +441,7 @@ namespace SysNorteGrupo.UI.Sinistros
             this.btnAdicionarPag.Appearance.Options.UseForeColor = true;
             this.btnAdicionarPag.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.btnAdicionarPag.Image = global::SysNorteGrupo.Properties.Resources.Action_SingleChoiceAction;
-            this.btnAdicionarPag.Location = new System.Drawing.Point(616, 21);
+            this.btnAdicionarPag.Location = new System.Drawing.Point(625, 21);
             this.btnAdicionarPag.Name = "btnAdicionarPag";
             this.btnAdicionarPag.Size = new System.Drawing.Size(128, 23);
             this.btnAdicionarPag.TabIndex = 4;
@@ -452,12 +453,12 @@ namespace SysNorteGrupo.UI.Sinistros
             this.tfObservacaoPag.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdgPagamentos, "observacao", true));
             this.tfObservacaoPag.Location = new System.Drawing.Point(227, 22);
             this.tfObservacaoPag.Name = "tfObservacaoPag";
-            this.tfObservacaoPag.Size = new System.Drawing.Size(383, 20);
+            this.tfObservacaoPag.Size = new System.Drawing.Size(392, 20);
             this.tfObservacaoPag.TabIndex = 3;
-            conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule1.ErrorText = "Observação não pode ser vazia";
-            conditionValidationRule1.ErrorType = DevExpress.XtraEditors.DXErrorProvider.ErrorType.Critical;
-            this.validatorPag.SetValidationRule(this.tfObservacaoPag, conditionValidationRule1);
+            conditionValidationRule5.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule5.ErrorText = "Observação não pode ser vazia";
+            conditionValidationRule5.ErrorType = DevExpress.XtraEditors.DXErrorProvider.ErrorType.Critical;
+            this.validatorPag.SetValidationRule(this.tfObservacaoPag, conditionValidationRule5);
             // 
             // bdgPagamentos
             // 
@@ -489,15 +490,15 @@ namespace SysNorteGrupo.UI.Sinistros
             this.tfValorPag.Properties.Precision = 2;
             this.tfValorPag.Size = new System.Drawing.Size(90, 20);
             this.tfValorPag.TabIndex = 1;
-            conditionValidationRule2.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.Greater;
-            conditionValidationRule2.ErrorText = "Valor do pagamento deve ser maior que R$0,01";
-            conditionValidationRule2.ErrorType = DevExpress.XtraEditors.DXErrorProvider.ErrorType.Critical;
-            conditionValidationRule2.Value1 = new decimal(new int[] {
+            conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.Greater;
+            conditionValidationRule1.ErrorText = "Valor do pagamento deve ser maior que R$0,01";
+            conditionValidationRule1.ErrorType = DevExpress.XtraEditors.DXErrorProvider.ErrorType.Critical;
+            conditionValidationRule1.Value1 = new decimal(new int[] {
             1,
             0,
             0,
             131072});
-            this.validatorPag.SetValidationRule(this.tfValorPag, conditionValidationRule2);
+            this.validatorPag.SetValidationRule(this.tfValorPag, conditionValidationRule1);
             // 
             // gridControlPagamentos
             // 
@@ -505,7 +506,7 @@ namespace SysNorteGrupo.UI.Sinistros
             this.gridControlPagamentos.Location = new System.Drawing.Point(5, 45);
             this.gridControlPagamentos.MainView = this.gridView3;
             this.gridControlPagamentos.Name = "gridControlPagamentos";
-            this.gridControlPagamentos.Size = new System.Drawing.Size(828, 108);
+            this.gridControlPagamentos.Size = new System.Drawing.Size(838, 108);
             this.gridControlPagamentos.TabIndex = 0;
             this.gridControlPagamentos.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView3});
@@ -574,7 +575,7 @@ namespace SysNorteGrupo.UI.Sinistros
             this.gcInfoBasica.Controls.Add(this.labelControl10);
             this.gcInfoBasica.Location = new System.Drawing.Point(0, -3);
             this.gcInfoBasica.Name = "gcInfoBasica";
-            this.gcInfoBasica.Size = new System.Drawing.Size(848, 178);
+            this.gcInfoBasica.Size = new System.Drawing.Size(848, 161);
             this.gcInfoBasica.TabIndex = 0;
             this.gcInfoBasica.Text = "INFORMAÇÕES BÁSICAS";
             // 
@@ -989,7 +990,7 @@ namespace SysNorteGrupo.UI.Sinistros
             this.tfObservacao.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdgSinistros, "observacoes", true));
             this.tfObservacao.Location = new System.Drawing.Point(3, 113);
             this.tfObservacao.Name = "tfObservacao";
-            this.tfObservacao.Size = new System.Drawing.Size(830, 61);
+            this.tfObservacao.Size = new System.Drawing.Size(830, 41);
             this.tfObservacao.TabIndex = 13;
             this.tfObservacao.UseOptimizedRendering = true;
             // 
@@ -1027,9 +1028,9 @@ namespace SysNorteGrupo.UI.Sinistros
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dtOcorrido.Size = new System.Drawing.Size(108, 20);
             this.dtOcorrido.TabIndex = 10;
-            conditionValidationRule3.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule3.ErrorText = "Informe a data do ocorrido";
-            this.validator.SetValidationRule(this.dtOcorrido, conditionValidationRule3);
+            conditionValidationRule2.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule2.ErrorText = "Informe a data do ocorrido";
+            this.validator.SetValidationRule(this.dtOcorrido, conditionValidationRule2);
             // 
             // tfId
             // 
@@ -1571,10 +1572,10 @@ namespace SysNorteGrupo.UI.Sinistros
             this.cbCliente.Properties.View = this.searchLookUpEdit1View;
             this.cbCliente.Size = new System.Drawing.Size(551, 20);
             this.cbCliente.TabIndex = 1;
-            conditionValidationRule4.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.Greater;
-            conditionValidationRule4.ErrorText = "Selecione um cliente";
-            conditionValidationRule4.Value1 = ((long)(0));
-            this.validator.SetValidationRule(this.cbCliente, conditionValidationRule4);
+            conditionValidationRule3.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.Greater;
+            conditionValidationRule3.ErrorText = "Selecione um cliente";
+            conditionValidationRule3.Value1 = ((long)(0));
+            this.validator.SetValidationRule(this.cbCliente, conditionValidationRule3);
             this.cbCliente.EditValueChanged += new System.EventHandler(this.cbCliente_EditValueChanged);
             // 
             // bdgCliente
@@ -1832,9 +1833,9 @@ namespace SysNorteGrupo.UI.Sinistros
             this.pnPrincipal.Controls.Add(this.labelControl1);
             this.pnPrincipal.Controls.Add(this.cbCliente);
             this.pnPrincipal.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnPrincipal.Location = new System.Drawing.Point(0, 66);
+            this.pnPrincipal.Location = new System.Drawing.Point(0, 60);
             this.pnPrincipal.Name = "pnPrincipal";
-            this.pnPrincipal.Size = new System.Drawing.Size(848, 565);
+            this.pnPrincipal.Size = new System.Drawing.Size(848, 538);
             this.pnPrincipal.TabIndex = 3;
             // 
             // SinistrosForm
@@ -1844,7 +1845,7 @@ namespace SysNorteGrupo.UI.Sinistros
             this.Controls.Add(this.pnPrincipal);
             this.Controls.Add(this.pnBotoes);
             this.Name = "SinistrosForm";
-            this.Size = new System.Drawing.Size(848, 631);
+            this.Size = new System.Drawing.Size(848, 598);
             ((System.ComponentModel.ISupportInitialize)(this.pnBotoes)).EndInit();
             this.pnBotoes.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pnControl)).EndInit();
@@ -2080,5 +2081,6 @@ namespace SysNorteGrupo.UI.Sinistros
         private DevExpress.XtraGrid.Columns.GridColumn colordem;
         private DevExpress.XtraGrid.Columns.GridColumn colnome_cliente;
         private DevExpress.XtraGrid.Columns.GridColumn colcotas;
+        private System.ComponentModel.IContainer components;
     }
 }

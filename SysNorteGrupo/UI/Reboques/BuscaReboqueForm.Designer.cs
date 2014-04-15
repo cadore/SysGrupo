@@ -29,10 +29,11 @@ namespace SysNorteGrupo.UI.Veiculos.Reboques
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BuscaReboqueForm));
             this.pnBotoes = new DevExpress.XtraEditors.PanelControl();
             this.cbCliente = new DevExpress.XtraEditors.SearchLookUpEdit();
-            this.bdgCliente = new System.Windows.Forms.BindingSource();
+            this.bdgCliente = new System.Windows.Forms.BindingSource(this.components);
             this.searchLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn25 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colnome_completo = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -64,10 +65,10 @@ namespace SysNorteGrupo.UI.Veiculos.Reboques
             this.gridColumn31 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn32 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colvalor_total = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.btnFechar = new BotaoSair();
-            this.btnBuscar = new BotaoBuscar();
+            this.btnFechar = new SysNorteGrupo.UI.Utils.Botoes.BotaoSair();
+            this.btnBuscar = new SysNorteGrupo.UI.Utils.Botoes.BotaoBuscar();
             this.cbVeiculo = new DevExpress.XtraEditors.SearchLookUpEdit();
-            this.bdgVeiculo = new System.Windows.Forms.BindingSource();
+            this.bdgVeiculo = new System.Windows.Forms.BindingSource(this.components);
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -105,7 +106,7 @@ namespace SysNorteGrupo.UI.Veiculos.Reboques
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.tfId = new DevExpress.XtraEditors.TextEdit();
             this.gridControl = new DevExpress.XtraGrid.GridControl();
-            this.bdgReboque = new System.Windows.Forms.BindingSource();
+            this.bdgReboque = new System.Windows.Forms.BindingSource(this.components);
             this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colid_cliente = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -171,12 +172,12 @@ namespace SysNorteGrupo.UI.Veiculos.Reboques
             this.pnBotoes.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnBotoes.Location = new System.Drawing.Point(0, 0);
             this.pnBotoes.Name = "pnBotoes";
-            this.pnBotoes.Size = new System.Drawing.Size(926, 94);
+            this.pnBotoes.Size = new System.Drawing.Size(926, 81);
             this.pnBotoes.TabIndex = 3;
             // 
             // cbCliente
             // 
-            this.cbCliente.Location = new System.Drawing.Point(63, 39);
+            this.cbCliente.Location = new System.Drawing.Point(63, 29);
             this.cbCliente.Name = "cbCliente";
             this.cbCliente.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -456,9 +457,9 @@ namespace SysNorteGrupo.UI.Veiculos.Reboques
             this.btnFechar.ForeColor = System.Drawing.Color.White;
             this.btnFechar.Image = ((System.Drawing.Image)(resources.GetObject("btnFechar.Image")));
             this.btnFechar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnFechar.Location = new System.Drawing.Point(806, 29);
+            this.btnFechar.Location = new System.Drawing.Point(817, 31);
             this.btnFechar.Name = "btnFechar";
-            this.btnFechar.Size = new System.Drawing.Size(110, 56);
+            this.btnFechar.Size = new System.Drawing.Size(106, 44);
             this.btnFechar.TabIndex = 7;
             this.btnFechar.Text = "Sair";
             this.btnFechar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -473,9 +474,9 @@ namespace SysNorteGrupo.UI.Veiculos.Reboques
             this.btnBuscar.ForeColor = System.Drawing.Color.White;
             this.btnBuscar.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscar.Image")));
             this.btnBuscar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBuscar.Location = new System.Drawing.Point(597, 29);
+            this.btnBuscar.Location = new System.Drawing.Point(582, 31);
             this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(110, 56);
+            this.btnBuscar.Size = new System.Drawing.Size(106, 44);
             this.btnBuscar.TabIndex = 6;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -484,7 +485,7 @@ namespace SysNorteGrupo.UI.Veiculos.Reboques
             // 
             // cbVeiculo
             // 
-            this.cbVeiculo.Location = new System.Drawing.Point(63, 65);
+            this.cbVeiculo.Location = new System.Drawing.Point(63, 55);
             this.cbVeiculo.Name = "cbVeiculo";
             this.cbVeiculo.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -695,7 +696,7 @@ namespace SysNorteGrupo.UI.Veiculos.Reboques
             // labelControl5
             // 
             this.labelControl5.Appearance.ForeColor = System.Drawing.Color.White;
-            this.labelControl5.Location = new System.Drawing.Point(12, 68);
+            this.labelControl5.Location = new System.Drawing.Point(12, 58);
             this.labelControl5.Name = "labelControl5";
             this.labelControl5.Size = new System.Drawing.Size(47, 13);
             this.labelControl5.TabIndex = 1;
@@ -707,7 +708,7 @@ namespace SysNorteGrupo.UI.Veiculos.Reboques
             this.panelControl2.Controls.Add(this.ckInativo);
             this.panelControl2.Controls.Add(this.ckAtivo);
             this.panelControl2.Controls.Add(this.labelControl3);
-            this.panelControl2.Location = new System.Drawing.Point(423, 39);
+            this.panelControl2.Location = new System.Drawing.Point(423, 29);
             this.panelControl2.Name = "panelControl2";
             this.panelControl2.Size = new System.Drawing.Size(153, 46);
             this.panelControl2.TabIndex = 4;
@@ -747,7 +748,7 @@ namespace SysNorteGrupo.UI.Veiculos.Reboques
             // labelControl4
             // 
             this.labelControl4.Appearance.ForeColor = System.Drawing.Color.White;
-            this.labelControl4.Location = new System.Drawing.Point(12, 42);
+            this.labelControl4.Location = new System.Drawing.Point(12, 32);
             this.labelControl4.Name = "labelControl4";
             this.labelControl4.Size = new System.Drawing.Size(45, 13);
             this.labelControl4.TabIndex = 1;
@@ -756,7 +757,7 @@ namespace SysNorteGrupo.UI.Veiculos.Reboques
             // labelControl2
             // 
             this.labelControl2.Appearance.ForeColor = System.Drawing.Color.White;
-            this.labelControl2.Location = new System.Drawing.Point(186, 16);
+            this.labelControl2.Location = new System.Drawing.Point(186, 6);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(36, 13);
             this.labelControl2.TabIndex = 1;
@@ -764,7 +765,7 @@ namespace SysNorteGrupo.UI.Veiculos.Reboques
             // 
             // tfPlaca
             // 
-            this.tfPlaca.Location = new System.Drawing.Point(228, 13);
+            this.tfPlaca.Location = new System.Drawing.Point(228, 3);
             this.tfPlaca.Name = "tfPlaca";
             this.tfPlaca.Properties.Mask.BeepOnError = true;
             this.tfPlaca.Properties.Mask.EditMask = "[A-Z]{3}\\-\\d{4}";
@@ -777,7 +778,7 @@ namespace SysNorteGrupo.UI.Veiculos.Reboques
             // labelControl1
             // 
             this.labelControl1.Appearance.ForeColor = System.Drawing.Color.White;
-            this.labelControl1.Location = new System.Drawing.Point(31, 16);
+            this.labelControl1.Location = new System.Drawing.Point(31, 6);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(26, 13);
             this.labelControl1.TabIndex = 1;
@@ -785,7 +786,7 @@ namespace SysNorteGrupo.UI.Veiculos.Reboques
             // 
             // tfId
             // 
-            this.tfId.Location = new System.Drawing.Point(63, 13);
+            this.tfId.Location = new System.Drawing.Point(63, 3);
             this.tfId.Name = "tfId";
             this.tfId.Properties.Mask.EditMask = "\\d+";
             this.tfId.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
@@ -797,12 +798,12 @@ namespace SysNorteGrupo.UI.Veiculos.Reboques
             // 
             this.gridControl.DataSource = this.bdgReboque;
             this.gridControl.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.gridControl.Location = new System.Drawing.Point(0, 96);
+            this.gridControl.Location = new System.Drawing.Point(0, 81);
             this.gridControl.MainView = this.gridView2;
             this.gridControl.Name = "gridControl";
             this.gridControl.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemTextEdit1});
-            this.gridControl.Size = new System.Drawing.Size(926, 433);
+            this.gridControl.Size = new System.Drawing.Size(926, 448);
             this.gridControl.TabIndex = 4;
             this.gridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView2});

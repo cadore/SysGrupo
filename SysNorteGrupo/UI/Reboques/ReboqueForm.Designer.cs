@@ -30,7 +30,8 @@ namespace SysNorteGrupo.UI.Veiculos.Reboques
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ReboqueForm));
+            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule16 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
+            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule17 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule2 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule3 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
@@ -45,8 +46,6 @@ namespace SysNorteGrupo.UI.Veiculos.Reboques
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule12 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule13 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule14 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
-            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule15 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
-            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule16 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             this.pnBotoes = new DevExpress.XtraEditors.PanelControl();
             this.btnExcluir = new SysNorteGrupo.UI.Utils.Botoes.BotaoExcluir();
             this.btnSair = new SysNorteGrupo.UI.Utils.Botoes.BotaoSair();
@@ -248,7 +247,7 @@ namespace SysNorteGrupo.UI.Veiculos.Reboques
             this.pnBotoes.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnBotoes.Location = new System.Drawing.Point(0, 0);
             this.pnBotoes.Name = "pnBotoes";
-            this.pnBotoes.Size = new System.Drawing.Size(901, 69);
+            this.pnBotoes.Size = new System.Drawing.Size(901, 59);
             this.pnBotoes.TabIndex = 1;
             // 
             // btnExcluir
@@ -258,11 +257,10 @@ namespace SysNorteGrupo.UI.Veiculos.Reboques
             this.btnExcluir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnExcluir.Font = new System.Drawing.Font("Segoe UI Light", 12F);
             this.btnExcluir.ForeColor = System.Drawing.Color.White;
-            this.btnExcluir.Image = ((System.Drawing.Image)(resources.GetObject("btnExcluir.Image")));
             this.btnExcluir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnExcluir.Location = new System.Drawing.Point(485, 6);
+            this.btnExcluir.Location = new System.Drawing.Point(455, 6);
             this.btnExcluir.Name = "btnExcluir";
-            this.btnExcluir.Size = new System.Drawing.Size(125, 56);
+            this.btnExcluir.Size = new System.Drawing.Size(106, 44);
             this.btnExcluir.TabIndex = 5;
             this.btnExcluir.Text = "Excluir";
             this.btnExcluir.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -275,11 +273,10 @@ namespace SysNorteGrupo.UI.Veiculos.Reboques
             this.btnSair.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSair.Font = new System.Drawing.Font("Segoe UI Light", 12F);
             this.btnSair.ForeColor = System.Drawing.Color.White;
-            this.btnSair.Image = ((System.Drawing.Image)(resources.GetObject("btnSair.Image")));
             this.btnSair.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSair.Location = new System.Drawing.Point(784, 6);
+            this.btnSair.Location = new System.Drawing.Point(791, 6);
             this.btnSair.Name = "btnSair";
-            this.btnSair.Size = new System.Drawing.Size(110, 56);
+            this.btnSair.Size = new System.Drawing.Size(106, 44);
             this.btnSair.TabIndex = 4;
             this.btnSair.Text = "Sair";
             this.btnSair.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -293,11 +290,10 @@ namespace SysNorteGrupo.UI.Veiculos.Reboques
             this.btnInativar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnInativar.Font = new System.Drawing.Font("Segoe UI Light", 12F);
             this.btnInativar.ForeColor = System.Drawing.Color.White;
-            this.btnInativar.Image = ((System.Drawing.Image)(resources.GetObject("btnInativar.Image")));
             this.btnInativar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnInativar.Location = new System.Drawing.Point(354, 6);
+            this.btnInativar.Location = new System.Drawing.Point(343, 6);
             this.btnInativar.Name = "btnInativar";
-            this.btnInativar.Size = new System.Drawing.Size(125, 56);
+            this.btnInativar.Size = new System.Drawing.Size(106, 44);
             this.btnInativar.TabIndex = 3;
             this.btnInativar.Text = "Inativar";
             this.btnInativar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -310,11 +306,10 @@ namespace SysNorteGrupo.UI.Veiculos.Reboques
             this.btnNovo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNovo.Font = new System.Drawing.Font("Segoe UI Light", 12F);
             this.btnNovo.ForeColor = System.Drawing.Color.White;
-            this.btnNovo.Image = ((System.Drawing.Image)(resources.GetObject("btnNovo.Image")));
             this.btnNovo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNovo.Location = new System.Drawing.Point(239, 6);
+            this.btnNovo.Location = new System.Drawing.Point(231, 6);
             this.btnNovo.Name = "btnNovo";
-            this.btnNovo.Size = new System.Drawing.Size(110, 56);
+            this.btnNovo.Size = new System.Drawing.Size(106, 44);
             this.btnNovo.TabIndex = 2;
             this.btnNovo.Text = "Novo";
             this.btnNovo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -328,11 +323,10 @@ namespace SysNorteGrupo.UI.Veiculos.Reboques
             this.btnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEditar.Font = new System.Drawing.Font("Segoe UI Light", 12F);
             this.btnEditar.ForeColor = System.Drawing.Color.White;
-            this.btnEditar.Image = ((System.Drawing.Image)(resources.GetObject("btnEditar.Image")));
             this.btnEditar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEditar.Location = new System.Drawing.Point(123, 6);
+            this.btnEditar.Location = new System.Drawing.Point(119, 6);
             this.btnEditar.Name = "btnEditar";
-            this.btnEditar.Size = new System.Drawing.Size(110, 56);
+            this.btnEditar.Size = new System.Drawing.Size(106, 44);
             this.btnEditar.TabIndex = 1;
             this.btnEditar.Text = "Editar";
             this.btnEditar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -345,11 +339,10 @@ namespace SysNorteGrupo.UI.Veiculos.Reboques
             this.btnSalvar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSalvar.Font = new System.Drawing.Font("Segoe UI Light", 12F);
             this.btnSalvar.ForeColor = System.Drawing.Color.White;
-            this.btnSalvar.Image = ((System.Drawing.Image)(resources.GetObject("btnSalvar.Image")));
             this.btnSalvar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSalvar.Location = new System.Drawing.Point(7, 6);
             this.btnSalvar.Name = "btnSalvar";
-            this.btnSalvar.Size = new System.Drawing.Size(110, 56);
+            this.btnSalvar.Size = new System.Drawing.Size(106, 44);
             this.btnSalvar.TabIndex = 0;
             this.btnSalvar.Text = "Salvar";
             this.btnSalvar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -368,9 +361,9 @@ namespace SysNorteGrupo.UI.Veiculos.Reboques
             this.pnPrincipal.Controls.Add(this.pnInformacoes);
             this.pnPrincipal.Controls.Add(this.tfId);
             this.pnPrincipal.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnPrincipal.Location = new System.Drawing.Point(0, 70);
+            this.pnPrincipal.Location = new System.Drawing.Point(0, 58);
             this.pnPrincipal.Name = "pnPrincipal";
-            this.pnPrincipal.Size = new System.Drawing.Size(901, 500);
+            this.pnPrincipal.Size = new System.Drawing.Size(901, 497);
             this.pnPrincipal.TabIndex = 2;
             // 
             // pnTabela
@@ -601,9 +594,9 @@ namespace SysNorteGrupo.UI.Veiculos.Reboques
             this.cbVeiculos.Properties.View = this.gridView9;
             this.cbVeiculos.Size = new System.Drawing.Size(439, 20);
             this.cbVeiculos.TabIndex = 1;
-            conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule1.ErrorText = "Selecione um veículo ao qual o reboque pertence";
-            this.validator.SetValidationRule(this.cbVeiculos, conditionValidationRule1);
+            conditionValidationRule16.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule16.ErrorText = "Selecione um veículo ao qual o reboque pertence";
+            this.validator.SetValidationRule(this.cbVeiculos, conditionValidationRule16);
             this.cbVeiculos.EditValueChanged += new System.EventHandler(this.cbVeiculos_EditValueChanged);
             // 
             // gridView9
@@ -667,9 +660,9 @@ namespace SysNorteGrupo.UI.Veiculos.Reboques
             this.cbCliente.Properties.View = this.searchLookUpEdit1View;
             this.cbCliente.Size = new System.Drawing.Size(439, 20);
             this.cbCliente.TabIndex = 0;
-            conditionValidationRule2.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule2.ErrorText = "Selecione um cliente";
-            this.validator.SetValidationRule(this.cbCliente, conditionValidationRule2);
+            conditionValidationRule17.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule17.ErrorText = "Selecione um cliente";
+            this.validator.SetValidationRule(this.cbCliente, conditionValidationRule17);
             this.cbCliente.EditValueChanged += new System.EventHandler(this.cbCliente_EditValueChanged);
             // 
             // searchLookUpEdit1View
@@ -935,9 +928,9 @@ namespace SysNorteGrupo.UI.Veiculos.Reboques
             this.tfMarca.Name = "tfMarca";
             this.tfMarca.Size = new System.Drawing.Size(100, 20);
             this.tfMarca.TabIndex = 25;
-            conditionValidationRule3.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule3.ErrorText = "Informe o código de chassi";
-            this.validator.SetValidationRule(this.tfMarca, conditionValidationRule3);
+            conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule1.ErrorText = "Informe o código de chassi";
+            this.validator.SetValidationRule(this.tfMarca, conditionValidationRule1);
             // 
             // labelControl6
             // 
@@ -969,9 +962,9 @@ namespace SysNorteGrupo.UI.Veiculos.Reboques
             this.cbCidade.Properties.View = this.gridView2;
             this.cbCidade.Size = new System.Drawing.Size(449, 20);
             this.cbCidade.TabIndex = 12;
-            conditionValidationRule4.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule4.ErrorText = "Selecione uma cidade";
-            this.validator.SetValidationRule(this.cbCidade, conditionValidationRule4);
+            conditionValidationRule2.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule2.ErrorText = "Selecione uma cidade";
+            this.validator.SetValidationRule(this.cbCidade, conditionValidationRule2);
             // 
             // bdgCidade
             // 
@@ -1034,14 +1027,14 @@ namespace SysNorteGrupo.UI.Veiculos.Reboques
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.tfValor.Size = new System.Drawing.Size(111, 20);
             this.tfValor.TabIndex = 7;
-            conditionValidationRule5.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.Greater;
-            conditionValidationRule5.ErrorText = "Informe o valor do reboque";
-            conditionValidationRule5.Value1 = new decimal(new int[] {
+            conditionValidationRule3.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.Greater;
+            conditionValidationRule3.ErrorText = "Informe o valor do reboque";
+            conditionValidationRule3.Value1 = new decimal(new int[] {
             0,
             0,
             0,
             0});
-            this.validator.SetValidationRule(this.tfValor, conditionValidationRule5);
+            this.validator.SetValidationRule(this.tfValor, conditionValidationRule3);
             // 
             // labelControl16
             // 
@@ -1073,9 +1066,9 @@ namespace SysNorteGrupo.UI.Veiculos.Reboques
             this.cbCorCarroceria.Properties.View = this.gridView8;
             this.cbCorCarroceria.Size = new System.Drawing.Size(104, 20);
             this.cbCorCarroceria.TabIndex = 2;
-            conditionValidationRule6.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule6.ErrorText = "Informe a cor da carroceria";
-            this.validator.SetValidationRule(this.cbCorCarroceria, conditionValidationRule6);
+            conditionValidationRule4.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule4.ErrorText = "Informe a cor da carroceria";
+            this.validator.SetValidationRule(this.cbCorCarroceria, conditionValidationRule4);
             this.cbCorCarroceria.EditValueChanged += new System.EventHandler(this.cbCorCarroceria_EditValueChanged);
             // 
             // gridView8
@@ -1132,9 +1125,9 @@ namespace SysNorteGrupo.UI.Veiculos.Reboques
             this.cbCorChassi.Properties.View = this.gridView7;
             this.cbCorChassi.Size = new System.Drawing.Size(104, 20);
             this.cbCorChassi.TabIndex = 1;
-            conditionValidationRule7.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule7.ErrorText = "Informe a cor do chassi";
-            this.validator.SetValidationRule(this.cbCorChassi, conditionValidationRule7);
+            conditionValidationRule5.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule5.ErrorText = "Informe a cor do chassi";
+            this.validator.SetValidationRule(this.cbCorChassi, conditionValidationRule5);
             this.cbCorChassi.EditValueChanged += new System.EventHandler(this.cbCorChassi_EditValueChanged);
             // 
             // gridView7
@@ -1169,9 +1162,9 @@ namespace SysNorteGrupo.UI.Veiculos.Reboques
             this.tfPlaca.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
             this.tfPlaca.Size = new System.Drawing.Size(106, 20);
             this.tfPlaca.TabIndex = 0;
-            conditionValidationRule8.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule8.ErrorText = "Informe a placa";
-            this.validator.SetValidationRule(this.tfPlaca, conditionValidationRule8);
+            conditionValidationRule6.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule6.ErrorText = "Informe a placa";
+            this.validator.SetValidationRule(this.tfPlaca, conditionValidationRule6);
             this.tfPlaca.Validating += new System.ComponentModel.CancelEventHandler(this.tfPlaca_Validating);
             // 
             // ckAgendarCad
@@ -1238,9 +1231,9 @@ namespace SysNorteGrupo.UI.Veiculos.Reboques
             this.cbEstado.Properties.View = this.gridView5;
             this.cbEstado.Size = new System.Drawing.Size(73, 20);
             this.cbEstado.TabIndex = 11;
-            conditionValidationRule9.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule9.ErrorText = "Informe o estado de cadastro do reboque";
-            this.validator.SetValidationRule(this.cbEstado, conditionValidationRule9);
+            conditionValidationRule7.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule7.ErrorText = "Informe o estado de cadastro do reboque";
+            this.validator.SetValidationRule(this.cbEstado, conditionValidationRule7);
             this.cbEstado.EditValueChanged += new System.EventHandler(this.cbEstado_EditValueChanged);
             // 
             // gridView5
@@ -1300,9 +1293,9 @@ namespace SysNorteGrupo.UI.Veiculos.Reboques
             this.cbEspecie.Properties.View = this.gridView3;
             this.cbEspecie.Size = new System.Drawing.Size(121, 20);
             this.cbEspecie.TabIndex = 10;
-            conditionValidationRule10.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule10.ErrorText = "Informe a espécie do reboque";
-            this.validator.SetValidationRule(this.cbEspecie, conditionValidationRule10);
+            conditionValidationRule8.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule8.ErrorText = "Informe a espécie do reboque";
+            this.validator.SetValidationRule(this.cbEspecie, conditionValidationRule8);
             // 
             // gridView3
             // 
@@ -1334,9 +1327,9 @@ namespace SysNorteGrupo.UI.Veiculos.Reboques
             this.tfChassi.Name = "tfChassi";
             this.tfChassi.Size = new System.Drawing.Size(332, 20);
             this.tfChassi.TabIndex = 4;
-            conditionValidationRule11.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule11.ErrorText = "Informe o código de chassi";
-            this.validator.SetValidationRule(this.tfChassi, conditionValidationRule11);
+            conditionValidationRule9.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule9.ErrorText = "Informe o código de chassi";
+            this.validator.SetValidationRule(this.tfChassi, conditionValidationRule9);
             // 
             // labelControl8
             // 
@@ -1355,10 +1348,10 @@ namespace SysNorteGrupo.UI.Veiculos.Reboques
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cbAnoModelo.Size = new System.Drawing.Size(73, 20);
             this.cbAnoModelo.TabIndex = 8;
-            conditionValidationRule12.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.Greater;
-            conditionValidationRule12.ErrorText = "Informe o ano de modelo";
-            conditionValidationRule12.Value1 = 0;
-            this.validator.SetValidationRule(this.cbAnoModelo, conditionValidationRule12);
+            conditionValidationRule10.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.Greater;
+            conditionValidationRule10.ErrorText = "Informe o ano de modelo";
+            conditionValidationRule10.Value1 = 0;
+            this.validator.SetValidationRule(this.cbAnoModelo, conditionValidationRule10);
             // 
             // cbAnoFabricacao
             // 
@@ -1369,10 +1362,10 @@ namespace SysNorteGrupo.UI.Veiculos.Reboques
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cbAnoFabricacao.Size = new System.Drawing.Size(68, 20);
             this.cbAnoFabricacao.TabIndex = 9;
-            conditionValidationRule13.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.Greater;
-            conditionValidationRule13.ErrorText = "Informe o ano de fabricação";
-            conditionValidationRule13.Value1 = 0;
-            this.validator.SetValidationRule(this.cbAnoFabricacao, conditionValidationRule13);
+            conditionValidationRule11.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.Greater;
+            conditionValidationRule11.ErrorText = "Informe o ano de fabricação";
+            conditionValidationRule11.Value1 = 0;
+            this.validator.SetValidationRule(this.cbAnoFabricacao, conditionValidationRule11);
             // 
             // labelControl5
             // 
@@ -1415,14 +1408,14 @@ namespace SysNorteGrupo.UI.Veiculos.Reboques
             this.tfCapacidade.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.tfCapacidade.Size = new System.Drawing.Size(94, 20);
             this.tfCapacidade.TabIndex = 6;
-            conditionValidationRule14.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.Greater;
-            conditionValidationRule14.ErrorText = "Informe a capacidade";
-            conditionValidationRule14.Value1 = new decimal(new int[] {
+            conditionValidationRule12.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.Greater;
+            conditionValidationRule12.ErrorText = "Informe a capacidade";
+            conditionValidationRule12.Value1 = new decimal(new int[] {
             0,
             0,
             0,
             0});
-            this.validator.SetValidationRule(this.tfCapacidade, conditionValidationRule14);
+            this.validator.SetValidationRule(this.tfCapacidade, conditionValidationRule12);
             // 
             // tfRenavam
             // 
@@ -1436,9 +1429,9 @@ namespace SysNorteGrupo.UI.Veiculos.Reboques
             this.tfRenavam.Properties.Mask.ShowPlaceHolders = false;
             this.tfRenavam.Size = new System.Drawing.Size(130, 20);
             this.tfRenavam.TabIndex = 3;
-            conditionValidationRule15.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule15.ErrorText = "Informe o renavam";
-            this.validator.SetValidationRule(this.tfRenavam, conditionValidationRule15);
+            conditionValidationRule13.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule13.ErrorText = "Informe o renavam";
+            this.validator.SetValidationRule(this.tfRenavam, conditionValidationRule13);
             // 
             // tfTara
             // 
@@ -1449,14 +1442,14 @@ namespace SysNorteGrupo.UI.Veiculos.Reboques
             this.tfTara.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.tfTara.Size = new System.Drawing.Size(94, 20);
             this.tfTara.TabIndex = 5;
-            conditionValidationRule16.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.Greater;
-            conditionValidationRule16.ErrorText = "Informe a tara";
-            conditionValidationRule16.Value1 = new decimal(new int[] {
+            conditionValidationRule14.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.Greater;
+            conditionValidationRule14.ErrorText = "Informe a tara";
+            conditionValidationRule14.Value1 = new decimal(new int[] {
             0,
             0,
             0,
             0});
-            this.validator.SetValidationRule(this.tfTara, conditionValidationRule16);
+            this.validator.SetValidationRule(this.tfTara, conditionValidationRule14);
             // 
             // labelControl9
             // 
@@ -1511,7 +1504,7 @@ namespace SysNorteGrupo.UI.Veiculos.Reboques
             this.Controls.Add(this.pnPrincipal);
             this.Controls.Add(this.pnBotoes);
             this.Name = "ReboqueForm";
-            this.Size = new System.Drawing.Size(901, 570);
+            this.Size = new System.Drawing.Size(901, 555);
             ((System.ComponentModel.ISupportInitialize)(this.pnBotoes)).EndInit();
             this.pnBotoes.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pnPrincipal)).EndInit();

@@ -30,9 +30,8 @@ namespace SysNorteGrupo.UI.Usuarios
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule3 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
-            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule2 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UsuarioForm));
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.pnControl = new DevExpress.XtraEditors.PanelControl();
             this.pnPermicoes = new DevExpress.XtraEditors.PanelControl();
@@ -67,10 +66,10 @@ namespace SysNorteGrupo.UI.Usuarios
             this.tfNome = new DevExpress.XtraEditors.TextEdit();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
-            this.btnSair = new BotaoSair();
-            this.btnNovo = new BotaoNovo();
-            this.btnEditar = new BotaoEditar();
-            this.btnSalvar = new BotaoEditar();
+            this.btnSair = new SysNorteGrupo.UI.Utils.Botoes.BotaoSair();
+            this.btnNovo = new SysNorteGrupo.UI.Utils.Botoes.BotaoNovo();
+            this.btnEditar = new SysNorteGrupo.UI.Utils.Botoes.BotaoEditar();
+            this.btnSalvar = new SysNorteGrupo.UI.Utils.Botoes.BotaoEditar();
             this.dxValidationProvider = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
@@ -108,7 +107,7 @@ namespace SysNorteGrupo.UI.Usuarios
             this.panelControl1.Controls.Add(this.panelControl2);
             this.panelControl1.Location = new System.Drawing.Point(3, 3);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(644, 434);
+            this.panelControl1.Size = new System.Drawing.Size(644, 416);
             this.panelControl1.TabIndex = 0;
             // 
             // pnControl
@@ -129,9 +128,9 @@ namespace SysNorteGrupo.UI.Usuarios
             this.pnControl.Controls.Add(this.labelControl2);
             this.pnControl.Controls.Add(this.tfNome);
             this.pnControl.Controls.Add(this.labelControl1);
-            this.pnControl.Location = new System.Drawing.Point(5, 80);
+            this.pnControl.Location = new System.Drawing.Point(5, 70);
             this.pnControl.Name = "pnControl";
-            this.pnControl.Size = new System.Drawing.Size(634, 349);
+            this.pnControl.Size = new System.Drawing.Size(634, 344);
             this.pnControl.TabIndex = 1;
             // 
             // pnPermicoes
@@ -384,10 +383,10 @@ namespace SysNorteGrupo.UI.Usuarios
             this.tfLogin.Name = "tfLogin";
             this.tfLogin.Size = new System.Drawing.Size(145, 20);
             this.tfLogin.TabIndex = 1;
-            conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule1.ErrorText = "Preencha o login.";
-            conditionValidationRule1.ErrorType = DevExpress.XtraEditors.DXErrorProvider.ErrorType.Critical;
-            this.dxValidationProvider.SetValidationRule(this.tfLogin, conditionValidationRule1);
+            conditionValidationRule3.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule3.ErrorText = "Preencha o login.";
+            conditionValidationRule3.ErrorType = DevExpress.XtraEditors.DXErrorProvider.ErrorType.Critical;
+            this.dxValidationProvider.SetValidationRule(this.tfLogin, conditionValidationRule3);
             // 
             // labelControl2
             // 
@@ -404,10 +403,10 @@ namespace SysNorteGrupo.UI.Usuarios
             this.tfNome.Name = "tfNome";
             this.tfNome.Size = new System.Drawing.Size(447, 20);
             this.tfNome.TabIndex = 0;
-            conditionValidationRule2.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule2.ErrorText = "Preencha o nome completo.";
-            conditionValidationRule2.ErrorType = DevExpress.XtraEditors.DXErrorProvider.ErrorType.Critical;
-            this.dxValidationProvider.SetValidationRule(this.tfNome, conditionValidationRule2);
+            conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule1.ErrorText = "Preencha o nome completo.";
+            conditionValidationRule1.ErrorType = DevExpress.XtraEditors.DXErrorProvider.ErrorType.Critical;
+            this.dxValidationProvider.SetValidationRule(this.tfNome, conditionValidationRule1);
             // 
             // labelControl1
             // 
@@ -426,9 +425,9 @@ namespace SysNorteGrupo.UI.Usuarios
             this.panelControl2.Controls.Add(this.btnNovo);
             this.panelControl2.Controls.Add(this.btnEditar);
             this.panelControl2.Controls.Add(this.btnSalvar);
-            this.panelControl2.Location = new System.Drawing.Point(5, 5);
+            this.panelControl2.Location = new System.Drawing.Point(-3, 5);
             this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(634, 69);
+            this.panelControl2.Size = new System.Drawing.Size(650, 59);
             this.panelControl2.TabIndex = 0;
             // 
             // btnSair
@@ -437,11 +436,10 @@ namespace SysNorteGrupo.UI.Usuarios
             this.btnSair.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSair.Font = new System.Drawing.Font("Segoe UI Light", 12F);
             this.btnSair.ForeColor = System.Drawing.Color.White;
-            this.btnSair.Image = ((System.Drawing.Image)(resources.GetObject("btnSair.Image")));
             this.btnSair.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSair.Location = new System.Drawing.Point(519, 7);
+            this.btnSair.Location = new System.Drawing.Point(537, 7);
             this.btnSair.Name = "btnSair";
-            this.btnSair.Size = new System.Drawing.Size(110, 56);
+            this.btnSair.Size = new System.Drawing.Size(106, 44);
             this.btnSair.TabIndex = 3;
             this.btnSair.Text = "Sair";
             this.btnSair.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -454,11 +452,10 @@ namespace SysNorteGrupo.UI.Usuarios
             this.btnNovo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNovo.Font = new System.Drawing.Font("Segoe UI Light", 12F);
             this.btnNovo.ForeColor = System.Drawing.Color.White;
-            this.btnNovo.Image = ((System.Drawing.Image)(resources.GetObject("btnNovo.Image")));
             this.btnNovo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNovo.Location = new System.Drawing.Point(240, 7);
+            this.btnNovo.Location = new System.Drawing.Point(232, 7);
             this.btnNovo.Name = "btnNovo";
-            this.btnNovo.Size = new System.Drawing.Size(110, 56);
+            this.btnNovo.Size = new System.Drawing.Size(106, 44);
             this.btnNovo.TabIndex = 2;
             this.btnNovo.Text = "Novo";
             this.btnNovo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -472,11 +469,10 @@ namespace SysNorteGrupo.UI.Usuarios
             this.btnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEditar.Font = new System.Drawing.Font("Segoe UI Light", 12F);
             this.btnEditar.ForeColor = System.Drawing.Color.White;
-            this.btnEditar.Image = ((System.Drawing.Image)(resources.GetObject("btnEditar.Image")));
             this.btnEditar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEditar.Location = new System.Drawing.Point(124, 7);
+            this.btnEditar.Location = new System.Drawing.Point(120, 7);
             this.btnEditar.Name = "btnEditar";
-            this.btnEditar.Size = new System.Drawing.Size(110, 56);
+            this.btnEditar.Size = new System.Drawing.Size(106, 44);
             this.btnEditar.TabIndex = 1;
             this.btnEditar.Text = "Editar";
             this.btnEditar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -489,11 +485,10 @@ namespace SysNorteGrupo.UI.Usuarios
             this.btnSalvar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSalvar.Font = new System.Drawing.Font("Segoe UI Light", 12F);
             this.btnSalvar.ForeColor = System.Drawing.Color.White;
-            this.btnSalvar.Image = ((System.Drawing.Image)(resources.GetObject("btnSalvar.Image")));
             this.btnSalvar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSalvar.Location = new System.Drawing.Point(8, 7);
             this.btnSalvar.Name = "btnSalvar";
-            this.btnSalvar.Size = new System.Drawing.Size(110, 56);
+            this.btnSalvar.Size = new System.Drawing.Size(106, 44);
             this.btnSalvar.TabIndex = 0;
             this.btnSalvar.Text = "Salvar";
             this.btnSalvar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -506,7 +501,7 @@ namespace SysNorteGrupo.UI.Usuarios
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.panelControl1);
             this.Name = "UsuarioForm";
-            this.Size = new System.Drawing.Size(650, 440);
+            this.Size = new System.Drawing.Size(650, 412);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pnControl)).EndInit();

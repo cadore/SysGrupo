@@ -577,11 +577,11 @@
             // 
             // lbDataHora
             // 
-            this.lbDataHora.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbDataHora.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lbDataHora.AutoSize = true;
             this.lbDataHora.Font = new System.Drawing.Font("Segoe UI Symbol", 11.25F);
             this.lbDataHora.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(82)))), ((int)(((byte)(155)))));
-            this.lbDataHora.Location = new System.Drawing.Point(926, 415);
+            this.lbDataHora.Location = new System.Drawing.Point(4, 412);
             this.lbDataHora.Name = "lbDataHora";
             this.lbDataHora.Size = new System.Drawing.Size(87, 20);
             this.lbDataHora.TabIndex = 2;
