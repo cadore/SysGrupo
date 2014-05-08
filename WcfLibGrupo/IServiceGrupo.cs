@@ -203,6 +203,9 @@ namespace WcfLibGrupo
         List<veiculo> listaDeTodosVeiculos();
 
         [OperationContract]
+        List<veiculo> listaDeVeiculosPorDataAtivacao(DateTime data);
+
+        [OperationContract]
         long totalDeVeiculosPorInatividade(bool inativo);
 
         #endregion
@@ -220,6 +223,9 @@ namespace WcfLibGrupo
 
         [OperationContract]
         List<reboque> listaDeTodosReboques();
+
+        [OperationContract]
+        List<reboque> listaDeReboquesPorDataAtivacao(DateTime data);
 
         [OperationContract]
         List<especies_reboque> listaDeEspeciesReboques();
@@ -338,7 +344,10 @@ namespace WcfLibGrupo
         #region sinistros
 
         [OperationContract]
-        long SalvaSinistro(sinistro obj, List<pagamentos_sinistro> listPag);        
+        long SalvaSinistro(sinistro obj, List<pagamentos_sinistro> listPag);
+
+        [OperationContract]
+        void excluiHistoricoSinistroPorIdSinistro(long id_sinistro);
 
         [OperationContract]
         List<sinistro> listaDeSinistrosPorIdESituacao(long id_sinistro, int situacao);

@@ -320,7 +320,6 @@
     <Compile Include="UI\Veiculos\VeiculosForm.Designer.cs">
       <DependentUpon>VeiculosForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Utils\Boletos\GerenteDeBoletos.cs" />
     <Compile Include="UI\Utils\Botoes\BotaoImprimir.cs">
       <SubType>Component</SubType>
     </Compile>

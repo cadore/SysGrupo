@@ -307,10 +307,10 @@ namespace SysNorteGrupo
 
         private void btnLogs_ItemClick(object sender, ItemClickEventArgs e)
         {
-            BuscaLogs sl = new BuscaLogs();
-            sl.dash = this;
-            utilForm = new UtilForm(sl, this);
+            BuscaLogs bl = new BuscaLogs();
+            bl.dash = this;
             Log.createLog(EventLog.opened, "formulario de visualização de log");
+            utilForm = new UtilForm(bl, this);
             utilForm.ShowDialog();
         }
 

@@ -904,7 +904,7 @@ namespace EntitiesGrupo
         public int clientes_no_rateio { get; set; }
 
 
-
+        [Column]
         public decimal valor_total { get; set; }
 
 
@@ -958,6 +958,10 @@ namespace EntitiesGrupo
         public long id_reboque { get; set; }
 
 
+        [Column]
+        public long id_cliente { get; set; }
+
+
 
         [Column]
         public char identificador { get; set; }
@@ -965,7 +969,7 @@ namespace EntitiesGrupo
 
 
         [Column]
-        public decimal valor { get; set; }
+        public decimal valor_a_pagar { get; set; }
 
 
 

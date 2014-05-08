@@ -11,6 +11,42 @@ namespace ServicosSysFileManager
 {
     public class SysFile
     {
+        public bool upload(Byte[] b1, string nome_completo)
+        {
+            try
+            {
+                Byte[] b = new Byte[b1.Length];
+                b = b1;
+                File.WriteAllBytes(nome_completo, b);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
+        public Byte[] download(string nome_completo)
+        {
+            FileStream f1 = null;
+            try
+            {
+                f1 = new FileStream(nome_completo, FileMode.Open);
+                long length = Convert.ToInt64(f1.Length);
+                Byte[] b1 = new Byte[length];
+                f1.Read(b1, 0, (Int32)length);
+                return b1;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            finally
+            {
+                f1.Close();
+            }
+        }
+
         public List<ArquivosModel> retornaTodosArquivosPorDiretorio(string diretorio)
         {
             List<ArquivosModel> listAm = new List<ArquivosModel>();
@@ -52,43 +88,7 @@ namespace ServicosSysFileManager
                 throw new Exception(ex.Message);
             }
             return listAm;
-        }
-
-        public bool upload(Byte[] b1, string nome_completo)
-        {
-            try
-            {
-                Byte[] b = new Byte[b1.Length];
-                b = b1;
-                File.WriteAllBytes(nome_completo, b);
-                return true;
-            }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.Message);
-            }
-        }
-
-        public Byte[] download(string nome_completo)
-        {
-            FileStream f1 = null;
-            try
-            {
-                f1 = new FileStream(nome_completo, FileMode.Open);
-                long length = Convert.ToInt64(f1.Length);
-                Byte[] b1 = new Byte[length];
-                f1.Read(b1, 0, (Int32)length);
-                return b1;                
-            }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.Message);
-            }
-            finally
-            {
-                f1.Close();
-            }
-        }
+        }        
 
         public bool verificaArquivoExistente(string arquivo)
         {

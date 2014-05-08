@@ -253,7 +253,7 @@ namespace SysNorteGrupo.UI.Clientes
             this.btnSair.ForeColor = System.Drawing.Color.White;
             this.btnSair.Image = ((System.Drawing.Image)(resources.GetObject("btnSair.Image")));
             this.btnSair.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSair.Location = new System.Drawing.Point(974, 5);
+            this.btnSair.Location = new System.Drawing.Point(953, 5);
             this.btnSair.Name = "btnSair";
             this.btnSair.Size = new System.Drawing.Size(106, 44);
             this.btnSair.TabIndex = 10;
@@ -1145,7 +1145,7 @@ namespace SysNorteGrupo.UI.Clientes
             this.tfTotalBens.Properties.Mask.EditMask = "c";
             this.tfTotalBens.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.tfTotalBens.Properties.ReadOnly = true;
-            this.tfTotalBens.Size = new System.Drawing.Size(137, 20);
+            this.tfTotalBens.Size = new System.Drawing.Size(131, 20);
             this.tfTotalBens.TabIndex = 3;
             this.tfTotalBens.TabStop = false;
             // 

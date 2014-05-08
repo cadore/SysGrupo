@@ -1037,6 +1037,21 @@ namespace WcfLibGrupo
             }
         }
 
+        public List<veiculo> listaDeVeiculosPorDataAtivacao(DateTime data)
+        {
+            try
+            {
+                var sql = Sql.Builder.Select("*").From("veiculos").Where("data_ativacao<=@0", data.Date);
+                return veiculo.Fetch(sql);
+            }
+            catch (Exception ex)
+            {
+                throw new FaultException(
+                    new FaultReason(String.Format("EXCECÃO: {0}{1}INNER EXCEPTION: {2}", ex.Message, Environment.NewLine, ex.InnerException)),
+                    new FaultCode("1000"));
+            }
+        }
+
         #endregion
 
         #region reboques
@@ -1383,6 +1398,21 @@ namespace WcfLibGrupo
             }
         }
 
+        public List<reboque> listaDeReboquesPorDataAtivacao(DateTime data)
+        {
+            try
+            {
+                var sql = Sql.Builder.Select("*").From("reboques").Where("data_ativacao<=@0", data.Date);
+                return reboque.Fetch(sql);
+            }
+            catch (Exception ex)
+            {
+                throw new FaultException(
+                    new FaultReason(String.Format("EXCECÃO: {0}{1}INNER EXCEPTION: {2}", ex.Message, Environment.NewLine, ex.InnerException)),
+                    new FaultCode("1000"));
+            }
+        }
+
         public void excluiReboquePorId(long id)
         {
             try
@@ -1664,36 +1694,41 @@ namespace WcfLibGrupo
                         ps.id_sinistros = _id_sinistro;
                         ps.Save();
                     }
-                    if (_id_sinistroOriginal == 0)
+                    if (obj.valor_total > 0)
                     {
-                        foreach(veiculo vei in listaDeTodosVeiculos()){
+                        decimal valor_por_cota_sinistro = (obj.valor_total / obj.cotas_na_data);
+                        excluiHistoricoSinistroPorIdSinistro(_id_sinistro);
+                        foreach (veiculo vei in listaDeVeiculosPorDataAtivacao(Convert.ToDateTime(obj.data_ocorrido)))
+                        {
                             historico_veic_reb_sinistros hv = new historico_veic_reb_sinistros()
                             {
                                 id_reboque = 0,
                                 id_veiculo = vei.id,
                                 identificador = 'v',
-                                valor = vei.valor,
-                                id_sinistro = _id_sinistro
+                                valor_a_pagar = (vei.valor / UtilsSistemaServico.valor_por_cota) * valor_por_cota_sinistro,
+                                id_sinistro = _id_sinistro,
+                                id_cliente = obj.id_cliente
                             };
-                            if (historico_veic_reb_sinistros.repo.IsNew(hv))
-                            {
+                            //if (historico_veic_reb_sinistros.repo.IsNew(hv))
+                            //{
                                 historico_veic_reb_sinistros.repo.Save(hv);
-                            }
+                            //}
                         }
 
-                        foreach(reboque reb in listaDeTodosReboques()){
+                        foreach(reboque reb in listaDeReboquesPorDataAtivacao(Convert.ToDateTime(obj.data_ocorrido))){
                             historico_veic_reb_sinistros hr = new historico_veic_reb_sinistros() 
                             { 
                                 id_reboque = reb.id,
                                 id_veiculo = 0,
                                 identificador = 'r',
-                                valor = reb.valor,
-                                id_sinistro = _id_sinistro
+                                valor_a_pagar = (reb.valor / UtilsSistemaServico.valor_por_cota) * valor_por_cota_sinistro,
+                                id_sinistro = _id_sinistro,
+                                id_cliente = obj.id_cliente
                             };
-                            if (historico_veic_reb_sinistros.repo.IsNew(hr))
-                            {
+                            //if (historico_veic_reb_sinistros.repo.IsNew(hr))
+                            //{
                                 historico_veic_reb_sinistros.repo.Save(hr);
-                            }
+                            //}
                         }
                     }
                     scope.Complete();
@@ -1703,6 +1738,21 @@ namespace WcfLibGrupo
             catch (Exception ex)
             {
                 sinistro.repo.AbortTransaction();
+                throw new FaultException(
+                    new FaultReason(String.Format("EXCECÃO: {0}{1}INNER EXCEPTION: {2}", ex.Message, Environment.NewLine, ex.InnerException)),
+                    new FaultCode("1000"));
+            }
+        }
+
+        public void excluiHistoricoSinistroPorIdSinistro(long id_sinistro)
+        {
+            try
+            {
+                var sql = Sql.Builder.Append("DELETE FROM historico_veic_reb_sinistros WHERE id_sinistro=@0", id_sinistro);
+                historico_veic_reb_sinistros.repo.Execute(sql);
+            }
+            catch (Exception ex)
+            {
                 throw new FaultException(
                     new FaultReason(String.Format("EXCECÃO: {0}{1}INNER EXCEPTION: {2}", ex.Message, Environment.NewLine, ex.InnerException)),
                     new FaultCode("1000"));

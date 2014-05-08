@@ -362,7 +362,7 @@
             this.subMenuPaineis.Glyph = ((System.Drawing.Image)(resources.GetObject("subMenuPaineis.Glyph")));
             this.subMenuPaineis.Id = 33;
             this.subMenuPaineis.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.ckMostrarPainelInformacoes, DevExpress.XtraBars.BarItemPaintStyle.Standard)});
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.ckMostrarPainelInformacoes, "", true, true, true, 0, null, DevExpress.XtraBars.BarItemPaintStyle.Standard)});
             this.subMenuPaineis.Name = "subMenuPaineis";
             this.subMenuPaineis.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
             | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
@@ -583,6 +583,7 @@
             this.lbDataHora.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(82)))), ((int)(((byte)(155)))));
             this.lbDataHora.Location = new System.Drawing.Point(4, 412);
             this.lbDataHora.Name = "lbDataHora";
+            this.lbDataHora.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.lbDataHora.Size = new System.Drawing.Size(87, 20);
             this.lbDataHora.TabIndex = 2;
             this.lbDataHora.Text = "lbDataHora";
@@ -746,7 +747,6 @@
             this.ResumeLayout(false);
 
         }
-
         #endregion
 
         private DevExpress.XtraBars.Ribbon.RibbonControl ribbon;

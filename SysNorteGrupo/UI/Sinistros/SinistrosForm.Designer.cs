@@ -13,12 +13,11 @@ namespace SysNorteGrupo.UI.Sinistros
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SinistrosForm));
-            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule5 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule2 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule3 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
+            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule4 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             this.pnBotoes = new DevExpress.XtraEditors.PanelControl();
-            this.btnGerarCobranca = new SysNorteGrupo.UI.Utils.Botoes.BotaoImprimir();
             this.btnImprimirRelSinistro = new SysNorteGrupo.UI.Utils.Botoes.BotaoImprimir();
             this.btnSalvar = new SysNorteGrupo.UI.Utils.Botoes.BotaoSalvar();
             this.btnSair = new SysNorteGrupo.UI.Utils.Botoes.BotaoSair();
@@ -251,7 +250,6 @@ namespace SysNorteGrupo.UI.Sinistros
             this.pnBotoes.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(82)))), ((int)(((byte)(155)))));
             this.pnBotoes.Appearance.Options.UseBackColor = true;
             this.pnBotoes.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.pnBotoes.Controls.Add(this.btnGerarCobranca);
             this.pnBotoes.Controls.Add(this.btnImprimirRelSinistro);
             this.pnBotoes.Controls.Add(this.btnSalvar);
             this.pnBotoes.Controls.Add(this.btnSair);
@@ -262,23 +260,6 @@ namespace SysNorteGrupo.UI.Sinistros
             this.pnBotoes.Name = "pnBotoes";
             this.pnBotoes.Size = new System.Drawing.Size(848, 60);
             this.pnBotoes.TabIndex = 0;
-            // 
-            // btnGerarCobranca
-            // 
-            this.btnGerarCobranca.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(199)))));
-            this.btnGerarCobranca.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGerarCobranca.Font = new System.Drawing.Font("Segoe UI Light", 12F);
-            this.btnGerarCobranca.ForeColor = System.Drawing.Color.White;
-            this.btnGerarCobranca.Image = ((System.Drawing.Image)(resources.GetObject("btnGerarCobranca.Image")));
-            this.btnGerarCobranca.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGerarCobranca.Location = new System.Drawing.Point(527, 7);
-            this.btnGerarCobranca.Name = "btnGerarCobranca";
-            this.btnGerarCobranca.Size = new System.Drawing.Size(167, 44);
-            this.btnGerarCobranca.TabIndex = 5;
-            this.btnGerarCobranca.Text = "Gerar Cobrança";
-            this.btnGerarCobranca.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnGerarCobranca.UseVisualStyleBackColor = false;
-            this.btnGerarCobranca.Click += new System.EventHandler(this.btnGerarCobranca_Click);
             // 
             // btnImprimirRelSinistro
             // 
@@ -455,10 +436,10 @@ namespace SysNorteGrupo.UI.Sinistros
             this.tfObservacaoPag.Name = "tfObservacaoPag";
             this.tfObservacaoPag.Size = new System.Drawing.Size(392, 20);
             this.tfObservacaoPag.TabIndex = 3;
-            conditionValidationRule5.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule5.ErrorText = "Observação não pode ser vazia";
-            conditionValidationRule5.ErrorType = DevExpress.XtraEditors.DXErrorProvider.ErrorType.Critical;
-            this.validatorPag.SetValidationRule(this.tfObservacaoPag, conditionValidationRule5);
+            conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule1.ErrorText = "Observação não pode ser vazia";
+            conditionValidationRule1.ErrorType = DevExpress.XtraEditors.DXErrorProvider.ErrorType.Critical;
+            this.validatorPag.SetValidationRule(this.tfObservacaoPag, conditionValidationRule1);
             // 
             // bdgPagamentos
             // 
@@ -490,15 +471,15 @@ namespace SysNorteGrupo.UI.Sinistros
             this.tfValorPag.Properties.Precision = 2;
             this.tfValorPag.Size = new System.Drawing.Size(90, 20);
             this.tfValorPag.TabIndex = 1;
-            conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.Greater;
-            conditionValidationRule1.ErrorText = "Valor do pagamento deve ser maior que R$0,01";
-            conditionValidationRule1.ErrorType = DevExpress.XtraEditors.DXErrorProvider.ErrorType.Critical;
-            conditionValidationRule1.Value1 = new decimal(new int[] {
+            conditionValidationRule2.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.Greater;
+            conditionValidationRule2.ErrorText = "Valor do pagamento deve ser maior que R$0,01";
+            conditionValidationRule2.ErrorType = DevExpress.XtraEditors.DXErrorProvider.ErrorType.Critical;
+            conditionValidationRule2.Value1 = new decimal(new int[] {
             1,
             0,
             0,
             131072});
-            this.validatorPag.SetValidationRule(this.tfValorPag, conditionValidationRule1);
+            this.validatorPag.SetValidationRule(this.tfValorPag, conditionValidationRule2);
             // 
             // gridControlPagamentos
             // 
@@ -1028,9 +1009,9 @@ namespace SysNorteGrupo.UI.Sinistros
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dtOcorrido.Size = new System.Drawing.Size(108, 20);
             this.dtOcorrido.TabIndex = 10;
-            conditionValidationRule2.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule2.ErrorText = "Informe a data do ocorrido";
-            this.validator.SetValidationRule(this.dtOcorrido, conditionValidationRule2);
+            conditionValidationRule3.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule3.ErrorText = "Informe a data do ocorrido";
+            this.validator.SetValidationRule(this.dtOcorrido, conditionValidationRule3);
             // 
             // tfId
             // 
@@ -1572,10 +1553,10 @@ namespace SysNorteGrupo.UI.Sinistros
             this.cbCliente.Properties.View = this.searchLookUpEdit1View;
             this.cbCliente.Size = new System.Drawing.Size(551, 20);
             this.cbCliente.TabIndex = 1;
-            conditionValidationRule3.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.Greater;
-            conditionValidationRule3.ErrorText = "Selecione um cliente";
-            conditionValidationRule3.Value1 = ((long)(0));
-            this.validator.SetValidationRule(this.cbCliente, conditionValidationRule3);
+            conditionValidationRule4.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.Greater;
+            conditionValidationRule4.ErrorText = "Selecione um cliente";
+            conditionValidationRule4.Value1 = ((long)(0));
+            this.validator.SetValidationRule(this.cbCliente, conditionValidationRule4);
             this.cbCliente.EditValueChanged += new System.EventHandler(this.cbCliente_EditValueChanged);
             // 
             // bdgCliente
@@ -2026,7 +2007,6 @@ namespace SysNorteGrupo.UI.Sinistros
         private DevExpress.XtraEditors.CheckEdit ckConcluido;
         private DevExpress.XtraEditors.PanelControl pnPrincipal;
         private BotaoImprimir btnImprimirRelSinistro;
-        private BotaoImprimir btnGerarCobranca;
         private DevExpress.XtraEditors.SearchLookUpEdit cbReboque3;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView4;
         private DevExpress.XtraEditors.SearchLookUpEdit cbReboque2;

@@ -25,10 +25,7 @@ namespace SysNorteGrupo.UI.Sinistros
         public SinistrosForm(sinistro _sinistro_instc)
         {
             sinistro_instc = _sinistro_instc;
-            InitializeComponent();   
-
-            btnGerarCobranca.Visible = false;
-
+            InitializeComponent();
             setBackColor();
             conn = GerenteDeConexoes.conexaoServico();
 
@@ -71,12 +68,10 @@ namespace SysNorteGrupo.UI.Sinistros
             if (ckConcluido.Checked)
             {
                 btnImprimirRelSinistro.Enabled = true;
-                btnGerarCobranca.Enabled = true;
             }
             else
             {
                 btnImprimirRelSinistro.Enabled = false;
-                //btnGerarCobranca.Enabled = false;
             }
             bdgSinistros.DataSource = sinistro_instc;
         }
@@ -247,6 +242,12 @@ namespace SysNorteGrupo.UI.Sinistros
                     {
                         listPag.Remove(ps_temp);
                     }
+                    decimal total_sinistro = 0;
+                    foreach (pagamentos_sinistro ps_soma in listPag)
+                    {
+                        total_sinistro += ps_soma.valor;
+                    }
+                    
                     sinistro _sinistro = (sinistro)bdgSinistros.Current;
                     _sinistro.data_cadastro = conn.retornaDataHoraLocal();
                     _sinistro.situacao_sinistro = situacao;
@@ -274,6 +275,7 @@ namespace SysNorteGrupo.UI.Sinistros
                         return;
                     }
 
+                    _sinistro.valor_total = total_sinistro;
                     long id = conn.SalvaSinistro(_sinistro, listPag);
                     tfId.Text = id.ToString();
                     ((sinistro)bdgSinistros.Current).id = id;
@@ -283,12 +285,10 @@ namespace SysNorteGrupo.UI.Sinistros
                     if (ckConcluido.Checked)
                     {
                         btnImprimirRelSinistro.Enabled = true;
-                        btnGerarCobranca.Enabled = true;
                     }
                     else
                     {                        
                         btnImprimirRelSinistro.Enabled = false;
-                        btnGerarCobranca.Enabled = false;
                     }
                     btnEditar.Enabled = true;
                     btnSalvar.Enabled = false;
@@ -492,11 +492,6 @@ namespace SysNorteGrupo.UI.Sinistros
                     bdgReboques3.Add(r);
                 }
             }
-        }
-
-        
-        private void btnGerarCobranca_Click(object sender, EventArgs e)
-        {           
         }
     }
 }
