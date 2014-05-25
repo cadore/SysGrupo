@@ -314,7 +314,7 @@ namespace SysNorteGrupo
             utilForm.ShowDialog();
         }
 
-        private void btnCriaBackup_ItemClick(object sender, ItemClickEventArgs e)
+        /*private void btnCriaBackup_ItemClick(object sender, ItemClickEventArgs e)
         {
             DialogResult drc = XtraMessageBox.Show("Confirma criação de backup?\nO servidor será parado durante a operação.", "SYSNORTE TECNOLOGIA", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
             if (drc == DialogResult.OK)
@@ -360,7 +360,7 @@ namespace SysNorteGrupo
                     XtraMessageBox.Show("Erro ao criar backup, tente novamente\nse o problema persistir, contate o suporte.");
                 }
             }
-        }
+        }*/
 
         private void btnReiniciaConexao_ItemClick(object sender, ItemClickEventArgs e)
         {

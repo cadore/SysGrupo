@@ -81,7 +81,7 @@
             // pictureEdit1
             // 
             this.pictureEdit1.EditValue = global::SysNorteGrupo.Properties.Resources.sigla_SysNorte;
-            this.pictureEdit1.Location = new System.Drawing.Point(278, 263);
+            this.pictureEdit1.Location = new System.Drawing.Point(289, 269);
             this.pictureEdit1.Name = "pictureEdit1";
             this.pictureEdit1.Properties.AllowFocused = false;
             this.pictureEdit1.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;

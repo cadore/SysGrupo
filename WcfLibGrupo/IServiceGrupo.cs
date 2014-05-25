@@ -43,13 +43,13 @@ namespace WcfLibGrupo
         #endregion
 
         #region BackupDB
-
+        /*
         [OperationContract]
         string createBackup(string password);
 
         [OperationContract]
         bool restoreBackup(string fileInput, string password);
-
+        */
         #endregion
 
         #region empresa

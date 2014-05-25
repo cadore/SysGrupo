@@ -45,7 +45,6 @@
             this.barButtonItem5 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem6 = new DevExpress.XtraBars.BarButtonItem();
             this.btnLogs = new DevExpress.XtraBars.BarButtonItem();
-            this.btnCriaBackup = new DevExpress.XtraBars.BarButtonItem();
             this.btnReiniciaConexao = new DevExpress.XtraBars.BarButtonItem();
             this.btnRelClientesECotas = new DevExpress.XtraBars.BarButtonItem();
             this.btnConfigEnderecoServico = new DevExpress.XtraBars.BarButtonItem();
@@ -118,7 +117,6 @@
             this.barButtonItem5,
             this.barButtonItem6,
             this.btnLogs,
-            this.btnCriaBackup,
             this.btnReiniciaConexao,
             this.btnRelClientesECotas,
             this.btnConfigEnderecoServico,
@@ -286,15 +284,6 @@
             this.btnLogs.Name = "btnLogs";
             this.btnLogs.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
             this.btnLogs.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnLogs_ItemClick);
-            // 
-            // btnCriaBackup
-            // 
-            this.btnCriaBackup.Caption = "Criar Backup    DB";
-            this.btnCriaBackup.Glyph = ((System.Drawing.Image)(resources.GetObject("btnCriaBackup.Glyph")));
-            this.btnCriaBackup.Id = 21;
-            this.btnCriaBackup.Name = "btnCriaBackup";
-            this.btnCriaBackup.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
-            this.btnCriaBackup.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnCriaBackup_ItemClick);
             // 
             // btnReiniciaConexao
             // 
@@ -499,10 +488,9 @@
             this.ribbonPageGroup6.AllowTextClipping = false;
             this.ribbonPageGroup6.ItemLinks.Add(this.btnReiniciaConexao);
             this.ribbonPageGroup6.ItemLinks.Add(this.btnConfigEnderecoServico);
-            this.ribbonPageGroup6.ItemLinks.Add(this.btnCriaBackup, true);
             this.ribbonPageGroup6.Name = "ribbonPageGroup6";
             this.ribbonPageGroup6.ShowCaptionButton = false;
-            this.ribbonPageGroup6.Text = "Servidor e Banco de Dados";
+            this.ribbonPageGroup6.Text = "Servidor de Acesso";
             // 
             // ribbonPageGroup8
             // 
@@ -775,7 +763,6 @@
         private DevExpress.XtraBars.Ribbon.BackstageViewClientControl backstageViewClientControl1;
         private DevExpress.XtraBars.Ribbon.BackstageViewTabItem backstageViewTabItem1;
         private DevExpress.XtraBars.BarButtonItem btnLogs;
-        private DevExpress.XtraBars.BarButtonItem btnCriaBackup;
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage2;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup4;
         private DevExpress.XtraBars.BarButtonItem btnReiniciaConexao;

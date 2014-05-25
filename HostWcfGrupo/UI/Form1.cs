@@ -272,5 +272,49 @@ namespace HostWcfGrupo.UI
         {
             service(0);
         }
+
+        private void btnBackup_Click(object sender, EventArgs e)
+        {
+            DialogResult rs = MessageBox.Show("O serviço sera parado e todos as maquinas clientes desconectadas.\nDeseja continuar?", "SYSNORTE",
+                MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            if (rs == DialogResult.OK)
+            {
+                try
+                {
+                    string fileName = @"PrjBkpSysGrupo.exe";
+                    string currentDirectory = Directory.GetCurrentDirectory();
+                    runProcess(fileName, String.Format(@"{0}\backup\", currentDirectory), null);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(String.Format("Ocorreu um erro.\n{0}\n\n{1}", ex.Message, ex.InnerException));
+                }
+            }
+        }
+
+        private void runProcess(string file_name, string working_directory, string line_arguments)
+        {
+            try
+            {
+                using (System.Diagnostics.Process process = new System.Diagnostics.Process())
+                {
+                    System.Diagnostics.ProcessStartInfo startInfo = new System.Diagnostics.ProcessStartInfo();
+                    startInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Normal;
+                    startInfo.FileName = file_name;
+                    startInfo.WorkingDirectory = working_directory;
+                    if(!String.IsNullOrEmpty(line_arguments))
+                    {
+                        startInfo.Arguments = line_arguments;
+                    }
+                    process.StartInfo = startInfo;
+                    process.Start();
+                    process.WaitForExit();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
     }
 }

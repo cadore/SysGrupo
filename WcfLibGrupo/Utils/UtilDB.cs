@@ -1,5 +1,4 @@
-﻿using ManagerDBLibrary;
-using ServicosSysFileManager;
+﻿using ServicosSysFileManager;
 using System;
 using WcfLibGrupo.Utils;
 
@@ -7,6 +6,7 @@ namespace WcfLibGrupo
 {
     public class UtilDB
     {
+        /*
         private string fileOutputBackupSql;
         private string fileOutputBackupCrypt;
         private string fileRestoreBackupSql;
@@ -53,5 +53,6 @@ namespace WcfLibGrupo
             }
             return _return;
         }
+        */
     }
 }

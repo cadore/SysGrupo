@@ -128,7 +128,7 @@ namespace WcfLibGrupo
         #endregion 
 
         #region backupDB
-        public string createBackup(string password)
+        /*public string createBackup(string password)
         {
             string host = "localhost";
             string port = "5432";
@@ -166,7 +166,7 @@ namespace WcfLibGrupo
                     new FaultReason(String.Format("EXCECÃO: {0}{1}INNER EXCEPTION: {2}", ex.Message, Environment.NewLine, ex.InnerException)),
                     new FaultCode("1000"));
             }
-        }
+        }*/
 
         #endregion
 

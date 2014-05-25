@@ -47,9 +47,6 @@
     <SignManifests>false</SignManifests>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="ManagerDBLibrary">
-      <HintPath>..\..\ManagerDBUI\ManagerDBLibrary\bin\Debug\ManagerDBLibrary.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
