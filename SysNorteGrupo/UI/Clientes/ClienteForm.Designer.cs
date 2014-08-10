@@ -1083,7 +1083,7 @@ namespace SysNorteGrupo.UI.Clientes
             this.ckIsento.Location = new System.Drawing.Point(402, 70);
             this.ckIsento.Name = "ckIsento";
             this.ckIsento.Properties.Caption = "ISENTO INSC. ESTADUAL";
-            this.ckIsento.Size = new System.Drawing.Size(167, 19);
+            this.ckIsento.Size = new System.Drawing.Size(167, 15);
             this.ckIsento.TabIndex = 3;
             this.ckIsento.CheckedChanged += new System.EventHandler(this.ckIsento_CheckedChanged);
             // 

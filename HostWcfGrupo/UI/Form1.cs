@@ -76,7 +76,7 @@ namespace HostWcfGrupo.UI
                     if (dr == DialogResult.OK)
                     {
                         string value = "";
-                        if (InputBox.MessageInputBox("SYSNORTE TECNOLOGIA", "Informe a senha do arquivo:", ref value, true) == DialogResult.OK)
+                        if (InputBox.show("SYSNORTE TECNOLOGIA", "Informe a senha do arquivo:", ref value, true) == DialogResult.OK)
                         {
                             string senhaArquivo = value;
                             string arquivoSaida = UtilsSistemaServico.SUBDIR_TEMP_FILES + String.Format("{0:yyyy-MM-dd}_sysnorte", sg.retornaDataHoraLocal());

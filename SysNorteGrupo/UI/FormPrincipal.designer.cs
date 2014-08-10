@@ -76,13 +76,19 @@
             this.subPanelInformacoes = new DevExpress.XtraEditors.PanelControl();
             this.lbDataHora = new System.Windows.Forms.Label();
             this.lbTotal_clientes = new DevExpress.XtraEditors.LabelControl();
+            this.lbCotasInativas = new DevExpress.XtraEditors.LabelControl();
+            this.lbBensInativos = new DevExpress.XtraEditors.LabelControl();
             this.lbSinistros_em_andamento = new DevExpress.XtraEditors.LabelControl();
             this.lbTotal_veiculos = new DevExpress.XtraEditors.LabelControl();
             this.lbReboques_inativos = new DevExpress.XtraEditors.LabelControl();
             this.lbTotal_reboques = new DevExpress.XtraEditors.LabelControl();
             this.lbVeiculos_inativos = new DevExpress.XtraEditors.LabelControl();
+            this.lbTotalCotas = new DevExpress.XtraEditors.LabelControl();
+            this.lbTotalDeBens = new DevExpress.XtraEditors.LabelControl();
             this.lbTotal_sinistros = new DevExpress.XtraEditors.LabelControl();
+            this.lbCotasAtivas = new DevExpress.XtraEditors.LabelControl();
             this.lbClientes_inativos = new DevExpress.XtraEditors.LabelControl();
+            this.lbBensAtivos = new DevExpress.XtraEditors.LabelControl();
             this.lbClientes_ativos = new DevExpress.XtraEditors.LabelControl();
             this.lbSinistros_concluidos = new DevExpress.XtraEditors.LabelControl();
             this.lbVeiculos_ativos = new DevExpress.XtraEditors.LabelControl();
@@ -545,13 +551,19 @@
             this.subPanelInformacoes.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.subPanelInformacoes.Controls.Add(this.lbDataHora);
             this.subPanelInformacoes.Controls.Add(this.lbTotal_clientes);
+            this.subPanelInformacoes.Controls.Add(this.lbCotasInativas);
+            this.subPanelInformacoes.Controls.Add(this.lbBensInativos);
             this.subPanelInformacoes.Controls.Add(this.lbSinistros_em_andamento);
             this.subPanelInformacoes.Controls.Add(this.lbTotal_veiculos);
             this.subPanelInformacoes.Controls.Add(this.lbReboques_inativos);
             this.subPanelInformacoes.Controls.Add(this.lbTotal_reboques);
             this.subPanelInformacoes.Controls.Add(this.lbVeiculos_inativos);
+            this.subPanelInformacoes.Controls.Add(this.lbTotalCotas);
+            this.subPanelInformacoes.Controls.Add(this.lbTotalDeBens);
             this.subPanelInformacoes.Controls.Add(this.lbTotal_sinistros);
+            this.subPanelInformacoes.Controls.Add(this.lbCotasAtivas);
             this.subPanelInformacoes.Controls.Add(this.lbClientes_inativos);
+            this.subPanelInformacoes.Controls.Add(this.lbBensAtivos);
             this.subPanelInformacoes.Controls.Add(this.lbClientes_ativos);
             this.subPanelInformacoes.Controls.Add(this.lbSinistros_concluidos);
             this.subPanelInformacoes.Controls.Add(this.lbVeiculos_ativos);
@@ -586,6 +598,26 @@
             this.lbTotal_clientes.Size = new System.Drawing.Size(92, 20);
             this.lbTotal_clientes.TabIndex = 0;
             this.lbTotal_clientes.Text = "total_clientes";
+            // 
+            // lbCotasInativas
+            // 
+            this.lbCotasInativas.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbCotasInativas.Appearance.ForeColor = System.Drawing.Color.Red;
+            this.lbCotasInativas.Location = new System.Drawing.Point(164, 106);
+            this.lbCotasInativas.Name = "lbCotasInativas";
+            this.lbCotasInativas.Size = new System.Drawing.Size(126, 15);
+            this.lbCotasInativas.TabIndex = 0;
+            this.lbCotasInativas.Text = "total_de_cotas_inativas";
+            // 
+            // lbBensInativos
+            // 
+            this.lbBensInativos.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbBensInativos.Appearance.ForeColor = System.Drawing.Color.Red;
+            this.lbBensInativos.Location = new System.Drawing.Point(164, 40);
+            this.lbBensInativos.Name = "lbBensInativos";
+            this.lbBensInativos.Size = new System.Drawing.Size(105, 15);
+            this.lbBensInativos.TabIndex = 0;
+            this.lbBensInativos.Text = "total_bens_inativos";
             // 
             // lbSinistros_em_andamento
             // 
@@ -637,6 +669,26 @@
             this.lbVeiculos_inativos.TabIndex = 0;
             this.lbVeiculos_inativos.Text = "veiculos_inativos";
             // 
+            // lbTotalCotas
+            // 
+            this.lbTotalCotas.Appearance.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTotalCotas.Appearance.ForeColor = System.Drawing.Color.Black;
+            this.lbTotalCotas.Location = new System.Drawing.Point(163, 70);
+            this.lbTotalCotas.Name = "lbTotalCotas";
+            this.lbTotalCotas.Size = new System.Drawing.Size(76, 20);
+            this.lbTotalCotas.TabIndex = 0;
+            this.lbTotalCotas.Text = "total_cotas";
+            // 
+            // lbTotalDeBens
+            // 
+            this.lbTotalDeBens.Appearance.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTotalDeBens.Appearance.ForeColor = System.Drawing.Color.Black;
+            this.lbTotalDeBens.Location = new System.Drawing.Point(163, 4);
+            this.lbTotalDeBens.Name = "lbTotalDeBens";
+            this.lbTotalDeBens.Size = new System.Drawing.Size(95, 20);
+            this.lbTotalDeBens.TabIndex = 0;
+            this.lbTotalDeBens.Text = "total_de_bens";
+            // 
             // lbTotal_sinistros
             // 
             this.lbTotal_sinistros.Appearance.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -647,6 +699,16 @@
             this.lbTotal_sinistros.TabIndex = 0;
             this.lbTotal_sinistros.Text = "total_sinistros";
             // 
+            // lbCotasAtivas
+            // 
+            this.lbCotasAtivas.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbCotasAtivas.Appearance.ForeColor = System.Drawing.Color.Green;
+            this.lbCotasAtivas.Location = new System.Drawing.Point(163, 90);
+            this.lbCotasAtivas.Name = "lbCotasAtivas";
+            this.lbCotasAtivas.Size = new System.Drawing.Size(107, 17);
+            this.lbCotasAtivas.TabIndex = 0;
+            this.lbCotasAtivas.Text = "total_cotas_ativas";
+            // 
             // lbClientes_inativos
             // 
             this.lbClientes_inativos.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -656,6 +718,16 @@
             this.lbClientes_inativos.Size = new System.Drawing.Size(91, 15);
             this.lbClientes_inativos.TabIndex = 0;
             this.lbClientes_inativos.Text = "clientes_inativos";
+            // 
+            // lbBensAtivos
+            // 
+            this.lbBensAtivos.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbBensAtivos.Appearance.ForeColor = System.Drawing.Color.Green;
+            this.lbBensAtivos.Location = new System.Drawing.Point(163, 24);
+            this.lbBensAtivos.Name = "lbBensAtivos";
+            this.lbBensAtivos.Size = new System.Drawing.Size(105, 17);
+            this.lbBensAtivos.TabIndex = 0;
+            this.lbBensAtivos.Text = "total_bens_ativos";
             // 
             // lbClientes_ativos
             // 
@@ -733,6 +805,7 @@
             this.subPanelInformacoes.ResumeLayout(false);
             this.subPanelInformacoes.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
         #endregion
@@ -796,5 +869,11 @@
         private DevExpress.XtraBars.BarCheckItem ckMostrarPainelInformacoes;
         private System.Windows.Forms.Label lbDataHora;
         private DevExpress.XtraBars.BarButtonItem btnLimparAreaDeTrabalho;
+        private DevExpress.XtraEditors.LabelControl lbCotasInativas;
+        private DevExpress.XtraEditors.LabelControl lbBensInativos;
+        private DevExpress.XtraEditors.LabelControl lbTotalCotas;
+        private DevExpress.XtraEditors.LabelControl lbTotalDeBens;
+        private DevExpress.XtraEditors.LabelControl lbCotasAtivas;
+        private DevExpress.XtraEditors.LabelControl lbBensAtivos;
     }
 }

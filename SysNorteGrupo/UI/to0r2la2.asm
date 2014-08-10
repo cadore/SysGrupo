@@ -157,30 +157,18 @@ namespace SysNorteGrupo
             {
                 XtraMessageBox.Show(String.Format("Ocorreu um problema ao recuperar as informações da area de trabalho."));
 
-                lbTotal_clientes.Text = String.Format("{0:n} CLIENTE(S)", 0);
-                lbClientes_ativos.Text = String.Format("{0:n} ATIVO(S)", 0);
-                lbClientes_inativos.Text = String.Format("{0:n} INATIVO(S)", 0);
-
-                lbTotal_veiculos.Text = String.Format("{0:n} VEÍCULO(S)", 0);
-                lbVeiculos_ativos.Text = String.Format("{0:n} ATIVO(S)", 0);
-                lbVeiculos_inativos.Text = String.Format("{0:n} INATIVO(S)", 0);
-
-                lbTotal_reboques.Text = String.Format("{0:n} REBOQUE(S)", 0);
-                lbReboques_ativos.Text = String.Format("{0:n} ATIVO(S)", 0);
-                lbReboques_inativos.Text = String.Format("{0:n} INATIVO(S)", 0);
-
-                lbTotal_sinistros.Text = String.Format("{0:n} SINISTRO(S)", 0);
-                lbSinistros_concluidos.Text = String.Format("{0:n} CONCLUIDO(S)", 0);
-                lbSinistros_em_andamento.Text = String.Format("{0:n} EM ANDAMENTO", 0);
-
-                lbTotalDeBens.Text = String.Format("{0:c} EM BENS", 0);
-                lbBensAtivos.Text = String.Format("{0:c} ATIVOS", 0);
-                lbBensInativos.Text = String.Format("{0:c} INATIVOS", 0);
-
-                lbTotalCotas.Text = String.Format("{0:n2} COTAS", 0);
-                lbCotasAtivas.Text = String.Format("{0:n2} ATIVAS", 0);
-                lbCotasInativas.Text = String.Format("{0:n2} INATIVAS", 0);
-           
+                lbTotal_clientes.Text = "0";
+                lbClientes_ativos.Text = "0";
+                lbClientes_inativos.Text = "0";
+                lbTotal_veiculos.Text = "0";
+                lbVeiculos_ativos.Text = "0";
+                lbVeiculos_inativos.Text = "0";
+                lbTotal_reboques.Text = "0";
+                lbReboques_ativos.Text = "0";
+                lbReboques_inativos.Text = "0";
+                lbTotal_sinistros.Text = "0";
+                lbSinistros_concluidos.Text = "0";
+                lbSinistros_em_andamento.Text = "0";               
             }
         }
 
@@ -445,8 +433,7 @@ namespace SysNorteGrupo
                 {
                     Log.createLog(EventLog.cloused, "aplicação no formulário principal.");
                     threadHora.Abort("Thread aborted");
-                    threadInfo.Abort("Thread aborted");
-                    Environment.Exit(0);
+                    e.Cancel = false;
                 }
                 else
                 {
@@ -455,7 +442,7 @@ namespace SysNorteGrupo
             }
             catch (Exception ex)
             {
-                MessageBox.Show(String.Format("OCORREU UM ERRO AO FINALIZAR O SISTEMA, FORÇANDO PARADA DO PROCESSO\n\n{0}", ex.Message));
+                MessageBox.Show(String.Format("OCORREU UM ERRO AO TENTAR SAIR DO SISTEMA\n\n{0}", ex.Message));
                 Environment.Exit(0);
             }
         }

@@ -281,7 +281,7 @@ namespace SysNorteGrupo.UI.Clientes
             this.colid.OptionsColumn.AllowEdit = false;
             this.colid.Visible = true;
             this.colid.VisibleIndex = 0;
-            this.colid.Width = 33;
+            this.colid.Width = 43;
             // 
             // colnome_completo
             // 
@@ -291,7 +291,7 @@ namespace SysNorteGrupo.UI.Clientes
             this.colnome_completo.OptionsColumn.AllowEdit = false;
             this.colnome_completo.Visible = true;
             this.colnome_completo.VisibleIndex = 1;
-            this.colnome_completo.Width = 265;
+            this.colnome_completo.Width = 262;
             // 
             // coltipo_cliente
             // 
@@ -308,7 +308,7 @@ namespace SysNorteGrupo.UI.Clientes
             this.coldocumento.OptionsColumn.AllowEdit = false;
             this.coldocumento.Visible = true;
             this.coldocumento.VisibleIndex = 2;
-            this.coldocumento.Width = 125;
+            this.coldocumento.Width = 123;
             // 
             // colinscricao_rg
             // 
@@ -348,7 +348,7 @@ namespace SysNorteGrupo.UI.Clientes
             this.colemail_principal.OptionsColumn.AllowEdit = false;
             this.colemail_principal.Visible = true;
             this.colemail_principal.VisibleIndex = 3;
-            this.colemail_principal.Width = 140;
+            this.colemail_principal.Width = 138;
             // 
             // colemail_secundario
             // 
@@ -426,7 +426,7 @@ namespace SysNorteGrupo.UI.Clientes
             this.coldata_cadastro.OptionsColumn.AllowEdit = false;
             this.coldata_cadastro.Visible = true;
             this.coldata_cadastro.VisibleIndex = 6;
-            this.coldata_cadastro.Width = 113;
+            this.coldata_cadastro.Width = 110;
             // 
             // coldata_ativacao
             // 
@@ -438,7 +438,7 @@ namespace SysNorteGrupo.UI.Clientes
             this.coldata_ativacao.OptionsColumn.AllowEdit = false;
             this.coldata_ativacao.Visible = true;
             this.coldata_ativacao.VisibleIndex = 7;
-            this.coldata_ativacao.Width = 106;
+            this.coldata_ativacao.Width = 112;
             // 
             // coldata_inativacao
             // 
@@ -454,7 +454,7 @@ namespace SysNorteGrupo.UI.Clientes
             this.colinativo.OptionsColumn.AllowEdit = false;
             this.colinativo.Visible = true;
             this.colinativo.VisibleIndex = 8;
-            this.colinativo.Width = 64;
+            this.colinativo.Width = 62;
             // 
             // colid_cidades
             // 
@@ -484,7 +484,7 @@ namespace SysNorteGrupo.UI.Clientes
             this.colcotas.OptionsColumn.AllowEdit = false;
             this.colcotas.Visible = true;
             this.colcotas.VisibleIndex = 5;
-            this.colcotas.Width = 54;
+            this.colcotas.Width = 52;
             // 
             // colvalor_total
             // 
@@ -496,7 +496,7 @@ namespace SysNorteGrupo.UI.Clientes
             this.colvalor_total.OptionsColumn.AllowEdit = false;
             this.colvalor_total.Visible = true;
             this.colvalor_total.VisibleIndex = 4;
-            this.colvalor_total.Width = 103;
+            this.colvalor_total.Width = 101;
             // 
             // BuscaClienteForm
             // 

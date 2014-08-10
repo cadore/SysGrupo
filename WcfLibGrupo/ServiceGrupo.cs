@@ -16,7 +16,7 @@ namespace WcfLibGrupo
     public class ServiceGrupo : IServiceGrupo
     {
         #region db
-        private static Database db = new Database("postgresql");
+        private static Database db = new Database(SysGrupoRepo.connectionName, SysGrupoRepo.providerName);
         #endregion
 
         #region sistema
@@ -760,11 +760,11 @@ namespace WcfLibGrupo
             }
         }
 
-        public List<veiculo> listaDeVeiculosPorIdCliente(long id_cliente)
+        public List<veiculo> listaDeVeiculosPorIdCliente(long id_cliente, bool inativo)
         {
             try
             {
-                var sql = Sql.Builder.Select("*").From("veiculos").Where("id_cliente=@0", id_cliente);
+                var sql = Sql.Builder.Select("*").From("veiculos").Where("id_cliente=@0", id_cliente).Where("inativo=@0", inativo);
                 return veiculo.Fetch(sql);
             }
             catch (Exception ex)

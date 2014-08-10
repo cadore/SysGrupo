@@ -89,7 +89,7 @@
             this.ckConectarSaida.Location = new System.Drawing.Point(170, 39);
             this.ckConectarSaida.Name = "ckConectarSaida";
             this.ckConectarSaida.Properties.Caption = "TENTAR CONECTAR NA SAIDA?";
-            this.ckConectarSaida.Size = new System.Drawing.Size(183, 19);
+            this.ckConectarSaida.Size = new System.Drawing.Size(183, 15);
             this.ckConectarSaida.TabIndex = 2;
             // 
             // tfPorta
@@ -118,6 +118,7 @@
             this.tfIP.Properties.Mask.EditMask = "localhost|(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)(\\.(25[0-5]|2[0-4][0-9]|[01]?[0-9" +
     "][0-9]?)){3}";
             this.tfIP.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
+            this.tfIP.Properties.Mask.ShowPlaceHolders = false;
             this.tfIP.Size = new System.Drawing.Size(263, 20);
             this.tfIP.TabIndex = 0;
             // 

@@ -212,21 +212,21 @@ namespace SysNorteGrupo.UI.Veiculos
                         //verifica placa unica
                         if (conn.verificaSePlacaVeiculoEhUnica(tfPlaca.Text, !vazio) == false)
                         {
-                            XtraMessageBox.Show("A PLACA "+tfPlaca.Text+" JÁ ENCONTRA-SE CADASTRADA. VERIFIQUE!");
+                            XtraMessageBox.Show(String.Format("A PLACA {0} JÁ ENCONTRA-SE CADASTRADA. VERIFIQUE!", tfPlaca.Text));
                             return;
                         }
 
                         //verifica chassi unico
                         if (conn.verificaSeNChassiEhUnico(tfChassi.Text, !vazio) == false)
                         {
-                            XtraMessageBox.Show("O CHASSI " + tfChassi.Text + " JÁ ENCONTRA-SE CADASTRADO. VERIFIQUE!");
+                            XtraMessageBox.Show(String.Format("O CHASSI {0} JÁ ENCONTRA-SE CADASTRADO. VERIFIQUE!", tfChassi.Text));
                             return;
                         }
 
                         //verifica renavam
                         if (conn.verificaSeRenavamEhUnico(tfRenavam.Text, !vazio) == false)
                         {
-                            XtraMessageBox.Show("O RENAVAM " + tfRenavam.Text + " JÁ ENCONTRA-SE CADASTRADO. VERIFIQUE!");
+                            XtraMessageBox.Show(String.Format("O RENAVAM {0} JÁ ENCONTRA-SE CADASTRADO. VERIFIQUE!", tfRenavam.Text));
                             return;
                         }
 
@@ -234,7 +234,7 @@ namespace SysNorteGrupo.UI.Veiculos
                         if (ckAgendarCad.CheckState == CheckState.Checked)
                         {
                             DialogResult dialogResult = XtraMessageBox.Show(
-                                "CONFIRMA O AGENDAMENTO DE CADASTRO DESTE VEÍCULO PARA ÀS 00:00 HORAS DO DIA " + tfDataAgendamento.Text + "?",
+                                String.Format("CONFIRMA O AGENDAMENTO DE CADASTRO DESTE VEÍCULO PARA ÀS 00:00 HORAS DO DIA {0}?", tfDataAgendamento.Text),
                                 "SYSNORTE", MessageBoxButtons.YesNo);
                             if (dialogResult == DialogResult.No)
                             {

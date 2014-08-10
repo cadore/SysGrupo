@@ -31,8 +31,8 @@ namespace SysNorteGrupo.UI.Usuarios
         {
             this.components = new System.ComponentModel.Container();
             DevExpress.XtraSplashScreen.SplashScreenManager splashScreenManager = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::SysNorteGrupo.UI.Utils.SplashForm), false, false);
+            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule3 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
-            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule2 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginForm));
             this.tfLogin = new DevExpress.XtraEditors.TextEdit();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
@@ -60,9 +60,9 @@ namespace SysNorteGrupo.UI.Usuarios
             this.tfLogin.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.UltraFlat;
             this.tfLogin.Size = new System.Drawing.Size(278, 20);
             this.tfLogin.TabIndex = 0;
-            conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule1.ErrorText = "Informe o Login ou E-Mail para logar-se.";
-            this.validator.SetValidationRule(this.tfLogin, conditionValidationRule1);
+            conditionValidationRule3.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule3.ErrorText = "Informe o Login ou E-Mail para logar-se.";
+            this.validator.SetValidationRule(this.tfLogin, conditionValidationRule3);
             // 
             // labelControl1
             // 
@@ -83,9 +83,9 @@ namespace SysNorteGrupo.UI.Usuarios
             this.tfSenha.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.UltraFlat;
             this.tfSenha.Size = new System.Drawing.Size(278, 20);
             this.tfSenha.TabIndex = 1;
-            conditionValidationRule2.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule2.ErrorText = "Informe a senha para logar-se.";
-            this.validator.SetValidationRule(this.tfSenha, conditionValidationRule2);
+            conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule1.ErrorText = "Informe a senha para logar-se.";
+            this.validator.SetValidationRule(this.tfSenha, conditionValidationRule1);
             // 
             // labelControl2
             // 

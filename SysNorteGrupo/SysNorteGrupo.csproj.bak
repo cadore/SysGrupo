@@ -1,0 +1,515 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{E45C8EE3-E29C-4E74-8F9B-552EDF0B90F3}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SysNorteGrupo</RootNamespace>
+    <AssemblyName>SysNorteGrupo</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>favicon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.BonusSkins.v13.1, Version=13.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Charts.v13.1.Core, Version=13.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Data.v13.1, Version=13.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Docs.v13.1, Version=13.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Office.v13.1.Core, Version=13.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.PivotGrid.v13.1.Core, Version=13.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Printing.v13.1.Core, Version=13.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.RichEdit.v13.1.Core, Version=13.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Sparkline.v13.1.Core, Version=13.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Utils.v13.1, Version=13.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraBars.v13.1, Version=13.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraCharts.v13.1, Version=13.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v13.1, Version=13.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGrid.v13.1, Version=13.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraLayout.v13.1, Version=13.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPrinting.v13.1, Version=13.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraReports.v13.1, Version=13.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraReports.v13.1.Extensions, Version=13.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraTreeList.v13.1, Version=13.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="PresentationCore">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="PresentationFramework">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="SecureApp">
+      <HintPath>..\..\..\DLL's\SecureApp.dll</HintPath>
+    </Reference>
+    <Reference Include="System">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Core">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Runtime.Remoting">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.ServiceModel">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Web">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Xaml">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Data">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Deployment">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Drawing">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Windows.Forms">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UIAutomationProvider">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="WindowsBase">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="WindowsFormsIntegration">
+      <Private>False</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Reports\Clientes\RelatorioClientesECotas.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\Clientes\RelatorioClientesECotas.Designer.cs">
+      <DependentUpon>RelatorioClientesECotas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Utils\Botoes\BotaoExcluir.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UI\Utils\ConfigEnderecoServico.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Utils\ConfigEnderecoServico.Designer.cs">
+      <DependentUpon>ConfigEnderecoServico.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Utils\Enderecos\CadastraEnderecoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Utils\Enderecos\CadastraEnderecoForm.Designer.cs">
+      <DependentUpon>CadastraEnderecoForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\FormPrincipal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\FormPrincipal.designer.cs">
+      <DependentUpon>FormPrincipal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Clientes\RelatorioInclusãoCliente.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\Clientes\RelatorioInclusãoCliente.Designer.cs">
+      <DependentUpon>RelatorioInclusãoCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Models\ModelsRelatorios.cs" />
+    <Compile Include="Reports\Sinistros\RelatorioConclusaoSinistro.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\Sinistros\RelatorioConclusaoSinistro.Designer.cs">
+      <DependentUpon>RelatorioConclusaoSinistro.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Sinistros\RelatorioPagamentosConclusaoSinistro.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\Sinistros\RelatorioPagamentosConclusaoSinistro.Designer.cs">
+      <DependentUpon>RelatorioPagamentosConclusaoSinistro.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Logs\BuscaLogs.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Logs\BuscaLogs.Designer.cs">
+      <DependentUpon>BuscaLogs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Sinistros\BuscaSinistrosForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Sinistros\BuscaSinistrosForm.Designer.cs">
+      <DependentUpon>BuscaSinistrosForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Clientes\BuscaClienteForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Clientes\BuscaClienteForm.Designer.cs">
+      <DependentUpon>BuscaClienteForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Clientes\ClienteForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Clientes\ClienteForm.Designer.cs">
+      <DependentUpon>ClienteForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Usuarios\BuscaUsuarioForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Usuarios\BuscaUsuarioForm.Designer.cs">
+      <DependentUpon>BuscaUsuarioForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UI\LoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\LoginForm.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Usuarios\UsuarioForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Usuarios\UsuarioForm.Designer.cs">
+      <DependentUpon>UsuarioForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Utils\UtilForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Utils\UtilForm.Designer.cs">
+      <DependentUpon>UtilForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Utils\Enderecos\CadastraBairroForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Utils\Enderecos\CadastraBairroForm.Designer.cs">
+      <DependentUpon>CadastraBairroForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Utils\PleaseWaitForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Utils\PleaseWaitForm.Designer.cs">
+      <DependentUpon>PleaseWaitForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Utils\PreferenciasSistema.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Utils\PreferenciasSistema.Designer.cs">
+      <DependentUpon>PreferenciasSistema.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Utils\SplashForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Utils\SplashForm.Designer.cs">
+      <DependentUpon>SplashForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Veiculos\BuscaVeiculoForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Veiculos\BuscaVeiculoForm.Designer.cs">
+      <DependentUpon>BuscaVeiculoForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Reboques\BuscaReboqueForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Reboques\BuscaReboqueForm.Designer.cs">
+      <DependentUpon>BuscaReboqueForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Reboques\ReboqueForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Reboques\ReboqueForm.Designer.cs">
+      <DependentUpon>ReboqueForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Sinistros\SinistrosForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Sinistros\SinistrosForm.Designer.cs">
+      <DependentUpon>SinistrosForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Veiculos\VeiculosForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Veiculos\VeiculosForm.Designer.cs">
+      <DependentUpon>VeiculosForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Utils\Botoes\BotaoImprimir.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UI\Utils\Botoes\BotaoBuscar.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UI\Utils\Botoes\BotaoEditar.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UI\Utils\Botoes\BotaoEntrar.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UI\Utils\Botoes\BotaoInativar.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UI\Utils\Botoes\BotaoNovo.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UI\Utils\Botoes\BotaoSair.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UI\Utils\Botoes\BotaoSalvar.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Utils\Centraliza.cs" />
+    <Compile Include="Utils\Cores.cs" />
+    <Compile Include="Utils\FilesINI.cs" />
+    <Compile Include="Utils\GerenteDeConexoes.cs" />
+    <Compile Include="Utils\ListaAnos.cs" />
+    <Compile Include="Utils\Logs\Log.cs" />
+    <Compile Include="Utils\UserIdleDetect.cs" />
+    <Compile Include="Utils\Util.cs" />
+    <Compile Include="Utils\ConfigSistema.cs" />
+    <Compile Include="Utils\Validations.cs" />
+    <EmbeddedResource Include="Reports\Clientes\RelatorioClientesECotas.resx">
+      <DependentUpon>RelatorioClientesECotas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Utils\ConfigEnderecoServico.resx">
+      <DependentUpon>ConfigEnderecoServico.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Utils\Enderecos\CadastraEnderecoForm.resx">
+      <DependentUpon>CadastraEnderecoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\FormPrincipal.resx">
+      <DependentUpon>FormPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Reports\Clientes\RelatorioInclusãoCliente.resx">
+      <DependentUpon>RelatorioInclusãoCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Sinistros\RelatorioConclusaoSinistro.resx">
+      <DependentUpon>RelatorioConclusaoSinistro.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Sinistros\RelatorioPagamentosConclusaoSinistro.resx">
+      <DependentUpon>RelatorioPagamentosConclusaoSinistro.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Logs\BuscaLogs.resx">
+      <DependentUpon>BuscaLogs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Sinistros\BuscaSinistrosForm.resx">
+      <DependentUpon>BuscaSinistrosForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Clientes\BuscaClienteForm.resx">
+      <DependentUpon>BuscaClienteForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Clientes\ClienteForm.resx">
+      <DependentUpon>ClienteForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Usuarios\BuscaUsuarioForm.resx">
+      <DependentUpon>BuscaUsuarioForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Usuarios\UsuarioForm.resx">
+      <DependentUpon>UsuarioForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Utils\Enderecos\CadastraBairroForm.resx">
+      <DependentUpon>CadastraBairroForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Utils\PleaseWaitForm.resx">
+      <DependentUpon>PleaseWaitForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Utils\PreferenciasSistema.resx">
+      <DependentUpon>PreferenciasSistema.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Utils\SplashForm.resx">
+      <DependentUpon>SplashForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Veiculos\BuscaVeiculoForm.resx">
+      <DependentUpon>BuscaVeiculoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Reboques\BuscaReboqueForm.resx">
+      <DependentUpon>BuscaReboqueForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Reboques\ReboqueForm.resx">
+      <DependentUpon>ReboqueForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Sinistros\SinistrosForm.resx">
+      <DependentUpon>SinistrosForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Veiculos\VeiculosForm.resx">
+      <DependentUpon>VeiculosForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\DataSources\EntitiesGrupo.ano_modelo_veiculo.datasource" />
+    <None Include="Properties\DataSources\EntitiesGrupo.arquivos_associado.datasource" />
+    <None Include="Properties\DataSources\EntitiesGrupo.arquivos_cliente.datasource" />
+    <None Include="Properties\DataSources\EntitiesGrupo.associado.datasource" />
+    <None Include="Properties\DataSources\EntitiesGrupo.bairro.datasource" />
+    <None Include="Properties\DataSources\EntitiesGrupo.cidade.datasource" />
+    <None Include="Properties\DataSources\EntitiesGrupo.cliente.datasource" />
+    <None Include="Properties\DataSources\EntitiesGrupo.endereco.datasource" />
+    <None Include="Properties\DataSources\EntitiesGrupo.especies_veiculo.datasource" />
+    <None Include="Properties\DataSources\EntitiesGrupo.estado.datasource" />
+    <None Include="Properties\DataSources\EntitiesGrupo.log.datasource" />
+    <None Include="Properties\DataSources\EntitiesGrupo.marca_veiculo.datasource" />
+    <None Include="Properties\DataSources\EntitiesGrupo.modelo_veiculo.datasource" />
+    <None Include="Properties\DataSources\EntitiesGrupo.pagamentos_sinistro.datasource" />
+    <None Include="Properties\DataSources\EntitiesGrupo.permicoes_usuario.datasource" />
+    <None Include="Properties\DataSources\EntitiesGrupo.permicoes_usuarios.datasource" />
+    <None Include="Properties\DataSources\EntitiesGrupo.preferencias_do_sistema.datasource" />
+    <None Include="Properties\DataSources\EntitiesGrupo.reboque.datasource" />
+    <None Include="Properties\DataSources\EntitiesGrupo.restricoes_usuario.datasource" />
+    <None Include="Properties\DataSources\EntitiesGrupo.sinistro.datasource" />
+    <None Include="Properties\DataSources\EntitiesGrupo.SysGrupoRepo+IFactory.datasource" />
+    <None Include="Properties\DataSources\EntitiesGrupo.SysGrupoRepo+Record`1.datasource" />
+    <None Include="Properties\DataSources\EntitiesGrupo.SysGrupoRepo.datasource" />
+    <None Include="Properties\DataSources\EntitiesGrupo.usuario.datasource" />
+    <None Include="Properties\DataSources\EntitiesGrupo.veiculo.datasource" />
+    <None Include="Properties\DataSources\EntitiesGrupo.vei_reb_sinistros.datasource" />
+    <None Include="Properties\DataSources\LibListaAnos.LibAnos.datasource" />
+    <None Include="Properties\DataSources\PetaPoco.AnsiString.datasource" />
+    <None Include="Properties\DataSources\PetaPoco.ColumnAttribute.datasource" />
+    <None Include="Properties\DataSources\PetaPoco.ColumnInfo.datasource" />
+    <None Include="Properties\DataSources\PetaPoco.Database.datasource" />
+    <None Include="Properties\DataSources\PetaPoco.ExplicitColumnsAttribute.datasource" />
+    <None Include="Properties\DataSources\PetaPoco.IgnoreAttribute.datasource" />
+    <None Include="Properties\DataSources\PetaPoco.IMapper.datasource" />
+    <None Include="Properties\DataSources\PetaPoco.ITransaction.datasource" />
+    <None Include="Properties\DataSources\PetaPoco.Mappers.datasource" />
+    <None Include="Properties\DataSources\PetaPoco.OracleProvider.datasource" />
+    <None Include="Properties\DataSources\PetaPoco.PrimaryKeyAttribute.datasource" />
+    <None Include="Properties\DataSources\PetaPoco.ResultColumnAttribute.datasource" />
+    <None Include="Properties\DataSources\PetaPoco.Sql+SqlJoinClause.datasource" />
+    <None Include="Properties\DataSources\PetaPoco.Sql.datasource" />
+    <None Include="Properties\DataSources\PetaPoco.StandardMapper.datasource" />
+    <None Include="Properties\DataSources\PetaPoco.TableInfo.datasource" />
+    <None Include="Properties\DataSources\PetaPoco.TableNameAttribute.datasource" />
+    <None Include="Properties\DataSources\PetaPoco.Transaction.datasource" />
+    <None Include="Properties\DataSources\SysNorteGrupo.Properties.Resources.datasource" />
+    <None Include="Properties\DataSources\SysNorteGrupo.Properties.Settings.datasource" />
+    <None Include="Properties\DataSources\SysNorteGrupo.Reports.ConclusaoSinistro.datasource" />
+    <None Include="Properties\DataSources\SysNorteGrupo.Reports.ListaClientesInclusao.datasource" />
+    <None Include="Properties\DataSources\SysNorteGrupo.Reports.ListaClientesRateio.datasource" />
+    <None Include="Properties\DataSources\SysNorteGrupo.Reports.ListaConclusaoSinistro.datasource" />
+    <None Include="Properties\DataSources\SysNorteGrupo.Reports.RelatorioClientesECotas.datasource" />
+    <None Include="Properties\DataSources\SysNorteGrupo.Utils.Centraliza.datasource" />
+    <None Include="Properties\DataSources\SysNorteGrupo.Utils.Cores.datasource" />
+    <None Include="Properties\DataSources\SysNorteGrupo.Utils.CryptoUtil.datasource" />
+    <None Include="Properties\DataSources\SysNorteGrupo.Utils.FilesINI.datasource" />
+    <None Include="Properties\DataSources\SysNorteGrupo.Utils.ListaAnos.datasource" />
+    <None Include="Properties\DataSources\SysNorteGrupo.Utils.Utils.datasource" />
+    <None Include="Properties\DataSources\SysNorteGrupo.Utils.Validations.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\RepositorioGrupo\RepositorioGrupo.csproj">
+      <Project>{70ba46a9-1743-4e93-a4d3-7b67fa822d00}</Project>
+      <Name>RepositorioGrupo</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SysFileManager\SysFileManager.csproj">
+      <Project>{5297b720-4721-4563-b662-34d20151cf21}</Project>
+      <Name>SysFileManager</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WcfLibGrupo\WcfLibGrupo.csproj">
+      <Project>{4e95265e-7c25-4f8b-a055-0ac97466b0e3}</Project>
+      <Name>WcfLibGrupo</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\BO_Customer_32x32.png" />
+    <None Include="Resources\BO_Resume_32x32.png" />
+    <None Include="Resources\BO_List_32x32.png" />
+    <None Include="Resources\BO_Vendor_32x32.png" />
+    <None Include="Resources\BO_List_32x321.png" />
+    <None Include="Resources\BO_User_32x32.png" />
+    <None Include="Resources\reboque_48.png" />
+    <None Include="Resources\veiculos_48.png" />
+    <None Include="Resources\Action_LinkUnlink_Link.png" />
+    <None Include="Resources\check-48.png" />
+    <None Include="Resources\impressora48.png" />
+    <None Include="Resources\Open_32x32.png" />
+    <None Include="Resources\IDE_32x32.png" />
+    <None Include="Resources\Report_32x32.png" />
+    <None Include="Resources\Article_32x32.png" />
+    <Content Include="favicon.ico" />
+    <None Include="Resources\02_logo_SysNorte.png" />
+    <None Include="Resources\delete.png" />
+    <None Include="Resources\sigla_SysNorte.png" />
+    <None Include="Resources\sigla_SysNorte1.png" />
+    <None Include="Resources\add.png" />
+    <None Include="Resources\cancel.png" />
+    <None Include="Resources\edit.png" />
+    <None Include="Resources\impressora40.png" />
+    <None Include="Resources\minus.png" />
+    <None Include="Resources\next.png" />
+    <None Include="Resources\save.png" />
+    <None Include="Resources\search.png" />
+    <Content Include="TODO.txt" />
+  </ItemGroup>
+  <!--<Import Project="$(MSBuildExtensionsPath)\Ilmerge.CSharp.targets" />-->
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

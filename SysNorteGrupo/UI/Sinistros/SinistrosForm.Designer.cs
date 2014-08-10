@@ -13,10 +13,10 @@ namespace SysNorteGrupo.UI.Sinistros
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SinistrosForm));
+            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule5 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule2 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule3 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
-            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule4 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             this.pnBotoes = new DevExpress.XtraEditors.PanelControl();
             this.btnImprimirRelSinistro = new SysNorteGrupo.UI.Utils.Botoes.BotaoImprimir();
             this.btnSalvar = new SysNorteGrupo.UI.Utils.Botoes.BotaoSalvar();
@@ -436,10 +436,10 @@ namespace SysNorteGrupo.UI.Sinistros
             this.tfObservacaoPag.Name = "tfObservacaoPag";
             this.tfObservacaoPag.Size = new System.Drawing.Size(392, 20);
             this.tfObservacaoPag.TabIndex = 3;
-            conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule1.ErrorText = "Observação não pode ser vazia";
-            conditionValidationRule1.ErrorType = DevExpress.XtraEditors.DXErrorProvider.ErrorType.Critical;
-            this.validatorPag.SetValidationRule(this.tfObservacaoPag, conditionValidationRule1);
+            conditionValidationRule5.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule5.ErrorText = "Observação não pode ser vazia";
+            conditionValidationRule5.ErrorType = DevExpress.XtraEditors.DXErrorProvider.ErrorType.Critical;
+            this.validatorPag.SetValidationRule(this.tfObservacaoPag, conditionValidationRule5);
             // 
             // bdgPagamentos
             // 
@@ -471,15 +471,15 @@ namespace SysNorteGrupo.UI.Sinistros
             this.tfValorPag.Properties.Precision = 2;
             this.tfValorPag.Size = new System.Drawing.Size(90, 20);
             this.tfValorPag.TabIndex = 1;
-            conditionValidationRule2.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.Greater;
-            conditionValidationRule2.ErrorText = "Valor do pagamento deve ser maior que R$0,01";
-            conditionValidationRule2.ErrorType = DevExpress.XtraEditors.DXErrorProvider.ErrorType.Critical;
-            conditionValidationRule2.Value1 = new decimal(new int[] {
+            conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.Greater;
+            conditionValidationRule1.ErrorText = "Valor do pagamento deve ser maior que R$0,01";
+            conditionValidationRule1.ErrorType = DevExpress.XtraEditors.DXErrorProvider.ErrorType.Critical;
+            conditionValidationRule1.Value1 = new decimal(new int[] {
             1,
             0,
             0,
             131072});
-            this.validatorPag.SetValidationRule(this.tfValorPag, conditionValidationRule2);
+            this.validatorPag.SetValidationRule(this.tfValorPag, conditionValidationRule1);
             // 
             // gridControlPagamentos
             // 
@@ -962,7 +962,7 @@ namespace SysNorteGrupo.UI.Sinistros
             this.ckConcluido.Location = new System.Drawing.Point(3, 49);
             this.ckConcluido.Name = "ckConcluido";
             this.ckConcluido.Properties.Caption = "SINISTRO CONCLUIDO";
-            this.ckConcluido.Size = new System.Drawing.Size(136, 19);
+            this.ckConcluido.Size = new System.Drawing.Size(136, 15);
             this.ckConcluido.TabIndex = 14;
             this.ckConcluido.CheckedChanged += new System.EventHandler(this.ckConcluido_CheckedChanged);
             // 
@@ -1009,9 +1009,9 @@ namespace SysNorteGrupo.UI.Sinistros
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dtOcorrido.Size = new System.Drawing.Size(108, 20);
             this.dtOcorrido.TabIndex = 10;
-            conditionValidationRule3.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule3.ErrorText = "Informe a data do ocorrido";
-            this.validator.SetValidationRule(this.dtOcorrido, conditionValidationRule3);
+            conditionValidationRule2.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule2.ErrorText = "Informe a data do ocorrido";
+            this.validator.SetValidationRule(this.dtOcorrido, conditionValidationRule2);
             // 
             // tfId
             // 
@@ -1553,10 +1553,10 @@ namespace SysNorteGrupo.UI.Sinistros
             this.cbCliente.Properties.View = this.searchLookUpEdit1View;
             this.cbCliente.Size = new System.Drawing.Size(551, 20);
             this.cbCliente.TabIndex = 1;
-            conditionValidationRule4.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.Greater;
-            conditionValidationRule4.ErrorText = "Selecione um cliente";
-            conditionValidationRule4.Value1 = ((long)(0));
-            this.validator.SetValidationRule(this.cbCliente, conditionValidationRule4);
+            conditionValidationRule3.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.Greater;
+            conditionValidationRule3.ErrorText = "Selecione um cliente";
+            conditionValidationRule3.Value1 = ((long)(0));
+            this.validator.SetValidationRule(this.cbCliente, conditionValidationRule3);
             this.cbCliente.EditValueChanged += new System.EventHandler(this.cbCliente_EditValueChanged);
             // 
             // bdgCliente

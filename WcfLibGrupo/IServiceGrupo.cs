@@ -164,7 +164,7 @@ namespace WcfLibGrupo
         List<especies_veiculo> listaDeEspeciesVeiculos();
 
         [OperationContract]
-        List<veiculo> listaDeVeiculosPorIdCliente(long id_cliente);
+        List<veiculo> listaDeVeiculosPorIdCliente(long id_cliente, bool inativo);
 
         [OperationContract]
         List<veiculo> listaDeVeiculosPorIdClienteEDataAtivacao(long id_cliente, DateTime data_ativacao);

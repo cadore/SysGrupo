@@ -43,7 +43,11 @@ namespace EntitiesGrupo
 
 	public partial class SysGrupoRepo : Database
 	{
-		public SysGrupoRepo() : base("Server=localhost;Port=5432;User id=postgres;password=p@ssw0rd;Database=sysgrupodb;", "Npgsql")
+        static string host = "localhost";
+        public static string connectionName = String.Format("Server={0};Port=5432;User id=postgres;password=p@ssw0rd;Database=sysgrupodb;", host);
+        public static string providerName = "Npgsql";
+        public SysGrupoRepo()
+            : base(connectionName, providerName)
 		{
 			CommonConstruct();
 		}

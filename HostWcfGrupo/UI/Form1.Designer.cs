@@ -97,6 +97,7 @@
             // 
             // tabBackup
             // 
+            this.tabBackup.BackColor = System.Drawing.Color.Transparent;
             this.tabBackup.Controls.Add(this.btnBackup);
             this.tabBackup.Location = new System.Drawing.Point(4, 22);
             this.tabBackup.Name = "tabBackup";
@@ -104,7 +105,6 @@
             this.tabBackup.Size = new System.Drawing.Size(410, 214);
             this.tabBackup.TabIndex = 1;
             this.tabBackup.Text = "Backup";
-            this.tabBackup.UseVisualStyleBackColor = true;
             // 
             // btnBackup
             // 

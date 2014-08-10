@@ -44,7 +44,7 @@ namespace SysNorteGrupo.UI.Sinistros
             else
             {
                 cbCliente.EditValue = sinistro_instc.id_cliente;
-                bdgVeiculos.DataSource = conn.listaDeVeiculosPorIdCliente(sinistro_instc.id_cliente);
+                bdgVeiculos.DataSource = conn.listaDeVeiculosPorIdCliente(sinistro_instc.id_cliente, false);
                 cbVeiculo.EditValue = sinistro_instc.id_veiculo;
                 bdgReboques1.DataSource = conn.listaDeReboquesPorIdCliente(sinistro_instc.id_cliente, false);
                 if(sinistro_instc.data_conclusao != null){

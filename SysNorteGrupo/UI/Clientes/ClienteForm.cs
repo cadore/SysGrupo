@@ -462,7 +462,7 @@ namespace SysNorteGrupo.UI.Clientes
         List<VeiculosRelatorio> listaVeiculos(long id_cliente)
         {
             List<VeiculosRelatorio> veiculos = new List<VeiculosRelatorio>();
-            foreach (veiculo v in conn.listaDeVeiculosPorIdCliente(id_cliente))
+            foreach (veiculo v in conn.listaDeVeiculosPorIdCliente(id_cliente, false))
             {
                 decimal cotas = v.valor / ConfigSistema.valor_por_cota;
                 veiculos.Add(new VeiculosRelatorio()

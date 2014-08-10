@@ -334,7 +334,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<column name="identificador">
 		<type name="character"/>
 	</column>
-	<column name="valor">
+	<column name="valor_a_pagar">
 		<type name="numeric" length="19" precision="2"/>
 	</column>
 	<column name="id_sinistro">
@@ -763,6 +763,15 @@ CAUTION: Do not modify this file unless you know what you are doing.
 		<columns names="id" ref-type="src-columns"/>
 	</constraint>
 </table>
+
+<relationship name="cliente_hm_historico_veic_reb_sinistros" type="rel1n"
+	 src-col-pattern="id_cliente"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 col-indexes="6" constr-indexes="1"
+	 src-table="public.cliente"
+	 dst-table="public.historico_veic_reb_sinistros"
+	 src-required="false" dst-required="false"/>
 
 <constraint name="cad_cidades_fk" type="fk-constr"	 comparison-type="MATCH FULL"
 	 upd-action="CASCADE" del-action="RESTRICT" ref-table="public.cad_cidades" table="public.cad_bairros">

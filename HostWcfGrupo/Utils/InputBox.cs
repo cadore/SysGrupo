@@ -5,11 +5,11 @@ namespace HostWcfGrupo
 {
     public static class InputBox
     {
-        public static DialogResult MessageInputBox(string title, string promptText, ref string value, bool useSystemPasswordChar)
+        public static DialogResult show(string title, string promptText, ref string value, bool useSystemPasswordChar)
         {
             Form form = new Form();
             Label label = new Label();
-            TextBox textBox = new TextBox();            
+            TextBox textBox = new TextBox();
             Button buttonOk = new Button();
             Button buttonCancel = new Button();
 

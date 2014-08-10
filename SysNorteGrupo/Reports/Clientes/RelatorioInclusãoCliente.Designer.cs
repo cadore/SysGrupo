@@ -70,12 +70,12 @@
             this.xrTableCell6 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell10 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell5 = new DevExpress.XtraReports.UI.XRTableCell();
-            this.bdgClientesLista = new System.Windows.Forms.BindingSource(this.components);
             this.GroupFooter1 = new DevExpress.XtraReports.UI.GroupFooterBand();
             this.xrLabel19 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel18 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel17 = new DevExpress.XtraReports.UI.XRLabel();
             this.GroupHeader1 = new DevExpress.XtraReports.UI.GroupHeaderBand();
+            this.bdgClientesLista = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdgClientesLista)).BeginInit();
@@ -112,9 +112,9 @@
             // xrLabel16
             // 
             this.xrLabel16.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "totalDeCotas", "{0:c}")});
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "totalDeCotas", "{0:n2}")});
             this.xrLabel16.Font = new System.Drawing.Font("Segoe UI Semilight", 11.25F, System.Drawing.FontStyle.Italic);
-            this.xrLabel16.LocationFloat = new DevExpress.Utils.PointFloat(636.5834F, 24.29166F);
+            this.xrLabel16.LocationFloat = new DevExpress.Utils.PointFloat(636.5836F, 24.29167F);
             this.xrLabel16.Name = "xrLabel16";
             this.xrLabel16.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel16.SizeF = new System.Drawing.SizeF(142.4164F, 23F);
@@ -126,7 +126,7 @@
             // xrLabel15
             // 
             this.xrLabel15.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "totalDeBens", "{0:c}")});
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "totalDeBens", "{0:c2}")});
             this.xrLabel15.Font = new System.Drawing.Font("Segoe UI Semilight", 11.25F, System.Drawing.FontStyle.Italic);
             this.xrLabel15.LocationFloat = new DevExpress.Utils.PointFloat(501.7497F, 23.33333F);
             this.xrLabel15.Name = "xrLabel15";
@@ -140,10 +140,10 @@
             // xrLabel14
             // 
             this.xrLabel14.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.xrLabel14.LocationFloat = new DevExpress.Utils.PointFloat(636.5834F, 0.333341F);
+            this.xrLabel14.LocationFloat = new DevExpress.Utils.PointFloat(636.5835F, 0.333341F);
             this.xrLabel14.Name = "xrLabel14";
             this.xrLabel14.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel14.SizeF = new System.Drawing.SizeF(142.4166F, 22.99998F);
+            this.xrLabel14.SizeF = new System.Drawing.SizeF(142.4165F, 22.99998F);
             this.xrLabel14.StylePriority.UseFont = false;
             this.xrLabel14.StylePriority.UseTextAlignment = false;
             this.xrLabel14.Text = "TOTAL DE COTAS:";
@@ -361,7 +361,7 @@
             // xrTableCell1
             // 
             this.xrTableCell1.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "listaVeiculo.cotas")});
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "listaVeiculo.cotas", "{0:n2}")});
             this.xrTableCell1.Name = "xrTableCell1";
             this.xrTableCell1.Text = "xrTableCell1";
             this.xrTableCell1.Weight = 0.295005029864735D;
@@ -507,10 +507,6 @@
             this.xrTableCell5.Text = "xrTableCell5";
             this.xrTableCell5.Weight = 0.29500502247352073D;
             // 
-            // bdgClientesLista
-            // 
-            this.bdgClientesLista.DataSource = typeof(SysNorteGrupo.Reports.ListaClientesInclusao);
-            // 
             // GroupFooter1
             // 
             this.GroupFooter1.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
@@ -568,6 +564,10 @@
             this.GroupHeader1.HeightF = 29.16999F;
             this.GroupHeader1.Name = "GroupHeader1";
             // 
+            // bdgClientesLista
+            // 
+            this.bdgClientesLista.DataSource = typeof(SysNorteGrupo.Reports.ListaClientesInclusao);
+            // 
             // RelatorioInclusãoCliente
             // 
             this.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
@@ -582,7 +582,7 @@
             this.Parameters.AddRange(new DevExpress.XtraReports.Parameters.Parameter[] {
             this.dataRelatorio,
             this.assinatura});
-            this.Version = "13.2";
+            this.Version = "14.1";
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdgClientesLista)).EndInit();
