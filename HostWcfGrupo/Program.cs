@@ -1,9 +1,12 @@
 ﻿using DevExpress.LookAndFeel;
 using DevExpress.Skins;
 using DevExpress.UserSkins;
+using DevExpress.XtraSplashScreen;
 using HostWcfGrupo.UI;
+using HostWcfGrupo.UI.Utils;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -25,8 +28,8 @@ namespace HostWcfGrupo
             SkinManager.EnableFormSkins();
             UserLookAndFeel.Default.SetSkinStyle("Office 2013"); //Office 2013 //The Asphalt World
 
-            System.Threading.Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("en");
-            System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("en");
+            System.Threading.Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("pt-BR");
+            System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("pt-BR");
 
             int i = 0;
             if(args.Length != 0){
@@ -39,8 +42,20 @@ namespace HostWcfGrupo
                     i = 0;
                 }
             }
-            UtilsSistemaServico.carregaConfigurações();
-            Application.Run(new Form1(i));
+            SplashScreenManager.ShowForm(typeof(SplashForm));
+            System.Diagnostics.Process[] processosByName = System.Diagnostics.Process.GetProcessesByName("HostWcfGrupo");
+            int ip = 0;
+            foreach (System.Diagnostics.Process p in processosByName)
+            {
+                ip++;
+            }
+            if (ip <= 1)
+            {
+                UtilsSistemaServico.carregaConfigurações();
+                new Form1(i);
+                SplashScreenManager.CloseForm();
+                Application.Run();
+            }
         }
     }
 }

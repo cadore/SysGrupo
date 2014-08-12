@@ -1,5 +1,4 @@
-﻿using DevExpress.XtraEditors;
-using EntitiesGrupo;
+﻿using EntitiesGrupo;
 using HostWcfGrupo.Utils;
 using HostWcfGrupo.Utils.ValidacaoSistema;
 using System;
@@ -58,14 +57,14 @@ namespace HostWcfGrupo.UI
                     string execHora = String.Format("Set-Date {0:HH:mm:ss}", dataUTC);
                     Util.executeProcess(execHora, null, true);
                 }catch(Exception ex){
-                    XtraMessageBox.Show("Ocorreu um erro, não foi possivel verificar a validade do sistema, verifique se a data da maquina esta correta e tente novamente.\n" + ex.Message);
+                    MessageBox.Show("Ocorreu um erro, não foi possivel verificar a validade do sistema, verifique se a data da maquina esta correta e tente novamente.\n"+ex.Message);
                     Environment.Exit(0);
                     return false;
                 }
                 int VerificaOnline = verificaOnline();
                 if(i > 0)
                 {
-                    DialogResult rs = XtraMessageBox.Show("Sistema iniciado em modo de autenticação local.\nSe você obtem o arquivo de liberação, pressione OK, caso contrario contate o suporte!",
+                    DialogResult rs = MessageBox.Show("Sistema iniciado em modo de autenticação local.\nSe você obtem o arquivo de liberação, pressione OK, caso contrario contate o suporte!",
                         "SYSNORTE TECNOLOGIA", MessageBoxButtons.OKCancel);
                     if (rs == DialogResult.Cancel)
                     {
@@ -96,18 +95,18 @@ namespace HostWcfGrupo.UI
                                 empresa _empresa = sg.retornaEmpresa();
                                 if(!ta[1].Equals(_empresa.cnpj))
                                 {
-                                    XtraMessageBox.Show("Arquivo inválido para numero de documento informado!");
+                                    MessageBox.Show("Arquivo inválido para numero de documento informado!");
                                     Environment.Exit(0);
                                 }
                                 if(sg.retornaDataHoraLocal() < DateTime.Parse(ta[2]) || sg.retornaDataHoraLocal() > DateTime.Parse(ta[3]) )
                                 {
-                                    XtraMessageBox.Show("Arquivo invalido para esta data!");
+                                    MessageBox.Show("Arquivo invalido para esta data!");
                                     Environment.Exit(0);
                                 }
                             }
                             else
                             {
-                                XtraMessageBox.Show("Arquivo inválido!");
+                                MessageBox.Show("Arquivo inválido!");
                             }
 
                         }
@@ -263,7 +262,7 @@ namespace HostWcfGrupo.UI
                 }
                 else
                 {
-                    XtraMessageBox.Show("Ocorreu um erro.");
+                    MessageBox.Show("Ocorreu um erro.");
                 }
             }
             catch (Exception ex)
@@ -273,10 +272,15 @@ namespace HostWcfGrupo.UI
             }
         }
 
+        private void Form1_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            service(0);
+        }
+
         private void btnBackup_Click(object sender, EventArgs e)
         {
             reloadNotifyIcons(false);
-            DialogResult rs = XtraMessageBox.Show("O serviço sera parado e todos as maquinas clientes desconectadas.\nDeseja continuar?", "SYSNORTE",
+            DialogResult rs = MessageBox.Show("O serviço sera parado e todos as maquinas clientes desconectadas.\nDeseja continuar?", "SYSNORTE",
                 MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
             if (rs == DialogResult.OK)
             {
@@ -288,7 +292,7 @@ namespace HostWcfGrupo.UI
                 }
                 catch (Exception ex)
                 {
-                    XtraMessageBox.Show(String.Format("Ocorreu um erro.\n{0}\n\n{1}", ex.Message, ex.InnerException));
+                    MessageBox.Show(String.Format("Ocorreu um erro.\n{0}\n\n{1}", ex.Message, ex.InnerException));
                 }
                 finally
                 {
@@ -339,8 +343,7 @@ namespace HostWcfGrupo.UI
 
         private void itemOpen_Click(object sender, EventArgs e)
         {
-            this.Visible = true;
-            this.Focus();
+            this.Show();
         }
 
         private void itemRestart_Click(object sender, EventArgs e)
@@ -350,22 +353,7 @@ namespace HostWcfGrupo.UI
 
         private void itemExit_Click(object sender, EventArgs e)
         {
-            DialogResult rs = XtraMessageBox.Show("Todos os serviços que estão"
-                + " sendo executados serão parados e os dados perdidos.\n Você tem certeza que deseja sair?", "Confirmação de Saida",
-                MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-            if (rs == DialogResult.Cancel)
-                return;
-            Environment.Exit(0);
-        }
 
-        private void btnSair_Click(object sender, EventArgs e)
-        {
-            this.itemExit_Click(sender, e);
-        }
-
-        private void btnMinimizar_Click(object sender, EventArgs e)
-        {
-            this.Hide();
         }
     }
 }

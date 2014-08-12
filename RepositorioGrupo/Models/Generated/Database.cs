@@ -973,10 +973,11 @@ namespace EntitiesGrupo
 
 
         [Column]
+        public decimal valor { get; set; }
+
+
+        [Column]
         public decimal valor_a_pagar { get; set; }
-
-
-
 
     }
 

@@ -347,7 +347,7 @@ namespace WcfLibGrupo
         long SalvaSinistro(sinistro obj, List<pagamentos_sinistro> listPag);
 
         [OperationContract]
-        void excluiHistoricoSinistroPorIdSinistro(long id_sinistro);
+        void zeraValorAPagarSinistroPorIdSinistro(long id_sinistro);
 
         [OperationContract]
         List<sinistro> listaDeSinistrosPorIdESituacao(long id_sinistro, int situacao);

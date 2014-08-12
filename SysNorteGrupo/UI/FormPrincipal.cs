@@ -220,7 +220,6 @@ namespace SysNorteGrupo
             btnNovoVeiculo.Enabled = p.cadastrar_veiculo;
             ribUsuarios.Enabled = p.usuarios;
         }
-
         public void adicionarControleNavegacao(UserControl controle)
         {
             try

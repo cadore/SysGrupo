@@ -350,22 +350,18 @@ namespace HostWcfGrupo.UI
 
         private void itemExit_Click(object sender, EventArgs e)
         {
-            DialogResult rs = XtraMessageBox.Show("Todos os serviços que estão"
-                + " sendo executados serão parados e os dados perdidos.\n Você tem certeza que deseja sair?", "Confirmação de Saida",
-                MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-            if (rs == DialogResult.Cancel)
-                return;
+            DialogResult rs = XtraMessageBox.Show("Você tem certeza que deseja sair?\nTodos os serviços que estão"
+                + " sendo executados serão parados e os dados perdidos.\n Verifique antes de continuar!", "Confirmação de Saida");
+            this.service(0);
             Environment.Exit(0);
         }
 
-        private void btnSair_Click(object sender, EventArgs e)
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-            this.itemExit_Click(sender, e);
-        }
-
-        private void btnMinimizar_Click(object sender, EventArgs e)
-        {
+            //Hiding the window, because closing it makes the window unaccessible.
             this.Hide();
+            this.Parent = null;
+            e.Cancel = true; //hides the form, cancels closing event
         }
     }
 }

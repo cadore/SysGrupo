@@ -50,7 +50,7 @@ namespace WcfLibGrupo
 
         public decimal valorPorCota()
         {
-            return UtilsSistemaServico.valor_por_cota;
+            return UtilsSistemaServico.valor_cota;
         }
         #endregion        
 
@@ -1681,23 +1681,22 @@ namespace WcfLibGrupo
         {
             try
             {
-                long _id_sinistroOriginal = obj.id;
+                long _id_orig_obj = obj.id;
                 long _id_sinistro;
                 using (var scope = sinistro.repo.GetTransaction())
                 {
                     obj.clientes_no_rateio = countClientesPorDataDeAtivacao(obj.data_ocorrido);
-                    obj.cotas_na_data = (somaValorTotalReboquesPorDataAtivacao(obj.data_ocorrido) / UtilsSistemaServico.valor_por_cota) +
-                        (somaValorTotalVeiculoPorDataAtivacao(obj.data_ocorrido) / UtilsSistemaServico.valor_por_cota);
+                    obj.cotas_na_data = (somaValorTotalReboquesPorDataAtivacao(obj.data_ocorrido) / UtilsSistemaServico.valor_cota) +
+                        (somaValorTotalVeiculoPorDataAtivacao(obj.data_ocorrido) / UtilsSistemaServico.valor_cota);                    
                     obj.Save();
                     _id_sinistro = Convert.ToInt64(obj.id);                    
                     foreach(pagamentos_sinistro ps in listPag){
                         ps.id_sinistros = _id_sinistro;
                         ps.Save();
                     }
-                    if (obj.valor_total > 0)
+                    if (_id_orig_obj == 0)
                     {
-                        decimal valor_por_cota_sinistro = (obj.valor_total / obj.cotas_na_data);
-                        excluiHistoricoSinistroPorIdSinistro(_id_sinistro);
+                        //zeraValorAPagarSinistroPorIdSinistro(_id_sinistro);
                         foreach (veiculo vei in listaDeVeiculosPorDataAtivacao(Convert.ToDateTime(obj.data_ocorrido)))
                         {
                             historico_veic_reb_sinistros hv = new historico_veic_reb_sinistros()
@@ -1705,30 +1704,42 @@ namespace WcfLibGrupo
                                 id_reboque = 0,
                                 id_veiculo = vei.id,
                                 identificador = 'v',
-                                valor_a_pagar = (vei.valor / UtilsSistemaServico.valor_por_cota) * valor_por_cota_sinistro,
-                                id_sinistro = _id_sinistro,
-                                id_cliente = obj.id_cliente
+                                valor = vei.valor,
+                                id_sinistro = obj.id,
+                                id_cliente = vei.id_cliente
                             };
                             //if (historico_veic_reb_sinistros.repo.IsNew(hv))
                             //{
-                                historico_veic_reb_sinistros.repo.Save(hv);
+                            historico_veic_reb_sinistros.repo.Save(hv);
                             //}
                         }
 
-                        foreach(reboque reb in listaDeReboquesPorDataAtivacao(Convert.ToDateTime(obj.data_ocorrido))){
-                            historico_veic_reb_sinistros hr = new historico_veic_reb_sinistros() 
-                            { 
+                        foreach (reboque reb in listaDeReboquesPorDataAtivacao(Convert.ToDateTime(obj.data_ocorrido)))
+                        {
+                            historico_veic_reb_sinistros hr = new historico_veic_reb_sinistros()
+                            {
                                 id_reboque = reb.id,
                                 id_veiculo = 0,
                                 identificador = 'r',
-                                valor_a_pagar = (reb.valor / UtilsSistemaServico.valor_por_cota) * valor_por_cota_sinistro,
-                                id_sinistro = _id_sinistro,
-                                id_cliente = obj.id_cliente
+                                valor = reb.valor,
+                                id_sinistro = obj.id,
+                                id_cliente = reb.id_cliente
                             };
                             //if (historico_veic_reb_sinistros.repo.IsNew(hr))
                             //{
-                                historico_veic_reb_sinistros.repo.Save(hr);
+                            historico_veic_reb_sinistros.repo.Save(hr);
                             //}
+                        }
+                    }
+                    if(obj.situacao_sinistro == 1)
+                    {
+                        decimal valor_por_cota = obj.valor_total / obj.cotas_na_data;
+                        List<historico_veic_reb_sinistros> listHist = historico_veic_reb_sinistros.Fetch(Sql.Builder.Select("*")
+                            .From("historico_veic_reb_sinistros").Where("id_sinistro=@0", obj.id));
+                        foreach (historico_veic_reb_sinistros hvr in listHist)
+                        {
+                            hvr.valor_a_pagar = (hvr.valor / UtilsSistemaServico.valor_cota) * valor_por_cota;
+                            historico_veic_reb_sinistros.repo.Update(hvr);
                         }
                     }
                     scope.Complete();
@@ -1743,12 +1754,12 @@ namespace WcfLibGrupo
                     new FaultCode("1000"));
             }
         }
-
-        public void excluiHistoricoSinistroPorIdSinistro(long id_sinistro)
+        
+        public void zeraValorAPagarSinistroPorIdSinistro(long id_sinistro)
         {
             try
             {
-                var sql = Sql.Builder.Append("DELETE FROM historico_veic_reb_sinistros WHERE id_sinistro=@0", id_sinistro);
+                var sql = Sql.Builder.Append("UPDATE historico_veic_reb_sinistros SET valor_a_pagar=0 WHERE id_sinistro=@0", id_sinistro);
                 historico_veic_reb_sinistros.repo.Execute(sql);
             }
             catch (Exception ex)
