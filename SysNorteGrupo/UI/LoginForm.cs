@@ -33,6 +33,9 @@ namespace SysNorteGrupo.UI.Usuarios
             this.Text = "SysNorteGrupo Login - SysNorte Tecnologia Copyright © 2014 Versão: 1.0.0.0";
             tfSenha.Properties.UseSystemPasswordChar = true;
             conn = GerenteDeConexoes.conexaoServico();
+            tfLogin.Text = "sysnorte";
+            tfSenha.Text = "a1s2 d3f4";
+            //this.btnEntrar_Click(null, null);
 
 
             foreach (Control c in pnControl.Controls)
@@ -57,7 +60,7 @@ namespace SysNorteGrupo.UI.Usuarios
             {
                 try
                 {
-                    SplashScreenManager.ShowForm(typeof(PleaseWaitForm));
+                    SplashScreenManager.ShowForm(typeof(PleaseWaitForm), false, false);
                     bool flag = conn.verificaUsuarioAtivoPorLoginESenha(login, senha);
                     //SplashScreenManager.CloseForm();
                     if (flag)
@@ -96,7 +99,7 @@ namespace SysNorteGrupo.UI.Usuarios
                 }
                 finally
                 {
-                    SplashScreenManager.CloseForm();
+                    SplashScreenManager.CloseForm(false);
                 }
             }
             

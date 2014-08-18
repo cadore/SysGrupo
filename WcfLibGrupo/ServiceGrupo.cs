@@ -775,6 +775,21 @@ namespace WcfLibGrupo
             }
         }
 
+        public List<veiculo> listaDeVeiculosPorStatusParcela(bool gerada_parcela_cc)
+        {
+            try
+            {
+                var sql = Sql.Builder.Select("*").From("veiculos").Where("gerada_parcela_cc=@0", gerada_parcela_cc);
+                return veiculo.Fetch(sql);
+            }
+            catch (Exception ex)
+            {
+                throw new FaultException(
+                    new FaultReason(String.Format("EXCECÃO: {0}{1}INNER EXCEPTION: {2}", ex.Message, Environment.NewLine, ex.InnerException)),
+                    new FaultCode("1000"));
+            }
+        }
+
         public List<veiculo> listaDeVeiculosPorIdClienteEDataAtivacao(long id_cliente, DateTime data_ativacao)
         {
             try
@@ -1046,6 +1061,47 @@ namespace WcfLibGrupo
             }
             catch (Exception ex)
             {
+                throw new FaultException(
+                    new FaultReason(String.Format("EXCECÃO: {0}{1}INNER EXCEPTION: {2}", ex.Message, Environment.NewLine, ex.InnerException)),
+                    new FaultCode("1000"));
+            }
+        }
+
+        public List<veiculo> listaDeVeiculosEntreDataAtivacaoEInativacao(DateTime dat, DateTime din)
+        {
+            try
+            {
+                var sql = Sql.Builder.Select("*").From("veiculos").Where("data_ativacao<=@0", dat.Date)
+                    .Where("data_inativacao<=@0", din.Date);
+                return veiculo.Fetch(sql);
+            }
+            catch (Exception ex)
+            {
+                throw new FaultException(
+                    new FaultReason(String.Format("EXCECÃO: {0}{1}INNER EXCEPTION: {2}", ex.Message, Environment.NewLine, ex.InnerException)),
+                    new FaultCode("1000"));
+            }
+        }
+
+        public bool salvaParcelasVeiculosCC(List<parcelas_veiculos_cc> listParcelas, veiculo v)
+        {
+            try
+            {
+                using (var scope = parcelas_veiculos_cc.repo.GetTransaction())
+                {
+                    foreach (parcelas_veiculos_cc pv in listParcelas)
+                    {
+                        pv.Save();
+                        v.gerada_parcela_cc = true;
+                        v.Update();
+                    }
+                    scope.Complete();
+                    return true;
+                }                
+            }
+            catch (Exception ex)
+            {
+                parcelas_veiculos_cc.repo.AbortTransaction();
                 throw new FaultException(
                     new FaultReason(String.Format("EXCECÃO: {0}{1}INNER EXCEPTION: {2}", ex.Message, Environment.NewLine, ex.InnerException)),
                     new FaultCode("1000"));
@@ -1413,6 +1469,22 @@ namespace WcfLibGrupo
             }
         }
 
+        public List<reboque> listaDeReboquesEntreDataAtivacaoEInativacao(DateTime dat, DateTime din)
+        {
+            try
+            {
+                var sql = Sql.Builder.Select("*").From("reboques").Where("data_ativacao<=@0", dat.Date)
+                    .Where("data_inativacao<=@0", din.Date);
+                return reboque.Fetch(sql);
+            }
+            catch (Exception ex)
+            {
+                throw new FaultException(
+                    new FaultReason(String.Format("EXCECÃO: {0}{1}INNER EXCEPTION: {2}", ex.Message, Environment.NewLine, ex.InnerException)),
+                    new FaultCode("1000"));
+            }
+        }
+
         public void excluiReboquePorId(long id)
         {
             try
@@ -1690,14 +1762,16 @@ namespace WcfLibGrupo
                         (somaValorTotalVeiculoPorDataAtivacao(obj.data_ocorrido) / UtilsSistemaServico.valor_cota);                    
                     obj.Save();
                     _id_sinistro = Convert.ToInt64(obj.id);                    
-                    foreach(pagamentos_sinistro ps in listPag){
+                    foreach(pagamentos_sinistro ps in listPag)
+                    {
                         ps.id_sinistros = _id_sinistro;
                         ps.Save();
                     }
                     if (_id_orig_obj == 0)
                     {
                         //zeraValorAPagarSinistroPorIdSinistro(_id_sinistro);
-                        foreach (veiculo vei in listaDeVeiculosPorDataAtivacao(Convert.ToDateTime(obj.data_ocorrido)))
+                        foreach (veiculo vei in listaDeVeiculosEntreDataAtivacaoEInativacao(Convert.ToDateTime(obj.data_ocorrido),
+                            Convert.ToDateTime(obj.data_ocorrido)))
                         {
                             historico_veic_reb_sinistros hv = new historico_veic_reb_sinistros()
                             {
@@ -1714,7 +1788,8 @@ namespace WcfLibGrupo
                             //}
                         }
 
-                        foreach (reboque reb in listaDeReboquesPorDataAtivacao(Convert.ToDateTime(obj.data_ocorrido)))
+                        foreach (reboque reb in listaDeReboquesEntreDataAtivacaoEInativacao(Convert.ToDateTime(obj.data_ocorrido),
+                            Convert.ToDateTime(obj.data_ocorrido)))
                         {
                             historico_veic_reb_sinistros hr = new historico_veic_reb_sinistros()
                             {
@@ -1754,7 +1829,21 @@ namespace WcfLibGrupo
                     new FaultCode("1000"));
             }
         }
-        
+
+        public sinistro retornaSinistroPorId(long id_sinistro)
+        {
+            try
+            {                
+                return sinistro.SingleOrDefault(id_sinistro);
+            }
+            catch (Exception ex)
+            {
+                throw new FaultException(
+                    new FaultReason(String.Format("EXCECÃO: {0}{1}INNER EXCEPTION: {2}", ex.Message, Environment.NewLine, ex.InnerException)),
+                    new FaultCode("1000"));
+            }
+        }
+
         public void zeraValorAPagarSinistroPorIdSinistro(long id_sinistro)
         {
             try
@@ -1819,7 +1908,7 @@ namespace WcfLibGrupo
         {
             try
             {
-                var sql = Sql.Builder.Select("*").From("sinistros").Where("situacao_sinistro=@0", situacao);
+                var sql = Sql.Builder.Select("*").From("sinistros").Where("situacao_sinistro=@0", situacao).OrderBy("data_conclusao DESC");
                 return sinistro.Fetch(sql);
             }
             catch (Exception ex)
@@ -2038,6 +2127,46 @@ namespace WcfLibGrupo
             }
         }
 
+        /* financeiro - cobrança - parcelamento sinistro */
+
+        public bool salvarParcelasSinistro(List<parcelas_sinistros> parcelas)
+        {
+            try
+            {
+                using (var scope = parcelas_sinistros.repo.GetTransaction())
+                {
+                    foreach (parcelas_sinistros p in parcelas)
+                    {
+                        p.Save();
+                    }
+
+                    scope.Complete();
+                    return true;
+                }                
+            }
+            catch (Exception ex)
+            {
+                parcelas_sinistros.repo.AbortTransaction();
+                throw new FaultException(
+                    new FaultReason(String.Format("EXCECÃO: {0}{1}INNER EXCEPTION: {2}", ex.Message, Environment.NewLine, ex.InnerException)),
+                    new FaultCode("1000"));
+            }
+        }
+
+        public List<parcelas_sinistros> listaDeParcelasSinistrosPorIdSinistro(long id_sinistro)
+        {
+            try
+            {
+                var sql = Sql.Builder.Select("*").From("parcelas_sinistros").Where("id_sinistro=@0", id_sinistro);
+                return parcelas_sinistros.Fetch(sql);
+            }
+            catch (Exception ex)
+            {
+                throw new FaultException(
+                    new FaultReason(String.Format("EXCECÃO: {0}{1}INNER EXCEPTION: {2}", ex.Message, Environment.NewLine, ex.InnerException)),
+                    new FaultCode("1000"));
+            }
+        }
         #endregion
     }
 }

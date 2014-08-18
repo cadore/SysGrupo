@@ -29,9 +29,10 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormPrincipal));
-            DevExpress.Utils.SuperToolTip superToolTip1 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipItem toolTipItem1 = new DevExpress.Utils.ToolTipItem();
             this.ribbon = new DevExpress.XtraBars.Ribbon.RibbonControl();
+            this.backstageViewControl1 = new DevExpress.XtraBars.Ribbon.BackstageViewControl();
+            this.backstageViewClientControl1 = new DevExpress.XtraBars.Ribbon.BackstageViewClientControl();
+            this.backstageViewTabItem1 = new DevExpress.XtraBars.Ribbon.BackstageViewTabItem();
             this.btnBuscarCliente = new DevExpress.XtraBars.BarButtonItem();
             this.btnNovoCliente = new DevExpress.XtraBars.BarButtonItem();
             this.btnBuscarVeiculo = new DevExpress.XtraBars.BarButtonItem();
@@ -54,8 +55,6 @@
             this.subMenuPaineis = new DevExpress.XtraBars.BarSubItem();
             this.ckMostrarPainelInformacoes = new DevExpress.XtraBars.BarCheckItem();
             this.btnLimparAreaDeTrabalho = new DevExpress.XtraBars.BarButtonItem();
-            this.btnGerarCobrancaSinistro = new DevExpress.XtraBars.BarButtonItem();
-            this.btnGerarParcelasVeiculos = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribClientes = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribVeiculos = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -63,9 +62,6 @@
             this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup9 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.rpFinanceiro = new DevExpress.XtraBars.Ribbon.RibbonPage();
-            this.ribbonPageGroup5 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.ribbonPageGroup10 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage3 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup7 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage2 = new DevExpress.XtraBars.Ribbon.RibbonPage();
@@ -98,7 +94,9 @@
             this.lbVeiculos_ativos = new DevExpress.XtraEditors.LabelControl();
             this.lbReboques_ativos = new DevExpress.XtraEditors.LabelControl();
             this.barStaticItem1 = new DevExpress.XtraBars.BarStaticItem();
+            this.ribbonPage4 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
+            this.backstageViewControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pnControl)).BeginInit();
             this.pnControl.SuspendLayout();
@@ -110,6 +108,7 @@
             // 
             // ribbon
             // 
+            this.ribbon.ApplicationButtonDropDownControl = this.backstageViewControl1;
             this.ribbon.ExpandCollapseItem.Id = 0;
             this.ribbon.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.ribbon.ExpandCollapseItem,
@@ -134,22 +133,47 @@
             this.btnAtualizaInformacoes,
             this.subMenuPaineis,
             this.ckMostrarPainelInformacoes,
-            this.btnLimparAreaDeTrabalho,
-            this.btnGerarCobrancaSinistro,
-            this.btnGerarParcelasVeiculos});
+            this.btnLimparAreaDeTrabalho});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.MaxItemId = 40;
+            this.ribbon.MaxItemId = 36;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1,
-            this.rpFinanceiro,
+            this.ribbonPage4,
             this.ribbonPage3,
             this.ribbonPage2});
             this.ribbon.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemTextEdit1});
             this.ribbon.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.Office2013;
-            this.ribbon.Size = new System.Drawing.Size(1020, 147);
+            this.ribbon.Size = new System.Drawing.Size(1020, 144);
             this.ribbon.StatusBar = this.ribbonStatusBar;
+            // 
+            // backstageViewControl1
+            // 
+            this.backstageViewControl1.ColorScheme = DevExpress.XtraBars.Ribbon.RibbonControlColorScheme.Yellow;
+            this.backstageViewControl1.Controls.Add(this.backstageViewClientControl1);
+            this.backstageViewControl1.Items.Add(this.backstageViewTabItem1);
+            this.backstageViewControl1.Location = new System.Drawing.Point(0, 150);
+            this.backstageViewControl1.Name = "backstageViewControl1";
+            this.backstageViewControl1.Ribbon = this.ribbon;
+            this.backstageViewControl1.SelectedTab = this.backstageViewTabItem1;
+            this.backstageViewControl1.SelectedTabIndex = 0;
+            this.backstageViewControl1.Size = new System.Drawing.Size(1020, 261);
+            this.backstageViewControl1.TabIndex = 5;
+            // 
+            // backstageViewClientControl1
+            // 
+            this.backstageViewClientControl1.Location = new System.Drawing.Point(133, 63);
+            this.backstageViewClientControl1.Name = "backstageViewClientControl1";
+            this.backstageViewClientControl1.Size = new System.Drawing.Size(886, 197);
+            this.backstageViewClientControl1.TabIndex = 0;
+            // 
+            // backstageViewTabItem1
+            // 
+            this.backstageViewTabItem1.Caption = "temp";
+            this.backstageViewTabItem1.ContentControl = this.backstageViewClientControl1;
+            this.backstageViewTabItem1.Name = "backstageViewTabItem1";
+            this.backstageViewTabItem1.Selected = true;
             // 
             // btnBuscarCliente
             // 
@@ -358,25 +382,6 @@
             | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
             this.btnLimparAreaDeTrabalho.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnLimparAreaDeTrabalho_ItemClick);
             // 
-            // btnGerarCobrancaSinistro
-            // 
-            this.btnGerarCobrancaSinistro.Caption = "Gerar pagamentos";
-            this.btnGerarCobrancaSinistro.Id = 36;
-            this.btnGerarCobrancaSinistro.Name = "btnGerarCobrancaSinistro";
-            this.btnGerarCobrancaSinistro.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
-            this.btnGerarCobrancaSinistro.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnGerarCobrancaSinistro_ItemClick);
-            // 
-            // btnGerarParcelasVeiculos
-            // 
-            this.btnGerarParcelasVeiculos.Caption = "Gerar parcelas veiculos";
-            this.btnGerarParcelasVeiculos.Id = 38;
-            this.btnGerarParcelasVeiculos.Name = "btnGerarParcelasVeiculos";
-            this.btnGerarParcelasVeiculos.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
-            toolTipItem1.Text = "Gerar parcelas de cota capital para os veiculos que ainda nao foram geradas.";
-            superToolTip1.Items.Add(toolTipItem1);
-            this.btnGerarParcelasVeiculos.SuperTip = superToolTip1;
-            this.btnGerarParcelasVeiculos.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnGerarParcelasVeiculos_ItemClick);
-            // 
             // ribbonPage1
             // 
             this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -386,9 +391,8 @@
             this.ribbonPageGroup3,
             this.ribbonPageGroup1,
             this.ribbonPageGroup9});
-            this.ribbonPage1.Image = ((System.Drawing.Image)(resources.GetObject("ribbonPage1.Image")));
             this.ribbonPage1.Name = "ribbonPage1";
-            this.ribbonPage1.Text = "ADMINISTRATIVO";
+            this.ribbonPage1.Text = "Administrativo";
             // 
             // ribClientes
             // 
@@ -445,38 +449,12 @@
             this.ribbonPageGroup9.ShowCaptionButton = false;
             this.ribbonPageGroup9.Text = "Área de Trabalho";
             // 
-            // rpFinanceiro
-            // 
-            this.rpFinanceiro.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.ribbonPageGroup5,
-            this.ribbonPageGroup10});
-            this.rpFinanceiro.Image = ((System.Drawing.Image)(resources.GetObject("rpFinanceiro.Image")));
-            this.rpFinanceiro.Name = "rpFinanceiro";
-            this.rpFinanceiro.Text = "FINANCEIRO";
-            // 
-            // ribbonPageGroup5
-            // 
-            this.ribbonPageGroup5.AllowTextClipping = false;
-            this.ribbonPageGroup5.ItemLinks.Add(this.btnGerarCobrancaSinistro);
-            this.ribbonPageGroup5.Name = "ribbonPageGroup5";
-            this.ribbonPageGroup5.ShowCaptionButton = false;
-            this.ribbonPageGroup5.Text = "Sinistros";
-            // 
-            // ribbonPageGroup10
-            // 
-            this.ribbonPageGroup10.AllowTextClipping = false;
-            this.ribbonPageGroup10.ItemLinks.Add(this.btnGerarParcelasVeiculos);
-            this.ribbonPageGroup10.Name = "ribbonPageGroup10";
-            this.ribbonPageGroup10.ShowCaptionButton = false;
-            this.ribbonPageGroup10.Text = "Veículos";
-            // 
             // ribbonPage3
             // 
             this.ribbonPage3.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.ribbonPageGroup7});
-            this.ribbonPage3.Image = ((System.Drawing.Image)(resources.GetObject("ribbonPage3.Image")));
             this.ribbonPage3.Name = "ribbonPage3";
-            this.ribbonPage3.Text = "RELATÓRIOS";
+            this.ribbonPage3.Text = "Relatórios";
             // 
             // ribbonPageGroup7
             // 
@@ -484,7 +462,7 @@
             this.ribbonPageGroup7.ItemLinks.Add(this.btnRelClientesECotas);
             this.ribbonPageGroup7.Name = "ribbonPageGroup7";
             this.ribbonPageGroup7.ShowCaptionButton = false;
-            this.ribbonPageGroup7.Text = "ADMINISTRATIVO";
+            this.ribbonPageGroup7.Text = "Relatórios Clientes";
             // 
             // ribbonPage2
             // 
@@ -493,9 +471,8 @@
             this.ribbonPageGroup4,
             this.ribbonPageGroup6,
             this.ribbonPageGroup8});
-            this.ribbonPage2.Image = ((System.Drawing.Image)(resources.GetObject("ribbonPage2.Image")));
             this.ribbonPage2.Name = "ribbonPage2";
-            this.ribbonPage2.Text = "SISTEMA";
+            this.ribbonPage2.Text = "Sistema";
             // 
             // ribUsuarios
             // 
@@ -549,9 +526,9 @@
             this.pnControl.ContentImage = global::SysNorteGrupo.Properties.Resources.sigla_SysNorte;
             this.pnControl.Controls.Add(this.pnInformacoes);
             this.pnControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnControl.Location = new System.Drawing.Point(0, 147);
+            this.pnControl.Location = new System.Drawing.Point(0, 144);
             this.pnControl.Name = "pnControl";
-            this.pnControl.Size = new System.Drawing.Size(1020, 437);
+            this.pnControl.Size = new System.Drawing.Size(1020, 440);
             this.pnControl.TabIndex = 2;
             this.pnControl.ControlAdded += new System.Windows.Forms.ControlEventHandler(this.pnControl_ControlAdded);
             // 
@@ -565,7 +542,7 @@
             this.pnInformacoes.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnInformacoes.Location = new System.Drawing.Point(2, 2);
             this.pnInformacoes.Name = "pnInformacoes";
-            this.pnInformacoes.Size = new System.Drawing.Size(1016, 433);
+            this.pnInformacoes.Size = new System.Drawing.Size(1016, 436);
             this.pnInformacoes.TabIndex = 0;
             // 
             // subPanelInformacoes
@@ -597,7 +574,7 @@
             this.subPanelInformacoes.Location = new System.Drawing.Point(0, 0);
             this.subPanelInformacoes.Name = "subPanelInformacoes";
             this.subPanelInformacoes.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.subPanelInformacoes.Size = new System.Drawing.Size(1016, 433);
+            this.subPanelInformacoes.Size = new System.Drawing.Size(1016, 436);
             this.subPanelInformacoes.TabIndex = 1;
             // 
             // lbDataHora
@@ -606,7 +583,7 @@
             this.lbDataHora.AutoSize = true;
             this.lbDataHora.Font = new System.Drawing.Font("Segoe UI Symbol", 11.25F);
             this.lbDataHora.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(82)))), ((int)(((byte)(155)))));
-            this.lbDataHora.Location = new System.Drawing.Point(4, 428);
+            this.lbDataHora.Location = new System.Drawing.Point(4, 412);
             this.lbDataHora.Name = "lbDataHora";
             this.lbDataHora.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.lbDataHora.Size = new System.Drawing.Size(87, 20);
@@ -800,6 +777,11 @@
             this.barStaticItem1.Name = "barStaticItem1";
             this.barStaticItem1.TextAlignment = System.Drawing.StringAlignment.Near;
             // 
+            // ribbonPage4
+            // 
+            this.ribbonPage4.Name = "ribbonPage4";
+            this.ribbonPage4.Text = "Financeiro";
+            // 
             // FormPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -807,6 +789,7 @@
             this.ClientSize = new System.Drawing.Size(1020, 615);
             this.Controls.Add(this.pnControl);
             this.Controls.Add(this.ribbonStatusBar);
+            this.Controls.Add(this.backstageViewControl1);
             this.Controls.Add(this.ribbon);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(720, 561);
@@ -819,6 +802,7 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormPrincipal_FormClosing);
             this.SizeChanged += new System.EventHandler(this.FormPricipal_SizeChanged);
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).EndInit();
+            this.backstageViewControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pnControl)).EndInit();
             this.pnControl.ResumeLayout(false);
@@ -855,6 +839,9 @@
         private DevExpress.XtraBars.BarButtonItem barButtonItem6;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup3;
         private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit repositoryItemTextEdit1;
+        private DevExpress.XtraBars.Ribbon.BackstageViewControl backstageViewControl1;
+        private DevExpress.XtraBars.Ribbon.BackstageViewClientControl backstageViewClientControl1;
+        private DevExpress.XtraBars.Ribbon.BackstageViewTabItem backstageViewTabItem1;
         private DevExpress.XtraBars.BarButtonItem btnLogs;
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage2;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup4;
@@ -895,10 +882,6 @@
         private DevExpress.XtraEditors.LabelControl lbTotalDeBens;
         private DevExpress.XtraEditors.LabelControl lbCotasAtivas;
         private DevExpress.XtraEditors.LabelControl lbBensAtivos;
-        private DevExpress.XtraBars.Ribbon.RibbonPage rpFinanceiro;
-        private DevExpress.XtraBars.BarButtonItem btnGerarCobrancaSinistro;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup5;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup10;
-        private DevExpress.XtraBars.BarButtonItem btnGerarParcelasVeiculos;
+        private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage4;
     }
 }

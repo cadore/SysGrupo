@@ -7,7 +7,9 @@ using HostWcfGrupo.UI.Utils;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Globalization;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using WcfLibGrupo.Utils;
@@ -28,8 +30,8 @@ namespace HostWcfGrupo
             SkinManager.EnableFormSkins();
             UserLookAndFeel.Default.SetSkinStyle("Office 2013"); //Office 2013 //The Asphalt World
 
-            System.Threading.Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("pt-BR");
-            System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("pt-BR");
+            Thread.CurrentThread.CurrentCulture = new CultureInfo("pt-BR");
+            Thread.CurrentThread.CurrentUICulture = new CultureInfo("pt-BR");
 
             int i = 0;
             if(args.Length != 0){
@@ -42,7 +44,7 @@ namespace HostWcfGrupo
                     i = 0;
                 }
             }
-            SplashScreenManager.ShowForm(typeof(SplashForm));
+            SplashScreenManager.ShowForm(typeof(SplashForm), false, false);
             System.Diagnostics.Process[] processosByName = System.Diagnostics.Process.GetProcessesByName("HostWcfGrupo");
             int ip = 0;
             foreach (System.Diagnostics.Process p in processosByName)

@@ -11,6 +11,7 @@ using EntitiesGrupo;
 using WcfLibGrupo;
 using SysNorteGrupo.UI.Utils;
 using DevExpress.XtraEditors;
+using System.Drawing;
 
 namespace SysNorteGrupo
 {

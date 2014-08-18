@@ -17,7 +17,7 @@ namespace SysNorteGrupo
         public static string ipServico;
         public static string porta;
 
-        public static void carregaURL(string _ip, string _porta)
+        public static void carregaURLServico(string _ip, string _porta)
         {
             ipServico = _ip;
             porta = _porta;
@@ -35,7 +35,7 @@ namespace SysNorteGrupo
 
                 ipServico = FilesINI.ReadValue("sistema", "ipServico");
                 porta = FilesINI.ReadValue("sistema", "porta");
-                carregaURL(ipServico, porta);
+                carregaURLServico(ipServico, porta);
                 netTcpBinding = new NetTcpBinding(SecurityMode.None);                
                 netTcpBinding.MaxBufferPoolSize = netTcpBinding.MaxBufferPoolSize * 2552350000256000154;
                 netTcpBinding.MaxReceivedMessageSize = netTcpBinding.MaxReceivedMessageSize * 5000;

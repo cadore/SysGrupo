@@ -1,7 +1,10 @@
-﻿using ServicosSysFileManager;
+﻿using EntitiesGrupo;
+using SecureApp;
+using ServicosSysFileManager;
 using System;
 using System.Drawing;
 using System.Windows.Forms;
+
 namespace WcfLibGrupo.Utils
 {
     public static class UtilsSistemaServico
@@ -38,6 +41,7 @@ namespace WcfLibGrupo.Utils
         public static string SUBDIR_TEMP_FILES;
         public static string SUBDIR_LOG;
         public static string SUBDIR_BACKUP;
+        public static string DIR_PG_DUMP;
         #endregion
 
         public static void carregaConfigurações(){
@@ -57,6 +61,12 @@ namespace WcfLibGrupo.Utils
                 Convert.ToInt32(LeitorINI.ReadValue("backColorFoco", "backColorFocoB")));
             enderecoServico = LeitorINI.ReadValue("sistema", "enderecoServico");
 
+            /*SysGrupoRepo.host = new DTICrypto().Decifrar(LeitorINI.ReadValue("dbdata", "host"), "a1s2 d3f4&beguta");
+            SysGrupoRepo.port = new DTICrypto().Decifrar(LeitorINI.ReadValue("dbdata", "port"), "a1s2 d3f4&beguta");
+            SysGrupoRepo.db = new DTICrypto().Decifrar(LeitorINI.ReadValue("dbdata", "db"), "a1s2 d3f4&beguta");
+            SysGrupoRepo.user = new DTICrypto().Decifrar(LeitorINI.ReadValue("dbdata", "user"), "a1s2 d3f4&beguta");
+            SysGrupoRepo.passwd = new DTICrypto().Decifrar(LeitorINI.ReadValue("dbdata", "passwd"), "a1s2 d3f4&beguta");*/
+
             SUBDIR_FILES_EMPRESA = diretorio_raiz_documentos + @"\files\empresa\";
             SUBDIR_FILES_CLIENTES = diretorio_raiz_documentos + @"\files\clientes\";
             SUBDIR_FILES_VEICULOS = diretorio_raiz_documentos + @"\files\veiculos\";
@@ -65,6 +75,7 @@ namespace WcfLibGrupo.Utils
             SUBDIR_LOG = diretorio_raiz_documentos + @"\log\";
             SUBDIR_TEMP_FILES = diretorio_raiz_documentos + @"\temp\";
             SUBDIR_BACKUP = diretorio_raiz_documentos + @"\backup\";
+            DIR_PG_DUMP = LeitorINI.ReadValue("diretorios", "diretorio_pg_dump");
 
             if(!sf.verificaDiretorioExistente(diretorio_raiz_documentos)){
                 sf.criaDiretorio(diretorio_raiz_documentos);

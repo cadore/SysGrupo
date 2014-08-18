@@ -167,6 +167,9 @@ namespace WcfLibGrupo
         List<veiculo> listaDeVeiculosPorIdCliente(long id_cliente, bool inativo);
 
         [OperationContract]
+        List<veiculo> listaDeVeiculosPorStatusParcela(bool gerada_parcela_cc);
+
+        [OperationContract]
         List<veiculo> listaDeVeiculosPorIdClienteEDataAtivacao(long id_cliente, DateTime data_ativacao);
 
         [OperationContract]
@@ -207,6 +210,12 @@ namespace WcfLibGrupo
 
         [OperationContract]
         long totalDeVeiculosPorInatividade(bool inativo);
+
+        [OperationContract]
+        List<veiculo> listaDeVeiculosEntreDataAtivacaoEInativacao(DateTime dat, DateTime din);
+
+        [OperationContract]
+        bool salvaParcelasVeiculosCC(List<parcelas_veiculos_cc> listParcelas, veiculo v);
 
         #endregion
 
@@ -271,6 +280,10 @@ namespace WcfLibGrupo
 
         [OperationContract]
         long totalDeReboquesPorInatividade(bool inativo);
+
+        [OperationContract]
+        List<reboque> listaDeReboquesEntreDataAtivacaoEInativacao(DateTime dat, DateTime din);
+
         #endregion
 
         #region cidades, bairros, enderecos
@@ -347,6 +360,9 @@ namespace WcfLibGrupo
         long SalvaSinistro(sinistro obj, List<pagamentos_sinistro> listPag);
 
         [OperationContract]
+        sinistro retornaSinistroPorId(long id_sinistro);
+
+        [OperationContract]
         void zeraValorAPagarSinistroPorIdSinistro(long id_sinistro);
 
         [OperationContract]
@@ -393,6 +409,14 @@ namespace WcfLibGrupo
 
         [OperationContract]
         long totalDeSinistrosPorSituacao(int situacao);
+
+        /* financeiro - cobrança - parcelamento sinistro */
+
+        [OperationContract]
+        bool salvarParcelasSinistro(List<parcelas_sinistros> parcelas);
+
+        [OperationContract]
+        List<parcelas_sinistros> listaDeParcelasSinistrosPorIdSinistro(long id_sinistro);
 
         #endregion
     }

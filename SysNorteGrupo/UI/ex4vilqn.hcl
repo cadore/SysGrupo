@@ -37,7 +37,7 @@ namespace SysNorteGrupo
         
         public FormPrincipal(usuario usuario_instc)
         {
-            SplashScreenManager.ShowForm(typeof(SplashForm), false, false);
+            SplashScreenManager.ShowForm(typeof(SplashForm));
             startIDLE();
             if (usuario_instc == null)
             {
@@ -221,13 +221,12 @@ namespace SysNorteGrupo
             btnNovoCliente.Enabled = p.cadastrar_cliente;
             btnNovoVeiculo.Enabled = p.cadastrar_veiculo;
             ribUsuarios.Enabled = p.usuarios;
-            rpFinanceiro.Visible = p.financeiro;
         }
         public void adicionarControleNavegacao(UserControl controle)
         {
             try
             {
-                SplashScreenManager.ShowForm(typeof(SysNorteGrupo.UI.Utils.PleaseWaitForm), false, false);                
+                SplashScreenManager.ShowForm(typeof(PleaseWaitForm));                
                 this.pnControl.Controls.Clear();
                 if (controle != null)
                 {
@@ -254,7 +253,7 @@ namespace SysNorteGrupo
                 }
                 this.pnControl.Controls.Add(this.pnInformacoes);
                 this.pnInformacoes.Dock = System.Windows.Forms.DockStyle.Fill;
-                SplashScreenManager.CloseForm(false);
+                SplashScreenManager.CloseForm();
             }
         }
 
@@ -320,7 +319,6 @@ namespace SysNorteGrupo
             ArquivosForm af = new ArquivosForm();
             af.conn = conn;
             af.DIRETORIO = conn.SUBDIR_EMPRESA();
-            af.Height = 400;
             adicionarControleNavegacao(af);
             Log.createLog(EventLog.opened, "formulario de arquivos empresa");
             af.executaBusca();
@@ -373,9 +371,9 @@ namespace SysNorteGrupo
             utilForm.ShowDialog();
         }
 
-        private void btnCriaBackup_ItemClick(object sender, ItemClickEventArgs e)
+        /*private void btnCriaBackup_ItemClick(object sender, ItemClickEventArgs e)
         {
-            /*DialogResult drc = XtraMessageBox.Show("Confirma criação de backup?\nO servidor será parado durante a operação.", "SYSNORTE TECNOLOGIA", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            DialogResult drc = XtraMessageBox.Show("Confirma criação de backup?\nO servidor será parado durante a operação.", "SYSNORTE TECNOLOGIA", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
             if (drc == DialogResult.OK)
             {
                 try
@@ -418,8 +416,8 @@ namespace SysNorteGrupo
                     //SplashScreenManager.CloseForm();
                     XtraMessageBox.Show("Erro ao criar backup, tente novamente\nse o problema persistir, contate o suporte.");
                 }
-            }*/
-        }
+            }
+        }*/
 
         private void btnReiniciaConexao_ItemClick(object sender, ItemClickEventArgs e)
         {
@@ -468,7 +466,7 @@ namespace SysNorteGrupo
         {
             try
             {
-                SplashScreenManager.ShowForm(typeof(SysNorteGrupo.UI.Utils.PleaseWaitForm), false, false);
+                SplashScreenManager.ShowForm(typeof(PleaseWaitForm));
                 bool inatividadeCliente = false;
                 bool inatividadeItens = false;
                 List<RelatorioClientesECotasModel> listReport = new List<RelatorioClientesECotasModel>();
@@ -555,12 +553,6 @@ namespace SysNorteGrupo
         {
             PagamentosSinistrosForm psf = new PagamentosSinistrosForm() { desk = this };
             adicionarControleNavegacao(psf);
-        }
-
-        private void btnGerarParcelasVeiculos_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            ParcelasVeiculosForm pvf = new ParcelasVeiculosForm() { desk = this };
-            adicionarControleNavegacao(pvf);
         }
     }
 }

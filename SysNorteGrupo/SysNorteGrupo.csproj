@@ -174,6 +174,18 @@
     <Compile Include="Reports\Clientes\RelatorioClientesECotas.Designer.cs">
       <DependentUpon>RelatorioClientesECotas.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Financeiro\PagamentosSinistrosForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Financeiro\PagamentosSinistrosForm.Designer.cs">
+      <DependentUpon>PagamentosSinistrosForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Financeiro\ParcelasVeiculosForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Financeiro\ParcelasVeiculosForm.Designer.cs">
+      <DependentUpon>ParcelasVeiculosForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Utils\Botoes\BotaoExcluir.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -360,6 +372,12 @@
     <EmbeddedResource Include="Reports\Clientes\RelatorioClientesECotas.resx">
       <DependentUpon>RelatorioClientesECotas.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\Financeiro\PagamentosSinistrosForm.resx">
+      <DependentUpon>PagamentosSinistrosForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Financeiro\ParcelasVeiculosForm.resx">
+      <DependentUpon>ParcelasVeiculosForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\Utils\ConfigEnderecoServico.resx">
       <DependentUpon>ConfigEnderecoServico.cs</DependentUpon>
     </EmbeddedResource>
@@ -446,6 +464,7 @@
     <None Include="Properties\DataSources\EntitiesGrupo.marca_veiculo.datasource" />
     <None Include="Properties\DataSources\EntitiesGrupo.modelo_veiculo.datasource" />
     <None Include="Properties\DataSources\EntitiesGrupo.pagamentos_sinistro.datasource" />
+    <None Include="Properties\DataSources\EntitiesGrupo.ParcelaUtil.datasource" />
     <None Include="Properties\DataSources\EntitiesGrupo.permicoes_usuario.datasource" />
     <None Include="Properties\DataSources\EntitiesGrupo.permicoes_usuarios.datasource" />
     <None Include="Properties\DataSources\EntitiesGrupo.preferencias_do_sistema.datasource" />

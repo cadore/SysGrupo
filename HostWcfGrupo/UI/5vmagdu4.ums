@@ -1,7 +1,5 @@
 ﻿using DevExpress.XtraEditors;
-using DevExpress.XtraSplashScreen;
 using EntitiesGrupo;
-using HostWcfGrupo.UI.Utils;
 using HostWcfGrupo.Utils;
 using HostWcfGrupo.Utils.ValidacaoSistema;
 using SysDBTools;
@@ -285,7 +283,7 @@ namespace HostWcfGrupo.UI
             {
                 try
                 {
-                    SplashScreenManager.ShowForm(typeof(PleaseWaitForm), false, false);
+
                     DBTools.pathPgDump = UtilsSistemaServico.DIR_PG_DUMP;
                     DBTools.tempPathWithFile = UtilsSistemaServico.SUBDIR_TEMP_FILES + @"temp.sql";
                     DBTools.pathSaveBackup = UtilsSistemaServico.SUBDIR_BACKUP;
@@ -304,7 +302,6 @@ namespace HostWcfGrupo.UI
                 finally
                 {
                     reloadNotifyIcons(true);
-                    SplashScreenManager.CloseForm();
                 }
             }
             else

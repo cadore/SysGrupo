@@ -1,0 +1,308 @@
+﻿namespace SysNorteGrupo.UI.Financeiro
+{
+    partial class PagamentosSinistrosForm
+    {
+        /// <summary> 
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary> 
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Component Designer generated code
+
+        /// <summary> 
+        /// Required method for Designer support - do not modify 
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PagamentosSinistrosForm));
+            this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
+            this.btnSair = new DevExpress.XtraEditors.SimpleButton();
+            this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
+            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
+            this.cbSinistros = new DevExpress.XtraEditors.SearchLookUpEdit();
+            this.searchLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.bdgSinistros = new System.Windows.Forms.BindingSource(this.components);
+            this.gridColumn23 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colsituacao_sinistro = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.coldata_ocorrido = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.coldata_conclusao = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn24 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn25 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn26 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colnumero_bo = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn27 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn28 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn29 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colsituacao = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colveiculos_reboques = new DevExpress.XtraGrid.Columns.GridColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
+            this.panelControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
+            this.panelControl2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).BeginInit();
+            this.panelControl3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cbSinistros.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1View)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdgSinistros)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // panelControl1
+            // 
+            this.panelControl1.Controls.Add(this.panelControl3);
+            this.panelControl1.Controls.Add(this.panelControl2);
+            this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelControl1.Location = new System.Drawing.Point(0, 0);
+            this.panelControl1.Name = "panelControl1";
+            this.panelControl1.Size = new System.Drawing.Size(892, 454);
+            this.panelControl1.TabIndex = 0;
+            // 
+            // panelControl2
+            // 
+            this.panelControl2.Controls.Add(this.btnSair);
+            this.panelControl2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelControl2.Location = new System.Drawing.Point(2, 2);
+            this.panelControl2.Name = "panelControl2";
+            this.panelControl2.Size = new System.Drawing.Size(888, 39);
+            this.panelControl2.TabIndex = 0;
+            // 
+            // btnSair
+            // 
+            this.btnSair.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSair.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
+            this.btnSair.Image = ((System.Drawing.Image)(resources.GetObject("btnSair.Image")));
+            this.btnSair.Location = new System.Drawing.Point(788, 5);
+            this.btnSair.Name = "btnSair";
+            this.btnSair.Size = new System.Drawing.Size(95, 30);
+            this.btnSair.TabIndex = 0;
+            this.btnSair.Text = "Sair";
+            this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
+            // 
+            // panelControl3
+            // 
+            this.panelControl3.Controls.Add(this.cbSinistros);
+            this.panelControl3.Controls.Add(this.labelControl1);
+            this.panelControl3.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panelControl3.Location = new System.Drawing.Point(2, 47);
+            this.panelControl3.Name = "panelControl3";
+            this.panelControl3.Size = new System.Drawing.Size(888, 405);
+            this.panelControl3.TabIndex = 1;
+            // 
+            // labelControl1
+            // 
+            this.labelControl1.Location = new System.Drawing.Point(5, 8);
+            this.labelControl1.Name = "labelControl1";
+            this.labelControl1.Size = new System.Drawing.Size(39, 13);
+            this.labelControl1.TabIndex = 0;
+            this.labelControl1.Text = "Sinistro:";
+            // 
+            // cbSinistros
+            // 
+            this.cbSinistros.EditValue = "Escolha um sinistro.";
+            this.cbSinistros.Location = new System.Drawing.Point(50, 5);
+            this.cbSinistros.Name = "cbSinistros";
+            this.cbSinistros.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cbSinistros.Properties.DataSource = this.bdgSinistros;
+            this.cbSinistros.Properties.DisplayMember = "veiculos_reboques";
+            this.cbSinistros.Properties.NullText = "Escolha um sinistro.";
+            this.cbSinistros.Properties.ValueMember = "id";
+            this.cbSinistros.Properties.View = this.searchLookUpEdit1View;
+            this.cbSinistros.Size = new System.Drawing.Size(313, 20);
+            this.cbSinistros.TabIndex = 1;
+            // 
+            // searchLookUpEdit1View
+            // 
+            this.searchLookUpEdit1View.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gridColumn23,
+            this.colsituacao_sinistro,
+            this.coldata_ocorrido,
+            this.coldata_conclusao,
+            this.gridColumn24,
+            this.gridColumn25,
+            this.gridColumn26,
+            this.colnumero_bo,
+            this.gridColumn27,
+            this.gridColumn28,
+            this.gridColumn29,
+            this.colsituacao,
+            this.colveiculos_reboques});
+            this.searchLookUpEdit1View.Name = "searchLookUpEdit1View";
+            this.searchLookUpEdit1View.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
+            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.colveiculos_reboques, DevExpress.Data.ColumnSortOrder.Descending)});
+            // 
+            // bdgSinistros
+            // 
+            this.bdgSinistros.DataSource = typeof(EntitiesGrupo.sinistro);
+            // 
+            // gridColumn23
+            // 
+            this.gridColumn23.Caption = "COD.";
+            this.gridColumn23.FieldName = "id";
+            this.gridColumn23.Name = "gridColumn23";
+            this.gridColumn23.OptionsColumn.AllowEdit = false;
+            this.gridColumn23.Width = 66;
+            // 
+            // colsituacao_sinistro
+            // 
+            this.colsituacao_sinistro.FieldName = "situacao_sinistro";
+            this.colsituacao_sinistro.Name = "colsituacao_sinistro";
+            this.colsituacao_sinistro.OptionsColumn.AllowEdit = false;
+            // 
+            // coldata_ocorrido
+            // 
+            this.coldata_ocorrido.Caption = "DATA OCORRIDO";
+            this.coldata_ocorrido.DisplayFormat.FormatString = "dd/MM/yyyy";
+            this.coldata_ocorrido.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.coldata_ocorrido.FieldName = "data_ocorrido";
+            this.coldata_ocorrido.Name = "coldata_ocorrido";
+            this.coldata_ocorrido.OptionsColumn.AllowEdit = false;
+            this.coldata_ocorrido.Visible = true;
+            this.coldata_ocorrido.VisibleIndex = 1;
+            this.coldata_ocorrido.Width = 254;
+            // 
+            // coldata_conclusao
+            // 
+            this.coldata_conclusao.Caption = "DATA CONCLUSÃO";
+            this.coldata_conclusao.DisplayFormat.FormatString = "dd/MM/yyyy";
+            this.coldata_conclusao.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.coldata_conclusao.FieldName = "data_conclusao";
+            this.coldata_conclusao.Name = "coldata_conclusao";
+            this.coldata_conclusao.OptionsColumn.AllowEdit = false;
+            this.coldata_conclusao.Visible = true;
+            this.coldata_conclusao.VisibleIndex = 2;
+            this.coldata_conclusao.Width = 262;
+            // 
+            // gridColumn24
+            // 
+            this.gridColumn24.DisplayFormat.FormatString = "dd/MM/yyyy";
+            this.gridColumn24.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.gridColumn24.FieldName = "data_cadastro";
+            this.gridColumn24.Name = "gridColumn24";
+            this.gridColumn24.OptionsColumn.AllowEdit = false;
+            // 
+            // gridColumn25
+            // 
+            this.gridColumn25.DisplayFormat.FormatString = "dd/MM/yyyy";
+            this.gridColumn25.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.gridColumn25.FieldName = "data_inativacao";
+            this.gridColumn25.Name = "gridColumn25";
+            this.gridColumn25.OptionsColumn.AllowEdit = false;
+            // 
+            // gridColumn26
+            // 
+            this.gridColumn26.FieldName = "observacoes";
+            this.gridColumn26.Name = "gridColumn26";
+            this.gridColumn26.OptionsColumn.AllowEdit = false;
+            // 
+            // colnumero_bo
+            // 
+            this.colnumero_bo.Caption = "NUMERO B.O.";
+            this.colnumero_bo.FieldName = "numero_bo";
+            this.colnumero_bo.Name = "colnumero_bo";
+            this.colnumero_bo.OptionsColumn.AllowEdit = false;
+            this.colnumero_bo.Width = 131;
+            // 
+            // gridColumn27
+            // 
+            this.gridColumn27.FieldName = "id_cliente";
+            this.gridColumn27.Name = "gridColumn27";
+            this.gridColumn27.OptionsColumn.AllowEdit = false;
+            // 
+            // gridColumn28
+            // 
+            this.gridColumn28.Caption = "VALOR TOTAL";
+            this.gridColumn28.DisplayFormat.FormatString = "c2";
+            this.gridColumn28.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.gridColumn28.FieldName = "valor_total";
+            this.gridColumn28.Name = "gridColumn28";
+            this.gridColumn28.OptionsColumn.AllowEdit = false;
+            this.gridColumn28.Width = 240;
+            // 
+            // gridColumn29
+            // 
+            this.gridColumn29.Caption = "CLIENTE";
+            this.gridColumn29.FieldName = "nome_cliente";
+            this.gridColumn29.Name = "gridColumn29";
+            this.gridColumn29.OptionsColumn.AllowEdit = false;
+            this.gridColumn29.Width = 464;
+            // 
+            // colsituacao
+            // 
+            this.colsituacao.Caption = "SITUAÇÃO";
+            this.colsituacao.FieldName = "situacao";
+            this.colsituacao.Name = "colsituacao";
+            this.colsituacao.OptionsColumn.AllowEdit = false;
+            this.colsituacao.Width = 94;
+            // 
+            // colveiculos_reboques
+            // 
+            this.colveiculos_reboques.Caption = "VEÍCULOS/REBOQUES";
+            this.colveiculos_reboques.FieldName = "veiculos_reboques";
+            this.colveiculos_reboques.Name = "colveiculos_reboques";
+            this.colveiculos_reboques.OptionsColumn.AllowEdit = false;
+            this.colveiculos_reboques.Visible = true;
+            this.colveiculos_reboques.VisibleIndex = 0;
+            this.colveiculos_reboques.Width = 562;
+            // 
+            // PagamentosSinistrosForm
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.panelControl1);
+            this.Name = "PagamentosSinistrosForm";
+            this.Size = new System.Drawing.Size(892, 454);
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
+            this.panelControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
+            this.panelControl2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).EndInit();
+            this.panelControl3.ResumeLayout(false);
+            this.panelControl3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cbSinistros.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1View)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdgSinistros)).EndInit();
+            this.ResumeLayout(false);
+
+        }
+
+        #endregion
+
+        private DevExpress.XtraEditors.PanelControl panelControl1;
+        private DevExpress.XtraEditors.PanelControl panelControl2;
+        private DevExpress.XtraEditors.SimpleButton btnSair;
+        private DevExpress.XtraEditors.PanelControl panelControl3;
+        private DevExpress.XtraEditors.LabelControl labelControl1;
+        private DevExpress.XtraEditors.SearchLookUpEdit cbSinistros;
+        private System.Windows.Forms.BindingSource bdgSinistros;
+        private DevExpress.XtraGrid.Views.Grid.GridView searchLookUpEdit1View;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn23;
+        private DevExpress.XtraGrid.Columns.GridColumn colsituacao_sinistro;
+        private DevExpress.XtraGrid.Columns.GridColumn coldata_ocorrido;
+        private DevExpress.XtraGrid.Columns.GridColumn coldata_conclusao;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn24;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn25;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn26;
+        private DevExpress.XtraGrid.Columns.GridColumn colnumero_bo;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn27;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn28;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn29;
+        private DevExpress.XtraGrid.Columns.GridColumn colsituacao;
+        private DevExpress.XtraGrid.Columns.GridColumn colveiculos_reboques;
+    }
+}

@@ -14,6 +14,8 @@ using System.IO;
 using System.Diagnostics;
 using System.Net.Mail;
 using WcfLibGrupo.Utils;
+using DevExpress.XtraSplashScreen;
+using System.Threading;
 
 namespace SysFileManager
 {
@@ -21,10 +23,15 @@ namespace SysFileManager
     {
         public IServiceGrupo conn;
         public string DIRETORIO = "";
+        string tempPathViewFiles = Path.GetTempPath() + @"SysNorte\SysGrupo\ViewFiles\";
         
         public ArquivosForm()
         {
             InitializeComponent();
+            if (Directory.Exists(tempPathViewFiles))
+            {
+                Directory.Delete(tempPathViewFiles, true);
+            }
         }
 
         public void executaBusca()
@@ -32,7 +39,7 @@ namespace SysFileManager
             try
             {
                 bdgArquivos.Clear();
-                if (conn.verificaDiretorioExistente(DIRETORIO) == false)
+                if (!conn.verificaDiretorioExistente(DIRETORIO))
                 {
                     conn.criaDiretorio(DIRETORIO);
                 }
@@ -79,64 +86,90 @@ namespace SysFileManager
         {
             try
             {
+                string arquivosComTamanhoExcedido = "";
                 OpenFileDialog ofd = new OpenFileDialog();
+                ofd.Multiselect = true;
                 ofd.Filter = "Todos os Arquivos|*.*";
                 ofd.AutoUpgradeEnabled = true;
                 if (ofd.ShowDialog() == DialogResult.OK)
-                {
-                    FileInfo fi = new FileInfo(ofd.FileName);                    
-                    if (fi.Length > (30 * 1024) * 1024)
-                    {
-                        XtraMessageBox.Show("O arquivo: '" + fi.Name + "' excede o tamanho de 30MB");
-                        return;
-                    }
-                    if (conn.verificaArquivoExistente(DIRETORIO + fi.Name) == true)
-                    {
-                        DialogResult rs = XtraMessageBox.Show("O arquivo com nome: '"+fi.Name+ "' já existe, deseja sobreescrever?", "SYSNORTE", MessageBoxButtons.YesNo);
-                        if(rs == DialogResult.No){
-                            return;
-                        }
-                    }                    
+                {                                        
                     if (conn.verificaDiretorioExistente(DIRETORIO) == false)
                     {
                         conn.criaDiretorio(DIRETORIO);
-                    }
-                    progressBar.Properties.ShowTitle = true;
-                    progressBar.Position = 5;
-                    FileStream f1 = new FileStream(ofd.FileName, FileMode.Open);                    
-                    long length = Convert.ToInt64(f1.Length);
-                    Byte[] b1 = new Byte[length];
-                    f1.Read(b1, 0, (Int32)length);
-                    string nome = fi.Name;
-                    int max = ((Int32)length);
+                    }                    
+                    foreach (string file in ofd.FileNames)
+                    {
+                        SplashScreenManager.ShowForm(typeof(PleaseWaitForm));
+                        bool exist = false;
+                        bool exced = false;
+                        FileInfo fi = new FileInfo(file);
+                        if (fi.Length > (30 * 1024) * 1024)
+                        {
+                            arquivosComTamanhoExcedido += "O arquivo: " + fi.Name + " excede o tamanho de 30MB e não foi copiado.\n";
+                            exced = true;
+                        }
+                        if (conn.verificaArquivoExistente(DIRETORIO + fi.Name) == true)
+                        {
+                            //DialogResult rs = XtraMessageBox.Show("O arquivo com nome: " + fi.Name + " já existe, deseja sobreescrever?", "SYSNORTE", MessageBoxButtons.YesNo);
+                            //if (rs == DialogResult.No)
+                            //{
+                                exist = true;
+                            //}
+                        }
+                        if (!exced)
+                        {
+                            progressBar.Properties.ShowTitle = true;
+                            progressBar.Position = 5;
+                            FileStream f1 = new FileStream(file, FileMode.Open);
+                            long length = Convert.ToInt64(f1.Length);
+                            Byte[] b1 = new Byte[length];
+                            f1.Read(b1, 0, (Int32)length);
+                            string nome = fi.Name;
+                            //int max = ((Int32)length);
 
-                    if (((Int32)length > 1024))
+                            /*if (((Int32)length > 1024))
+                            {
+                                max = ((Int32)length / 1024);
+                            }
+                            if ((Int32)length > 1048576)
+                            {
+                                max = ((Int32)length / 1024 / 1024);
+                            }
+                            progressBar.Properties.Maximum = max;                    
+                            for (int i = 0; i < max; i++)
+                            {
+                                progressBar.PerformStep();
+                                progressBar.Update();
+                                conn.upload(b1, DIRETORIO + nome);                        
+                            }*/
+                            if (exist)
+                            {
+                                nome = "-" + nome;
+                            }
+                            conn.upload(b1, DIRETORIO + nome);
+                            executaBusca();
+                            progressBar.Position = 100;
+                            f1.Close();
+                        }
+                        SplashScreenManager.CloseForm();
+                        Thread.Sleep(300);
+                    }                    
+                    string msg = "";
+                    if (!String.IsNullOrEmpty(arquivosComTamanhoExcedido))
                     {
-                        max = ((Int32)length / 1024);
+                        msg = "\n\nOBS: \n" + arquivosComTamanhoExcedido;
                     }
-                    if ((Int32)length > 1048576)
-                    {
-                        max = ((Int32)length / 1024 / 1024);
-                    }
-                    progressBar.Properties.Maximum = max;                    
-                    for (int i = 0; i < max; i++)
-                    {
-                        progressBar.PerformStep();
-                        progressBar.Update();
-                        conn.upload(b1, DIRETORIO + nome);                        
-                    }
-                    executaBusca();
-                    XtraMessageBox.Show("Arquivo enviado com sucesso!");
+                    XtraMessageBox.Show("Operação concluida com sucesso!" + msg);
                     progressBar.Properties.ShowTitle = false;
-                    progressBar.Position = 0;
-                    f1.Close();
+                    progressBar.Position = 0;                    
                 }
             }
             catch (Exception ex)
             {
+                SplashScreenManager.CloseForm();
                 progressBar.Properties.ShowTitle = false;
                 progressBar.Position = 0;
-                XtraMessageBox.Show("Erro ao copiar arquivo.\n" + ex.Message);
+                XtraMessageBox.Show("Erro ao copiar arquivos.\n" + ex.Message);
             }            
         }
 
@@ -185,15 +218,38 @@ namespace SysFileManager
             try
             {
                 ArquivosModel am = (ArquivosModel)bdgArquivos.Current;
-                DialogResult rs = XtraMessageBox.Show("Tem certeza que deseja excluir o arquivo: "+am.nome+"?", "SYSNORTE", MessageBoxButtons.YesNo);
+                DialogResult rs = XtraMessageBox.Show("Tem certeza que deseja excluir o arquivo: " 
+                    + am.nome + "?", "SYSNORTE", MessageBoxButtons.YesNo);
                 if(rs == DialogResult.Yes){
-                    conn.excluirArquivo(am.nome_completo);
-                    XtraMessageBox.Show("Arquivo excluido com sucesso.");   
+                    conn.excluirArquivo(am.nome_completo);   
                 }
                 executaBusca();
-            }catch(Exception ex)
+            }
+            catch(Exception ex)
             {
                 XtraMessageBox.Show("Erro ao excluir arquivo.\n"+ex.Message);
+            }
+        }
+
+        private void gridControl_DoubleClick(object sender, EventArgs e)
+        {
+            try
+            {
+                if (!Directory.Exists(tempPathViewFiles))
+                {
+                    Directory.CreateDirectory(tempPathViewFiles);
+                }
+                ArquivosModel am = (ArquivosModel)bdgArquivos.Current;                
+                if (am == null)
+                    return;
+                string file = String.Format("{0}{1}_{2:yyyy-MM-dd_HH-mm-ss}_tmp{3}", tempPathViewFiles, am.nome, DateTime.Now, am.extensao);
+                Byte[] by = conn.download(am.nome_completo);
+                File.WriteAllBytes(file, by);
+                Process.Start(file);          
+            }
+            catch (Exception ex) 
+            {
+                XtraMessageBox.Show(String.Format("Ocorreu um erro:\n{0}\n\n{1}", ex.Message, ex.InnerException));
             }
         }
     }

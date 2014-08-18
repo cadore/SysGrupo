@@ -1,5 +1,6 @@
 ﻿using DevExpress.XtraEditors;
 using System;
+using System.Collections.Generic;
 using System.Net;
 using System.Windows.Forms;
 
@@ -57,6 +58,29 @@ namespace SysNorteGrupo.Utils
                 throw new Exception(ex.Message, ex.InnerException);           
             }
             return _return;
+        }
+
+
+        public static List<decimal> parcelar(decimal valor, int qntParcelas)
+        {
+            return parcelar(valor, qntParcelas, 2);
+        }
+        public static List<decimal> parcelar(decimal valor, int qntParcelas, int quantidadeDeDecimais = 2)
+        {
+            List<decimal> d = new List<decimal>();
+            if (valor == 0 || qntParcelas == 0)
+                return null;
+            //divide sempre arredondando para baixo
+            decimal pow = (decimal)Math.Pow(10, quantidadeDeDecimais);
+            decimal valorParcelas = Math.Truncate(valor / qntParcelas * pow) / pow;
+            //pega o valor da ultima parcela (com valor maior claro, valor de ajuste)
+            decimal valorUltimaParcela = valor - (valorParcelas * (qntParcelas - 1));
+            for (int i = 0; i < (qntParcelas - 1); i++)
+            {
+                d.Add(valorParcelas);
+            }
+            d.Add(valorUltimaParcela);
+            return d;
         }
     }
 }

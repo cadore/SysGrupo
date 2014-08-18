@@ -115,7 +115,7 @@ namespace SysNorteGrupo.UI.Sinistros
                 if (s.id_reboque2 > 0) r2 = conn.retornaReboquePorId(s.id_reboque2);
                 if (s.id_reboque3 > 0) r3 = conn.retornaReboquePorId(s.id_reboque3);
                 s.nome_cliente = c.nome_completo;
-                s.valor_total = conn.somaDePagamentosSinistrosPorIdSinistro(s.id);
+                s.valor_total = conn.somaDePagamentosSinistrosPorIdSinistro(s.id);                 
                 s.veiculos_reboques = String.Format(@"{0} / {1} / {2} / {3}", v.placa, r1.placa, r2.placa, r3.placa);
                 listSin.Add(s);
             }
@@ -190,7 +190,7 @@ namespace SysNorteGrupo.UI.Sinistros
         private void gridControl_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             sinistro si = (sinistro)bdgSinistros.Current;
-            SinistrosForm sif = new SinistrosForm(si){ formPrincipal = this.formPrincipal};
+            SinistrosForm sif = new SinistrosForm(si) { formPrincipal = this.formPrincipal };
             formPrincipal.adicionarControleNavegacao(sif);
         }
     }

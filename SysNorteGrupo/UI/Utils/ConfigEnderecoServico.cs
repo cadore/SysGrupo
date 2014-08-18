@@ -58,7 +58,7 @@ namespace SysNorteGrupo.UI.Utils
             }
             FilesINI.WriteValue("sistema", "ipServico", ip);
             FilesINI.WriteValue("sistema", "porta", porta);
-            GerenteDeConexoes.carregaURL(ip, porta);
+            GerenteDeConexoes.carregaURLServico(ip, porta);
             if (ckConectarSaida.CheckState == CheckState.Checked)
             {
                 try

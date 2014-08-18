@@ -36,7 +36,8 @@ namespace SysNorteGrupo.UI.Sinistros
             bdgReboques2.DataSource = new List<reboque>();
             bdgReboques3.DataSource = new List<reboque>();
 
-            if(sinistro_instc == null){
+            if(sinistro_instc == null)
+            {
                 sinistro_instc = new sinistro() {data_cadastro = conn.retornaDataHoraLocal(), data_ocorrido = null, data_conclusao = null };                
                 bdgSinistros.DataSource = sinistro_instc;
                 pnControl.Enabled = false;
@@ -49,6 +50,7 @@ namespace SysNorteGrupo.UI.Sinistros
                 bdgReboques1.DataSource = conn.listaDeReboquesPorIdCliente(sinistro_instc.id_cliente, false);
                 if(sinistro_instc.data_conclusao != null){
                     ckConcluido.Checked = true;
+                    ckConcluido.Enabled = false;
                 }
                 else
                 {
@@ -64,6 +66,12 @@ namespace SysNorteGrupo.UI.Sinistros
                 pnPrincipal.Enabled = false;
                 btnEditar.Enabled = true;
                 btnSalvar.Enabled = false;
+                dtOcorrido.Enabled = false;
+                
+                if (conn.listaDeParcelasSinistrosPorIdSinistro(sinistro_instc.id).Count > 0)
+                {
+                    this.btnEditar.Enabled = false;
+                }
             }
             if (ckConcluido.Checked)
             {
@@ -205,11 +213,6 @@ namespace SysNorteGrupo.UI.Sinistros
             {
                 try
                 {
-                    if (bdgPagamentos.Count <= 0 && ckConcluido.Checked)
-                    {
-                        XtraMessageBox.Show("Adicione no minimo um pagamento.");
-                        return;
-                    }
                     if (tf_vazio)
                     {
                         DialogResult dr = XtraMessageBox.Show("Confirma a data do ocorrido para dia: " + dtOcorrido.Text + "?", "SYSNORTE", MessageBoxButtons.OKCancel);
@@ -258,7 +261,6 @@ namespace SysNorteGrupo.UI.Sinistros
                         XtraMessageBox.Show(string.Format("CONTEM UM SINISTRO EM ABERTO PARA O VEICULO {0}, VERIFIQUE!", cbVeiculo.Text));
                         return;
                     }
-
                     if (Convert.ToInt64(cbReboque1.EditValue) > 0 && !conn.verificaSeReboqueEstaEmSinistroAtivo(Convert.ToInt64(cbReboque1.EditValue), !tf_vazio, 0, 1))
                     {
                         XtraMessageBox.Show(string.Format("CONTEM UM SINISTRO EM ABERTO PARA O REBOQUE {0}, VERIFIQUE!", cbReboque1.Text));
@@ -275,6 +277,12 @@ namespace SysNorteGrupo.UI.Sinistros
                         return;
                     }
 
+                    if (total_sinistro <= 0 && ckConcluido.Checked)
+                    {
+                        XtraMessageBox.Show(string.Format("É NESSESSÁRIO INFORMAR NO MÍNIMO UM PAGAMENTO PARA SINISTRO CONCLUÍDO, VERIFIQUE!"));
+                        return;
+                    }
+
                     _sinistro.valor_total = total_sinistro;
                     long id = conn.SalvaSinistro(_sinistro, listPag);
                     tfId.Text = id.ToString();
@@ -282,6 +290,7 @@ namespace SysNorteGrupo.UI.Sinistros
                     Log.createLog(EventLog.saveEdited, String.Format("sinistro ID: {0}", id));
                     pnPrincipal.Enabled = false;
                     btnEditar.Enabled = true;
+                    btnSalvar.Enabled = false;
                     if (ckConcluido.Checked)
                     {
                         btnImprimirRelSinistro.Enabled = true;
@@ -289,9 +298,7 @@ namespace SysNorteGrupo.UI.Sinistros
                     else
                     {                        
                         btnImprimirRelSinistro.Enabled = false;
-                    }
-                    btnEditar.Enabled = true;
-                    btnSalvar.Enabled = false;
+                    }                    
                 }
                 catch (Exception ex)
                 {

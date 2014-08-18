@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ArquivosForm));
             DevExpress.XtraGrid.GridLevelNode gridLevelNode1 = new DevExpress.XtraGrid.GridLevelNode();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
@@ -38,7 +39,7 @@
             this.btnDownload = new SysFileManager.Utils.Botoes.BotaoDownload();
             this.btnAdicionar = new SysFileManager.Utils.Botoes.BotaoAdicionar();
             this.gridControl = new DevExpress.XtraGrid.GridControl();
-            this.bdgArquivos = new System.Windows.Forms.BindingSource();
+            this.bdgArquivos = new System.Windows.Forms.BindingSource(this.components);
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colnome = new DevExpress.XtraGrid.Columns.GridColumn();
             this.coltamanho = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -181,6 +182,7 @@
             this.gridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
             this.gridControl.Click += new System.EventHandler(this.gridControl1_Click);
+            this.gridControl.DoubleClick += new System.EventHandler(this.gridControl_DoubleClick);
             // 
             // bdgArquivos
             // 
@@ -197,6 +199,8 @@
             this.gridView1.GridControl = this.gridControl;
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsView.ShowGroupPanel = false;
+            this.gridView1.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
+            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.colnome, DevExpress.Data.ColumnSortOrder.Ascending)});
             // 
             // colnome
             // 
@@ -204,6 +208,7 @@
             this.colnome.FieldName = "nome";
             this.colnome.Name = "colnome";
             this.colnome.OptionsColumn.AllowEdit = false;
+            this.colnome.SortMode = DevExpress.XtraGrid.ColumnSortMode.Value;
             this.colnome.Visible = true;
             this.colnome.VisibleIndex = 0;
             this.colnome.Width = 359;
