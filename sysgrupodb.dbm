@@ -334,11 +334,17 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<column name="identificador">
 		<type name="character"/>
 	</column>
-	<column name="valor_a_pagar">
+	<column name="valor">
 		<type name="numeric" length="19" precision="2"/>
 	</column>
 	<column name="id_sinistro">
 		<type name="bigint"/>
+	</column>
+	<column name="id_cliente">
+		<type name="bigint"/>
+	</column>
+	<column name="valor_a_pagar">
+		<type name="numeric" length="19" precision="2"/>
 	</column>
 	<constraint name="PK_historico_veic_reb_sinistros_id" type="pk-constr" factor="100" table="public.historico_veic_reb_sinistros">
 		<columns names="id" ref-type="src-columns"/>
@@ -356,7 +362,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 <table name="marca_veiculos">
 	<schema name="public"/>
 	<role name="postgres"/>
-	<position x="1366" y="199.4"/>
+	<position x="1361" y="199.4"/>
 	<column name="id" not-null="true" default-value="nextval('marca_veiculos_id_seq'::regclass)">
 		<type name="bigint"/>
 	</column>
@@ -562,13 +568,13 @@ CAUTION: Do not modify this file unless you know what you are doing.
 		<type name="bigint"/>
 	</column>
 	<column name="marca">
-		<type name="character varying" length="255"/>
+		<type name="character varying"/>
 	</column>
 	<column name="modelo">
-		<type name="character varying" length="255"/>
+		<type name="character varying"/>
 	</column>
 	<column name="id_cidade">
-		<type name="bigint"/>
+		<type name="character varying"/>
 	</column>
 	<constraint name="FK_reboques_id" type="pk-constr" factor="100" table="public.reboques">
 		<columns names="id" ref-type="src-columns"/>
@@ -759,19 +765,185 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<column name="uf_estado">
 		<type name="character varying"/>
 	</column>
+	<column name="gerada_parcela_cc" default-value="false">
+		<type name="boolean"/>
+	</column>
 	<constraint name="FK_veiculos_id" type="pk-constr" factor="100" table="public.veiculos">
 		<columns names="id" ref-type="src-columns"/>
 	</constraint>
 </table>
 
-<relationship name="cliente_hm_historico_veic_reb_sinistros" type="rel1n"
-	 src-col-pattern="id_cliente"
-	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
-	 src-fk-pattern="{st}_fk"
-	 col-indexes="6" constr-indexes="1"
-	 src-table="public.cliente"
-	 dst-table="public.historico_veic_reb_sinistros"
-	 src-required="false" dst-required="false"/>
+<sequence name="parcelas_sinistros_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="public"/>
+	<role name="postgres"/>
+</sequence>
+
+<sequence name="parcelas_veiculos_cc_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="public"/>
+	<role name="postgres"/>
+</sequence>
+
+<table name="parcelas_sinistros">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="1181" y="1128.2"/>
+	<column name="numero_parcela">
+		<type name="integer"/>
+	</column>
+	<column name="valor">
+		<type name="numeric" length="19" precision="2"/>
+	</column>
+	<column name="mes_parcela">
+		<type name="integer"/>
+	</column>
+	<column name="ano_parcela">
+		<type name="integer"/>
+	</column>
+	<column name="id_sinistro">
+		<type name="bigint"/>
+	</column>
+	<column name="id_cliente">
+		<type name="bigint"/>
+	</column>
+	<column name="gerado_conta_receber" default-value="false">
+		<type name="boolean"/>
+	</column>
+	<column name="id" not-null="true" default-value="nextval('parcelas_sinistros_id_seq'::regclass)">
+		<type name="bigint"/>
+	</column>
+	<constraint name="PK_parcelas_sinistros_id" type="pk-constr" factor="100" table="public.parcelas_sinistros">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="parcelas_veiculos_cc">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="1499" y="1128.2"/>
+	<column name="numero_parcela">
+		<type name="bigint"/>
+	</column>
+	<column name="valor">
+		<type name="numeric" length="19" precision="2"/>
+	</column>
+	<column name="mes_parcela">
+		<type name="integer"/>
+	</column>
+	<column name="ano_parcela">
+		<type name="integer"/>
+	</column>
+	<column name="id_veiculo">
+		<type name="bigint"/>
+	</column>
+	<column name="id_cliente">
+		<type name="bigint"/>
+	</column>
+	<column name="gerado_conta_receber" default-value="false">
+		<type name="boolean"/>
+	</column>
+	<column name="id" not-null="true" default-value="nextval('parcelas_veiculos_cc_id_seq'::regclass)">
+		<type name="bigint"/>
+	</column>
+	<constraint name="PK_parcelas_veiculos_cc" type="pk-constr" factor="100" table="public.parcelas_veiculos_cc">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="mensalidades_veiculos_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="public"/>
+	<role name="postgres"/>
+</sequence>
+
+<sequence name="mensalidades_veiculos_id_cliente_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="public"/>
+	<role name="postgres"/>
+</sequence>
+
+<table name="mensalidades_veiculos">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="50" y="1562.6"/>
+	<column name="id" not-null="true" default-value="nextval('mensalidades_veiculos_id_seq'::regclass)">
+		<type name="bigint"/>
+	</column>
+	<column name="mes">
+		<type name="integer"/>
+	</column>
+	<column name="ano">
+		<type name="integer"/>
+	</column>
+	<column name="id_veiculo">
+		<type name="bigint"/>
+	</column>
+	<column name="id_cliente" not-null="true" default-value="nextval('mensalidades_veiculos_id_cliente_seq'::regclass)">
+		<type name="bigint"/>
+	</column>
+	<column name="valor">
+		<type name="numeric" length="19" precision="2"/>
+	</column>
+	<constraint name="PK_mensalidades_veiculos_id" type="pk-constr" factor="100" table="public.mensalidades_veiculos">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="contas_a_receber_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="public"/>
+	<role name="postgres"/>
+</sequence>
+
+<table name="contas_a_receber">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="298" y="1562.6"/>
+	<column name="id" not-null="true" default-value="nextval('contas_a_pagar_id_seq'::regclass)">
+		<type name="bigint"/>
+	</column>
+	<column name="id_cliente">
+		<type name="bigint"/>
+	</column>
+	<column name="data_documento">
+		<type name="date"/>
+	</column>
+	<column name="data_vencimento">
+		<type name="date"/>
+	</column>
+	<column name="data_quitacao">
+		<type name="date"/>
+	</column>
+	<column name="valor_total">
+		<type name="numeric" length="19" precision="2"/>
+	</column>
+	<column name="valor_desconto">
+		<type name="numeric" length="19" precision="2"/>
+	</column>
+	<column name="valor_quitado" default-value="0">
+		<type name="numeric" length="19" precision="2"/>
+	</column>
+	<column name="gerado_boleto" default-value="false">
+		<type name="boolean"/>
+	</column>
+	<column name="descricao">
+		<type name="character varying" length="2058"/>
+	</column>
+	<constraint name="PK_contas_a_pagar_id" type="pk-constr" factor="100" table="public.contas_a_receber">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
 
 <constraint name="cad_cidades_fk" type="fk-constr"	 comparison-type="MATCH FULL"
 	 upd-action="CASCADE" del-action="RESTRICT" ref-table="public.cad_cidades" table="public.cad_bairros">

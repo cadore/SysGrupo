@@ -98,6 +98,8 @@
             this.lbVeiculos_ativos = new DevExpress.XtraEditors.LabelControl();
             this.lbReboques_ativos = new DevExpress.XtraEditors.LabelControl();
             this.barStaticItem1 = new DevExpress.XtraBars.BarStaticItem();
+            this.ribbonPageGroup11 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.btnGerarContasAReceber = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pnControl)).BeginInit();
@@ -136,9 +138,10 @@
             this.ckMostrarPainelInformacoes,
             this.btnLimparAreaDeTrabalho,
             this.btnGerarCobrancaSinistro,
-            this.btnGerarParcelasVeiculos});
+            this.btnGerarParcelasVeiculos,
+            this.btnGerarContasAReceber});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.MaxItemId = 40;
+            this.ribbon.MaxItemId = 41;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1,
@@ -449,7 +452,8 @@
             // 
             this.rpFinanceiro.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.ribbonPageGroup5,
-            this.ribbonPageGroup10});
+            this.ribbonPageGroup10,
+            this.ribbonPageGroup11});
             this.rpFinanceiro.Image = ((System.Drawing.Image)(resources.GetObject("rpFinanceiro.Image")));
             this.rpFinanceiro.Name = "rpFinanceiro";
             this.rpFinanceiro.Text = "FINANCEIRO";
@@ -800,6 +804,22 @@
             this.barStaticItem1.Name = "barStaticItem1";
             this.barStaticItem1.TextAlignment = System.Drawing.StringAlignment.Near;
             // 
+            // ribbonPageGroup11
+            // 
+            this.ribbonPageGroup11.AllowTextClipping = false;
+            this.ribbonPageGroup11.ItemLinks.Add(this.btnGerarContasAReceber);
+            this.ribbonPageGroup11.Name = "ribbonPageGroup11";
+            this.ribbonPageGroup11.ShowCaptionButton = false;
+            this.ribbonPageGroup11.Text = "Contas a Receber";
+            // 
+            // btnGerarContasAReceber
+            // 
+            this.btnGerarContasAReceber.Caption = "Gerar Contas a Receber";
+            this.btnGerarContasAReceber.Id = 40;
+            this.btnGerarContasAReceber.Name = "btnGerarContasAReceber";
+            this.btnGerarContasAReceber.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.btnGerarContasAReceber.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnGerarContasAReceber_ItemClick);
+            // 
             // FormPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -900,5 +920,7 @@
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup5;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup10;
         private DevExpress.XtraBars.BarButtonItem btnGerarParcelasVeiculos;
+        private DevExpress.XtraBars.BarButtonItem btnGerarContasAReceber;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup11;
     }
 }

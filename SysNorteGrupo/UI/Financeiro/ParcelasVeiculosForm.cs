@@ -140,9 +140,5 @@ namespace SysNorteGrupo.UI.Financeiro
                 XtraMessageBox.Show(String.Format("Ocorreu um erro:\n{0}\n\n{1}", ex.Message, ex.InnerException));
             }
         }
-
-        private void bdgVeiculos_CurrentChanged(object sender, EventArgs e)
-        {
-        }
     }
 }

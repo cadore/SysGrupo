@@ -113,7 +113,7 @@
       <Private>False</Private>
     </Reference>
     <Reference Include="SecureApp">
-      <HintPath>..\..\..\DLL's\SecureApp.dll</HintPath>
+      <HintPath>..\..\..\DLL\SecureApp.dll</HintPath>
     </Reference>
     <Reference Include="System">
       <Private>False</Private>
@@ -173,6 +173,12 @@
     </Compile>
     <Compile Include="Reports\Clientes\RelatorioClientesECotas.Designer.cs">
       <DependentUpon>RelatorioClientesECotas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Financeiro\GerarContasAReceberForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Financeiro\GerarContasAReceberForm.Designer.cs">
+      <DependentUpon>GerarContasAReceberForm.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Financeiro\PagamentosSinistrosForm.cs">
       <SubType>UserControl</SubType>
@@ -371,6 +377,9 @@
     <Compile Include="Utils\Validations.cs" />
     <EmbeddedResource Include="Reports\Clientes\RelatorioClientesECotas.resx">
       <DependentUpon>RelatorioClientesECotas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Financeiro\GerarContasAReceberForm.resx">
+      <DependentUpon>GerarContasAReceberForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Financeiro\PagamentosSinistrosForm.resx">
       <DependentUpon>PagamentosSinistrosForm.cs</DependentUpon>

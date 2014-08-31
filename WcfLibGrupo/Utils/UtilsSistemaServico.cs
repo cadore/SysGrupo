@@ -13,8 +13,9 @@ namespace WcfLibGrupo.Utils
 
         public static Color backColorFoco;
         public static string enderecoServico;
-        public static decimal valor_cota { get; set; }
-        public static decimal franquiaSinistro { get; set; }
+        public static decimal valor_cota { get; private set; }
+        public static decimal franquiaSinistro { get; private set; }
+        public static decimal valorPadraoMensalidade { get; private set; }
 
         #endregion
 
@@ -60,6 +61,7 @@ namespace WcfLibGrupo.Utils
                 Convert.ToInt32(LeitorINI.ReadValue("backColorFoco", "backColorFocoG")),
                 Convert.ToInt32(LeitorINI.ReadValue("backColorFoco", "backColorFocoB")));
             enderecoServico = LeitorINI.ReadValue("sistema", "enderecoServico");
+            valorPadraoMensalidade = Convert.ToDecimal(LeitorINI.ReadValue("sistema", "valorPadraoMensalidade"));
 
             /*SysGrupoRepo.host = new DTICrypto().Decifrar(LeitorINI.ReadValue("dbdata", "host"), "a1s2 d3f4&beguta");
             SysGrupoRepo.port = new DTICrypto().Decifrar(LeitorINI.ReadValue("dbdata", "port"), "a1s2 d3f4&beguta");

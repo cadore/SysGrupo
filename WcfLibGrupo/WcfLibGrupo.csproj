@@ -50,7 +50,7 @@
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="SecureApp">
-      <HintPath>..\..\..\DLL's\SecureApp.dll</HintPath>
+      <HintPath>..\..\..\DLL\SecureApp.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />

@@ -13,6 +13,8 @@ namespace SysNorteGrupo.Utils
 
         public static int minutosIDLE { get; set; }
 
+        public static decimal valorPadraoMensalidade { get; private set; }
+
         public static void carregaConfiguracoes()
         {
             try
@@ -22,6 +24,7 @@ namespace SysNorteGrupo.Utils
                 backColorFoco = conn.backColorFoco();
                 franquiaSinistro = conn.franquiaSinistro();
                 valor_por_cota = conn.valorPorCota();
+                valorPadraoMensalidade = conn.valorPadraoMensalidade();
                 minutosIDLE = Convert.ToInt32(FilesINI.ReadValue("sistema", "IDLE"));
             }
             catch (Exception ex)

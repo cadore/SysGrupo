@@ -920,39 +920,20 @@ namespace EntitiesGrupo
 
         [Column]
         public long id { get; set; }
-
-
         [Column]
         public long id_sinistro { get; set; }
-
-
-
         [Column]
         public long id_veiculo { get; set; }
-
-
-
         [Column]
         public long id_reboque { get; set; }
-
-
         [Column]
         public long id_cliente { get; set; }
-
-
-
         [Column]
         public char identificador { get; set; }
-
-
-
         [Column]
         public decimal valor { get; set; }
-
-
         [Column]
         public decimal valor_a_pagar { get; set; }
-
     }
 
 
@@ -1297,6 +1278,48 @@ namespace EntitiesGrupo
     }
 
 
+    [TableName("mensalidades_veiculos")]
+    [PrimaryKey("id")]
+    public partial class mensalidades_veiculos : SysGrupoRepo.Record<mensalidades_veiculos>
+    {
+        public long id { get; set; }
+        public int mes { get; set; }
+        public int ano { get; set; }
+        public long id_veiculo { get; set; }
+        public long id_cliente { get; set; }
+        public decimal valor { get; set; }
+    }
+
+    [TableName("contas_a_receber")]
+    [PrimaryKey("id")]
+    [ExplicitColumns]
+    public partial class contas_a_receber : SysGrupoRepo.Record<contas_a_receber>
+    {
+        [Column]
+        public long id { get; set; }
+        [Column]
+        public long id_cliente { get; set; }
+        [Column]
+        public DateTime data_documento { get; set; }
+        [Column]
+        public DateTime data_vencimento { get; set; }
+        [Column]
+        public DateTime data_quitacao { get; set; }
+        [Column]
+        public decimal valor_total { get; set; }
+        [Column]
+        public decimal valor_desconto { get; set; }
+        [Column]
+        public decimal valor_quitado { get; set; }
+        [Column]
+        public bool gerado_boleto { get; set; }
+        [Column]
+        public string descricao { get; set; }
+
+        public string nome_cliente { get; set; }
+    }
+
+
     public partial class log
     {
 
@@ -1320,6 +1343,3 @@ namespace EntitiesGrupo
     }
 
 }
-
-
-

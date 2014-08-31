@@ -30,6 +30,9 @@ namespace WcfLibGrupo
         [OperationContract]
         decimal valorPorCota();
 
+        [OperationContract]
+        decimal valorPadraoMensalidade();
+
         #endregion
 
         #region logs

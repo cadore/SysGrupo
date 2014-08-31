@@ -33,8 +33,6 @@
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
             this.pnParcelasSinistros = new DevExpress.XtraEditors.PanelControl();
-            this.panelControl6 = new DevExpress.XtraEditors.PanelControl();
-            this.btnSalvarParcelasSinistro = new DevExpress.XtraEditors.SimpleButton();
             this.btnLimparParcelasSinistro = new DevExpress.XtraEditors.SimpleButton();
             this.tfMesInicioParcelaSinistro = new DevExpress.XtraEditors.TextEdit();
             this.tfQntParcelasSinistro = new DevExpress.XtraEditors.TextEdit();
@@ -80,6 +78,7 @@
             this.colveiculos_reboques = new DevExpress.XtraGrid.Columns.GridColumn();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
+            this.btnSalvarParcelasSinistro = new DevExpress.XtraEditors.SimpleButton();
             this.btnSair = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
@@ -87,8 +86,6 @@
             this.panelControl3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pnParcelasSinistros)).BeginInit();
             this.pnParcelasSinistros.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl6)).BeginInit();
-            this.panelControl6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tfMesInicioParcelaSinistro.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfQntParcelasSinistro.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
@@ -138,7 +135,6 @@
             // 
             // pnParcelasSinistros
             // 
-            this.pnParcelasSinistros.Controls.Add(this.panelControl6);
             this.pnParcelasSinistros.Controls.Add(this.btnLimparParcelasSinistro);
             this.pnParcelasSinistros.Controls.Add(this.tfMesInicioParcelaSinistro);
             this.pnParcelasSinistros.Controls.Add(this.tfQntParcelasSinistro);
@@ -151,24 +147,6 @@
             this.pnParcelasSinistros.Name = "pnParcelasSinistros";
             this.pnParcelasSinistros.Size = new System.Drawing.Size(878, 215);
             this.pnParcelasSinistros.TabIndex = 21;
-            // 
-            // panelControl6
-            // 
-            this.panelControl6.Controls.Add(this.btnSalvarParcelasSinistro);
-            this.panelControl6.Location = new System.Drawing.Point(6, 114);
-            this.panelControl6.Name = "panelControl6";
-            this.panelControl6.Size = new System.Drawing.Size(204, 33);
-            this.panelControl6.TabIndex = 22;
-            // 
-            // btnSalvarParcelasSinistro
-            // 
-            this.btnSalvarParcelasSinistro.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
-            this.btnSalvarParcelasSinistro.Location = new System.Drawing.Point(5, 5);
-            this.btnSalvarParcelasSinistro.Name = "btnSalvarParcelasSinistro";
-            this.btnSalvarParcelasSinistro.Size = new System.Drawing.Size(191, 23);
-            this.btnSalvarParcelasSinistro.TabIndex = 0;
-            this.btnSalvarParcelasSinistro.Text = "Salvar Parcelas";
-            this.btnSalvarParcelasSinistro.Click += new System.EventHandler(this.btnSalvarParcelasSinistro_Click);
             // 
             // btnLimparParcelasSinistro
             // 
@@ -606,12 +584,24 @@
             // 
             // panelControl2
             // 
+            this.panelControl2.Controls.Add(this.btnSalvarParcelasSinistro);
             this.panelControl2.Controls.Add(this.btnSair);
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl2.Location = new System.Drawing.Point(2, 2);
             this.panelControl2.Name = "panelControl2";
             this.panelControl2.Size = new System.Drawing.Size(888, 39);
             this.panelControl2.TabIndex = 0;
+            // 
+            // btnSalvarParcelasSinistro
+            // 
+            this.btnSalvarParcelasSinistro.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
+            this.btnSalvarParcelasSinistro.Image = ((System.Drawing.Image)(resources.GetObject("btnSalvarParcelasSinistro.Image")));
+            this.btnSalvarParcelasSinistro.Location = new System.Drawing.Point(667, 5);
+            this.btnSalvarParcelasSinistro.Name = "btnSalvarParcelasSinistro";
+            this.btnSalvarParcelasSinistro.Size = new System.Drawing.Size(115, 30);
+            this.btnSalvarParcelasSinistro.TabIndex = 0;
+            this.btnSalvarParcelasSinistro.Text = "Salvar Parcelas";
+            this.btnSalvarParcelasSinistro.Click += new System.EventHandler(this.btnSalvarParcelasSinistro_Click);
             // 
             // btnSair
             // 
@@ -640,8 +630,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pnParcelasSinistros)).EndInit();
             this.pnParcelasSinistros.ResumeLayout(false);
             this.pnParcelasSinistros.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl6)).EndInit();
-            this.panelControl6.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.tfMesInicioParcelaSinistro.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfQntParcelasSinistro.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
@@ -716,7 +704,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn coldata_parcela;
         private DevExpress.XtraEditors.TextEdit tfMesInicioParcelaSinistro;
         private DevExpress.XtraEditors.SimpleButton btnLimparParcelasSinistro;
-        private DevExpress.XtraEditors.PanelControl panelControl6;
         private DevExpress.XtraEditors.SimpleButton btnSalvarParcelasSinistro;
         private DevExpress.XtraGrid.Columns.GridColumn colano_parcela;
         private DevExpress.XtraEditors.TextEdit tfValorPorCota;

@@ -52,6 +52,12 @@ namespace WcfLibGrupo
         {
             return UtilsSistemaServico.valor_cota;
         }
+
+        public decimal valorPadraoMensalidade()
+        {
+            return UtilsSistemaServico.valorPadraoMensalidade;
+        }
+
         #endregion        
 
         #region logs

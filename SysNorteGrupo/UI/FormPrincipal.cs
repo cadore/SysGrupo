@@ -182,7 +182,7 @@ namespace SysNorteGrupo
                 lbCotasAtivas.Text = String.Format("{0:n2} ATIVAS", 0);
                 lbCotasInativas.Text = String.Format("{0:n2} INATIVAS", 0);
                 if (this.IsDisposed)
-                    Environment.Exit(1);
+                    Application.Exit();
             }
         }
 
@@ -443,8 +443,8 @@ namespace SysNorteGrupo
             try
             {
                 DialogResult rs = XtraMessageBox.Show("TEM CERTEZA QUE DESEJA SAIR DO SISTEMA?", "SYSNORTE TECNOLOGIA",
-                MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-                if (rs == DialogResult.OK)
+                MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (rs == DialogResult.Yes)
                 {
                     Log.createLog(EventLog.cloused, "aplicação no formulário principal.");
                     //threadHora.Abort("Thread aborted");
@@ -561,6 +561,12 @@ namespace SysNorteGrupo
         {
             ParcelasVeiculosForm pvf = new ParcelasVeiculosForm() { desk = this };
             adicionarControleNavegacao(pvf);
+        }
+
+        private void btnGerarContasAReceber_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            GerarContasAReceberForm gcrf = new GerarContasAReceberForm() { desk = this };
+            adicionarControleNavegacao(gcrf);
         }
     }
 }

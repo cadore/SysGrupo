@@ -4,7 +4,6 @@ using EntitiesGrupo;
 using HostWcfGrupo.UI.Utils;
 using HostWcfGrupo.Utils;
 using HostWcfGrupo.Utils.ValidacaoSistema;
-using SysDBTools;
 using System;
 using System.Diagnostics;
 using System.IO;
@@ -286,7 +285,7 @@ namespace HostWcfGrupo.UI
                 try
                 {
                     SplashScreenManager.ShowForm(typeof(PleaseWaitForm), false, false);
-                    DBTools.pathPgDump = UtilsSistemaServico.DIR_PG_DUMP;
+                    /*DBTools.pathPgDump = UtilsSistemaServico.DIR_PG_DUMP;
                     DBTools.tempPathWithFile = UtilsSistemaServico.SUBDIR_TEMP_FILES + @"temp.sql";
                     DBTools.pathSaveBackup = UtilsSistemaServico.SUBDIR_BACKUP;
                     DBTools.passwordFile = "a1s2 d3f4&beguta";
@@ -295,7 +294,7 @@ namespace HostWcfGrupo.UI
                     DBTools.dataBase = SysGrupoRepo.db;
                     DBTools.user = SysGrupoRepo.user;
                     DBTools.password = SysGrupoRepo.passwd;
-                    DBTools.backup();
+                    DBTools.backup();*/
                 }
                 catch (Exception ex)
                 {
@@ -367,7 +366,7 @@ namespace HostWcfGrupo.UI
                 MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (rs == DialogResult.No)
                 return;
-            Environment.Exit(0);
+            Application.Exit();
         }
 
         private void btnSair_Click(object sender, EventArgs e)
