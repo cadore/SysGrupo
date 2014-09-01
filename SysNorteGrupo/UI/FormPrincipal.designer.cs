@@ -56,6 +56,8 @@
             this.btnLimparAreaDeTrabalho = new DevExpress.XtraBars.BarButtonItem();
             this.btnGerarCobrancaSinistro = new DevExpress.XtraBars.BarButtonItem();
             this.btnGerarParcelasVeiculos = new DevExpress.XtraBars.BarButtonItem();
+            this.btnGerarContasAReceber = new DevExpress.XtraBars.BarButtonItem();
+            this.btnRelGerencialMensal = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribClientes = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribVeiculos = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -66,8 +68,10 @@
             this.rpFinanceiro = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup5 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup10 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPageGroup11 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage3 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup7 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPageGroup12 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage2 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribUsuarios = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -78,7 +82,6 @@
             this.pnControl = new DevExpress.XtraEditors.PanelControl();
             this.pnInformacoes = new DevExpress.XtraEditors.PanelControl();
             this.subPanelInformacoes = new DevExpress.XtraEditors.PanelControl();
-            this.lbDataHora = new System.Windows.Forms.Label();
             this.lbTotal_clientes = new DevExpress.XtraEditors.LabelControl();
             this.lbCotasInativas = new DevExpress.XtraEditors.LabelControl();
             this.lbBensInativos = new DevExpress.XtraEditors.LabelControl();
@@ -98,8 +101,7 @@
             this.lbVeiculos_ativos = new DevExpress.XtraEditors.LabelControl();
             this.lbReboques_ativos = new DevExpress.XtraEditors.LabelControl();
             this.barStaticItem1 = new DevExpress.XtraBars.BarStaticItem();
-            this.ribbonPageGroup11 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.btnGerarContasAReceber = new DevExpress.XtraBars.BarButtonItem();
+            this.lbDataHora = new DevExpress.XtraBars.BarStaticItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pnControl)).BeginInit();
@@ -139,9 +141,11 @@
             this.btnLimparAreaDeTrabalho,
             this.btnGerarCobrancaSinistro,
             this.btnGerarParcelasVeiculos,
-            this.btnGerarContasAReceber});
+            this.btnGerarContasAReceber,
+            this.btnRelGerencialMensal,
+            this.lbDataHora});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.MaxItemId = 41;
+            this.ribbon.MaxItemId = 43;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1,
@@ -380,6 +384,23 @@
             this.btnGerarParcelasVeiculos.SuperTip = superToolTip1;
             this.btnGerarParcelasVeiculos.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnGerarParcelasVeiculos_ItemClick);
             // 
+            // btnGerarContasAReceber
+            // 
+            this.btnGerarContasAReceber.Caption = "Gerar Contas a Receber";
+            this.btnGerarContasAReceber.Id = 40;
+            this.btnGerarContasAReceber.Name = "btnGerarContasAReceber";
+            this.btnGerarContasAReceber.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.btnGerarContasAReceber.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnGerarContasAReceber_ItemClick);
+            // 
+            // btnRelGerencialMensal
+            // 
+            this.btnRelGerencialMensal.Caption = "Gerencial Mensal";
+            this.btnRelGerencialMensal.Glyph = ((System.Drawing.Image)(resources.GetObject("btnRelGerencialMensal.Glyph")));
+            this.btnRelGerencialMensal.Id = 41;
+            this.btnRelGerencialMensal.Name = "btnRelGerencialMensal";
+            this.btnRelGerencialMensal.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.btnRelGerencialMensal.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnRelGerencialMensal_ItemClick);
+            // 
             // ribbonPage1
             // 
             this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -474,10 +495,19 @@
             this.ribbonPageGroup10.ShowCaptionButton = false;
             this.ribbonPageGroup10.Text = "Veículos";
             // 
+            // ribbonPageGroup11
+            // 
+            this.ribbonPageGroup11.AllowTextClipping = false;
+            this.ribbonPageGroup11.ItemLinks.Add(this.btnGerarContasAReceber);
+            this.ribbonPageGroup11.Name = "ribbonPageGroup11";
+            this.ribbonPageGroup11.ShowCaptionButton = false;
+            this.ribbonPageGroup11.Text = "Contas a Receber";
+            // 
             // ribbonPage3
             // 
             this.ribbonPage3.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.ribbonPageGroup7});
+            this.ribbonPageGroup7,
+            this.ribbonPageGroup12});
             this.ribbonPage3.Image = ((System.Drawing.Image)(resources.GetObject("ribbonPage3.Image")));
             this.ribbonPage3.Name = "ribbonPage3";
             this.ribbonPage3.Text = "RELATÓRIOS";
@@ -489,6 +519,14 @@
             this.ribbonPageGroup7.Name = "ribbonPageGroup7";
             this.ribbonPageGroup7.ShowCaptionButton = false;
             this.ribbonPageGroup7.Text = "ADMINISTRATIVO";
+            // 
+            // ribbonPageGroup12
+            // 
+            this.ribbonPageGroup12.AllowTextClipping = false;
+            this.ribbonPageGroup12.ItemLinks.Add(this.btnRelGerencialMensal);
+            this.ribbonPageGroup12.Name = "ribbonPageGroup12";
+            this.ribbonPageGroup12.ShowCaptionButton = false;
+            this.ribbonPageGroup12.Text = "FINANNCEIRO";
             // 
             // ribbonPage2
             // 
@@ -542,6 +580,7 @@
             // 
             // ribbonStatusBar
             // 
+            this.ribbonStatusBar.ItemLinks.Add(this.lbDataHora);
             this.ribbonStatusBar.Location = new System.Drawing.Point(0, 584);
             this.ribbonStatusBar.Name = "ribbonStatusBar";
             this.ribbonStatusBar.Ribbon = this.ribbon;
@@ -578,7 +617,6 @@
             this.subPanelInformacoes.Appearance.Options.UseBackColor = true;
             this.subPanelInformacoes.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.subPanelInformacoes.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.subPanelInformacoes.Controls.Add(this.lbDataHora);
             this.subPanelInformacoes.Controls.Add(this.lbTotal_clientes);
             this.subPanelInformacoes.Controls.Add(this.lbCotasInativas);
             this.subPanelInformacoes.Controls.Add(this.lbBensInativos);
@@ -603,20 +641,6 @@
             this.subPanelInformacoes.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.subPanelInformacoes.Size = new System.Drawing.Size(1016, 433);
             this.subPanelInformacoes.TabIndex = 1;
-            // 
-            // lbDataHora
-            // 
-            this.lbDataHora.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.lbDataHora.AutoSize = true;
-            this.lbDataHora.Font = new System.Drawing.Font("Segoe UI Symbol", 11.25F);
-            this.lbDataHora.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(82)))), ((int)(((byte)(155)))));
-            this.lbDataHora.Location = new System.Drawing.Point(4, 428);
-            this.lbDataHora.Name = "lbDataHora";
-            this.lbDataHora.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.lbDataHora.Size = new System.Drawing.Size(87, 20);
-            this.lbDataHora.TabIndex = 2;
-            this.lbDataHora.Text = "lbDataHora";
-            this.lbDataHora.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lbTotal_clientes
             // 
@@ -804,21 +828,12 @@
             this.barStaticItem1.Name = "barStaticItem1";
             this.barStaticItem1.TextAlignment = System.Drawing.StringAlignment.Near;
             // 
-            // ribbonPageGroup11
+            // lbDataHora
             // 
-            this.ribbonPageGroup11.AllowTextClipping = false;
-            this.ribbonPageGroup11.ItemLinks.Add(this.btnGerarContasAReceber);
-            this.ribbonPageGroup11.Name = "ribbonPageGroup11";
-            this.ribbonPageGroup11.ShowCaptionButton = false;
-            this.ribbonPageGroup11.Text = "Contas a Receber";
-            // 
-            // btnGerarContasAReceber
-            // 
-            this.btnGerarContasAReceber.Caption = "Gerar Contas a Receber";
-            this.btnGerarContasAReceber.Id = 40;
-            this.btnGerarContasAReceber.Name = "btnGerarContasAReceber";
-            this.btnGerarContasAReceber.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
-            this.btnGerarContasAReceber.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnGerarContasAReceber_ItemClick);
+            this.lbDataHora.Caption = "lbDataHora";
+            this.lbDataHora.Id = 42;
+            this.lbDataHora.Name = "lbDataHora";
+            this.lbDataHora.TextAlignment = System.Drawing.StringAlignment.Near;
             // 
             // FormPrincipal
             // 
@@ -907,7 +922,6 @@
         private DevExpress.XtraEditors.LabelControl lbSinistros_concluidos;
         private DevExpress.XtraBars.BarSubItem subMenuPaineis;
         private DevExpress.XtraBars.BarCheckItem ckMostrarPainelInformacoes;
-        private System.Windows.Forms.Label lbDataHora;
         private DevExpress.XtraBars.BarButtonItem btnLimparAreaDeTrabalho;
         private DevExpress.XtraEditors.LabelControl lbCotasInativas;
         private DevExpress.XtraEditors.LabelControl lbBensInativos;
@@ -922,5 +936,8 @@
         private DevExpress.XtraBars.BarButtonItem btnGerarParcelasVeiculos;
         private DevExpress.XtraBars.BarButtonItem btnGerarContasAReceber;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup11;
+        private DevExpress.XtraBars.BarButtonItem btnRelGerencialMensal;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup12;
+        private DevExpress.XtraBars.BarStaticItem lbDataHora;
     }
 }

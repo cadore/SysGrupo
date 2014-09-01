@@ -23,6 +23,7 @@ using DevExpress.XtraSplashScreen;
 using DevExpress.XtraEditors;
 using System.Threading;
 using SysNorteGrupo.UI.Financeiro;
+using SysNorteGrupo.Reports.Gerencial;
 
 namespace SysNorteGrupo
 {
@@ -66,14 +67,14 @@ namespace SysNorteGrupo
             {
                 while (true)
                 {
-                    if (DateTime.Now.Second == 1 || lbDataHora.Text.Equals("lbDataHora"))
+                    if (DateTime.Now.Second == 1 || lbDataHora.Caption.Equals("lbDataHora"))
                     {
                         DateTime dataHoraServidor = conn.retornaDataHoraLocal();
                         string dataHora = String.Format("{0:dddd, dd/MM/yyyy HH:mm}", dataHoraServidor);
 
                         char primeiraLetra = char.ToUpper(dataHora[0]);
                         dataHora = primeiraLetra + dataHora.Substring(1);
-                        lbDataHora.Text = dataHora;
+                        lbDataHora.Caption = dataHora;
                     }
                     Thread.Sleep(1000);
                 }
@@ -227,7 +228,7 @@ namespace SysNorteGrupo
         {
             try
             {
-                SplashScreenManager.ShowForm(typeof(SysNorteGrupo.UI.Utils.PleaseWaitForm), false, false);                
+                SplashScreenManager.ShowForm(this, typeof(SysNorteGrupo.UI.Utils.PleaseWaitForm), false, false, false);                
                 this.pnControl.Controls.Clear();
                 if (controle != null)
                 {
@@ -567,6 +568,12 @@ namespace SysNorteGrupo
         {
             GerarContasAReceberForm gcrf = new GerarContasAReceberForm() { desk = this };
             adicionarControleNavegacao(gcrf);
+        }
+
+        private void btnRelGerencialMensal_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            RelatorioGerencialMensalSubForm rel = new RelatorioGerencialMensalSubForm();
+            rel.ShowDialog();
         }
     }
 }

@@ -808,12 +808,6 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<column name="id_sinistro">
 		<type name="bigint"/>
 	</column>
-	<column name="id_cliente">
-		<type name="bigint"/>
-	</column>
-	<column name="gerado_conta_receber" default-value="false">
-		<type name="boolean"/>
-	</column>
 	<column name="id" not-null="true" default-value="nextval('parcelas_sinistros_id_seq'::regclass)">
 		<type name="bigint"/>
 	</column>
@@ -825,7 +819,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 <table name="parcelas_veiculos_cc">
 	<schema name="public"/>
 	<role name="postgres"/>
-	<position x="1499" y="1128.2"/>
+	<position x="1465" y="1128.2"/>
 	<column name="numero_parcela">
 		<type name="bigint"/>
 	</column>
@@ -941,6 +935,35 @@ CAUTION: Do not modify this file unless you know what you are doing.
 		<type name="character varying" length="2058"/>
 	</column>
 	<constraint name="PK_contas_a_pagar_id" type="pk-constr" factor="100" table="public.contas_a_receber">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="historico_pagamento_sinistros_clientes_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="public"/>
+	<role name="postgres"/>
+</sequence>
+
+<table name="historico_pagamento_sinistros_clientes">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="644" y="1562.6"/>
+	<column name="id" not-null="true" default-value="nextval('historico_pagamento_sinistros_clientes_id_seq'::regclass)">
+		<type name="bigint"/>
+	</column>
+	<column name="id_sinistro">
+		<type name="bigint"/>
+	</column>
+	<column name="id_cliente">
+		<type name="bigint"/>
+	</column>
+	<column name="id_parcela">
+		<type name="bigint"/>
+	</column>
+	<constraint name="PK_historico_pagamento_sinistros_clientes_id" type="pk-constr" factor="100" table="public.historico_pagamento_sinistros_clientes">
 		<columns names="id" ref-type="src-columns"/>
 	</constraint>
 </table>

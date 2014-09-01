@@ -1,9 +1,10 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
-using System.Windows.Documents;
-
+using System.Drawing;
 namespace SysNorteGrupo.Reports
 {
+    #region 
     #region relatorio de cotas por cliente
 
     public class RelatorioClientesECotasModel
@@ -16,10 +17,10 @@ namespace SysNorteGrupo.Reports
     }
     #endregion
     public class ListaClientesRateio
-    {        
+    {
         public string cliente { get; set; }
         public decimal totalParticipacao { get; set; }
-        public List<VeiculosRelatorio> listaVeiculo { get; set; }        
+        public List<VeiculosRelatorio> listaVeiculo { get; set; }
     }
 
     public class ListaClientesInclusao
@@ -75,4 +76,43 @@ namespace SysNorteGrupo.Reports
         public string franquia { get; set; }
         public List<PagamentosSinistroRelatorio> listaPagamentos { get; set; }
     }
+    #endregion
+
+    #region relatorio mensal de entrega para o cliente
+
+    public class RelatorioGerencial
+    {
+        public decimal totalBensGrupo { get; set; }
+        public decimal totalCotasGrupo { get; set; }
+        public Image imagemExtratoBancario { get; set; }
+        public DateTime datetimenow { get; set; }
+        public string cliente { get; set; }
+        public List<VeiculosEReboquesRelatorioGerencial> listVeiculosEReboques { get; set; }
+        public decimal valoresCapitalizadosNoGrupo { get; set; }
+        public decimal valoresAintegralizar { get; set; }
+        public decimal valoresEmCaixa { get; set; }
+        public decimal valoresPagosDeSinistrosAReintegralizar { get; set; }
+        public decimal valoresDepositadosBancos { get; set; }
+        public List<SinistrosRelatorioGerencial> listSinistros { get; set; }
+    }
+
+    public class VeiculosEReboquesRelatorioGerencial
+    {
+        public string veiculosReboque { get; set; }
+        public decimal cotas { get; set; }
+    }
+
+    public class SinistrosRelatorioGerencial
+    {
+        public string clienteEPlacas { get; set; }
+        public decimal orcamentos { get; set; }
+        public decimal pagamentoMes { get; set; }
+        public decimal valor_por_cota { get; set; }
+        public decimal cotas_na_data { get; set; }
+        public decimal subTotal { get; set; }
+        public Image imgAnterior { get; set; }
+        public Image imgSinistro { get; set; }
+    }
+
+    #endregion
 }

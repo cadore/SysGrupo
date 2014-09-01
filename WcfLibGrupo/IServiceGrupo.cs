@@ -416,11 +416,30 @@ namespace WcfLibGrupo
         /* financeiro - cobrança - parcelamento sinistro */
 
         [OperationContract]
+        decimal somaDeBensClientePorIdSinistroEIdCliente(long id_sinistro, long id_cliente);
+
+        [OperationContract]
         bool salvarParcelasSinistro(List<parcelas_sinistros> parcelas);
 
         [OperationContract]
         List<parcelas_sinistros> listaDeParcelasSinistrosPorIdSinistro(long id_sinistro);
 
+        [OperationContract]
+        List<parcelas_sinistros> listaDeParcelasSinistrosPorIdClienteEMesAno(long id_cliente, int mes, int ano);
+
+        [OperationContract]
+        bool verificaGeracaoParcelasPorIdParcelaEIdCliente(long id_parcela, long id_cliente);
+
+        #endregion
+
+        #region financeiro
+
+        [OperationContract]
+        List<parcelas_veiculos_cc> listaDeParcelasVeiculosCCPorIdClienteEMesAno(long id_cliente, int mes, int ano);
+
+        [OperationContract]
+        void salvaContasAReceber(List<contas_a_receber> listContas, List<parcelas_veiculos_cc> listPv,
+            List<historico_pagamento_sinistros_clientes> listPs);
         #endregion
     }
 }

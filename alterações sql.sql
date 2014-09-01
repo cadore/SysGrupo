@@ -85,3 +85,24 @@ WITH (
 );
 ALTER TABLE contas_a_receber
   OWNER TO postgres;
+
+  CREATE TABLE historico_pagamento_sinistros_clientes
+(
+  id bigserial NOT NULL,
+  id_sinistro bigint,
+  id_cliente bigint,
+  CONSTRAINT "PK_historico_pagamento_sinistros_clientes_id" PRIMARY KEY (id)
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE historico_pagamento_sinistros_clientes
+  OWNER TO postgres;
+
+  ALTER TABLE parcelas_sinistros
+  DROP COLUMN gerado_conta_receber;
+
+  ALTER TABLE historico_pagamento_sinistros_clientes
+  ADD COLUMN id_parcela bigint;
+ALTER TABLE parcelas_sinistros
+  DROP COLUMN id_cliente;

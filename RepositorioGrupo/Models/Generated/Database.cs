@@ -1259,7 +1259,6 @@ namespace EntitiesGrupo
         public int ano_parcela { get; set; }
         public long id_sinistro { get; set; }
         public long id_cliente { get; set; }
-        public bool gerado_conta_receber { get; set; }
     }
 
 
@@ -1317,6 +1316,16 @@ namespace EntitiesGrupo
         public string descricao { get; set; }
 
         public string nome_cliente { get; set; }
+    }
+
+    [TableName("historico_pagamento_sinistros_clientes")]
+    [PrimaryKey("id")]
+    public partial class historico_pagamento_sinistros_clientes : SysGrupoRepo.Record<historico_pagamento_sinistros_clientes>
+    {
+        public long id { get; set; }
+        public long id_sinistro { get; set; }
+        public long id_cliente { get; set; }
+        public long id_parcela { get; set; }
     }
 
 

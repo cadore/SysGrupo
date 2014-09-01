@@ -2135,6 +2135,27 @@ namespace WcfLibGrupo
 
         /* financeiro - cobrança - parcelamento sinistro */
 
+        public decimal somaDeBensClientePorIdSinistroEIdCliente(long id_sinistro, long id_cliente)
+        {
+            try
+            {
+                var sql = Sql.Builder.Select("SUM(valor)").From("historico_veic_reb_sinistros")
+                    .Where("id_cliente=@0", id_cliente).Where("id_sinistro=@0", id_sinistro);
+                var rs = db.ExecuteScalar<string>(sql);
+                if (rs.Equals(DBNull.Value) || String.IsNullOrEmpty(rs))
+                {
+                    return 0;
+                }
+                return Convert.ToDecimal(rs);
+            }
+            catch (Exception ex)
+            {
+                throw new FaultException(
+                    new FaultReason(String.Format("EXCECÃO: {0}{1}INNER EXCEPTION: {2}", ex.Message, Environment.NewLine, ex.InnerException)),
+                    new FaultCode("1000"));
+            }
+        }
+
         public bool salvarParcelasSinistro(List<parcelas_sinistros> parcelas)
         {
             try
@@ -2168,6 +2189,97 @@ namespace WcfLibGrupo
             }
             catch (Exception ex)
             {
+                throw new FaultException(
+                    new FaultReason(String.Format("EXCECÃO: {0}{1}INNER EXCEPTION: {2}", ex.Message, Environment.NewLine, ex.InnerException)),
+                    new FaultCode("1000"));
+            }
+        }
+
+        public List<parcelas_sinistros> listaDeParcelasSinistrosPorIdClienteEMesAno(long id_cliente, int mes, int ano)
+        {
+            try
+            {
+                var sql = Sql.Builder.Select("*").From("parcelas_sinistros")
+                    .Where("mes_parcela=@0", mes).Where("ano_parcela=@0", ano);
+                return parcelas_sinistros.Fetch(sql);
+            }
+            catch (Exception ex)
+            {
+                throw new FaultException(
+                    new FaultReason(String.Format("EXCECÃO: {0}{1}INNER EXCEPTION: {2}", ex.Message, Environment.NewLine, ex.InnerException)),
+                    new FaultCode("1000"));
+            }
+        }
+
+        public bool verificaGeracaoParcelasPorIdParcelaEIdCliente(long id_parcela, long id_cliente)
+        {
+            try
+            {
+                var sql = Sql.Builder.Select("Count(id)").From("historico_pagamento_sinistros_clientes")
+                    .Where("id_parcela=@0", id_parcela).Where("id_cliente=@0", id_cliente);
+                var count = db.ExecuteScalar<string>(sql);
+                if (count.Equals(DBNull.Value) || String.IsNullOrEmpty(count))
+                {
+                    return false;
+                }
+                if (Convert.ToInt64(count) == 0)
+                {
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new FaultException(
+                    new FaultReason(String.Format("EXCECÃO: {0}{1}INNER EXCEPTION: {2}", ex.Message, Environment.NewLine, ex.InnerException)),
+                    new FaultCode("1000"));
+            }
+        }
+        #endregion
+
+        #region financeiro
+        public List<parcelas_veiculos_cc> listaDeParcelasVeiculosCCPorIdClienteEMesAno(long id_cliente, int mes, int ano)
+        {
+            try
+            {
+                var sql = Sql.Builder.Select("*").From("parcelas_veiculos_cc")
+                    .Where("id_cliente=@0", id_cliente).Where("mes_parcela=@0", mes).Where("ano_parcela=@0", ano);
+                return parcelas_veiculos_cc.Fetch(sql);
+            }
+            catch (Exception ex)
+            {
+                throw new FaultException(
+                    new FaultReason(String.Format("EXCECÃO: {0}{1}INNER EXCEPTION: {2}", ex.Message, Environment.NewLine, ex.InnerException)),
+                    new FaultCode("1000"));
+            }
+        }
+
+        public void salvaContasAReceber(List<contas_a_receber> listContas, List<parcelas_veiculos_cc> listPv,
+            List<historico_pagamento_sinistros_clientes> listPs)
+        {
+            try
+            {
+                using (var scope = contas_a_receber.repo.GetTransaction())
+                {
+                    foreach (contas_a_receber cr in listContas)
+                        cr.Insert();
+
+                    foreach (parcelas_veiculos_cc pv in listPv)
+                    {
+                        pv.gerado_conta_receber = true;
+                        pv.Update();
+                    }
+                    foreach (historico_pagamento_sinistros_clientes h in listPs)
+                        h.Insert();
+                    scope.Complete();
+                }
+            }
+            catch (Exception ex)
+            {
+                contas_a_receber.repo.AbortTransaction();
                 throw new FaultException(
                     new FaultReason(String.Format("EXCECÃO: {0}{1}INNER EXCEPTION: {2}", ex.Message, Environment.NewLine, ex.InnerException)),
                     new FaultCode("1000"));
