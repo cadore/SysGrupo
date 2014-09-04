@@ -63,6 +63,9 @@ namespace WcfLibGrupo
         [OperationContract]
         decimal retornaTotalDeBensDaEmpresaPorInatividade(bool inativo);
 
+        [OperationContract]
+        decimal retornaTotalDeBensDaEmpresaPorInatividadeEDataAtivacao(bool inativo, DateTime dataInicio, DateTime dataFinal);
+
         #endregion
 
         #region usuarios
@@ -134,6 +137,9 @@ namespace WcfLibGrupo
         [OperationContract]
         long totalDeClientesPorInatividade(bool inativo);
 
+        [OperationContract]
+        List<cliente> listaDeClientesPorInatividadeEDataAtivacao(bool inativo, DateTime dataInicio, DateTime dataFinal);
+
         #endregion
 
         #region fipe
@@ -201,6 +207,10 @@ namespace WcfLibGrupo
 
         [OperationContract]
         decimal somaValorTotalVeiculoPorIdClienteEInatividade(long id_cliente, bool inativo);
+
+        [OperationContract]
+        decimal somaValorTotalVeiculoPorIdClienteEInatividadeEDataAtivacao(long id_cliente, bool inativo,
+            DateTime dataInicio, DateTime dataFinal);
 
         [OperationContract]
         decimal somaValorTotalVeiculoPorDataAtivacao(DateTime? data);
@@ -274,6 +284,10 @@ namespace WcfLibGrupo
 
         [OperationContract]
         decimal somaValorTotalReboquesPorIdClienteEInatividade(long id_cliente, bool inativo);
+
+        [OperationContract]
+        decimal somaValorTotalReboquesPorIdClienteEInatividadeEDataAtivacao(long id_cliente, bool inativo,
+            DateTime dataInicio, DateTime dataFinal);
 
         [OperationContract]
         decimal somaValorTotalReboquesPorDataAtivacao(DateTime? data);

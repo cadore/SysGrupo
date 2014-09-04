@@ -33,8 +33,8 @@ namespace SysNorteGrupo.UI.Usuarios
             this.Text = "SysNorteGrupo Login - SysNorte Tecnologia Copyright © 2014 Versão: 1.0.0.0";
             tfSenha.Properties.UseSystemPasswordChar = true;
             conn = GerenteDeConexoes.conexaoServico();
-            tfLogin.Text = "sysnorte";
-            tfSenha.Text = "a1s2 d3f4";
+            //tfLogin.Text = "sysnorte";
+            //tfSenha.Text = "a1s2 d3f4";
             //this.btnEntrar_Click(null, null);
 
 
@@ -44,10 +44,7 @@ namespace SysNorteGrupo.UI.Usuarios
             }
             userIdleDetectTimeExit = UserIdleDetect.StartDetection(UserIdleDetect.minutes(20));
             userIdleDetectTimeExit.UserIdleDetected += userIdleDetect_UserIdleDetectedExitSystem;
-
-            //tfLogin.Text = "admin";
-            //tfSenha.Text = "admin";
-            Thread.Sleep(1500);
+            Thread.Sleep(900);
         }
 
         void executaLogin()

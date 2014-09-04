@@ -58,6 +58,7 @@
             this.btnGerarParcelasVeiculos = new DevExpress.XtraBars.BarButtonItem();
             this.btnGerarContasAReceber = new DevExpress.XtraBars.BarButtonItem();
             this.btnRelGerencialMensal = new DevExpress.XtraBars.BarButtonItem();
+            this.lbDataHora = new DevExpress.XtraBars.BarStaticItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribClientes = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribVeiculos = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -101,7 +102,6 @@
             this.lbVeiculos_ativos = new DevExpress.XtraEditors.LabelControl();
             this.lbReboques_ativos = new DevExpress.XtraEditors.LabelControl();
             this.barStaticItem1 = new DevExpress.XtraBars.BarStaticItem();
-            this.lbDataHora = new DevExpress.XtraBars.BarStaticItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pnControl)).BeginInit();
@@ -401,6 +401,13 @@
             this.btnRelGerencialMensal.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
             this.btnRelGerencialMensal.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnRelGerencialMensal_ItemClick);
             // 
+            // lbDataHora
+            // 
+            this.lbDataHora.Caption = "lbDataHora";
+            this.lbDataHora.Id = 42;
+            this.lbDataHora.Name = "lbDataHora";
+            this.lbDataHora.TextAlignment = System.Drawing.StringAlignment.Near;
+            // 
             // ribbonPage1
             // 
             this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -646,149 +653,163 @@
             // 
             this.lbTotal_clientes.Appearance.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbTotal_clientes.Appearance.ForeColor = System.Drawing.Color.Black;
-            this.lbTotal_clientes.Location = new System.Drawing.Point(3, 3);
+            this.lbTotal_clientes.Location = new System.Drawing.Point(383, 57);
             this.lbTotal_clientes.Name = "lbTotal_clientes";
             this.lbTotal_clientes.Size = new System.Drawing.Size(92, 20);
             this.lbTotal_clientes.TabIndex = 0;
             this.lbTotal_clientes.Text = "total_clientes";
+            this.lbTotal_clientes.Visible = false;
             // 
             // lbCotasInativas
             // 
             this.lbCotasInativas.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbCotasInativas.Appearance.ForeColor = System.Drawing.Color.Red;
-            this.lbCotasInativas.Location = new System.Drawing.Point(164, 106);
+            this.lbCotasInativas.Location = new System.Drawing.Point(544, 160);
             this.lbCotasInativas.Name = "lbCotasInativas";
             this.lbCotasInativas.Size = new System.Drawing.Size(126, 15);
             this.lbCotasInativas.TabIndex = 0;
             this.lbCotasInativas.Text = "total_de_cotas_inativas";
+            this.lbCotasInativas.Visible = false;
             // 
             // lbBensInativos
             // 
             this.lbBensInativos.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbBensInativos.Appearance.ForeColor = System.Drawing.Color.Red;
-            this.lbBensInativos.Location = new System.Drawing.Point(164, 40);
+            this.lbBensInativos.Location = new System.Drawing.Point(544, 94);
             this.lbBensInativos.Name = "lbBensInativos";
             this.lbBensInativos.Size = new System.Drawing.Size(105, 15);
             this.lbBensInativos.TabIndex = 0;
             this.lbBensInativos.Text = "total_bens_inativos";
+            this.lbBensInativos.Visible = false;
             // 
             // lbSinistros_em_andamento
             // 
             this.lbSinistros_em_andamento.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbSinistros_em_andamento.Appearance.ForeColor = System.Drawing.Color.Red;
-            this.lbSinistros_em_andamento.Location = new System.Drawing.Point(4, 244);
+            this.lbSinistros_em_andamento.Location = new System.Drawing.Point(384, 298);
             this.lbSinistros_em_andamento.Name = "lbSinistros_em_andamento";
             this.lbSinistros_em_andamento.Size = new System.Drawing.Size(136, 15);
             this.lbSinistros_em_andamento.TabIndex = 0;
             this.lbSinistros_em_andamento.Text = "sinistros_em_andamento";
+            this.lbSinistros_em_andamento.Visible = false;
             // 
             // lbTotal_veiculos
             // 
             this.lbTotal_veiculos.Appearance.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbTotal_veiculos.Appearance.ForeColor = System.Drawing.Color.Black;
-            this.lbTotal_veiculos.Location = new System.Drawing.Point(3, 70);
+            this.lbTotal_veiculos.Location = new System.Drawing.Point(383, 124);
             this.lbTotal_veiculos.Name = "lbTotal_veiculos";
             this.lbTotal_veiculos.Size = new System.Drawing.Size(95, 20);
             this.lbTotal_veiculos.TabIndex = 0;
             this.lbTotal_veiculos.Text = "total_veiculos";
+            this.lbTotal_veiculos.Visible = false;
             // 
             // lbReboques_inativos
             // 
             this.lbReboques_inativos.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbReboques_inativos.Appearance.ForeColor = System.Drawing.Color.Red;
-            this.lbReboques_inativos.Location = new System.Drawing.Point(5, 176);
+            this.lbReboques_inativos.Location = new System.Drawing.Point(385, 230);
             this.lbReboques_inativos.Name = "lbReboques_inativos";
             this.lbReboques_inativos.Size = new System.Drawing.Size(100, 15);
             this.lbReboques_inativos.TabIndex = 0;
             this.lbReboques_inativos.Text = "reboques_inativos";
+            this.lbReboques_inativos.Visible = false;
             // 
             // lbTotal_reboques
             // 
             this.lbTotal_reboques.Appearance.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbTotal_reboques.Appearance.ForeColor = System.Drawing.Color.Black;
-            this.lbTotal_reboques.Location = new System.Drawing.Point(4, 140);
+            this.lbTotal_reboques.Location = new System.Drawing.Point(384, 194);
             this.lbTotal_reboques.Name = "lbTotal_reboques";
             this.lbTotal_reboques.Size = new System.Drawing.Size(104, 20);
             this.lbTotal_reboques.TabIndex = 0;
             this.lbTotal_reboques.Text = "total_reboques";
+            this.lbTotal_reboques.Visible = false;
             // 
             // lbVeiculos_inativos
             // 
             this.lbVeiculos_inativos.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbVeiculos_inativos.Appearance.ForeColor = System.Drawing.Color.Red;
-            this.lbVeiculos_inativos.Location = new System.Drawing.Point(4, 106);
+            this.lbVeiculos_inativos.Location = new System.Drawing.Point(384, 160);
             this.lbVeiculos_inativos.Name = "lbVeiculos_inativos";
             this.lbVeiculos_inativos.Size = new System.Drawing.Size(93, 15);
             this.lbVeiculos_inativos.TabIndex = 0;
             this.lbVeiculos_inativos.Text = "veiculos_inativos";
+            this.lbVeiculos_inativos.Visible = false;
             // 
             // lbTotalCotas
             // 
             this.lbTotalCotas.Appearance.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbTotalCotas.Appearance.ForeColor = System.Drawing.Color.Black;
-            this.lbTotalCotas.Location = new System.Drawing.Point(163, 70);
+            this.lbTotalCotas.Location = new System.Drawing.Point(543, 124);
             this.lbTotalCotas.Name = "lbTotalCotas";
             this.lbTotalCotas.Size = new System.Drawing.Size(76, 20);
             this.lbTotalCotas.TabIndex = 0;
             this.lbTotalCotas.Text = "total_cotas";
+            this.lbTotalCotas.Visible = false;
             // 
             // lbTotalDeBens
             // 
             this.lbTotalDeBens.Appearance.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbTotalDeBens.Appearance.ForeColor = System.Drawing.Color.Black;
-            this.lbTotalDeBens.Location = new System.Drawing.Point(163, 4);
+            this.lbTotalDeBens.Location = new System.Drawing.Point(543, 58);
             this.lbTotalDeBens.Name = "lbTotalDeBens";
             this.lbTotalDeBens.Size = new System.Drawing.Size(95, 20);
             this.lbTotalDeBens.TabIndex = 0;
             this.lbTotalDeBens.Text = "total_de_bens";
+            this.lbTotalDeBens.Visible = false;
             // 
             // lbTotal_sinistros
             // 
             this.lbTotal_sinistros.Appearance.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbTotal_sinistros.Appearance.ForeColor = System.Drawing.Color.Black;
-            this.lbTotal_sinistros.Location = new System.Drawing.Point(3, 208);
+            this.lbTotal_sinistros.Location = new System.Drawing.Point(383, 262);
             this.lbTotal_sinistros.Name = "lbTotal_sinistros";
             this.lbTotal_sinistros.Size = new System.Drawing.Size(98, 20);
             this.lbTotal_sinistros.TabIndex = 0;
             this.lbTotal_sinistros.Text = "total_sinistros";
+            this.lbTotal_sinistros.Visible = false;
             // 
             // lbCotasAtivas
             // 
             this.lbCotasAtivas.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbCotasAtivas.Appearance.ForeColor = System.Drawing.Color.Green;
-            this.lbCotasAtivas.Location = new System.Drawing.Point(163, 90);
+            this.lbCotasAtivas.Location = new System.Drawing.Point(543, 144);
             this.lbCotasAtivas.Name = "lbCotasAtivas";
             this.lbCotasAtivas.Size = new System.Drawing.Size(107, 17);
             this.lbCotasAtivas.TabIndex = 0;
             this.lbCotasAtivas.Text = "total_cotas_ativas";
+            this.lbCotasAtivas.Visible = false;
             // 
             // lbClientes_inativos
             // 
             this.lbClientes_inativos.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbClientes_inativos.Appearance.ForeColor = System.Drawing.Color.Red;
-            this.lbClientes_inativos.Location = new System.Drawing.Point(4, 39);
+            this.lbClientes_inativos.Location = new System.Drawing.Point(384, 93);
             this.lbClientes_inativos.Name = "lbClientes_inativos";
             this.lbClientes_inativos.Size = new System.Drawing.Size(91, 15);
             this.lbClientes_inativos.TabIndex = 0;
             this.lbClientes_inativos.Text = "clientes_inativos";
+            this.lbClientes_inativos.Visible = false;
             // 
             // lbBensAtivos
             // 
             this.lbBensAtivos.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbBensAtivos.Appearance.ForeColor = System.Drawing.Color.Green;
-            this.lbBensAtivos.Location = new System.Drawing.Point(163, 24);
+            this.lbBensAtivos.Location = new System.Drawing.Point(543, 78);
             this.lbBensAtivos.Name = "lbBensAtivos";
             this.lbBensAtivos.Size = new System.Drawing.Size(105, 17);
             this.lbBensAtivos.TabIndex = 0;
             this.lbBensAtivos.Text = "total_bens_ativos";
+            this.lbBensAtivos.Visible = false;
             // 
             // lbClientes_ativos
             // 
-            this.lbClientes_ativos.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbClientes_ativos.Appearance.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbClientes_ativos.Appearance.ForeColor = System.Drawing.Color.Green;
-            this.lbClientes_ativos.Location = new System.Drawing.Point(3, 23);
+            this.lbClientes_ativos.Location = new System.Drawing.Point(7, 3);
             this.lbClientes_ativos.Name = "lbClientes_ativos";
-            this.lbClientes_ativos.Size = new System.Drawing.Size(89, 17);
+            this.lbClientes_ativos.Size = new System.Drawing.Size(112, 21);
             this.lbClientes_ativos.TabIndex = 0;
             this.lbClientes_ativos.Text = "clientes_ativos";
             // 
@@ -796,19 +817,20 @@
             // 
             this.lbSinistros_concluidos.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbSinistros_concluidos.Appearance.ForeColor = System.Drawing.Color.Green;
-            this.lbSinistros_concluidos.Location = new System.Drawing.Point(3, 228);
+            this.lbSinistros_concluidos.Location = new System.Drawing.Point(383, 282);
             this.lbSinistros_concluidos.Name = "lbSinistros_concluidos";
             this.lbSinistros_concluidos.Size = new System.Drawing.Size(123, 17);
             this.lbSinistros_concluidos.TabIndex = 0;
             this.lbSinistros_concluidos.Text = "sinistros_concluidos";
+            this.lbSinistros_concluidos.Visible = false;
             // 
             // lbVeiculos_ativos
             // 
-            this.lbVeiculos_ativos.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbVeiculos_ativos.Appearance.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbVeiculos_ativos.Appearance.ForeColor = System.Drawing.Color.Green;
-            this.lbVeiculos_ativos.Location = new System.Drawing.Point(3, 90);
+            this.lbVeiculos_ativos.Location = new System.Drawing.Point(7, 26);
             this.lbVeiculos_ativos.Name = "lbVeiculos_ativos";
-            this.lbVeiculos_ativos.Size = new System.Drawing.Size(92, 17);
+            this.lbVeiculos_ativos.Size = new System.Drawing.Size(116, 21);
             this.lbVeiculos_ativos.TabIndex = 0;
             this.lbVeiculos_ativos.Text = "veiculos_ativos";
             // 
@@ -816,24 +838,18 @@
             // 
             this.lbReboques_ativos.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbReboques_ativos.Appearance.ForeColor = System.Drawing.Color.Green;
-            this.lbReboques_ativos.Location = new System.Drawing.Point(4, 160);
+            this.lbReboques_ativos.Location = new System.Drawing.Point(384, 214);
             this.lbReboques_ativos.Name = "lbReboques_ativos";
             this.lbReboques_ativos.Size = new System.Drawing.Size(99, 17);
             this.lbReboques_ativos.TabIndex = 0;
             this.lbReboques_ativos.Text = "reboques_ativos";
+            this.lbReboques_ativos.Visible = false;
             // 
             // barStaticItem1
             // 
             this.barStaticItem1.Id = -1;
             this.barStaticItem1.Name = "barStaticItem1";
             this.barStaticItem1.TextAlignment = System.Drawing.StringAlignment.Near;
-            // 
-            // lbDataHora
-            // 
-            this.lbDataHora.Caption = "lbDataHora";
-            this.lbDataHora.Id = 42;
-            this.lbDataHora.Name = "lbDataHora";
-            this.lbDataHora.TextAlignment = System.Drawing.StringAlignment.Near;
             // 
             // FormPrincipal
             // 

@@ -184,6 +184,12 @@
     <Compile Include="Reports\Gerencial\RelatorioGerencialMensal.Designer.cs">
       <DependentUpon>RelatorioGerencialMensal.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reports\RelatorioClientesECotasSubForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\RelatorioClientesECotasSubForm.Designer.cs">
+      <DependentUpon>RelatorioClientesECotasSubForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reports\RelatorioGerencialMensalSubForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -396,6 +402,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\Gerencial\RelatorioGerencialMensal.resx">
       <DependentUpon>RelatorioGerencialMensal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\RelatorioClientesECotasSubForm.resx">
+      <DependentUpon>RelatorioClientesECotasSubForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\RelatorioGerencialMensalSubForm.resx">
       <DependentUpon>RelatorioGerencialMensalSubForm.cs</DependentUpon>

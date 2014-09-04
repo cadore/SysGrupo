@@ -109,7 +109,7 @@
             // 
             this.tfValoresCapitalizados.Location = new System.Drawing.Point(218, 11);
             this.tfValoresCapitalizados.Name = "tfValoresCapitalizados";
-            this.tfValoresCapitalizados.Properties.Mask.EditMask = "c3";
+            this.tfValoresCapitalizados.Properties.Mask.EditMask = "c2";
             this.tfValoresCapitalizados.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.tfValoresCapitalizados.Size = new System.Drawing.Size(137, 20);
             this.tfValoresCapitalizados.TabIndex = 0;
@@ -126,7 +126,7 @@
             // 
             this.tfValoresAIntegralizar.Location = new System.Drawing.Point(218, 37);
             this.tfValoresAIntegralizar.Name = "tfValoresAIntegralizar";
-            this.tfValoresAIntegralizar.Properties.Mask.EditMask = "c3";
+            this.tfValoresAIntegralizar.Properties.Mask.EditMask = "c2";
             this.tfValoresAIntegralizar.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.tfValoresAIntegralizar.Size = new System.Drawing.Size(137, 20);
             this.tfValoresAIntegralizar.TabIndex = 1;
@@ -143,7 +143,7 @@
             // 
             this.tfValoresEmCaixa.Location = new System.Drawing.Point(218, 63);
             this.tfValoresEmCaixa.Name = "tfValoresEmCaixa";
-            this.tfValoresEmCaixa.Properties.Mask.EditMask = "c3";
+            this.tfValoresEmCaixa.Properties.Mask.EditMask = "c2";
             this.tfValoresEmCaixa.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.tfValoresEmCaixa.Size = new System.Drawing.Size(137, 20);
             this.tfValoresEmCaixa.TabIndex = 2;
@@ -160,7 +160,7 @@
             // 
             this.tfValoresPagosDeSinistrosAIntegralizar.Location = new System.Drawing.Point(218, 89);
             this.tfValoresPagosDeSinistrosAIntegralizar.Name = "tfValoresPagosDeSinistrosAIntegralizar";
-            this.tfValoresPagosDeSinistrosAIntegralizar.Properties.Mask.EditMask = "c3";
+            this.tfValoresPagosDeSinistrosAIntegralizar.Properties.Mask.EditMask = "c2";
             this.tfValoresPagosDeSinistrosAIntegralizar.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.tfValoresPagosDeSinistrosAIntegralizar.Size = new System.Drawing.Size(137, 20);
             this.tfValoresPagosDeSinistrosAIntegralizar.TabIndex = 3;
@@ -177,7 +177,7 @@
             // 
             this.tfValoresDepositadosBanco.Location = new System.Drawing.Point(218, 115);
             this.tfValoresDepositadosBanco.Name = "tfValoresDepositadosBanco";
-            this.tfValoresDepositadosBanco.Properties.Mask.EditMask = "c3";
+            this.tfValoresDepositadosBanco.Properties.Mask.EditMask = "c2";
             this.tfValoresDepositadosBanco.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.tfValoresDepositadosBanco.Size = new System.Drawing.Size(137, 20);
             this.tfValoresDepositadosBanco.TabIndex = 4;
@@ -230,10 +230,11 @@
             // 
             this.colorcamentos.Caption = "Orçamentos";
             this.colorcamentos.ColumnEdit = this.tfOrcamentosGrid;
-            this.colorcamentos.DisplayFormat.FormatString = "c3";
+            this.colorcamentos.DisplayFormat.FormatString = "c2";
             this.colorcamentos.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.colorcamentos.FieldName = "orcamentos";
             this.colorcamentos.Name = "colorcamentos";
+            this.colorcamentos.OptionsColumn.AllowEdit = false;
             this.colorcamentos.Visible = true;
             this.colorcamentos.VisibleIndex = 1;
             this.colorcamentos.Width = 93;
@@ -247,10 +248,11 @@
             // 
             this.colpagamentoMes.Caption = "Pagamentos Mês";
             this.colpagamentoMes.ColumnEdit = this.tfPagamentosGrid;
-            this.colpagamentoMes.DisplayFormat.FormatString = "c3";
+            this.colpagamentoMes.DisplayFormat.FormatString = "c2";
             this.colpagamentoMes.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.colpagamentoMes.FieldName = "pagamentoMes";
             this.colpagamentoMes.Name = "colpagamentoMes";
+            this.colpagamentoMes.OptionsColumn.AllowEdit = false;
             this.colpagamentoMes.Visible = true;
             this.colpagamentoMes.VisibleIndex = 2;
             this.colpagamentoMes.Width = 93;
@@ -263,7 +265,7 @@
             // colvalor_por_cota
             // 
             this.colvalor_por_cota.Caption = "Valor por Cota";
-            this.colvalor_por_cota.DisplayFormat.FormatString = "c3";
+            this.colvalor_por_cota.DisplayFormat.FormatString = "c2";
             this.colvalor_por_cota.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.colvalor_por_cota.FieldName = "valor_por_cota";
             this.colvalor_por_cota.Name = "colvalor_por_cota";
@@ -275,7 +277,7 @@
             // colcotas_na_data
             // 
             this.colcotas_na_data.Caption = "Cotas na Data";
-            this.colcotas_na_data.DisplayFormat.FormatString = "d3";
+            this.colcotas_na_data.DisplayFormat.FormatString = "c3";
             this.colcotas_na_data.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.colcotas_na_data.FieldName = "cotas_na_data";
             this.colcotas_na_data.Name = "colcotas_na_data";
@@ -288,12 +290,11 @@
             // 
             this.colsubTotal.Caption = "Sub. Total";
             this.colsubTotal.ColumnEdit = this.tfSubTotalGrid;
-            this.colsubTotal.DisplayFormat.FormatString = "c3";
+            this.colsubTotal.DisplayFormat.FormatString = "c2";
             this.colsubTotal.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.colsubTotal.FieldName = "subTotal";
             this.colsubTotal.Name = "colsubTotal";
-            this.colsubTotal.Visible = true;
-            this.colsubTotal.VisibleIndex = 5;
+            this.colsubTotal.OptionsColumn.AllowEdit = false;
             this.colsubTotal.Width = 102;
             // 
             // tfSubTotalGrid
@@ -343,8 +344,10 @@
             this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(784, 462);
             this.Name = "RelatorioGerencialMensalSubForm";
+            this.ShowIcon = false;
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "RelatorioGerencialMensalSubForm";
+            this.Text = "Relatorio Gerencial Mensal";
             ((System.ComponentModel.ISupportInitialize)(this.imagemExtrato.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfValoresCapitalizados.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfValoresAIntegralizar.Properties)).EndInit();

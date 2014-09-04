@@ -61,6 +61,7 @@
             this.xrTableCell7 = new DevExpress.XtraReports.UI.XRTableCell();
             this.GroupFooter1 = new DevExpress.XtraReports.UI.GroupFooterBand();
             this.xrLine1 = new DevExpress.XtraReports.UI.XRLine();
+            this.bdgListaConclusaoSinistro = new System.Windows.Forms.BindingSource(this.components);
             this.ReportHeader1 = new DevExpress.XtraReports.UI.ReportHeaderBand();
             this.xrPanel1 = new DevExpress.XtraReports.UI.XRPanel();
             this.xrLabel9 = new DevExpress.XtraReports.UI.XRLabel();
@@ -75,7 +76,6 @@
             this.xrLabel3 = new DevExpress.XtraReports.UI.XRLabel();
             this.assinatura = new DevExpress.XtraReports.Parameters.Parameter();
             this.PageFooter = new DevExpress.XtraReports.UI.PageFooterBand();
-            this.bdgListaConclusaoSinistro = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdgListaConclusaoSinistro)).BeginInit();
@@ -179,7 +179,7 @@
             this.ReportHeader.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
             this.xrLabel2,
             this.xrLabel1});
-            this.ReportHeader.HeightF = 57.22192F;
+            this.ReportHeader.HeightF = 62.58666F;
             this.ReportHeader.Name = "ReportHeader";
             // 
             // xrLabel2
@@ -287,7 +287,7 @@
             // 
             this.Detail2.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
             this.xrTable2});
-            this.Detail2.HeightF = 26.04167F;
+            this.Detail2.HeightF = 30.20833F;
             this.Detail2.Name = "Detail2";
             // 
             // xrTable2
@@ -360,11 +360,15 @@
             this.xrLine1.Name = "xrLine1";
             this.xrLine1.SizeF = new System.Drawing.SizeF(773.9583F, 11.45833F);
             // 
+            // bdgListaConclusaoSinistro
+            // 
+            this.bdgListaConclusaoSinistro.DataSource = typeof(SysNorteGrupo.Reports.ListaClientesRateio);
+            // 
             // ReportHeader1
             // 
             this.ReportHeader1.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
             this.xrPanel1});
-            this.ReportHeader1.HeightF = 25F;
+            this.ReportHeader1.HeightF = 27.08333F;
             this.ReportHeader1.Name = "ReportHeader1";
             // 
             // xrPanel1
@@ -430,7 +434,6 @@
             // 
             // subRelDados
             // 
-            this.subRelDados.Id = 0;
             this.subRelDados.LocationFloat = new DevExpress.Utils.PointFloat(0F, 0F);
             this.subRelDados.Name = "subRelDados";
             this.subRelDados.SizeF = new System.Drawing.SizeF(785.0001F, 20.68024F);
@@ -440,7 +443,7 @@
             this.GroupHeader1.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
             this.xrPanel3,
             this.subRelDados});
-            this.GroupHeader1.HeightF = 60.2669F;
+            this.GroupHeader1.HeightF = 68.60024F;
             this.GroupHeader1.Name = "GroupHeader1";
             // 
             // xrPanel3
@@ -449,7 +452,7 @@
             this.xrPanel3.BorderColor = System.Drawing.Color.LightGray;
             this.xrPanel3.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
             this.xrLabel13});
-            this.xrPanel3.LocationFloat = new DevExpress.Utils.PointFloat(0F, 31.0969F);
+            this.xrPanel3.LocationFloat = new DevExpress.Utils.PointFloat(0F, 39.43024F);
             this.xrPanel3.Name = "xrPanel3";
             this.xrPanel3.SizeF = new System.Drawing.SizeF(785.0001F, 29.17F);
             this.xrPanel3.StylePriority.UseBackColor = false;
@@ -497,10 +500,6 @@
             this.PageFooter.HeightF = 25.5F;
             this.PageFooter.Name = "PageFooter";
             // 
-            // bdgListaConclusaoSinistro
-            // 
-            this.bdgListaConclusaoSinistro.DataSource = typeof(SysNorteGrupo.Reports.ListaClientesRateio);
-            // 
             // RelatorioConclusaoSinistro
             // 
             this.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
@@ -517,7 +516,7 @@
             this.Parameters.AddRange(new DevExpress.XtraReports.Parameters.Parameter[] {
             this.dataRelatorio,
             this.assinatura});
-            this.Version = "13.2";
+            this.Version = "14.1";
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdgListaConclusaoSinistro)).EndInit();

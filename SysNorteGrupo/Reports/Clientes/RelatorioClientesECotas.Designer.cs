@@ -117,11 +117,10 @@
             // xrTableCell2
             // 
             this.xrTableCell2.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "dataInclusao", "{0:dd/MM/yyyy}")});
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "dataAtivacao", "{0:dd/MM/yyyy}")});
             this.xrTableCell2.Font = new System.Drawing.Font("Segoe UI Semilight", 9.75F);
             this.xrTableCell2.Name = "xrTableCell2";
             this.xrTableCell2.StylePriority.UseFont = false;
-            this.xrTableCell2.Text = "xrTableCell2";
             this.xrTableCell2.Weight = 0.1927996156114776D;
             // 
             // xrTableCell4
@@ -136,7 +135,7 @@
             // xrTableCell1
             // 
             this.xrTableCell1.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "cotas", "{0:n2}")});
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "cotas", "{0:n3}")});
             this.xrTableCell1.Font = new System.Drawing.Font("Segoe UI Semilight", 9.75F);
             this.xrTableCell1.Name = "xrTableCell1";
             this.xrTableCell1.StylePriority.UseFont = false;
@@ -179,7 +178,7 @@
             this.xrLabel3.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel3.SizeF = new System.Drawing.SizeF(117.6666F, 21.875F);
             this.xrLabel3.StylePriority.UseFont = false;
-            this.xrLabel3.Text = "Data Inclusão";
+            this.xrLabel3.Text = "Data Ativação";
             // 
             // xrLabel2
             // 
@@ -251,7 +250,7 @@
             this.xrLabel3,
             this.xrLabel2,
             this.xrLabel4});
-            this.PageHeader.HeightF = 29.16667F;
+            this.PageHeader.HeightF = 25F;
             this.PageHeader.Name = "PageHeader";
             // 
             // xrLabel11
@@ -333,7 +332,7 @@
             this.xrLabel7.SizeF = new System.Drawing.SizeF(120.7081F, 23F);
             this.xrLabel7.StylePriority.UseFont = false;
             this.xrLabel7.StylePriority.UseTextAlignment = false;
-            xrSummary3.FormatString = "{0:n2}";
+            xrSummary3.FormatString = "{0:n3}";
             xrSummary3.IgnoreNullValues = true;
             xrSummary3.Running = DevExpress.XtraReports.UI.SummaryRunning.Report;
             this.xrLabel7.Summary = xrSummary3;

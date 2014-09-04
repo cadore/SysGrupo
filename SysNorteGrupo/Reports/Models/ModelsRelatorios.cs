@@ -12,7 +12,7 @@ namespace SysNorteGrupo.Reports
         public decimal percentCotas { get; set; }
         public decimal cotas { get; set; }
         public decimal valorTotalDeBens { get; set; }
-        public DateTime dataInclusao { get; set; }
+        public DateTime dataAtivacao { get; set; }
         public string nomeCliente { get; set; }
     }
     #endregion
@@ -98,12 +98,15 @@ namespace SysNorteGrupo.Reports
 
     public class VeiculosEReboquesRelatorioGerencial
     {
+        public int numero { get; set; }
         public string veiculosReboque { get; set; }
         public decimal cotas { get; set; }
     }
 
     public class SinistrosRelatorioGerencial
     {
+        public long id_sinistro { get; set; }
+        public int numero { get; set; }
         public string clienteEPlacas { get; set; }
         public decimal orcamentos { get; set; }
         public decimal pagamentoMes { get; set; }

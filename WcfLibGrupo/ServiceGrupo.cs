@@ -214,6 +214,27 @@ namespace WcfLibGrupo
             }
         }
 
+        public decimal retornaTotalDeBensDaEmpresaPorInatividadeEDataAtivacao(bool inativo, DateTime dataInicio, DateTime dataFinal)
+        {
+            try
+            {
+                var sqlVeiculos = Sql.Builder.Append("SELECT SUM(valor) as soma FROM veiculos WHERE inativo = @0"
+                + " AND data_ativacao BETWEEN @1 AND @2", inativo, dataInicio, dataFinal);
+                var sqlReboques = Sql.Builder.Append("SELECT SUM(valor) as soma FROM reboques WHERE inativo = @0"
+                + " AND data_ativacao BETWEEN @1 AND @2", inativo, dataInicio, dataFinal);
+                decimal total = db.ExecuteScalar<decimal>(sqlVeiculos) + db.ExecuteScalar<decimal>(sqlReboques);
+                return total;
+            }
+            catch (Exception ex)
+            {
+                usuario.repo.AbortTransaction();
+
+                throw new FaultException(
+                    new FaultReason(String.Format("EXCECÃO: {0}{1}INNER EXCEPTION: {2}", ex.Message, Environment.NewLine, ex.InnerException)),
+                    new FaultCode("1000"));
+            }
+        }
+
         #endregion
 
         #region Usuario
@@ -435,7 +456,25 @@ namespace WcfLibGrupo
         {
             try
             {
-                var sql = Sql.Builder.Select("*").From("cliente").Where("inativo = @0", inativo).OrderBy("id");
+                var sql = Sql.Builder.Select("*").From("cliente").Where("inativo = @0", inativo)
+                    .OrderBy("data_ativacao, id");
+                return cliente.Fetch(sql);
+            }
+            catch (Exception ex)
+            {
+                throw new FaultException(
+                    new FaultReason(String.Format("EXCECÃO: {0}{1}INNER EXCEPTION: {2}", ex.Message, Environment.NewLine, ex.InnerException)),
+                    new FaultCode("1000"));
+            }
+        }
+
+        public List<cliente> listaDeClientesPorInatividadeEDataAtivacao(bool inativo, DateTime dataInicio, DateTime dataFinal)
+        {
+            try
+            {
+                var sql = Sql.Builder.Select("*").From("cliente").Where("inativo = @0", inativo)
+                    .Where("data_ativacao BETWEEN @0 AND @1", dataInicio, dataFinal)
+                    .OrderBy("data_ativacao, id");
                 return cliente.Fetch(sql);
             }
             catch (Exception ex)
@@ -1007,11 +1046,35 @@ namespace WcfLibGrupo
             }
         }
 
+        public decimal somaValorTotalVeiculoPorIdClienteEInatividadeEDataAtivacao(long id_cliente, bool inativo,
+            DateTime dataInicio, DateTime dataFinal)
+        {
+            try
+            {
+                var sql = Sql.Builder.Append("SELECT SUM(valor) FROM veiculos WHERE id_cliente = @0 AND inativo = @1"
+                    + " AND data_ativacao BETWEEN @2 AND @3",
+                    id_cliente, inativo, dataInicio, dataFinal);
+
+                var rs = db.ExecuteScalar<string>(sql);
+                if (rs.Equals(DBNull.Value) || String.IsNullOrEmpty(rs))
+                {
+                    return 0;
+                }
+                return Convert.ToDecimal(rs);
+            }
+            catch (Exception ex)
+            {
+                throw new FaultException(
+                    new FaultReason(String.Format("EXCEPT: {0}\n\nINNER EXCEPT: {1}", ex.Message, ex.InnerException)),
+                    new FaultCode("ERRDB"));
+            }
+        }
+
         public decimal somaValorTotalVeiculoPorDataAtivacao(DateTime? data)
         {
             try
             {
-                var sql = Sql.Builder.Append("SELECT SUM(valor) FROM veiculos WHERE data_ativacao<=@0;", data);
+                var sql = Sql.Builder.Append("SELECT SUM(valor) FROM veiculos WHERE data_ativacao<=@0 AND inativo=FALSE", data);
 
                 var rs = db.ExecuteScalar<string>(sql);
                 if (rs.Equals(DBNull.Value) || String.IsNullOrEmpty(rs))
@@ -1424,11 +1487,34 @@ namespace WcfLibGrupo
             }
         }
 
+        public decimal somaValorTotalReboquesPorIdClienteEInatividadeEDataAtivacao(long id_cliente, bool inativo, 
+            DateTime dataInicio, DateTime dataFinal)
+        {
+            try
+            {
+                var sql = Sql.Builder.Append("SELECT SUM(valor) FROM reboques WHERE id_cliente = @0 AND inativo = @1"
+                    + " AND data_ativacao BETWEEN @2 AND @3", id_cliente, inativo, dataInicio, dataFinal);
+
+                var rs = db.ExecuteScalar<string>(sql);
+                if (rs.Equals(DBNull.Value) || String.IsNullOrEmpty(rs))
+                {
+                    return 0;
+                }
+                return Convert.ToDecimal(rs);
+            }
+            catch (Exception ex)
+            {
+                throw new FaultException(
+                    new FaultReason(String.Format("EXCEPT: {0}\n\nINNER EXCEPT: {1}", ex.Message, ex.InnerException)),
+                    new FaultCode("ERRDB"));
+            }
+        }
+
         public decimal somaValorTotalReboquesPorDataAtivacao(DateTime? data)
         {
             try
             {
-                var sql = Sql.Builder.Append("SELECT SUM(valor) FROM reboques WHERE data_ativacao<=@0;", data);
+                var sql = Sql.Builder.Append("SELECT SUM(valor) FROM reboques WHERE data_ativacao<=@0 AND inativo=FALSE", data);
 
                 var rs = db.ExecuteScalar<string>(sql);
                 if (rs.Equals(DBNull.Value) || String.IsNullOrEmpty(rs))

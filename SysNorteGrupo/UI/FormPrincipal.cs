@@ -120,14 +120,14 @@ namespace SysNorteGrupo
                 long clientes_ativos = conn.totalDeClientesPorInatividade(false);
                 long clientes_inativos = conn.totalDeClientesPorInatividade(true);
                 lbTotal_clientes.Text = String.Format("{0} CLIENTE(S)", clientes_ativos + clientes_inativos);
-                lbClientes_ativos.Text = String.Format("{0} ATIVO(S)", clientes_ativos);
+                lbClientes_ativos.Text = String.Format("{0} CLIENTES ATIVOS", clientes_ativos);
                 lbClientes_inativos.Text = String.Format("{0} INATIVO(S)", clientes_inativos);
 
 
                 long veiculos_ativos = conn.totalDeVeiculosPorInatividade(false);
                 long veiculos_inativos = conn.totalDeVeiculosPorInatividade(true);
                 lbTotal_veiculos.Text = String.Format("{0} VEÍCULO(S)", veiculos_ativos + veiculos_inativos);
-                lbVeiculos_ativos.Text = String.Format("{0} ATIVO(S)", veiculos_ativos);
+                lbVeiculos_ativos.Text = String.Format("{0} VEÍCULOS ATIVOS", veiculos_ativos);
                 lbVeiculos_inativos.Text = String.Format("{0} INATIVO(S)", veiculos_inativos);
 
                 long reboques_ativos = conn.totalDeReboquesPorInatividade(false);
@@ -151,9 +151,9 @@ namespace SysNorteGrupo
                 lbBensAtivos.Text = String.Format("{0:c} ATIVOS", total_bens_ativos);
                 lbBensInativos.Text = String.Format("{0:c} INATIVOS", total_bens_inativos);
 
-                lbTotalCotas.Text = String.Format("{0:n2} COTAS", (total_bens_ativos + total_bens_inativos) / ConfigSistema.valor_por_cota);
-                lbCotasAtivas.Text = String.Format("{0:n2} ATIVAS", total_bens_ativos / ConfigSistema.valor_por_cota);
-                lbCotasInativas.Text = String.Format("{0:n2} INATIVAS", total_bens_inativos / ConfigSistema.valor_por_cota);
+                lbTotalCotas.Text = String.Format("{0:n3} COTAS", (total_bens_ativos + total_bens_inativos) / ConfigSistema.valor_por_cota);
+                lbCotasAtivas.Text = String.Format("{0:n3} ATIVAS", total_bens_ativos / ConfigSistema.valor_por_cota);
+                lbCotasInativas.Text = String.Format("{0:n3} INATIVAS", total_bens_inativos / ConfigSistema.valor_por_cota);
             }
             catch (Exception)
             {
@@ -467,52 +467,8 @@ namespace SysNorteGrupo
 
         private void btnRelClientesECotas_ItemClick(object sender, ItemClickEventArgs e)
         {
-            try
-            {
-                SplashScreenManager.ShowForm(typeof(SysNorteGrupo.UI.Utils.PleaseWaitForm), false, false);
-                bool inatividadeCliente = false;
-                bool inatividadeItens = false;
-                List<RelatorioClientesECotasModel> listReport = new List<RelatorioClientesECotasModel>();
-                List<cliente> listClientes = conn.listaDeClientesPorInatividade(inatividadeCliente);
-                decimal total_cotas_grupo = conn.retornaTotalDeBensDaEmpresaPorInatividade(inatividadeItens) / ConfigSistema.valor_por_cota;
-                foreach (cliente c in listClientes)
-                {
-                    decimal valor_veiculos = conn.somaValorTotalVeiculoPorIdClienteEInatividade(c.id, inatividadeItens);
-                    decimal valor_reboques = conn.somaValorTotalReboquesPorIdClienteEInatividade(c.id, inatividadeItens);
-                    decimal valor_total_bens = valor_veiculos + valor_reboques;
-                    decimal total_cotas = valor_total_bens / ConfigSistema.valor_por_cota;
-                    decimal porcento_cotas = (total_cotas * 100) / total_cotas_grupo;
-
-                    listReport.Add(new RelatorioClientesECotasModel()
-                    {
-                        nomeCliente = c.nome_completo,
-                        dataInclusao = c.data_ativacao,
-                        cotas = total_cotas,
-                        valorTotalDeBens = valor_total_bens,
-                        percentCotas = porcento_cotas
-                    });
-                }
-
-                RelatorioClientesECotas report = new RelatorioClientesECotas();
-                report.bdgRelatorio.DataSource = listReport;
-                report.dataRelatorio.Value = "RELATÓRIO GERADO EM: " + conn.retornaDataHoraLocal();
-                report.assinatura.Value = "GERADO POR SYSNORTE TECNOLOGIA";
-                foreach (DevExpress.XtraReports.Parameters.Parameter p in report.Parameters)
-                {
-                    p.Visible = false;
-                }
-                ReportPrintTool tool = new ReportPrintTool(report);
-                Log.createLog(EventLog.visualized, String.Format("relatorios de clientes e cotas"));
-                tool.ShowRibbonPreviewDialog();                
-            }
-            catch (Exception ex)
-            {
-                XtraMessageBox.Show(ex.Message);
-            }
-            finally
-            {
-                SplashScreenManager.CloseForm();
-            }
+            RelatorioClientesECotasSubForm rc = new RelatorioClientesECotasSubForm();
+            rc.ShowDialog();
         }
 
         private void btnConfigEnderecoServico_ItemClick(object sender, ItemClickEventArgs e)
