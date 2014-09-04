@@ -169,7 +169,7 @@ namespace SysNorteGrupo.UI.Sinistros
         {
             bdgReboques.Clear();
             if(Convert.ToInt64(cbVeiculo.EditValue)  > 0){
-                bdgReboques.DataSource = conn.listaDeReboquesPorIdVeiculo(Convert.ToInt64(cbVeiculo.EditValue), false);
+                bdgReboques.DataSource = conn.listaDeReboquesPorIdVeiculoEInatividade(Convert.ToInt64(cbVeiculo.EditValue), false);
             }
             else
             {

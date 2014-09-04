@@ -162,7 +162,7 @@ namespace SysNorteGrupo.UI.Veiculos.Reboques
                 }
                 else if (tipoPesquisa == 3)
                 {
-                    listReb = conn.listaDeReboquesPorIdVeiculo(Convert.ToInt64(cbVeiculo.EditValue), _inativo);
+                    listReb = conn.listaDeReboquesPorIdVeiculoEInatividade(Convert.ToInt64(cbVeiculo.EditValue), _inativo);
                 }
                 else
                 {
@@ -191,7 +191,7 @@ namespace SysNorteGrupo.UI.Veiculos.Reboques
         {
             reboque reb = (reboque)bdgReboque.Current;
 
-            List<reboque> listaReboque = conn.listaDeReboquesPorIdVeiculo(reb.id_veiculo, false);
+            List<reboque> listaReboque = conn.listaDeReboquesPorIdVeiculoEInatividade(reb.id_veiculo, false);
 
             ReboqueForm rf = new ReboqueForm(listaReboque) { formPrincipal = formPrincipal };
             formPrincipal.adicionarControleNavegacao(rf);

@@ -265,7 +265,7 @@ namespace WcfLibGrupo
         List<reboque> listaDeReboquesPorIdCliente(long id_cliente, bool inativo);
 
         [OperationContract]
-        List<reboque> listaDeReboquesPorIdVeiculo(long id_veiculo, bool inativo);
+        List<reboque> listaDeReboquesPorIdVeiculoEInatividade(long id_veiculo, bool inativo);
 
         [OperationContract]
         List<reboque> listaDeReboquesPorIdVeiculoEdataAtivacao(long id_veiculo, DateTime data);

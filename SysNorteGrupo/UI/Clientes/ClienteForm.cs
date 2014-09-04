@@ -483,7 +483,7 @@ namespace SysNorteGrupo.UI.Clientes
         List<ReboquesRelatorio> listaReboques(long id_veiculo)
         {
             List<ReboquesRelatorio> reboques = new List<ReboquesRelatorio>();
-            foreach (reboque r in conn.listaDeReboquesPorIdVeiculo(id_veiculo, false))
+            foreach (reboque r in conn.listaDeReboquesPorIdVeiculoEInatividade(id_veiculo, false))
             {
                 decimal cotas = r.valor / ConfigSistema.valor_por_cota;
                 reboques.Add(new ReboquesRelatorio()

@@ -82,18 +82,25 @@ namespace SysNorteGrupo.Reports
 
     public class RelatorioGerencial
     {
+        //public decimal valor_a_pagar_sinistros { get; set; }
+
+        public ClienteRelatorio cliente { get; set; }
         public decimal totalBensGrupo { get; set; }
         public decimal totalCotasGrupo { get; set; }
         public Image imagemExtratoBancario { get; set; }
-        public DateTime datetimenow { get; set; }
-        public string cliente { get; set; }
-        public List<VeiculosEReboquesRelatorioGerencial> listVeiculosEReboques { get; set; }
+        public DateTime datetimenow { get; set; }       
         public decimal valoresCapitalizadosNoGrupo { get; set; }
         public decimal valoresAintegralizar { get; set; }
         public decimal valoresEmCaixa { get; set; }
         public decimal valoresPagosDeSinistrosAReintegralizar { get; set; }
-        public decimal valoresDepositadosBancos { get; set; }
-        public List<SinistrosRelatorioGerencial> listSinistros { get; set; }
+        public decimal valoresDepositadosBancos { get; set; }        
+    }
+
+    public class ClienteRelatorio
+    {
+        public string nome_cliente { get; set; }
+        public List<VeiculosEReboquesRelatorioGerencial> listVeiculosEReboques { get; set; }
+        public List<SinistrosRelatorioGerencial> listSin { get; set; }
     }
 
     public class VeiculosEReboquesRelatorioGerencial
@@ -102,6 +109,8 @@ namespace SysNorteGrupo.Reports
         public string veiculosReboque { get; set; }
         public decimal cotas { get; set; }
     }
+
+
 
     public class SinistrosRelatorioGerencial
     {

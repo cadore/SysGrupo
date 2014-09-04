@@ -593,7 +593,7 @@ namespace SysNorteGrupo.UI.Veiculos.Reboques
                     
                     conn.excluiReboquePorId(r.id);
                     Log.createLog(EventLog.deleted, String.Format(" reboque ID: {0}", r.id));
-                    bdgReboqueLista.DataSource = conn.listaDeReboquesPorIdVeiculo(Convert.ToInt64(cbVeiculos.EditValue), false);
+                    bdgReboqueLista.DataSource = conn.listaDeReboquesPorIdVeiculoEInatividade(Convert.ToInt64(cbVeiculos.EditValue), false);
                     bdgReboqueLista.MoveFirst();
                     grdReboques.Refresh();
                 }

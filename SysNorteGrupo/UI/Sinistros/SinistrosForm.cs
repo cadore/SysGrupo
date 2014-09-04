@@ -150,7 +150,7 @@ namespace SysNorteGrupo.UI.Sinistros
             bdgReboques3.Clear();
             if (Convert.ToInt32(cbVeiculo.EditValue) > 0)
             {
-                bdgReboques1.DataSource = conn.listaDeReboquesPorIdVeiculo(Convert.ToInt32(cbVeiculo.EditValue), false);
+                bdgReboques1.DataSource = conn.listaDeReboquesPorIdVeiculoEInatividade(Convert.ToInt32(cbVeiculo.EditValue), false);
             }            
             bdgReboques2.DataSource = new List<reboque>();//conn.listaDeReboquesPorIdVeiculo(Convert.ToInt32(cbVeiculo.EditValue), false);
             bdgReboques3.DataSource = new List<reboque>(); //conn.listaDeReboquesPorIdVeiculo(Convert.ToInt32(cbVeiculo.EditValue), false);

@@ -13,5 +13,12 @@ namespace SysNorteGrupo.Reports.Gerencial
             InitializeComponent();
         }
 
+        public void list()
+        {
+            if (bdgRelatorio.List != null)
+                foreach (SinistrosRelatorioGerencial s in ((RelatorioGerencial)bdgRelatorio.Current).cliente.listSin)
+                    Console.WriteLine(s.subTotal);
+        }
+
     }
 }

@@ -103,59 +103,62 @@ namespace SysNorteGrupo.Reports
 
                 foreach (cliente c in conn.listaDeTodosClientes())
                 {
-                    int a = 0;
-                    List<SinistrosRelatorioGerencial> listSin = (List<SinistrosRelatorioGerencial>)bdgSinistrosRelatorioGerencial.List;
-                    int i = 1;
-                    for (int s = 0; s < listSin.Count; s++)
+                    List<SinistrosRelatorioGerencial> listSin = new List<SinistrosRelatorioGerencial>();
+                    foreach (SinistrosRelatorioGerencial s in bdgSinistrosRelatorioGerencial.List)
                     {
-                        listSin[s].subTotal = (listSin[s].valor_por_cota 
-                            * (conn.somaDeBensClientePorIdSinistroEIdCliente(listSin[s].id_sinistro, c.id) 
-                            / ConfigSistema.valor_por_cota));                        
+                        s.clienteEPlacas = c.nome_completo;
+                        s.subTotal = s.valor_por_cota * (conn.somaDeBensClientePorIdSinistroEIdCliente(s.id_sinistro, c.id)
+                            / ConfigSistema.valor_por_cota);
+                        listSin.Add(s);
                     }
+                    int vr = 1;
                     List<VeiculosEReboquesRelatorioGerencial> veiculosEReboques = new List<VeiculosEReboquesRelatorioGerencial>();
                     
                     foreach (veiculo v in conn.listaDeVeiculosPorIdClienteEInatividade(c.id, false))
                     {
                         string placas = "";
                         decimal cotas_reboques = 0;
-                        foreach (reboque r in conn.listaDeReboquesPorIdVeiculo(v.id, false))
+                        foreach (reboque r in conn.listaDeReboquesPorIdVeiculoEInatividade(v.id, false))
                         {
                             placas += " / " + r.placa;
                             cotas_reboques += r.valor / ConfigSistema.valor_por_cota;
                         }
                         veiculosEReboques.Add(new VeiculosEReboquesRelatorioGerencial() 
                         {
-                            numero = i++,
+                            numero = vr++,
                             veiculosReboque = v.placa + placas,
                             cotas = (v.valor / ConfigSistema.valor_por_cota) + cotas_reboques,
                         });
                     }
 
+                    ClienteRelatorio client = new ClienteRelatorio()
+                    {
+                        listSin = listSin, 
+                        listVeiculosEReboques = veiculosEReboques,
+                        nome_cliente = c.nome_completo
+                    };
                     
-                        listaRelatorio.Add(new RelatorioGerencial()
-                        {
-                            cliente = c.nome_completo,
-                            datetimenow = now,
-                            imagemExtratoBancario = imagemExtrato.Image,
-                            valoresAintegralizar = Convert.ToDecimal(tfValoresAIntegralizar.EditValue),
-                            valoresCapitalizadosNoGrupo = Convert.ToDecimal(tfValoresCapitalizados.EditValue),
-                            valoresDepositadosBancos = Convert.ToDecimal(tfValoresDepositadosBanco.EditValue),
-                            valoresPagosDeSinistrosAReintegralizar = Convert.ToDecimal(tfValoresPagosDeSinistrosAIntegralizar.EditValue),
-                            valoresEmCaixa = Convert.ToDecimal(tfValoresEmCaixa.EditValue),
-                            totalBensGrupo = valor_bens,
-                            totalCotasGrupo = valor_bens / ConfigSistema.valor_por_cota,
-                            listVeiculosEReboques = veiculosEReboques,
-                            listSinistros = listSin
-                        });
-                        Console.WriteLine(listSin[a++].subTotal);
+                    listaRelatorio.Add(new RelatorioGerencial()
+                    {
+                        datetimenow = now,
+                        imagemExtratoBancario = imagemExtrato.Image,
+                        valoresAintegralizar = Convert.ToDecimal(tfValoresAIntegralizar.EditValue),
+                        valoresCapitalizadosNoGrupo = Convert.ToDecimal(tfValoresCapitalizados.EditValue),
+                        valoresDepositadosBancos = Convert.ToDecimal(tfValoresDepositadosBanco.EditValue),
+                        valoresPagosDeSinistrosAReintegralizar = Convert.ToDecimal(tfValoresPagosDeSinistrosAIntegralizar.EditValue),
+                        valoresEmCaixa = Convert.ToDecimal(tfValoresEmCaixa.EditValue),
+                        totalBensGrupo = valor_bens,
+                        totalCotasGrupo = valor_bens / ConfigSistema.valor_por_cota,
+                        cliente = client
+                    });
                 }
-
                 RelatorioGerencialMensal report = new RelatorioGerencialMensal();
 
                 report.bdgRelatorio.DataSource = listaRelatorio;
                 report.rodape.Value = "GERADO POR SYSNORTE TECNOLOGIA EM: " + now;
                 string mes = String.Format("{0:MMMM}", now);
                 report.cabecalho.Value = String.Format("RELATÓRIO GERENCIAL {0} {1:yyyy}", mes.ToUpper(), now);
+                report.list();
                 foreach (DevExpress.XtraReports.Parameters.Parameter p in report.Parameters)
                 {
                     p.Visible = false;

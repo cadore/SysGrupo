@@ -545,6 +545,7 @@
     <None Include="Properties\DataSources\SysNorteGrupo.Reports.ListaConclusaoSinistro.datasource" />
     <None Include="Properties\DataSources\SysNorteGrupo.Reports.RelatorioClientesECotas.datasource" />
     <None Include="Properties\DataSources\SysNorteGrupo.Reports.RelatorioGerencial.datasource" />
+    <None Include="Properties\DataSources\SysNorteGrupo.Reports.RelatorioGerencial1.datasource" />
     <None Include="Properties\DataSources\SysNorteGrupo.Reports.SinistrosRelatorioGerencial.datasource" />
     <None Include="Properties\DataSources\SysNorteGrupo.Utils.Centraliza.datasource" />
     <None Include="Properties\DataSources\SysNorteGrupo.Utils.Cores.datasource" />

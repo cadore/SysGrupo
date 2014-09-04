@@ -1320,7 +1320,7 @@ namespace WcfLibGrupo
             }
         }
 
-        public List<reboque> listaDeReboquesPorIdVeiculo(long id_veiculo, bool inativo)
+        public List<reboque> listaDeReboquesPorIdVeiculoEInatividade(long id_veiculo, bool inativo)
         {
             try
             {
