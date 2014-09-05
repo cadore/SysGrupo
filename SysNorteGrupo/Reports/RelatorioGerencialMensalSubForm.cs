@@ -103,13 +103,42 @@ namespace SysNorteGrupo.Reports
 
                 foreach (cliente c in conn.listaDeTodosClientes())
                 {
+                    List<SinistrosRelatorioGerencial> listSinA = new List<SinistrosRelatorioGerencial>();
+                    List<sinistro> listS = conn.listaDeSinistrosPorSituacao(1);
+                    foreach (sinistro s in listS)
+                    {
+                        decimal parcela = 0;
+                        List<parcelas_sinistros> listParc = conn.listaDeParcelasSinistrosPorIdSinistro(s.id);
+                        foreach (parcelas_sinistros ps in listParc)
+                        {
+                            if (ps.mes_parcela == now.Month && ps.ano_parcela == now.Year)
+                            {
+                                parcela = ps.valor;
+                            }
+                        }                       
+                        if (listParc.Count > 0)
+                        {
+                            listSinA.Add(new SinistrosRelatorioGerencial()
+                            {
+                                id_sinistro = s.id,
+                                clienteEPlacas = conn.retornaClientePorId(s.id_cliente).nome_completo + " / "
+                                + conn.retornaVeiculoPorId(s.id_veiculo).placa,
+                                cotas_na_data = s.cotas_na_data,
+                                valor_por_cota = parcela / s.cotas_na_data,
+                                orcamentos = s.valor_total,
+                                pagamentoMes = parcela
+                            });
+                        }
+                    }
                     List<SinistrosRelatorioGerencial> listSin = new List<SinistrosRelatorioGerencial>();
-                    foreach (SinistrosRelatorioGerencial s in bdgSinistrosRelatorioGerencial.List)
+                    foreach (SinistrosRelatorioGerencial s in listSinA)
                     {
                         s.clienteEPlacas = c.nome_completo;
                         s.subTotal = s.valor_por_cota * (conn.somaDeBensClientePorIdSinistroEIdCliente(s.id_sinistro, c.id)
                             / ConfigSistema.valor_por_cota);
                         listSin.Add(s);
+
+                        //Console.WriteLine(s.subTotal);
                     }
                     int vr = 1;
                     List<VeiculosEReboquesRelatorioGerencial> veiculosEReboques = new List<VeiculosEReboquesRelatorioGerencial>();
@@ -130,10 +159,9 @@ namespace SysNorteGrupo.Reports
                             cotas = (v.valor / ConfigSistema.valor_por_cota) + cotas_reboques,
                         });
                     }
-
-                    ClienteRelatorio client = new ClienteRelatorio()
+                    ClienteRelatorio cli = new ClienteRelatorio()
                     {
-                        listSin = listSin, 
+                        listSin = listSin,
                         listVeiculosEReboques = veiculosEReboques,
                         nome_cliente = c.nome_completo
                     };
@@ -149,7 +177,7 @@ namespace SysNorteGrupo.Reports
                         valoresEmCaixa = Convert.ToDecimal(tfValoresEmCaixa.EditValue),
                         totalBensGrupo = valor_bens,
                         totalCotasGrupo = valor_bens / ConfigSistema.valor_por_cota,
-                        cliente = client
+                        cliente = cli
                     });
                 }
                 RelatorioGerencialMensal report = new RelatorioGerencialMensal();

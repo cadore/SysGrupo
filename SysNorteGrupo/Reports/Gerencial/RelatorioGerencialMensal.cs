@@ -3,6 +3,7 @@ using System.Drawing;
 using System.Collections;
 using System.ComponentModel;
 using DevExpress.XtraReports.UI;
+using System.Collections.Generic;
 
 namespace SysNorteGrupo.Reports.Gerencial
 {
@@ -15,10 +16,17 @@ namespace SysNorteGrupo.Reports.Gerencial
 
         public void list()
         {
-            if (bdgRelatorio.List != null)
-                foreach (SinistrosRelatorioGerencial s in ((RelatorioGerencial)bdgRelatorio.Current).cliente.listSin)
-                    Console.WriteLine(s.subTotal);
+            Console.WriteLine(bdgRelatorio.Count);
+            Console.WriteLine(((RelatorioGerencial)bdgRelatorio.Current).cliente.listSin.Count);
+            //if (bdgRelatorio.List != null)
+                //foreach (SinistrosRelatorioGerencial s in ((RelatorioGerencial)bdgRelatorio.Current).cliente.listSin)
+                    //Console.WriteLine(s.subTotal);
         }
 
+        private void xrSubreport_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
+        {
+            //((XRSubreport)sender).ReportSource = ((SubRelatorioGerencialMensal)
+               // ((RelatorioGerencial)bdgRelatorio.DataSource).cliente.reportListSin);
+        }
     }
 }
