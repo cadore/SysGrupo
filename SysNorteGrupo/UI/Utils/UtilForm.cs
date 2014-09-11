@@ -20,7 +20,7 @@ namespace SysNorteGrupo.UI.Utils
             InitializeComponent();
             this.dash = _dash;
             panel.Controls.Add(c);
-            Log.createLog(EventLog.opened, "Formulario de utilidades");
+            Log.createLog(SysEventLog.opened, "Formulario de utilidades");
         }
 
         private void panel_ControlAdded(object sender, ControlEventArgs e)

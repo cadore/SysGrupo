@@ -120,13 +120,13 @@ namespace SysNorteGrupo.UI.Sinistros
                 listSin.Add(s);
             }
             bdgSinistros.DataSource = listSin;
-            Log.createLog(EventLog.executedSearch, "");
+            Log.createLog(SysEventLog.executedSearch, "");
         }
 
         private void btnFechar_Click(object sender, EventArgs e)
         {
             formPrincipal.adicionarControleNavegacao(null);
-            Log.createLog(EventLog.exited, "formulario de pesquisa de sinistros");
+            Log.createLog(SysEventLog.exited, "formulario de pesquisa de sinistros");
         }
 
         private void cbSituacao_SelectedIndexChanged(object sender, EventArgs e)

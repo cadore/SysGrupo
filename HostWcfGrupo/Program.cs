@@ -45,18 +45,17 @@ namespace HostWcfGrupo
                 }
             }
             SplashScreenManager.ShowForm(typeof(SplashForm), false, false);
-            System.Diagnostics.Process[] processosByName = System.Diagnostics.Process.GetProcessesByName("HostWcfGrupo");
+            Process[] processosByName = Process.GetProcessesByName("HostWcfGrupo");
             int ip = 0;
-            foreach (System.Diagnostics.Process p in processosByName)
+            foreach (Process p in processosByName)
             {
                 ip++;
             }
             if (ip <= 1)
             {
-                UtilsSistemaServico.carregaConfigurações();
-                new Form1(i);
+                UtilsSistemaServico.carregaConfigurações();                
                 SplashScreenManager.CloseForm();
-                Application.Run();
+                Application.Run(new Form1(i));
             }
         }
     }

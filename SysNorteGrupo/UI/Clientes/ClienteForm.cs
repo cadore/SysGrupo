@@ -166,7 +166,7 @@ namespace SysNorteGrupo.UI.Clientes
             arquivosFormCli.DIRETORIO = String.Format(@"{0}{1}\", conn.SUBDIR_CLIENTES(), ((cliente)bdgCliente.Current).id);
             arquivosFormCli.executaBusca();
             arquivosFormCli.Enabled = true;
-            Log.createLog(EventLog.edited, String.Format("cliente ID: {0}", tfId.Text));
+            Log.createLog(SysEventLog.edited, String.Format("cliente ID: {0}", tfId.Text));
         }
 
         private void btnSalvar_Click(object sender, EventArgs e)
@@ -231,7 +231,7 @@ namespace SysNorteGrupo.UI.Clientes
                     ((cliente)bdgCliente.Current).id = id;
                     tfId.Text = id.ToString();
                     btnImprimirContrato.Visible = true;
-                    Log.createLog(EventLog.saveEdited, String.Format("cliente ID: {0}", id));
+                    Log.createLog(SysEventLog.saveEdited, String.Format("cliente ID: {0}", id));
 
                     reabilitarPaineis(false);
                     btnSalvar.Enabled = false;
@@ -294,7 +294,7 @@ namespace SysNorteGrupo.UI.Clientes
         private void btnFechar_Click(object sender, EventArgs e)
         {
             formPrincipal.adicionarControleNavegacao(null);
-            Log.createLog(EventLog.executedSearch, "formulario de clientes");
+            Log.createLog(SysEventLog.executedSearch, "formulario de clientes");
         }
 
         private void ClienteForm_Load(object sender, EventArgs e)
@@ -367,7 +367,7 @@ namespace SysNorteGrupo.UI.Clientes
         private void btnNovo_Click(object sender, EventArgs e)
         {
             formPrincipal.adicionarControleNavegacao(new ClienteForm(null) { formPrincipal = formPrincipal });
-            Log.createLog(EventLog.opened, String.Format("novo formulario de clientes"));
+            Log.createLog(SysEventLog.opened, String.Format("novo formulario de clientes"));
            /* //remover eventos combobox
             this.cbEstados.EditValueChanged -= new EventHandler(this.cbEstados_EditValueChanged);
             this.cbCidade.EditValueChanged -= new EventHandler(this.cbCidade_EditValueChanged);
@@ -440,7 +440,7 @@ namespace SysNorteGrupo.UI.Clientes
                 p.Visible = false;
             }
             ReportPrintTool tool = new ReportPrintTool(report);
-            Log.createLog(EventLog.visualized, String.Format("relatorios de bens, cliente ID: {0}", tfId.Text));
+            Log.createLog(SysEventLog.visualized, String.Format("relatorios de bens, cliente ID: {0}", tfId.Text));
             tool.ShowRibbonPreviewDialog();
         }
         List<ListaClientesInclusao> listaFinal()

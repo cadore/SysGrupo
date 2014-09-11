@@ -10,7 +10,7 @@ namespace EntitiesGrupo
 	public partial class SysGrupoRepo : Database
 	{
         public static string host = "localhost";
-        public static string port = "5432";
+        public static int port = 5432;
         public static string user = "postgres";
         public static string passwd = "p@ssw0rd";
         public static string db = "sysgrupodb";
@@ -934,6 +934,8 @@ namespace EntitiesGrupo
         public decimal valor { get; set; }
         [Column]
         public decimal valor_a_pagar { get; set; }
+        [Column]
+        public bool bem_inativo { get; set; }
     }
 
 

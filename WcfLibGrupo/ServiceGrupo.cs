@@ -456,7 +456,7 @@ namespace WcfLibGrupo
         {
             try
             {
-                var sql = Sql.Builder.Select("*").From("cliente").Where("inativo = @0", inativo)
+                var sql = Sql.Builder.Select("*").From("cliente").Where("inativo=@0", inativo)
                     .OrderBy("data_ativacao, id");
                 return cliente.Fetch(sql);
             }
@@ -899,7 +899,8 @@ namespace WcfLibGrupo
         {
             try
             {
-                var sql = Sql.Builder.Select("*").From("veiculos").Where("id_cliente=@0", id_cliente).Where("inativo=@0", inativo).OrderBy("id");
+                var sql = Sql.Builder.Select("*").From("veiculos").Where("id_cliente=@0", id_cliente).Where("inativo=@0", inativo)
+                    .OrderBy("id");
                 return veiculo.Fetch(sql);
             }
             catch (Exception ex)
@@ -1324,7 +1325,8 @@ namespace WcfLibGrupo
         {
             try
             {
-                var sql = Sql.Builder.Select("*").From("reboques").Where("id_veiculo=@0", id_veiculo).Where("inativo=@0", inativo).OrderBy("id");
+                var sql = Sql.Builder.Select("*").From("reboques").Where("id_veiculo=@0", id_veiculo).Where("inativo=@0", inativo)
+                    .OrderBy("id");
                 return reboque.Fetch(sql);
             }
             catch (Exception ex)
@@ -1872,7 +1874,8 @@ namespace WcfLibGrupo
                                 identificador = 'v',
                                 valor = vei.valor,
                                 id_sinistro = obj.id,
-                                id_cliente = vei.id_cliente
+                                id_cliente = vei.id_cliente, 
+                                bem_inativo = vei.inativo
                             };
                             //if (historico_veic_reb_sinistros.repo.IsNew(hv))
                             //{
@@ -1890,7 +1893,8 @@ namespace WcfLibGrupo
                                 identificador = 'r',
                                 valor = reb.valor,
                                 id_sinistro = obj.id,
-                                id_cliente = reb.id_cliente
+                                id_cliente = reb.id_cliente, 
+                                bem_inativo = reb.inativo
                             };
                             //if (historico_veic_reb_sinistros.repo.IsNew(hr))
                             //{
@@ -2221,12 +2225,13 @@ namespace WcfLibGrupo
 
         /* financeiro - cobrança - parcelamento sinistro */
 
-        public decimal somaDeBensClientePorIdSinistroEIdCliente(long id_sinistro, long id_cliente)
+        public decimal somaDeBensClientePorIdSinistroEIdClienteEInatividadeBens(long id_sinistro, long id_cliente, bool inativoBens)
         {
             try
             {
                 var sql = Sql.Builder.Select("SUM(valor)").From("historico_veic_reb_sinistros")
-                    .Where("id_cliente=@0", id_cliente).Where("id_sinistro=@0", id_sinistro);
+                    .Where("id_cliente=@0", id_cliente).Where("id_sinistro=@0", id_sinistro)
+                    .Where("bem_inativo=@0", inativoBens);
                 var rs = db.ExecuteScalar<string>(sql);
                 if (rs.Equals(DBNull.Value) || String.IsNullOrEmpty(rs))
                 {

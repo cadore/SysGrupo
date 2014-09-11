@@ -92,7 +92,7 @@ namespace SysNorteGrupo.UI.Clientes
                     listRetorno.Add(v);
                 }
                 bdgCliente.DataSource = listRetorno;
-                Log.createLog(EventLog.executedSearch, "");
+                Log.createLog(SysEventLog.executedSearch, "");
             }
             catch (Exception ex)
             {
@@ -138,7 +138,7 @@ namespace SysNorteGrupo.UI.Clientes
         private void btnFechar_Click(object sender, EventArgs e)
         {
             formPrincipal.adicionarControleNavegacao(null);
-            Log.createLog(EventLog.exited, "formulario de busca de clientes");
+            Log.createLog(SysEventLog.exited, "formulario de busca de clientes");
         }
 
         private void gridControl_MouseDoubleClick(object sender, MouseEventArgs e)

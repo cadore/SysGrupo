@@ -39,7 +39,7 @@ namespace SysNorteGrupo.UI.Usuarios
                 {
                     bindingSource.DataSource = conn.listaDeUsuariosAtivos();
                 }
-                Log.createLog(EventLog.executedSearch, "");
+                Log.createLog(SysEventLog.executedSearch, "");
             }
             catch (Exception ex)
             {
@@ -115,7 +115,7 @@ namespace SysNorteGrupo.UI.Usuarios
         private void btnSair_Click(object sender, EventArgs e)
         {
             formPrincipal.adicionarControleNavegacao(null);
-            Log.createLog(EventLog.exited, String.Format("formulario de pesquisa de usuarios"));
+            Log.createLog(SysEventLog.exited, String.Format("formulario de pesquisa de usuarios"));
         }
     }
 }

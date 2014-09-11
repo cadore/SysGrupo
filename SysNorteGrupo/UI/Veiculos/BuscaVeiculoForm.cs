@@ -79,7 +79,7 @@ namespace SysNorteGrupo.UI.Veiculos
                     listRetorno.Add(v);
                 }
                 bdgVeiculo.DataSource = listRetorno;
-                Log.createLog(EventLog.executedSearch, String.Format(""));
+                Log.createLog(SysEventLog.executedSearch, String.Format(""));
             }
             catch (Exception ex)
             {
@@ -95,7 +95,7 @@ namespace SysNorteGrupo.UI.Veiculos
         private void btnFechar_Click(object sender, EventArgs e)
         {
             formPrincipal.adicionarControleNavegacao(null);
-            Log.createLog(EventLog.exited, String.Format("formulario de busca veiculos"));
+            Log.createLog(SysEventLog.exited, String.Format("formulario de busca veiculos"));
         }
 
         private void ckAtivo_CheckedChanged(object sender, EventArgs e)

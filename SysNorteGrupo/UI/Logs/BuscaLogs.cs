@@ -23,7 +23,7 @@ namespace SysNorteGrupo.UI.Logs
         {
             InitializeComponent();
             conn = GerenteDeConexoes.conexaoServico();
-            Log.createLog(EventLog.opened, "Formulario de Logs");
+            Log.createLog(SysEventLog.opened, "Formulario de Logs");
             loadItemsCombos();
         }
 
@@ -31,7 +31,7 @@ namespace SysNorteGrupo.UI.Logs
         {
             try
             {
-                Log.createLog(EventLog.executedSearch, "-");
+                Log.createLog(SysEventLog.executedSearch, "-");
                 bdgLog.DataSource = new Log().readLog(tfParameter.Text, cbEentoLog.Text, cbUsuario.Text);
             }
             catch(Exception ex)
@@ -42,7 +42,7 @@ namespace SysNorteGrupo.UI.Logs
 
         private void buttonExit_Click(object sender, EventArgs e)
         {
-            Log.createLog(EventLog.exited, "Formulario de Logs");
+            Log.createLog(SysEventLog.exited, "Formulario de Logs");
             dash.fechaUtilFormAtual();
         }
 

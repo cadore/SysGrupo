@@ -102,7 +102,8 @@ namespace SysNorteGrupo.UI.Financeiro
                     if (!conn.verificaGeracaoParcelasPorIdParcelaEIdCliente(ps.id, c.id))
                     {
                         sinistro s = conn.retornaSinistroPorId(ps.id_sinistro);
-                        decimal valor_bens_cliente = conn.somaDeBensClientePorIdSinistroEIdCliente(ps.id_sinistro, c.id);
+                        decimal valor_bens_cliente = conn.somaDeBensClientePorIdSinistroEIdClienteEInatividadeBens
+                            (ps.id_sinistro, c.id, false);
                         decimal valor_cota = (ps.valor / s.cotas_na_data);
 
                         valor_cliente += ((valor_bens_cliente / ConfigSistema.valor_por_cota) * valor_cota);

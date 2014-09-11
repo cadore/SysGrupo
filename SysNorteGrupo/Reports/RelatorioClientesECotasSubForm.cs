@@ -110,7 +110,7 @@ namespace SysNorteGrupo.Reports
                     p.Visible = false;
                 }
                 ReportPrintTool tool = new ReportPrintTool(report);
-                Log.createLog(EventLog.visualized, String.Format("relatorios de clientes e cotas"));
+                Log.createLog(SysEventLog.visualized, String.Format("relatorios de clientes e cotas"));
                 tool.ShowRibbonPreviewDialog();
             }
             catch (Exception ex)

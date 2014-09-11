@@ -101,7 +101,7 @@ namespace SysNorteGrupo.Reports
                 foreach (reboque r in conn.listaDeReboquesPorInatividade(false))
                     valor_bens += r.valor;
 
-                foreach (cliente c in conn.listaDeTodosClientes())
+                foreach (cliente c in conn.listaDeClientesPorInatividade(false))
                 {
                     List<SinistrosRelatorioGerencial> listSinA = new List<SinistrosRelatorioGerencial>();
                     List<sinistro> listS = conn.listaDeSinistrosPorSituacao(1);
@@ -133,22 +133,22 @@ namespace SysNorteGrupo.Reports
                     List<SinistrosRelatorioGerencial> listSin = new List<SinistrosRelatorioGerencial>();
                     foreach (SinistrosRelatorioGerencial s in listSinA)
                     {
-                        s.clienteEPlacas = c.nome_completo;
-                        s.subTotal = s.valor_por_cota * (conn.somaDeBensClientePorIdSinistroEIdCliente(s.id_sinistro, c.id)
+                        s.subTotal = s.valor_por_cota * 
+                            (conn.somaDeBensClientePorIdSinistroEIdClienteEInatividadeBens(s.id_sinistro, c.id, false)
                             / ConfigSistema.valor_por_cota);
                         listSin.Add(s);
-
-                        //Console.WriteLine(s.subTotal);
                     }
                     int vr = 1;
                     List<VeiculosEReboquesRelatorioGerencial> veiculosEReboques = new List<VeiculosEReboquesRelatorioGerencial>();
                     
                     foreach (veiculo v in conn.listaDeVeiculosPorIdClienteEInatividade(c.id, false))
                     {
+                        Console.WriteLine("veiculo: " + v.id + " " + v.inativo);
                         string placas = "";
                         decimal cotas_reboques = 0;
                         foreach (reboque r in conn.listaDeReboquesPorIdVeiculoEInatividade(v.id, false))
                         {
+                            Console.WriteLine("reboque: " + r.id + " " + r.inativo);
                             placas += " / " + r.placa;
                             cotas_reboques += r.valor / ConfigSistema.valor_por_cota;
                         }

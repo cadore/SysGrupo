@@ -430,7 +430,7 @@ namespace WcfLibGrupo
         /* financeiro - cobrança - parcelamento sinistro */
 
         [OperationContract]
-        decimal somaDeBensClientePorIdSinistroEIdCliente(long id_sinistro, long id_cliente);
+        decimal somaDeBensClientePorIdSinistroEIdClienteEInatividadeBens(long id_sinistro, long id_cliente, bool inativoBens);
 
         [OperationContract]
         bool salvarParcelasSinistro(List<parcelas_sinistros> parcelas);

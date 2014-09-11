@@ -61,7 +61,7 @@ namespace SysNorteGrupo.UI.Veiculos.Reboques
         private void btnFechar_Click(object sender, EventArgs e)
         {
             formPrincipal.adicionarControleNavegacao(null);
-            Log.createLog(EventLog.exited, "formulario de pesquisa de reboques");
+            Log.createLog(SysEventLog.exited, "formulario de pesquisa de reboques");
         }
 
         private void ckAtivo_CheckedChanged(object sender, EventArgs e)
@@ -179,7 +179,7 @@ namespace SysNorteGrupo.UI.Veiculos.Reboques
                     listRetorno.Add(r);
                 }
                 bdgReboque.DataSource = listRetorno;
-                Log.createLog(EventLog.executedSearch, "");
+                Log.createLog(SysEventLog.executedSearch, "");
             }
             catch (Exception ex)
             {

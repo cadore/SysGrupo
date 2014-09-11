@@ -4,6 +4,8 @@ using EntitiesGrupo;
 using HostWcfGrupo.UI.Utils;
 using HostWcfGrupo.Utils;
 using HostWcfGrupo.Utils.ValidacaoSistema;
+using SysDBTools;
+using SysDBTools.UI;
 using System;
 using System.Diagnostics;
 using System.IO;
@@ -18,8 +20,13 @@ namespace HostWcfGrupo.UI
     public partial class Form1 : Form
     {
         private ServiceHost host;
-        private string status = "started";
+        private StatusService status;
 
+        public enum StatusService
+        {
+            started = 0,
+            stopped = 1
+        }
         public Form1(int i)
         {
             InitializeComponent();
@@ -30,7 +37,7 @@ namespace HostWcfGrupo.UI
                 this.Text = "SysNorteGrupo Server";
                 //if (verificaAutenticidade(i))
                 //{
-                    service(1);
+                    service(StatusService.stopped);
                 //}
             }
             catch (Exception ex)
@@ -217,29 +224,29 @@ namespace HostWcfGrupo.UI
         {
             try
             {
-                if ("stopped".Equals(status))
+                if (status == StatusService.stopped)
                 {
-                    service(1);                    
+                    service(StatusService.stopped);                    
                 }
                 else
                 {
-                    service(0);                    
+                    service(StatusService.started);                    
                 }
             }
             catch (Exception ex)
             {
                 tfStatus.Text = null;
                 btnStartStop.Enabled = false;
-                throw new Exception(String.Format("Erro ao iniciar serviço/parar{0}EXCEPT: {1}{0}INNER EXCEPT: {2}", Environment.NewLine, ex.Message, ex.InnerException));
+                throw new Exception(String.Format("Erro ao iniciar/parar serviço{0}EXCEPT: {1}{0}INNER EXCEPT: {2}", Environment.NewLine, ex.Message, ex.InnerException));
             }
         }
 
-        private void service(int i)
+        private void service(StatusService i)
         {
             string url = UtilsSistemaServico.enderecoServico;
             try
             {
-                if (i == 1)
+                if (i == StatusService.stopped)
                 {                    
                     host = new ServiceHost(typeof(ServiceGrupo));
                     var b = new NetTcpBinding(SecurityMode.None);
@@ -248,17 +255,17 @@ namespace HostWcfGrupo.UI
                     b.ReceiveTimeout = TimeSpan.FromMinutes(20);
                     b.Security.Message.ClientCredentialType = MessageCredentialType.None;
                     host.AddServiceEndpoint(typeof(IServiceGrupo), b, new Uri(url));
-                    host.Open();                    
-                    status = "started";
+                    host.Open();
+                    status = StatusService.started;
                     btnStartStop.Text = "Parar Serviço";
                     itemService.Text = btnStartStop.Text;
                     tfStatus.Text = "Serviço iniciado com sucesso.";
                 }
-                else if(i == 0)
+                else if (i == StatusService.started)
                 {
                     host.Abort();
                     host.Close();
-                    status = "stopped";
+                    status = StatusService.stopped;
                     btnStartStop.Text = "Iniciar Serviço";
                     itemService.Text = btnStartStop.Text;
                     tfStatus.Text = "Serviço parado com sucesso.";
@@ -283,18 +290,28 @@ namespace HostWcfGrupo.UI
             if (rs == DialogResult.OK)
             {
                 try
-                {
-                    SplashScreenManager.ShowForm(typeof(PleaseWaitForm), false, false);
-                    /*DBTools.pathPgDump = UtilsSistemaServico.DIR_PG_DUMP;
-                    DBTools.tempPathWithFile = UtilsSistemaServico.SUBDIR_TEMP_FILES + @"temp.sql";
-                    DBTools.pathSaveBackup = UtilsSistemaServico.SUBDIR_BACKUP;
-                    DBTools.passwordFile = "a1s2 d3f4&beguta";
+                {   
+                    DBTools.directory_pg_dump = UtilsSistemaServico.DIR_PG_DUMP;
+                    DBTools.dataBase = SysGrupoRepo.db;
                     DBTools.host = SysGrupoRepo.host;
                     DBTools.port = SysGrupoRepo.port;
-                    DBTools.dataBase = SysGrupoRepo.db;
-                    DBTools.user = SysGrupoRepo.user;
-                    DBTools.password = SysGrupoRepo.passwd;
-                    DBTools.backup();*/
+                    DBTools.username = SysGrupoRepo.user;
+                    DBTools.pgPassword = SysGrupoRepo.passwd;
+                    DBTools.fileSqlBackup = String.Format("{0}backupTempSQL_{1:yyyy-MM-dd_HH-mm}.sql", 
+                        UtilsSistemaServico.SUBDIR_TEMP_FILES, DateTime.Now);
+                    DBTools.fileCryptBackup = String.Format("{0}fullBackup_{1:yyyy-MM-dd_HH-mm-ss}.syscrypt",
+                        UtilsSistemaServico.SUBDIR_BACKUP, DateTime.Now);
+                    Main ma = new Main();
+                    SplashScreenManager.ShowForm(ma, typeof(PleaseWaitForm), false, false);
+                    DialogResult rsma = ma.ShowDialog();
+                    if (rsma == DialogResult.OK)
+                    {
+                        XtraMessageBox.Show("Backup concluido com sucesso!");
+                    }
+                    else
+                    {
+                        XtraMessageBox.Show("Ocorreu um erro ao tentar executar o backup!");
+                    }
                 }
                 catch (Exception ex)
                 {
@@ -320,31 +337,6 @@ namespace HostWcfGrupo.UI
                 {
                     m.Enabled = p;
                 }
-            }
-        }
-
-        private void runProcess(string file_name, string working_directory, string line_arguments)
-        {
-            try
-            {
-                using (System.Diagnostics.Process process = new System.Diagnostics.Process())
-                {
-                    System.Diagnostics.ProcessStartInfo startInfo = new System.Diagnostics.ProcessStartInfo();
-                    startInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Normal;
-                    startInfo.FileName = file_name;
-                    startInfo.WorkingDirectory = working_directory;
-                    if(!String.IsNullOrEmpty(line_arguments))
-                    {
-                        startInfo.Arguments = line_arguments;
-                    }
-                    process.StartInfo = startInfo;
-                    process.Start();
-                    process.WaitForExit();
-                }
-            }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.Message);
             }
         }
 

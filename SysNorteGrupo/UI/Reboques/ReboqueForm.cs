@@ -152,13 +152,13 @@ namespace SysNorteGrupo.UI.Veiculos.Reboques
         private void btnSair_Click(object sender, EventArgs e)
         {
             formPrincipal.adicionarControleNavegacao(null);
-            Log.createLog(EventLog.exited, "formulario de reboques");
+            Log.createLog(SysEventLog.exited, "formulario de reboques");
         }
 
         private void btnNovo_Click(object sender, EventArgs e)
         {
             formPrincipal.adicionarControleNavegacao(new ReboqueForm(null) { formPrincipal = formPrincipal });
-            Log.createLog(EventLog.opened, "novo formulario de reboques");
+            Log.createLog(SysEventLog.opened, "novo formulario de reboques");
         }
 
         private void btnInativar_Click(object sender, EventArgs e)
@@ -183,7 +183,7 @@ namespace SysNorteGrupo.UI.Veiculos.Reboques
                     //logs
                     foreach (reboque r in (List<reboque>)bdgReboqueLista.DataSource)
                     {
-                        Log.createLog(EventLog.inatived, String.Format("reboque ID: {0}", r.id));
+                        Log.createLog(SysEventLog.inatived, String.Format("reboque ID: {0}", r.id));
                     }
                     pnInformacoes.Enabled = false;
                     btnSalvar.Enabled = false;
@@ -211,7 +211,7 @@ namespace SysNorteGrupo.UI.Veiculos.Reboques
             //logs
             foreach (reboque r in (List<reboque>)bdgReboqueLista.DataSource)
             {
-                Log.createLog(EventLog.edited, String.Format("reboque ID: {0}", r.id));
+                Log.createLog(SysEventLog.edited, String.Format("reboque ID: {0}", r.id));
             }
 
             arquivosFormReb.DIRETORIO = String.Format(@"{0}{1}\", conn.SUBDIR_REBOQUES(), ((reboque)bdgReboqueLista.Current).id);
@@ -269,7 +269,7 @@ namespace SysNorteGrupo.UI.Veiculos.Reboques
                 //logs
                 foreach (reboque r in (List<reboque>)bdgReboqueLista.DataSource)
                 {
-                    Log.createLog(EventLog.saveEdited, String.Format("reboque ID: {0}", r.id));
+                    Log.createLog(SysEventLog.saveEdited, String.Format("reboque ID: {0}", r.id));
                 }
 
                 btnSalvar.Enabled = false;
@@ -592,7 +592,7 @@ namespace SysNorteGrupo.UI.Veiculos.Reboques
                     reboque r = (reboque)bdgReboqueLista.Current;
                     
                     conn.excluiReboquePorId(r.id);
-                    Log.createLog(EventLog.deleted, String.Format(" reboque ID: {0}", r.id));
+                    Log.createLog(SysEventLog.deleted, String.Format(" reboque ID: {0}", r.id));
                     bdgReboqueLista.DataSource = conn.listaDeReboquesPorIdVeiculoEInatividade(Convert.ToInt64(cbVeiculos.EditValue), false);
                     bdgReboqueLista.MoveFirst();
                     grdReboques.Refresh();

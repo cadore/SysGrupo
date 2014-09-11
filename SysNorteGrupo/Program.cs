@@ -12,6 +12,7 @@ using WcfLibGrupo;
 using SysNorteGrupo.UI.Utils;
 using DevExpress.XtraEditors;
 using System.Drawing;
+using System.Diagnostics;
 
 namespace SysNorteGrupo
 {
@@ -35,6 +36,8 @@ namespace SysNorteGrupo
                 System.Threading.Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("pt-BR");
                 System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("pt-BR");
 
+                verificaProcessos();
+
                 iniciaConexao();
 
                 try
@@ -55,11 +58,25 @@ namespace SysNorteGrupo
             }
         }
 
+        private static void verificaProcessos()
+        {
+            int i = 0;
+            foreach (Process p in Process.GetProcessesByName("SysNorteGrupo"))
+            {
+                i++;
+            }
+            if(i > 1)
+            {
+                XtraMessageBox.Show("Já existe uma instância em execução, verifique!", "SYSNORTE TECNOLOGIA");
+                Environment.Exit(0);
+            }
+        }
+
         public static void startApplication()
         {
             try
             {
-                Log.createLog(EventLog.entered, String.Format("ao sistema, aguardando autenticação"));
+                Log.createLog(SysEventLog.entered, String.Format("ao sistema, aguardando autenticação"));
                 LoginForm frmLogin = new LoginForm();
                 if (frmLogin.ShowDialog() == DialogResult.OK)
                 {

@@ -58,7 +58,7 @@ namespace SysNorteGrupo.Utils
         }
     }
 
-    public class EventLog
+    public class SysEventLog
     {
         public static string empty = "nullo";
         public static string opened = "abriu";

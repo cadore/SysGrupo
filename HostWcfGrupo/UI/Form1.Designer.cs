@@ -30,8 +30,9 @@ namespace HostWcfGrupo.UI
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            this.notifyIcon = new System.Windows.Forms.NotifyIcon();
+            this.notifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
             this.contextMenu = new System.Windows.Forms.ContextMenu();
             this.itemOpen = new System.Windows.Forms.MenuItem();
             this.itemService = new System.Windows.Forms.MenuItem();

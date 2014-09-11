@@ -66,21 +66,21 @@ namespace SysNorteGrupo.UI.Usuarios
                         {
                             usuario usuario_instc = conn.recuperaUsuarioPorLoginEhSenha(login, senha);
                             Program.usuario_instc = usuario_instc;
-                            Log.createLog(EventLog.entered, String.Format("ao sistema após validar credenciais"));
+                            Log.createLog(SysEventLog.entered, String.Format("ao sistema após validar credenciais"));
                         }
                         else
                         {
                             GerenteDeConexoes.iniciaConexaoServico();
                             formPrincipal.adicionarControleNavegacao(formPrincipal.controleAtual);
                             formPrincipal.thisIDLE = false;
-                            Log.createLog(EventLog.entered, String.Format("ao sistema após bloquear por inatividade"));
+                            Log.createLog(SysEventLog.entered, String.Format("ao sistema após bloquear por inatividade"));
                         }                        
                         this.DialogResult = System.Windows.Forms.DialogResult.OK;
                         this.Close();
                     }
                     else
                     {
-                        Log.createLog(EventLog.empty, String.Format("falha ao tentar executar login, login ou senha incorretos. LOGIN: {0} SENHA: {1}",
+                        Log.createLog(SysEventLog.empty, String.Format("falha ao tentar executar login, login ou senha incorretos. LOGIN: {0} SENHA: {1}",
                         tfLogin.Text, new DTICrypto().Cifrar(tfSenha.Text, Util.chaveSecureApp)));
                         Program.usuario_instc = null;
                         lbSenha.Visible = true;
@@ -115,7 +115,7 @@ namespace SysNorteGrupo.UI.Usuarios
 
         private void btnSair_Click(object sender, EventArgs e)
         {
-            Log.createLog(EventLog.cloused, "aplicação, apartir do formulario de login");
+            Log.createLog(SysEventLog.cloused, "aplicação, apartir do formulario de login");
             if (formPrincipal == null)
             {
                 this.DialogResult = System.Windows.Forms.DialogResult.Cancel;

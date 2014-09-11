@@ -115,14 +115,14 @@ namespace SysNorteGrupo.UI.Sinistros
         private void btnSair_Click(object sender, EventArgs e)
         {
             formPrincipal.adicionarControleNavegacao(null);
-            Log.createLog(EventLog.exited, "formulario de pesquisa de sinistros");
+            Log.createLog(SysEventLog.exited, "formulario de pesquisa de sinistros");
         }      
 
         private void btnNovo_Click(object sender, EventArgs e)
         {
             SinistrosForm sf = new SinistrosForm(null) { formPrincipal = this.formPrincipal };
             formPrincipal.adicionarControleNavegacao(sf);
-            Log.createLog(EventLog.opened, "novo formulario de sinistros");
+            Log.createLog(SysEventLog.opened, "novo formulario de sinistros");
         }
 
         private void cbCliente_EditValueChanged(object sender, EventArgs e)
@@ -162,7 +162,7 @@ namespace SysNorteGrupo.UI.Sinistros
             pnPrincipal.Enabled = true;
             btnEditar.Enabled = false;
             btnSalvar.Enabled = true;
-            Log.createLog(EventLog.edited, String.Format("sinistro ID: {0}", tfId.Text));
+            Log.createLog(SysEventLog.edited, String.Format("sinistro ID: {0}", tfId.Text));
             arquivosForm.DIRETORIO = String.Format(@"{0}{1}\", conn.SUBDIR_SINISTROS(), sinistro_instc.id);
             arquivosForm.executaBusca();
         }
@@ -287,7 +287,7 @@ namespace SysNorteGrupo.UI.Sinistros
                     long id = conn.SalvaSinistro(_sinistro, listPag);
                     tfId.Text = id.ToString();
                     ((sinistro)bdgSinistros.Current).id = id;
-                    Log.createLog(EventLog.saveEdited, String.Format("sinistro ID: {0}", id));
+                    Log.createLog(SysEventLog.saveEdited, String.Format("sinistro ID: {0}", id));
                     pnPrincipal.Enabled = false;
                     btnEditar.Enabled = true;
                     btnSalvar.Enabled = false;
@@ -342,7 +342,7 @@ namespace SysNorteGrupo.UI.Sinistros
             foreach(DevExpress.XtraReports.Parameters.Parameter p in report.Parameters){
                 p.Visible = false;
             }
-            Log.createLog(EventLog.visualized, String.Format("relatorio de conslusão do sinistro ID: {0}", tfId.Text));
+            Log.createLog(SysEventLog.visualized, String.Format("relatorio de conslusão do sinistro ID: {0}", tfId.Text));
             /*PdfExportOptions po = new PdfExportOptions() {ImageQuality = PdfJpegImageQuality.Highest, Compressed = true };
             report.ExportToPdf("C:\\Users\\William\\Desktop\\testePDF.pdf", po);*/
 

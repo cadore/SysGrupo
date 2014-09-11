@@ -206,7 +206,7 @@ namespace SysNorteGrupo
                 bool idle = true;
                 if (idle && !thisIDLE)
                 {
-                    Log.createLog(EventLog.empty, String.Format("bloqueou aplicação por estar mais que {0} minutos inativo", FilesINI.ReadValue("sistema", "IDLE")));
+                    Log.createLog(SysEventLog.empty, String.Format("bloqueou aplicação por estar mais que {0} minutos inativo", FilesINI.ReadValue("sistema", "IDLE")));
                     thisIDLE = true;
                     this.pnControl.Controls.Clear();
                     LoginForm loginFormIDLE = new LoginForm();
@@ -263,14 +263,14 @@ namespace SysNorteGrupo
         {
             BuscaUsuariosForm frm = new BuscaUsuariosForm() { formPrincipal = this };
             adicionarControleNavegacao(frm);
-            Log.createLog(EventLog.opened, "formulario de busca de usuario");
+            Log.createLog(SysEventLog.opened, "formulario de busca de usuario");
         }
 
         private void btnNovoUsuario_ItemClick(object sender, ItemClickEventArgs e)
         {
             UsuarioForm usuarioForm = new UsuarioForm(null) { formPrincipal = this };
             adicionarControleNavegacao(usuarioForm);
-            Log.createLog(EventLog.opened, "formulario de usuarios");
+            Log.createLog(SysEventLog.opened, "formulario de usuarios");
         } 
 
         private void pnControl_ControlAdded(object sender, ControlEventArgs e)
@@ -292,28 +292,28 @@ namespace SysNorteGrupo
         {
             BuscaClienteForm buscaClienteForm = new BuscaClienteForm() { formPrincipal = this };
             adicionarControleNavegacao(buscaClienteForm);
-            Log.createLog(EventLog.opened, "formulario de busca de clientes");
+            Log.createLog(SysEventLog.opened, "formulario de busca de clientes");
         }
 
         private void btnClienteForm_ItemClick(object sender, ItemClickEventArgs e)
         {
             ClienteForm clienteForm = new ClienteForm(null) { formPrincipal = this };
             adicionarControleNavegacao(clienteForm);
-            Log.createLog(EventLog.opened, "formulario de clientes");
+            Log.createLog(SysEventLog.opened, "formulario de clientes");
         }
 
         private void btnBuscarVeiculo_ItemClick(object sender, ItemClickEventArgs e)
         {
             BuscaVeiculoForm buscaVeiculoForm = new BuscaVeiculoForm() { formPrincipal = this };
             adicionarControleNavegacao(buscaVeiculoForm);
-            Log.createLog(EventLog.opened, "formulario de busca de veiculos");
+            Log.createLog(SysEventLog.opened, "formulario de busca de veiculos");
         }
 
         private void btnNovoVeiculo_ItemClick(object sender, ItemClickEventArgs e)
         {
             VeiculosForm vf = new VeiculosForm(null) { formPrincipal = this };
             adicionarControleNavegacao(vf);
-            Log.createLog(EventLog.opened, "formulario de veiculos");
+            Log.createLog(SysEventLog.opened, "formulario de veiculos");
         }
 
         private void barButtonItem2_ItemClick(object sender, ItemClickEventArgs e)
@@ -323,7 +323,7 @@ namespace SysNorteGrupo
             af.DIRETORIO = conn.SUBDIR_EMPRESA();
             af.Height = 400;
             adicionarControleNavegacao(af);
-            Log.createLog(EventLog.opened, "formulario de arquivos empresa");
+            Log.createLog(SysEventLog.opened, "formulario de arquivos empresa");
             af.executaBusca();
         }
 
@@ -331,28 +331,28 @@ namespace SysNorteGrupo
         {
             SinistrosForm sf = new SinistrosForm(null) { formPrincipal = this};
             adicionarControleNavegacao(sf);
-            Log.createLog(EventLog.opened, "formulario de sinistros");
+            Log.createLog(SysEventLog.opened, "formulario de sinistros");
         }
 
         private void barButtonItem4_ItemClick(object sender, ItemClickEventArgs e)
         {
             ReboqueForm rf = new ReboqueForm(null) { formPrincipal = this };
             adicionarControleNavegacao(rf);
-            Log.createLog(EventLog.opened, "formulario de reboques");
+            Log.createLog(SysEventLog.opened, "formulario de reboques");
         }
 
         private void barButtonItem6_ItemClick(object sender, ItemClickEventArgs e)
         {
             BuscaSinistrosForm bsf = new BuscaSinistrosForm() { formPrincipal = this};
             adicionarControleNavegacao(bsf);
-            Log.createLog(EventLog.opened, "formulario de busca de sinistros");
+            Log.createLog(SysEventLog.opened, "formulario de busca de sinistros");
         }
 
         private void barButtonItem3_ItemClick(object sender, ItemClickEventArgs e)
         {
             BuscaReboqueForm brf = new BuscaReboqueForm() { formPrincipal = this};
             adicionarControleNavegacao(brf);
-            Log.createLog(EventLog.opened, "formulario de reboques");
+            Log.createLog(SysEventLog.opened, "formulario de reboques");
         }
 
         public void fechaUtilFormAtual()
@@ -360,7 +360,7 @@ namespace SysNorteGrupo
             if (utilForm != null)
             {
                 utilForm.Close();
-                Log.createLog(EventLog.cloused, "Formulario de utilidades");
+                Log.createLog(SysEventLog.cloused, "Formulario de utilidades");
                 utilForm = null;
             }
         }
@@ -369,7 +369,7 @@ namespace SysNorteGrupo
         {
             BuscaLogs bl = new BuscaLogs();
             bl.dash = this;
-            Log.createLog(EventLog.opened, "formulario de visualização de log");
+            Log.createLog(SysEventLog.opened, "formulario de visualização de log");
             utilForm = new UtilForm(bl, this);
             utilForm.ShowDialog();
         }
@@ -426,15 +426,15 @@ namespace SysNorteGrupo
         {
             try
             {
-                Log.createLog(EventLog.empty, "tentativa de reiniciar a conexão com o servidor");
+                Log.createLog(SysEventLog.empty, "tentativa de reiniciar a conexão com o servidor");
                 GerenteDeConexoes.iniciaConexaoServico();
                 conn = GerenteDeConexoes.conexaoServico();
-                Log.createLog(EventLog.empty, "conexão reiniciada com sucesso");
+                Log.createLog(SysEventLog.empty, "conexão reiniciada com sucesso");
                 XtraMessageBox.Show("Conexão reiniciada com sucesso!");
             }
             catch (Exception ex)
             {
-                Log.createLog(EventLog.exception, "Ocorreu um erro na tentativa de reiniciar a conexão.\n" + ex.Message);
+                Log.createLog(SysEventLog.exception, "Ocorreu um erro na tentativa de reiniciar a conexão.\n" + ex.Message);
                 XtraMessageBox.Show("Ocorreu um erro na tentativa de reiniciar a conexão.\n" + ex.Message);
             }            
         }
@@ -447,7 +447,7 @@ namespace SysNorteGrupo
                 MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (rs == DialogResult.Yes)
                 {
-                    Log.createLog(EventLog.cloused, "aplicação no formulário principal.");
+                    Log.createLog(SysEventLog.cloused, "aplicação no formulário principal.");
                     //threadHora.Abort("Thread aborted");
                     //threadInfo.Abort("Thread aborted");
                     this.Hide();
