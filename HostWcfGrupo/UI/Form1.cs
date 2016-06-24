@@ -4,8 +4,6 @@ using EntitiesGrupo;
 using HostWcfGrupo.UI.Utils;
 using HostWcfGrupo.Utils;
 using HostWcfGrupo.Utils.ValidacaoSistema;
-using SysDBTools;
-using SysDBTools.UI;
 using System;
 using System.Diagnostics;
 using System.IO;
@@ -30,7 +28,7 @@ namespace HostWcfGrupo.UI
         public Form1(int i)
         {
             InitializeComponent();
-            notifyIcon.Icon = ((System.Drawing.Icon)new System.Drawing.Icon(Directory.GetCurrentDirectory() + "\\favicon.ico"));
+            //notifyIcon.Icon = ((System.Drawing.Icon)new System.Drawing.Icon(Directory.GetCurrentDirectory() + "\\favicon.ico"));
             notifyIcon.Text = "SysNorteGrupo Server";
             try
             {                
@@ -291,7 +289,7 @@ namespace HostWcfGrupo.UI
             {
                 try
                 {   
-                    DBTools.directory_pg_dump = UtilsSistemaServico.DIR_PG_DUMP;
+                    /*DBTools.directory_pg_dump = UtilsSistemaServico.DIR_PG_DUMP;
                     DBTools.dataBase = SysGrupoRepo.db;
                     DBTools.host = SysGrupoRepo.host;
                     DBTools.port = SysGrupoRepo.port;
@@ -311,7 +309,7 @@ namespace HostWcfGrupo.UI
                     else
                     {
                         XtraMessageBox.Show("Ocorreu um erro ao tentar executar o backup!");
-                    }
+                    }*/
                 }
                 catch (Exception ex)
                 {

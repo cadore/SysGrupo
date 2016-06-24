@@ -24,6 +24,9 @@ using DevExpress.XtraEditors;
 using System.Threading;
 using SysNorteGrupo.UI.Financeiro;
 using SysNorteGrupo.Reports.Gerencial;
+using SysNorteGrupo.UI.Fipe;
+using SecureApp;
+using Fipe.Models;
 
 namespace SysNorteGrupo
 {
@@ -530,6 +533,41 @@ namespace SysNorteGrupo
         {
             RelatorioGerencialMensalSubForm rel = new RelatorioGerencialMensalSubForm();
             rel.ShowDialog();
+        }
+
+        private void btnUpdateValueFipeVehicles_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            if (AutorizateCmdFIPE())
+            {
+                DB.startDB(TipoConsulta.CAMINHOES);
+                List<veiculo> listV = conn.listaDeVeiculosPorInatividade(false);
+                foreach (veiculo v in listV)
+                {
+                    DetalhesVeiculos dv = DetalhesVeiculos.getDetalhesVeiculoByModelo(v.id_marca_veiculos, v.id_ano_modelo_veiculos, v.id_modelo_veiculos);
+                    Console.WriteLine(dv.preco);
+                }
+            }
+        }
+
+        private void btnUpdateFipe_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            if (AutorizateCmdFIPE())
+            {
+
+            }
+        }
+
+        bool AutorizateCmdFIPE()
+        {
+            bool flag;
+            AutorizationForm af = new AutorizationForm();
+            if (af.ShowDialog() == DialogResult.OK)
+            {
+                flag = conn.verificaUsuarioAtivoPorLoginESenha("cadore", new DTICrypto().Cifrar(af.Password, Util.chaveSecureApp));
+            }
+            else
+                flag = false;
+            return flag;
         }
     }
 }

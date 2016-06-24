@@ -59,6 +59,8 @@
             this.btnGerarContasAReceber = new DevExpress.XtraBars.BarButtonItem();
             this.btnRelGerencialMensal = new DevExpress.XtraBars.BarButtonItem();
             this.lbDataHora = new DevExpress.XtraBars.BarStaticItem();
+            this.btnUpdateFipe = new DevExpress.XtraBars.BarButtonItem();
+            this.btnUpdateValueFipeVehicles = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribClientes = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribVeiculos = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -78,6 +80,7 @@
             this.ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup6 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup8 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPageGroup13 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.repositoryItemTextEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.pnControl = new DevExpress.XtraEditors.PanelControl();
@@ -143,9 +146,11 @@
             this.btnGerarParcelasVeiculos,
             this.btnGerarContasAReceber,
             this.btnRelGerencialMensal,
-            this.lbDataHora});
+            this.lbDataHora,
+            this.btnUpdateFipe,
+            this.btnUpdateValueFipeVehicles});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.MaxItemId = 43;
+            this.ribbon.MaxItemId = 45;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1,
@@ -408,6 +413,24 @@
             this.lbDataHora.Name = "lbDataHora";
             this.lbDataHora.TextAlignment = System.Drawing.StringAlignment.Near;
             // 
+            // btnUpdateFipe
+            // 
+            this.btnUpdateFipe.Caption = "Atualização da Tabela FIPE";
+            this.btnUpdateFipe.Glyph = ((System.Drawing.Image)(resources.GetObject("btnUpdateFipe.Glyph")));
+            this.btnUpdateFipe.Id = 43;
+            this.btnUpdateFipe.Name = "btnUpdateFipe";
+            this.btnUpdateFipe.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.btnUpdateFipe.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnUpdateFipe_ItemClick);
+            // 
+            // btnUpdateValueFipeVehicles
+            // 
+            this.btnUpdateValueFipeVehicles.Caption = "Atualizar valores do Veiculos Cadastrados";
+            this.btnUpdateValueFipeVehicles.Glyph = ((System.Drawing.Image)(resources.GetObject("btnUpdateValueFipeVehicles.Glyph")));
+            this.btnUpdateValueFipeVehicles.Id = 44;
+            this.btnUpdateValueFipeVehicles.Name = "btnUpdateValueFipeVehicles";
+            this.btnUpdateValueFipeVehicles.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.btnUpdateValueFipeVehicles.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnUpdateValueFipeVehicles_ItemClick);
+            // 
             // ribbonPage1
             // 
             this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -541,7 +564,8 @@
             this.ribUsuarios,
             this.ribbonPageGroup4,
             this.ribbonPageGroup6,
-            this.ribbonPageGroup8});
+            this.ribbonPageGroup8,
+            this.ribbonPageGroup13});
             this.ribbonPage2.Image = ((System.Drawing.Image)(resources.GetObject("ribbonPage2.Image")));
             this.ribbonPage2.Name = "ribbonPage2";
             this.ribbonPage2.Text = "SISTEMA";
@@ -579,6 +603,15 @@
             this.ribbonPageGroup8.Name = "ribbonPageGroup8";
             this.ribbonPageGroup8.ShowCaptionButton = false;
             this.ribbonPageGroup8.Text = "Preferências do Sistema";
+            // 
+            // ribbonPageGroup13
+            // 
+            this.ribbonPageGroup13.AllowTextClipping = false;
+            this.ribbonPageGroup13.ItemLinks.Add(this.btnUpdateFipe);
+            this.ribbonPageGroup13.ItemLinks.Add(this.btnUpdateValueFipeVehicles);
+            this.ribbonPageGroup13.Name = "ribbonPageGroup13";
+            this.ribbonPageGroup13.ShowCaptionButton = false;
+            this.ribbonPageGroup13.Text = "Tabela FIPE";
             // 
             // repositoryItemTextEdit1
             // 
@@ -955,5 +988,8 @@
         private DevExpress.XtraBars.BarButtonItem btnRelGerencialMensal;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup12;
         private DevExpress.XtraBars.BarStaticItem lbDataHora;
+        private DevExpress.XtraBars.BarButtonItem btnUpdateFipe;
+        private DevExpress.XtraBars.BarButtonItem btnUpdateValueFipeVehicles;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup13;
     }
 }
