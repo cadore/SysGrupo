@@ -27,6 +27,10 @@ using SysNorteGrupo.Reports.Gerencial;
 using SysNorteGrupo.UI.Fipe;
 using SecureApp;
 using Fipe.Models;
+using PostgresUtil;
+using PetaPoco;
+using WcfLibGrupo.Utils;
+using SysNorteGrupo.UI;
 
 namespace SysNorteGrupo
 {
@@ -51,10 +55,22 @@ namespace SysNorteGrupo
             InitializeComponent();
             conn = GerenteDeConexoes.conexaoServico();
             //carregaPermissoes(permicao_instc);
-            this.Text = String.Format("SysNorte Tecnologia Copyright © 2014 | SysNorteGrupo | Usuário: {0} | Versão: 1.0.0.0", usuario_instc.login);
+            this.Text = String.Format("SysNorte Tecnologia Copyright © 2016 | SysNorteGrupo | Usuário: {0} | Versão: 2.0.1", usuario_instc.login);
             iniciaThreadRecarregaInformacoesDesktop();
             iniciaThreadDataHora();
+
+            rbBackupView();
+
             SplashScreenManager.CloseForm();
+        }
+
+        private void rbBackupView()
+        {
+            string ser = FilesINI.ReadValue("sistema", "ipServico");
+            if (ser.Equals("localhost") || ser.Equals("127.0.0.1"))
+                rbBackup.Visible = true;
+            else
+                rbBackup.Visible = false;
         }
 
         public void iniciaThreadDataHora()
@@ -478,12 +494,14 @@ namespace SysNorteGrupo
         {
             ConfigEnderecoServico ces = new ConfigEnderecoServico();
             ces.ShowDialog();
+            rbBackupView();
         }
 
         private void btnPrefSistema_ItemClick(object sender, ItemClickEventArgs e)
         {
             PreferenciasSistema ps = new PreferenciasSistema();
             ps.ShowDialog();
+            
         }
 
         private void btnAtualizaInformacoes_ItemClick(object sender, ItemClickEventArgs e)
@@ -568,6 +586,48 @@ namespace SysNorteGrupo
             else
                 flag = false;
             return flag;
+        }
+
+        private void btnConfigBackup_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            ConfigBackupForm cbf = new ConfigBackupForm();
+            cbf.ShowDialog();
+        }
+
+        private void btnBackupNow_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            if (String.IsNullOrEmpty(conn.DIR_PG_DUMP())
+                || String.IsNullOrEmpty(LeitorINI.ReadValue("diretorios", "diretorio2_backup2")))
+            {
+                XtraMessageBox.Show("Existem configurações incompletas, verifique!");
+                return;
+            }
+            DialogResult rs = XtraMessageBox.Show("Para realizar Backup todos os outros usuários serão desconectados!"
+                + "\nDeseja continuar?", "", MessageBoxButtons.YesNo);
+            if (rs == DialogResult.No)
+                return;
+
+            SplashScreenManager.ShowForm(this, typeof(SysNorteGrupo.UI.Utils.PleaseWaitForm), false, false, false);
+
+            PostgresqlUtil pu = new PostgresqlUtil()
+            {
+                CurrentDateTime = conn.retornaDataHoraLocal(),
+                PrefixNameFile = "SysGrupo2.0",
+                Host = SysGrupoRepo.host,
+                Port = SysGrupoRepo.port.ToString(),
+                User = SysGrupoRepo.user,
+                Password = SysGrupoRepo.passwd,
+                Database = SysGrupoRepo.db,
+                PathOutputSqlPrimary = conn.DIR_BACKUP(),
+                PathOutputSqlBackup = LeitorINI.ReadValue("diretorios", "diretorio2_backup2"),
+                PathPG = conn.DIR_PG_DUMP()
+            };
+            Thread.Sleep(1500);
+            bool flag = pu.StartBackup();
+            Thread.Sleep(1200);
+            SplashScreenManager.CloseForm(false);
+            if (flag)
+                XtraMessageBox.Show("Backup realizado com sucesso!");
         }
     }
 }

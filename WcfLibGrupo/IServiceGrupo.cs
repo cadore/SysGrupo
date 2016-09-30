@@ -33,6 +33,12 @@ namespace WcfLibGrupo
         [OperationContract]
         decimal valorPadraoMensalidade();
 
+        [OperationContract]
+        string DIR_PG_DUMP();
+
+        [OperationContract]
+        string DIR_BACKUP();
+
         #endregion
 
         #region logs
@@ -111,6 +117,9 @@ namespace WcfLibGrupo
         List<cliente> listaDeClientesPorInatividade(bool inativo);
 
         [OperationContract]
+        List<cliente> listaDeClientes();
+
+        [OperationContract]
         List<cliente> listaDeClientesPorId(long id);
 
         [OperationContract]
@@ -139,6 +148,9 @@ namespace WcfLibGrupo
 
         [OperationContract]
         List<cliente> listaDeClientesPorInatividadeEDataAtivacao(bool inativo, DateTime dataInicio, DateTime dataFinal);
+
+        [OperationContract]
+        void inativarClienteCompleto(cliente cli);
 
         #endregion
 
@@ -183,6 +195,9 @@ namespace WcfLibGrupo
 
         [OperationContract]
         List<veiculo> listaDeVeiculosPorInatividade(bool inativo);
+
+        [OperationContract]
+        List<veiculo> listaDeVeiculos();
 
         [OperationContract]
         List<veiculo> listaDeVeiculosPorPlaca(string placa, bool inativo);
@@ -230,6 +245,8 @@ namespace WcfLibGrupo
         [OperationContract]
         bool salvaParcelasVeiculosCC(List<parcelas_veiculos_cc> listParcelas, veiculo v);
 
+        [OperationContract]
+        void inativarVeiculoCompleto(veiculo v);
         #endregion
 
         #region reboques
@@ -455,5 +472,6 @@ namespace WcfLibGrupo
         void salvaContasAReceber(List<contas_a_receber> listContas, List<parcelas_veiculos_cc> listPv,
             List<historico_pagamento_sinistros_clientes> listPs);
         #endregion
+
     }
 }

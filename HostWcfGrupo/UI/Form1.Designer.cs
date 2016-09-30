@@ -30,29 +30,24 @@ namespace HostWcfGrupo.UI
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            this.notifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
+            this.notifyIcon = new System.Windows.Forms.NotifyIcon();
             this.contextMenu = new System.Windows.Forms.ContextMenu();
             this.itemOpen = new System.Windows.Forms.MenuItem();
             this.itemService = new System.Windows.Forms.MenuItem();
-            this.itemBackup = new System.Windows.Forms.MenuItem();
             this.itemExit = new System.Windows.Forms.MenuItem();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.btnSair = new System.Windows.Forms.Button();
+            this.btnMinimizar = new System.Windows.Forms.Button();
             this.tabGeral = new System.Windows.Forms.TabPage();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.btnStartStop = new System.Windows.Forms.Button();
             this.tfStatus = new System.Windows.Forms.RichTextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.tabBackup = new System.Windows.Forms.TabPage();
-            this.btnBackup = new System.Windows.Forms.Button();
-            this.btnSair = new System.Windows.Forms.Button();
-            this.btnMinimizar = new System.Windows.Forms.Button();
-            this.tabControl1.SuspendLayout();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabGeral.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
-            this.tabBackup.SuspendLayout();
+            this.tabControl1.SuspendLayout();
             this.SuspendLayout();
             // 
             // notifyIcon
@@ -66,7 +61,6 @@ namespace HostWcfGrupo.UI
             this.contextMenu.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
             this.itemOpen,
             this.itemService,
-            this.itemBackup,
             this.itemExit});
             // 
             // itemOpen
@@ -81,28 +75,31 @@ namespace HostWcfGrupo.UI
             this.itemService.Text = "Parar Serviço";
             this.itemService.Click += new System.EventHandler(this.btnStartStop_Click);
             // 
-            // itemBackup
-            // 
-            this.itemBackup.Index = 2;
-            this.itemBackup.Text = "Realizar Backup";
-            this.itemBackup.Click += new System.EventHandler(this.btnBackup_Click);
-            // 
             // itemExit
             // 
-            this.itemExit.Index = 3;
+            this.itemExit.Index = 2;
             this.itemExit.Text = "Sair";
             this.itemExit.Click += new System.EventHandler(this.itemExit_Click);
             // 
-            // tabControl1
+            // btnSair
             // 
-            this.tabControl1.Controls.Add(this.tabGeral);
-            this.tabControl1.Controls.Add(this.tabBackup);
-            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tabControl1.Location = new System.Drawing.Point(0, 0);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(418, 235);
-            this.tabControl1.TabIndex = 3;
+            this.btnSair.Location = new System.Drawing.Point(318, 237);
+            this.btnSair.Name = "btnSair";
+            this.btnSair.Size = new System.Drawing.Size(96, 32);
+            this.btnSair.TabIndex = 4;
+            this.btnSair.Text = "Sair";
+            this.btnSair.UseVisualStyleBackColor = true;
+            this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
+            // 
+            // btnMinimizar
+            // 
+            this.btnMinimizar.Location = new System.Drawing.Point(216, 237);
+            this.btnMinimizar.Name = "btnMinimizar";
+            this.btnMinimizar.Size = new System.Drawing.Size(96, 32);
+            this.btnMinimizar.TabIndex = 4;
+            this.btnMinimizar.Text = "Minimizar";
+            this.btnMinimizar.UseVisualStyleBackColor = true;
+            this.btnMinimizar.Click += new System.EventHandler(this.btnMinimizar_Click);
             // 
             // tabGeral
             // 
@@ -158,52 +155,21 @@ namespace HostWcfGrupo.UI
             this.label1.TabIndex = 4;
             this.label1.Text = "Status:";
             // 
-            // tabBackup
+            // tabControl1
             // 
-            this.tabBackup.BackColor = System.Drawing.Color.Transparent;
-            this.tabBackup.Controls.Add(this.btnBackup);
-            this.tabBackup.Location = new System.Drawing.Point(4, 22);
-            this.tabBackup.Name = "tabBackup";
-            this.tabBackup.Padding = new System.Windows.Forms.Padding(3);
-            this.tabBackup.Size = new System.Drawing.Size(410, 209);
-            this.tabBackup.TabIndex = 1;
-            this.tabBackup.Text = "Backup";
-            // 
-            // btnBackup
-            // 
-            this.btnBackup.Location = new System.Drawing.Point(8, 6);
-            this.btnBackup.Name = "btnBackup";
-            this.btnBackup.Size = new System.Drawing.Size(394, 58);
-            this.btnBackup.TabIndex = 0;
-            this.btnBackup.Text = "Criar Backup do Banco de Dados";
-            this.btnBackup.UseVisualStyleBackColor = true;
-            this.btnBackup.Click += new System.EventHandler(this.btnBackup_Click);
-            // 
-            // btnSair
-            // 
-            this.btnSair.Location = new System.Drawing.Point(318, 237);
-            this.btnSair.Name = "btnSair";
-            this.btnSair.Size = new System.Drawing.Size(96, 32);
-            this.btnSair.TabIndex = 4;
-            this.btnSair.Text = "Sair";
-            this.btnSair.UseVisualStyleBackColor = true;
-            this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
-            // 
-            // btnMinimizar
-            // 
-            this.btnMinimizar.Location = new System.Drawing.Point(216, 237);
-            this.btnMinimizar.Name = "btnMinimizar";
-            this.btnMinimizar.Size = new System.Drawing.Size(96, 32);
-            this.btnMinimizar.TabIndex = 4;
-            this.btnMinimizar.Text = "Minimizar";
-            this.btnMinimizar.UseVisualStyleBackColor = true;
-            this.btnMinimizar.Click += new System.EventHandler(this.btnMinimizar_Click);
+            this.tabControl1.Controls.Add(this.tabGeral);
+            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tabControl1.Location = new System.Drawing.Point(0, 0);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(418, 235);
+            this.tabControl1.TabIndex = 3;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(418, 275);
+            this.ClientSize = new System.Drawing.Size(418, 276);
             this.ControlBox = false;
             this.Controls.Add(this.btnMinimizar);
             this.Controls.Add(this.btnSair);
@@ -216,33 +182,30 @@ namespace HostWcfGrupo.UI
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
-            this.tabControl1.ResumeLayout(false);
             this.tabGeral.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             this.panelControl1.PerformLayout();
-            this.tabBackup.ResumeLayout(false);
+            this.tabControl1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tabGeral;
-        private System.Windows.Forms.TabPage tabBackup;
-        private System.Windows.Forms.Button btnBackup;
-        private DevExpress.XtraEditors.PanelControl panelControl1;
-        private System.Windows.Forms.Button btnStartStop;
-        private System.Windows.Forms.RichTextBox tfStatus;
-        private System.Windows.Forms.Label label1;
 
         /* notify icon */
         public NotifyIcon notifyIcon;
         public ContextMenu contextMenu;
-        public MenuItem itemOpen, itemExit, itemBackup, itemService;
+        public MenuItem itemOpen, itemExit, itemService;
         private Button btnSair;
         private Button btnMinimizar;
+        private TabPage tabGeral;
+        private DevExpress.XtraEditors.PanelControl panelControl1;
+        private Button btnStartStop;
+        private RichTextBox tfStatus;
+        private Label label1;
+        private TabControl tabControl1;
     }
 }
 

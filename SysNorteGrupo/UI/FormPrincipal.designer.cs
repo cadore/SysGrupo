@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormPrincipal));
-            DevExpress.Utils.SuperToolTip superToolTip1 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipItem toolTipItem1 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip5 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipItem toolTipItem5 = new DevExpress.Utils.ToolTipItem();
             this.ribbon = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.btnBuscarCliente = new DevExpress.XtraBars.BarButtonItem();
             this.btnNovoCliente = new DevExpress.XtraBars.BarButtonItem();
@@ -105,6 +105,9 @@
             this.lbVeiculos_ativos = new DevExpress.XtraEditors.LabelControl();
             this.lbReboques_ativos = new DevExpress.XtraEditors.LabelControl();
             this.barStaticItem1 = new DevExpress.XtraBars.BarStaticItem();
+            this.rbBackup = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.btnConfigBackup = new DevExpress.XtraBars.BarButtonItem();
+            this.btnBackupNow = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pnControl)).BeginInit();
@@ -148,9 +151,11 @@
             this.btnRelGerencialMensal,
             this.lbDataHora,
             this.btnUpdateFipe,
-            this.btnUpdateValueFipeVehicles});
+            this.btnUpdateValueFipeVehicles,
+            this.btnConfigBackup,
+            this.btnBackupNow});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.MaxItemId = 45;
+            this.ribbon.MaxItemId = 47;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1,
@@ -384,9 +389,9 @@
             this.btnGerarParcelasVeiculos.Id = 38;
             this.btnGerarParcelasVeiculos.Name = "btnGerarParcelasVeiculos";
             this.btnGerarParcelasVeiculos.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
-            toolTipItem1.Text = "Gerar parcelas de cota capital para os veiculos que ainda nao foram geradas.";
-            superToolTip1.Items.Add(toolTipItem1);
-            this.btnGerarParcelasVeiculos.SuperTip = superToolTip1;
+            toolTipItem5.Text = "Gerar parcelas de cota capital para os veiculos que ainda nao foram geradas.";
+            superToolTip5.Items.Add(toolTipItem5);
+            this.btnGerarParcelasVeiculos.SuperTip = superToolTip5;
             this.btnGerarParcelasVeiculos.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnGerarParcelasVeiculos_ItemClick);
             // 
             // btnGerarContasAReceber
@@ -565,7 +570,8 @@
             this.ribbonPageGroup4,
             this.ribbonPageGroup6,
             this.ribbonPageGroup8,
-            this.ribbonPageGroup13});
+            this.ribbonPageGroup13,
+            this.rbBackup});
             this.ribbonPage2.Image = ((System.Drawing.Image)(resources.GetObject("ribbonPage2.Image")));
             this.ribbonPage2.Name = "ribbonPage2";
             this.ribbonPage2.Text = "SISTEMA";
@@ -612,6 +618,7 @@
             this.ribbonPageGroup13.Name = "ribbonPageGroup13";
             this.ribbonPageGroup13.ShowCaptionButton = false;
             this.ribbonPageGroup13.Text = "Tabela FIPE";
+            this.ribbonPageGroup13.Visible = false;
             // 
             // repositoryItemTextEdit1
             // 
@@ -884,6 +891,31 @@
             this.barStaticItem1.Name = "barStaticItem1";
             this.barStaticItem1.TextAlignment = System.Drawing.StringAlignment.Near;
             // 
+            // rbBackup
+            // 
+            this.rbBackup.AllowTextClipping = false;
+            this.rbBackup.ItemLinks.Add(this.btnConfigBackup);
+            this.rbBackup.ItemLinks.Add(this.btnBackupNow);
+            this.rbBackup.Name = "rbBackup";
+            this.rbBackup.ShowCaptionButton = false;
+            this.rbBackup.Text = "Backup";
+            // 
+            // btnConfigBackup
+            // 
+            this.btnConfigBackup.Caption = "Configurações de Backup";
+            this.btnConfigBackup.Id = 45;
+            this.btnConfigBackup.Name = "btnConfigBackup";
+            this.btnConfigBackup.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.btnConfigBackup.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnConfigBackup_ItemClick);
+            // 
+            // btnBackupNow
+            // 
+            this.btnBackupNow.Caption = "Realizar Backup";
+            this.btnBackupNow.Id = 46;
+            this.btnBackupNow.Name = "btnBackupNow";
+            this.btnBackupNow.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.btnBackupNow.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnBackupNow_ItemClick);
+            // 
             // FormPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -991,5 +1023,8 @@
         private DevExpress.XtraBars.BarButtonItem btnUpdateFipe;
         private DevExpress.XtraBars.BarButtonItem btnUpdateValueFipeVehicles;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup13;
+        private DevExpress.XtraBars.BarButtonItem btnConfigBackup;
+        private DevExpress.XtraBars.BarButtonItem btnBackupNow;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup rbBackup;
     }
 }

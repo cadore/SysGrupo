@@ -116,6 +116,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\Fipe\Fipe\bin\Debug\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="PostgresUtil">
+      <HintPath>..\..\PostgresUtil\PostgresUtil\bin\Debug\PostgresUtil.dll</HintPath>
+    </Reference>
     <Reference Include="PresentationCore">
       <Private>False</Private>
     </Reference>
@@ -208,6 +211,12 @@
     </Compile>
     <Compile Include="Reports\RelatorioGerencialMensalSubForm.Designer.cs">
       <DependentUpon>RelatorioGerencialMensalSubForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ConfigBackupForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\ConfigBackupForm.Designer.cs">
+      <DependentUpon>ConfigBackupForm.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Financeiro\GerarContasAReceberForm.cs">
       <SubType>UserControl</SubType>
@@ -430,6 +439,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\RelatorioGerencialMensalSubForm.resx">
       <DependentUpon>RelatorioGerencialMensalSubForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ConfigBackupForm.resx">
+      <DependentUpon>ConfigBackupForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Financeiro\GerarContasAReceberForm.resx">
       <DependentUpon>GerarContasAReceberForm.cs</DependentUpon>

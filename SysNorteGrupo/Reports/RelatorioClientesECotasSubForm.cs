@@ -91,20 +91,23 @@ namespace SysNorteGrupo.Reports
                     decimal total_cotas = valor_total_bens / ConfigSistema.valor_por_cota;
                     decimal porcento_cotas = (total_cotas * 100) / total_cotas_grupo;
 
-                    listReport.Add(new RelatorioClientesECotasModel()
+                    if ((total_cotas > 0 && porcento_cotas > 0) || ckLoadAll.Checked)
                     {
-                        nomeCliente = c.nome_completo,
-                        dataAtivacao = c.data_ativacao,
-                        cotas = total_cotas,
-                        valorTotalDeBens = valor_total_bens,
-                        percentCotas = porcento_cotas
-                    });
+                        listReport.Add(new RelatorioClientesECotasModel()
+                        {
+                            nomeCliente = c.nome_completo,
+                            dataAtivacao = c.data_ativacao,
+                            cotas = total_cotas,
+                            valorTotalDeBens = valor_total_bens,
+                            percentCotas = porcento_cotas
+                        });
+                    }
                 }
 
                 RelatorioClientesECotas report = new RelatorioClientesECotas();
                 report.bdgRelatorio.DataSource = listReport;
                 report.dataRelatorio.Value = "RELATÓRIO GERADO EM: " + conn.retornaDataHoraLocal();
-                report.assinatura.Value = "GERADO POR SYSNORTE TECNOLOGIA";
+                report.assinatura.Value = "GERADO POR - CADORETECNOLOGIA.com.br";
                 foreach (DevExpress.XtraReports.Parameters.Parameter p in report.Parameters)
                 {
                     p.Visible = false;
@@ -121,6 +124,16 @@ namespace SysNorteGrupo.Reports
             {
                 SplashScreenManager.CloseForm();
             }
+        }
+
+        private void tfDataInicial_EditValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tfDataFinal_EditValueChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

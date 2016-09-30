@@ -30,6 +30,7 @@ namespace SysNorteGrupo.UI.Veiculos
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BuscaVeiculoForm));
             this.pnBotoes = new DevExpress.XtraEditors.PanelControl();
             this.cbCliente = new DevExpress.XtraEditors.SearchLookUpEdit();
             this.bdgCliente = new System.Windows.Forms.BindingSource(this.components);
@@ -201,7 +202,7 @@ namespace SysNorteGrupo.UI.Veiculos
             this.gridColumn1.OptionsColumn.AllowEdit = false;
             this.gridColumn1.Visible = true;
             this.gridColumn1.VisibleIndex = 0;
-            this.gridColumn1.Width = 167;
+            this.gridColumn1.Width = 114;
             // 
             // colnome_completo
             // 
@@ -211,7 +212,7 @@ namespace SysNorteGrupo.UI.Veiculos
             this.colnome_completo.OptionsColumn.AllowEdit = false;
             this.colnome_completo.Visible = true;
             this.colnome_completo.VisibleIndex = 1;
-            this.colnome_completo.Width = 493;
+            this.colnome_completo.Width = 316;
             // 
             // coltipo_cliente
             // 
@@ -227,7 +228,7 @@ namespace SysNorteGrupo.UI.Veiculos
             this.coldocumento.OptionsColumn.AllowEdit = false;
             this.coldocumento.Visible = true;
             this.coldocumento.VisibleIndex = 2;
-            this.coldocumento.Width = 281;
+            this.coldocumento.Width = 190;
             // 
             // colinscricao_rg
             // 
@@ -345,9 +346,13 @@ namespace SysNorteGrupo.UI.Veiculos
             // 
             // gridColumn5
             // 
+            this.gridColumn5.Caption = "INATIVO";
             this.gridColumn5.FieldName = "inativo";
             this.gridColumn5.Name = "gridColumn5";
             this.gridColumn5.OptionsColumn.AllowEdit = false;
+            this.gridColumn5.Visible = true;
+            this.gridColumn5.VisibleIndex = 3;
+            this.gridColumn5.Width = 76;
             // 
             // gridColumn6
             // 
@@ -373,6 +378,7 @@ namespace SysNorteGrupo.UI.Veiculos
             this.btnFechar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFechar.Font = new System.Drawing.Font("Segoe UI Light", 12F);
             this.btnFechar.ForeColor = System.Drawing.Color.White;
+            this.btnFechar.Image = ((System.Drawing.Image)(resources.GetObject("btnFechar.Image")));
             this.btnFechar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnFechar.Location = new System.Drawing.Point(916, 8);
             this.btnFechar.Name = "btnFechar";
@@ -389,6 +395,7 @@ namespace SysNorteGrupo.UI.Veiculos
             this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBuscar.Font = new System.Drawing.Font("Segoe UI Light", 12F);
             this.btnBuscar.ForeColor = System.Drawing.Color.White;
+            this.btnBuscar.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscar.Image")));
             this.btnBuscar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnBuscar.Location = new System.Drawing.Point(687, 8);
             this.btnBuscar.Name = "btnBuscar";
@@ -417,7 +424,7 @@ namespace SysNorteGrupo.UI.Veiculos
             this.ckInativo.Properties.Appearance.ForeColor = System.Drawing.Color.White;
             this.ckInativo.Properties.Appearance.Options.UseForeColor = true;
             this.ckInativo.Properties.Caption = "INATIVOS";
-            this.ckInativo.Size = new System.Drawing.Size(75, 19);
+            this.ckInativo.Size = new System.Drawing.Size(75, 15);
             this.ckInativo.TabIndex = 1;
             this.ckInativo.CheckedChanged += new System.EventHandler(this.ckInativo_CheckedChanged);
             // 
@@ -429,7 +436,7 @@ namespace SysNorteGrupo.UI.Veiculos
             this.ckAtivo.Properties.Appearance.ForeColor = System.Drawing.Color.White;
             this.ckAtivo.Properties.Appearance.Options.UseForeColor = true;
             this.ckAtivo.Properties.Caption = "ATIVOS";
-            this.ckAtivo.Size = new System.Drawing.Size(67, 19);
+            this.ckAtivo.Size = new System.Drawing.Size(67, 15);
             this.ckAtivo.TabIndex = 0;
             this.ckAtivo.CheckedChanged += new System.EventHandler(this.ckAtivo_CheckedChanged);
             // 

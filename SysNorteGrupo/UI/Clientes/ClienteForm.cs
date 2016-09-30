@@ -27,7 +27,6 @@ namespace SysNorteGrupo.UI.Clientes
         public ClienteForm(cliente cliente_instc)
         {
             InitializeComponent();
-            button1.Visible = false;
             conn = GerenteDeConexoes.conexaoServico();
 
             arquivosFormCli.conn = conn;
@@ -137,6 +136,10 @@ namespace SysNorteGrupo.UI.Clientes
                 }
                 btnImprimirContrato.Visible = true;
             }
+            if (cliente_instc.inativo == true)
+            {
+                btnEditar.Enabled = false;
+            }
         }
 
         private void reabilitarPaineis(bool flag)
@@ -163,6 +166,7 @@ namespace SysNorteGrupo.UI.Clientes
             btnSalvar.Enabled = true;
             btnEditar.Enabled = false;
             panelComponentes.Enabled = true;
+            btnInativar.Enabled = false;
             arquivosFormCli.DIRETORIO = String.Format(@"{0}{1}\", conn.SUBDIR_CLIENTES(), ((cliente)bdgCliente.Current).id);
             arquivosFormCli.executaBusca();
             arquivosFormCli.Enabled = true;
@@ -434,7 +438,7 @@ namespace SysNorteGrupo.UI.Clientes
             RelatorioInclusãoCliente report = new RelatorioInclusãoCliente();
             report.bdgClientesLista.DataSource = listaFinal();
             report.dataRelatorio.Value = "RELATÓRIO GERADO EM: " + conn.retornaDataHoraLocal();
-            report.assinatura.Value = "GERADO POR SYSNORTE TECNOLOGIA";
+            report.assinatura.Value = "GERADO POR - CADORETECNOLOGIA.com.br";
             foreach (DevExpress.XtraReports.Parameters.Parameter p in report.Parameters)
             {
                 p.Visible = false;
@@ -532,6 +536,38 @@ namespace SysNorteGrupo.UI.Clientes
         public void carregaEnderecosPorIdCidade()
         {        
             bdgEnderecos.DataSource = conn.listaDeEnderecosPorCidade(Convert.ToInt64(cbCidade.EditValue));
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnInativar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DialogResult rs = XtraMessageBox.Show("CONFIRMA INATIVAÇÃO DO CLIENTE " + tfNome.Text + " E TODOS OS SEUS VEICULOS?\n\nNÃO SERÁ POSSÍVEL REVERTER ESTA AÇÃO!",
+                    "CADORETECNOLOGIA",
+                    MessageBoxButtons.OKCancel);
+                if (rs == DialogResult.OK)
+                {
+                    cliente c = ((cliente)bdgCliente.Current);
+                    conn.inativarClienteCompleto(c);
+                    Log.createLog(SysEventLog.inatived, String.Format("cliente ID: {0}", tfId.Text));
+
+                    reabilitarPaineis(false);
+                    panelArquivos.Enabled = false;
+                    btnSalvar.Enabled = false;
+                    btnEditar.Enabled = false;
+                    panelComponentes.Enabled = false;
+                }
+            }
+            catch (Exception ex)
+            {
+                XtraMessageBox.Show("Ocorreu um erro ao tentar executar sua solicitação.\n\n" + ex.Message);
+                formPrincipal.adicionarControleNavegacao(null);
+            }
         }
 
 

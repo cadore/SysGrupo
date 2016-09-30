@@ -78,6 +78,7 @@ namespace WcfLibGrupo.Utils
             SUBDIR_TEMP_FILES = diretorio_raiz_documentos + @"\temp\";
             SUBDIR_BACKUP = diretorio_raiz_documentos + @"\backup\";
             DIR_PG_DUMP = LeitorINI.ReadValue("diretorios", "diretorio_pg_dump");
+            
 
             if(!sf.verificaDiretorioExistente(diretorio_raiz_documentos)){
                 sf.criaDiretorio(diretorio_raiz_documentos);

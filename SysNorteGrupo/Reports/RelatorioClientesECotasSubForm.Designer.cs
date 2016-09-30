@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RelatorioClientesECotasSubForm));
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.ckLoadAll = new DevExpress.XtraEditors.CheckEdit();
             this.panelDatas = new DevExpress.XtraEditors.PanelControl();
             this.tfDataFinal = new DevExpress.XtraEditors.DateEdit();
             this.tfDataInicial = new DevExpress.XtraEditors.DateEdit();
@@ -41,6 +42,7 @@
             this.btnCancel = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ckLoadAll.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelDatas)).BeginInit();
             this.panelDatas.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tfDataFinal.Properties.CalendarTimeProperties)).BeginInit();
@@ -54,14 +56,23 @@
             // 
             // panelControl1
             // 
+            this.panelControl1.Controls.Add(this.ckLoadAll);
             this.panelControl1.Controls.Add(this.panelDatas);
             this.panelControl1.Controls.Add(this.rgTipo);
             this.panelControl1.Controls.Add(this.panelControl2);
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl1.Location = new System.Drawing.Point(0, 0);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(435, 116);
+            this.panelControl1.Size = new System.Drawing.Size(435, 138);
             this.panelControl1.TabIndex = 0;
+            // 
+            // ckLoadAll
+            // 
+            this.ckLoadAll.Location = new System.Drawing.Point(5, 117);
+            this.ckLoadAll.Name = "ckLoadAll";
+            this.ckLoadAll.Properties.Caption = "Mostrar Clientes com cotas em R$0,00";
+            this.ckLoadAll.Size = new System.Drawing.Size(221, 15);
+            this.ckLoadAll.TabIndex = 4;
             // 
             // panelDatas
             // 
@@ -86,6 +97,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.tfDataFinal.Size = new System.Drawing.Size(100, 20);
             this.tfDataFinal.TabIndex = 1;
+            this.tfDataFinal.EditValueChanged += new System.EventHandler(this.tfDataFinal_EditValueChanged);
             // 
             // tfDataInicial
             // 
@@ -98,6 +110,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.tfDataInicial.Size = new System.Drawing.Size(100, 20);
             this.tfDataInicial.TabIndex = 1;
+            this.tfDataInicial.EditValueChanged += new System.EventHandler(this.tfDataInicial_EditValueChanged);
             // 
             // labelControl2
             // 
@@ -121,8 +134,8 @@
             this.rgTipo.Name = "rgTipo";
             this.rgTipo.Properties.Columns = 2;
             this.rgTipo.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
-            new DevExpress.XtraEditors.Controls.RadioGroupItem(0, "Relatório Completo"),
-            new DevExpress.XtraEditors.Controls.RadioGroupItem(1, "Relatório Em Datas")});
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(0, "Completo"),
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(1, "Por Período")});
             this.rgTipo.Size = new System.Drawing.Size(431, 28);
             this.rgTipo.TabIndex = 2;
             this.rgTipo.SelectedIndexChanged += new System.EventHandler(this.rgTipo_SelectedIndexChanged);
@@ -163,15 +176,18 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(435, 116);
+            this.ClientSize = new System.Drawing.Size(435, 138);
             this.ControlBox = false;
             this.Controls.Add(this.panelControl1);
-            this.MaximumSize = new System.Drawing.Size(451, 132);
-            this.MinimumSize = new System.Drawing.Size(451, 132);
+            this.MaximumSize = new System.Drawing.Size(451, 154);
+            this.MinimumSize = new System.Drawing.Size(451, 154);
             this.Name = "RelatorioClientesECotasSubForm";
+            this.ShowIcon = false;
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.ckLoadAll.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelDatas)).EndInit();
             this.panelDatas.ResumeLayout(false);
             this.panelDatas.PerformLayout();
@@ -198,5 +214,6 @@
         private DevExpress.XtraEditors.DateEdit tfDataInicial;
         private DevExpress.XtraEditors.LabelControl labelControl2;
         private DevExpress.XtraEditors.LabelControl labelControl1;
+        private DevExpress.XtraEditors.CheckEdit ckLoadAll;
     }
 }

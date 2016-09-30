@@ -58,6 +58,16 @@ namespace WcfLibGrupo
             return UtilsSistemaServico.valorPadraoMensalidade;
         }
 
+        public string DIR_PG_DUMP()
+        {
+            return UtilsSistemaServico.DIR_PG_DUMP;
+        }
+
+        public string DIR_BACKUP()
+        {
+            return UtilsSistemaServico.SUBDIR_BACKUP;
+        }
+
         #endregion        
 
         #region logs
@@ -468,6 +478,21 @@ namespace WcfLibGrupo
             }
         }
 
+        public List<cliente> listaDeClientes()
+        {
+            try
+            {
+                var sql = Sql.Builder.Select("*").From("cliente").OrderBy("data_ativacao, id");
+                return cliente.Fetch(sql);
+            }
+            catch (Exception ex)
+            {
+                throw new FaultException(
+                    new FaultReason(String.Format("EXCECÃO: {0}{1}INNER EXCEPTION: {2}", ex.Message, Environment.NewLine, ex.InnerException)),
+                    new FaultCode("1000"));
+            }
+        }
+
         public List<cliente> listaDeClientesPorInatividadeEDataAtivacao(bool inativo, DateTime dataInicio, DateTime dataFinal)
         {
             try
@@ -676,6 +701,42 @@ namespace WcfLibGrupo
             }
         }
 
+        public void inativarClienteCompleto(cliente cli)
+        {
+            try
+            {
+                using (var scope = cliente.repo.GetTransaction())
+                {
+                    cli.inativo = true;
+                    cli.data_inativacao = retornaDataHoraLocal();
+                    cli.Save();
+
+                    foreach (veiculo v in listaDeVeiculosPorIdClienteEInatividade(cli.id, false))
+                    {
+                        v.inativo = true;
+                        v.data_inativacao = retornaDataHoraLocal();
+                        v.Save();
+
+                        foreach (reboque r in listaDeReboquesPorIdVeiculoEInatividade(v.id, false))
+                        {
+                            r.inativo = true;
+                            r.data_inativacao = retornaDataHoraLocal();
+                            r.Save();
+                        }
+                    }
+
+                    scope.Complete();
+                }
+            }
+            catch (Exception ex)
+            {
+                cliente.repo.AbortTransaction();
+                throw new FaultException(
+                    new FaultReason(String.Format("EXCEPT: {0}\n\nINNER EXCEPT: {1}", ex.Message, ex.InnerException)),
+                    new FaultCode("ERRDB"));
+            }
+        }
+
         #endregion
 
         #region fipe
@@ -855,6 +916,21 @@ namespace WcfLibGrupo
             try
             {
                 var sql = Sql.Builder.Select("*").From("veiculos").Where("inativo=@0", inativo).OrderBy("id");
+                return veiculo.Fetch(sql);
+            }
+            catch (Exception ex)
+            {
+                throw new FaultException(
+                    new FaultReason(String.Format("EXCECÃO: {0}{1}INNER EXCEPTION: {2}", ex.Message, Environment.NewLine, ex.InnerException)),
+                    new FaultCode("1000"));
+            }
+        }
+
+        public List<veiculo> listaDeVeiculos()
+        {
+            try
+            {
+                var sql = Sql.Builder.Select("*").From("veiculos").OrderBy("id");
                 return veiculo.Fetch(sql);
             }
             catch (Exception ex)
@@ -1172,6 +1248,35 @@ namespace WcfLibGrupo
             catch (Exception ex)
             {
                 parcelas_veiculos_cc.repo.AbortTransaction();
+                throw new FaultException(
+                    new FaultReason(String.Format("EXCECÃO: {0}{1}INNER EXCEPTION: {2}", ex.Message, Environment.NewLine, ex.InnerException)),
+                    new FaultCode("1000"));
+            }
+        }
+
+        public void inativarVeiculoCompleto(veiculo v)
+        {
+            try
+            {
+                using (var scope = veiculo.repo.GetTransaction())
+                {
+                    v.inativo = true;
+                    v.data_inativacao = retornaDataHoraLocal();
+                    v.Save();
+
+                    foreach (reboque r in listaDeReboquesPorIdVeiculoEInatividade(v.id, false))
+                    {
+                        r.inativo = true;
+                        r.data_inativacao = retornaDataHoraLocal();
+                        r.Save();
+                    }
+
+                    scope.Complete();
+                }
+            }
+            catch (Exception ex)
+            {
+                veiculo.repo.AbortTransaction();
                 throw new FaultException(
                     new FaultReason(String.Format("EXCECÃO: {0}{1}INNER EXCEPTION: {2}", ex.Message, Environment.NewLine, ex.InnerException)),
                     new FaultCode("1000"));

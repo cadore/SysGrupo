@@ -45,8 +45,8 @@ namespace SysNorteGrupo.UI.Clientes
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule11 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule12 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             this.pnBotoes = new DevExpress.XtraEditors.PanelControl();
+            this.btnInativar = new SysNorteGrupo.UI.Utils.Botoes.BotaoInativar();
             this.btnImprimirContrato = new SysNorteGrupo.UI.Utils.Botoes.BotaoImprimir();
-            this.button1 = new System.Windows.Forms.Button();
             this.btnSair = new SysNorteGrupo.UI.Utils.Botoes.BotaoSair();
             this.btnEditar = new SysNorteGrupo.UI.Utils.Botoes.BotaoEditar();
             this.btnSalvar = new SysNorteGrupo.UI.Utils.Botoes.BotaoEditar();
@@ -206,8 +206,8 @@ namespace SysNorteGrupo.UI.Clientes
             this.pnBotoes.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(82)))), ((int)(((byte)(155)))));
             this.pnBotoes.Appearance.Options.UseBackColor = true;
             this.pnBotoes.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.pnBotoes.Controls.Add(this.btnInativar);
             this.pnBotoes.Controls.Add(this.btnImprimirContrato);
-            this.pnBotoes.Controls.Add(this.button1);
             this.pnBotoes.Controls.Add(this.btnSair);
             this.pnBotoes.Controls.Add(this.btnEditar);
             this.pnBotoes.Controls.Add(this.btnSalvar);
@@ -218,6 +218,24 @@ namespace SysNorteGrupo.UI.Clientes
             this.pnBotoes.Size = new System.Drawing.Size(1066, 55);
             this.pnBotoes.TabIndex = 0;
             // 
+            // btnInativar
+            // 
+            this.btnInativar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(199)))));
+            this.btnInativar.Enabled = false;
+            this.btnInativar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnInativar.Font = new System.Drawing.Font("Segoe UI Light", 12F);
+            this.btnInativar.ForeColor = System.Drawing.Color.White;
+            this.btnInativar.Image = ((System.Drawing.Image)(resources.GetObject("btnInativar.Image")));
+            this.btnInativar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnInativar.Location = new System.Drawing.Point(237, 5);
+            this.btnInativar.Name = "btnInativar";
+            this.btnInativar.Size = new System.Drawing.Size(106, 44);
+            this.btnInativar.TabIndex = 13;
+            this.btnInativar.Text = "Inativar";
+            this.btnInativar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnInativar.UseVisualStyleBackColor = false;
+            this.btnInativar.Click += new System.EventHandler(this.btnInativar_Click);
+            // 
             // btnImprimirContrato
             // 
             this.btnImprimirContrato.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(199)))));
@@ -226,7 +244,7 @@ namespace SysNorteGrupo.UI.Clientes
             this.btnImprimirContrato.ForeColor = System.Drawing.Color.White;
             this.btnImprimirContrato.Image = ((System.Drawing.Image)(resources.GetObject("btnImprimirContrato.Image")));
             this.btnImprimirContrato.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnImprimirContrato.Location = new System.Drawing.Point(349, 6);
+            this.btnImprimirContrato.Location = new System.Drawing.Point(462, 6);
             this.btnImprimirContrato.Name = "btnImprimirContrato";
             this.btnImprimirContrato.Size = new System.Drawing.Size(215, 43);
             this.btnImprimirContrato.TabIndex = 12;
@@ -235,15 +253,6 @@ namespace SysNorteGrupo.UI.Clientes
             this.btnImprimirContrato.UseVisualStyleBackColor = false;
             this.btnImprimirContrato.Visible = false;
             this.btnImprimirContrato.Click += new System.EventHandler(this.btnImprimirContrato_Click);
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(641, 25);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 11;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
             // 
             // btnSair
             // 
@@ -305,7 +314,7 @@ namespace SysNorteGrupo.UI.Clientes
             this.btnNovo.ForeColor = System.Drawing.Color.White;
             this.btnNovo.Image = ((System.Drawing.Image)(resources.GetObject("btnNovo.Image")));
             this.btnNovo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNovo.Location = new System.Drawing.Point(237, 5);
+            this.btnNovo.Location = new System.Drawing.Point(350, 5);
             this.btnNovo.Name = "btnNovo";
             this.btnNovo.Size = new System.Drawing.Size(106, 44);
             this.btnNovo.TabIndex = 7;
@@ -1385,7 +1394,7 @@ namespace SysNorteGrupo.UI.Clientes
         private DevExpress.XtraEditors.TextEdit tfTotalBens;
         private DevExpress.XtraEditors.TextEdit tfTotalCotas;
         private ArquivosForm arquivosFormCli;
-        private System.Windows.Forms.Button button1;
         private BotaoImprimir btnImprimirContrato;
+        private BotaoInativar btnInativar;
     }
 }

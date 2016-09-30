@@ -27,7 +27,7 @@ namespace SysNorteGrupo.UI.Veiculos
         {
             InitializeComponent();
             conn = GerenteDeConexoes.conexaoServico();
-            bdgCliente.DataSource = conn.listaDeClientesPorInatividade(false);
+            bdgCliente.DataSource = conn.listaDeClientes();
 
             foreach (Control c in pnBotoes.Controls)
             {

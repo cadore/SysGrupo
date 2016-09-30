@@ -231,6 +231,8 @@ namespace SysNorteGrupo.UI.Veiculos.Reboques
             this.searchLookUpEdit1View.Name = "searchLookUpEdit1View";
             this.searchLookUpEdit1View.OptionsSelection.EnableAppearanceFocusedCell = false;
             this.searchLookUpEdit1View.OptionsView.ShowGroupPanel = false;
+            this.searchLookUpEdit1View.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
+            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.gridColumn29, DevExpress.Data.ColumnSortOrder.Ascending)});
             // 
             // gridColumn25
             // 
@@ -240,7 +242,7 @@ namespace SysNorteGrupo.UI.Veiculos.Reboques
             this.gridColumn25.OptionsColumn.AllowEdit = false;
             this.gridColumn25.Visible = true;
             this.gridColumn25.VisibleIndex = 0;
-            this.gridColumn25.Width = 140;
+            this.gridColumn25.Width = 88;
             // 
             // colnome_completo
             // 
@@ -250,7 +252,7 @@ namespace SysNorteGrupo.UI.Veiculos.Reboques
             this.colnome_completo.OptionsColumn.AllowEdit = false;
             this.colnome_completo.Visible = true;
             this.colnome_completo.VisibleIndex = 1;
-            this.colnome_completo.Width = 522;
+            this.colnome_completo.Width = 359;
             // 
             // coltipo_cliente
             // 
@@ -267,7 +269,7 @@ namespace SysNorteGrupo.UI.Veiculos.Reboques
             this.coldocumento.OptionsColumn.AllowEdit = false;
             this.coldocumento.Visible = true;
             this.coldocumento.VisibleIndex = 2;
-            this.coldocumento.Width = 223;
+            this.coldocumento.Width = 186;
             // 
             // colinscricao_rg
             // 
@@ -404,10 +406,13 @@ namespace SysNorteGrupo.UI.Veiculos.Reboques
             // 
             // gridColumn29
             // 
+            this.gridColumn29.Caption = "INATIVO";
             this.gridColumn29.FieldName = "inativo";
             this.gridColumn29.Name = "gridColumn29";
             this.gridColumn29.OptionsColumn.AllowEdit = false;
-            this.gridColumn29.Width = 44;
+            this.gridColumn29.Visible = true;
+            this.gridColumn29.VisibleIndex = 3;
+            this.gridColumn29.Width = 63;
             // 
             // gridColumn30
             // 
@@ -543,7 +548,7 @@ namespace SysNorteGrupo.UI.Veiculos.Reboques
             this.gridColumn1.OptionsColumn.AllowEdit = false;
             this.gridColumn1.Visible = true;
             this.gridColumn1.VisibleIndex = 0;
-            this.gridColumn1.Width = 174;
+            this.gridColumn1.Width = 126;
             // 
             // gridColumn2
             // 
@@ -583,7 +588,7 @@ namespace SysNorteGrupo.UI.Veiculos.Reboques
             this.gridColumn7.OptionsColumn.AllowEdit = false;
             this.gridColumn7.Visible = true;
             this.gridColumn7.VisibleIndex = 1;
-            this.gridColumn7.Width = 711;
+            this.gridColumn7.Width = 477;
             // 
             // gridColumn8
             // 
@@ -659,9 +664,13 @@ namespace SysNorteGrupo.UI.Veiculos.Reboques
             // 
             // gridColumn19
             // 
+            this.gridColumn19.Caption = "INATIVO";
             this.gridColumn19.FieldName = "inativo";
             this.gridColumn19.Name = "gridColumn19";
             this.gridColumn19.OptionsColumn.AllowEdit = false;
+            this.gridColumn19.Visible = true;
+            this.gridColumn19.VisibleIndex = 2;
+            this.gridColumn19.Width = 93;
             // 
             // gridColumn20
             // 
@@ -720,7 +729,7 @@ namespace SysNorteGrupo.UI.Veiculos.Reboques
             this.ckInativo.Properties.Appearance.ForeColor = System.Drawing.Color.White;
             this.ckInativo.Properties.Appearance.Options.UseForeColor = true;
             this.ckInativo.Properties.Caption = "INATIVOS";
-            this.ckInativo.Size = new System.Drawing.Size(75, 19);
+            this.ckInativo.Size = new System.Drawing.Size(75, 15);
             this.ckInativo.TabIndex = 1;
             this.ckInativo.CheckedChanged += new System.EventHandler(this.ckInativo_CheckedChanged);
             // 
@@ -732,7 +741,7 @@ namespace SysNorteGrupo.UI.Veiculos.Reboques
             this.ckAtivo.Properties.Appearance.ForeColor = System.Drawing.Color.White;
             this.ckAtivo.Properties.Appearance.Options.UseForeColor = true;
             this.ckAtivo.Properties.Caption = "ATIVOS";
-            this.ckAtivo.Size = new System.Drawing.Size(67, 19);
+            this.ckAtivo.Size = new System.Drawing.Size(67, 15);
             this.ckAtivo.TabIndex = 0;
             this.ckAtivo.CheckedChanged += new System.EventHandler(this.ckAtivo_CheckedChanged);
             // 

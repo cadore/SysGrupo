@@ -372,11 +372,11 @@ namespace SysNorteGrupo.UI.Veiculos
                     MessageBoxButtons.OKCancel);
                 if (rs == DialogResult.OK)
                 {
-                    veiculo v = ((veiculo)bdgVeiculo.Current);
+                    veiculo v = (veiculo)bdgVeiculo.Current;
+                    //conn.inativarVeiculoCompleto(v);
                     v.inativo = true;
                     v.data_inativacao = conn.retornaDataHoraLocal();
-                    long id = Convert.ToInt64(conn.salvarVeiculo(v));
-                    tfId.Text = id.ToString();
+                    conn.salvarVeiculo(v);
                     Log.createLog(SysEventLog.inatived, String.Format("veiculo ID: {0}", tfId.Text));
 
                     pnPrincipal.Enabled = false;
