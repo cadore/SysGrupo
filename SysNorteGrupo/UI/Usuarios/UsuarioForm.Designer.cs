@@ -30,8 +30,9 @@ namespace SysNorteGrupo.UI.Usuarios
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule3 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
+            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule2 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UsuarioForm));
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.pnControl = new DevExpress.XtraEditors.PanelControl();
             this.pnPermicoes = new DevExpress.XtraEditors.PanelControl();
@@ -178,7 +179,7 @@ namespace SysNorteGrupo.UI.Usuarios
             this.ckCadVeiculo.Location = new System.Drawing.Point(15, 72);
             this.ckCadVeiculo.Name = "ckCadVeiculo";
             this.ckCadVeiculo.Properties.Caption = "CADASTRAR VEICULO";
-            this.ckCadVeiculo.Size = new System.Drawing.Size(141, 19);
+            this.ckCadVeiculo.Size = new System.Drawing.Size(141, 15);
             this.ckCadVeiculo.TabIndex = 7;
             // 
             // bdgPermicoes
@@ -191,7 +192,7 @@ namespace SysNorteGrupo.UI.Usuarios
             this.ckCadSinistro.Location = new System.Drawing.Point(15, 97);
             this.ckCadSinistro.Name = "ckCadSinistro";
             this.ckCadSinistro.Properties.Caption = "CADASTRAR SINISTRO";
-            this.ckCadSinistro.Size = new System.Drawing.Size(137, 19);
+            this.ckCadSinistro.Size = new System.Drawing.Size(137, 15);
             this.ckCadSinistro.TabIndex = 9;
             // 
             // ckInaVeiculo
@@ -200,7 +201,7 @@ namespace SysNorteGrupo.UI.Usuarios
             this.ckInaVeiculo.Location = new System.Drawing.Point(180, 72);
             this.ckInaVeiculo.Name = "ckInaVeiculo";
             this.ckInaVeiculo.Properties.Caption = "INATIVAR VEICULO";
-            this.ckInaVeiculo.Size = new System.Drawing.Size(124, 19);
+            this.ckInaVeiculo.Size = new System.Drawing.Size(124, 15);
             this.ckInaVeiculo.TabIndex = 8;
             // 
             // ckInaCliente
@@ -209,7 +210,7 @@ namespace SysNorteGrupo.UI.Usuarios
             this.ckInaCliente.Location = new System.Drawing.Point(180, 47);
             this.ckInaCliente.Name = "ckInaCliente";
             this.ckInaCliente.Properties.Caption = "INATIVAR CLIENTE";
-            this.ckInaCliente.Size = new System.Drawing.Size(124, 19);
+            this.ckInaCliente.Size = new System.Drawing.Size(124, 15);
             this.ckInaCliente.TabIndex = 6;
             // 
             // ckInaSinistro
@@ -218,7 +219,7 @@ namespace SysNorteGrupo.UI.Usuarios
             this.ckInaSinistro.Location = new System.Drawing.Point(180, 97);
             this.ckInaSinistro.Name = "ckInaSinistro";
             this.ckInaSinistro.Properties.Caption = "INATIVAR SINISTRO";
-            this.ckInaSinistro.Size = new System.Drawing.Size(128, 19);
+            this.ckInaSinistro.Size = new System.Drawing.Size(128, 15);
             this.ckInaSinistro.TabIndex = 10;
             // 
             // ckFinSinistro
@@ -227,7 +228,7 @@ namespace SysNorteGrupo.UI.Usuarios
             this.ckFinSinistro.Location = new System.Drawing.Point(361, 97);
             this.ckFinSinistro.Name = "ckFinSinistro";
             this.ckFinSinistro.Properties.Caption = "FINALIZAR SINISTRO";
-            this.ckFinSinistro.Size = new System.Drawing.Size(130, 19);
+            this.ckFinSinistro.Size = new System.Drawing.Size(130, 15);
             this.ckFinSinistro.TabIndex = 11;
             // 
             // ckCadCliente
@@ -236,7 +237,7 @@ namespace SysNorteGrupo.UI.Usuarios
             this.ckCadCliente.Location = new System.Drawing.Point(15, 47);
             this.ckCadCliente.Name = "ckCadCliente";
             this.ckCadCliente.Properties.Caption = "CADASTRAR CLIENTE";
-            this.ckCadCliente.Size = new System.Drawing.Size(141, 19);
+            this.ckCadCliente.Size = new System.Drawing.Size(141, 15);
             this.ckCadCliente.TabIndex = 5;
             // 
             // ckRelatorios
@@ -245,7 +246,7 @@ namespace SysNorteGrupo.UI.Usuarios
             this.ckRelatorios.Location = new System.Drawing.Point(361, 22);
             this.ckRelatorios.Name = "ckRelatorios";
             this.ckRelatorios.Properties.Caption = "RELATÓRIOS";
-            this.ckRelatorios.Size = new System.Drawing.Size(96, 19);
+            this.ckRelatorios.Size = new System.Drawing.Size(96, 15);
             this.ckRelatorios.TabIndex = 4;
             // 
             // ckUsuarios
@@ -254,7 +255,7 @@ namespace SysNorteGrupo.UI.Usuarios
             this.ckUsuarios.Location = new System.Drawing.Point(180, 22);
             this.ckUsuarios.Name = "ckUsuarios";
             this.ckUsuarios.Properties.Caption = "USUÁRIOS";
-            this.ckUsuarios.Size = new System.Drawing.Size(79, 19);
+            this.ckUsuarios.Size = new System.Drawing.Size(79, 15);
             this.ckUsuarios.TabIndex = 3;
             // 
             // ckFinanceiro
@@ -263,7 +264,7 @@ namespace SysNorteGrupo.UI.Usuarios
             this.ckFinanceiro.Location = new System.Drawing.Point(15, 22);
             this.ckFinanceiro.Name = "ckFinanceiro";
             this.ckFinanceiro.Properties.Caption = "FINANCEIRO";
-            this.ckFinanceiro.Size = new System.Drawing.Size(89, 19);
+            this.ckFinanceiro.Size = new System.Drawing.Size(89, 15);
             this.ckFinanceiro.TabIndex = 2;
             // 
             // labelControl8
@@ -383,10 +384,10 @@ namespace SysNorteGrupo.UI.Usuarios
             this.tfLogin.Name = "tfLogin";
             this.tfLogin.Size = new System.Drawing.Size(145, 20);
             this.tfLogin.TabIndex = 1;
-            conditionValidationRule3.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule3.ErrorText = "Preencha o login.";
-            conditionValidationRule3.ErrorType = DevExpress.XtraEditors.DXErrorProvider.ErrorType.Critical;
-            this.dxValidationProvider.SetValidationRule(this.tfLogin, conditionValidationRule3);
+            conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule1.ErrorText = "Preencha o login.";
+            conditionValidationRule1.ErrorType = DevExpress.XtraEditors.DXErrorProvider.ErrorType.Critical;
+            this.dxValidationProvider.SetValidationRule(this.tfLogin, conditionValidationRule1);
             // 
             // labelControl2
             // 
@@ -403,10 +404,10 @@ namespace SysNorteGrupo.UI.Usuarios
             this.tfNome.Name = "tfNome";
             this.tfNome.Size = new System.Drawing.Size(447, 20);
             this.tfNome.TabIndex = 0;
-            conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule1.ErrorText = "Preencha o nome completo.";
-            conditionValidationRule1.ErrorType = DevExpress.XtraEditors.DXErrorProvider.ErrorType.Critical;
-            this.dxValidationProvider.SetValidationRule(this.tfNome, conditionValidationRule1);
+            conditionValidationRule2.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule2.ErrorText = "Preencha o nome completo.";
+            conditionValidationRule2.ErrorType = DevExpress.XtraEditors.DXErrorProvider.ErrorType.Critical;
+            this.dxValidationProvider.SetValidationRule(this.tfNome, conditionValidationRule2);
             // 
             // labelControl1
             // 
@@ -436,6 +437,7 @@ namespace SysNorteGrupo.UI.Usuarios
             this.btnSair.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSair.Font = new System.Drawing.Font("Segoe UI Light", 12F);
             this.btnSair.ForeColor = System.Drawing.Color.White;
+            this.btnSair.Image = ((System.Drawing.Image)(resources.GetObject("btnSair.Image")));
             this.btnSair.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSair.Location = new System.Drawing.Point(537, 7);
             this.btnSair.Name = "btnSair";
@@ -452,6 +454,7 @@ namespace SysNorteGrupo.UI.Usuarios
             this.btnNovo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNovo.Font = new System.Drawing.Font("Segoe UI Light", 12F);
             this.btnNovo.ForeColor = System.Drawing.Color.White;
+            this.btnNovo.Image = ((System.Drawing.Image)(resources.GetObject("btnNovo.Image")));
             this.btnNovo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnNovo.Location = new System.Drawing.Point(232, 7);
             this.btnNovo.Name = "btnNovo";
@@ -469,6 +472,7 @@ namespace SysNorteGrupo.UI.Usuarios
             this.btnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEditar.Font = new System.Drawing.Font("Segoe UI Light", 12F);
             this.btnEditar.ForeColor = System.Drawing.Color.White;
+            this.btnEditar.Image = ((System.Drawing.Image)(resources.GetObject("btnEditar.Image")));
             this.btnEditar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnEditar.Location = new System.Drawing.Point(120, 7);
             this.btnEditar.Name = "btnEditar";
@@ -485,6 +489,7 @@ namespace SysNorteGrupo.UI.Usuarios
             this.btnSalvar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSalvar.Font = new System.Drawing.Font("Segoe UI Light", 12F);
             this.btnSalvar.ForeColor = System.Drawing.Color.White;
+            this.btnSalvar.Image = ((System.Drawing.Image)(resources.GetObject("btnSalvar.Image")));
             this.btnSalvar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSalvar.Location = new System.Drawing.Point(8, 7);
             this.btnSalvar.Name = "btnSalvar";
