@@ -152,6 +152,9 @@ namespace WcfLibGrupo
         [OperationContract]
         void inativarClienteCompleto(cliente cli);
 
+        [OperationContract]
+        void excluiClientePorId(long id);
+
         #endregion
 
         #region fipe
@@ -174,6 +177,9 @@ namespace WcfLibGrupo
         #endregion
 
         #region veiculos
+
+        [OperationContract]
+        void excluiVeiculoPorId(long id);
 
         [OperationContract]
         long salvarVeiculo(veiculo veiculo_obj);

@@ -174,7 +174,11 @@ namespace SysNorteGrupo.UI.Veiculos.Reboques
                     cliente cli = conn.retornaClientePorId(r.id_cliente);
                     decimal cotas = r.valor / ConfigSistema.valor_por_cota;
 
-                    r.nome_cliente = cli.nome_completo;
+                    if (cli != null)
+                        r.nome_cliente = cli.nome_completo;
+                    else
+                        r.nome_cliente = "";                   
+
                     r.cotas = cotas;
                     listRetorno.Add(r);
                 }
@@ -191,7 +195,7 @@ namespace SysNorteGrupo.UI.Veiculos.Reboques
         {
             reboque reb = (reboque)bdgReboque.Current;
 
-            List<reboque> listaReboque = conn.listaDeReboquesPorIdVeiculoEInatividade(reb.id_veiculo, false);
+            List<reboque> listaReboque = conn.listaDeReboquesPorIdVeiculoEInatividade(reb.id_veiculo, reb.inativo);
 
             ReboqueForm rf = new ReboqueForm(listaReboque) { formPrincipal = formPrincipal };
             formPrincipal.adicionarControleNavegacao(rf);

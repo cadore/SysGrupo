@@ -98,6 +98,23 @@ namespace SysNorteGrupo.UI.Veiculos.Reboques
                 MessageBox.Show(ex.Message);
             }
 
+            if (reb != null)
+            {
+                bool inativo = false;
+                foreach (reboque r in reb)
+                {
+                    if (r.inativo)
+                        inativo = true;
+                }
+                if (inativo)
+                {
+                    btnAdicionar.Enabled = false;
+                    btnEditar.Enabled = false;
+                    btnNovo.Enabled = true;
+                    btnInativar.Enabled = false;
+                    btnExcluir.Enabled = true;
+                }
+            }
         }
 
         #region backColor
@@ -134,7 +151,7 @@ namespace SysNorteGrupo.UI.Veiculos.Reboques
 
         private void cbCliente_EditValueChanged(object sender, EventArgs e)
         {
-            if (Convert.ToInt32(cbCliente.EditValue) > 0)
+            if (cbCliente.EditValue != null && cbCliente.EditValue != DBNull.Value)
                 bdgVeiculo.DataSource = conn.listaDeVeiculosPorIdClienteEInatividade(Convert.ToInt64(cbCliente.EditValue), false);
             else
             {
@@ -143,7 +160,7 @@ namespace SysNorteGrupo.UI.Veiculos.Reboques
         }
         private void cbVeiculos_EditValueChanged(object sender, EventArgs e)
         {
-            if (cbVeiculos.EditValue != null && Convert.ToInt32(cbVeiculos.EditValue) > 0)
+            if (cbVeiculos.EditValue != null && cbVeiculos.EditValue != DBNull.Value)
                 pnInformacoes.Enabled = true;
             else
                 pnInformacoes.Enabled = false;
@@ -223,6 +240,12 @@ namespace SysNorteGrupo.UI.Veiculos.Reboques
         {
             try
             {
+                /*if (cbVeiculos.EditValue == null || Convert.ToInt64(cbVeiculos.EditValue) == 0)
+                {
+                    XtraMessageBox.Show("INFORME UM VEICULO PARA CONTINUAR!");
+                    return;
+                }*/
+
                 long id_cli = Convert.ToInt64(cbCliente.EditValue);
                 long id_veic = Convert.ToInt64(cbVeiculos.EditValue);
 
@@ -406,7 +429,7 @@ namespace SysNorteGrupo.UI.Veiculos.Reboques
 
         private void cbCorChassi_EditValueChanged(object sender, EventArgs e)
         {
-            if (cbCorChassi.EditValue != null)
+            if (cbCorChassi.EditValue != null && cbCorChassi.EditValue != DBNull.Value)
             {
                 ((reboque)bdgReboqueLista.Current).cor_chassi = cbCorChassi.EditValue.ToString();
 
@@ -425,7 +448,7 @@ namespace SysNorteGrupo.UI.Veiculos.Reboques
 
         private void cbCorCarroceria_EditValueChanged(object sender, EventArgs e)
         {
-            if (cbCorCarroceria.EditValue != null)
+            if (cbCorCarroceria.EditValue != null && cbCorCarroceria.EditValue != DBNull.Value)
             {
                 ((reboque)bdgReboqueLista.Current).cor_carroceria = cbCorCarroceria.EditValue.ToString();
 
@@ -445,7 +468,7 @@ namespace SysNorteGrupo.UI.Veiculos.Reboques
         private void cbEstado_EditValueChanged(object sender, EventArgs e)
         {
             bdgCidade.Clear();
-            if (cbEstado.EditValue != null)
+            if (cbEstado.EditValue != null && cbEstado.EditValue != DBNull.Value)
             {
                 bdgCidade.DataSource = conn.listaDeCidadesPorEstado(cbEstado.Text);
                 //((reboque)bdgReboqueLista.Current).id_cidade = 0;
@@ -561,13 +584,20 @@ namespace SysNorteGrupo.UI.Veiculos.Reboques
 
         private void bdgReboqueLista_CurrentChanged(object sender, EventArgs e)
         {
-            reboque r = (reboque)bdgReboqueLista.Current;
+            try
+            {
+                reboque r = (reboque)bdgReboqueLista.Current;
 
-            cbCorCarroceria.EditValue = r.cor_carroceria;
-            cbCorChassi.EditValue = r.cor_chassi;
+                if (r.cor_carroceria == null)
+                    cbCorCarroceria.EditValue = "";
+                else
+                    cbCorCarroceria.EditValue = r.cor_carroceria;
+                cbCorChassi.EditValue = r.cor_chassi;
 
-            arquivosFormReb.DIRETORIO = String.Format(@"{0}{1}\", conn.SUBDIR_REBOQUES(), ((reboque)bdgReboqueLista.Current).id);
-            arquivosFormReb.executaBusca();
+                arquivosFormReb.DIRETORIO = String.Format(@"{0}{1}\", conn.SUBDIR_REBOQUES(), ((reboque)bdgReboqueLista.Current).id);
+                arquivosFormReb.executaBusca();
+            }
+            catch (Exception) { }
         }
 
         private void tfPlaca_Validating(object sender, System.ComponentModel.CancelEventArgs e)
@@ -584,18 +614,24 @@ namespace SysNorteGrupo.UI.Veiculos.Reboques
         {
             try
             {
-                DialogResult rs = XtraMessageBox.Show(String.Format("CONFIRMA EXCLUSÃO DO REBOQUE {0}?\n\nNÃO SERÁ POSSÍVEL REVERTER ESTA AÇÃO!", tfPlaca.Text),
+                DialogResult rs = XtraMessageBox.Show(String.Format("CONFIRMA EXCLUSÃO DOS REBOQUES?\n\nNÃO SERÁ POSSÍVEL REVERTER ESTA AÇÃO!"),
                     "SYSNORTE",
                     MessageBoxButtons.OKCancel);
                 if (rs == DialogResult.OK)
                 {
-                    reboque r = (reboque)bdgReboqueLista.Current;
+                
+                    List<reboque> listR = (List<reboque>)bdgReboqueLista.DataSource;
+                    foreach (reboque r in listR)
+                    {
+                        conn.excluiReboquePorId(r.id);
+                        Log.createLog(SysEventLog.deleted, String.Format(" reboque ID: {0}", r.id));
+                    }
                     
-                    conn.excluiReboquePorId(r.id);
-                    Log.createLog(SysEventLog.deleted, String.Format(" reboque ID: {0}", r.id));
                     bdgReboqueLista.DataSource = conn.listaDeReboquesPorIdVeiculoEInatividade(Convert.ToInt64(cbVeiculos.EditValue), false);
                     bdgReboqueLista.MoveFirst();
                     grdReboques.Refresh();
+                    XtraMessageBox.Show("REBOQUES EXCLUIDOS COM SUCESSO!");
+                    formPrincipal.adicionarControleNavegacao(null);
                 }
             }
             catch (Exception ex)

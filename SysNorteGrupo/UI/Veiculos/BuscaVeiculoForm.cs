@@ -72,9 +72,12 @@ namespace SysNorteGrupo.UI.Veiculos
                 foreach (veiculo v in listVei)
                 {
                     cliente cli = conn.retornaClientePorId(v.id_cliente);
-                    decimal cotas = v.valor / ConfigSistema.valor_por_cota;
+                    if(cli != null)
+                        v.nome_cliente = cli.nome_completo;
+                    else
+                        v.nome_cliente = "";
 
-                    v.nome_cliente = cli.nome_completo;
+                    decimal cotas = v.valor / ConfigSistema.valor_por_cota;
                     v.cotas = cotas;
                     listRetorno.Add(v);
                 }

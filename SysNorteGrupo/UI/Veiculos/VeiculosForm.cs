@@ -71,6 +71,8 @@ namespace SysNorteGrupo.UI.Veiculos
                 if (veiculo_instc.inativo == true)
                 {
                     btnEditar.Enabled = false;
+                    btnInativar.Enabled = false;
+                    btnExcluir.Enabled = true;
                 }
 
                 cbCor.EditValue = veiculo_instc.cor_predominante;
@@ -193,6 +195,7 @@ namespace SysNorteGrupo.UI.Veiculos
             btnSalvar.Enabled = true;
             btnEditar.Enabled = false;
             btnInativar.Enabled = true;
+            btnExcluir.Enabled = true;
             Log.createLog(SysEventLog.edited, String.Format("veiculo ID: {0}", tfId.Text));
             arquivosForm.DIRETORIO = conn.SUBDIR_VEICULOS() + veiculo_instc.id.ToString() + @"\";
             arquivosForm.executaBusca();
@@ -409,6 +412,30 @@ namespace SysNorteGrupo.UI.Veiculos
             else
             {
                 arquivosForm.Enabled = true;
+            }
+        }
+
+        private void btnExcluir_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DialogResult rs = XtraMessageBox.Show(String.Format("CONFIRMA EXCLUSÃO DO VEICULO?\n\nNÃO SERÁ POSSÍVEL REVERTER ESTA AÇÃO!"), "SYSNORTE",
+                    MessageBoxButtons.OKCancel);
+                if (rs == DialogResult.OK)
+                {
+
+                    veiculo v = (veiculo)bdgVeiculo.DataSource;
+                    conn.excluiVeiculoPorId(v.id);
+                    Log.createLog(SysEventLog.deleted, String.Format(" veiculo ID: {0}", v.id));
+
+                    XtraMessageBox.Show("VEICULOS EXCLUIDO COM SUCESSO!");
+                    formPrincipal.adicionarControleNavegacao(null);
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Windows.MessageBox.Show("Ocorreu um erro ao tentar executar sua solicitação.\n\n" + ex.Message);
+                formPrincipal.adicionarControleNavegacao(null);
             }
         }
     }

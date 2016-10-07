@@ -45,6 +45,7 @@ namespace SysNorteGrupo.UI.Clientes
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule11 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule12 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             this.pnBotoes = new DevExpress.XtraEditors.PanelControl();
+            this.btnExcluir = new SysNorteGrupo.UI.Utils.Botoes.BotaoExcluir();
             this.btnInativar = new SysNorteGrupo.UI.Utils.Botoes.BotaoInativar();
             this.btnImprimirContrato = new SysNorteGrupo.UI.Utils.Botoes.BotaoImprimir();
             this.btnSair = new SysNorteGrupo.UI.Utils.Botoes.BotaoSair();
@@ -133,8 +134,8 @@ namespace SysNorteGrupo.UI.Clientes
             this.tfNome = new DevExpress.XtraEditors.TextEdit();
             this.tfDocumento = new DevExpress.XtraEditors.TextEdit();
             this.tfInscricao = new DevExpress.XtraEditors.TextEdit();
-            this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
+            this.lbInscricao = new DevExpress.XtraEditors.LabelControl();
+            this.lbDocumento = new DevExpress.XtraEditors.LabelControl();
             this.tfTotalBens = new DevExpress.XtraEditors.TextEdit();
             this.tfTotalCotas = new DevExpress.XtraEditors.TextEdit();
             this.tfId = new DevExpress.XtraEditors.TextEdit();
@@ -206,6 +207,7 @@ namespace SysNorteGrupo.UI.Clientes
             this.pnBotoes.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(82)))), ((int)(((byte)(155)))));
             this.pnBotoes.Appearance.Options.UseBackColor = true;
             this.pnBotoes.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.pnBotoes.Controls.Add(this.btnExcluir);
             this.pnBotoes.Controls.Add(this.btnInativar);
             this.pnBotoes.Controls.Add(this.btnImprimirContrato);
             this.pnBotoes.Controls.Add(this.btnSair);
@@ -217,6 +219,24 @@ namespace SysNorteGrupo.UI.Clientes
             this.pnBotoes.Name = "pnBotoes";
             this.pnBotoes.Size = new System.Drawing.Size(1066, 55);
             this.pnBotoes.TabIndex = 0;
+            // 
+            // btnExcluir
+            // 
+            this.btnExcluir.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(199)))));
+            this.btnExcluir.Enabled = false;
+            this.btnExcluir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExcluir.Font = new System.Drawing.Font("Segoe UI Light", 12F);
+            this.btnExcluir.ForeColor = System.Drawing.Color.White;
+            this.btnExcluir.Image = ((System.Drawing.Image)(resources.GetObject("btnExcluir.Image")));
+            this.btnExcluir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnExcluir.Location = new System.Drawing.Point(462, 5);
+            this.btnExcluir.Name = "btnExcluir";
+            this.btnExcluir.Size = new System.Drawing.Size(106, 44);
+            this.btnExcluir.TabIndex = 14;
+            this.btnExcluir.Text = "Excluir";
+            this.btnExcluir.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnExcluir.UseVisualStyleBackColor = false;
+            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
             // 
             // btnInativar
             // 
@@ -244,7 +264,7 @@ namespace SysNorteGrupo.UI.Clientes
             this.btnImprimirContrato.ForeColor = System.Drawing.Color.White;
             this.btnImprimirContrato.Image = ((System.Drawing.Image)(resources.GetObject("btnImprimirContrato.Image")));
             this.btnImprimirContrato.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnImprimirContrato.Location = new System.Drawing.Point(462, 6);
+            this.btnImprimirContrato.Location = new System.Drawing.Point(574, 6);
             this.btnImprimirContrato.Name = "btnImprimirContrato";
             this.btnImprimirContrato.Size = new System.Drawing.Size(215, 43);
             this.btnImprimirContrato.TabIndex = 12;
@@ -1039,8 +1059,8 @@ namespace SysNorteGrupo.UI.Clientes
             this.tfTelCelular.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdgCliente, "telefone_celular", true));
             this.tfTelCelular.Location = new System.Drawing.Point(408, 24);
             this.tfTelCelular.Name = "tfTelCelular";
-            this.tfTelCelular.Properties.Mask.EditMask = "(\\(11\\)[9][0-9]{4}-[0-9]{4})|(\\(1[2-9]\\) [5-9][0-9]{3}-[0-9]{4})|(\\([2-9][1-9]\\) " +
-    "[5-9][0-9]{3}-[0-9]{4})";
+            this.tfTelCelular.Properties.Mask.EditMask = "\\(([1][1-9]|[2][1-2]|[2][4]|[2][7-8]|[9][1-9]|[8][1-9]|[3][1-8]|[7][1]|[7][3-5]|[" +
+    "7][7]|[7][9]|[6][1-9])\\)(\\d{5}-\\d{4})|\\((\\d{2})\\)(\\d{4}-\\d{4})";
             this.tfTelCelular.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
             this.tfTelCelular.Size = new System.Drawing.Size(157, 20);
             this.tfTelCelular.TabIndex = 1;
@@ -1070,8 +1090,8 @@ namespace SysNorteGrupo.UI.Clientes
             this.grpInfoBasica.Controls.Add(this.tfNome);
             this.grpInfoBasica.Controls.Add(this.tfDocumento);
             this.grpInfoBasica.Controls.Add(this.tfInscricao);
-            this.grpInfoBasica.Controls.Add(this.labelControl3);
-            this.grpInfoBasica.Controls.Add(this.labelControl2);
+            this.grpInfoBasica.Controls.Add(this.lbInscricao);
+            this.grpInfoBasica.Controls.Add(this.lbDocumento);
             this.grpInfoBasica.Location = new System.Drawing.Point(5, 5);
             this.grpInfoBasica.Name = "grpInfoBasica";
             this.grpInfoBasica.Size = new System.Drawing.Size(574, 96);
@@ -1126,21 +1146,21 @@ namespace SysNorteGrupo.UI.Clientes
             this.tfInscricao.Size = new System.Drawing.Size(274, 20);
             this.tfInscricao.TabIndex = 2;
             // 
-            // labelControl3
+            // lbInscricao
             // 
-            this.labelControl3.Location = new System.Drawing.Point(7, 73);
-            this.labelControl3.Name = "labelControl3";
-            this.labelControl3.Size = new System.Drawing.Size(110, 13);
-            this.labelControl3.TabIndex = 4;
-            this.labelControl3.Text = "INSC. ESTADUAL / RG:";
+            this.lbInscricao.Location = new System.Drawing.Point(7, 73);
+            this.lbInscricao.Name = "lbInscricao";
+            this.lbInscricao.Size = new System.Drawing.Size(110, 13);
+            this.lbInscricao.TabIndex = 4;
+            this.lbInscricao.Text = "INSC. ESTADUAL / RG:";
             // 
-            // labelControl2
+            // lbDocumento
             // 
-            this.labelControl2.Location = new System.Drawing.Point(65, 50);
-            this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(52, 13);
-            this.labelControl2.TabIndex = 4;
-            this.labelControl2.Text = "CPF/CNPJ:";
+            this.lbDocumento.Location = new System.Drawing.Point(65, 50);
+            this.lbDocumento.Name = "lbDocumento";
+            this.lbDocumento.Size = new System.Drawing.Size(52, 13);
+            this.lbDocumento.TabIndex = 4;
+            this.lbDocumento.Text = "CPF/CNPJ:";
             // 
             // tfTotalBens
             // 
@@ -1306,10 +1326,10 @@ namespace SysNorteGrupo.UI.Clientes
         private DevExpress.XtraEditors.TextEdit tfNome;
         private DevExpress.XtraEditors.LabelControl labelControl1;
         private DevExpress.XtraEditors.TextEdit tfDocumento;
-        private DevExpress.XtraEditors.LabelControl labelControl2;
+        private DevExpress.XtraEditors.LabelControl lbDocumento;
         private DevExpress.XtraEditors.RadioGroup grpTipo;
         private DevExpress.XtraEditors.PanelControl panelCadastro;
-        private DevExpress.XtraEditors.LabelControl labelControl3;
+        private DevExpress.XtraEditors.LabelControl lbInscricao;
         private DevExpress.XtraEditors.TextEdit tfInscricao;
         private DevExpress.XtraEditors.CheckEdit ckIsento;
         private DevExpress.XtraEditors.GroupControl grpInfoBasica;
@@ -1396,5 +1416,6 @@ namespace SysNorteGrupo.UI.Clientes
         private ArquivosForm arquivosFormCli;
         private BotaoImprimir btnImprimirContrato;
         private BotaoInativar btnInativar;
+        private BotaoExcluir btnExcluir;
     }
 }

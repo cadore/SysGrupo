@@ -95,6 +95,11 @@ namespace SysNorteGrupo.UI.Clientes
                 arquivosFormCli.executaBusca();
                 arquivosFormCli.Enabled = true;
 
+                if (cliente_instc.cotas > 0 && cliente_instc.valor_total > 0)
+                    btnImprimirContrato.Enabled = true;
+                else
+                    btnImprimirContrato.Enabled = false;
+
                 //carregar cidades pelo estado, bairros endereços
                 try
                 {
@@ -139,6 +144,7 @@ namespace SysNorteGrupo.UI.Clientes
             if (cliente_instc.inativo == true)
             {
                 btnEditar.Enabled = false;
+                btnExcluir.Enabled = true;
             }
         }
 
@@ -166,7 +172,8 @@ namespace SysNorteGrupo.UI.Clientes
             btnSalvar.Enabled = true;
             btnEditar.Enabled = false;
             panelComponentes.Enabled = true;
-            btnInativar.Enabled = false;
+            btnInativar.Enabled = true;
+            btnExcluir.Enabled = true;
             arquivosFormCli.DIRETORIO = String.Format(@"{0}{1}\", conn.SUBDIR_CLIENTES(), ((cliente)bdgCliente.Current).id);
             arquivosFormCli.executaBusca();
             arquivosFormCli.Enabled = true;
@@ -260,6 +267,8 @@ namespace SysNorteGrupo.UI.Clientes
 
                 ckIsento.Checked = false;
                 ckIsento.Enabled = false;
+                lbDocumento.Text = "CPF:";
+                lbInscricao.Text = "RG:";
             }
             else
             {
@@ -267,6 +276,8 @@ namespace SysNorteGrupo.UI.Clientes
 
                 ckIsento.Checked = false;
                 ckIsento.Enabled = true;
+                lbDocumento.Text = "CNPJ:";
+                lbInscricao.Text = "INSCRIÇÃO ESTADUAL:";
             }
 
             this.tfDocumento.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Simple;
@@ -560,12 +571,38 @@ namespace SysNorteGrupo.UI.Clientes
                     panelArquivos.Enabled = false;
                     btnSalvar.Enabled = false;
                     btnEditar.Enabled = false;
+                    btnInativar.Enabled = false;
                     panelComponentes.Enabled = false;
+                    btnExcluir.Enabled = true;
                 }
             }
             catch (Exception ex)
             {
                 XtraMessageBox.Show("Ocorreu um erro ao tentar executar sua solicitação.\n\n" + ex.Message);
+                formPrincipal.adicionarControleNavegacao(null);
+            }
+        }
+
+        private void btnExcluir_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DialogResult rs = XtraMessageBox.Show(String.Format("CONFIRMA EXCLUSÃO DO VEICULO?\n\nNÃO SERÁ POSSÍVEL REVERTER ESTA AÇÃO!"), "SYSNORTE",
+                    MessageBoxButtons.OKCancel);
+                if (rs == DialogResult.OK)
+                {
+
+                    cliente c = (cliente)bdgCliente.DataSource;
+                    conn.excluiClientePorId(c.id);
+                    Log.createLog(SysEventLog.deleted, String.Format(" cliente ID: {0}", c.id));
+
+                    XtraMessageBox.Show("CLIENTE EXCLUIDO COM SUCESSO!");
+                    formPrincipal.adicionarControleNavegacao(null);
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Windows.MessageBox.Show("Ocorreu um erro ao tentar executar sua solicitação.\n\n" + ex.Message);
                 formPrincipal.adicionarControleNavegacao(null);
             }
         }

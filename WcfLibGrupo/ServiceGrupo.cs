@@ -737,6 +737,20 @@ namespace WcfLibGrupo
             }
         }
 
+        public void excluiClientePorId(long id)
+        {
+            try
+            {
+                db.Delete<cliente>("WHERE id=@0", id);
+            }
+            catch (Exception ex)
+            {
+                throw new FaultException(
+                    new FaultReason(String.Format("EXCECÃO: {0}{1}INNER EXCEPTION: {2}", ex.Message, Environment.NewLine, ex.InnerException)),
+                    new FaultCode("1000"));
+            }
+        }
+        
         #endregion
 
         #region fipe
@@ -1283,6 +1297,26 @@ namespace WcfLibGrupo
             }
         }
 
+        public void excluiVeiculoPorId(long id)
+        {
+            try
+            {
+                List<reboque> listR = reboque.Fetch("WHERE id_veiculo=@0", id);
+                foreach (reboque r in listR)
+                {
+                    r.id_veiculo = 0;
+                    r.Save();
+                }
+                db.Delete<veiculo>("WHERE id=@0", id);
+            }
+            catch (Exception ex)
+            {
+                throw new FaultException(
+                    new FaultReason(String.Format("EXCECÃO: {0}{1}INNER EXCEPTION: {2}", ex.Message, Environment.NewLine, ex.InnerException)),
+                    new FaultCode("1000"));
+            }
+        }
+
         #endregion
 
         #region reboques
@@ -1295,6 +1329,7 @@ namespace WcfLibGrupo
                 {                    
                     foreach(reboque reb in reboques) 
                     {
+                        reb.data_cadastro = retornaDataHoraLocal();
                         reb.Save();
                     }
 
