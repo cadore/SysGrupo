@@ -1,6 +1,4 @@
-﻿using SysFileManager;
-using SysNorteGrupo.UI.Utils.Botoes;
-using SysNorteGrupo.Utils;
+﻿using SysNorteGrupo.UI.Utils.Botoes;
 namespace SysNorteGrupo.UI.Sinistros
 {
     partial class SinistrosForm

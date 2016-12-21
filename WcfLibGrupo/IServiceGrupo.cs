@@ -1,5 +1,4 @@
 ﻿using EntitiesGrupo;
-using ServicosSysFileManager.Repository;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -162,7 +161,7 @@ namespace WcfLibGrupo
         [OperationContract]
         List<marca_veiculo> listaDeMarcas();
 
-        [OperationContract]
+        /*[OperationContract]
         List<modelo_veiculo> listaDeModelosPorIdMarca(long id_marca);
 
         [OperationContract]
@@ -172,7 +171,7 @@ namespace WcfLibGrupo
         ano_modelo_veiculo recuperaValorPorIdModelo(long id_modelo);
 
         [OperationContract]
-        modelo_veiculo retornaModeloPorId(string id_modelo);
+        modelo_veiculo retornaModeloPorId(string id_modelo);*/
 
         #endregion
 
@@ -328,11 +327,11 @@ namespace WcfLibGrupo
 
         #region cidades, bairros, enderecos
 
-        [OperationContract]
+        /*[OperationContract]
         long SalvaBairro(bairro obj);
 
         [OperationContract]
-        long SalvaEndereco(endereco obj);
+        long SalvaEndereco(endereco obj);*/
 
         [OperationContract]
         List<estado> listaDeEstados();
@@ -340,19 +339,16 @@ namespace WcfLibGrupo
         [OperationContract]
         List<cidade> listaDeCidadesPorEstado(string estado);
 
-        [OperationContract]
+        /*[OperationContract]
         List<bairro> listaDeBairrosPorCidade(long id_cidade);
 
         [OperationContract]
         List<endereco> listaDeEnderecosPorCidade(long id_cidade);
-
+        */
         #endregion
 
         #region arquivos
-
-        [OperationContract]
-        List<ArquivosModel> retornaTodosArquivosPorDiretorio(string diretorio);
-
+        /*
         [OperationContract]
         bool upload(Byte[] b1, string nome_completo);
 
@@ -374,7 +370,7 @@ namespace WcfLibGrupo
         #endregion
 
         #region diretorios
-
+        
         [OperationContract]
         string SUBDIR_EMPRESA();
         [OperationContract]
@@ -384,7 +380,7 @@ namespace WcfLibGrupo
         [OperationContract]
         string SUBDIR_REBOQUES();
         [OperationContract]
-        string SUBDIR_SINISTROS();     
+        string SUBDIR_SINISTROS();     */
 
         #endregion
 

@@ -5,7 +5,6 @@ using DevExpress.XtraTab;
 using EntitiesGrupo;
 using SysNorteGrupo.Reports;
 using SysNorteGrupo.Reports.Clientes;
-using SysNorteGrupo.UI.Utils.Enderecos;
 using SysNorteGrupo.Utils;
 using System;
 using System.Collections.Generic;
@@ -121,14 +120,14 @@ namespace SysNorteGrupo.UI.Clientes
 
                 try
                 {
-                    bdgBairros.DataSource = conn.listaDeBairrosPorCidade(Convert.ToInt64(cbCidade.EditValue));
-                    bdgEnderecos.DataSource = conn.listaDeEnderecosPorCidade(Convert.ToInt64(cbCidade.EditValue));
+                    //bdgBairros.DataSource = conn.listaDeBairrosPorCidade(Convert.ToInt64(cbCidade.EditValue));
+                    //bdgEnderecos.DataSource = conn.listaDeEnderecosPorCidade(Convert.ToInt64(cbCidade.EditValue));
 
-                    cbBairro.Enabled = true;
-                    cbEndereco.Enabled = true;
+                    tfBairro.Enabled = true;
+                    tfEndereco.Enabled = true;
 
-                    cbBairro.EditValue = cliente_instc.id_bairros;
-                    cbEndereco.EditValue = cliente_instc.id_enderecos;
+                    tfBairro.EditValue = cliente_instc.id_bairros;
+                    tfEndereco.EditValue = cliente_instc.id_enderecos;
                 }
                 catch (Exception ex)
                 {
@@ -136,8 +135,8 @@ namespace SysNorteGrupo.UI.Clientes
 
                     bdgBairros.DataSource = null;
                     bdgEnderecos.DataSource = null;
-                    cbBairro.Enabled = false;
-                    cbEndereco.Enabled = false;
+                    tfBairro.Enabled = false;
+                    tfEndereco.Enabled = false;
                 }
                 btnImprimirContrato.Visible = true;
             }
@@ -358,24 +357,24 @@ namespace SysNorteGrupo.UI.Clientes
                 //XtraMessageBox.Show(cbCidade.EditValue.ToString());
                 try
                 {
-                    bdgBairros.DataSource = conn.listaDeBairrosPorCidade(Convert.ToInt64(cbCidade.EditValue));
-                    bdgEnderecos.DataSource = conn.listaDeEnderecosPorCidade(Convert.ToInt64(cbCidade.EditValue));
+                    //bdgBairros.DataSource = conn.listaDeBairrosPorCidade(Convert.ToInt64(cbCidade.EditValue));
+                    //bdgEnderecos.DataSource = conn.listaDeEnderecosPorCidade(Convert.ToInt64(cbCidade.EditValue));
 
-                    cbBairro.Enabled = true;
-                    cbEndereco.Enabled = true;
+                    tfBairro.Enabled = true;
+                    tfEndereco.Enabled = true;
                 }
                 catch (Exception ex)
                 {
                     XtraMessageBox.Show("Erro ao recuperar lista de bairros e endereços: " + ex.Message, "SYSGRUPO", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-                    cbBairro.Enabled = false;
-                    cbEndereco.Enabled = false;
+                    tfBairro.Enabled = false;
+                    tfEndereco.Enabled = false;
                 }
             }
             else
             {
-                cbBairro.Enabled = false;
-                cbEndereco.Enabled = false;
+                tfBairro.Enabled = false;
+                tfEndereco.Enabled = false;
             }
         }
 
@@ -433,7 +432,7 @@ namespace SysNorteGrupo.UI.Clientes
             }
         }
 
-        private void cbEndereco_EditValueChanged(object sender, EventArgs e)
+        /*private void cbEndereco_EditValueChanged(object sender, EventArgs e)
         {
             if (Convert.ToInt32(cbEndereco.EditValue) > 0)
             {
@@ -442,7 +441,7 @@ namespace SysNorteGrupo.UI.Clientes
                 tfCep.Text = end.cep;
             }
             //formPrincipal.adicionarControleNavegacao(new ClienteForm(null) { formPrincipal = formPrincipal });
-        }
+        }*/
 
         private void btnImprimirContrato_Click(object sender, EventArgs e)
         {
@@ -483,7 +482,7 @@ namespace SysNorteGrupo.UI.Clientes
                 veiculos.Add(new VeiculosRelatorio()
                 {
                     placa = v.placa,
-                    modelo = conn.retornaModeloPorId(v.id_modelo_veiculos).nome,
+                    modelo = v.modelo,
                     valor = v.valor,
                     cotas = (cotas).ToString(),
                     //participacao = valor_por_cota * cotas,
@@ -512,48 +511,7 @@ namespace SysNorteGrupo.UI.Clientes
             }
             return reboques;
         }
-
-        private void btnCadBairro_Click(object sender, EventArgs e)
-        {
-            if (Convert.ToInt64(cbCidade.EditValue) > 0)
-            {
-                CadastraBairroForm cbf = new CadastraBairroForm(this, cbCidade.Text, Convert.ToInt64(cbCidade.EditValue));
-                DialogResult rs = cbf.ShowDialog();
-            }
-            else
-            {
-                XtraMessageBox.Show(String.Format("SELECIONE A CIDADE CORRENSPONDENTE AO BAIRRO PARA PODER CADASTRAR NOVO."));
-            }
-        }
-
-        private void btnCadEndereco_Click(object sender, EventArgs e)
-        {
-            if (Convert.ToInt64(cbBairro.EditValue) > 0)
-            {
-                CadastraEnderecoForm cef = new CadastraEnderecoForm(this, cbBairro.Text, Convert.ToInt64(cbBairro.EditValue), Convert.ToInt64(cbCidade.EditValue));
-                DialogResult rs = cef.ShowDialog();
-            }
-            else
-            {
-                XtraMessageBox.Show(String.Format("SELECIONE O BAIRRO CORRENSPONDENTE AO ENDEREÇO PARA PODER CADASTRAR NOVO."));
-            }
-        }
-
-        public void carregaBairrosPorIdCidade()
-        {
-            bdgBairros.DataSource = conn.listaDeBairrosPorCidade(Convert.ToInt64(cbCidade.EditValue));
-        }
-
-        public void carregaEnderecosPorIdCidade()
-        {        
-            bdgEnderecos.DataSource = conn.listaDeEnderecosPorCidade(Convert.ToInt64(cbCidade.EditValue));
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
+        
         private void btnInativar_Click(object sender, EventArgs e)
         {
             try

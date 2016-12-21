@@ -5,6 +5,7 @@ using HostWcfGrupo.UI.Utils;
 using HostWcfGrupo.Utils;
 using HostWcfGrupo.Utils.ValidacaoSistema;
 using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.ServiceModel;
@@ -54,14 +55,14 @@ namespace HostWcfGrupo.UI
             }
 
             try
-            {               
+            {
                 service(StatusService.stopped);
             }
             catch (Exception ex)
             {
                 btnStartStop.Enabled = false;
                 tfStatus.Text += "\n\n" + ex.Message + "\n" + ex.InnerException;
-            }            
+            }
         }
 
         private void btnStartStop_Click(object sender, EventArgs e)
@@ -202,6 +203,40 @@ namespace HostWcfGrupo.UI
         private void Form1_Shown(object sender, EventArgs e)
         {
             this.Hide();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            List<cliente> listC = cliente.Fetch("");
+            foreach (cliente c in listC)
+            {
+                //c.bairro = bairro.SingleOrDefault(c.id_bairros).nome_bairro;
+                //c.endereco = endereco.SingleOrDefault(c.id_enderecos)._endereco;
+                c.Save();
+                
+            }
+            MessageBox.Show("Migration de enderços feita com sucesso!");
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            List<veiculo> listV = veiculo.Fetch("");
+            foreach (veiculo v in listV)
+            {
+                string sql = String.Format(@"SELECT nome FROM modelo_veiculos WHERE id='{0}'", v.id_modelo_veiculos);
+                //v.modelo = modelo_veiculo.SingleOrDefault(sql).nome;
+                try
+                {
+                    //v.ano_modelo = Convert.ToInt32(ano_modelo_veiculo.SingleOrDefault(v.id_ano_modelo_veiculos).nome);
+                }catch(Exception)
+                {
+                    v.ano_modelo = 2016;
+                }
+                v.Save();
+
+            }
+            MessageBox.Show("Migration FIPE feita com sucesso!");
         }
     }
 }

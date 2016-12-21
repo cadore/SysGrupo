@@ -1,8 +1,8 @@
 ﻿using EntitiesGrupo;
 using SecureApp;
-using ServicosSysFileManager;
 using System;
 using System.Drawing;
+using System.IO;
 using System.Windows.Forms;
 
 namespace WcfLibGrupo.Utils
@@ -34,11 +34,11 @@ namespace WcfLibGrupo.Utils
         #region diretorios
         public static string diretorio_raiz_documentos;
 
-        public static string SUBDIR_FILES_EMPRESA;
+        /*public static string SUBDIR_FILES_EMPRESA;
         public static string SUBDIR_FILES_CLIENTES;
         public static string SUBDIR_FILES_VEICULOS;
         public static string SUBDIR_FILES_REBOQUES;
-        public static string SUBDIR_FILES_SINISTROS;
+        public static string SUBDIR_FILES_SINISTROS;*/
         public static string SUBDIR_TEMP_FILES;
         public static string SUBDIR_LOG;
         public static string SUBDIR_BACKUP;
@@ -46,7 +46,7 @@ namespace WcfLibGrupo.Utils
         #endregion
 
         public static void carregaConfigurações(){
-            SysFile sf = new SysFile();
+            //SysFile sf = new SysFile();
             valor_cota = Convert.ToDecimal(10000.00);
             franquiaSinistro = Convert.ToDecimal(5);            
             diretorio_raiz_documentos = LeitorINI.ReadValue("diretorios", "diretorio_raiz_documentos");
@@ -68,28 +68,24 @@ namespace WcfLibGrupo.Utils
             SysGrupoRepo.db = new DTICrypto().Decifrar(LeitorINI.ReadValue("dbdata", "db"), "a1s2 d3f4&beguta");
             SysGrupoRepo.user = new DTICrypto().Decifrar(LeitorINI.ReadValue("dbdata", "user"), "a1s2 d3f4&beguta");
             SysGrupoRepo.passwd = new DTICrypto().Decifrar(LeitorINI.ReadValue("dbdata", "passwd"), "a1s2 d3f4&beguta");*/
-
-            SUBDIR_FILES_EMPRESA = diretorio_raiz_documentos + @"\files\empresa\";
-            SUBDIR_FILES_CLIENTES = diretorio_raiz_documentos + @"\files\clientes\";
-            SUBDIR_FILES_VEICULOS = diretorio_raiz_documentos + @"\files\veiculos\";
-            SUBDIR_FILES_REBOQUES = diretorio_raiz_documentos + @"\files\reboques\";
-            SUBDIR_FILES_SINISTROS = diretorio_raiz_documentos + @"\files\sinistros\";
             SUBDIR_LOG = diretorio_raiz_documentos + @"\log\";
             SUBDIR_TEMP_FILES = diretorio_raiz_documentos + @"\temp\";
             SUBDIR_BACKUP = diretorio_raiz_documentos + @"\backup\";
             DIR_PG_DUMP = LeitorINI.ReadValue("diretorios", "diretorio_pg_dump");
-            
 
-            if(!sf.verificaDiretorioExistente(diretorio_raiz_documentos)){
-                sf.criaDiretorio(diretorio_raiz_documentos);
-                sf.criaDiretorio(SUBDIR_FILES_EMPRESA);
-                sf.criaDiretorio(SUBDIR_FILES_CLIENTES);
-                sf.criaDiretorio(SUBDIR_FILES_VEICULOS);
-                sf.criaDiretorio(SUBDIR_FILES_REBOQUES);
-                sf.criaDiretorio(SUBDIR_FILES_SINISTROS);
-                sf.criaDiretorio(SUBDIR_TEMP_FILES);
-                sf.criaDiretorio(SUBDIR_LOG);
-                sf.criaDiretorio(SUBDIR_BACKUP);
+
+            if (!Directory.Exists(diretorio_raiz_documentos))
+            {
+                Directory.CreateDirectory(diretorio_raiz_documentos);
+                //sf.criaDiretorio(SUBDIR_FILES_EMPRESA);
+                //sf.criaDiretorio(SUBDIR_FILES_CLIENTES);
+                //sf.criaDiretorio(SUBDIR_FILES_VEICULOS);
+                //sf.criaDiretorio(SUBDIR_FILES_REBOQUES);
+                //sf.criaDiretorio(SUBDIR_FILES_SINISTROS);
+                Directory.CreateDirectory(SUBDIR_TEMP_FILES);
+                Directory.CreateDirectory(SUBDIR_LOG);
+                Directory.CreateDirectory(SUBDIR_BACKUP);
+                
             }
         }
     }

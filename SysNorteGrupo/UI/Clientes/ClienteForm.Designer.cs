@@ -1,5 +1,4 @@
-﻿using SysFileManager;
-using SysNorteGrupo.UI.Utils.Botoes;
+﻿using SysNorteGrupo.UI.Utils.Botoes;
 namespace SysNorteGrupo.UI.Clientes
 {
     partial class ClienteForm
@@ -52,6 +51,9 @@ namespace SysNorteGrupo.UI.Clientes
             this.btnEditar = new SysNorteGrupo.UI.Utils.Botoes.BotaoEditar();
             this.btnSalvar = new SysNorteGrupo.UI.Utils.Botoes.BotaoEditar();
             this.btnNovo = new SysNorteGrupo.UI.Utils.Botoes.BotaoNovo();
+            this.bdgCliente = new System.Windows.Forms.BindingSource(this.components);
+            this.bdgEnderecos = new System.Windows.Forms.BindingSource(this.components);
+            this.bdgBairros = new System.Windows.Forms.BindingSource(this.components);
             this.panelComponentes = new DevExpress.XtraEditors.PanelControl();
             this.grpTipo = new DevExpress.XtraEditors.RadioGroup();
             this.panelReferencias = new DevExpress.XtraEditors.PanelControl();
@@ -60,7 +62,6 @@ namespace SysNorteGrupo.UI.Clientes
             this.labelControl16 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl15 = new DevExpress.XtraEditors.LabelControl();
             this.tfRefcomercial = new DevExpress.XtraEditors.TextEdit();
-            this.bdgCliente = new System.Windows.Forms.BindingSource(this.components);
             this.tfContcomercial = new DevExpress.XtraEditors.TextEdit();
             this.xtraTabPage2 = new DevExpress.XtraTab.XtraTabPage();
             this.labelControl17 = new DevExpress.XtraEditors.LabelControl();
@@ -74,23 +75,9 @@ namespace SysNorteGrupo.UI.Clientes
             this.tfConttransporte = new DevExpress.XtraEditors.TextEdit();
             this.panelCadastro = new DevExpress.XtraEditors.PanelControl();
             this.grpEndereco = new DevExpress.XtraEditors.GroupControl();
-            this.btnCadEndereco = new DevExpress.XtraEditors.SimpleButton();
-            this.btnCadBairro = new DevExpress.XtraEditors.SimpleButton();
+            this.tfEndereco = new DevExpress.XtraEditors.TextEdit();
+            this.tfBairro = new DevExpress.XtraEditors.TextEdit();
             this.tfObservacoes = new DevExpress.XtraEditors.MemoEdit();
-            this.cbEndereco = new DevExpress.XtraEditors.SearchLookUpEdit();
-            this.bdgEnderecos = new System.Windows.Forms.BindingSource(this.components);
-            this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colcep = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.col_endereco = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colbairro_id = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn6 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.cbBairro = new DevExpress.XtraEditors.SearchLookUpEdit();
-            this.bdgBairros = new System.Windows.Forms.BindingSource(this.components);
-            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colnome_bairro = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colid_cidades = new DevExpress.XtraGrid.Columns.GridColumn();
             this.tfComplemento = new DevExpress.XtraEditors.TextEdit();
             this.tfCep = new DevExpress.XtraEditors.TextEdit();
             this.tfNumero = new DevExpress.XtraEditors.TextEdit();
@@ -143,6 +130,9 @@ namespace SysNorteGrupo.UI.Clientes
             this.validador = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pnBotoes)).BeginInit();
             this.pnBotoes.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bdgCliente)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdgEnderecos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdgBairros)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelComponentes)).BeginInit();
             this.panelComponentes.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grpTipo.Properties)).BeginInit();
@@ -152,7 +142,6 @@ namespace SysNorteGrupo.UI.Clientes
             this.xtraTabControl1.SuspendLayout();
             this.xtraTabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tfRefcomercial.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bdgCliente)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfContcomercial.Properties)).BeginInit();
             this.xtraTabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tfRefservicos.Properties)).BeginInit();
@@ -164,13 +153,9 @@ namespace SysNorteGrupo.UI.Clientes
             this.panelCadastro.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grpEndereco)).BeginInit();
             this.grpEndereco.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tfEndereco.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tfBairro.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfObservacoes.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbEndereco.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bdgEnderecos)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbBairro.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bdgBairros)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfComplemento.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfCep.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfNumero.Properties)).BeginInit();
@@ -214,7 +199,7 @@ namespace SysNorteGrupo.UI.Clientes
             this.pnBotoes.Location = new System.Drawing.Point(0, 0);
             this.pnBotoes.Name = "pnBotoes";
             this.pnBotoes.Size = new System.Drawing.Size(1066, 55);
-            this.pnBotoes.TabIndex = 0;
+            this.pnBotoes.TabIndex = 1;
             // 
             // btnExcluir
             // 
@@ -228,7 +213,7 @@ namespace SysNorteGrupo.UI.Clientes
             this.btnExcluir.Location = new System.Drawing.Point(462, 5);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(106, 44);
-            this.btnExcluir.TabIndex = 14;
+            this.btnExcluir.TabIndex = 4;
             this.btnExcluir.Text = "Excluir";
             this.btnExcluir.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnExcluir.UseVisualStyleBackColor = false;
@@ -246,7 +231,7 @@ namespace SysNorteGrupo.UI.Clientes
             this.btnInativar.Location = new System.Drawing.Point(237, 5);
             this.btnInativar.Name = "btnInativar";
             this.btnInativar.Size = new System.Drawing.Size(106, 44);
-            this.btnInativar.TabIndex = 13;
+            this.btnInativar.TabIndex = 2;
             this.btnInativar.Text = "Inativar";
             this.btnInativar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnInativar.UseVisualStyleBackColor = false;
@@ -263,7 +248,7 @@ namespace SysNorteGrupo.UI.Clientes
             this.btnImprimirContrato.Location = new System.Drawing.Point(574, 6);
             this.btnImprimirContrato.Name = "btnImprimirContrato";
             this.btnImprimirContrato.Size = new System.Drawing.Size(215, 43);
-            this.btnImprimirContrato.TabIndex = 12;
+            this.btnImprimirContrato.TabIndex = 5;
             this.btnImprimirContrato.Text = "           Imprimir Rel. de Bens";
             this.btnImprimirContrato.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnImprimirContrato.UseVisualStyleBackColor = false;
@@ -281,7 +266,7 @@ namespace SysNorteGrupo.UI.Clientes
             this.btnSair.Location = new System.Drawing.Point(953, 5);
             this.btnSair.Name = "btnSair";
             this.btnSair.Size = new System.Drawing.Size(106, 44);
-            this.btnSair.TabIndex = 10;
+            this.btnSair.TabIndex = 6;
             this.btnSair.Text = "Sair";
             this.btnSair.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnSair.UseVisualStyleBackColor = false;
@@ -299,7 +284,7 @@ namespace SysNorteGrupo.UI.Clientes
             this.btnEditar.Location = new System.Drawing.Point(125, 5);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(106, 44);
-            this.btnEditar.TabIndex = 9;
+            this.btnEditar.TabIndex = 1;
             this.btnEditar.Text = "Editar";
             this.btnEditar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnEditar.UseVisualStyleBackColor = false;
@@ -316,7 +301,7 @@ namespace SysNorteGrupo.UI.Clientes
             this.btnSalvar.Location = new System.Drawing.Point(13, 5);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(106, 44);
-            this.btnSalvar.TabIndex = 8;
+            this.btnSalvar.TabIndex = 0;
             this.btnSalvar.Text = "Salvar";
             this.btnSalvar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnSalvar.UseVisualStyleBackColor = false;
@@ -333,11 +318,15 @@ namespace SysNorteGrupo.UI.Clientes
             this.btnNovo.Location = new System.Drawing.Point(350, 5);
             this.btnNovo.Name = "btnNovo";
             this.btnNovo.Size = new System.Drawing.Size(106, 44);
-            this.btnNovo.TabIndex = 7;
+            this.btnNovo.TabIndex = 3;
             this.btnNovo.Text = "Novo";
             this.btnNovo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnNovo.UseVisualStyleBackColor = false;
             this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
+            // 
+            // bdgCliente
+            // 
+            this.bdgCliente.DataSource = typeof(EntitiesGrupo.cliente);
             // 
             // panelComponentes
             // 
@@ -354,7 +343,7 @@ namespace SysNorteGrupo.UI.Clientes
             this.panelComponentes.Location = new System.Drawing.Point(0, 55);
             this.panelComponentes.Name = "panelComponentes";
             this.panelComponentes.Size = new System.Drawing.Size(1066, 321);
-            this.panelComponentes.TabIndex = 1;
+            this.panelComponentes.TabIndex = 0;
             // 
             // grpTipo
             // 
@@ -364,7 +353,7 @@ namespace SysNorteGrupo.UI.Clientes
             new DevExpress.XtraEditors.Controls.RadioGroupItem('f', "Pessoa Física"),
             new DevExpress.XtraEditors.Controls.RadioGroupItem('j', "Pessoa Jurídica")});
             this.grpTipo.Size = new System.Drawing.Size(222, 29);
-            this.grpTipo.TabIndex = 0;
+            this.grpTipo.TabIndex = 1;
             conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
             conditionValidationRule1.ErrorText = "Selecione o tipo de pessoa";
             this.validador.SetValidationRule(this.grpTipo, conditionValidationRule1);
@@ -424,10 +413,6 @@ namespace SysNorteGrupo.UI.Clientes
             this.tfRefcomercial.Name = "tfRefcomercial";
             this.tfRefcomercial.Size = new System.Drawing.Size(469, 20);
             this.tfRefcomercial.TabIndex = 0;
-            // 
-            // bdgCliente
-            // 
-            this.bdgCliente.DataSource = typeof(EntitiesGrupo.cliente);
             // 
             // tfContcomercial
             // 
@@ -541,11 +526,9 @@ namespace SysNorteGrupo.UI.Clientes
             // 
             this.grpEndereco.AppearanceCaption.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grpEndereco.AppearanceCaption.Options.UseFont = true;
-            this.grpEndereco.Controls.Add(this.btnCadEndereco);
-            this.grpEndereco.Controls.Add(this.btnCadBairro);
+            this.grpEndereco.Controls.Add(this.tfEndereco);
+            this.grpEndereco.Controls.Add(this.tfBairro);
             this.grpEndereco.Controls.Add(this.tfObservacoes);
-            this.grpEndereco.Controls.Add(this.cbEndereco);
-            this.grpEndereco.Controls.Add(this.cbBairro);
             this.grpEndereco.Controls.Add(this.tfComplemento);
             this.grpEndereco.Controls.Add(this.tfCep);
             this.grpEndereco.Controls.Add(this.tfNumero);
@@ -565,27 +548,27 @@ namespace SysNorteGrupo.UI.Clientes
             this.grpEndereco.TabIndex = 2;
             this.grpEndereco.Text = "INFORMAÇÕES DE ENDEREÇO";
             // 
-            // btnCadEndereco
+            // tfEndereco
             // 
-            this.btnCadEndereco.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
-            this.btnCadEndereco.Image = global::SysNorteGrupo.Properties.Resources.Action_LinkUnlink_Link;
-            this.btnCadEndereco.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-            this.btnCadEndereco.Location = new System.Drawing.Point(426, 70);
-            this.btnCadEndereco.Name = "btnCadEndereco";
-            this.btnCadEndereco.Size = new System.Drawing.Size(30, 19);
-            this.btnCadEndereco.TabIndex = 7;
-            this.btnCadEndereco.Click += new System.EventHandler(this.btnCadEndereco_Click);
+            this.tfEndereco.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdgCliente, "endereco", true));
+            this.tfEndereco.Location = new System.Drawing.Point(71, 70);
+            this.tfEndereco.Name = "tfEndereco";
+            this.tfEndereco.Size = new System.Drawing.Size(385, 20);
+            this.tfEndereco.TabIndex = 3;
+            conditionValidationRule2.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule2.ErrorText = "Informe o Endereço";
+            this.validador.SetValidationRule(this.tfEndereco, conditionValidationRule2);
             // 
-            // btnCadBairro
+            // tfBairro
             // 
-            this.btnCadBairro.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
-            this.btnCadBairro.Image = global::SysNorteGrupo.Properties.Resources.Action_LinkUnlink_Link;
-            this.btnCadBairro.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-            this.btnCadBairro.Location = new System.Drawing.Point(426, 47);
-            this.btnCadBairro.Name = "btnCadBairro";
-            this.btnCadBairro.Size = new System.Drawing.Size(30, 19);
-            this.btnCadBairro.TabIndex = 7;
-            this.btnCadBairro.Click += new System.EventHandler(this.btnCadBairro_Click);
+            this.tfBairro.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdgCliente, "bairro", true));
+            this.tfBairro.Location = new System.Drawing.Point(71, 47);
+            this.tfBairro.Name = "tfBairro";
+            this.tfBairro.Size = new System.Drawing.Size(385, 20);
+            this.tfBairro.TabIndex = 2;
+            conditionValidationRule3.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule3.ErrorText = "Informe o Bairro";
+            this.validador.SetValidationRule(this.tfBairro, conditionValidationRule3);
             // 
             // tfObservacoes
             // 
@@ -593,138 +576,8 @@ namespace SysNorteGrupo.UI.Clientes
             this.tfObservacoes.Location = new System.Drawing.Point(71, 139);
             this.tfObservacoes.Name = "tfObservacoes";
             this.tfObservacoes.Size = new System.Drawing.Size(385, 51);
-            this.tfObservacoes.TabIndex = 6;
+            this.tfObservacoes.TabIndex = 7;
             this.tfObservacoes.UseOptimizedRendering = true;
-            // 
-            // cbEndereco
-            // 
-            this.cbEndereco.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdgCliente, "id_enderecos", true));
-            this.cbEndereco.Location = new System.Drawing.Point(71, 70);
-            this.cbEndereco.Name = "cbEndereco";
-            this.cbEndereco.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cbEndereco.Properties.DataSource = this.bdgEnderecos;
-            this.cbEndereco.Properties.DisplayMember = "_endereco";
-            this.cbEndereco.Properties.NullText = "";
-            this.cbEndereco.Properties.ValueMember = "id";
-            this.cbEndereco.Properties.View = this.gridView2;
-            this.cbEndereco.Size = new System.Drawing.Size(349, 20);
-            this.cbEndereco.TabIndex = 2;
-            conditionValidationRule2.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.Greater;
-            conditionValidationRule2.ErrorText = "Informe um endereço";
-            conditionValidationRule2.Value1 = 0;
-            this.validador.SetValidationRule(this.cbEndereco, conditionValidationRule2);
-            this.cbEndereco.EditValueChanged += new System.EventHandler(this.cbEndereco_EditValueChanged);
-            // 
-            // bdgEnderecos
-            // 
-            this.bdgEnderecos.DataSource = typeof(EntitiesGrupo.endereco);
-            // 
-            // gridView2
-            // 
-            this.gridView2.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.gridColumn5,
-            this.colcep,
-            this.col_endereco,
-            this.colbairro_id,
-            this.gridColumn6});
-            this.gridView2.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
-            this.gridView2.Name = "gridView2";
-            this.gridView2.OptionsSelection.EnableAppearanceFocusedCell = false;
-            this.gridView2.OptionsView.ShowGroupPanel = false;
-            // 
-            // gridColumn5
-            // 
-            this.gridColumn5.FieldName = "id";
-            this.gridColumn5.Name = "gridColumn5";
-            this.gridColumn5.OptionsColumn.AllowEdit = false;
-            // 
-            // colcep
-            // 
-            this.colcep.Caption = "CEP";
-            this.colcep.FieldName = "cep";
-            this.colcep.Name = "colcep";
-            this.colcep.OptionsColumn.AllowEdit = false;
-            this.colcep.Visible = true;
-            this.colcep.VisibleIndex = 1;
-            this.colcep.Width = 278;
-            // 
-            // col_endereco
-            // 
-            this.col_endereco.Caption = "ENDEREÇO";
-            this.col_endereco.FieldName = "_endereco";
-            this.col_endereco.Name = "col_endereco";
-            this.col_endereco.OptionsColumn.AllowEdit = false;
-            this.col_endereco.Visible = true;
-            this.col_endereco.VisibleIndex = 0;
-            this.col_endereco.Width = 1034;
-            // 
-            // colbairro_id
-            // 
-            this.colbairro_id.FieldName = "bairro_id";
-            this.colbairro_id.Name = "colbairro_id";
-            this.colbairro_id.OptionsColumn.AllowEdit = false;
-            // 
-            // gridColumn6
-            // 
-            this.gridColumn6.FieldName = "id_cidades";
-            this.gridColumn6.Name = "gridColumn6";
-            this.gridColumn6.OptionsColumn.AllowEdit = false;
-            // 
-            // cbBairro
-            // 
-            this.cbBairro.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdgCliente, "id_bairros", true));
-            this.cbBairro.Location = new System.Drawing.Point(71, 47);
-            this.cbBairro.Name = "cbBairro";
-            this.cbBairro.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cbBairro.Properties.DataSource = this.bdgBairros;
-            this.cbBairro.Properties.DisplayMember = "nome_bairro";
-            this.cbBairro.Properties.NullText = "";
-            this.cbBairro.Properties.ValueMember = "id";
-            this.cbBairro.Properties.View = this.gridView1;
-            this.cbBairro.Size = new System.Drawing.Size(349, 20);
-            this.cbBairro.TabIndex = 1;
-            conditionValidationRule3.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.Greater;
-            conditionValidationRule3.ErrorText = "Selecione um bairro para o endereço";
-            conditionValidationRule3.Value1 = 0;
-            this.validador.SetValidationRule(this.cbBairro, conditionValidationRule3);
-            // 
-            // bdgBairros
-            // 
-            this.bdgBairros.DataSource = typeof(EntitiesGrupo.bairro);
-            // 
-            // gridView1
-            // 
-            this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.gridColumn4,
-            this.colnome_bairro,
-            this.colid_cidades});
-            this.gridView1.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
-            this.gridView1.Name = "gridView1";
-            this.gridView1.OptionsSelection.EnableAppearanceFocusedCell = false;
-            this.gridView1.OptionsView.ShowGroupPanel = false;
-            // 
-            // gridColumn4
-            // 
-            this.gridColumn4.FieldName = "id";
-            this.gridColumn4.Name = "gridColumn4";
-            this.gridColumn4.OptionsColumn.AllowEdit = false;
-            // 
-            // colnome_bairro
-            // 
-            this.colnome_bairro.Caption = "BAIRRO";
-            this.colnome_bairro.FieldName = "nome_bairro";
-            this.colnome_bairro.Name = "colnome_bairro";
-            this.colnome_bairro.OptionsColumn.AllowEdit = false;
-            this.colnome_bairro.Visible = true;
-            this.colnome_bairro.VisibleIndex = 0;
-            // 
-            // colid_cidades
-            // 
-            this.colid_cidades.FieldName = "id_cidades";
-            this.colid_cidades.Name = "colid_cidades";
-            this.colid_cidades.OptionsColumn.AllowEdit = false;
             // 
             // tfComplemento
             // 
@@ -732,17 +585,17 @@ namespace SysNorteGrupo.UI.Clientes
             this.tfComplemento.Location = new System.Drawing.Point(71, 116);
             this.tfComplemento.Name = "tfComplemento";
             this.tfComplemento.Size = new System.Drawing.Size(385, 20);
-            this.tfComplemento.TabIndex = 5;
+            this.tfComplemento.TabIndex = 6;
             // 
             // tfCep
             // 
             this.tfCep.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdgCliente, "cep", true));
             this.tfCep.Location = new System.Drawing.Point(290, 93);
             this.tfCep.Name = "tfCep";
-            this.tfCep.Properties.Mask.EditMask = "99999-999";
-            this.tfCep.Properties.ReadOnly = true;
+            this.tfCep.Properties.Mask.EditMask = "00000-000";
+            this.tfCep.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Simple;
             this.tfCep.Size = new System.Drawing.Size(166, 20);
-            this.tfCep.TabIndex = 4;
+            this.tfCep.TabIndex = 5;
             conditionValidationRule4.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
             conditionValidationRule4.ErrorText = "Informe o CEP";
             this.validador.SetValidationRule(this.tfCep, conditionValidationRule4);
@@ -753,7 +606,7 @@ namespace SysNorteGrupo.UI.Clientes
             this.tfNumero.Location = new System.Drawing.Point(71, 93);
             this.tfNumero.Name = "tfNumero";
             this.tfNumero.Size = new System.Drawing.Size(174, 20);
-            this.tfNumero.TabIndex = 3;
+            this.tfNumero.TabIndex = 4;
             conditionValidationRule5.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
             conditionValidationRule5.ErrorText = "Informe o número do endereço";
             this.validador.SetValidationRule(this.tfNumero, conditionValidationRule5);
@@ -840,7 +693,7 @@ namespace SysNorteGrupo.UI.Clientes
             this.cbCidade.Properties.ValueMember = "id";
             this.cbCidade.Properties.View = this.searchLookUpEdit1View;
             this.cbCidade.Size = new System.Drawing.Size(268, 20);
-            this.cbCidade.TabIndex = 0;
+            this.cbCidade.TabIndex = 1;
             conditionValidationRule7.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.Greater;
             conditionValidationRule7.ErrorText = "Selecione uma cidade para o endereço";
             conditionValidationRule7.Value1 = 0;
@@ -1171,7 +1024,7 @@ namespace SysNorteGrupo.UI.Clientes
             this.tfTotalCotas.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.tfTotalCotas.Properties.ReadOnly = true;
             this.tfTotalCotas.Size = new System.Drawing.Size(146, 20);
-            this.tfTotalCotas.TabIndex = 3;
+            this.tfTotalCotas.TabIndex = 2;
             this.tfTotalCotas.TabStop = false;
             // 
             // tfId
@@ -1184,7 +1037,7 @@ namespace SysNorteGrupo.UI.Clientes
             this.tfId.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
             this.tfId.Properties.ReadOnly = true;
             this.tfId.Size = new System.Drawing.Size(91, 20);
-            this.tfId.TabIndex = 3;
+            this.tfId.TabIndex = 0;
             this.tfId.TabStop = false;
             // 
             // labelControl9
@@ -1230,6 +1083,9 @@ namespace SysNorteGrupo.UI.Clientes
             this.Load += new System.EventHandler(this.ClienteForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pnBotoes)).EndInit();
             this.pnBotoes.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.bdgCliente)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdgEnderecos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdgBairros)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelComponentes)).EndInit();
             this.panelComponentes.ResumeLayout(false);
             this.panelComponentes.PerformLayout();
@@ -1241,7 +1097,6 @@ namespace SysNorteGrupo.UI.Clientes
             this.xtraTabPage1.ResumeLayout(false);
             this.xtraTabPage1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tfRefcomercial.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bdgCliente)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfContcomercial.Properties)).EndInit();
             this.xtraTabPage2.ResumeLayout(false);
             this.xtraTabPage2.PerformLayout();
@@ -1256,13 +1111,9 @@ namespace SysNorteGrupo.UI.Clientes
             ((System.ComponentModel.ISupportInitialize)(this.grpEndereco)).EndInit();
             this.grpEndereco.ResumeLayout(false);
             this.grpEndereco.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tfEndereco.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tfBairro.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfObservacoes.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbEndereco.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bdgEnderecos)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbBairro.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bdgBairros)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfComplemento.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfCep.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfNumero.Properties)).EndInit();
@@ -1326,10 +1177,6 @@ namespace SysNorteGrupo.UI.Clientes
         private DevExpress.XtraEditors.LabelControl labelControl8;
         private DevExpress.XtraEditors.LabelControl labelControl11;
         private DevExpress.XtraEditors.LabelControl labelControl10;
-        public DevExpress.XtraEditors.SearchLookUpEdit cbEndereco;
-        public DevExpress.XtraEditors.SearchLookUpEdit cbBairro;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView2;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private DevExpress.XtraTab.XtraTabControl xtraTabControl1;
         private DevExpress.XtraTab.XtraTabPage xtraTabPage1;
         private DevExpress.XtraTab.XtraTabPage xtraTabPage2;
@@ -1371,17 +1218,7 @@ namespace SysNorteGrupo.UI.Clientes
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn3;
         private DevExpress.XtraGrid.Columns.GridColumn colarea;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn4;
-        private DevExpress.XtraGrid.Columns.GridColumn colnome_bairro;
-        private DevExpress.XtraGrid.Columns.GridColumn colid_cidades;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn5;
-        private DevExpress.XtraGrid.Columns.GridColumn colcep;
-        private DevExpress.XtraGrid.Columns.GridColumn col_endereco;
-        private DevExpress.XtraGrid.Columns.GridColumn colbairro_id;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn6;
         private DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider validador;
-        private DevExpress.XtraEditors.SimpleButton btnCadEndereco;
-        private DevExpress.XtraEditors.SimpleButton btnCadBairro;
         private BotaoNovo btnNovo;
         private BotaoSair btnSair;
         private BotaoEditar btnEditar;
@@ -1393,5 +1230,7 @@ namespace SysNorteGrupo.UI.Clientes
         private BotaoImprimir btnImprimirContrato;
         private BotaoInativar btnInativar;
         private BotaoExcluir btnExcluir;
+        private DevExpress.XtraEditors.TextEdit tfEndereco;
+        private DevExpress.XtraEditors.TextEdit tfBairro;
     }
 }

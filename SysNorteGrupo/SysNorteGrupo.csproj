@@ -251,12 +251,6 @@
     <Compile Include="UI\Utils\ConfigEnderecoServico.Designer.cs">
       <DependentUpon>ConfigEnderecoServico.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Utils\Enderecos\CadastraEnderecoForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UI\Utils\Enderecos\CadastraEnderecoForm.Designer.cs">
-      <DependentUpon>CadastraEnderecoForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="UI\FormPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -337,12 +331,6 @@
     <Compile Include="UI\Utils\UtilForm.Designer.cs">
       <DependentUpon>UtilForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Utils\Enderecos\CadastraBairroForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UI\Utils\Enderecos\CadastraBairroForm.Designer.cs">
-      <DependentUpon>CadastraBairroForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="UI\Utils\PleaseWaitForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -419,7 +407,6 @@
     <Compile Include="Utils\Cores.cs" />
     <Compile Include="Utils\FilesINI.cs" />
     <Compile Include="Utils\GerenteDeConexoes.cs" />
-    <Compile Include="Utils\ListaAnos.cs" />
     <Compile Include="Utils\Logs\Log.cs" />
     <Compile Include="Utils\UserIdleDetect.cs" />
     <Compile Include="Utils\Util.cs" />
@@ -457,9 +444,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Utils\ConfigEnderecoServico.resx">
       <DependentUpon>ConfigEnderecoServico.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UI\Utils\Enderecos\CadastraEnderecoForm.resx">
-      <DependentUpon>CadastraEnderecoForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\FormPrincipal.resx">
       <DependentUpon>FormPrincipal.cs</DependentUpon>
@@ -499,9 +483,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Usuarios\UsuarioForm.resx">
       <DependentUpon>UsuarioForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UI\Utils\Enderecos\CadastraBairroForm.resx">
-      <DependentUpon>CadastraBairroForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Utils\PleaseWaitForm.resx">
       <DependentUpon>PleaseWaitForm.cs</DependentUpon>
@@ -555,7 +536,6 @@
     <None Include="Properties\DataSources\EntitiesGrupo.usuario.datasource" />
     <None Include="Properties\DataSources\EntitiesGrupo.veiculo.datasource" />
     <None Include="Properties\DataSources\EntitiesGrupo.vei_reb_sinistros.datasource" />
-    <None Include="Properties\DataSources\LibListaAnos.LibAnos.datasource" />
     <None Include="Properties\DataSources\PetaPoco.AnsiString.datasource" />
     <None Include="Properties\DataSources\PetaPoco.ColumnAttribute.datasource" />
     <None Include="Properties\DataSources\PetaPoco.ColumnInfo.datasource" />
@@ -605,10 +585,6 @@
     <ProjectReference Include="..\RepositorioGrupo\RepositorioGrupo.csproj">
       <Project>{70ba46a9-1743-4e93-a4d3-7b67fa822d00}</Project>
       <Name>RepositorioGrupo</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\SysFileManager\SysFileManager.csproj">
-      <Project>{5297b720-4721-4563-b662-34d20151cf21}</Project>
-      <Name>SysFileManager</Name>
     </ProjectReference>
     <ProjectReference Include="..\WcfLibGrupo\WcfLibGrupo.csproj">
       <Project>{4e95265e-7c25-4f8b-a055-0ac97466b0e3}</Project>

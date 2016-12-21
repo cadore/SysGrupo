@@ -443,7 +443,7 @@ namespace SysNorteGrupo.UI.Sinistros
                 veiculos.Add(new VeiculosRelatorio() 
                 {
                     placa = v.placa, 
-                    modelo = conn.retornaModeloPorId(v.id_modelo_veiculos).nome,
+                    modelo = v.modelo,
                     valor = v.valor,
                     cotas = (cotas).ToString(),
                     participacao = valor_por_cota * cotas,

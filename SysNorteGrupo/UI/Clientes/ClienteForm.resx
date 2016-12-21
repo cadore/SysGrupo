@@ -121,7 +121,7 @@
   <data name="btnExcluir.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAYAAADhAJiYAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vgAADr4B6kKxwAAAAAZiS0dEAP8A/wD/oL2nkwAAAAd0SU1FB94DBBQ3Kwu2aKAAAAQWSURBVFhHtZg9
+        vAAADrwBlbxySQAAAAZiS0dEAP8A/wD/oL2nkwAAAAd0SU1FB94DBBQ3Kwu2aKAAAAQWSURBVFhHtZg9
         qxVXFIavoChoVPQiBiGNXlBiY2WheBEhEILaBE0hiij6CyRGMZBKsDR1/AOipLRKETGmCCm0EfwAjfkw
         QW0UjUYnz7tmrXHN5znnqg+87DXrY+99ZvbsmTlT41AUhVtmz0cr0Br0GTqIvnLJlk8x5cz3slofb0V0
         RLsUacDv0E00CuUoVzXLcl9zIhdj70d30UuUuYOuoosu2fJlVKPaA97d5BOLAtp16FcUPEaX0T5LGEA5
@@ -272,9 +272,6 @@
         jNZr3mQbYeseoi3GOqR1tg8dc8mWTzHlVPxLr6PjL6hwD4fC4zxmAAAAAElFTkSuQmCC
 </value>
   </data>
-  <metadata name="validador.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>668, 17</value>
-  </metadata>
   <metadata name="bdgCliente.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
@@ -283,6 +280,9 @@
   </metadata>
   <metadata name="bdgBairros.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>402, 17</value>
+  </metadata>
+  <metadata name="validador.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>668, 17</value>
   </metadata>
   <metadata name="bdgEstados.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>128, 17</value>

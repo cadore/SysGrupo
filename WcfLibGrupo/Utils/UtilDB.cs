@@ -1,5 +1,4 @@
-﻿using ServicosSysFileManager;
-using System;
+﻿using System;
 using WcfLibGrupo.Utils;
 
 namespace WcfLibGrupo

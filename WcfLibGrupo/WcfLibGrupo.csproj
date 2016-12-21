@@ -79,10 +79,6 @@
       <Name>RepositorioGrupo</Name>
       <EmbedInteropTypes>False</EmbedInteropTypes>
     </ProjectReference>
-    <ProjectReference Include="..\ServicosSysFileManager\ServicosSysFileManager.csproj">
-      <Project>{db8c0e4e-c8ef-479b-aa2e-0fabd57944cb}</Project>
-      <Name>ServicosSysFileManager</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

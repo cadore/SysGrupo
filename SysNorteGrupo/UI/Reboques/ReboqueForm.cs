@@ -1,7 +1,6 @@
 ﻿using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.DXErrorProvider;
 using EntitiesGrupo;
-using SysFileManager;
 using SysNorteGrupo.Utils;
 using System;
 using System.Collections;
@@ -78,15 +77,7 @@ namespace SysNorteGrupo.UI.Veiculos.Reboques
                 
                 //((reboque)bdgReboqueLista.Current).id_cidade = 0;
 
-                ArrayList arrayList = new ListaAnos().retornaAnos();
-                for (int i = 0; i < arrayList.Count; i++)
-                {
-                    cbAnoFabricacao.Properties.Items.Add(arrayList[i]);
-                }
-                for (int i = 0; i < arrayList.Count; i++)
-                {
-                    cbAnoModelo.Properties.Items.Add(arrayList[i]);
-                }
+                
 
                 tfDataAgendamento.Properties.MinValue = DateTime.Now.Date.AddDays(1);
 

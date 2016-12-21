@@ -9,7 +9,6 @@ using SysNorteGrupo.UI.Clientes;
 using SysNorteGrupo.UI.Veiculos;
 using EntitiesGrupo;
 using WcfLibGrupo;
-using SysFileManager;
 using SysNorteGrupo.UI.Sinistros;
 using SysNorteGrupo.UI.Veiculos.Reboques;
 using SysNorteGrupo.UI.Logs;
@@ -338,13 +337,13 @@ namespace SysNorteGrupo
 
         private void barButtonItem2_ItemClick(object sender, ItemClickEventArgs e)
         {
-            ArquivosForm af = new ArquivosForm();
+            /*ArquivosForm af = new ArquivosForm();
             af.conn = conn;
             af.DIRETORIO = conn.SUBDIR_EMPRESA();
             af.Height = 400;
             adicionarControleNavegacao(af);
             Log.createLog(SysEventLog.opened, "formulario de arquivos empresa");
-            af.executaBusca();
+            af.executaBusca();*/
         }
 
         private void barButtonItem5_ItemClick(object sender, ItemClickEventArgs e)
@@ -613,12 +612,12 @@ namespace SysNorteGrupo
             PostgresqlUtil pu = new PostgresqlUtil()
             {
                 CurrentDateTime = conn.retornaDataHoraLocal(),
-                PrefixNameFile = "SysGrupo2.0",
+                PrefixNameFile = "SysGrupo3.0",
                 Host = SysGrupoRepo.host,
                 Port = SysGrupoRepo.port.ToString(),
                 User = SysGrupoRepo.user,
                 Password = SysGrupoRepo.passwd,
-                Database = SysGrupoRepo.db,
+                Database = (FilesINI.ReadValue("sistema", "link") == "service1" ? "sysgrupodb_lucas" : "sysgrupodb_sinop"),
                 PathOutputSqlPrimary = conn.DIR_BACKUP(),
                 PathOutputSqlBackup = LeitorINI.ReadValue("diretorios", "diretorio2_backup2"),
                 PathPG = conn.DIR_PG_DUMP()

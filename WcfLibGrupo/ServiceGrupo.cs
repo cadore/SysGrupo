@@ -1,7 +1,5 @@
 ﻿using EntitiesGrupo;
 using PetaPoco;
-using ServicosSysFileManager;
-using ServicosSysFileManager.Repository;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -769,7 +767,7 @@ namespace WcfLibGrupo
                     new FaultCode("1000"));
             }
         }
-
+        /*
         public List<modelo_veiculo> listaDeModelosPorIdMarca(long id_marca)
         {
             try
@@ -828,7 +826,7 @@ namespace WcfLibGrupo
                     new FaultReason(String.Format("EXCECÃO: {0}{1}INNER EXCEPTION: {2}", ex.Message, Environment.NewLine, ex.InnerException)),
                     new FaultCode("1000"));
             }
-        }
+        }*/
 
         #endregion
 
@@ -1751,7 +1749,7 @@ namespace WcfLibGrupo
         #endregion
 
         #region cidades, bairros, enderecos
-
+        /*
         public long SalvaBairro(bairro obj)
         {
             try
@@ -1780,7 +1778,7 @@ namespace WcfLibGrupo
                     new FaultReason(String.Format("EXCECÃO: {0}{1}INNER EXCEPTION: {2}", ex.Message, Environment.NewLine, ex.InnerException)),
                     new FaultCode("1000"));
             }
-        }
+        }*/
         public List<estado> listaDeEstados()
         {
             try
@@ -1811,7 +1809,7 @@ namespace WcfLibGrupo
             }
         }
 
-        public List<bairro> listaDeBairrosPorCidade(long id_cidade)
+        /*public List<bairro> listaDeBairrosPorCidade(long id_cidade)
         {
             try
             {
@@ -1839,13 +1837,13 @@ namespace WcfLibGrupo
                     new FaultReason(String.Format("EXCECÃO: {0}{1}INNER EXCEPTION: {2}", ex.Message, Environment.NewLine, ex.InnerException)),
                     new FaultCode("1000"));
             }
-        }
+        }*/
 
         #endregion
 
         #region arquivos
 
-        public List<ArquivosModel> retornaTodosArquivosPorDiretorio(string diretorio)
+        /*public List<ArquivosModel> retornaTodosArquivosPorDiretorio(string diretorio)
         {
             try
             {
@@ -1960,7 +1958,7 @@ namespace WcfLibGrupo
         public string SUBDIR_SINISTROS()
         {
             return UtilsSistemaServico.SUBDIR_FILES_SINISTROS;
-        } 
+        } */
 
         #endregion
 

@@ -10,7 +10,7 @@ namespace EntitiesGrupo
 
 	public partial class SysGrupoRepo : Database
 	{
-        public static string host = "localhost";
+        public static string host = "192.168.0.200";
         public static int port = 5432;
         public static string user = "postgres";
         public static string passwd = "p@ssw0rd";
@@ -186,7 +186,7 @@ namespace EntitiesGrupo
 	}
 
     
-	[TableName("cad_enderecos")]
+	/*[TableName("cad_enderecos")]
 
 
 	[PrimaryKey("id")]
@@ -259,7 +259,7 @@ namespace EntitiesGrupo
 
 
 
-	}
+	}*/
 
     
 	[TableName("veiculos")]
@@ -312,12 +312,16 @@ namespace EntitiesGrupo
 
 
 		[Column] public string placa { get; set; }
+        [Column]
+        public string modelo { get; set; }
 
 
 
 
 
 		[Column] public int ano_fabricacao { get; set; }
+        [Column]
+        public int ano_modelo { get; set; }
 
 
 
@@ -594,6 +598,10 @@ namespace EntitiesGrupo
 
         [Column]
         public string uf_estado { get; set; }
+        [Column]
+        public string bairro { get; set; }
+        [Column]
+        public string endereco { get; set; }
 
 
 
@@ -987,7 +995,7 @@ namespace EntitiesGrupo
 	}
 
     
-	[TableName("modelo_veiculos")]
+	/*[TableName("modelo_veiculos")]
 
 
 	[PrimaryKey("id", autoIncrement=false)]
@@ -1020,7 +1028,7 @@ namespace EntitiesGrupo
 
 
 
-	}
+	}*/
 
     
 	[TableName("especies_veiculos")]
@@ -1182,7 +1190,7 @@ namespace EntitiesGrupo
 	}
 
     
-	[TableName("ano_modelo_veiculos")]
+	/*[TableName("ano_modelo_veiculos")]
 
 
 	[PrimaryKey("id")]
@@ -1223,7 +1231,7 @@ namespace EntitiesGrupo
 
 
 
-	}
+	}*/
 
     [TableName("empresa")]
     [PrimaryKey("id")]

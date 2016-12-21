@@ -1,1 +1,17 @@
+ALTER TABLE cliente
+  DROP CONSTRAINT cad_bairros_fk;
+ALTER TABLE cliente
+  DROP CONSTRAINT cad_cidades_fk;
+ALTER TABLE cliente
+  DROP CONSTRAINT cad_enderecos_fk;
 
+ALTER TABLE cliente
+  ADD COLUMN endereco character varying(255);
+ALTER TABLE cliente
+  ADD COLUMN bairro character varying(255);
+
+
+ALTER TABLE veiculos
+  ADD COLUMN ano_modelo integer;
+ALTER TABLE veiculos
+  ADD COLUMN modelo character varying(255);

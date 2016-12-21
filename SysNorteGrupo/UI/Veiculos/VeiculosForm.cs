@@ -1,7 +1,6 @@
 ﻿using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.DXErrorProvider;
 using EntitiesGrupo;
-using SysFileManager;
 using SysNorteGrupo.Utils;
 using System;
 using System.Collections;
@@ -27,21 +26,23 @@ namespace SysNorteGrupo.UI.Veiculos
             conn = GerenteDeConexoes.conexaoServico();
             //arquivosForm.conn = this.conn;         
 
-            try
-            {
+            /*try
+            {*/
+            Console.WriteLine(0);
                 bdgCor.DataSource = new Cores().listaDeCores();
                 bdgCliente.DataSource = conn.listaDeClientesPorInatividade(false);
                 bdgMarca.DataSource = conn.listaDeMarcas();
                 bdgEspecie.DataSource = conn.listaDeEspeciesVeiculos();
                 bdgEstado.DataSource = conn.listaDeEstados();
-            }
+            /*}
             catch (Exception ex)
             {
                 XtraMessageBox.Show(ex.Message);
-            }
+            }*/
 
-            try
-            {                
+            /*try
+            {     */
+                Console.WriteLine(1);
                 setBackColor();
                 if(veiculo_instc == null){
                     veiculo_instc = new veiculo();
@@ -54,18 +55,13 @@ namespace SysNorteGrupo.UI.Veiculos
                     ckAgendarCad.Visible = false;
 
                     tfDataAgendamento.EditValue = veiculo_instc.data_ativacao;
-
-                    bdgAnoModelo.DataSource = conn.listaDeAnoModelosPorIdModelo(veiculo_instc.id_modelo_veiculos);
+                    Console.WriteLine(2);
+                    //bdgAnoModelo.DataSource = conn.listaDeAnoModelosPorIdModelo(veiculo_instc.id_modelo_veiculos);
                     bdgCidade.DataSource = conn.listaDeCidadesPorEstado(veiculo_instc.uf_estado);
                     //arquivosForm.DIRETORIO = conn.SUBDIR_VEICULOS() + veiculo_instc.id.ToString() + @"\";
                     //arquivosForm.executaBusca();
                     //arquivosForm.Enabled = true;
-                }
-                bdgVeiculo.DataSource = (veiculo) veiculo_instc;
-                ArrayList arrayList = new ListaAnos().retornaAnos();
-                for (int i = 0; i < arrayList.Count; i++ )
-                {
-                    cbAnoFabricacao.Properties.Items.Add(arrayList[i]);
+                    bdgVeiculo.DataSource = (veiculo)veiculo_instc;
                 }
                 tfDataAgendamento.Properties.MinValue = DateTime.Now.Date.AddDays(1);
                 if (veiculo_instc.inativo == true)
@@ -75,10 +71,11 @@ namespace SysNorteGrupo.UI.Veiculos
                     btnExcluir.Enabled = true;
                 }
 
-                cbCor.EditValue = veiculo_instc.cor_predominante;
-            }catch(Exception ex){
+                //cbCor.EditValue = veiculo_instc.cor_predominante;
+                Console.WriteLine(3);
+            /*}catch(Exception ex){
                 XtraMessageBox.Show(ex.Message);
-            }
+            }*/
         }
 
         #region backColor
@@ -155,7 +152,7 @@ namespace SysNorteGrupo.UI.Veiculos
         private void cbMarca_EditValueChanged(object sender, EventArgs e)
         {
             
-            bdgModelo.Clear();
+            /*bdgModelo.Clear();
             //bdgAnoModelo.Clear();
             cbAnoFabricacao.SelectedIndex = -1;
             tfValor.Text = null;
@@ -163,10 +160,10 @@ namespace SysNorteGrupo.UI.Veiculos
             if (Convert.ToInt32(cbMarca.EditValue) > 0)
             {
                 bdgModelo.DataSource = conn.listaDeModelosPorIdMarca(Convert.ToInt64(cbMarca.EditValue));
-            }
+            }*/
         }
 
-        private void cbModelo_EditValueChanged(object sender, EventArgs e)
+        /*private void cbModelo_EditValueChanged(object sender, EventArgs e)
         {            
             //bdgAnoModelo.Clear();
             tfValor.Text = null;
@@ -176,9 +173,9 @@ namespace SysNorteGrupo.UI.Veiculos
             {
                 bdgAnoModelo.DataSource = conn.listaDeAnoModelosPorIdModelo(cbModelo.EditValue.ToString());
             }
-        }
+        }*/
 
-        private void cbAnoModelo_EditValueChanged(object sender, EventArgs e)
+        /*private void cbAnoModelo_EditValueChanged(object sender, EventArgs e)
         {
             tfValor.Text = null;
             if (Convert.ToInt32(cbAnoModelo.EditValue) > 0)
@@ -187,7 +184,7 @@ namespace SysNorteGrupo.UI.Veiculos
                 ((veiculo)bdgVeiculo.Current).valor = amv.valor;
                 tfValor.Text = amv.valor.ToString();
             }
-        }
+        }*/
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
