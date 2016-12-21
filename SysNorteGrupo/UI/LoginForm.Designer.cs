@@ -103,7 +103,7 @@ namespace SysNorteGrupo.UI.Usuarios
             this.pnControl.Appearance.Options.UseBackColor = true;
             this.pnControl.AutoSize = true;
             this.pnControl.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.pnControl.ContentImage = global::SysNorteGrupo.Properties.Resources.sigla_SysNorte;
+            this.pnControl.ContentImage = global::SysNorteGrupo.Properties.Resources.favicon;
             this.pnControl.Controls.Add(this.lbAviso);
             this.pnControl.Controls.Add(this.btnEntrar);
             this.pnControl.Controls.Add(this.lbSenha);

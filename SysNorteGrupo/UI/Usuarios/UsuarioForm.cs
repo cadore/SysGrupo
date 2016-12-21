@@ -169,7 +169,7 @@ namespace SysNorteGrupo.UI.Usuarios
                     bool empty = Util.textFieldIsEmpty(tfId);
 
                     if(conn.verificaSeLoginEhUnico(tfLogin.Text, !empty) == false){
-                        XtraMessageBox.Show("O LOGIN: "+tfLogin.Text+" JÁ ESTA CADASTRADO. VERIFIQUE!");
+                        XtraMessageBox.Show("O LOGIN: "+tfLogin.Text+" JÁ ESTA CADASTRADO. VERIFIQUE!", "CADORE TECNOLOGIA");
                         return;
                     }
                     DTICrypto crypto = new DTICrypto();

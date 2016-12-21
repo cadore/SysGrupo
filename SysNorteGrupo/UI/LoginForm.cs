@@ -30,7 +30,7 @@ namespace SysNorteGrupo.UI.Usuarios
         public LoginForm()
         {
             InitializeComponent();
-            this.Text = "SysNorteGrupo Login - SysNorte Tecnologia Copyright © 2014 Versão: 1.0.0.0";
+            this.Text = "SysGrupo Login - Cadore Tecnologia Copyright © 2014-2017 Versão: 3.0.1";
             tfSenha.Properties.UseSystemPasswordChar = true;
             conn = GerenteDeConexoes.conexaoServico();
             //tfLogin.Text = "sysnorte";

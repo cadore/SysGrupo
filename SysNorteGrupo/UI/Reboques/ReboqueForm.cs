@@ -27,7 +27,7 @@ namespace SysNorteGrupo.UI.Veiculos.Reboques
 
             conn = GerenteDeConexoes.conexaoServico();
 
-            arquivosFormReb.conn = conn;
+            //arquivosFormReb.conn = conn;
 
             try
             {
@@ -66,9 +66,9 @@ namespace SysNorteGrupo.UI.Veiculos.Reboques
                     //tfDataAgendamento.EditValue = reboque_instc.data_ativacao;
                     bdgCidade.DataSource = conn.listaDeCidadesPorEstado(((reboque)bdgReboqueLista.Current).uf_estado);
 
-                    arquivosFormReb.DIRETORIO = String.Format(@"{0}{1}\", conn.SUBDIR_REBOQUES(), ((reboque)bdgReboqueLista.Current).id);
-                    arquivosFormReb.executaBusca();
-                    arquivosFormReb.Enabled = true;
+                    //arquivosFormReb.DIRETORIO = String.Format(@"{0}{1}\", conn.SUBDIR_REBOQUES(), ((reboque)bdgReboqueLista.Current).id);
+                    //arquivosFormReb.executaBusca();
+                    //arquivosFormReb.Enabled = true;
 
                     btnEditar.Enabled = true;
                     btnInativar.Enabled = false;
@@ -183,7 +183,7 @@ namespace SysNorteGrupo.UI.Veiculos.Reboques
             try
             {
                 DialogResult rs = XtraMessageBox.Show(String.Format("CONFIRMA INATIVAÇÃO DE TODOS REBOQUES DO VEÍCULO?\n\nNÃO SERÁ POSSÍVEL REVERTER ESTA AÇÃO!", tfPlaca.Text),
-                    "SYSNORTE",
+                    "CADORE TECNOLOGIA",
                     MessageBoxButtons.OKCancel);
                 if (rs == DialogResult.OK)
                 {
@@ -231,9 +231,9 @@ namespace SysNorteGrupo.UI.Veiculos.Reboques
                 Log.createLog(SysEventLog.edited, String.Format("reboque ID: {0}", r.id));
             }
 
-            arquivosFormReb.DIRETORIO = String.Format(@"{0}{1}\", conn.SUBDIR_REBOQUES(), ((reboque)bdgReboqueLista.Current).id);
-            arquivosFormReb.executaBusca();
-            arquivosFormReb.Enabled = true;
+            //arquivosFormReb.DIRETORIO = String.Format(@"{0}{1}\", conn.SUBDIR_REBOQUES(), ((reboque)bdgReboqueLista.Current).id);
+            //arquivosFormReb.executaBusca();
+            //arquivosFormReb.Enabled = true;
         }
 
         private void btnSalvar_Click(object sender, EventArgs e)
@@ -263,7 +263,7 @@ namespace SysNorteGrupo.UI.Veiculos.Reboques
                 
                 if (original.Count == 0)
                 {
-                    XtraMessageBox.Show("VOCÊ DEVE INFORMAR AO MENOS UM REBOQUE PARA O VEÍCULO.", "SYSNORTE TECNOLOGIA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    XtraMessageBox.Show("VOCÊ DEVE INFORMAR AO MENOS UM REBOQUE PARA O VEÍCULO.", "CADORE TECNOLOGIA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
                     //remover evento cbCliente e cbveiculo
 
@@ -300,7 +300,7 @@ namespace SysNorteGrupo.UI.Veiculos.Reboques
                 btnEditar.Enabled = true;
                 btnInativar.Enabled = false;
                 btnExcluir.Enabled = false;
-                XtraMessageBox.Show("REBOQUES SALVOS COM SUCESSO PARA O VEÍCULO INDICADO.", "SYSNORTE TECNOLOGIA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);                
+                XtraMessageBox.Show("REBOQUES SALVOS COM SUCESSO PARA O VEÍCULO INDICADO.", "CADORE TECNOLOGIA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);                
 
                 /*bool empty = Util.textFieldIsEmpty(tfId);
                 //seta validações
@@ -491,7 +491,7 @@ namespace SysNorteGrupo.UI.Veiculos.Reboques
                     //verifica placa unica
                     if (conn.verificaSePlacaReboqueEhUnica(tfPlaca.Text, !empty) == false)
                     {
-                        XtraMessageBox.Show(String.Format("A PLACA {0} JÁ ENCONTRA-SE CADASTRADA. VERIFIQUE!", tfPlaca.Text));
+                        XtraMessageBox.Show(String.Format("A PLACA {0} JÁ ENCONTRA-SE CADASTRADA. VERIFIQUE!", tfPlaca.Text), "CADORE TECNOLOGIA");
                         return;
                     }
 
@@ -507,14 +507,14 @@ namespace SysNorteGrupo.UI.Veiculos.Reboques
                     //verifica chassi unico
                     if (conn.verificaSeNChassiReboqueEhUnico(tfChassi.Text, !empty) == false)
                     {
-                        XtraMessageBox.Show(String.Format("O CHASSI {0} JÁ ENCONTRA-SE CADASTRADO. VERIFIQUE!", tfChassi.Text));
+                        XtraMessageBox.Show(String.Format("O CHASSI {0} JÁ ENCONTRA-SE CADASTRADO. VERIFIQUE!", tfChassi.Text), "CADORE TECNOLOGIA");
                         return;
                     }
 
                     //verifica renavam
                     if (conn.verificaSeRenavamReboqueEhUnico(tfRenavam.Text, !empty) == false)
                     {
-                        XtraMessageBox.Show(String.Format("O RENAVAM {0} JÁ ENCONTRA-SE CADASTRADO. VERIFIQUE!", tfRenavam.Text));
+                        XtraMessageBox.Show(String.Format("O RENAVAM {0} JÁ ENCONTRA-SE CADASTRADO. VERIFIQUE!", tfRenavam.Text), "CADORE TECNOLOGIA");
                         return;
                     }
 
@@ -523,7 +523,7 @@ namespace SysNorteGrupo.UI.Veiculos.Reboques
                     {
                         DialogResult dialogResult = MessageBox.Show(
                             String.Format("CONFIRMA O AGENDAMENTO DE CADASTRO DESTE VEÍCULO PARA ÀS 00:00 HORAS DO DIA {0}?", tfDataAgendamento.Text),
-                            "SYSNORTE", MessageBoxButtons.YesNo);
+                            "CADORE TECNOLOGIA", MessageBoxButtons.YesNo);
                         if (dialogResult == DialogResult.No)
                             return;
                     }
@@ -594,8 +594,8 @@ namespace SysNorteGrupo.UI.Veiculos.Reboques
                     cbCorCarroceria.EditValue = r.cor_carroceria;
                 cbCorChassi.EditValue = r.cor_chassi;
 
-                arquivosFormReb.DIRETORIO = String.Format(@"{0}{1}\", conn.SUBDIR_REBOQUES(), ((reboque)bdgReboqueLista.Current).id);
-                arquivosFormReb.executaBusca();
+                //arquivosFormReb.DIRETORIO = String.Format(@"{0}{1}\", conn.SUBDIR_REBOQUES(), ((reboque)bdgReboqueLista.Current).id);
+                //arquivosFormReb.executaBusca();
             }
             catch (Exception) { }
         }
@@ -605,7 +605,7 @@ namespace SysNorteGrupo.UI.Veiculos.Reboques
             bool empty = Util.textFieldIsEmpty(tfId);
             if (!String.IsNullOrEmpty(tfPlaca.Text) && !conn.verificaSePlacaReboqueEhUnica(tfPlaca.Text, !empty))
             {
-                XtraMessageBox.Show(String.Format("A PLACA {0} JÁ ENCONTRA-SE CADASTRADA. VERIFIQUE!", tfPlaca.Text));
+                XtraMessageBox.Show(String.Format("A PLACA {0} JÁ ENCONTRA-SE CADASTRADA. VERIFIQUE!", tfPlaca.Text), "CADORE TECNOLOGIA");
                 return;
             }      
         }
@@ -615,7 +615,7 @@ namespace SysNorteGrupo.UI.Veiculos.Reboques
             try
             {
                 DialogResult rs = XtraMessageBox.Show(String.Format("CONFIRMA EXCLUSÃO DOS REBOQUES?\n\nNÃO SERÁ POSSÍVEL REVERTER ESTA AÇÃO!"),
-                    "SYSNORTE",
+                    "CADORE TECNOLOGIA",
                     MessageBoxButtons.OKCancel);
                 if (rs == DialogResult.OK)
                 {

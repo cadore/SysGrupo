@@ -66,7 +66,7 @@
             // 
             // pictureEdit2
             // 
-            this.pictureEdit2.EditValue = global::HostWcfGrupo.Properties.Resources.sigla_SysNorte;
+            this.pictureEdit2.EditValue = global::HostWcfGrupo.Properties.Resources.sigla_ct;
             this.pictureEdit2.Location = new System.Drawing.Point(12, 12);
             this.pictureEdit2.Name = "pictureEdit2";
             this.pictureEdit2.Properties.AllowFocused = false;
@@ -80,7 +80,7 @@
             // 
             // pictureEdit1
             // 
-            this.pictureEdit1.EditValue = global::HostWcfGrupo.Properties.Resources.sigla_SysNorte;
+            this.pictureEdit1.EditValue = global::HostWcfGrupo.Properties.Resources.sigla_ct;
             this.pictureEdit1.Location = new System.Drawing.Point(278, 263);
             this.pictureEdit1.Name = "pictureEdit1";
             this.pictureEdit1.Properties.AllowFocused = false;

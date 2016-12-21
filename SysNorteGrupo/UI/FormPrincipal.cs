@@ -55,7 +55,8 @@ namespace SysNorteGrupo
             InitializeComponent();
             conn = GerenteDeConexoes.conexaoServico();
             //carregaPermissoes(permicao_instc);
-            this.Text = String.Format("SysNorte Tecnologia Copyright © 2016 | SysNorteGrupo | Usuário: {0} | Versão: 2.0.1", usuario_instc.login);
+            this.Text = String.Format("Cadore Tecnologia Copyright © 2014-2017 | SysGrupo | Usuário: {0} | Versão: 3.0.1", usuario_instc.login);
+            lbFilial.Caption = GerenteDeConexoes.link == "service1" ? "Filial: Lucas do Rio Verde-MT" : "Filial: Sinop-MT";
             iniciaThreadRecarregaInformacoesDesktop();
             iniciaThreadDataHora();
 
@@ -395,7 +396,7 @@ namespace SysNorteGrupo
 
         private void btnCriaBackup_ItemClick(object sender, ItemClickEventArgs e)
         {
-            /*DialogResult drc = XtraMessageBox.Show("Confirma criação de backup?\nO servidor será parado durante a operação.", "SYSNORTE TECNOLOGIA", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            /*DialogResult drc = XtraMessageBox.Show("Confirma criação de backup?\nO servidor será parado durante a operação.", "Cadore Tecnologia", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
             if (drc == DialogResult.OK)
             {
                 try
@@ -412,7 +413,7 @@ namespace SysNorteGrupo
                         TimeSpan ts = fim.Subtract(inic);
                         Log.createLog(EventLog.cloused, String.Format("concluiu criação de backup em: {0} segundos", ts.TotalSeconds));
                         DialogResult rs = XtraMessageBox.Show("Backup criado com sucesso!\nDeseja exportar arquivo para um local?",
-                            "SYSNORTE TECNOLOGIA", MessageBoxButtons.YesNo);
+                            "Cadore Tecnologia", MessageBoxButtons.YesNo);
                         if (rs == DialogResult.Yes)
                         {
                             SaveFileDialog sfd = new SaveFileDialog();
@@ -427,7 +428,7 @@ namespace SysNorteGrupo
                                 Byte[] by = conn.download(fileBackup);
                                 File.WriteAllBytes(sfd.FileName, by);
                                 Log.createLog(EventLog.empty, String.Format("Exportou arquivo de backup."));
-                                XtraMessageBox.Show("Arquivo salvo com sucesso.", "SYSNORTE TECNOLOGIA");
+                                XtraMessageBox.Show("Arquivo salvo com sucesso.", "Cadore Tecnologia");
                             }
                         }
                     }
@@ -462,7 +463,7 @@ namespace SysNorteGrupo
         {
             try
             {
-                DialogResult rs = XtraMessageBox.Show("TEM CERTEZA QUE DESEJA SAIR DO SISTEMA?", "SYSNORTE TECNOLOGIA",
+                DialogResult rs = XtraMessageBox.Show("TEM CERTEZA QUE DESEJA SAIR DO SISTEMA?", "Cadore Tecnologia",
                 MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (rs == DialogResult.Yes)
                 {

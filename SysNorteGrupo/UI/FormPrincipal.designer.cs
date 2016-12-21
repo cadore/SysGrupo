@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormPrincipal));
-            DevExpress.Utils.SuperToolTip superToolTip5 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipItem toolTipItem5 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip1 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipItem toolTipItem1 = new DevExpress.Utils.ToolTipItem();
             this.ribbon = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.btnBuscarCliente = new DevExpress.XtraBars.BarButtonItem();
             this.btnNovoCliente = new DevExpress.XtraBars.BarButtonItem();
@@ -61,6 +61,9 @@
             this.lbDataHora = new DevExpress.XtraBars.BarStaticItem();
             this.btnUpdateFipe = new DevExpress.XtraBars.BarButtonItem();
             this.btnUpdateValueFipeVehicles = new DevExpress.XtraBars.BarButtonItem();
+            this.btnConfigBackup = new DevExpress.XtraBars.BarButtonItem();
+            this.btnBackupNow = new DevExpress.XtraBars.BarButtonItem();
+            this.lbFilial = new DevExpress.XtraBars.BarStaticItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribClientes = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribVeiculos = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -81,6 +84,7 @@
             this.ribbonPageGroup6 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup8 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup13 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.rbBackup = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.repositoryItemTextEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.pnControl = new DevExpress.XtraEditors.PanelControl();
@@ -105,9 +109,6 @@
             this.lbVeiculos_ativos = new DevExpress.XtraEditors.LabelControl();
             this.lbReboques_ativos = new DevExpress.XtraEditors.LabelControl();
             this.barStaticItem1 = new DevExpress.XtraBars.BarStaticItem();
-            this.rbBackup = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.btnConfigBackup = new DevExpress.XtraBars.BarButtonItem();
-            this.btnBackupNow = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pnControl)).BeginInit();
@@ -153,9 +154,10 @@
             this.btnUpdateFipe,
             this.btnUpdateValueFipeVehicles,
             this.btnConfigBackup,
-            this.btnBackupNow});
+            this.btnBackupNow,
+            this.lbFilial});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.MaxItemId = 47;
+            this.ribbon.MaxItemId = 48;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1,
@@ -389,9 +391,9 @@
             this.btnGerarParcelasVeiculos.Id = 38;
             this.btnGerarParcelasVeiculos.Name = "btnGerarParcelasVeiculos";
             this.btnGerarParcelasVeiculos.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
-            toolTipItem5.Text = "Gerar parcelas de cota capital para os veiculos que ainda nao foram geradas.";
-            superToolTip5.Items.Add(toolTipItem5);
-            this.btnGerarParcelasVeiculos.SuperTip = superToolTip5;
+            toolTipItem1.Text = "Gerar parcelas de cota capital para os veiculos que ainda nao foram geradas.";
+            superToolTip1.Items.Add(toolTipItem1);
+            this.btnGerarParcelasVeiculos.SuperTip = superToolTip1;
             this.btnGerarParcelasVeiculos.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnGerarParcelasVeiculos_ItemClick);
             // 
             // btnGerarContasAReceber
@@ -435,6 +437,30 @@
             this.btnUpdateValueFipeVehicles.Name = "btnUpdateValueFipeVehicles";
             this.btnUpdateValueFipeVehicles.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
             this.btnUpdateValueFipeVehicles.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnUpdateValueFipeVehicles_ItemClick);
+            // 
+            // btnConfigBackup
+            // 
+            this.btnConfigBackup.Caption = "Configurações de Backup";
+            this.btnConfigBackup.Id = 45;
+            this.btnConfigBackup.Name = "btnConfigBackup";
+            this.btnConfigBackup.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.btnConfigBackup.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnConfigBackup_ItemClick);
+            // 
+            // btnBackupNow
+            // 
+            this.btnBackupNow.Caption = "Realizar Backup";
+            this.btnBackupNow.Id = 46;
+            this.btnBackupNow.Name = "btnBackupNow";
+            this.btnBackupNow.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.btnBackupNow.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnBackupNow_ItemClick);
+            // 
+            // lbFilial
+            // 
+            this.lbFilial.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
+            this.lbFilial.Caption = "lbFilial";
+            this.lbFilial.Id = 47;
+            this.lbFilial.Name = "lbFilial";
+            this.lbFilial.TextAlignment = System.Drawing.StringAlignment.Near;
             // 
             // ribbonPage1
             // 
@@ -493,6 +519,7 @@
             this.ribbonPageGroup1.Name = "ribbonPageGroup1";
             this.ribbonPageGroup1.ShowCaptionButton = false;
             this.ribbonPageGroup1.Text = "Arquivos";
+            this.ribbonPageGroup1.Visible = false;
             // 
             // ribbonPageGroup9
             // 
@@ -513,6 +540,7 @@
             this.rpFinanceiro.Image = ((System.Drawing.Image)(resources.GetObject("rpFinanceiro.Image")));
             this.rpFinanceiro.Name = "rpFinanceiro";
             this.rpFinanceiro.Text = "FINANCEIRO";
+            this.rpFinanceiro.Visible = false;
             // 
             // ribbonPageGroup5
             // 
@@ -620,6 +648,15 @@
             this.ribbonPageGroup13.Text = "Tabela FIPE";
             this.ribbonPageGroup13.Visible = false;
             // 
+            // rbBackup
+            // 
+            this.rbBackup.AllowTextClipping = false;
+            this.rbBackup.ItemLinks.Add(this.btnConfigBackup);
+            this.rbBackup.ItemLinks.Add(this.btnBackupNow);
+            this.rbBackup.Name = "rbBackup";
+            this.rbBackup.ShowCaptionButton = false;
+            this.rbBackup.Text = "Backup";
+            // 
             // repositoryItemTextEdit1
             // 
             this.repositoryItemTextEdit1.AutoHeight = false;
@@ -628,6 +665,7 @@
             // ribbonStatusBar
             // 
             this.ribbonStatusBar.ItemLinks.Add(this.lbDataHora);
+            this.ribbonStatusBar.ItemLinks.Add(this.lbFilial);
             this.ribbonStatusBar.Location = new System.Drawing.Point(0, 584);
             this.ribbonStatusBar.Name = "ribbonStatusBar";
             this.ribbonStatusBar.Ribbon = this.ribbon;
@@ -636,7 +674,7 @@
             // pnControl
             // 
             this.pnControl.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.pnControl.ContentImage = global::SysNorteGrupo.Properties.Resources.sigla_SysNorte;
+            this.pnControl.ContentImage = global::SysNorteGrupo.Properties.Resources.favicon;
             this.pnControl.Controls.Add(this.pnInformacoes);
             this.pnControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnControl.Location = new System.Drawing.Point(0, 147);
@@ -693,7 +731,7 @@
             // 
             this.lbTotal_clientes.Appearance.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbTotal_clientes.Appearance.ForeColor = System.Drawing.Color.Black;
-            this.lbTotal_clientes.Location = new System.Drawing.Point(383, 57);
+            this.lbTotal_clientes.Location = new System.Drawing.Point(10, 169);
             this.lbTotal_clientes.Name = "lbTotal_clientes";
             this.lbTotal_clientes.Size = new System.Drawing.Size(92, 20);
             this.lbTotal_clientes.TabIndex = 0;
@@ -704,7 +742,7 @@
             // 
             this.lbCotasInativas.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbCotasInativas.Appearance.ForeColor = System.Drawing.Color.Red;
-            this.lbCotasInativas.Location = new System.Drawing.Point(544, 160);
+            this.lbCotasInativas.Location = new System.Drawing.Point(171, 272);
             this.lbCotasInativas.Name = "lbCotasInativas";
             this.lbCotasInativas.Size = new System.Drawing.Size(126, 15);
             this.lbCotasInativas.TabIndex = 0;
@@ -715,7 +753,7 @@
             // 
             this.lbBensInativos.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbBensInativos.Appearance.ForeColor = System.Drawing.Color.Red;
-            this.lbBensInativos.Location = new System.Drawing.Point(544, 94);
+            this.lbBensInativos.Location = new System.Drawing.Point(171, 206);
             this.lbBensInativos.Name = "lbBensInativos";
             this.lbBensInativos.Size = new System.Drawing.Size(105, 15);
             this.lbBensInativos.TabIndex = 0;
@@ -726,7 +764,7 @@
             // 
             this.lbSinistros_em_andamento.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbSinistros_em_andamento.Appearance.ForeColor = System.Drawing.Color.Red;
-            this.lbSinistros_em_andamento.Location = new System.Drawing.Point(384, 298);
+            this.lbSinistros_em_andamento.Location = new System.Drawing.Point(11, 410);
             this.lbSinistros_em_andamento.Name = "lbSinistros_em_andamento";
             this.lbSinistros_em_andamento.Size = new System.Drawing.Size(136, 15);
             this.lbSinistros_em_andamento.TabIndex = 0;
@@ -737,7 +775,7 @@
             // 
             this.lbTotal_veiculos.Appearance.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbTotal_veiculos.Appearance.ForeColor = System.Drawing.Color.Black;
-            this.lbTotal_veiculos.Location = new System.Drawing.Point(383, 124);
+            this.lbTotal_veiculos.Location = new System.Drawing.Point(10, 236);
             this.lbTotal_veiculos.Name = "lbTotal_veiculos";
             this.lbTotal_veiculos.Size = new System.Drawing.Size(95, 20);
             this.lbTotal_veiculos.TabIndex = 0;
@@ -748,7 +786,7 @@
             // 
             this.lbReboques_inativos.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbReboques_inativos.Appearance.ForeColor = System.Drawing.Color.Red;
-            this.lbReboques_inativos.Location = new System.Drawing.Point(385, 230);
+            this.lbReboques_inativos.Location = new System.Drawing.Point(12, 342);
             this.lbReboques_inativos.Name = "lbReboques_inativos";
             this.lbReboques_inativos.Size = new System.Drawing.Size(100, 15);
             this.lbReboques_inativos.TabIndex = 0;
@@ -759,7 +797,7 @@
             // 
             this.lbTotal_reboques.Appearance.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbTotal_reboques.Appearance.ForeColor = System.Drawing.Color.Black;
-            this.lbTotal_reboques.Location = new System.Drawing.Point(384, 194);
+            this.lbTotal_reboques.Location = new System.Drawing.Point(11, 306);
             this.lbTotal_reboques.Name = "lbTotal_reboques";
             this.lbTotal_reboques.Size = new System.Drawing.Size(104, 20);
             this.lbTotal_reboques.TabIndex = 0;
@@ -770,7 +808,7 @@
             // 
             this.lbVeiculos_inativos.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbVeiculos_inativos.Appearance.ForeColor = System.Drawing.Color.Red;
-            this.lbVeiculos_inativos.Location = new System.Drawing.Point(384, 160);
+            this.lbVeiculos_inativos.Location = new System.Drawing.Point(11, 272);
             this.lbVeiculos_inativos.Name = "lbVeiculos_inativos";
             this.lbVeiculos_inativos.Size = new System.Drawing.Size(93, 15);
             this.lbVeiculos_inativos.TabIndex = 0;
@@ -781,7 +819,7 @@
             // 
             this.lbTotalCotas.Appearance.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbTotalCotas.Appearance.ForeColor = System.Drawing.Color.Black;
-            this.lbTotalCotas.Location = new System.Drawing.Point(543, 124);
+            this.lbTotalCotas.Location = new System.Drawing.Point(170, 236);
             this.lbTotalCotas.Name = "lbTotalCotas";
             this.lbTotalCotas.Size = new System.Drawing.Size(76, 20);
             this.lbTotalCotas.TabIndex = 0;
@@ -792,7 +830,7 @@
             // 
             this.lbTotalDeBens.Appearance.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbTotalDeBens.Appearance.ForeColor = System.Drawing.Color.Black;
-            this.lbTotalDeBens.Location = new System.Drawing.Point(543, 58);
+            this.lbTotalDeBens.Location = new System.Drawing.Point(170, 170);
             this.lbTotalDeBens.Name = "lbTotalDeBens";
             this.lbTotalDeBens.Size = new System.Drawing.Size(95, 20);
             this.lbTotalDeBens.TabIndex = 0;
@@ -803,7 +841,7 @@
             // 
             this.lbTotal_sinistros.Appearance.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbTotal_sinistros.Appearance.ForeColor = System.Drawing.Color.Black;
-            this.lbTotal_sinistros.Location = new System.Drawing.Point(383, 262);
+            this.lbTotal_sinistros.Location = new System.Drawing.Point(10, 374);
             this.lbTotal_sinistros.Name = "lbTotal_sinistros";
             this.lbTotal_sinistros.Size = new System.Drawing.Size(98, 20);
             this.lbTotal_sinistros.TabIndex = 0;
@@ -814,7 +852,7 @@
             // 
             this.lbCotasAtivas.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbCotasAtivas.Appearance.ForeColor = System.Drawing.Color.Green;
-            this.lbCotasAtivas.Location = new System.Drawing.Point(543, 144);
+            this.lbCotasAtivas.Location = new System.Drawing.Point(170, 256);
             this.lbCotasAtivas.Name = "lbCotasAtivas";
             this.lbCotasAtivas.Size = new System.Drawing.Size(107, 17);
             this.lbCotasAtivas.TabIndex = 0;
@@ -825,7 +863,7 @@
             // 
             this.lbClientes_inativos.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbClientes_inativos.Appearance.ForeColor = System.Drawing.Color.Red;
-            this.lbClientes_inativos.Location = new System.Drawing.Point(384, 93);
+            this.lbClientes_inativos.Location = new System.Drawing.Point(11, 205);
             this.lbClientes_inativos.Name = "lbClientes_inativos";
             this.lbClientes_inativos.Size = new System.Drawing.Size(91, 15);
             this.lbClientes_inativos.TabIndex = 0;
@@ -836,7 +874,7 @@
             // 
             this.lbBensAtivos.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbBensAtivos.Appearance.ForeColor = System.Drawing.Color.Green;
-            this.lbBensAtivos.Location = new System.Drawing.Point(543, 78);
+            this.lbBensAtivos.Location = new System.Drawing.Point(170, 190);
             this.lbBensAtivos.Name = "lbBensAtivos";
             this.lbBensAtivos.Size = new System.Drawing.Size(105, 17);
             this.lbBensAtivos.TabIndex = 0;
@@ -857,7 +895,7 @@
             // 
             this.lbSinistros_concluidos.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbSinistros_concluidos.Appearance.ForeColor = System.Drawing.Color.Green;
-            this.lbSinistros_concluidos.Location = new System.Drawing.Point(383, 282);
+            this.lbSinistros_concluidos.Location = new System.Drawing.Point(10, 394);
             this.lbSinistros_concluidos.Name = "lbSinistros_concluidos";
             this.lbSinistros_concluidos.Size = new System.Drawing.Size(123, 17);
             this.lbSinistros_concluidos.TabIndex = 0;
@@ -878,7 +916,7 @@
             // 
             this.lbReboques_ativos.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbReboques_ativos.Appearance.ForeColor = System.Drawing.Color.Green;
-            this.lbReboques_ativos.Location = new System.Drawing.Point(384, 214);
+            this.lbReboques_ativos.Location = new System.Drawing.Point(11, 326);
             this.lbReboques_ativos.Name = "lbReboques_ativos";
             this.lbReboques_ativos.Size = new System.Drawing.Size(99, 17);
             this.lbReboques_ativos.TabIndex = 0;
@@ -890,31 +928,6 @@
             this.barStaticItem1.Id = -1;
             this.barStaticItem1.Name = "barStaticItem1";
             this.barStaticItem1.TextAlignment = System.Drawing.StringAlignment.Near;
-            // 
-            // rbBackup
-            // 
-            this.rbBackup.AllowTextClipping = false;
-            this.rbBackup.ItemLinks.Add(this.btnConfigBackup);
-            this.rbBackup.ItemLinks.Add(this.btnBackupNow);
-            this.rbBackup.Name = "rbBackup";
-            this.rbBackup.ShowCaptionButton = false;
-            this.rbBackup.Text = "Backup";
-            // 
-            // btnConfigBackup
-            // 
-            this.btnConfigBackup.Caption = "Configurações de Backup";
-            this.btnConfigBackup.Id = 45;
-            this.btnConfigBackup.Name = "btnConfigBackup";
-            this.btnConfigBackup.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
-            this.btnConfigBackup.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnConfigBackup_ItemClick);
-            // 
-            // btnBackupNow
-            // 
-            this.btnBackupNow.Caption = "Realizar Backup";
-            this.btnBackupNow.Id = 46;
-            this.btnBackupNow.Name = "btnBackupNow";
-            this.btnBackupNow.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
-            this.btnBackupNow.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnBackupNow_ItemClick);
             // 
             // FormPrincipal
             // 
@@ -1026,5 +1039,6 @@
         private DevExpress.XtraBars.BarButtonItem btnConfigBackup;
         private DevExpress.XtraBars.BarButtonItem btnBackupNow;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup rbBackup;
+        private DevExpress.XtraBars.BarStaticItem lbFilial;
     }
 }

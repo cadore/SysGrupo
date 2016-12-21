@@ -25,7 +25,7 @@ namespace SysNorteGrupo.UI.Veiculos
             veiculo_instc = vei;
             InitializeComponent();
             conn = GerenteDeConexoes.conexaoServico();
-            arquivosForm.conn = this.conn;         
+            //arquivosForm.conn = this.conn;         
 
             try
             {
@@ -57,9 +57,9 @@ namespace SysNorteGrupo.UI.Veiculos
 
                     bdgAnoModelo.DataSource = conn.listaDeAnoModelosPorIdModelo(veiculo_instc.id_modelo_veiculos);
                     bdgCidade.DataSource = conn.listaDeCidadesPorEstado(veiculo_instc.uf_estado);
-                    arquivosForm.DIRETORIO = conn.SUBDIR_VEICULOS() + veiculo_instc.id.ToString() + @"\";
-                    arquivosForm.executaBusca();
-                    arquivosForm.Enabled = true;
+                    //arquivosForm.DIRETORIO = conn.SUBDIR_VEICULOS() + veiculo_instc.id.ToString() + @"\";
+                    //arquivosForm.executaBusca();
+                    //arquivosForm.Enabled = true;
                 }
                 bdgVeiculo.DataSource = (veiculo) veiculo_instc;
                 ArrayList arrayList = new ListaAnos().retornaAnos();
@@ -197,9 +197,9 @@ namespace SysNorteGrupo.UI.Veiculos
             btnInativar.Enabled = true;
             btnExcluir.Enabled = true;
             Log.createLog(SysEventLog.edited, String.Format("veiculo ID: {0}", tfId.Text));
-            arquivosForm.DIRETORIO = conn.SUBDIR_VEICULOS() + veiculo_instc.id.ToString() + @"\";
-            arquivosForm.executaBusca();
-            arquivosForm.Enabled = true;
+            //arquivosForm.DIRETORIO = conn.SUBDIR_VEICULOS() + veiculo_instc.id.ToString() + @"\";
+            //arquivosForm.executaBusca();
+            //arquivosForm.Enabled = true;
         }
 
         private void btnSalvar_Click(object sender, EventArgs e)
@@ -238,7 +238,7 @@ namespace SysNorteGrupo.UI.Veiculos
                         {
                             DialogResult dialogResult = XtraMessageBox.Show(
                                 String.Format("CONFIRMA O AGENDAMENTO DE CADASTRO DESTE VEÍCULO PARA ÀS 00:00 HORAS DO DIA {0}?", tfDataAgendamento.Text),
-                                "SYSNORTE", MessageBoxButtons.YesNo);
+                                "CADORE TECNOLOGIA", MessageBoxButtons.YesNo);
                             if (dialogResult == DialogResult.No)
                             {
                                 return;
@@ -371,7 +371,7 @@ namespace SysNorteGrupo.UI.Veiculos
             try
             {
                 DialogResult rs = XtraMessageBox.Show("CONFIRMA INATIVAÇÃO DO VEICULO DE PLACA " + tfPlaca.Text + "?\n\nNÃO SERÁ POSSÍVEL REVERTER ESTA AÇÃO!",
-                    "SYSNORTE",
+                    "CADORE TECNOLOGIA",
                     MessageBoxButtons.OKCancel);
                 if (rs == DialogResult.OK)
                 {
@@ -407,11 +407,11 @@ namespace SysNorteGrupo.UI.Veiculos
         {
             if(Util.textFieldIsEmpty(tfId))
             {
-                arquivosForm.Enabled = false;
+                //arquivosForm.Enabled = false;
             }
             else
             {
-                arquivosForm.Enabled = true;
+                //arquivosForm.Enabled = true;
             }
         }
 
@@ -419,7 +419,7 @@ namespace SysNorteGrupo.UI.Veiculos
         {
             try
             {
-                DialogResult rs = XtraMessageBox.Show(String.Format("CONFIRMA EXCLUSÃO DO VEICULO?\n\nNÃO SERÁ POSSÍVEL REVERTER ESTA AÇÃO!"), "SYSNORTE",
+                DialogResult rs = XtraMessageBox.Show(String.Format("CONFIRMA EXCLUSÃO DO VEICULO?\n\nNÃO SERÁ POSSÍVEL REVERTER ESTA AÇÃO!"), "CADORE TECNOLOGIA",
                     MessageBoxButtons.OKCancel);
                 if (rs == DialogResult.OK)
                 {

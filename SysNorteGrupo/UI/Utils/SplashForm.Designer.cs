@@ -32,10 +32,8 @@
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.pictureEdit2 = new DevExpress.XtraEditors.PictureEdit();
-            this.pictureEdit1 = new DevExpress.XtraEditors.PictureEdit();
             ((System.ComponentModel.ISupportInitialize)(this.marqueeProgressBarControl1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureEdit2.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // marqueeProgressBarControl1
@@ -52,9 +50,9 @@
             this.labelControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.labelControl1.Location = new System.Drawing.Point(23, 286);
             this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(115, 13);
+            this.labelControl1.Size = new System.Drawing.Size(207, 13);
             this.labelControl1.TabIndex = 6;
-            this.labelControl1.Text = "Copyright © 2013-2014";
+            this.labelControl1.Text = "Copyright Cadore Tecnologia © 2014-2017";
             // 
             // labelControl2
             // 
@@ -66,7 +64,7 @@
             // 
             // pictureEdit2
             // 
-            this.pictureEdit2.EditValue = global::SysNorteGrupo.Properties.Resources.sigla_SysNorte;
+            this.pictureEdit2.EditValue = global::SysNorteGrupo.Properties.Resources.favicon;
             this.pictureEdit2.Location = new System.Drawing.Point(12, 12);
             this.pictureEdit2.Name = "pictureEdit2";
             this.pictureEdit2.Properties.AllowFocused = false;
@@ -74,23 +72,10 @@
             this.pictureEdit2.Properties.Appearance.Options.UseBackColor = true;
             this.pictureEdit2.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.pictureEdit2.Properties.ShowMenu = false;
+            this.pictureEdit2.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Stretch;
             this.pictureEdit2.Properties.ZoomPercent = 90;
             this.pictureEdit2.Size = new System.Drawing.Size(426, 188);
             this.pictureEdit2.TabIndex = 9;
-            // 
-            // pictureEdit1
-            // 
-            this.pictureEdit1.EditValue = global::SysNorteGrupo.Properties.Resources.sigla_SysNorte;
-            this.pictureEdit1.Location = new System.Drawing.Point(289, 269);
-            this.pictureEdit1.Name = "pictureEdit1";
-            this.pictureEdit1.Properties.AllowFocused = false;
-            this.pictureEdit1.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
-            this.pictureEdit1.Properties.Appearance.Options.UseBackColor = true;
-            this.pictureEdit1.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.pictureEdit1.Properties.ShowMenu = false;
-            this.pictureEdit1.Properties.ZoomPercent = 20;
-            this.pictureEdit1.Size = new System.Drawing.Size(160, 51);
-            this.pictureEdit1.TabIndex = 8;
             // 
             // SplashForm
             // 
@@ -99,7 +84,6 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(450, 320);
             this.Controls.Add(this.pictureEdit2);
-            this.Controls.Add(this.pictureEdit1);
             this.Controls.Add(this.labelControl2);
             this.Controls.Add(this.labelControl1);
             this.Controls.Add(this.marqueeProgressBarControl1);
@@ -107,7 +91,6 @@
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.marqueeProgressBarControl1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureEdit2.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -119,6 +102,5 @@
         private DevExpress.XtraEditors.LabelControl labelControl1;
         private DevExpress.XtraEditors.LabelControl labelControl2;
         private DevExpress.XtraEditors.PictureEdit pictureEdit2;
-        private DevExpress.XtraEditors.PictureEdit pictureEdit1;
     }
 }

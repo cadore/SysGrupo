@@ -54,8 +54,6 @@ namespace SysNorteGrupo.UI.Clientes
             this.btnNovo = new SysNorteGrupo.UI.Utils.Botoes.BotaoNovo();
             this.panelComponentes = new DevExpress.XtraEditors.PanelControl();
             this.grpTipo = new DevExpress.XtraEditors.RadioGroup();
-            this.panelArquivos = new DevExpress.XtraEditors.PanelControl();
-            this.arquivosFormCli = new SysFileManager.ArquivosForm();
             this.panelReferencias = new DevExpress.XtraEditors.PanelControl();
             this.xtraTabControl1 = new DevExpress.XtraTab.XtraTabControl();
             this.xtraTabPage1 = new DevExpress.XtraTab.XtraTabPage();
@@ -148,8 +146,6 @@ namespace SysNorteGrupo.UI.Clientes
             ((System.ComponentModel.ISupportInitialize)(this.panelComponentes)).BeginInit();
             this.panelComponentes.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grpTipo.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelArquivos)).BeginInit();
-            this.panelArquivos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelReferencias)).BeginInit();
             this.panelReferencias.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).BeginInit();
@@ -346,7 +342,6 @@ namespace SysNorteGrupo.UI.Clientes
             // panelComponentes
             // 
             this.panelComponentes.Controls.Add(this.grpTipo);
-            this.panelComponentes.Controls.Add(this.panelArquivos);
             this.panelComponentes.Controls.Add(this.panelReferencias);
             this.panelComponentes.Controls.Add(this.panelCadastro);
             this.panelComponentes.Controls.Add(this.tfTotalBens);
@@ -358,7 +353,7 @@ namespace SysNorteGrupo.UI.Clientes
             this.panelComponentes.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelComponentes.Location = new System.Drawing.Point(0, 55);
             this.panelComponentes.Name = "panelComponentes";
-            this.panelComponentes.Size = new System.Drawing.Size(1066, 520);
+            this.panelComponentes.Size = new System.Drawing.Size(1066, 321);
             this.panelComponentes.TabIndex = 1;
             // 
             // grpTipo
@@ -374,21 +369,6 @@ namespace SysNorteGrupo.UI.Clientes
             conditionValidationRule1.ErrorText = "Selecione o tipo de pessoa";
             this.validador.SetValidationRule(this.grpTipo, conditionValidationRule1);
             this.grpTipo.SelectedIndexChanged += new System.EventHandler(this.grpTipo_SelectedIndexChanged);
-            // 
-            // panelArquivos
-            // 
-            this.panelArquivos.Controls.Add(this.arquivosFormCli);
-            this.panelArquivos.Location = new System.Drawing.Point(6, 314);
-            this.panelArquivos.Name = "panelArquivos";
-            this.panelArquivos.Size = new System.Drawing.Size(1058, 201);
-            this.panelArquivos.TabIndex = 9;
-            // 
-            // arquivosFormCli
-            // 
-            this.arquivosFormCli.Location = new System.Drawing.Point(5, 5);
-            this.arquivosFormCli.Name = "arquivosFormCli";
-            this.arquivosFormCli.Size = new System.Drawing.Size(1048, 191);
-            this.arquivosFormCli.TabIndex = 0;
             // 
             // panelReferencias
             // 
@@ -1246,7 +1226,7 @@ namespace SysNorteGrupo.UI.Clientes
             this.Controls.Add(this.panelComponentes);
             this.Controls.Add(this.pnBotoes);
             this.Name = "ClienteForm";
-            this.Size = new System.Drawing.Size(1066, 575);
+            this.Size = new System.Drawing.Size(1066, 376);
             this.Load += new System.EventHandler(this.ClienteForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pnBotoes)).EndInit();
             this.pnBotoes.ResumeLayout(false);
@@ -1254,8 +1234,6 @@ namespace SysNorteGrupo.UI.Clientes
             this.panelComponentes.ResumeLayout(false);
             this.panelComponentes.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grpTipo.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelArquivos)).EndInit();
-            this.panelArquivos.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.panelReferencias)).EndInit();
             this.panelReferencias.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).EndInit();
@@ -1408,12 +1386,10 @@ namespace SysNorteGrupo.UI.Clientes
         private BotaoSair btnSair;
         private BotaoEditar btnEditar;
         private BotaoEditar btnSalvar;
-        private DevExpress.XtraEditors.PanelControl panelArquivos;
         private DevExpress.XtraEditors.LabelControl labelControl24;
         private DevExpress.XtraEditors.LabelControl labelControl23;
         private DevExpress.XtraEditors.TextEdit tfTotalBens;
         private DevExpress.XtraEditors.TextEdit tfTotalCotas;
-        private ArquivosForm arquivosFormCli;
         private BotaoImprimir btnImprimirContrato;
         private BotaoInativar btnInativar;
         private BotaoExcluir btnExcluir;

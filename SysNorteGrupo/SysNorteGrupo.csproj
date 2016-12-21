@@ -632,7 +632,6 @@
     <None Include="Resources\IDE_32x32.png" />
     <None Include="Resources\Report_32x32.png" />
     <None Include="Resources\Article_32x32.png" />
-    <Content Include="favicon.ico" />
     <None Include="Resources\02_logo_SysNorte.png" />
     <None Include="Resources\delete.png" />
     <None Include="Resources\sigla_SysNorte.png" />
@@ -647,6 +646,8 @@
     <None Include="Resources\search.png" />
     <None Include="Resources\icone att valor fipe.png" />
     <None Include="Resources\icone att valor fipe1.png" />
+    <None Include="Resources\favicon.png" />
+    <Content Include="favicon.ico" />
     <Content Include="TODO.txt" />
   </ItemGroup>
   <!--<Import Project="$(MSBuildExtensionsPath)\Ilmerge.CSharp.targets" />-->

@@ -61,8 +61,7 @@ namespace HostWcfGrupo.UI
             {
                 btnStartStop.Enabled = false;
                 tfStatus.Text += "\n\n" + ex.Message + "\n" + ex.InnerException;
-            }
-            Thread.Sleep(1500);
+            }            
         }
 
         private void btnStartStop_Click(object sender, EventArgs e)
@@ -196,6 +195,11 @@ namespace HostWcfGrupo.UI
         }
 
         private void btnMinimizar_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+        }
+
+        private void Form1_Shown(object sender, EventArgs e)
         {
             this.Hide();
         }

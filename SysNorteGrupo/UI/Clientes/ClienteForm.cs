@@ -29,7 +29,7 @@ namespace SysNorteGrupo.UI.Clientes
             InitializeComponent();
             conn = GerenteDeConexoes.conexaoServico();
 
-            arquivosFormCli.conn = conn;
+            //arquivosFormCli.conn = conn;
 
             //recuperar estados
             bdgEstados.DataSource = conn.listaDeEstados();
@@ -43,7 +43,7 @@ namespace SysNorteGrupo.UI.Clientes
 
             if(cliente_instc == null){
                 cliente_instc = new cliente() { isento_ICMS = false, cotas = 0, valor_total = 0 };
-                panelArquivos.Enabled = false;
+                //panelArquivos.Enabled = false;
             }
 
             bdgCliente.DataSource = cliente_instc;
@@ -82,18 +82,18 @@ namespace SysNorteGrupo.UI.Clientes
             if (cliente_instc.id == 0)
             {
                 reabilitarPaineis(false);
-                arquivosFormCli.Enabled = false;
+                //arquivosFormCli.Enabled = false;
             }
             else
             {
-                panelArquivos.Enabled = true;
+                //panelArquivos.Enabled = true;
                 btnEditar.Enabled = true;
                 btnSalvar.Enabled = false;
                 panelComponentes.Enabled = false;
 
-                arquivosFormCli.DIRETORIO = String.Format(@"{0}{1}\", conn.SUBDIR_CLIENTES(), cliente_instc.id);
-                arquivosFormCli.executaBusca();
-                arquivosFormCli.Enabled = true;
+                //arquivosFormCli.DIRETORIO = String.Format(@"{0}{1}\", conn.SUBDIR_CLIENTES(), cliente_instc.id);
+                //arquivosFormCli.executaBusca();
+                //arquivosFormCli.Enabled = true;
 
                 if (cliente_instc.cotas > 0 && cliente_instc.valor_total > 0)
                     btnImprimirContrato.Enabled = true;
@@ -111,7 +111,7 @@ namespace SysNorteGrupo.UI.Clientes
                 }
                 catch (Exception ex)
                 {
-                    XtraMessageBox.Show("Erro ao recuperar lista de cidades: " + ex.Message, "SYSNORTE GRUPO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    XtraMessageBox.Show("Erro ao recuperar lista de cidades: " + ex.Message, "SYSGRUPO", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                     bdgCidades.DataSource = null;
                     bdgBairros.DataSource = null;
@@ -132,7 +132,7 @@ namespace SysNorteGrupo.UI.Clientes
                 }
                 catch (Exception ex)
                 {
-                    XtraMessageBox.Show("Erro ao recuperar lista de bairros e endereços: " + ex.Message, "SYSNORTE GRUPO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    XtraMessageBox.Show("Erro ao recuperar lista de bairros e endereços: " + ex.Message, "SYSGRUPO", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                     bdgBairros.DataSource = null;
                     bdgEnderecos.DataSource = null;
@@ -168,15 +168,15 @@ namespace SysNorteGrupo.UI.Clientes
         private void btnEditar_Click(object sender, System.EventArgs e)
         {
             reabilitarPaineis(true);
-            panelArquivos.Enabled = true;
+            //panelArquivos.Enabled = true;
             btnSalvar.Enabled = true;
             btnEditar.Enabled = false;
             panelComponentes.Enabled = true;
             btnInativar.Enabled = true;
             btnExcluir.Enabled = true;
-            arquivosFormCli.DIRETORIO = String.Format(@"{0}{1}\", conn.SUBDIR_CLIENTES(), ((cliente)bdgCliente.Current).id);
-            arquivosFormCli.executaBusca();
-            arquivosFormCli.Enabled = true;
+            //arquivosFormCli.DIRETORIO = String.Format(@"{0}{1}\", conn.SUBDIR_CLIENTES(), ((cliente)bdgCliente.Current).id);
+            //arquivosFormCli.executaBusca();
+            //arquivosFormCli.Enabled = true;
             Log.createLog(SysEventLog.edited, String.Format("cliente ID: {0}", tfId.Text));
         }
 
@@ -185,7 +185,7 @@ namespace SysNorteGrupo.UI.Clientes
             bool vazio = Util.textFieldIsEmpty(tfId);
             if (!ckIsento.Checked && tfInscricao.Text == String.Empty)
             {
-                XtraMessageBox.Show("Informe o RG / INSCRIÇÃO caso o cliente não seja isento ou caso seja pessoa física.", "SYSNORTE GRUPO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                XtraMessageBox.Show("Informe o RG / INSCRIÇÃO caso o cliente não seja isento ou caso seja pessoa física.", "SYSGRUPO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 tfInscricao.Focus();
                 return;
             }
@@ -196,21 +196,21 @@ namespace SysNorteGrupo.UI.Clientes
                 if (Convert.ToChar(grpTipo.EditValue) == 'j' && !ckIsento.Checked && !Validations.validIE(tfInscricao.EditValue.ToString()
                     .Replace('.', ' ').Replace('-', ' ').Trim(), cbEstados.Text))
                 {
-                    XtraMessageBox.Show("O INSCRIÇÃO ESTADUAL informada é inválida ou não foi selecionado um ESTADO para o endereço. Verifique!", "SYSNORTE GRUPO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    XtraMessageBox.Show("O INSCRIÇÃO ESTADUAL informada é inválida ou não foi selecionado um ESTADO para o endereço. Verifique!", "SYSGRUPO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     tfInscricao.Focus();
                     return;
                 }
 
                 if (!conn.verificaSeCpfCnpjEhUnico(tfDocumento.EditValue.ToString(), !vazio))
                 {
-                    XtraMessageBox.Show("O CPF/CNPJ informado já encontra-se cadastrado. Verifique!", "SYSNORTE GRUPO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    XtraMessageBox.Show("O CPF/CNPJ informado já encontra-se cadastrado. Verifique!", "SYSGRUPO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     tfDocumento.Focus();
                     return;
                 }
 
                 if (!conn.verificaSeInscricaoRgEhUnico(tfInscricao.EditValue.ToString(), !vazio))
                 {
-                    XtraMessageBox.Show("A INSCRIÇÃO/RG informado(a) já encontra-se cadastrado(a). Verifique!", "SYSNORTE GRUPO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    XtraMessageBox.Show("A INSCRIÇÃO/RG informado(a) já encontra-se cadastrado(a). Verifique!", "SYSGRUPO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     tfInscricao.Focus();
                     return;
                 }
@@ -220,7 +220,7 @@ namespace SysNorteGrupo.UI.Clientes
 
                 if (!conn.verificaSeEmailPrincipalEhUnico(_email_principal, !vazio))
                 {
-                    XtraMessageBox.Show("O Email principal informado já encontra-se cadastrado. Verifique!", "SYSNORTE GRUPO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    XtraMessageBox.Show("O Email principal informado já encontra-se cadastrado. Verifique!", "SYSGRUPO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     tfEmailPrincipal.Focus();
                     return;
                 }
@@ -247,11 +247,11 @@ namespace SysNorteGrupo.UI.Clientes
                     reabilitarPaineis(false);
                     btnSalvar.Enabled = false;
                     btnEditar.Enabled = true;
-                    panelArquivos.Enabled = false;
+                    //panelArquivos.Enabled = false;
                 }
                 catch (Exception ex)
                 {
-                    XtraMessageBox.Show("Erro ao salvar novo cliente: " + ex.Message, "SYSNORTE GRUPO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    XtraMessageBox.Show("Erro ao salvar novo cliente: " + ex.Message, "SYSGRUPO", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
@@ -331,7 +331,7 @@ namespace SysNorteGrupo.UI.Clientes
                 }
                 catch (Exception ex)
                 {
-                    XtraMessageBox.Show("Erro ao recuperar lista de cidades: " + ex.Message, "SYSNORTE GRUPO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    XtraMessageBox.Show("Erro ao recuperar lista de cidades: " + ex.Message, "SYSGRUPO", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                     bdgCidades.DataSource = null;
                     bdgBairros.DataSource = null;
@@ -366,7 +366,7 @@ namespace SysNorteGrupo.UI.Clientes
                 }
                 catch (Exception ex)
                 {
-                    XtraMessageBox.Show("Erro ao recuperar lista de bairros e endereços: " + ex.Message, "SYSNORTE GRUPO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    XtraMessageBox.Show("Erro ao recuperar lista de bairros e endereços: " + ex.Message, "SYSGRUPO", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                     cbBairro.Enabled = false;
                     cbEndereco.Enabled = false;
@@ -568,7 +568,7 @@ namespace SysNorteGrupo.UI.Clientes
                     Log.createLog(SysEventLog.inatived, String.Format("cliente ID: {0}", tfId.Text));
 
                     reabilitarPaineis(false);
-                    panelArquivos.Enabled = false;
+                    //panelArquivos.Enabled = false;
                     btnSalvar.Enabled = false;
                     btnEditar.Enabled = false;
                     btnInativar.Enabled = false;
@@ -587,7 +587,7 @@ namespace SysNorteGrupo.UI.Clientes
         {
             try
             {
-                DialogResult rs = XtraMessageBox.Show(String.Format("CONFIRMA EXCLUSÃO DO VEICULO?\n\nNÃO SERÁ POSSÍVEL REVERTER ESTA AÇÃO!"), "SYSNORTE",
+                DialogResult rs = XtraMessageBox.Show(String.Format("CONFIRMA EXCLUSÃO DO VEICULO?\n\nNÃO SERÁ POSSÍVEL REVERTER ESTA AÇÃO!"), "CADORE TECNOLOGIA",
                     MessageBoxButtons.OKCancel);
                 if (rs == DialogResult.OK)
                 {

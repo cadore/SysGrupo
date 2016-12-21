@@ -24,8 +24,6 @@ namespace SysNorteGrupo.UI.Sinistros
             this.btnNovo = new SysNorteGrupo.UI.Utils.Botoes.BotaoNovo();
             this.btnEditar = new SysNorteGrupo.UI.Utils.Botoes.BotaoEditar();
             this.pnControl = new DevExpress.XtraEditors.PanelControl();
-            this.gcArquivos = new DevExpress.XtraEditors.GroupControl();
-            this.arquivosForm = new SysFileManager.ArquivosForm();
             this.gcPagamentos = new DevExpress.XtraEditors.GroupControl();
             this.btnRemoverPag = new DevExpress.XtraEditors.SimpleButton();
             this.btnAdicionarPag = new DevExpress.XtraEditors.SimpleButton();
@@ -204,8 +202,6 @@ namespace SysNorteGrupo.UI.Sinistros
             this.pnBotoes.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pnControl)).BeginInit();
             this.pnControl.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gcArquivos)).BeginInit();
-            this.gcArquivos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gcPagamentos)).BeginInit();
             this.gcPagamentos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tfObservacaoPag.Properties)).BeginInit();
@@ -358,31 +354,13 @@ namespace SysNorteGrupo.UI.Sinistros
             // 
             // pnControl
             // 
-            this.pnControl.Controls.Add(this.gcArquivos);
             this.pnControl.Controls.Add(this.gcPagamentos);
             this.pnControl.Controls.Add(this.gcInfoBasica);
             this.pnControl.Location = new System.Drawing.Point(0, 29);
             this.pnControl.Name = "pnControl";
-            this.pnControl.Size = new System.Drawing.Size(848, 513);
+            this.pnControl.Size = new System.Drawing.Size(848, 314);
             this.pnControl.TabIndex = 2;
             this.pnControl.EnabledChanged += new System.EventHandler(this.pnControl_EnabledChanged);
-            // 
-            // gcArquivos
-            // 
-            this.gcArquivos.Controls.Add(this.arquivosForm);
-            this.gcArquivos.Location = new System.Drawing.Point(0, 314);
-            this.gcArquivos.Name = "gcArquivos";
-            this.gcArquivos.Size = new System.Drawing.Size(848, 195);
-            this.gcArquivos.TabIndex = 2;
-            this.gcArquivos.Text = "ARQUIVOS";
-            // 
-            // arquivosForm
-            // 
-            this.arquivosForm.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.arquivosForm.Location = new System.Drawing.Point(2, 21);
-            this.arquivosForm.Name = "arquivosForm";
-            this.arquivosForm.Size = new System.Drawing.Size(844, 172);
-            this.arquivosForm.TabIndex = 2;
             // 
             // gcPagamentos
             // 
@@ -1820,7 +1798,7 @@ namespace SysNorteGrupo.UI.Sinistros
             this.pnPrincipal.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnPrincipal.Location = new System.Drawing.Point(0, 60);
             this.pnPrincipal.Name = "pnPrincipal";
-            this.pnPrincipal.Size = new System.Drawing.Size(848, 538);
+            this.pnPrincipal.Size = new System.Drawing.Size(848, 343);
             this.pnPrincipal.TabIndex = 3;
             // 
             // SinistrosForm
@@ -1830,13 +1808,11 @@ namespace SysNorteGrupo.UI.Sinistros
             this.Controls.Add(this.pnPrincipal);
             this.Controls.Add(this.pnBotoes);
             this.Name = "SinistrosForm";
-            this.Size = new System.Drawing.Size(848, 598);
+            this.Size = new System.Drawing.Size(848, 403);
             ((System.ComponentModel.ISupportInitialize)(this.pnBotoes)).EndInit();
             this.pnBotoes.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pnControl)).EndInit();
             this.pnControl.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gcArquivos)).EndInit();
-            this.gcArquivos.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gcPagamentos)).EndInit();
             this.gcPagamentos.ResumeLayout(false);
             this.gcPagamentos.PerformLayout();
@@ -2002,8 +1978,6 @@ namespace SysNorteGrupo.UI.Sinistros
         private DevExpress.XtraEditors.LabelControl labelControl7;
         private DevExpress.XtraEditors.TextEdit tfBO;
         private DevExpress.XtraEditors.LabelControl labelControl9;
-        private ArquivosForm arquivosForm;
-        private DevExpress.XtraEditors.GroupControl gcArquivos;
         private DevExpress.XtraEditors.MemoEdit tfObservacao;
         private DevExpress.XtraEditors.LabelControl labelControl10;
         private System.Windows.Forms.BindingSource bdgSinistros;

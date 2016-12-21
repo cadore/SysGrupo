@@ -60,9 +60,9 @@ namespace SysNorteGrupo.UI.Sinistros
                 if(listPag.Count > 0){
                     bdgPagamentos.DataSource = listPag;
                 }
-                arquivosForm.conn = conn;
-                arquivosForm.DIRETORIO = String.Format(@"{0}{1}\", conn.SUBDIR_SINISTROS(), sinistro_instc.id);
-                arquivosForm.executaBusca();
+                //arquivosForm.conn = conn;
+                //arquivosForm.DIRETORIO = String.Format(@"{0}{1}\", conn.SUBDIR_SINISTROS(), sinistro_instc.id);
+                //arquivosForm.executaBusca();
                 pnPrincipal.Enabled = false;
                 btnEditar.Enabled = true;
                 btnSalvar.Enabled = false;
@@ -163,8 +163,8 @@ namespace SysNorteGrupo.UI.Sinistros
             btnEditar.Enabled = false;
             btnSalvar.Enabled = true;
             Log.createLog(SysEventLog.edited, String.Format("sinistro ID: {0}", tfId.Text));
-            arquivosForm.DIRETORIO = String.Format(@"{0}{1}\", conn.SUBDIR_SINISTROS(), sinistro_instc.id);
-            arquivosForm.executaBusca();
+            //arquivosForm.DIRETORIO = String.Format(@"{0}{1}\", conn.SUBDIR_SINISTROS(), sinistro_instc.id);
+            //arquivosForm.executaBusca();
         }
 
         private void btnAdicionarPag_Click(object sender, EventArgs e)
@@ -323,11 +323,11 @@ namespace SysNorteGrupo.UI.Sinistros
         {
             bool flag = Util.textFieldIsEmpty(tfId);
             if(flag){
-                gcArquivos.Enabled = false;
+                //gcArquivos.Enabled = false;
             }
             else
             {
-                gcArquivos.Enabled = true;
+                //gcArquivos.Enabled = true;
             }
         }
 
