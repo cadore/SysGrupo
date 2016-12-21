@@ -37,26 +37,31 @@
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.tfIP = new DevExpress.XtraEditors.TextEdit();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
+            this.cbLink = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ckConectarSaida.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfPorta.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfIP.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbLink.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // panelControl1
             // 
+            this.panelControl1.Controls.Add(this.cbLink);
             this.panelControl1.Controls.Add(this.btnAplicar);
             this.panelControl1.Controls.Add(this.btnCancelar);
             this.panelControl1.Controls.Add(this.ckConectarSaida);
             this.panelControl1.Controls.Add(this.tfPorta);
+            this.panelControl1.Controls.Add(this.labelControl3);
             this.panelControl1.Controls.Add(this.labelControl2);
             this.panelControl1.Controls.Add(this.tfIP);
             this.panelControl1.Controls.Add(this.labelControl1);
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl1.Location = new System.Drawing.Point(0, 0);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(361, 128);
+            this.panelControl1.Size = new System.Drawing.Size(361, 173);
             this.panelControl1.TabIndex = 0;
             // 
             // btnAplicar
@@ -64,7 +69,7 @@
             this.btnAplicar.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.btnAplicar.Image = ((System.Drawing.Image)(resources.GetObject("btnAplicar.Image")));
             this.btnAplicar.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleLeft;
-            this.btnAplicar.Location = new System.Drawing.Point(139, 78);
+            this.btnAplicar.Location = new System.Drawing.Point(142, 126);
             this.btnAplicar.Name = "btnAplicar";
             this.btnAplicar.Size = new System.Drawing.Size(104, 41);
             this.btnAplicar.TabIndex = 3;
@@ -76,7 +81,7 @@
             this.btnCancelar.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.btnCancelar.Image = ((System.Drawing.Image)(resources.GetObject("btnCancelar.Image")));
             this.btnCancelar.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleLeft;
-            this.btnCancelar.Location = new System.Drawing.Point(249, 78);
+            this.btnCancelar.Location = new System.Drawing.Point(252, 126);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(104, 41);
             this.btnCancelar.TabIndex = 4;
@@ -86,7 +91,7 @@
             // ckConectarSaida
             // 
             this.ckConectarSaida.EditValue = true;
-            this.ckConectarSaida.Location = new System.Drawing.Point(170, 39);
+            this.ckConectarSaida.Location = new System.Drawing.Point(90, 90);
             this.ckConectarSaida.Name = "ckConectarSaida";
             this.ckConectarSaida.Properties.Caption = "TENTAR CONECTAR NA SAIDA?";
             this.ckConectarSaida.Size = new System.Drawing.Size(183, 15);
@@ -99,7 +104,7 @@
             this.tfPorta.Properties.Mask.BeepOnError = true;
             this.tfPorta.Properties.Mask.EditMask = "\\d{4}";
             this.tfPorta.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
-            this.tfPorta.Size = new System.Drawing.Size(74, 20);
+            this.tfPorta.Size = new System.Drawing.Size(100, 20);
             this.tfPorta.TabIndex = 1;
             // 
             // labelControl2
@@ -130,11 +135,32 @@
             this.labelControl1.TabIndex = 0;
             this.labelControl1.Text = "ENDEREÇO/IP:";
             // 
+            // tfLink
+            // 
+            this.cbLink.Location = new System.Drawing.Point(90, 64);
+            this.cbLink.Name = "tfLink";
+            this.cbLink.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cbLink.Properties.Items.AddRange(new object[] {
+            "service1",
+            "service2"});
+            this.cbLink.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
+            this.cbLink.Size = new System.Drawing.Size(100, 20);
+            this.cbLink.TabIndex = 5;
+            // 
+            // labelControl3
+            // 
+            this.labelControl3.Location = new System.Drawing.Point(12, 67);
+            this.labelControl3.Name = "labelControl3";
+            this.labelControl3.Size = new System.Drawing.Size(26, 13);
+            this.labelControl3.TabIndex = 0;
+            this.labelControl3.Text = "LINK:";
+            // 
             // ConfigEnderecoServico
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(361, 128);
+            this.ClientSize = new System.Drawing.Size(361, 173);
             this.ControlBox = false;
             this.Controls.Add(this.panelControl1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -153,6 +179,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.ckConectarSaida.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfPorta.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfIP.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbLink.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -167,5 +194,7 @@
         public DevExpress.XtraEditors.CheckEdit ckConectarSaida;
         private DevExpress.XtraEditors.SimpleButton btnCancelar;
         private DevExpress.XtraEditors.SimpleButton btnAplicar;
+        private DevExpress.XtraEditors.ComboBoxEdit cbLink;
+        private DevExpress.XtraEditors.LabelControl labelControl3;
     }
 }

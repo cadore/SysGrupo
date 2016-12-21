@@ -17,20 +17,42 @@ namespace HostWcfGrupo.UI
 {
     public partial class Form1 : Form
     {
-        private ServiceHost host;
+        private ServiceHost host1;
+        private ServiceHost host2;
         private StatusService status;
+        private int args;
 
         public enum StatusService
         {
             started = 0,
             stopped = 1
         }
-        public Form1(int i)
+        public Form1(int _i)
         {
             InitializeComponent();
-            this.Text = "SysNorteGrupo Server v2.0.1";
+            this.Text = "CadoreTecnologia - SysGrupo Server v3.0.1";
             notifyIcon.Icon = ((System.Drawing.Icon)new System.Drawing.Icon(Directory.GetCurrentDirectory() + "\\favicon.ico"));
             notifyIcon.Text = this.Text;
+            args = _i;
+
+            if (args == 0)
+            {
+                XtraMessageBox.Show("SysGrupo Server, é necessário informar a filial!\nEntre em contato com o suporte!", "Cadore Tecnologia");
+                Environment.Exit(-2);
+            }
+            else if (args == 1)
+            {
+                SysGrupoRepo.StartDB("sysgrupodb_lucas");
+                tfFilial.Text = "Filial Lucas do Rio Verde-MT";
+                notifyIcon.Text = String.Format("CadoreTecnologia - SysGrupo Server\n{0}", tfFilial.Text);
+            }
+            else if (args == 2)
+            {
+                SysGrupoRepo.StartDB("sysgrupodb_sinop");
+                tfFilial.Text = "Filial Sinop-MT";
+                notifyIcon.Text = String.Format("CadoreTecnologia - SysGrupo Server\n{0}", tfFilial.Text);
+            }
+
             try
             {               
                 service(StatusService.stopped);
@@ -66,19 +88,13 @@ namespace HostWcfGrupo.UI
 
         private void service(StatusService i)
         {
-            string url = UtilsSistemaServico.enderecoServico;
             try
             {
                 if (i == StatusService.stopped)
-                {                    
-                    host = new ServiceHost(typeof(ServiceGrupo));
-                    var b = new NetTcpBinding(SecurityMode.None);
-                    b.MaxBufferPoolSize = b.MaxBufferPoolSize * 2552350000256000154;
-                    b.MaxReceivedMessageSize = b.MaxReceivedMessageSize * 5000;
-                    b.ReceiveTimeout = TimeSpan.FromMinutes(20);
-                    b.Security.Message.ClientCredentialType = MessageCredentialType.None;
-                    host.AddServiceEndpoint(typeof(IServiceGrupo), b, new Uri(url));
-                    host.Open();
+                {
+                    if (args == 1) startService1();
+                    if (args == 2) startService2();
+
                     status = StatusService.started;
                     btnStartStop.Text = "Parar Serviço";
                     itemService.Text = btnStartStop.Text;
@@ -86,8 +102,9 @@ namespace HostWcfGrupo.UI
                 }
                 else if (i == StatusService.started)
                 {
-                    host.Abort();
-                    host.Close();
+                    if (args == 1) stopService1();
+                    if (args == 2) stopService2();
+
                     status = StatusService.stopped;
                     btnStartStop.Text = "Iniciar Serviço";
                     itemService.Text = btnStartStop.Text;
@@ -103,6 +120,42 @@ namespace HostWcfGrupo.UI
                 btnStartStop.Enabled = false;
                 tfStatus.Text = ex.Message;
             }
+        }
+
+        private void startService1()
+        {
+            string urlservice1 = @"net.tcp://localhost:8001/cadoretecnologia/grupo/service1";
+            host1 = new ServiceHost(typeof(ServiceGrupo));
+            var b = new NetTcpBinding(SecurityMode.None);
+            b.MaxBufferPoolSize = b.MaxBufferPoolSize * 2552350000256000154;
+            b.MaxReceivedMessageSize = b.MaxReceivedMessageSize * 5000;
+            b.ReceiveTimeout = TimeSpan.FromMinutes(20);
+            b.Security.Message.ClientCredentialType = MessageCredentialType.None;
+            host1.AddServiceEndpoint(typeof(IServiceGrupo), b, new Uri(urlservice1));
+            host1.Open();
+        }
+        private void stopService1()
+        {
+            host1.Abort();
+            host1.Close();
+        }
+
+        private void startService2()
+        {
+            string urlservice2 = @"net.tcp://localhost:8002/cadoretecnologia/grupo/service2";
+            host2 = new ServiceHost(typeof(ServiceGrupo));
+            var b = new NetTcpBinding(SecurityMode.None);
+            b.MaxBufferPoolSize = b.MaxBufferPoolSize * 2552350000256000154;
+            b.MaxReceivedMessageSize = b.MaxReceivedMessageSize * 5000;
+            b.ReceiveTimeout = TimeSpan.FromMinutes(20);
+            b.Security.Message.ClientCredentialType = MessageCredentialType.None;
+            host2.AddServiceEndpoint(typeof(IServiceGrupo), b, new Uri(urlservice2));
+            host2.Open();
+        }
+        private void stopService2()
+        {
+            host2.Abort();
+            host2.Close();
         }
         
         private void reloadNotifyIcons(bool p)

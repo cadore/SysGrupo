@@ -1,19 +1,1 @@
-ALTER TABLE veiculos
-  DROP CONSTRAINT ano_modelo_veiculos_fk;
-ALTER TABLE veiculos
-  DROP CONSTRAINT cad_cidades_fk;
-ALTER TABLE veiculos
-  DROP CONSTRAINT cliente_fk;
-ALTER TABLE veiculos
-  DROP CONSTRAINT especies_veiculos_fk;
-ALTER TABLE veiculos
-  DROP CONSTRAINT marca_veiculos_fk;
-ALTER TABLE veiculos
-  DROP CONSTRAINT modelo_veiculos_fk;
 
-ALTER TABLE reboques
-  DROP CONSTRAINT cliente_fk;
-ALTER TABLE reboques
-  DROP CONSTRAINT especies_reboque_fk;
-ALTER TABLE reboques
-  DROP CONSTRAINT veiculos_fk;

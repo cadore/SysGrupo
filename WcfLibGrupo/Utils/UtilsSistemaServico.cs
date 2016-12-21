@@ -60,8 +60,8 @@ namespace WcfLibGrupo.Utils
             backColorFoco = Color.FromArgb(Convert.ToInt32(LeitorINI.ReadValue("backColorFoco", "backColorFocoR")),
                 Convert.ToInt32(LeitorINI.ReadValue("backColorFoco", "backColorFocoG")),
                 Convert.ToInt32(LeitorINI.ReadValue("backColorFoco", "backColorFocoB")));
-            enderecoServico = LeitorINI.ReadValue("sistema", "enderecoServico");
-            valorPadraoMensalidade = Convert.ToDecimal(LeitorINI.ReadValue("sistema", "valorPadraoMensalidade"));
+            //enderecoServico = LeitorINI.ReadValue("sistema", "enderecoServico");
+            //valorPadraoMensalidade = Convert.ToDecimal(LeitorINI.ReadValue("sistema", "valorPadraoMensalidade"));
 
             /*SysGrupoRepo.host = new DTICrypto().Decifrar(LeitorINI.ReadValue("dbdata", "host"), "a1s2 d3f4&beguta");
             SysGrupoRepo.port = new DTICrypto().Decifrar(LeitorINI.ReadValue("dbdata", "port"), "a1s2 d3f4&beguta");

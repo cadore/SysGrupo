@@ -2,9 +2,10 @@
 -- PostgreSQL database dump
 --
 
--- Dumped from database version 9.3.4
--- Dumped by pg_dump version 9.3.4
--- Started on 2014-09-03 14:25:35
+-- Dumped from database version 9.4.9
+-- Dumped by pg_dump version 9.5.1
+
+-- Started on 2016-12-20 23:48:57
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -12,9 +13,10 @@ SET client_encoding = 'UTF8';
 SET standard_conforming_strings = on;
 SET check_function_bodies = false;
 SET client_min_messages = warning;
+SET row_security = off;
 
 --
--- TOC entry 215 (class 3079 OID 11750)
+-- TOC entry 1 (class 3079 OID 11855)
 -- Name: plpgsql; Type: EXTENSION; Schema: -; Owner: 
 --
 
@@ -22,8 +24,8 @@ CREATE EXTENSION IF NOT EXISTS plpgsql WITH SCHEMA pg_catalog;
 
 
 --
--- TOC entry 2167 (class 0 OID 0)
--- Dependencies: 215
+-- TOC entry 2213 (class 0 OID 0)
+-- Dependencies: 1
 -- Name: EXTENSION plpgsql; Type: COMMENT; Schema: -; Owner: 
 --
 
@@ -33,7 +35,7 @@ COMMENT ON EXTENSION plpgsql IS 'PL/pgSQL procedural language';
 SET search_path = public, pg_catalog;
 
 --
--- TOC entry 170 (class 1259 OID 16394)
+-- TOC entry 173 (class 1259 OID 16942)
 -- Name: ano_modelo_veiculos_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -45,15 +47,15 @@ CREATE SEQUENCE ano_modelo_veiculos_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.ano_modelo_veiculos_id_seq OWNER TO postgres;
+ALTER TABLE ano_modelo_veiculos_id_seq OWNER TO postgres;
 
 SET default_tablespace = '';
 
 SET default_with_oids = false;
 
 --
--- TOC entry 171 (class 1259 OID 16396)
--- Name: ano_modelo_veiculos; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+-- TOC entry 174 (class 1259 OID 16944)
+-- Name: ano_modelo_veiculos; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE ano_modelo_veiculos (
@@ -65,10 +67,10 @@ CREATE TABLE ano_modelo_veiculos (
 );
 
 
-ALTER TABLE public.ano_modelo_veiculos OWNER TO postgres;
+ALTER TABLE ano_modelo_veiculos OWNER TO postgres;
 
 --
--- TOC entry 172 (class 1259 OID 16400)
+-- TOC entry 175 (class 1259 OID 16948)
 -- Name: cad_bairros_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -80,11 +82,11 @@ CREATE SEQUENCE cad_bairros_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.cad_bairros_id_seq OWNER TO postgres;
+ALTER TABLE cad_bairros_id_seq OWNER TO postgres;
 
 --
--- TOC entry 173 (class 1259 OID 16402)
--- Name: cad_bairros; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+-- TOC entry 176 (class 1259 OID 16950)
+-- Name: cad_bairros; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE cad_bairros (
@@ -94,10 +96,10 @@ CREATE TABLE cad_bairros (
 );
 
 
-ALTER TABLE public.cad_bairros OWNER TO postgres;
+ALTER TABLE cad_bairros OWNER TO postgres;
 
 --
--- TOC entry 174 (class 1259 OID 16406)
+-- TOC entry 177 (class 1259 OID 16954)
 -- Name: cad_cidades_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -109,11 +111,11 @@ CREATE SEQUENCE cad_cidades_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.cad_cidades_id_seq OWNER TO postgres;
+ALTER TABLE cad_cidades_id_seq OWNER TO postgres;
 
 --
--- TOC entry 175 (class 1259 OID 16408)
--- Name: cad_cidades; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+-- TOC entry 178 (class 1259 OID 16956)
+-- Name: cad_cidades; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE cad_cidades (
@@ -125,10 +127,10 @@ CREATE TABLE cad_cidades (
 );
 
 
-ALTER TABLE public.cad_cidades OWNER TO postgres;
+ALTER TABLE cad_cidades OWNER TO postgres;
 
 --
--- TOC entry 176 (class 1259 OID 16415)
+-- TOC entry 179 (class 1259 OID 16963)
 -- Name: cad_enderecos_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -140,11 +142,11 @@ CREATE SEQUENCE cad_enderecos_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.cad_enderecos_id_seq OWNER TO postgres;
+ALTER TABLE cad_enderecos_id_seq OWNER TO postgres;
 
 --
--- TOC entry 177 (class 1259 OID 16417)
--- Name: cad_enderecos; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+-- TOC entry 180 (class 1259 OID 16965)
+-- Name: cad_enderecos; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE cad_enderecos (
@@ -156,10 +158,10 @@ CREATE TABLE cad_enderecos (
 );
 
 
-ALTER TABLE public.cad_enderecos OWNER TO postgres;
+ALTER TABLE cad_enderecos OWNER TO postgres;
 
 --
--- TOC entry 178 (class 1259 OID 16424)
+-- TOC entry 181 (class 1259 OID 16972)
 -- Name: cad_estados_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -171,11 +173,11 @@ CREATE SEQUENCE cad_estados_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.cad_estados_id_seq OWNER TO postgres;
+ALTER TABLE cad_estados_id_seq OWNER TO postgres;
 
 --
--- TOC entry 179 (class 1259 OID 16426)
--- Name: cad_estados; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+-- TOC entry 182 (class 1259 OID 16974)
+-- Name: cad_estados; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE cad_estados (
@@ -186,10 +188,10 @@ CREATE TABLE cad_estados (
 );
 
 
-ALTER TABLE public.cad_estados OWNER TO postgres;
+ALTER TABLE cad_estados OWNER TO postgres;
 
 --
--- TOC entry 180 (class 1259 OID 16433)
+-- TOC entry 183 (class 1259 OID 16981)
 -- Name: cliente_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -201,11 +203,11 @@ CREATE SEQUENCE cliente_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.cliente_id_seq OWNER TO postgres;
+ALTER TABLE cliente_id_seq OWNER TO postgres;
 
 --
--- TOC entry 181 (class 1259 OID 16435)
--- Name: cliente; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+-- TOC entry 184 (class 1259 OID 16983)
+-- Name: cliente; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE cliente (
@@ -240,11 +242,11 @@ CREATE TABLE cliente (
 );
 
 
-ALTER TABLE public.cliente OWNER TO postgres;
+ALTER TABLE cliente OWNER TO postgres;
 
 --
--- TOC entry 211 (class 1259 OID 24620)
--- Name: contas_a_receber; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+-- TOC entry 185 (class 1259 OID 16990)
+-- Name: contas_a_receber; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE contas_a_receber (
@@ -261,10 +263,10 @@ CREATE TABLE contas_a_receber (
 );
 
 
-ALTER TABLE public.contas_a_receber OWNER TO postgres;
+ALTER TABLE contas_a_receber OWNER TO postgres;
 
 --
--- TOC entry 210 (class 1259 OID 24618)
+-- TOC entry 186 (class 1259 OID 16998)
 -- Name: contas_a_receber_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -276,11 +278,11 @@ CREATE SEQUENCE contas_a_receber_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.contas_a_receber_id_seq OWNER TO postgres;
+ALTER TABLE contas_a_receber_id_seq OWNER TO postgres;
 
 --
--- TOC entry 2168 (class 0 OID 0)
--- Dependencies: 210
+-- TOC entry 2214 (class 0 OID 0)
+-- Dependencies: 186
 -- Name: contas_a_receber_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
@@ -288,7 +290,7 @@ ALTER SEQUENCE contas_a_receber_id_seq OWNED BY contas_a_receber.id;
 
 
 --
--- TOC entry 182 (class 1259 OID 16442)
+-- TOC entry 187 (class 1259 OID 17000)
 -- Name: especies_reboque_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -300,11 +302,11 @@ CREATE SEQUENCE especies_reboque_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.especies_reboque_id_seq OWNER TO postgres;
+ALTER TABLE especies_reboque_id_seq OWNER TO postgres;
 
 --
--- TOC entry 183 (class 1259 OID 16444)
--- Name: especies_reboques; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+-- TOC entry 188 (class 1259 OID 17002)
+-- Name: especies_reboques; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE especies_reboques (
@@ -313,10 +315,10 @@ CREATE TABLE especies_reboques (
 );
 
 
-ALTER TABLE public.especies_reboques OWNER TO postgres;
+ALTER TABLE especies_reboques OWNER TO postgres;
 
 --
--- TOC entry 184 (class 1259 OID 16448)
+-- TOC entry 189 (class 1259 OID 17006)
 -- Name: especies_veiculos_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -328,11 +330,11 @@ CREATE SEQUENCE especies_veiculos_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.especies_veiculos_id_seq OWNER TO postgres;
+ALTER TABLE especies_veiculos_id_seq OWNER TO postgres;
 
 --
--- TOC entry 185 (class 1259 OID 16450)
--- Name: especies_veiculos; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+-- TOC entry 190 (class 1259 OID 17008)
+-- Name: especies_veiculos; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE especies_veiculos (
@@ -341,11 +343,11 @@ CREATE TABLE especies_veiculos (
 );
 
 
-ALTER TABLE public.especies_veiculos OWNER TO postgres;
+ALTER TABLE especies_veiculos OWNER TO postgres;
 
 --
--- TOC entry 213 (class 1259 OID 24633)
--- Name: historico_pagamento_sinistros_clientes; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+-- TOC entry 191 (class 1259 OID 17015)
+-- Name: historico_pagamento_sinistros_clientes; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE historico_pagamento_sinistros_clientes (
@@ -356,10 +358,10 @@ CREATE TABLE historico_pagamento_sinistros_clientes (
 );
 
 
-ALTER TABLE public.historico_pagamento_sinistros_clientes OWNER TO postgres;
+ALTER TABLE historico_pagamento_sinistros_clientes OWNER TO postgres;
 
 --
--- TOC entry 212 (class 1259 OID 24631)
+-- TOC entry 192 (class 1259 OID 17018)
 -- Name: historico_pagamento_sinistros_clientes_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -371,11 +373,11 @@ CREATE SEQUENCE historico_pagamento_sinistros_clientes_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.historico_pagamento_sinistros_clientes_id_seq OWNER TO postgres;
+ALTER TABLE historico_pagamento_sinistros_clientes_id_seq OWNER TO postgres;
 
 --
--- TOC entry 2169 (class 0 OID 0)
--- Dependencies: 212
+-- TOC entry 2215 (class 0 OID 0)
+-- Dependencies: 192
 -- Name: historico_pagamento_sinistros_clientes_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
@@ -383,7 +385,7 @@ ALTER SEQUENCE historico_pagamento_sinistros_clientes_id_seq OWNED BY historico_
 
 
 --
--- TOC entry 186 (class 1259 OID 16457)
+-- TOC entry 193 (class 1259 OID 17020)
 -- Name: historico_veic_reb_sinistros_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -395,11 +397,11 @@ CREATE SEQUENCE historico_veic_reb_sinistros_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.historico_veic_reb_sinistros_id_seq OWNER TO postgres;
+ALTER TABLE historico_veic_reb_sinistros_id_seq OWNER TO postgres;
 
 --
--- TOC entry 187 (class 1259 OID 16459)
--- Name: historico_veic_reb_sinistros; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+-- TOC entry 194 (class 1259 OID 17022)
+-- Name: historico_veic_reb_sinistros; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE historico_veic_reb_sinistros (
@@ -416,10 +418,10 @@ CREATE TABLE historico_veic_reb_sinistros (
 );
 
 
-ALTER TABLE public.historico_veic_reb_sinistros OWNER TO postgres;
+ALTER TABLE historico_veic_reb_sinistros OWNER TO postgres;
 
 --
--- TOC entry 188 (class 1259 OID 16463)
+-- TOC entry 195 (class 1259 OID 17027)
 -- Name: marca_veiculos_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -431,11 +433,11 @@ CREATE SEQUENCE marca_veiculos_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.marca_veiculos_id_seq OWNER TO postgres;
+ALTER TABLE marca_veiculos_id_seq OWNER TO postgres;
 
 --
--- TOC entry 189 (class 1259 OID 16465)
--- Name: marca_veiculos; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+-- TOC entry 196 (class 1259 OID 17029)
+-- Name: marca_veiculos; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE marca_veiculos (
@@ -445,11 +447,11 @@ CREATE TABLE marca_veiculos (
 );
 
 
-ALTER TABLE public.marca_veiculos OWNER TO postgres;
+ALTER TABLE marca_veiculos OWNER TO postgres;
 
 --
--- TOC entry 209 (class 1259 OID 24611)
--- Name: mensalidades_veiculos; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+-- TOC entry 197 (class 1259 OID 17033)
+-- Name: mensalidades_veiculos; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE mensalidades_veiculos (
@@ -462,10 +464,10 @@ CREATE TABLE mensalidades_veiculos (
 );
 
 
-ALTER TABLE public.mensalidades_veiculos OWNER TO postgres;
+ALTER TABLE mensalidades_veiculos OWNER TO postgres;
 
 --
--- TOC entry 208 (class 1259 OID 24609)
+-- TOC entry 198 (class 1259 OID 17036)
 -- Name: mensalidades_veiculos_id_cliente_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -477,11 +479,11 @@ CREATE SEQUENCE mensalidades_veiculos_id_cliente_seq
     CACHE 1;
 
 
-ALTER TABLE public.mensalidades_veiculos_id_cliente_seq OWNER TO postgres;
+ALTER TABLE mensalidades_veiculos_id_cliente_seq OWNER TO postgres;
 
 --
--- TOC entry 2170 (class 0 OID 0)
--- Dependencies: 208
+-- TOC entry 2216 (class 0 OID 0)
+-- Dependencies: 198
 -- Name: mensalidades_veiculos_id_cliente_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
@@ -489,7 +491,7 @@ ALTER SEQUENCE mensalidades_veiculos_id_cliente_seq OWNED BY mensalidades_veicul
 
 
 --
--- TOC entry 207 (class 1259 OID 24607)
+-- TOC entry 199 (class 1259 OID 17038)
 -- Name: mensalidades_veiculos_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -501,11 +503,11 @@ CREATE SEQUENCE mensalidades_veiculos_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.mensalidades_veiculos_id_seq OWNER TO postgres;
+ALTER TABLE mensalidades_veiculos_id_seq OWNER TO postgres;
 
 --
--- TOC entry 2171 (class 0 OID 0)
--- Dependencies: 207
+-- TOC entry 2217 (class 0 OID 0)
+-- Dependencies: 199
 -- Name: mensalidades_veiculos_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
@@ -513,8 +515,8 @@ ALTER SEQUENCE mensalidades_veiculos_id_seq OWNED BY mensalidades_veiculos.id;
 
 
 --
--- TOC entry 190 (class 1259 OID 16469)
--- Name: modelo_veiculos; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+-- TOC entry 200 (class 1259 OID 17040)
+-- Name: modelo_veiculos; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE modelo_veiculos (
@@ -525,10 +527,10 @@ CREATE TABLE modelo_veiculos (
 );
 
 
-ALTER TABLE public.modelo_veiculos OWNER TO postgres;
+ALTER TABLE modelo_veiculos OWNER TO postgres;
 
 --
--- TOC entry 191 (class 1259 OID 16472)
+-- TOC entry 201 (class 1259 OID 17043)
 -- Name: pagamentos_sinistro_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -540,11 +542,11 @@ CREATE SEQUENCE pagamentos_sinistro_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.pagamentos_sinistro_id_seq OWNER TO postgres;
+ALTER TABLE pagamentos_sinistro_id_seq OWNER TO postgres;
 
 --
--- TOC entry 192 (class 1259 OID 16474)
--- Name: pagamentos_sinistro; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+-- TOC entry 202 (class 1259 OID 17045)
+-- Name: pagamentos_sinistro; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE pagamentos_sinistro (
@@ -555,11 +557,11 @@ CREATE TABLE pagamentos_sinistro (
 );
 
 
-ALTER TABLE public.pagamentos_sinistro OWNER TO postgres;
+ALTER TABLE pagamentos_sinistro OWNER TO postgres;
 
 --
--- TOC entry 205 (class 1259 OID 24591)
--- Name: parcelas_sinistros; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+-- TOC entry 203 (class 1259 OID 17049)
+-- Name: parcelas_sinistros; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE parcelas_sinistros (
@@ -568,15 +570,14 @@ CREATE TABLE parcelas_sinistros (
     valor numeric(19,2),
     mes_parcela integer,
     ano_parcela integer,
-    id_sinistro bigint,
-    id_cliente bigint
+    id_sinistro bigint
 );
 
 
-ALTER TABLE public.parcelas_sinistros OWNER TO postgres;
+ALTER TABLE parcelas_sinistros OWNER TO postgres;
 
 --
--- TOC entry 204 (class 1259 OID 24589)
+-- TOC entry 204 (class 1259 OID 17052)
 -- Name: parcelas_sinistros_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -588,10 +589,10 @@ CREATE SEQUENCE parcelas_sinistros_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.parcelas_sinistros_id_seq OWNER TO postgres;
+ALTER TABLE parcelas_sinistros_id_seq OWNER TO postgres;
 
 --
--- TOC entry 2172 (class 0 OID 0)
+-- TOC entry 2218 (class 0 OID 0)
 -- Dependencies: 204
 -- Name: parcelas_sinistros_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -600,8 +601,8 @@ ALTER SEQUENCE parcelas_sinistros_id_seq OWNED BY parcelas_sinistros.id;
 
 
 --
--- TOC entry 206 (class 1259 OID 24600)
--- Name: parcelas_veiculos_cc; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+-- TOC entry 205 (class 1259 OID 17054)
+-- Name: parcelas_veiculos_cc; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE parcelas_veiculos_cc (
@@ -611,39 +612,14 @@ CREATE TABLE parcelas_veiculos_cc (
     ano_parcela integer,
     id_veiculo bigint,
     id_cliente bigint,
-    gerado_conta_receber boolean DEFAULT false,
-    id bigint NOT NULL
+    gerado_conta_receber boolean DEFAULT false
 );
 
 
-ALTER TABLE public.parcelas_veiculos_cc OWNER TO postgres;
+ALTER TABLE parcelas_veiculos_cc OWNER TO postgres;
 
 --
--- TOC entry 214 (class 1259 OID 24651)
--- Name: parcelas_veiculos_cc_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
---
-
-CREATE SEQUENCE parcelas_veiculos_cc_id_seq
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
-
-
-ALTER TABLE public.parcelas_veiculos_cc_id_seq OWNER TO postgres;
-
---
--- TOC entry 2173 (class 0 OID 0)
--- Dependencies: 214
--- Name: parcelas_veiculos_cc_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
---
-
-ALTER SEQUENCE parcelas_veiculos_cc_id_seq OWNED BY parcelas_veiculos_cc.id;
-
-
---
--- TOC entry 193 (class 1259 OID 16478)
+-- TOC entry 206 (class 1259 OID 17058)
 -- Name: permicoes_usuarios_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -655,11 +631,11 @@ CREATE SEQUENCE permicoes_usuarios_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.permicoes_usuarios_id_seq OWNER TO postgres;
+ALTER TABLE permicoes_usuarios_id_seq OWNER TO postgres;
 
 --
--- TOC entry 194 (class 1259 OID 16480)
--- Name: permicoes_usuarios; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+-- TOC entry 207 (class 1259 OID 17060)
+-- Name: permicoes_usuarios; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE permicoes_usuarios (
@@ -678,11 +654,11 @@ CREATE TABLE permicoes_usuarios (
 );
 
 
-ALTER TABLE public.permicoes_usuarios OWNER TO postgres;
+ALTER TABLE permicoes_usuarios OWNER TO postgres;
 
 --
--- TOC entry 195 (class 1259 OID 16484)
--- Name: preferencias_do_sistema; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+-- TOC entry 208 (class 1259 OID 17064)
+-- Name: preferencias_do_sistema; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE preferencias_do_sistema (
@@ -690,10 +666,10 @@ CREATE TABLE preferencias_do_sistema (
 );
 
 
-ALTER TABLE public.preferencias_do_sistema OWNER TO postgres;
+ALTER TABLE preferencias_do_sistema OWNER TO postgres;
 
 --
--- TOC entry 196 (class 1259 OID 16487)
+-- TOC entry 209 (class 1259 OID 17067)
 -- Name: reboques_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -705,11 +681,11 @@ CREATE SEQUENCE reboques_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.reboques_id_seq OWNER TO postgres;
+ALTER TABLE reboques_id_seq OWNER TO postgres;
 
 --
--- TOC entry 197 (class 1259 OID 16489)
--- Name: reboques; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+-- TOC entry 210 (class 1259 OID 17069)
+-- Name: reboques; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE reboques (
@@ -740,10 +716,10 @@ CREATE TABLE reboques (
 );
 
 
-ALTER TABLE public.reboques OWNER TO postgres;
+ALTER TABLE reboques OWNER TO postgres;
 
 --
--- TOC entry 198 (class 1259 OID 16496)
+-- TOC entry 211 (class 1259 OID 17076)
 -- Name: sinistros_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -755,11 +731,11 @@ CREATE SEQUENCE sinistros_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.sinistros_id_seq OWNER TO postgres;
+ALTER TABLE sinistros_id_seq OWNER TO postgres;
 
 --
--- TOC entry 199 (class 1259 OID 16498)
--- Name: sinistros; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+-- TOC entry 212 (class 1259 OID 17078)
+-- Name: sinistros; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE sinistros (
@@ -782,10 +758,10 @@ CREATE TABLE sinistros (
 );
 
 
-ALTER TABLE public.sinistros OWNER TO postgres;
+ALTER TABLE sinistros OWNER TO postgres;
 
 --
--- TOC entry 200 (class 1259 OID 16505)
+-- TOC entry 213 (class 1259 OID 17085)
 -- Name: usuarios_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -797,11 +773,11 @@ CREATE SEQUENCE usuarios_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.usuarios_id_seq OWNER TO postgres;
+ALTER TABLE usuarios_id_seq OWNER TO postgres;
 
 --
--- TOC entry 201 (class 1259 OID 16507)
--- Name: usuarios; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+-- TOC entry 214 (class 1259 OID 17087)
+-- Name: usuarios; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE usuarios (
@@ -815,10 +791,10 @@ CREATE TABLE usuarios (
 );
 
 
-ALTER TABLE public.usuarios OWNER TO postgres;
+ALTER TABLE usuarios OWNER TO postgres;
 
 --
--- TOC entry 202 (class 1259 OID 16514)
+-- TOC entry 215 (class 1259 OID 17094)
 -- Name: veiculos_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -830,11 +806,11 @@ CREATE SEQUENCE veiculos_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.veiculos_id_seq OWNER TO postgres;
+ALTER TABLE veiculos_id_seq OWNER TO postgres;
 
 --
--- TOC entry 203 (class 1259 OID 16516)
--- Name: veiculos; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+-- TOC entry 216 (class 1259 OID 17096)
+-- Name: veiculos; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE veiculos (
@@ -865,10 +841,10 @@ CREATE TABLE veiculos (
 );
 
 
-ALTER TABLE public.veiculos OWNER TO postgres;
+ALTER TABLE veiculos OWNER TO postgres;
 
 --
--- TOC entry 1986 (class 2604 OID 24623)
+-- TOC entry 2027 (class 2604 OID 17104)
 -- Name: id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -876,7 +852,7 @@ ALTER TABLE ONLY contas_a_receber ALTER COLUMN id SET DEFAULT nextval('contas_a_
 
 
 --
--- TOC entry 1989 (class 2604 OID 24636)
+-- TOC entry 2030 (class 2604 OID 17105)
 -- Name: id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -884,7 +860,7 @@ ALTER TABLE ONLY historico_pagamento_sinistros_clientes ALTER COLUMN id SET DEFA
 
 
 --
--- TOC entry 1984 (class 2604 OID 24614)
+-- TOC entry 2034 (class 2604 OID 17106)
 -- Name: id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -892,7 +868,7 @@ ALTER TABLE ONLY mensalidades_veiculos ALTER COLUMN id SET DEFAULT nextval('mens
 
 
 --
--- TOC entry 1985 (class 2604 OID 24615)
+-- TOC entry 2035 (class 2604 OID 17107)
 -- Name: id_cliente; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -900,7 +876,7 @@ ALTER TABLE ONLY mensalidades_veiculos ALTER COLUMN id_cliente SET DEFAULT nextv
 
 
 --
--- TOC entry 1981 (class 2604 OID 24594)
+-- TOC entry 2037 (class 2604 OID 17108)
 -- Name: id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -908,16 +884,8 @@ ALTER TABLE ONLY parcelas_sinistros ALTER COLUMN id SET DEFAULT nextval('parcela
 
 
 --
--- TOC entry 1983 (class 2604 OID 24653)
--- Name: id; Type: DEFAULT; Schema: public; Owner: postgres
---
-
-ALTER TABLE ONLY parcelas_veiculos_cc ALTER COLUMN id SET DEFAULT nextval('parcelas_veiculos_cc_id_seq'::regclass);
-
-
---
--- TOC entry 2019 (class 2606 OID 16524)
--- Name: FK_reboques_id; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+-- TOC entry 2082 (class 2606 OID 17110)
+-- Name: FK_reboques_id; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY reboques
@@ -925,8 +893,8 @@ ALTER TABLE ONLY reboques
 
 
 --
--- TOC entry 2025 (class 2606 OID 16526)
--- Name: FK_veiculos_id; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+-- TOC entry 2088 (class 2606 OID 17112)
+-- Name: FK_veiculos_id; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY veiculos
@@ -934,8 +902,8 @@ ALTER TABLE ONLY veiculos
 
 
 --
--- TOC entry 1993 (class 2606 OID 16528)
--- Name: PK_bairros_id; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+-- TOC entry 2048 (class 2606 OID 17114)
+-- Name: PK_bairros_id; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY cad_bairros
@@ -943,8 +911,8 @@ ALTER TABLE ONLY cad_bairros
 
 
 --
--- TOC entry 1995 (class 2606 OID 16530)
--- Name: PK_cidade_id; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+-- TOC entry 2050 (class 2606 OID 17116)
+-- Name: PK_cidade_id; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY cad_cidades
@@ -952,8 +920,8 @@ ALTER TABLE ONLY cad_cidades
 
 
 --
--- TOC entry 2001 (class 2606 OID 16532)
--- Name: PK_clientes_id; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+-- TOC entry 2056 (class 2606 OID 17118)
+-- Name: PK_clientes_id; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY cliente
@@ -961,8 +929,8 @@ ALTER TABLE ONLY cliente
 
 
 --
--- TOC entry 2033 (class 2606 OID 24630)
--- Name: PK_contas_a_receber_id; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+-- TOC entry 2058 (class 2606 OID 17120)
+-- Name: PK_contas_a_receber_id; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY contas_a_receber
@@ -970,8 +938,8 @@ ALTER TABLE ONLY contas_a_receber
 
 
 --
--- TOC entry 1997 (class 2606 OID 16534)
--- Name: PK_enderecos_id; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+-- TOC entry 2052 (class 2606 OID 17122)
+-- Name: PK_enderecos_id; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY cad_enderecos
@@ -979,8 +947,8 @@ ALTER TABLE ONLY cad_enderecos
 
 
 --
--- TOC entry 2005 (class 2606 OID 16536)
--- Name: PK_especies_id; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+-- TOC entry 2062 (class 2606 OID 17124)
+-- Name: PK_especies_id; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY especies_veiculos
@@ -988,8 +956,8 @@ ALTER TABLE ONLY especies_veiculos
 
 
 --
--- TOC entry 2003 (class 2606 OID 16538)
--- Name: PK_especies_reboque_id; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+-- TOC entry 2060 (class 2606 OID 17126)
+-- Name: PK_especies_reboque_id; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY especies_reboques
@@ -997,8 +965,8 @@ ALTER TABLE ONLY especies_reboques
 
 
 --
--- TOC entry 1999 (class 2606 OID 16540)
--- Name: PK_estados_id; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+-- TOC entry 2054 (class 2606 OID 17128)
+-- Name: PK_estados_id; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY cad_estados
@@ -1006,8 +974,8 @@ ALTER TABLE ONLY cad_estados
 
 
 --
--- TOC entry 2035 (class 2606 OID 24638)
--- Name: PK_historico_pagamento_sinistros_clientes_id; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+-- TOC entry 2064 (class 2606 OID 17130)
+-- Name: PK_historico_pagamento_sinistros_clientes_id; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY historico_pagamento_sinistros_clientes
@@ -1015,8 +983,8 @@ ALTER TABLE ONLY historico_pagamento_sinistros_clientes
 
 
 --
--- TOC entry 2007 (class 2606 OID 16542)
--- Name: PK_historico_veic_reb_sinistros_id; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+-- TOC entry 2066 (class 2606 OID 17132)
+-- Name: PK_historico_veic_reb_sinistros_id; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY historico_veic_reb_sinistros
@@ -1024,8 +992,8 @@ ALTER TABLE ONLY historico_veic_reb_sinistros
 
 
 --
--- TOC entry 2031 (class 2606 OID 24617)
--- Name: PK_mensalidades_veiculos_id; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+-- TOC entry 2070 (class 2606 OID 17134)
+-- Name: PK_mensalidades_veiculos_id; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY mensalidades_veiculos
@@ -1033,8 +1001,8 @@ ALTER TABLE ONLY mensalidades_veiculos
 
 
 --
--- TOC entry 2013 (class 2606 OID 16544)
--- Name: PK_pagamentos_sinistro_id; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+-- TOC entry 2074 (class 2606 OID 17136)
+-- Name: PK_pagamentos_sinistro_id; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY pagamentos_sinistro
@@ -1042,8 +1010,8 @@ ALTER TABLE ONLY pagamentos_sinistro
 
 
 --
--- TOC entry 2027 (class 2606 OID 24597)
--- Name: PK_parcelas_sinistros_id; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+-- TOC entry 2076 (class 2606 OID 17138)
+-- Name: PK_parcelas_sinistros_id; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY parcelas_sinistros
@@ -1051,17 +1019,8 @@ ALTER TABLE ONLY parcelas_sinistros
 
 
 --
--- TOC entry 2029 (class 2606 OID 24658)
--- Name: PK_parcelas_veiculos_cc_id; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
---
-
-ALTER TABLE ONLY parcelas_veiculos_cc
-    ADD CONSTRAINT "PK_parcelas_veiculos_cc_id" PRIMARY KEY (id);
-
-
---
--- TOC entry 2015 (class 2606 OID 16546)
--- Name: PK_restricoes_usuarios_id; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+-- TOC entry 2078 (class 2606 OID 17140)
+-- Name: PK_restricoes_usuarios_id; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY permicoes_usuarios
@@ -1069,8 +1028,8 @@ ALTER TABLE ONLY permicoes_usuarios
 
 
 --
--- TOC entry 2021 (class 2606 OID 16548)
--- Name: PK_sinistros_id; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+-- TOC entry 2084 (class 2606 OID 17142)
+-- Name: PK_sinistros_id; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY sinistros
@@ -1078,8 +1037,8 @@ ALTER TABLE ONLY sinistros
 
 
 --
--- TOC entry 2023 (class 2606 OID 16550)
--- Name: PK_usuarios_do_sistema_id; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+-- TOC entry 2086 (class 2606 OID 17144)
+-- Name: PK_usuarios_do_sistema_id; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY usuarios
@@ -1087,8 +1046,8 @@ ALTER TABLE ONLY usuarios
 
 
 --
--- TOC entry 1991 (class 2606 OID 16552)
--- Name: ano_modelo_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+-- TOC entry 2046 (class 2606 OID 17146)
+-- Name: ano_modelo_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY ano_modelo_veiculos
@@ -1096,8 +1055,8 @@ ALTER TABLE ONLY ano_modelo_veiculos
 
 
 --
--- TOC entry 2009 (class 2606 OID 16554)
--- Name: marca_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+-- TOC entry 2068 (class 2606 OID 17148)
+-- Name: marca_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY marca_veiculos
@@ -1105,8 +1064,8 @@ ALTER TABLE ONLY marca_veiculos
 
 
 --
--- TOC entry 2011 (class 2606 OID 16556)
--- Name: modelo_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+-- TOC entry 2072 (class 2606 OID 17150)
+-- Name: modelo_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY modelo_veiculos
@@ -1114,8 +1073,8 @@ ALTER TABLE ONLY modelo_veiculos
 
 
 --
--- TOC entry 2017 (class 2606 OID 16558)
--- Name: permicoes_usuarios_uq; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+-- TOC entry 2080 (class 2606 OID 17152)
+-- Name: permicoes_usuarios_uq; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY permicoes_usuarios
@@ -1123,16 +1082,7 @@ ALTER TABLE ONLY permicoes_usuarios
 
 
 --
--- TOC entry 2047 (class 2606 OID 16559)
--- Name: ano_modelo_veiculos_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
---
-
-ALTER TABLE ONLY veiculos
-    ADD CONSTRAINT ano_modelo_veiculos_fk FOREIGN KEY (id_ano_modelo_veiculos) REFERENCES ano_modelo_veiculos(id) MATCH FULL ON UPDATE CASCADE ON DELETE RESTRICT;
-
-
---
--- TOC entry 2038 (class 2606 OID 16564)
+-- TOC entry 2091 (class 2606 OID 17158)
 -- Name: cad_bairros_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1141,7 +1091,7 @@ ALTER TABLE ONLY cliente
 
 
 --
--- TOC entry 2039 (class 2606 OID 16569)
+-- TOC entry 2092 (class 2606 OID 17163)
 -- Name: cad_cidades_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1150,7 +1100,7 @@ ALTER TABLE ONLY cliente
 
 
 --
--- TOC entry 2036 (class 2606 OID 16574)
+-- TOC entry 2089 (class 2606 OID 17168)
 -- Name: cad_cidades_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1159,7 +1109,7 @@ ALTER TABLE ONLY cad_bairros
 
 
 --
--- TOC entry 2037 (class 2606 OID 16579)
+-- TOC entry 2090 (class 2606 OID 17173)
 -- Name: cad_cidades_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1168,16 +1118,7 @@ ALTER TABLE ONLY cad_enderecos
 
 
 --
--- TOC entry 2048 (class 2606 OID 16584)
--- Name: cad_cidades_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
---
-
-ALTER TABLE ONLY veiculos
-    ADD CONSTRAINT cad_cidades_fk FOREIGN KEY (id_cidades) REFERENCES cad_cidades(id) MATCH FULL ON UPDATE CASCADE ON DELETE SET NULL;
-
-
---
--- TOC entry 2040 (class 2606 OID 16589)
+-- TOC entry 2093 (class 2606 OID 17183)
 -- Name: cad_enderecos_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1186,25 +1127,7 @@ ALTER TABLE ONLY cliente
 
 
 --
--- TOC entry 2049 (class 2606 OID 16594)
--- Name: cliente_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
---
-
-ALTER TABLE ONLY veiculos
-    ADD CONSTRAINT cliente_fk FOREIGN KEY (id_cliente) REFERENCES cliente(id) MATCH FULL ON UPDATE CASCADE ON DELETE RESTRICT;
-
-
---
--- TOC entry 2043 (class 2606 OID 16599)
--- Name: cliente_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
---
-
-ALTER TABLE ONLY reboques
-    ADD CONSTRAINT cliente_fk FOREIGN KEY (id_cliente) REFERENCES cliente(id) MATCH FULL ON UPDATE CASCADE ON DELETE SET NULL;
-
-
---
--- TOC entry 2046 (class 2606 OID 16604)
+-- TOC entry 2096 (class 2606 OID 17198)
 -- Name: cliente_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1213,43 +1136,7 @@ ALTER TABLE ONLY sinistros
 
 
 --
--- TOC entry 2044 (class 2606 OID 16609)
--- Name: especies_reboque_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
---
-
-ALTER TABLE ONLY reboques
-    ADD CONSTRAINT especies_reboque_fk FOREIGN KEY (id_especies_reboques) REFERENCES especies_reboques(id) MATCH FULL ON UPDATE CASCADE ON DELETE SET NULL;
-
-
---
--- TOC entry 2050 (class 2606 OID 16614)
--- Name: especies_veiculos_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
---
-
-ALTER TABLE ONLY veiculos
-    ADD CONSTRAINT especies_veiculos_fk FOREIGN KEY (id_especies_veiculos) REFERENCES especies_veiculos(id) MATCH FULL ON UPDATE CASCADE ON DELETE RESTRICT;
-
-
---
--- TOC entry 2051 (class 2606 OID 16619)
--- Name: marca_veiculos_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
---
-
-ALTER TABLE ONLY veiculos
-    ADD CONSTRAINT marca_veiculos_fk FOREIGN KEY (id_marca_veiculos) REFERENCES marca_veiculos(id) MATCH FULL ON UPDATE CASCADE ON DELETE RESTRICT;
-
-
---
--- TOC entry 2052 (class 2606 OID 16624)
--- Name: modelo_veiculos_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
---
-
-ALTER TABLE ONLY veiculos
-    ADD CONSTRAINT modelo_veiculos_fk FOREIGN KEY (id_modelo_veiculos) REFERENCES modelo_veiculos(id) MATCH FULL ON UPDATE CASCADE ON DELETE RESTRICT;
-
-
---
--- TOC entry 2041 (class 2606 OID 16629)
+-- TOC entry 2094 (class 2606 OID 17223)
 -- Name: sinistros_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1258,7 +1145,7 @@ ALTER TABLE ONLY pagamentos_sinistro
 
 
 --
--- TOC entry 2042 (class 2606 OID 16634)
+-- TOC entry 2095 (class 2606 OID 17228)
 -- Name: usuarios_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1267,17 +1154,8 @@ ALTER TABLE ONLY permicoes_usuarios
 
 
 --
--- TOC entry 2045 (class 2606 OID 16639)
--- Name: veiculos_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
---
-
-ALTER TABLE ONLY reboques
-    ADD CONSTRAINT veiculos_fk FOREIGN KEY (id_veiculo) REFERENCES veiculos(id) MATCH FULL ON UPDATE CASCADE ON DELETE RESTRICT;
-
-
---
--- TOC entry 2166 (class 0 OID 0)
--- Dependencies: 6
+-- TOC entry 2212 (class 0 OID 0)
+-- Dependencies: 7
 -- Name: public; Type: ACL; Schema: -; Owner: postgres
 --
 
@@ -1287,7 +1165,7 @@ GRANT ALL ON SCHEMA public TO postgres;
 GRANT ALL ON SCHEMA public TO PUBLIC;
 
 
--- Completed on 2014-09-03 14:25:35
+-- Completed on 2016-12-20 23:48:57
 
 --
 -- PostgreSQL database dump complete

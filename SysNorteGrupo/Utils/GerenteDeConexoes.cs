@@ -16,12 +16,14 @@ namespace SysNorteGrupo
         private static string url;
         public static string ipServico;
         public static string porta;
+        public static string link;
 
-        public static void carregaURLServico(string _ip, string _porta)
+        public static void carregaURLServico(string _ip, string _porta, string _link)
         {
             ipServico = _ip;
             porta = _porta;
-            url = String.Format("net.tcp://{0}:{1}/grupo/service", ipServico, porta);
+            link = _link;
+            url = String.Format("net.tcp://{0}:{1}/cadoretecnologia/grupo/{2}", ipServico, porta, link);
         }
 
         public static void iniciaConexaoServico()
@@ -33,9 +35,10 @@ namespace SysNorteGrupo
             {
                 SplashScreenManager.ShowForm(typeof(PleaseWaitForm));
 
-                ipServico = FilesINI.ReadValue("sistema", "ipServico");
-                porta = FilesINI.ReadValue("sistema", "porta");
-                carregaURLServico(ipServico, porta);
+                string __ipServico = FilesINI.ReadValue("sistema", "ipServico");
+                string __porta = FilesINI.ReadValue("sistema", "porta");
+                string __link = FilesINI.ReadValue("sistema", "link");
+                carregaURLServico(__ipServico, __porta, __link);
                 netTcpBinding = new NetTcpBinding(SecurityMode.None);                
                 netTcpBinding.MaxBufferPoolSize = netTcpBinding.MaxBufferPoolSize * 2552350000256000154;
                 netTcpBinding.MaxReceivedMessageSize = netTcpBinding.MaxReceivedMessageSize * 5000;

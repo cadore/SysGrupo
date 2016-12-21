@@ -34,17 +34,16 @@ namespace HostWcfGrupo
             Thread.CurrentThread.CurrentUICulture = new CultureInfo("pt-BR");
 
             int i = 0;
-            if(args.Length != 0){
-                if (args[0].Equals("local"))
-                {
+            if(args.Length != 0)
+            {
+                if (args[0].Equals("service1"))
                     i = 1;
-                }
+                else if (args[0].Equals("service2"))
+                    i = 2;
                 else
-                {
                     i = 0;
-                }
             }
-            SplashScreenManager.ShowForm(typeof(SplashForm), false, false);
+            /*SplashScreenManager.ShowForm(typeof(SplashForm), false, false);
             Process[] processosByName = Process.GetProcessesByName("HostWcfGrupo");
             int ip = 0;
             foreach (Process p in processosByName)
@@ -52,11 +51,11 @@ namespace HostWcfGrupo
                 ip++;
             }
             if (ip <= 1)
-            {
+            {*/
                 UtilsSistemaServico.carregaConfigurações();                
-                SplashScreenManager.CloseForm();
+                //SplashScreenManager.CloseForm();
                 Application.Run(new Form1(i));
-            }
+            /*}*/
         }
     }
 }

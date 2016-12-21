@@ -44,6 +44,8 @@ namespace HostWcfGrupo.UI
             this.tfStatus = new System.Windows.Forms.RichTextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.label3 = new System.Windows.Forms.Label();
+            this.tfFilial = new System.Windows.Forms.TextBox();
             this.tabGeral.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
@@ -83,7 +85,7 @@ namespace HostWcfGrupo.UI
             // 
             // btnSair
             // 
-            this.btnSair.Location = new System.Drawing.Point(318, 237);
+            this.btnSair.Location = new System.Drawing.Point(318, 296);
             this.btnSair.Name = "btnSair";
             this.btnSair.Size = new System.Drawing.Size(96, 32);
             this.btnSair.TabIndex = 4;
@@ -93,7 +95,7 @@ namespace HostWcfGrupo.UI
             // 
             // btnMinimizar
             // 
-            this.btnMinimizar.Location = new System.Drawing.Point(216, 237);
+            this.btnMinimizar.Location = new System.Drawing.Point(216, 296);
             this.btnMinimizar.Name = "btnMinimizar";
             this.btnMinimizar.Size = new System.Drawing.Size(96, 32);
             this.btnMinimizar.TabIndex = 4;
@@ -107,7 +109,7 @@ namespace HostWcfGrupo.UI
             this.tabGeral.Location = new System.Drawing.Point(4, 22);
             this.tabGeral.Name = "tabGeral";
             this.tabGeral.Padding = new System.Windows.Forms.Padding(3);
-            this.tabGeral.Size = new System.Drawing.Size(410, 209);
+            this.tabGeral.Size = new System.Drawing.Size(410, 264);
             this.tabGeral.TabIndex = 0;
             this.tabGeral.Text = "Geral";
             this.tabGeral.UseVisualStyleBackColor = true;
@@ -117,19 +119,21 @@ namespace HostWcfGrupo.UI
             this.panelControl1.Appearance.BackColor = System.Drawing.Color.Transparent;
             this.panelControl1.Appearance.Options.UseBackColor = true;
             this.panelControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
+            this.panelControl1.Controls.Add(this.tfFilial);
+            this.panelControl1.Controls.Add(this.label3);
             this.panelControl1.Controls.Add(this.btnStartStop);
             this.panelControl1.Controls.Add(this.tfStatus);
             this.panelControl1.Controls.Add(this.label1);
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl1.Location = new System.Drawing.Point(3, 3);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(404, 203);
+            this.panelControl1.Size = new System.Drawing.Size(404, 258);
             this.panelControl1.TabIndex = 0;
             // 
             // btnStartStop
             // 
             this.btnStartStop.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnStartStop.Location = new System.Drawing.Point(5, 8);
+            this.btnStartStop.Location = new System.Drawing.Point(3, 72);
             this.btnStartStop.Name = "btnStartStop";
             this.btnStartStop.Size = new System.Drawing.Size(397, 43);
             this.btnStartStop.TabIndex = 3;
@@ -139,7 +143,7 @@ namespace HostWcfGrupo.UI
             // 
             // tfStatus
             // 
-            this.tfStatus.Location = new System.Drawing.Point(5, 77);
+            this.tfStatus.Location = new System.Drawing.Point(5, 134);
             this.tfStatus.Name = "tfStatus";
             this.tfStatus.ReadOnly = true;
             this.tfStatus.Size = new System.Drawing.Size(392, 119);
@@ -149,7 +153,7 @@ namespace HostWcfGrupo.UI
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(2, 60);
+            this.label1.Location = new System.Drawing.Point(5, 118);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(40, 13);
             this.label1.TabIndex = 4;
@@ -162,23 +166,44 @@ namespace HostWcfGrupo.UI
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(418, 235);
+            this.tabControl1.Size = new System.Drawing.Size(418, 290);
             this.tabControl1.TabIndex = 3;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.Black;
+            this.label3.Location = new System.Drawing.Point(65, 6);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(276, 24);
+            this.label3.TabIndex = 6;
+            this.label3.Text = "Cadore Tecnologia - SysGrupo ";
+            // 
+            // tfFilial
+            // 
+            this.tfFilial.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.tfFilial.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tfFilial.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tfFilial.Location = new System.Drawing.Point(8, 41);
+            this.tfFilial.Name = "tfFilial";
+            this.tfFilial.ReadOnly = true;
+            this.tfFilial.Size = new System.Drawing.Size(392, 19);
+            this.tfFilial.TabIndex = 7;
+            this.tfFilial.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(418, 276);
+            this.ClientSize = new System.Drawing.Size(418, 340);
             this.ControlBox = false;
             this.Controls.Add(this.btnMinimizar);
             this.Controls.Add(this.btnSair);
             this.Controls.Add(this.tabControl1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(434, 314);
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(434, 314);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
@@ -206,6 +231,8 @@ namespace HostWcfGrupo.UI
         private RichTextBox tfStatus;
         private Label label1;
         private TabControl tabControl1;
+        private Label label3;
+        private TextBox tfFilial;
     }
 }
 

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using PetaPoco;
+using System.Windows.Forms;
 
 namespace EntitiesGrupo
 {
@@ -13,19 +14,25 @@ namespace EntitiesGrupo
         public static int port = 5432;
         public static string user = "postgres";
         public static string passwd = "p@ssw0rd";
-        public static string db = "sysgrupodb";
-
-        public static string connectionName = String.Format("Server={0};Port={1};User id={2};password={3};Database={4};",
-            host, port, user, passwd, db);
+        public static string db = "";
+        public static string connectionName = "";
         public static string providerName = "Npgsql";
-        public SysGrupoRepo()
-            : base(connectionName, providerName)
+
+        public static void StartDB(string _db)
+        {
+            db = _db;
+            connectionName = String.Format("Server={0};Port={1};User id={2};password={3};Database={4};", 
+                host, port, user, passwd, db);
+            
+            //MessageBox.Show(connectionName);
+        }
+
+        public SysGrupoRepo() : base(connectionName, providerName)
 		{
 			CommonConstruct();
 		}
 
-		public SysGrupoRepo(string connectionStringName) 
-			: base(connectionStringName)
+		public SysGrupoRepo(string connectionStringName) : base(connectionStringName)
 		{
 			CommonConstruct();
 		}

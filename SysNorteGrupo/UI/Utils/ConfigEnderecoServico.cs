@@ -17,14 +17,17 @@ namespace SysNorteGrupo.UI.Utils
     {
         private string ip { get; set; }
         private string porta { get; set; }
+        private string link { get; set; }
         public ConfigEnderecoServico()
         {
             ip = GerenteDeConexoes.ipServico;
             porta = GerenteDeConexoes.porta;
+            link = GerenteDeConexoes.link;
             InitializeComponent();
 
             tfIP.Text = ip;
             tfPorta.Text = porta;
+            cbLink.Text = link;
             
         }
 
@@ -51,6 +54,7 @@ namespace SysNorteGrupo.UI.Utils
         {
             ip = tfIP.Text;
             porta = tfPorta.Text;
+            link = cbLink.Text;
             if(!validaIP(ip))
             {
                 XtraMessageBox.Show("IP Inválido!");
@@ -58,7 +62,8 @@ namespace SysNorteGrupo.UI.Utils
             }
             FilesINI.WriteValue("sistema", "ipServico", ip);
             FilesINI.WriteValue("sistema", "porta", porta);
-            GerenteDeConexoes.carregaURLServico(ip, porta);
+            FilesINI.WriteValue("sistema", "link", link);
+            GerenteDeConexoes.carregaURLServico(ip, porta, link);
             if (ckConectarSaida.CheckState == CheckState.Checked)
             {
                 try

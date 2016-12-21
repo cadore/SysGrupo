@@ -115,7 +115,7 @@ namespace SysNorteGrupo.UI.Usuarios
             this.pnControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnControl.Location = new System.Drawing.Point(0, 0);
             this.pnControl.Name = "pnControl";
-            this.pnControl.Size = new System.Drawing.Size(523, 239);
+            this.pnControl.Size = new System.Drawing.Size(523, 240);
             this.pnControl.TabIndex = 2;
             // 
             // lbAviso
@@ -178,7 +178,7 @@ namespace SysNorteGrupo.UI.Usuarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(523, 239);
+            this.ClientSize = new System.Drawing.Size(523, 240);
             this.ControlBox = false;
             this.Controls.Add(this.pnControl);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
