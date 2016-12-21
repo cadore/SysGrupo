@@ -10,7 +10,7 @@ namespace EntitiesGrupo
 
 	public partial class SysGrupoRepo : Database
 	{
-        public static string host = "192.168.0.200";
+        public static string host = "localhost";
         public static int port = 5432;
         public static string user = "postgres";
         public static string passwd = "p@ssw0rd";
